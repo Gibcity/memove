@@ -65,4 +65,5 @@ coverage
 test-data
 
 .run
-.full-review
+.full-review.venv/
+.codegraph/

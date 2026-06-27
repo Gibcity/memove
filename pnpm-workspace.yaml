@@ -1,0 +1,11 @@
+packages:
+  - client
+  - server
+  - shared
+
+onlyBuiltDependencies:
+  - "@swc/core"
+  - better-sqlite3
+  - esbuild
+  - msw
+  - sharp
