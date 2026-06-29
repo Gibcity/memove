@@ -16,6 +16,7 @@ import { getActivePlanId, getActivePlan, getPlanData, getEntries as getVacayEntr
 import { isAddonEnabled, getCollabFeatures } from '../services/adminService';
 import { ADDON_IDS } from '../addons';
 import { canAccessJourney, getJourneyFull, listEntries, listJourneys } from '../services/journeyService';
+import { RelocationService } from '../nest/relocation/relocation.service';
 import { canRead, canReadTrips } from './scopes';
 
 function parseId(value: string | string[]): number | null {
@@ -437,6 +438,129 @@ export function registerResources(server: McpServer, userId: number, scopes: str
         if (!j) return accessDenied(uri.href);
         return jsonContent(uri.href, (j as any).contributors ?? []);
       }
+    );
+  }
+
+  // Relocation resources (relocation addon)
+  if (isAddonEnabled(ADDON_IDS.RELOCATION) && canRead(scopes, 'relocation')) {
+    const relocService = new RelocationService();
+
+    server.registerResource(
+      'relocation-locations',
+      'trek://relocation/locations',
+      {
+        description: 'List of all US metro areas available for relocation scoring',
+        mimeType: 'application/json',
+      },
+      async (uri) => {
+        const result = relocService.searchLocations({ limit: 9999 });
+        return jsonContent(uri.href, result);
+      },
+    );
+
+    server.registerResource(
+      'relocation-location-detail',
+      new ResourceTemplate('trek://relocation/locations/{locationId}', { list: undefined }),
+      {
+        description: 'Full relocation data for a single metro area',
+        mimeType: 'application/json',
+      },
+      async (uri, { locationId }) => {
+        const id = Array.isArray(locationId) ? locationId[0] : locationId;
+        const loc = relocService.getLocationById(id);
+        if (!loc) return jsonContent(uri.href, { error: 'Location not found' });
+        return jsonContent(uri.href, loc);
+      },
+    );
+
+    server.registerResource(
+      'relocation-location-provenance',
+      new ResourceTemplate('trek://relocation/locations/{locationId}/provenance', { list: undefined }),
+      {
+        description: 'Per-metric provenance for a relocation candidate',
+        mimeType: 'application/json',
+      },
+      async (uri, { locationId }) => {
+        const id = Array.isArray(locationId) ? locationId[0] : locationId;
+        const loc = relocService.getLocationById(id);
+        if (!loc) return jsonContent(uri.href, { error: 'Location not found' });
+        return jsonContent(uri.href, loc.metricsProvenance ?? {});
+      },
+    );
+
+    server.registerResource(
+      'relocation-profile',
+      'trek://relocation/profile',
+      {
+        description: "Current user\'s relocation profile",
+        mimeType: 'application/json',
+      },
+      async (uri) => {
+        const profile = relocService.getUserProfile(String(userId));
+        return jsonContent(uri.href, profile);
+      },
+    );
+
+    server.registerResource(
+      'relocation-scored-list',
+      'trek://relocation/scored-list',
+      {
+        description: 'Top-K scored relocation candidates for the current user',
+        mimeType: 'application/json',
+      },
+      async (uri) => {
+        const profile = relocService.getUserProfile(String(userId));
+        const softWeights = profile.softWeights;
+        const maxW = Math.max(...Object.values(softWeights), 0.01);
+        const intWeights: Record<string, number> = {};
+        for (const [k, v] of Object.entries(softWeights)) {
+          intWeights[k] = Math.max(1, Math.round((v / maxW) * 5));
+        }
+        const result = relocService.scoreLocations({ weights: intWeights, limit: 50 });
+        return jsonContent(uri.href, result);
+      },
+    );
+
+    server.registerResource(
+      'relocation-scored-list-decision-trace',
+      'trek://relocation/scored-list/decision-trace',
+      {
+        description: 'Why each top candidate scored as it did',
+        mimeType: 'application/json',
+      },
+      async (uri) => {
+        const profile = relocService.getUserProfile(String(userId));
+        const softWeights = profile.softWeights;
+        const maxW = Math.max(...Object.values(softWeights), 0.01);
+        const intWeights: Record<string, number> = {};
+        for (const [k, v] of Object.entries(softWeights)) {
+          intWeights[k] = Math.max(1, Math.round((v / maxW) * 5));
+        }
+        const result = relocService.scoreLocations({ weights: intWeights, limit: 10 });
+        const withTraces = result.topMatches.map((m) => {
+          const explain = relocService.explainScore(m.id, intWeights);
+          return { ...m, explanation: 'error' in explain ? null : explain.explanation };
+        });
+        return jsonContent(uri.href, { topMatches: withTraces, profileSnapshot: profile });
+      },
+    );
+
+    server.registerResource(
+      'relocation-profile-elicitation-state',
+      'trek://relocation/profile/elicitation-state',
+      {
+        description: "Current user\'s elicitation round state",
+        mimeType: 'application/json',
+      },
+      async (uri) => {
+        const profile = relocService.getUserProfile(String(userId));
+        return jsonContent(uri.href, {
+          roundsCompleted: profile.elicitationRoundsCompleted,
+          signalCount: profile.implicitSignalCount,
+          hardFilters: profile.hardFilters,
+          nonNegotiablesDiscovered: profile.nonNegotiablesDiscovered,
+        });
+      },
     );
   }
 }

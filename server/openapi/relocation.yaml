@@ -1,0 +1,538 @@
+openapi: "3.1.0"
+info:
+  title: TREK Relocation API
+  version: "1.0.0"
+  description: |
+    Relocation discovery endpoints for the TREK relocation add-on.
+    Provides location search, scoring, comparison, and fiscal health assessment
+    across 939 US CBSAs.
+
+    **OAuth 2.1 scopes required:**
+    - `relocation:read` for GET endpoints
+    - `relocation:write` for mutation endpoints
+
+servers:
+  - url: /api
+    description: TREK API (relative path)
+
+paths:
+  /relocation/locations:
+    get:
+      operationId: listLocations
+      summary: List all relocation candidates
+      description: Returns lightweight summaries of all US metro areas (939 CBSAs) with key metrics.
+      parameters:
+        - name: states
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: State codes to include
+        - name: excludeStates
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: State codes to exclude
+        - name: maxHomeValue
+          in: query
+          schema:
+            type: number
+          description: Maximum median home value in USD
+        - name: maxRent
+          in: query
+          schema:
+            type: number
+          description: Maximum median monthly rent in USD
+        - name: maxViolentCrime
+          in: query
+          schema:
+            type: number
+          description: Maximum violent crime rate per 100k
+        - name: maxRiskTornado
+          in: query
+          schema:
+            type: number
+          description: Maximum FEMA tornado risk score (0-100)
+        - name: maxRiskHurricane
+          in: query
+          schema:
+            type: number
+          description: Maximum FEMA hurricane risk score
+        - name: maxRiskEarthquake
+          in: query
+          schema:
+            type: number
+          description: Maximum FEMA earthquake risk score
+        - name: maxRiskWildfire
+          in: query
+          schema:
+            type: number
+          description: Maximum FEMA wildfire risk score
+        - name: maxHotDays
+          in: query
+          schema:
+            type: number
+          description: Max days >90°F per year
+        - name: maxColdDays
+          in: query
+          schema:
+            type: number
+          description: Max days <32°F per year
+        - name: nameContains
+          in: query
+          schema:
+            type: string
+          description: Filter by name (case-insensitive)
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+          description: Max results to return
+      responses:
+        "200":
+          description: Successful search
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  locations:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/LocationSummary"
+
+  /relocation/locations/{id}:
+    get:
+      operationId: getLocation
+      summary: Get full location detail
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Location ID (e.g., 'austin-tx')
+      responses:
+        "200":
+          description: Location detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Location"
+
+  /relocation/score:
+    post:
+      operationId: scoreLocations
+      summary: Score and rank all locations by weighted preferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ScoreRequest"
+      responses:
+        "200":
+          description: Ranked results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScoreResponse"
+
+  /relocation/score/explain:
+    post:
+      operationId: explainScore
+      summary: Explain why a location received its score
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [locationId]
+              properties:
+                locationId:
+                  type: string
+                weights:
+                  $ref: "#/components/schemas/Weights"
+      responses:
+        "200":
+          description: Score explanation
+
+  /relocation/compare:
+    post:
+      operationId: compareLocations
+      summary: Compare 2+ locations side-by-side
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [locationIds]
+              properties:
+                locationIds:
+                  type: array
+                  minItems: 2
+                  items:
+                    type: string
+                weights:
+                  $ref: "#/components/schemas/Weights"
+      responses:
+        "200":
+          description: Comparison results with winner
+
+  /relocation/fiscal-health:
+    post:
+      operationId: fiscalHealth
+      summary: Assess fiscal health of a location's state
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [locationId]
+              properties:
+                locationId:
+                  type: string
+      responses:
+        "200":
+          description: Fiscal health assessment
+
+  /relocation/profile:
+    get:
+      operationId: getProfile
+      summary: Get current user's relocation profile
+      responses:
+        "200":
+          description: User relocation profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+    post:
+      operationId: updateProfile
+      summary: Update current user's relocation profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserProfileUpdate"
+      responses:
+        "200":
+          description: Updated profile
+
+components:
+  schemas:
+    LocationSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        cost:
+          $ref: "#/components/schemas/CostSummary"
+        crime:
+          $ref: "#/components/schemas/CrimeData"
+        climate:
+          $ref: "#/components/schemas/ClimateData"
+        fiscal:
+          $ref: "#/components/schemas/FiscalProfile"
+
+    Location:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        cost:
+          $ref: "#/components/schemas/CostSummary"
+        climate:
+          $ref: "#/components/schemas/ClimateData"
+        crime:
+          $ref: "#/components/schemas/CrimeData"
+        healthcare:
+          $ref: "#/components/schemas/HealthcareData"
+        broadband:
+          $ref: "#/components/schemas/BroadbandData"
+        fiscal:
+          $ref: "#/components/schemas/FiscalProfile"
+        amenities:
+          $ref: "#/components/schemas/AmenityProfile"
+        blended:
+          $ref: "#/components/schemas/BlendedScore"
+        fiscalTier:
+          $ref: "#/components/schemas/FiscalTier"
+        metricsProvenance:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ProvenanceRef"
+
+    CostSummary:
+      type: object
+      properties:
+        costOfLivingIndex:
+          type: number
+        medianHomeValue:
+          type: number
+        medianRent:
+          type: number
+        stateIncomeTaxRate:
+          type: number
+        propertyTaxRate:
+          type: number
+
+    ClimateData:
+      type: object
+      properties:
+        daysMaxGt90FAnnual:
+          type: number
+        daysMinLt32FAnnual:
+          type: number
+        sunshineHoursAnnual:
+          type: number
+        annualPrecipitationInches:
+          type: number
+        tornadoRiskScore:
+          type: number
+        hurricaneRiskScore:
+          type: number
+        floodRiskScore:
+          type: number
+        earthquakeRiskScore:
+          type: number
+        wildfireRiskScore:
+          type: number
+
+    CrimeData:
+      type: object
+      properties:
+        violentCrimeRatePer100k:
+          type: number
+        propertyCrimeRatePer100k:
+          type: number
+        yearOverYearTrend:
+          type: number
+
+    HealthcareData:
+      type: object
+      properties:
+        healthcareAccessScore:
+          type: number
+        hospitalCountWithin10mi:
+          type: number
+
+    BroadbandData:
+      type: object
+      properties:
+        pctHouseholdsWith100MbpsPlus:
+          type: number
+        medianDownloadMbps:
+          type: number
+
+    FiscalProfile:
+      type: object
+      properties:
+        statePensionFundedRatio:
+          type: number
+        fiscalTier:
+          $ref: "#/components/schemas/FiscalTier"
+        taxCompetitivenessScore:
+          type: number
+
+    AmenityProfile:
+      type: object
+      properties:
+        groceryStoreDensityPerCapita:
+          type: number
+        bigBoxStoreCount:
+          type: number
+        recreationAreaCount:
+          type: number
+        natureAreaCount:
+          type: number
+
+    BlendedScore:
+      type: object
+      properties:
+        costScore0to50:
+          type: number
+        lifeScore0to50:
+          type: number
+        totalScore0to100:
+          type: number
+
+    FiscalTier:
+      type: string
+      enum:
+        - Resilient
+        - Fragile
+        - Distressed
+        - Unknown
+
+    ProvenanceRef:
+      type: object
+      properties:
+        source:
+          type: string
+        pulledAt:
+          type: string
+        license:
+          type: string
+        url:
+          type: string
+
+    Weights:
+      type: object
+      properties:
+        cost:
+          type: integer
+          minimum: 0
+          maximum: 5
+        climate:
+          type: integer
+          minimum: 0
+          maximum: 5
+        safety:
+          type: integer
+          minimum: 0
+          maximum: 5
+        healthcare:
+          type: integer
+          minimum: 0
+          maximum: 5
+        jobs:
+          type: integer
+          minimum: 0
+          maximum: 5
+        outdoors:
+          type: integer
+          minimum: 0
+          maximum: 5
+
+    ScoreRequest:
+      type: object
+      properties:
+        weights:
+          $ref: "#/components/schemas/Weights"
+        states:
+          type: array
+          items:
+            type: string
+        excludeStates:
+          type: array
+          items:
+            type: string
+        maxHomeValue:
+          type: number
+        maxRent:
+          type: number
+        maxRiskTornado:
+          type: number
+        maxRiskHurricane:
+          type: number
+        maxRiskEarthquake:
+          type: number
+        maxRiskWildfire:
+          type: number
+        maxHotDays:
+          type: number
+        maxColdDays:
+          type: number
+        limit:
+          type: integer
+
+    ScoreResponse:
+      type: object
+      properties:
+        totalScored:
+          type: integer
+        passedFilters:
+          type: integer
+        returned:
+          type: integer
+        weights:
+          type: object
+        topMatches:
+          type: array
+          items:
+            type: object
+            properties:
+              rank:
+                type: integer
+              id:
+                type: string
+              name:
+                type: string
+              state:
+                type: string
+              matchScore:
+                type: number
+              subscores:
+                type: object
+              trace:
+                type: array
+                items:
+                  type: string
+              dataGaps:
+                type: array
+                items:
+                  type: string
+              keyMetrics:
+                type: object
+
+    UserProfile:
+      type: object
+      properties:
+        userId:
+          type: string
+        statedPriorities:
+          type: array
+        revealedEmbeddingRef:
+          type: string
+        hardFilters:
+          type: array
+        softWeights:
+          type: object
+          additionalProperties:
+            type: number
+        nonNegotiablesDiscovered:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        elicitationRoundsCompleted:
+          type: integer
+        implicitSignalCount:
+          type: integer
+
+    UserProfileUpdate:
+      type: object
+      properties:
+        softWeights:
+          type: object
+          additionalProperties:
+            type: number
+        hardFilters:
+          type: array
+        statedPriorities:
+          type: array

@@ -18,6 +18,7 @@ import JourneyDetailPage from './pages/JourneyDetailPage'
 import JourneyPublicPage from './pages/JourneyPublicPage'
 import SharedTripPage from './pages/SharedTripPage'
 import InAppNotificationsPage from './pages/InAppNotificationsPage.tsx'
+import RelocationDashboardPage from './pages/relocation/RelocationDashboardPage'
 import OAuthAuthorizePage from './pages/OAuthAuthorizePage'
 import { ToastContainer } from './components/shared/Toast'
 import BottomNav from './components/Layout/BottomNav'
@@ -296,6 +297,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <InAppNotificationsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/relocation"
+          element={
+            <ProtectedRoute addonId="relocation">
+              <RelocationDashboardPage />
             </ProtectedRoute>
           }
         />

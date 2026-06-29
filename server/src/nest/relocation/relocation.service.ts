@@ -1,0 +1,1025 @@
+import { Injectable } from '@nestjs/common';
+import * as fs from 'fs';
+import * as path from 'path';
+import type {
+  Location,
+  UserProfile,
+  ElicitationSession,
+  ElicitationQuestion,
+  ImplicitSignal,
+} from '@trek/shared';
+
+// ── Data loading ──────────────────────────────────────────────────────────────
+
+const LOCATIONS_PATH = path.resolve(
+  __dirname,
+  '../../../../sources/processed/relocation/locations.json',
+);
+
+let _locationsCache: Location[] | null = null;
+let _statsCache: Map<string, { min: number; max: number; n: number }> | null = null;
+
+function loadLocations(): Location[] {
+  if (_locationsCache === null) {
+    const raw = fs.readFileSync(LOCATIONS_PATH, 'utf-8');
+    _locationsCache = JSON.parse(raw) as Location[];
+  }
+  return _locationsCache!;
+}
+
+// ── Field paths for normalization ─────────────────────────────────────────────
+
+const FIELD_PATHS: Record<string, string> = {
+  medianHomeValue: 'cost.medianHomeValue',
+  medianRent: 'cost.medianRent',
+  costOfLivingIndex: 'cost.costOfLivingIndex',
+  propertyTaxRate: 'cost.propertyTaxRate',
+  stateIncomeTaxRate: 'cost.stateIncomeTaxRate',
+  taxCompetitivenessScore: 'fiscal.taxCompetitivenessScore',
+  tornadoRiskScore: 'climate.tornadoRiskScore',
+  hurricaneRiskScore: 'climate.hurricaneRiskScore',
+  floodRiskScore: 'climate.floodRiskScore',
+  earthquakeRiskScore: 'climate.earthquakeRiskScore',
+  wildfireRiskScore: 'climate.wildfireRiskScore',
+  daysMaxGt90FAnnual: 'climate.daysMaxGt90FAnnual',
+  daysMinLt32FAnnual: 'climate.daysMinLt32FAnnual',
+  sunshineHoursAnnual: 'climate.sunshineHoursAnnual',
+  annualPrecipitationInches: 'climate.annualPrecipitationInches',
+  healthcareAccessScore: 'healthcare.healthcareAccessScore',
+  hospitalCountWithin10mi: 'healthcare.hospitalCountWithin10mi',
+  violentCrimeRatePer100k: 'crime.violentCrimeRatePer100k',
+  pctHouseholdsWith100MbpsPlus: 'broadband.pctHouseholdsWith100MbpsPlus',
+  medianDownloadMbps: 'broadband.medianDownloadMbps',
+};
+
+function getNested(obj: Record<string, unknown>, path: string): number {
+  const keys = path.split('.');
+  let val: unknown = obj;
+  for (const key of keys) {
+    if (typeof val === 'object' && val !== null && key in val) {
+      val = (val as Record<string, unknown>)[key];
+    } else {
+      return 0;
+    }
+  }
+  const num = Number(val);
+  return Number.isFinite(num) ? num : 0;
+}
+
+// ── Normalization stats ───────────────────────────────────────────────────────
+
+function computeNormalizationStats(
+  locations: Location[],
+): Map<string, { min: number; max: number; n: number }> {
+  const stats = new Map<string, { min: number; max: number; n: number }>();
+  for (const [field, fpath] of Object.entries(FIELD_PATHS)) {
+    const vals: number[] = [];
+    for (const loc of locations) {
+      const v = getNested(loc as unknown as Record<string, unknown>, fpath);
+      if (v !== 0 && Number.isFinite(v) && !Number.isNaN(v)) {
+        vals.push(v);
+      }
+    }
+    stats.set(field, {
+      min: vals.length > 0 ? Math.min(...vals) : 0,
+      max: vals.length > 0 ? Math.max(...vals) : 1,
+      n: vals.length,
+    });
+  }
+  return stats;
+}
+
+function getStats(): Map<string, { min: number; max: number; n: number }> {
+  if (_statsCache === null) {
+    _statsCache = computeNormalizationStats(loadLocations());
+  }
+  return _statsCache;
+}
+
+// ── Normalization helper ──────────────────────────────────────────────────────
+
+function normalize(
+  value: number,
+  rmin: number,
+  rmax: number,
+  n: number,
+  invert = false,
+): number {
+  if (n === 0 || value === 0 || rmax === rmin) return 0;
+  const norm = (value - rmin) / (rmax - rmin);
+  return Math.round((invert ? 1 - norm : norm) * 100);
+}
+
+// ── Default weights ───────────────────────────────────────────────────────────
+
+const DEFAULT_WEIGHTS: Record<string, number> = {
+  cost: 5,
+  climate: 4,
+  safety: 3,
+  healthcare: 3,
+  jobs: 3,
+  outdoors: 3,
+};
+
+// ── Scoring types ─────────────────────────────────────────────────────────────
+
+export interface ScoreResult {
+  location: Location;
+  matchScore: number;
+  subscores: Record<string, number>;
+  passed: boolean;
+  failReasons: string[];
+  trace: string[];
+  dataGaps: string[];
+}
+
+export interface SearchFilters {
+  states?: string[];
+  excludeStates?: string[];
+  maxHomeValue?: number;
+  maxRent?: number;
+  maxViolentCrime?: number;
+  maxRiskTornado?: number;
+  maxRiskHurricane?: number;
+  maxRiskEarthquake?: number;
+  maxRiskWildfire?: number;
+  maxHotDays?: number;
+  maxColdDays?: number;
+  nameContains?: string;
+  limit?: number;
+}
+
+export interface ScoreFilters {
+  weights?: Record<string, number>;
+  states?: string[];
+  excludeStates?: string[];
+  maxHomeValue?: number;
+  maxRent?: number;
+  maxRiskTornado?: number;
+  maxRiskHurricane?: number;
+  maxRiskEarthquake?: number;
+  maxRiskWildfire?: number;
+  maxHotDays?: number;
+  maxColdDays?: number;
+  limit?: number;
+}
+
+// ── Scoring engine ────────────────────────────────────────────────────────────
+
+function scoreLocation(
+  loc: Location,
+  weights: Record<string, number>,
+  stats: Map<string, { min: number; max: number; n: number }>,
+  filters: Record<string, unknown>,
+): ScoreResult {
+  const failReasons: string[] = [];
+
+  // Hard filters
+  if (filters['states'] && !(filters['states'] as string[]).includes(loc.state)) {
+    failReasons.push(`State ${loc.state} not in allowlist`);
+  }
+  if (filters['excludeStates'] && (filters['excludeStates'] as string[]).includes(loc.state)) {
+    failReasons.push(`State ${loc.state} excluded`);
+  }
+
+  const cost = loc.cost;
+  const climate = loc.climate;
+  if (filters['maxHomeValue'] && cost.medianHomeValue > (filters['maxHomeValue'] as number)) {
+    failReasons.push(`Home value $${cost.medianHomeValue.toLocaleString()} > $${(filters['maxHomeValue'] as number).toLocaleString()}`);
+  }
+  if (filters['maxRent'] && cost.medianRent > (filters['maxRent'] as number)) {
+    failReasons.push(`Rent $${cost.medianRent.toLocaleString()} > $${(filters['maxRent'] as number).toLocaleString()}`);
+  }
+  for (const [fk, fl] of [
+    ['maxRiskTornado', 'tornadoRiskScore'],
+    ['maxRiskHurricane', 'hurricaneRiskScore'],
+    ['maxRiskEarthquake', 'earthquakeRiskScore'],
+    ['maxRiskWildfire', 'wildfireRiskScore'],
+  ] as [string, string][]) {
+    if (filters[fk] && (climate as Record<string, number>)[fl] > (filters[fk] as number)) {
+      failReasons.push(`${fl} ${(climate as Record<string, number>)[fl].toFixed(1)} > ${filters[fk]}`);
+    }
+  }
+  if (filters['maxHotDays'] && climate.daysMaxGt90FAnnual > (filters['maxHotDays'] as number)) {
+    failReasons.push(`Hot days ${climate.daysMaxGt90FAnnual} > ${filters['maxHotDays']}`);
+  }
+  if (filters['maxColdDays'] && climate.daysMinLt32FAnnual > (filters['maxColdDays'] as number)) {
+    failReasons.push(`Cold days ${climate.daysMinLt32FAnnual} > ${filters['maxColdDays']}`);
+  }
+
+  function norm(field: string, value: number, invert = false): number {
+    const r = stats.get(field)!;
+    return normalize(value, r.min, r.max, r.n, invert);
+  }
+
+  // Cost subscore
+  const homeScore = norm('medianHomeValue', cost.medianHomeValue, true);
+  const rentScore = norm('medianRent', cost.medianRent, true);
+  const colScore =
+    (stats.get('costOfLivingIndex')?.n ?? 0) > 0
+      ? norm('costOfLivingIndex', cost.costOfLivingIndex, true)
+      : 0;
+  const fiscal = loc.fiscal;
+  const taxScore = norm('taxCompetitivenessScore', fiscal.taxCompetitivenessScore);
+  const costParts: [number, number][] = [
+    [homeScore, 0.35],
+    [rentScore, 0.25],
+  ];
+  if (colScore > 0) {
+    costParts.push([colScore, 0.2]);
+  } else {
+    costParts.push([taxScore, 0.2]);
+  }
+  costParts.push([taxScore, 0.2]);
+  const wsum = costParts.reduce((s, [, w]) => s + w, 0);
+  const costSub = wsum ? Math.round(costParts.reduce((s, [sc, w]) => s + sc * w, 0) / wsum) : 0;
+
+  // Climate/risk subscore
+  const riskScores: number[] = [];
+  for (const rk of [
+    'earthquakeRiskScore',
+    'tornadoRiskScore',
+    'hurricaneRiskScore',
+    'floodRiskScore',
+    'wildfireRiskScore',
+  ]) {
+    const v = (climate as Record<string, number>)[rk] ?? 0;
+    riskScores.push(v > 0 ? norm(rk, v, true) : 100);
+  }
+  const climateSub =
+    riskScores.length > 0 ? Math.round(riskScores.reduce((a, b) => a + b, 0) / riskScores.length) : 50;
+
+  // Safety subscore
+  const crime = loc.crime;
+  const vc = crime.violentCrimeRatePer100k;
+  let safetySub: number;
+  if (vc > 0 && (stats.get('violentCrimeRatePer100k')?.n ?? 0) > 0) {
+    safetySub = norm('violentCrimeRatePer100k', vc, true);
+  } else {
+    safetySub = 50;
+  }
+
+  // Healthcare subscore
+  const hc = loc.healthcare;
+  let healthcareSub: number;
+  if (hc.hospitalCountWithin10mi > 0 || hc.healthcareAccessScore > 0) {
+    const hcAccess =
+      hc.healthcareAccessScore > 0 ? norm('healthcareAccessScore', hc.healthcareAccessScore) : 50;
+    const hcCount =
+      hc.hospitalCountWithin10mi > 0 ? norm('hospitalCountWithin10mi', hc.hospitalCountWithin10mi) : 0;
+    healthcareSub = Math.round((hcAccess + hcCount) / 2);
+  } else {
+    healthcareSub = 50;
+  }
+
+  // Jobs subscore
+  const bb = loc.broadband;
+  const bbScore =
+    bb.pctHouseholdsWith100MbpsPlus > 0
+      ? norm('pctHouseholdsWith100MbpsPlus', bb.pctHouseholdsWith100MbpsPlus)
+      : 0;
+  const jobsSub = bbScore > 0 ? Math.round(0.6 * taxScore + 0.4 * bbScore) : taxScore;
+
+  // Outdoors subscore
+  const sun = climate.sunshineHoursAnnual;
+  const precip = climate.annualPrecipitationInches;
+  let outdoorsSub: number;
+  if (sun > 0 || precip > 0) {
+    const sunScore = sun > 0 ? norm('sunshineHoursAnnual', sun) : 50;
+    const precipScore = precip > 0 ? norm('annualPrecipitationInches', precip, true) : 50;
+    outdoorsSub = Math.round((sunScore + precipScore) / 2);
+  } else {
+    outdoorsSub = 50;
+  }
+
+  const subscores: Record<string, number> = {
+    cost: costSub,
+    climate: climateSub,
+    safety: safetySub,
+    healthcare: healthcareSub,
+    jobs: jobsSub,
+    outdoors: outdoorsSub,
+  };
+
+  // Weighted final
+  const wKeys = ['cost', 'climate', 'safety', 'healthcare', 'jobs', 'outdoors'];
+  const wSum = wKeys.reduce((s, k) => s + (weights[k] ?? 0), 0);
+  const nw: Record<string, number> = {};
+  for (const k of wKeys) {
+    nw[k] = wSum > 0 ? (weights[k] ?? 0) / wSum : 0;
+  }
+
+  const matchScore = Math.round(
+    nw['cost'] * costSub +
+      nw['climate'] * climateSub +
+      nw['safety'] * safetySub +
+      nw['healthcare'] * healthcareSub +
+      nw['jobs'] * jobsSub +
+      nw['outdoors'] * outdoorsSub,
+  );
+
+  // Trace
+  const trace: string[] = [];
+  if (matchScore > 0) {
+    trace.push(
+      `Cost: ${costSub}/100 (home $${cost.medianHomeValue.toLocaleString()}, rent $${cost.medianRent.toLocaleString()})`,
+    );
+    trace.push(
+      `Risk: ${climateSub}/100 (tornado ${climate.tornadoRiskScore.toFixed(1)}, wildfire ${climate.wildfireRiskScore.toFixed(1)})`,
+    );
+    trace.push(`Safety: ${safetySub}/100 (violent crime ${vc.toFixed(1)}/100k)`);
+    trace.push(`Healthcare: ${healthcareSub}/100 (hospitals ${hc.hospitalCountWithin10mi})`);
+    trace.push(`Jobs: ${jobsSub}/100 (tax score ${taxScore})`);
+  }
+
+  // Data gaps
+  const gaps: string[] = [];
+  for (const [field, fpath] of Object.entries(FIELD_PATHS)) {
+    if (getNested(loc as unknown as Record<string, unknown>, fpath) === 0) {
+      gaps.push(field);
+    }
+  }
+
+  return {
+    location: loc,
+    matchScore,
+    subscores,
+    passed: failReasons.length === 0,
+    failReasons,
+    trace,
+    dataGaps: gaps,
+  };
+}
+
+// ── In-memory user profiles ──────────────────────────────────────────────────
+
+const userProfiles = new Map<string, UserProfile>();
+
+function getDefaultProfile(userId: string): UserProfile {
+  return {
+    userId,
+    statedPriorities: [],
+    revealedEmbeddingRef: '',
+    hardFilters: [],
+    softWeights: {
+      cost: 0.35,
+      climate: 0.25,
+      crime: 0.2,
+      amenities: 0.1,
+      broadband: 0.1,
+    },
+    nonNegotiablesDiscovered: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    elicitationRoundsCompleted: 0,
+    implicitSignalCount: 0,
+  };
+}
+
+// ── Elicitation questions ────────────────────────────────────────────────────
+//
+// Three lightweight questions per RESEARCH.md §1 (cold-start: <5 min to
+// first useful feed).  Each follows the ElicitationQuestion shape from
+// @trek/shared/relocation/relocation.schema.ts.
+
+const ELICITATION_QUESTIONS: ElicitationQuestion[] = [
+  {
+    id: 'q1-cost-priority',
+    prompt:
+      'How important is the cost of living in your relocation decision?',
+    options: [
+      {
+        value: 'cost_high',
+        label: 'Very important — I want to minimize costs',
+      },
+      {
+        value: 'cost_medium',
+        label: 'Somewhat important — I’ll consider value for money',
+      },
+      {
+        value: 'cost_low',
+        label:
+          'Not important — quality of life matters more than cost',
+      },
+    ],
+    skippable: true,
+  },
+  {
+    id: 'q2-climate-preference',
+    prompt: 'What climate best suits you?',
+    options: [
+      {
+        value: 'warm',
+        label: 'Warm year-round — I love heat and sun',
+      },
+      {
+        value: 'four_seasons',
+        label: 'Four seasons — I want all of them',
+      },
+      {
+        value: 'mild',
+        label: 'Cool / mild — I prefer moderate temperatures',
+      },
+      {
+        value: 'cold_tolerant',
+        label: 'Cold-tolerant — I don’t mind snow and winter',
+      },
+    ],
+    skippable: true,
+  },
+  {
+    id: 'q3-dealbreaker',
+    prompt: 'What’s a non-negotiable for your new home?',
+    options: [
+      {
+        value: 'low_taxes',
+        label: 'Low taxes / comparatively affordable',
+      },
+      {
+        value: 'safety',
+        label: 'Safe neighborhoods with low crime',
+      },
+      {
+        value: 'schools_healthcare',
+        label: 'Good schools and healthcare access',
+      },
+      {
+        value: 'jobs_internet',
+        label: 'Strong job market and fast internet',
+      },
+      {
+        value: 'nature',
+        label: 'Access to nature and outdoor activities',
+      },
+    ],
+    skippable: true,
+  },
+];
+
+// ── In-memory elicitation sessions & signals ─────────────────────────────────
+
+const elicitationSessions = new Map<string, ElicitationSession>();
+const elicitationAnswers = new Map<string, string[]>(); // sessionId → answers
+const implicitSignals: ImplicitSignal[] = [];
+
+let _sessionCounter = 0;
+
+function newSessionId(): string {
+  _sessionCounter += 1;
+  return `elicit-${Date.now()}-${_sessionCounter}`;
+}
+
+// ── Service ──────────────────────────────────────────────────────────────────
+
+@Injectable()
+export class RelocationService {
+  // ── Data access ──
+
+  getAllLocations(): Location[] {
+    return loadLocations();
+  }
+
+  getLocationById(id: string): Location | undefined {
+    return loadLocations().find((l) => l.id === id);
+  }
+
+  searchLocations(filters: SearchFilters): { total: number; locations: Partial<Location>[] } {
+    const locations = loadLocations();
+    const limit = filters.limit ?? 20;
+    const results: Partial<Location>[] = [];
+
+    for (const loc of locations) {
+      const cost = loc.cost;
+      const climate = loc.climate;
+      const crime = loc.crime;
+
+      if (filters.states && !filters.states.includes(loc.state)) continue;
+      if (filters.excludeStates && filters.excludeStates.includes(loc.state)) continue;
+      if (filters.maxHomeValue && cost.medianHomeValue > filters.maxHomeValue) continue;
+      if (filters.maxRent && cost.medianRent > filters.maxRent) continue;
+      if (filters.maxViolentCrime && crime.violentCrimeRatePer100k > filters.maxViolentCrime) continue;
+      if (filters.maxRiskTornado && climate.tornadoRiskScore > filters.maxRiskTornado) continue;
+      if (filters.maxRiskHurricane && climate.hurricaneRiskScore > filters.maxRiskHurricane) continue;
+      if (filters.maxRiskEarthquake && climate.earthquakeRiskScore > filters.maxRiskEarthquake) continue;
+      if (filters.maxRiskWildfire && climate.wildfireRiskScore > filters.maxRiskWildfire) continue;
+      if (filters.maxHotDays && climate.daysMaxGt90FAnnual > filters.maxHotDays) continue;
+      if (filters.maxColdDays && climate.daysMinLt32FAnnual > filters.maxColdDays) continue;
+      if (
+        filters.nameContains &&
+        !loc.name.toLowerCase().includes(filters.nameContains.toLowerCase())
+      )
+        continue;
+
+      results.push({
+        id: loc.id,
+        name: loc.name,
+        state: loc.state,
+        lat: loc.lat,
+        lng: loc.lng,
+        cost: {
+          costOfLivingIndex: cost.costOfLivingIndex,
+          medianHomeValue: cost.medianHomeValue,
+          medianRent: cost.medianRent,
+          stateIncomeTaxRate: cost.stateIncomeTaxRate,
+          propertyTaxRate: cost.propertyTaxRate,
+        },
+        crime: {
+          violentCrimeRatePer100k: crime.violentCrimeRatePer100k,
+          propertyCrimeRatePer100k: crime.propertyCrimeRatePer100k,
+          yearOverYearTrend: crime.yearOverYearTrend,
+        },
+        climate: {
+          tornadoRiskScore: climate.tornadoRiskScore,
+          wildfireRiskScore: climate.wildfireRiskScore,
+          earthquakeRiskScore: climate.earthquakeRiskScore,
+          hurricaneRiskScore: climate.hurricaneRiskScore,
+          daysMaxGt90FAnnual: climate.daysMaxGt90FAnnual,
+          daysMinLt32FAnnual: climate.daysMinLt32FAnnual,
+          sunshineHoursAnnual: climate.sunshineHoursAnnual,
+        },
+        fiscal: {
+          fiscalTier: loc.fiscal.fiscalTier,
+          taxCompetitivenessScore: loc.fiscal.taxCompetitivenessScore,
+          statePensionFundedRatio: loc.fiscal.statePensionFundedRatio,
+        },
+      } as Partial<Location>);
+
+      if (results.length >= limit) break;
+    }
+
+    return { total: results.length, locations: results };
+  }
+
+  // ── Scoring ──
+
+  scoreLocations(filters: ScoreFilters): {
+    totalScored: number;
+    passedFilters: number;
+    returned: number;
+    weights: Record<string, number>;
+    topMatches: Array<{
+      rank: number;
+      id: string;
+      name: string;
+      state: string;
+      matchScore: number;
+      subscores: Record<string, number>;
+      trace: string[];
+      dataGaps: string[];
+      keyMetrics: Record<string, number>;
+    }>;
+  } {
+    const locations = loadLocations();
+    const stats = getStats();
+    const weights = filters.weights ?? DEFAULT_WEIGHTS;
+    const limit = filters.limit ?? 20;
+
+    const cleanFilters: Record<string, unknown> = {};
+    if (filters.states) cleanFilters['states'] = filters.states;
+    if (filters.excludeStates) cleanFilters['excludeStates'] = filters.excludeStates;
+    if (filters.maxHomeValue) cleanFilters['maxHomeValue'] = filters.maxHomeValue;
+    if (filters.maxRent) cleanFilters['maxRent'] = filters.maxRent;
+    if (filters.maxRiskTornado) cleanFilters['maxRiskTornado'] = filters.maxRiskTornado;
+    if (filters.maxRiskHurricane) cleanFilters['maxRiskHurricane'] = filters.maxRiskHurricane;
+    if (filters.maxRiskEarthquake) cleanFilters['maxRiskEarthquake'] = filters.maxRiskEarthquake;
+    if (filters.maxRiskWildfire) cleanFilters['maxRiskWildfire'] = filters.maxRiskWildfire;
+    if (filters.maxHotDays) cleanFilters['maxHotDays'] = filters.maxHotDays;
+    if (filters.maxColdDays) cleanFilters['maxColdDays'] = filters.maxColdDays;
+
+    const scored = locations
+      .map((loc) => scoreLocation(loc, weights, stats, cleanFilters))
+      .sort((a, b) => b.matchScore - a.matchScore);
+
+    const passed = scored.filter((s) => s.passed);
+    const topPassed = passed.slice(0, limit);
+
+    return {
+      totalScored: scored.length,
+      passedFilters: passed.length,
+      returned: topPassed.length,
+      weights,
+      topMatches: topPassed.map((s, i) => ({
+        rank: i + 1,
+        id: s.location.id,
+        name: s.location.name,
+        state: s.location.state,
+        matchScore: s.matchScore,
+        subscores: s.subscores,
+        trace: s.trace,
+        dataGaps: s.dataGaps.slice(0, 5),
+        keyMetrics: {
+          medianHomeValue: s.location.cost.medianHomeValue,
+          medianRent: s.location.cost.medianRent,
+          costOfLivingIndex: s.location.cost.costOfLivingIndex,
+          violentCrimeRatePer100k: s.location.crime.violentCrimeRatePer100k,
+          tornadoRiskScore: s.location.climate.tornadoRiskScore,
+          daysMaxGt90FAnnual: s.location.climate.daysMaxGt90FAnnual,
+          healthcareAccessScore: s.location.healthcare.healthcareAccessScore,
+        },
+      })),
+    };
+  }
+
+  // ── Explain ──
+
+  explainScore(
+    locationId: string,
+    weights?: Record<string, number>,
+  ):
+    | {
+        location: { id: string; name: string; state: string };
+        matchScore: number;
+        subscores: Record<string, number>;
+        explanation: string[];
+        dataGaps: { count: number; fields: string[]; note: string };
+        weightsUsed: Record<string, number>;
+        allMetrics: Record<string, unknown>;
+      }
+    | { error: string } {
+    const loc = this.findLocation(locationId);
+    if (!loc) {
+      return { error: `Location '${locationId}' not found. Use search_locations to find valid IDs.` };
+    }
+    const stats = getStats();
+    const w = weights ?? DEFAULT_WEIGHTS;
+    const scored = scoreLocation(loc, w, stats, {});
+
+    return {
+      location: { id: loc.id, name: loc.name, state: loc.state },
+      matchScore: scored.matchScore,
+      subscores: scored.subscores,
+      explanation: scored.trace,
+      dataGaps: {
+        count: scored.dataGaps.length,
+        fields: scored.dataGaps,
+        note: `${scored.dataGaps.length} of 20 metrics have no data (0.0 sentinel). Scores use neutral 50 for missing categories.`,
+      },
+      weightsUsed: w,
+      allMetrics: {
+        cost: loc.cost,
+        climate: loc.climate,
+        crime: loc.crime,
+        healthcare: loc.healthcare,
+        broadband: loc.broadband,
+        fiscal: loc.fiscal,
+        amenities: loc.amenities,
+        blended: loc.blended,
+      },
+    };
+  }
+
+  // ── Compare ──
+
+  compareLocations(
+    locationIds: string[],
+    weights?: Record<string, number>,
+  ): { locations: ScoreResult[]; winner: string } | { error: string } {
+    const w = weights ?? DEFAULT_WEIGHTS;
+    const stats = getStats();
+    const results: ScoreResult[] = [];
+
+    for (const locId of locationIds) {
+      const loc = this.findLocation(locId);
+      if (loc) {
+        results.push(scoreLocation(loc, w, stats, {}));
+      }
+    }
+
+    if (results.length < 2) {
+      return { error: 'Need at least 2 valid location IDs. Use search_locations to find IDs.' };
+    }
+
+    const winner = results.reduce((a, b) => (a.matchScore > b.matchScore ? a : b));
+
+    return {
+      locations: results,
+      winner: winner.location.name,
+    };
+  }
+
+  // ── Fiscal health ──
+
+  fiscalHealth(
+    locationId: string,
+  ): { location: { id: string; name: string; state: string }; fiscalProfile: Record<string, unknown> } | { error: string } {
+    const loc = this.findLocation(locationId);
+    if (!loc) {
+      return { error: `Location '${locationId}' not found.` };
+    }
+
+    const fiscal = loc.fiscal;
+    const cost = loc.cost;
+
+    // Fiscal health assessment
+    let healthScore = 50;
+    let riskLevel = 'Moderate';
+    let outlook = 'Stable';
+
+    if (fiscal.fiscalTier === 'Resilient') {
+      healthScore = 80;
+      riskLevel = 'Low';
+      outlook = 'Taxes likely to remain stable or decrease';
+    } else if (fiscal.fiscalTier === 'Distressed') {
+      healthScore = 20;
+      riskLevel = 'High';
+      outlook = 'High risk of tax increases or service cuts';
+    } else if (fiscal.fiscalTier === 'Fragile') {
+      healthScore = 40;
+      riskLevel = 'Elevated';
+      outlook = 'Moderate risk of tax increases in next 5-10 years';
+    }
+
+    const pensionRatio = fiscal.statePensionFundedRatio;
+    if (pensionRatio > 0.9) healthScore += 10;
+    else if (pensionRatio < 0.6) healthScore -= 10;
+
+    const taxScore = fiscal.taxCompetitivenessScore;
+    if (taxScore > 80) healthScore += 5;
+    else if (taxScore < 40) healthScore -= 5;
+
+    healthScore = Math.max(0, Math.min(100, healthScore));
+
+    const estimated10yrTaxIncrease =
+      riskLevel === 'High' ? '15-25%' : riskLevel === 'Elevated' ? '5-15%' : '0-5%';
+
+    return {
+      location: { id: loc.id, name: loc.name, state: loc.state },
+      fiscalProfile: {
+        fiscalTier: fiscal.fiscalTier,
+        healthScore,
+        riskLevel,
+        outlook,
+        estimated10yrTaxIncrease,
+        statePensionFundedRatio: fiscal.statePensionFundedRatio,
+        taxCompetitivenessScore: fiscal.taxCompetitivenessScore,
+        stateIncomeTaxRate: cost.stateIncomeTaxRate,
+        propertyTaxRate: cost.propertyTaxRate,
+      },
+    };
+  }
+
+  // ── User profiles ──
+
+  getUserProfile(userId: string): UserProfile {
+    return userProfiles.get(userId) ?? getDefaultProfile(userId);
+  }
+
+  upsertUserProfile(userId: string, updates: Partial<UserProfile>): UserProfile {
+    const existing = userProfiles.get(userId) ?? getDefaultProfile(userId);
+    const updated: UserProfile = {
+      ...existing,
+      ...updates,
+      userId,
+      updatedAt: new Date().toISOString(),
+    };
+    userProfiles.set(userId, updated);
+    return updated;
+  }
+
+  // ── Elicitation ──
+
+  /**
+   * POST /api/relocation/profile/elicitation/start
+   *
+   * Begin a new elicitation round.  Returns the first question and a
+   * sessionId used for subsequent respond calls.
+   */
+  startElicitation(userId: string): {
+    sessionId: string;
+    firstQuestion: ElicitationQuestion;
+  } {
+    const sessionId = newSessionId();
+    const firstQuestion = ELICITATION_QUESTIONS[0];
+
+    const session: ElicitationSession = {
+      sessionId,
+      userId,
+      currentQuestion: firstQuestion,
+      roundsCompleted: 0,
+      status: 'active',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    elicitationSessions.set(sessionId, session);
+    elicitationAnswers.set(sessionId, []);
+
+    return { sessionId, firstQuestion };
+  }
+
+  /**
+   * POST /api/relocation/profile/elicitation/respond
+   *
+   * Record an answer to the current question.  Returns either the next
+   * question or signals completion with a profileSnapshot.
+   */
+  respondToElicitation(
+    userId: string,
+    sessionId: string,
+    answer: string,
+  ): {
+    nextQuestion: ElicitationQuestion | null;
+    done: boolean;
+    profileSnapshot: UserProfile;
+  } {
+    const session = elicitationSessions.get(sessionId);
+    if (!session) {
+      // Graceful fallback: create a fresh session so the frontend
+      // doesn't crash on an expired/stale sessionId.
+      const fresh = this.startElicitation(userId);
+      return {
+        nextQuestion: fresh.firstQuestion,
+        done: false,
+        profileSnapshot: this.getUserProfile(userId),
+      };
+    }
+
+    if (session.status !== 'active') {
+      return {
+        nextQuestion: null,
+        done: true,
+        profileSnapshot: this.getUserProfile(userId),
+      };
+    }
+
+    // Record answer
+    const answers = elicitationAnswers.get(sessionId) ?? [];
+    answers.push(answer);
+    elicitationAnswers.set(sessionId, answers);
+
+    const round = answers.length; // 1-based after push
+
+    // Map answer to profile update
+    this._applyElicitationAnswer(userId, round, answer);
+
+    // Determine next question or completion
+    const nextIndex = round; // 0-based index for next question
+    const done = nextIndex >= ELICITATION_QUESTIONS.length;
+
+    const nextQuestion: ElicitationQuestion | null = done
+      ? null
+      : ELICITATION_QUESTIONS[nextIndex];
+
+    // Update session
+    const updatedSession: ElicitationSession = {
+      ...session,
+      currentQuestion: nextQuestion,
+      roundsCompleted: round,
+      status: done ? 'complete' : 'active',
+      updatedAt: new Date().toISOString(),
+    };
+    elicitationSessions.set(sessionId, updatedSession);
+
+    // Update profile lifecycle counters
+    const profile = this.getUserProfile(userId);
+    if (done) {
+      this.upsertUserProfile(userId, {
+        elicitationRoundsCompleted: profile.elicitationRoundsCompleted + 1,
+      });
+    }
+
+    return {
+      nextQuestion,
+      done,
+      profileSnapshot: this.getUserProfile(userId),
+    };
+  }
+
+  // ── Implicit signals ──
+
+  /**
+   * POST /api/relocation/profile/signal
+   *
+   * Record a behavioral signal (pan, dismiss, save, dwell, etc.) and
+   * update the user profile.  This is the core of the TikTok-style
+   * learning loop per RESEARCH.md §1.
+   */
+  submitImplicitSignal(
+    userId: string,
+    signal: ImplicitSignal,
+  ): { profileSnapshot: UserProfile } {
+    implicitSignals.push(signal);
+
+    const profile = this.getUserProfile(userId);
+    this.upsertUserProfile(userId, {
+      implicitSignalCount: profile.implicitSignalCount + 1,
+    });
+
+    return { profileSnapshot: this.getUserProfile(userId) };
+  }
+
+  // ── Elicitation internals ──────────────────────────────────────────────
+
+  /**
+   * Translate an elicitation answer into a profile update.
+   *
+   * Per RESEARCH.md §2: stated preferences are a _weak prior_ — they
+   * seed softWeights but revealed signals carry more weight.  This
+   * method only nudges the default weights; the full embedding model
+   * (Qdrant) will override them as implicit signals accumulate.
+   */
+  private _applyElicitationAnswer(
+    userId: string,
+    round: number,
+    answer: string,
+  ): void {
+    const profile = this.getUserProfile(userId);
+    const weights = { ...profile.softWeights };
+
+    switch (round) {
+      case 1: { // Q1 — cost priority
+        if (answer === 'cost_high') {
+          weights.cost = 0.5;
+          weights.climate = 0.15;
+          weights.crime = 0.1;
+          weights.amenities = 0.125;
+          weights.broadband = 0.125;
+        } else if (answer === 'cost_medium') {
+          // keep defaults (already set)
+        } else if (answer === 'cost_low') {
+          weights.cost = 0.15;
+          weights.climate = 0.3;
+          weights.crime = 0.2;
+          weights.amenities = 0.175;
+          weights.broadband = 0.175;
+        }
+        break;
+      }
+      case 2: { // Q2 — climate preference
+        if (answer === 'warm') {
+          // Favor warm/dry: push up climate, push down cold-tolerant concerns
+          weights.climate = (weights.climate ?? 0.25) + 0.1;
+          weights.cost = (weights.cost ?? 0.35) - 0.05;
+        } else if (answer === 'cold_tolerant') {
+          weights.climate = (weights.climate ?? 0.25) - 0.05;
+          weights.cost = (weights.cost ?? 0.35) + 0.05;
+        }
+        // 'four_seasons', 'mild' — leave weights as-is
+        break;
+      }
+      case 3: { // Q3 — deal-breaker
+        const stated: { metric: string; rank: number; weight?: number }[] = [];
+        if (answer === 'low_taxes') {
+          stated.push({ metric: 'cost', rank: 1, weight: 0.4 });
+          weights.cost = 0.45;
+        } else if (answer === 'safety') {
+          stated.push({ metric: 'crime', rank: 1, weight: 0.4 });
+          weights.crime = 0.35;
+        } else if (answer === 'schools_healthcare') {
+          stated.push({ metric: 'amenities', rank: 1, weight: 0.4 });
+          weights.amenities = 0.3;
+        } else if (answer === 'jobs_internet') {
+          stated.push({ metric: 'broadband', rank: 1, weight: 0.4 });
+          weights.broadband = 0.3;
+        } else if (answer === 'nature') {
+          stated.push({ metric: 'amenities', rank: 1, weight: 0.3 });
+          weights.amenities = 0.25;
+        }
+
+        if (stated.length > 0) {
+          this.upsertUserProfile(userId, { statedPriorities: stated });
+        }
+        break;
+      }
+    }
+
+    // Normalize weights to sum to 1.0
+    const wKeys = Object.keys(weights);
+    const wSum = wKeys.reduce((s, k) => s + (weights[k] ?? 0), 0);
+    if (wSum > 0) {
+      for (const k of wKeys) {
+        weights[k] = Math.round(((weights[k] ?? 0) / wSum) * 1000) / 1000;
+      }
+    }
+
+    this.upsertUserProfile(userId, { softWeights: weights });
+  }
+
+  // ── Helpers ──
+
+  private findLocation(query: string): Location | undefined {
+    const locations = loadLocations();
+    // Exact match
+    const exact = locations.find((l) => l.id === query);
+    if (exact) return exact;
+    // Fuzzy match
+    const q = query.toLowerCase();
+    const parts = q.split('-');
+    const city = parts[0];
+    const state = parts.length > 1 ? parts[parts.length - 1] : '';
+    for (const l of locations) {
+      const lid = l.id.toLowerCase();
+      const name = l.name.toLowerCase();
+      if (lid.startsWith(city) && (!state || lid.endsWith('-' + state))) {
+        return l;
+      }
+      if (
+        name.split(',')[0].trim().toLowerCase().includes(city) &&
+        (!state || l.state.toLowerCase() === state)
+      ) {
+        return l;
+      }
+    }
+    return undefined;
+  }
+}

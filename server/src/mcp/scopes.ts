@@ -30,6 +30,8 @@ export const SCOPES = {
   JOURNEY_READ:        'journey:read',
   JOURNEY_WRITE:       'journey:write',
   JOURNEY_SHARE:       'journey:share',
+  RELOCATION_READ:     'relocation:read',
+  RELOCATION_WRITE:    'relocation:write',
 } as const;
 
 export type Scope = typeof SCOPES[keyof typeof SCOPES];
@@ -70,6 +72,8 @@ export const SCOPE_INFO: Record<Scope, ScopeInfo> = {
   'journey:read':        { label: 'View journeys',              description: 'Read journeys, entries, and contributor list',                          group: 'Journey' },
   'journey:write':       { label: 'Manage journeys',            description: 'Create, update, and delete journeys and their entries',                 group: 'Journey' },
   'journey:share':       { label: 'Manage journey links',       description: 'Create, update, and revoke public share links for journeys',            group: 'Journey' },
+  'relocation:read':     { label: 'View relocation data',       description: 'Read relocation candidates, scores, and user profiles',                 group: 'Relocation' },
+  'relocation:write':    { label: 'Manage relocation profile',  description: 'Create and update relocation profiles, filters, and elicitation',        group: 'Relocation' },
 };
 
 // ---------------------------------------------------------------------------

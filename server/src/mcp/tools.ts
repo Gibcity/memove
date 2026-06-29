@@ -15,6 +15,7 @@ import { registerCollabTools } from './tools/collab';
 import { registerTripTools } from './tools/trips';
 import { registerTransportTools } from './tools/transports';
 import { registerVacayTools } from './tools/vacay';
+import { registerRelocationTools } from './tools/relocation';
 import { registerMcpPrompts } from './tools/prompts';
 
 export function registerTools(server: McpServer, userId: number, scopes: string[] | null, isStaticToken = false, getDeprecationNotice: () => string | null = () => null): void {
@@ -49,6 +50,8 @@ export function registerTools(server: McpServer, userId: number, scopes: string[
   registerVacayTools(server, userId, scopes);
 
   registerTodoTools(server, userId, scopes);
+
+  registerRelocationTools(server, userId, scopes);
 
   registerMcpPrompts(server, userId, isStaticToken);
 }
