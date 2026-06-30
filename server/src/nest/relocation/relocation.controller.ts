@@ -114,6 +114,16 @@ const moveChecklistSchema = z.object({
   moveDate: z.string().min(1),
 });
 
+// ponytail: z.coerce.number() (the idParamSchema pattern) over the local
+// numericString transform — a transform infers its key as optional in zod v4,
+// and the aggregation needs all four bounds present.
+const viewportStatsSchema = z.object({
+  north: z.coerce.number().min(-90).max(90),
+  south: z.coerce.number().min(-90).max(90),
+  east: z.coerce.number().min(-180).max(180),
+  west: z.coerce.number().min(-180).max(180),
+});
+
 const chatSchema = z.object({
   message: z.string().min(1).max(2000),
   history: z
@@ -159,19 +169,29 @@ export class RelocationController {
     return loc;
   }
 
+  /** GET /api/relocation/stats/viewport — averaged metrics over in-view metros */
+  @Get('stats/viewport')
+  @UsePipes(new ZodValidationPipe(viewportStatsSchema))
+  viewportStats(@Query() query: z.infer<typeof viewportStatsSchema>) {
+    return this.relocation.aggregateViewportStats(query);
+  }
+
   // ── Scoring ──
 
   /** POST /api/relocation/score — rank all locations by weighted preferences */
   @Post('score')
   @UsePipes(new ZodValidationPipe(scoreFiltersSchema))
-  score(@Body() body: z.infer<typeof scoreFiltersSchema>) {
+  score(@CurrentUser() user: User, @Body() body: z.infer<typeof scoreFiltersSchema>) {
     // ponytail: accept `softWeights` (UserProfile field name) as an alias for
     // `weights` so the FE can forward the profile verbatim. The service
     // reads `weights`; we map before delegating.
     if (!body.weights && body.softWeights) {
       body.weights = body.softWeights;
     }
-    return this.relocation.scoreLocations(body);
+    // ponytail: pass userId so the service can fall back to the user's
+    // profile softWeights when filters.weights is absent. Without this,
+    // elicited preferences are silently ignored by the scoring engine.
+    return this.relocation.scoreLocations(body, String(user.id));
   }
 
   /** POST /api/relocation/score/explain — explain why a location scored as it did */

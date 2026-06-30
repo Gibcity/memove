@@ -651,11 +651,12 @@ export class RelocationService {
 
   // ── Scoring ──
 
-  scoreLocations(filters: ScoreFilters): {
+  scoreLocations(filters: ScoreFilters, userId?: string): {
     totalScored: number;
     passedFilters: number;
     returned: number;
     weights: Record<string, number>;
+    weightsFromProfile: boolean;
     topMatches: Array<{
       rank: number;
       id: string;
@@ -670,7 +671,34 @@ export class RelocationService {
   } {
     const locations = loadLocations();
     const stats = getStats();
-    const weights = filters.weights ?? DEFAULT_WEIGHTS;
+
+    // ponytail: source weights in this priority — (1) caller-supplied
+    // filters.weights, (2) profile.softWeights when the request has a
+    // userId, (3) DEFAULT_WEIGHTS. The profile keys (cost, climate, crime,
+    // amenities, broadband) don't match engine keys 1:1, so map them.
+    // Outdoors has no profile equivalent → falls back to DEFAULT_WEIGHTS.outdoors.
+    let weights: Record<string, number>;
+    let weightsFromProfile = false;
+    if (filters.weights) {
+      weights = filters.weights;
+    } else if (userId) {
+      const profileWeights = userProfiles.get(userId)?.softWeights;
+      if (profileWeights && Object.keys(profileWeights).length > 0) {
+        weights = {
+          cost: profileWeights.cost ?? DEFAULT_WEIGHTS.cost,
+          climate: profileWeights.climate ?? DEFAULT_WEIGHTS.climate,
+          safety: profileWeights.crime ?? DEFAULT_WEIGHTS.safety,
+          healthcare: profileWeights.amenities ?? DEFAULT_WEIGHTS.healthcare,
+          jobs: profileWeights.broadband ?? DEFAULT_WEIGHTS.jobs,
+          outdoors: DEFAULT_WEIGHTS.outdoors,
+        };
+        weightsFromProfile = true;
+      } else {
+        weights = DEFAULT_WEIGHTS;
+      }
+    } else {
+      weights = DEFAULT_WEIGHTS;
+    }
     // ponytail: prefer shared-schema's `topK`, fall back to legacy `limit`,
     // then service default. Keeps FE contract and back-compat callers working.
     const limit = filters.topK ?? filters.limit ?? 20;
@@ -700,6 +728,7 @@ export class RelocationService {
       passedFilters: passed.length,
       returned: topPassed.length,
       weights,
+      weightsFromProfile,
       topMatches: topPassed.map((s, i) => ({
         rank: i + 1,
         id: s.location.id,
