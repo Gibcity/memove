@@ -95,7 +95,7 @@ export default function AccountTab(): React.ReactElement {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'trek-mfa-backup-codes.txt'
+    a.download = 'memove-mfa-backup-codes.txt'
     document.body.appendChild(a)
     a.click()
     a.remove()

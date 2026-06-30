@@ -201,7 +201,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'No encontrado',
   'journey.public.notFoundMessage': 'Esta travesía no existe o el enlace ha expirado.',
   'journey.public.readOnly': 'Solo lectura · Travesía pública',
-  'journey.public.tagline': 'Kit de recursos y exploración de viajes',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Compartido mediante',
   'journey.public.madeWith': 'Hecho con',
   'journey.pdf.journeyBook': 'Libro de travesía',

@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import { Response } from 'express';
 import { db } from '../../db/database';
 
-const TREK_PHOTO_DIR = path.join(__dirname, '../../../uploads/photos/trek');
+const MEMOVE_PHOTO_DIR = path.join(__dirname, '../../../uploads/photos/memove');
 export const CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
 const inFlight = new Map<string, Promise<Buffer | null>>();
@@ -15,13 +15,13 @@ export function cacheKey(provider: string, assetId: string, kind: string, ownerI
 }
 
 function ensureDir(): void {
-  if (!fs.existsSync(TREK_PHOTO_DIR)) {
-    fs.mkdirSync(TREK_PHOTO_DIR, { recursive: true });
+  if (!fs.existsSync(MEMOVE_PHOTO_DIR)) {
+    fs.mkdirSync(MEMOVE_PHOTO_DIR, { recursive: true });
   }
 }
 
 function cachedFilePath(key: string): string {
-  return path.join(TREK_PHOTO_DIR, `${key}.bin`);
+  return path.join(MEMOVE_PHOTO_DIR, `${key}.bin`);
 }
 
 export function getFresh(key: string): { filePath: string; contentType: string } | null {

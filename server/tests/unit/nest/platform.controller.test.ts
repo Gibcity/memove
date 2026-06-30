@@ -5,7 +5,7 @@ import { NotFoundException } from '@nestjs/common';
 const h = vi.hoisted(() => ({
   verifyJwtAndLoadUser: vi.fn(),
   isAddonEnabled: vi.fn(),
-  getMcpSafeUrl: vi.fn(() => 'https://trek.example.test'),
+  getMcpSafeUrl: vi.fn(() => 'https://memove.example.test'),
   dbPrepare: vi.fn(),
   existsSync: vi.fn(),
   // SDK middleware spies — each returns a tagged handler so we can identify which
@@ -98,7 +98,7 @@ function makeRes() {
 
 beforeEach(() => {
   vi.clearAllMocks();
-  h.getMcpSafeUrl.mockReturnValue('https://trek.example.test');
+  h.getMcpSafeUrl.mockReturnValue('https://memove.example.test');
 });
 
 describe('applyPlatformUploads', () => {
@@ -281,17 +281,17 @@ describe('applyPlatformTransport', () => {
     const res = makeRes();
     handler({}, res);
     const body = res.body as { issuer: string; userinfo_endpoint: string };
-    expect(body.issuer).toBe('https://trek.example.test');
-    expect(body.userinfo_endpoint).toBe('https://trek.example.test/oauth/userinfo');
+    expect(body.issuer).toBe('https://memove.example.test');
+    expect(body.userinfo_endpoint).toBe('https://memove.example.test/oauth/userinfo');
   });
 
   it('trims trailing slashes off the configured base URL', () => {
-    h.getMcpSafeUrl.mockReturnValue('https://trek.example.test///');
+    h.getMcpSafeUrl.mockReturnValue('https://memove.example.test///');
     const calls = build();
     const handler = calls.find((c) => c.path === '/.well-known/openid-configuration')!.handlers[0];
     const res = makeRes();
     handler({}, res);
-    expect((res.body as { issuer: string }).issuer).toBe('https://trek.example.test');
+    expect((res.body as { issuer: string }).issuer).toBe('https://memove.example.test');
   });
 
   describe('GET /.well-known/oauth-protected-resource (flat)', () => {
@@ -311,8 +311,8 @@ describe('applyPlatformTransport', () => {
       const res = makeRes();
       handler()({}, res);
       const body = res.body as { resource: string; authorization_servers: string[] };
-      expect(body.resource).toBe('https://trek.example.test/mcp');
-      expect(body.authorization_servers).toEqual(['https://trek.example.test']);
+      expect(body.resource).toBe('https://memove.example.test/mcp');
+      expect(body.authorization_servers).toEqual(['https://memove.example.test']);
     });
   });
 

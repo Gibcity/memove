@@ -87,6 +87,6 @@ describe('pushReservationToAirtrail write gate (#1240)', () => {
     expect(saveFlight).toHaveBeenCalledTimes(1);
     const payload = (saveFlight as any).mock.calls[0][1];
     expect(payload.departureTerminal).toBe('7'); // spread preserved the unmanaged field
-    expect(payload.from).toBe('JFK'); // TREK-managed field still applied as a code
+    expect(payload.from).toBe('JFK'); // memove-managed field still applied as a code
   });
 });

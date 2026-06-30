@@ -218,7 +218,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Not Found', // en-fallback
   'journey.public.notFoundMessage': "This journey doesn't exist or the link has expired.", // en-fallback
   'journey.public.readOnly': 'Read-only · Public Journey', // en-fallback
-  'journey.public.tagline': 'Travel Resource & Exploration Kit', // en-fallback
+  'journey.public.tagline': 'memove', // en-fallback
   'journey.public.sharedVia': 'Shared via', // en-fallback
   'journey.public.madeWith': 'Made with', // en-fallback
   'journey.pdf.journeyBook': 'Journey Book', // en-fallback

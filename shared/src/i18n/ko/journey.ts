@@ -202,7 +202,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': '찾을 수 없습니다',
   'journey.public.notFoundMessage': '이 Journey가 존재하지 않거나 링크가 만료되었습니다.',
   'journey.public.readOnly': '읽기 전용 · 공개 Journey',
-  'journey.public.tagline': '여행 기록 및 탐험 키트',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': '공유 경로',
   'journey.public.madeWith': '으로 만들어짐',
   'journey.pdf.journeyBook': 'Journey 책',

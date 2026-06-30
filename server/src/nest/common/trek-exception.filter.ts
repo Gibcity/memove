@@ -37,7 +37,7 @@ export class TrekExceptionFilter implements ExceptionFilter {
 
       if (body && typeof body === 'object') {
         const obj = body as Record<string, unknown>;
-        // TREK-native shape ({ error } / { error, code } from guards + the Zod
+        // memove-native shape ({ error } / { error, code } from guards + the Zod
         // pipe): pass through verbatim. Nest's own exceptions instead carry the
         // { statusCode, message, error } trio (incl. transformException's
         // PayloadTooLargeException for LIMIT_FILE_SIZE) and must be normalised.

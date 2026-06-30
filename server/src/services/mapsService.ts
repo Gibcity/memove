@@ -70,7 +70,7 @@ interface GooglePlaceDetails extends GooglePlaceResult {
 
 const UA = 'memove (https://github.com/Gibcity/memove)';
 
-// TREK's internal language codes mostly coincide with valid BCP-47 codes, but a
+// memove's internal language codes mostly coincide with valid BCP-47 codes, but a
 // couple don't: 'br' is Brazilian Portuguese here (BCP-47 'pt-BR'; bare 'br' is
 // Breton) and 'gr' is Greek (BCP-47 'el'). Outbound geo APIs (Google Places,
 // Nominatim) expect BCP-47, so normalise before sending — otherwise names and

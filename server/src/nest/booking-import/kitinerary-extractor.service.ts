@@ -35,7 +35,7 @@ export class KitineraryExtractorService implements OnModuleInit {
     }
 
     const ext = extname(fileName).toLowerCase();
-    const tmpFile = join(tmpdir(), `trek-ki-${randomUUID()}${ext}`);
+    const tmpFile = join(tmpdir(), `memove-ki-${randomUUID()}${ext}`);
 
     try {
       writeFileSync(tmpFile, buffer);

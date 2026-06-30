@@ -30,7 +30,7 @@ export class SpaFallbackFilter implements ExceptionFilter {
       return;
     }
 
-    // Non-production, or a non-GET miss: keep the standard TREK 404 envelope
+    // Non-production, or a non-GET miss: keep the standard memove 404 envelope
     // (identical to what TrekExceptionFilter produces for a NotFoundException).
     res.status(404).json({ error: exception.message || 'Not Found' });
   }

@@ -202,7 +202,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Niet gevonden',
   'journey.public.notFoundMessage': 'Dit reisverslag bestaat niet of de link is verlopen.',
   'journey.public.readOnly': 'Alleen-lezen · Openbaar reisverslag',
-  'journey.public.tagline': 'Travel Resource & Exploration Kit',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Gedeeld via',
   'journey.public.madeWith': 'Gemaakt met',
   'journey.pdf.journeyBook': 'Reisboek',

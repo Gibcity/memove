@@ -208,7 +208,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Δεν Βρέθηκε',
   'journey.public.notFoundMessage': 'Αυτό το ταξίδι δεν υπάρχει ή ο σύνδεσμος έχει λήξει.',
   'journey.public.readOnly': 'Μόνο ανάγνωση · Δημόσιο Ταξίδι',
-  'journey.public.tagline': 'Travel Resource & Exploration Kit',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Κοινοποιήθηκε μέσω',
   'journey.public.madeWith': 'Φτιαγμένο με',
   'journey.pdf.journeyBook': 'Βιβλίο Ταξιδιού',

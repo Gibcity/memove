@@ -201,7 +201,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Nenalezeno',
   'journey.public.notFoundMessage': 'Tento cestovní deník neexistuje nebo odkaz vypršel.',
   'journey.public.readOnly': 'Pouze ke čtení · Veřejný cestovní deník',
-  'journey.public.tagline': 'Travel Resource & Exploration Kit',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Sdíleno přes',
   'journey.public.madeWith': 'Vytvořeno pomocí',
   'journey.pdf.journeyBook': 'Cestovní kniha',

@@ -202,7 +202,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Не знайдено',
   'journey.public.notFoundMessage': 'Ця подорож не існує або посилання застаріло.',
   'journey.public.readOnly': 'Тільки для читання · Публічна подорож',
-  'journey.public.tagline': 'Інструмент планування та дослідження подорожей',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Опубліковано через',
   'journey.public.madeWith': 'Зроблено з допомогою',
   'journey.pdf.journeyBook': 'Книга подорожі',

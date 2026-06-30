@@ -181,12 +181,12 @@ export async function createBackup(): Promise<BackupInfo> {
       }
 
       if (fs.existsSync(uploadsDir)) {
-        // Exclude the place-photo and trek-memory caches: both are re-derivable
+        // Exclude the place-photo and memove-memory caches: both are re-derivable
         // (re-fetched on demand, keyed on stable ids) and would otherwise dominate
         // backup size. Restores self-heal — the cache dirs are recreated at startup.
         archive.glob(
           '**/*',
-          { cwd: uploadsDir, ignore: ['photos/google/**', 'photos/trek/**'], nodir: true, dot: true },
+          { cwd: uploadsDir, ignore: ['photos/google/**', 'photos/memove/**'], nodir: true, dot: true },
           { prefix: 'uploads' },
         );
       }

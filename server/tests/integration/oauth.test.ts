@@ -35,7 +35,7 @@ const { testDb, dbMock } = vi.hoisted(() => {
 
 vi.mock('../../src/db/database', () => dbMock);
 vi.mock('../../src/config', () => ({
-    JWT_SECRET: 'test-jwt-secret-for-trek-testing-only',
+    JWT_SECRET: 'test-jwt-secret-for-memove-testing-only',
     ENCRYPTION_KEY: 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7b8c9d0e1f2a3b4c5d6a7b8c9d0e1f2',
     updateJwtSecret: () => {},
     SESSION_DURATION: '24h',
@@ -1170,7 +1170,7 @@ describe('M7 — Cookie-only auth on privileged OAuth endpoints', () => {
         const { user } = createUser(testDb);
         // Use a valid JWT in Authorization header (no cookie) — must be rejected
         const jwt = require('jsonwebtoken');
-        const token = jwt.sign({ id: user.id }, 'test-jwt-secret-for-trek-testing-only', { algorithm: 'HS256' });
+        const token = jwt.sign({ id: user.id }, 'test-jwt-secret-for-memove-testing-only', { algorithm: 'HS256' });
 
         const res = await request(app)
             .post('/api/oauth/authorize')
@@ -1183,7 +1183,7 @@ describe('M7 — Cookie-only auth on privileged OAuth endpoints', () => {
     it('OAUTH-SEC-010 — POST /api/oauth/clients rejects Bearer JWT (no cookie)', async () => {
         const jwt = require('jsonwebtoken');
         const { user } = createUser(testDb);
-        const token = jwt.sign({ id: user.id }, 'test-jwt-secret-for-trek-testing-only', { algorithm: 'HS256' });
+        const token = jwt.sign({ id: user.id }, 'test-jwt-secret-for-memove-testing-only', { algorithm: 'HS256' });
 
         const res = await request(app)
             .post('/api/oauth/clients')
@@ -1196,7 +1196,7 @@ describe('M7 — Cookie-only auth on privileged OAuth endpoints', () => {
     it('OAUTH-SEC-011 — DELETE /api/oauth/sessions/:id rejects Bearer JWT (no cookie)', async () => {
         const jwt = require('jsonwebtoken');
         const { user } = createUser(testDb);
-        const token = jwt.sign({ id: user.id }, 'test-jwt-secret-for-trek-testing-only', { algorithm: 'HS256' });
+        const token = jwt.sign({ id: user.id }, 'test-jwt-secret-for-memove-testing-only', { algorithm: 'HS256' });
 
         const res = await request(app)
             .delete('/api/oauth/sessions/1')

@@ -200,7 +200,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': '未找到',
   'journey.public.notFoundMessage': '此旅程不存在或链接已过期。',
   'journey.public.readOnly': '只读 · 公开旅程',
-  'journey.public.tagline': '旅行资源与探索工具包',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': '分享自',
   'journey.public.madeWith': '由',
   'journey.pdf.journeyBook': '旅程手册',

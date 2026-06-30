@@ -117,7 +117,7 @@ describe('airtrailSync.buildSavePayload', () => {
     expect(payload?.datePrecision).toBe('month');
   });
 
-  it('still applies the TREK-owned edits on top of the preserved fields', () => {
+  it('still applies the memove-owned edits on top of the preserved fields', () => {
     const payload = buildSavePayload(
       reservation({
         reservation_time: '2021-09-01T20:30',

@@ -202,7 +202,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': '見つかりません',
   'journey.public.notFoundMessage': 'この日記は存在しないか、リンクの有効期限が切れています。',
   'journey.public.readOnly': '閲覧のみ · 公開日記',
-  'journey.public.tagline': '旅の記録＆探索キット',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': '共有元',
   'journey.public.madeWith': '作成：',
   'journey.pdf.journeyBook': '日記ブック',

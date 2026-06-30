@@ -201,7 +201,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Nem található',
   'journey.public.notFoundMessage': 'Ez az útinapló nem létezik vagy a link lejárt.',
   'journey.public.readOnly': 'Csak olvasható · Nyilvános útinapló',
-  'journey.public.tagline': 'Utazástervező és felfedező eszköz',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Megosztva a következőn keresztül:',
   'journey.public.madeWith': 'Készítve a következővel:',
   'journey.pdf.journeyBook': 'Útinaplókönyv',

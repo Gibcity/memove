@@ -201,7 +201,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Non trovato',
   'journey.public.notFoundMessage': 'Questo diario non esiste o il link è scaduto.',
   'journey.public.readOnly': 'Sola lettura · Diario pubblico',
-  'journey.public.tagline': 'Travel Resource & Exploration Kit',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Condiviso tramite',
   'journey.public.madeWith': 'Creato con',
   'journey.pdf.journeyBook': 'Diario di viaggio',

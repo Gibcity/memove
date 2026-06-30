@@ -248,8 +248,8 @@ export default function AdminUserModals({ admin, t }: AdminUserModalsProps): Rea
                   className="bg-gray-900 dark:bg-gray-950 text-gray-100 border border-gray-700"
                 >
 {`docker pull gibcity/memove:latest
-docker stop trek && docker rm trek
-docker run -d --name trek \\
+docker stop memove && docker rm memove
+docker run -d --name memove \\
   -p 3000:3000 \\
   -v /opt/memove/data:/app/data \\
   -v /opt/memove/uploads:/app/uploads \\

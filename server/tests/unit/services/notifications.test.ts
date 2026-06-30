@@ -358,7 +358,7 @@ describe('resolveNtfyUrl', () => {
 // ── sendNtfy ─────────────────────────────────────────────────────────────────
 
 describe('sendNtfy', () => {
-  const ntfyUrl = 'https://ntfy.sh/trek-test';
+  const ntfyUrl = 'https://ntfy.sh/memove-test';
   const payload = { event: 'trip_invite', title: 'Test Title', body: 'Test body' };
 
   beforeEach(() => {

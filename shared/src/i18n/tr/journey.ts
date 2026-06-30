@@ -202,7 +202,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Bulunamadı',
   'journey.public.notFoundMessage': "This journey doesn't exist or the link has expired.",
   'journey.public.readOnly': 'Salt okunur · Herkese açık Journey',
-  'journey.public.tagline': 'Seyahat Kaynak ve Keşif Kiti',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Şununla paylaşıldı:',
   'journey.public.madeWith': 'İle yapıldı',
   'journey.pdf.journeyBook': 'Journey Kitabı',

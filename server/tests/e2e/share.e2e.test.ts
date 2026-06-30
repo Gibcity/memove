@@ -111,7 +111,7 @@ describe('Share-link e2e (real auth guard + temp SQLite)', () => {
   });
 
   describe('public place-photo proxy (/api/shared/:token/place-photo/:placeId/bytes)', () => {
-    const photoFile = path.join(os.tmpdir(), 'trek-share-photo.e2e.jpg');
+    const photoFile = path.join(os.tmpdir(), 'memove-share-photo.e2e.jpg');
     const photoBytes = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10]); // JPEG-ish header
 
     beforeAll(() => fs.writeFileSync(photoFile, photoBytes));

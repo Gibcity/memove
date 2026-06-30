@@ -661,12 +661,12 @@ export default function ReservationsPanel({ tripId, reservations, days, assignme
         ) : (
           <>
             {allPending.length > 0 && (
-              <Section title={t('reservations.pending')} count={allPending.length} accent="gray" storageKey={`trek:bookings-pending-open:${tripId}`}>
+              <Section title={t('reservations.pending')} count={allPending.length} accent="gray" storageKey={`memove:bookings-pending-open:${tripId}`}>
                 {allPending.map(r => <ReservationCard key={r.id} r={r} tripId={tripId} onEdit={onEdit} onDelete={onDelete} files={files} onNavigateToFiles={onNavigateToFiles} assignmentLookup={assignmentLookup} canEdit={canEdit} days={days} />)}
               </Section>
             )}
             {allConfirmed.length > 0 && (
-              <Section title={t('reservations.confirmed')} count={allConfirmed.length} accent="green" storageKey={`trek:bookings-confirmed-open:${tripId}`}>
+              <Section title={t('reservations.confirmed')} count={allConfirmed.length} accent="green" storageKey={`memove:bookings-confirmed-open:${tripId}`}>
                 {allConfirmed.map(r => <ReservationCard key={r.id} r={r} tripId={tripId} onEdit={onEdit} onDelete={onDelete} files={files} onNavigateToFiles={onNavigateToFiles} assignmentLookup={assignmentLookup} canEdit={canEdit} days={days} />)}
               </Section>
             )}

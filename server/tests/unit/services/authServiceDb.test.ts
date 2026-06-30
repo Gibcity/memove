@@ -350,7 +350,7 @@ describe('isOidcOnlyMode', () => {
   it('AUTH-DB-021: returns true when OIDC_ONLY=true AND OIDC_ISSUER AND OIDC_CLIENT_ID are set', () => {
     vi.stubEnv('OIDC_ONLY', 'true');
     vi.stubEnv('OIDC_ISSUER', 'https://sso.example.com');
-    vi.stubEnv('OIDC_CLIENT_ID', 'trek-client');
+    vi.stubEnv('OIDC_CLIENT_ID', 'memove-client');
     expect(isOidcOnlyMode()).toBe(true);
     vi.unstubAllEnvs();
   });
@@ -378,7 +378,7 @@ describe('resolveAuthToggles', () => {
   it('AUTH-DB-022b: legacy — OIDC_ONLY=true with OIDC configured disables password_login and password_registration', () => {
     vi.stubEnv('OIDC_ONLY', 'true');
     vi.stubEnv('OIDC_ISSUER', 'https://sso.example.com');
-    vi.stubEnv('OIDC_CLIENT_ID', 'trek-client');
+    vi.stubEnv('OIDC_CLIENT_ID', 'memove-client');
     const t = resolveAuthToggles();
     expect(t.password_login).toBe(false);
     expect(t.password_registration).toBe(false);

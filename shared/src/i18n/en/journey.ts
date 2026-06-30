@@ -206,7 +206,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Not Found',
   'journey.public.notFoundMessage': "This journey doesn't exist or the link has expired.",
   'journey.public.readOnly': 'Read-only · Public Journey',
-  'journey.public.tagline': 'Travel Resource & Exploration Kit',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Shared via',
   'journey.public.madeWith': 'Made with',
   'journey.pdf.journeyBook': 'Journey Book',

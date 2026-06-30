@@ -437,7 +437,7 @@ export default function AdminSettingsTab({ admin, t }: AdminSettingsTabProps): R
               type="url"
               value={oidcConfig.discovery_url}
               onChange={e => setOidcConfig(c => ({ ...c, discovery_url: e.target.value }))}
-              placeholder='https://auth.example.com/application/o/trek/.well-known/openid-configuration'
+              placeholder='https://auth.example.com/application/o/memove/.well-known/openid-configuration'
               className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-slate-400 focus:border-transparent"
             />
             <p className="text-xs text-slate-400 mt-1">Override the auto-constructed discovery URL. Required for providers like Authentik where the endpoint is not at <code className="bg-slate-100 px-1 rounded">{'<issuer>/.well-known/openid-configuration'}</code>.</p>

@@ -201,7 +201,7 @@ const journey: TranslationStrings = {
   'journey.public.notFound': 'Tidak Ditemukan',
   'journey.public.notFoundMessage': 'Journey ini tidak ada atau tautan telah kedaluwarsa.',
   'journey.public.readOnly': 'Hanya baca · Journey Publik',
-  'journey.public.tagline': 'Travel Resource & Exploration Kit',
+  'journey.public.tagline': 'memove',
   'journey.public.sharedVia': 'Dibagikan melalui',
   'journey.public.madeWith': 'Dibuat dengan',
   'journey.pdf.journeyBook': 'Buku Journey',
