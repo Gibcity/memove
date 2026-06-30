@@ -27,6 +27,7 @@ import photos from './photos';
 import places from './places';
 import planner from './planner';
 import register from './register';
+import relocation from './relocation';
 import reservations from './reservations';
 import settings from './settings';
 import share from './share';
@@ -57,6 +58,7 @@ const locale = {
   ...trip,
   ...places,
   ...inspector,
+  ...relocation,
   ...reservations,
   ...airport,
   ...map,

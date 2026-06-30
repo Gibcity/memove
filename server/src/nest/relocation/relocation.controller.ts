@@ -3,6 +3,7 @@ import {
   Body,
   Controller,
   Get,
+  HttpException,
   NotFoundException,
   Param,
   Post,
@@ -20,6 +21,7 @@ import { ConciergeService } from './concierge.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { ZodValidationPipe } from '../common/zod-validation.pipe';
+import { verifyTripAccess } from '../../services/tripAccess';
 
 // ── Local Zod schemas (request shapes) ─────────────────────────────────────
 //
@@ -453,6 +455,11 @@ export class RelocationController {
     @CurrentUser() user: User,
     @Body() body: z.infer<typeof moveChecklistSchema>,
   ) {
+    // ponytail: trip_id FK on todo_items blows up to 500 without this.
+    // The canonical pattern in every other controller.
+    if (!verifyTripAccess(body.tripId, Number(user.id))) {
+      throw new HttpException({ error: 'Trip not found' }, 404);
+    }
     return this.relocation.applyMoveChecklist(
       String(user.id),
       body.tripId,

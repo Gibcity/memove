@@ -90,7 +90,10 @@ export default function RelocationChat(): React.ReactElement {
 
       {/* ── Quick-start prompt bar ───────────────────────────────── */}
       <div className="pt-3 pb-2 border-t" style={{ borderColor: 'var(--border-secondary)' }}>
-        <div className="flex gap-2 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+        <div
+          className="flex gap-2 overflow-x-auto pb-2"
+          style={{ scrollbarWidth: 'none', scrollSnapType: 'x mandatory' }}
+        >
           {[...quickPrompts, ...STATIC_PROMPTS].map((p, i) => {
             const Icon = QUICK_ICONS[i % QUICK_ICONS.length]
             return (
@@ -103,6 +106,7 @@ export default function RelocationChat(): React.ReactElement {
                   background: 'var(--bg-card)',
                   color: 'var(--text-secondary)',
                   border: '1px solid var(--border-primary)',
+                  scrollSnapAlign: 'start',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)' }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)' }}

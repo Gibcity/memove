@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { ReactElement } from 'react'
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
@@ -116,6 +116,28 @@ function MapViewController({
   return null
 }
 
+// ponytail: #31 — small overlay that mirrors the live map zoom level. Driven
+// off the leaflet `zoomend` event so it stays in sync without polling.
+function MapZoomIndicator(): ReactElement {
+  const map = useMap()
+  const [zoom, setZoom] = useState(map.getZoom())
+  useEffect(() => {
+    const update = () => setZoom(map.getZoom())
+    map.on('zoomend', update)
+    return () => { map.off('zoomend', update) }
+  }, [map])
+  return (
+    <div
+      className="absolute bottom-3 left-3 z-[400] bg-white/90 dark:bg-zinc-800/90
+                 backdrop-blur rounded-full px-3 py-1.5 shadow border border-slate-200 dark:border-zinc-700
+                 text-xs font-medium tabular-nums text-slate-700 dark:text-zinc-200"
+      aria-label={`Zoom level ${zoom}`}
+    >
+      Zoom {zoom}
+    </div>
+  )
+}
+
 export default function RelocationMapPanel({
   candidates,
   selectedId,
@@ -163,6 +185,7 @@ export default function RelocationMapPanel({
           subdomains={['a', 'b', 'c', 'd']}
         />
         <MapViewController candidates={candidates} selectedId={selectedId} />
+        <MapZoomIndicator />
         <MarkerClusterGroup
           chunkedLoading
           chunkInterval={30}
