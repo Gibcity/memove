@@ -72,6 +72,10 @@ const searchFiltersSchema = z.object({
 });
 
 const scoreFiltersSchema = searchFiltersSchema.extend({
+  // ponytail: shared schema (relocation.schema.ts) advertises `topK`; honor
+  // it here so the FE contract matches what the service reads. Falls back
+  // to `limit` from searchFiltersSchema, then to the service default (20).
+  topK: z.number().int().positive().optional(),
   weights: z.record(z.string(), z.number()).optional(),
   filters: z.record(z.string(), z.object({ min: z.number().optional(), max: z.number().optional() })).optional(),
 });

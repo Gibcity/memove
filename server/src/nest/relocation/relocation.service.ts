@@ -666,7 +666,9 @@ export class RelocationService {
     const locations = loadLocations();
     const stats = getStats();
     const weights = filters.weights ?? DEFAULT_WEIGHTS;
-    const limit = filters.limit ?? 20;
+    // ponytail: prefer shared-schema's `topK`, fall back to legacy `limit`,
+    // then service default. Keeps FE contract and back-compat callers working.
+    const limit = filters.topK ?? filters.limit ?? 20;
 
     const cleanFilters: Record<string, unknown> = {};
     if (filters.states) cleanFilters['states'] = filters.states;

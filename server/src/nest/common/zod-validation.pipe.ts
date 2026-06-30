@@ -13,7 +13,13 @@ import type { ZodType } from 'zod';
 export class ZodValidationPipe implements PipeTransform {
   constructor(private readonly schema: ZodType) {}
 
-  transform(value: unknown, _metadata: ArgumentMetadata): unknown {
+  transform(value: unknown, metadata: ArgumentMetadata): unknown {
+    // @UsePipes applies this pipe to every parameter on the handler. For
+    // handlers that take both @CurrentUser() and @Body(), that means the
+    // pipe runs on the user object first and (silently) fails with
+    // "expected string, received undefined" before it ever sees the body.
+    // Only validate body / query payloads; pass everything else through.
+    if (metadata?.type !== 'body' && metadata?.type !== 'query') return value;
     const result = this.schema.safeParse(value);
     if (!result.success) {
       const message = result.error.issues

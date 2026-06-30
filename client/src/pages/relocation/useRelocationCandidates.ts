@@ -57,7 +57,9 @@ export function useRelocationCandidates(profileVersion?: number) {
   ) => {
     try {
       const resp = await relocationApi.scoreCandidates(
-        filters ? { filters } : undefined,
+        // ponytail: topK=1000 so all ~939 metros land in the ranked set; the
+        // server defaults to 20 otherwise, which leaves the map nearly empty.
+        filters ? { topK: 1000, filters } : { topK: 1000 },
       )
       setScoreDegraded(false)
       // ponytail: server returns slim TopMatch rows; join against allLocations to recover full Location
