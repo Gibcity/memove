@@ -20,10 +20,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'Εισαγωγή τοποθεσιών από αρχεία KMZ/KML',
   'system_notice.v3_mcp.title': 'MCP: Αναβάθμιση OAuth 2.1',
   'system_notice.v3_mcp.body':
-    'Η ενσωμάτωση MCP ανασχεδιάστηκε πλήρως. Το OAuth 2.1 είναι τώρα η συνιστώμενη μέθοδος αυθεντικοποίησης. Τα παλιά στατικά tokens (trek_…) είναι παρωχημένα και θα αφαιρεθούν σε μελλοντική έκδοση.',
+    'Η ενσωμάτωση MCP ανασχεδιάστηκε πλήρως. Το OAuth 2.1 είναι τώρα η συνιστώμενη μέθοδος αυθεντικοποίησης. Τα παλιά στατικά tokens (memove_…) είναι παρωχημένα και θα αφαιρεθούν σε μελλοντική έκδοση.',
   'system_notice.v3_mcp.highlight_oauth': 'Συνιστάται OAuth 2.1 (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 λεπτομερή εύρη δικαιωμάτων',
-  'system_notice.v3_mcp.highlight_deprecated': 'Στατικά tokens trek_ παρωχημένα',
+  'system_notice.v3_mcp.highlight_deprecated': 'Στατικά tokens memove_ παρωχημένα',
   'system_notice.v3_mcp.highlight_tools': 'Επεκτεταμένο σύνολο εργαλείων & προτροπών',
   'system_notice.v3_thankyou.title': 'Μια προσωπική σημείωση από εμένα',
   'system_notice.v3_thankyou.body':

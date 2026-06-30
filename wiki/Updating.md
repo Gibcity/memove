@@ -10,9 +10,9 @@ Back up your data first. Go to Admin Panel → Backups and create a manual backu
 
 | Tag | Example | Behavior |
 |---|---|---|
-| `latest` | `mauriceboe/trek:latest` | Always the newest release across all major versions |
-| Major version | `mauriceboe/trek:3` | Latest release pinned to that major version |
-| Full version | `mauriceboe/trek:3.0.15` | Exact release; never changes |
+| `latest` | `gibcity/memove:latest` | Always the newest release across all major versions |
+| Major version | `gibcity/memove:3` | Latest release pinned to that major version |
+| Full version | `gibcity/memove:3.0.15` | Exact release; never changes |
 
 Use `latest` or a major-version tag if you want updates on each redeploy. Use a full version tag for explicit control — update by changing the tag, not by re-pulling.
 
@@ -39,19 +39,19 @@ docker compose up -d
 If you started memove with `docker run`, pull the new image and replace the container:
 
 ```bash
-docker pull mauriceboe/trek
-docker rm -f trek
-docker run -d --name trek -p 3000:3000 \
+docker pull gibcity/memove
+docker rm -f memove
+docker run -d --name memove -p 3000:3000 \
   -v ./data:/app/data \
   -v ./uploads:/app/uploads \
   -e ENCRYPTION_KEY=<your-key> \
   --restart unless-stopped \
-  mauriceboe/trek
+  gibcity/memove
 ```
 
 > **Tip:** Not sure which volume paths you used? Check before removing:
 > ```bash
-> docker inspect trek --format '{{json .Mounts}}'
+> docker inspect memove --format '{{json .Mounts}}'
 > ```
 
 ## Database Migrations
@@ -66,13 +66,13 @@ If you want to rotate to a new key at any point (not required for a normal updat
 
 ## Proxmox VE (LXC)
 
-If you installed memove via the [Proxmox VE Community Scripts](https://community-scripts.org/scripts/trek), run the following command inside the **LXC container** and select **Update** when prompted:
+If you installed memove via the [Proxmox VE Community Scripts](https://community-scripts.org/scripts/memove), run the following command inside the **LXC container** and select **Update** when prompted:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/trek.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/memove.sh)"
 ```
 
-> **Tip:** Always check the [community-scripts memove page](https://community-scripts.org/scripts/trek) to confirm the latest command before running.
+> **Tip:** Always check the [community-scripts memove page](https://community-scripts.org/scripts/memove) to confirm the latest command before running.
 
 The script stops the service, backs up your data and uploads, applies the new release, restores the backup, and restarts. No manual steps required.
 
@@ -80,7 +80,7 @@ To verify the update completed and check for errors:
 
 ```bash
 # Inside the container (pct enter <id> from the Proxmox shell)
-journalctl -u trek -n 50
+journalctl -u memove -n 50
 ```
 
 ## Portainer

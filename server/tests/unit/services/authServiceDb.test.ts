@@ -703,7 +703,7 @@ describe('MCP token service', () => {
     const { user } = createUser(testDb);
     const result = createMcpToken(user.id, 'My Token');
     expect(result.token).toBeDefined();
-    expect((result.token as any).raw_token).toMatch(/^trek_/);
+    expect((result.token as any).raw_token).toMatch(/^memove_/);
   });
 
   it('AUTH-DB-044: createMcpToken returns 400 when user has 10 tokens already', () => {
@@ -711,7 +711,7 @@ describe('MCP token service', () => {
     for (let i = 0; i < 10; i++) {
       testDb.prepare(
         'INSERT INTO mcp_tokens (user_id, name, token_hash, token_prefix) VALUES (?, ?, ?, ?)'
-      ).run(user.id, `Token ${i}`, `hash${i}`, `trek_prefix${i}`);
+      ).run(user.id, `Token ${i}`, `hash${i}`, `memove_prefix${i}`);
     }
     const result = createMcpToken(user.id, 'One More');
     expect(result.status).toBe(400);

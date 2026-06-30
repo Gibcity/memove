@@ -244,7 +244,7 @@ export default function TripPlannerPage(): React.ReactElement | null {
         `}</style>
         <div style={{ marginBottom: 28 }}>
           <img
-            src={document.documentElement.classList.contains('dark') ? '/icons/trek-loading-light.gif' : '/icons/trek-loading-dark.gif'}
+            src={document.documentElement.classList.contains('dark') ? '/icons/memove-loading-light.gif' : '/icons/memove-loading-dark.gif'}
             alt="Loading"
             width={64}
             height={64}

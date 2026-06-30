@@ -953,7 +953,7 @@ describe('Share link update', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 describe('Provider photos — passphrase persistence', () => {
-  it('JOURNEY-INT-046 — single mode with passphrase persists encrypted passphrase on trek_photos', async () => {
+  it('JOURNEY-INT-046 — single mode with passphrase persists encrypted passphrase on memove_photos', async () => {
     const { user } = createUser(testDb);
     const journey = createJourney(testDb, user.id);
     const entry = createJourneyEntry(testDb, journey.id, user.id, { entry_date: '2026-04-01' });
@@ -965,13 +965,13 @@ describe('Provider photos — passphrase persistence', () => {
 
     expect(res.status).toBe(201);
 
-    const row = testDb.prepare('SELECT passphrase FROM trek_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?')
+    const row = testDb.prepare('SELECT passphrase FROM memove_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?')
       .get('synologyphotos', 'shared-asset-1', user.id) as { passphrase: string | null } | undefined;
     expect(row?.passphrase).not.toBeNull();
     expect(typeof row?.passphrase).toBe('string');
   });
 
-  it('JOURNEY-INT-047 — batch mode with passphrase persists encrypted passphrase on all trek_photos rows', async () => {
+  it('JOURNEY-INT-047 — batch mode with passphrase persists encrypted passphrase on all memove_photos rows', async () => {
     const { user } = createUser(testDb);
     const journey = createJourney(testDb, user.id);
     const entry = createJourneyEntry(testDb, journey.id, user.id, { entry_date: '2026-04-02' });
@@ -985,7 +985,7 @@ describe('Provider photos — passphrase persistence', () => {
     expect(res.body.added).toBe(2);
 
     for (const assetId of ['batch-asset-1', 'batch-asset-2']) {
-      const row = testDb.prepare('SELECT passphrase FROM trek_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?')
+      const row = testDb.prepare('SELECT passphrase FROM memove_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?')
         .get('synologyphotos', assetId, user.id) as { passphrase: string | null } | undefined;
       expect(row?.passphrase).not.toBeNull();
     }

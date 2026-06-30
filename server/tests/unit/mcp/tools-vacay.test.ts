@@ -6,7 +6,7 @@
  * get_vacay_stats, update_vacay_stats,
  * add_holiday_calendar, update_holiday_calendar, delete_holiday_calendar,
  * list_holiday_countries, list_holidays.
- * Resources: trek://vacay/plan, trek://vacay/entries/{year}.
+ * Resources: memove://vacay/plan, memove://vacay/entries/{year}.
  */
 import { describe, it, expect, vi, beforeAll, beforeEach, afterAll } from 'vitest';
 
@@ -461,22 +461,22 @@ describe('Tool: list_holidays', () => {
 // Resources
 // ---------------------------------------------------------------------------
 
-describe('Resource: trek://vacay/plan', () => {
+describe('Resource: memove://vacay/plan', () => {
   it('returns plan data', async () => {
     const { user } = createUser(testDb);
     await withResourceHarness(user.id, async (h) => {
-      const result = await h.client.readResource({ uri: 'trek://vacay/plan' });
+      const result = await h.client.readResource({ uri: 'memove://vacay/plan' });
       const data = parseResourceResult(result) as any;
       expect(data).toBeDefined();
     });
   });
 });
 
-describe('Resource: trek://vacay/entries/{year}', () => {
+describe('Resource: memove://vacay/entries/{year}', () => {
   it('returns entries for a year', async () => {
     const { user } = createUser(testDb);
     await withResourceHarness(user.id, async (h) => {
-      const result = await h.client.readResource({ uri: 'trek://vacay/entries/2025' });
+      const result = await h.client.readResource({ uri: 'memove://vacay/entries/2025' });
       const data = parseResourceResult(result) as any;
       expect(data).toBeDefined();
       expect(Array.isArray(data.entries)).toBe(true);

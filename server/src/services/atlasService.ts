@@ -186,7 +186,7 @@ export async function reverseGeocodeCountry(lat: number, lng: number): Promise<s
   await throttleNominatim();
   try {
     const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&zoom=3&accept-language=en`, {
-      headers: { 'User-Agent': 'TREK Travel Planner (https://github.com/mauriceboe/TREK)' },
+      headers: { 'User-Agent': 'memove (https://github.com/Gibcity/memove)' },
       signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) return null;
@@ -537,7 +537,7 @@ async function fetchNominatimAddress(lat: number, lng: number, zoom: number): Pr
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&zoom=${zoom}&accept-language=en`,
       {
-        headers: { 'User-Agent': 'TREK Travel Planner (https://github.com/mauriceboe/TREK)' },
+        headers: { 'User-Agent': 'memove (https://github.com/Gibcity/memove)' },
         signal: AbortSignal.timeout(10_000),
       }
     );

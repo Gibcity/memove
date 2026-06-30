@@ -106,7 +106,7 @@ describe('Authentication security', () => {
   it('expired/invalid JWT cookie returns 401', async () => {
     const res = await request(app)
       .get('/api/trips')
-      .set('Cookie', 'trek_session=invalid.jwt.token');
+      .set('Cookie', 'memove_session=invalid.jwt.token');
     expect(res.status).toBe(401);
   });
 });

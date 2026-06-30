@@ -15,13 +15,13 @@ Generate an encryption key and start the container in one step:
 
 ```bash
 ENCRYPTION_KEY=$(openssl rand -hex 32) docker run -d \
-  --name trek \
+  --name memove \
   -p 3000:3000 \
   -e ENCRYPTION_KEY=$ENCRYPTION_KEY \
   -v ./data:/app/data \
   -v ./uploads:/app/uploads \
   --restart unless-stopped \
-  mauriceboe/trek:latest
+  gibcity/memove:latest
 ```
 
 **Flag breakdown:**
@@ -52,7 +52,7 @@ Open `http://localhost:3000` in your browser.
 On first boot memove automatically seeds an admin account before any user registers. The credentials depend on how you start the container:
 
 - **With `ADMIN_EMAIL` and `ADMIN_PASSWORD` env vars set:** those values are used directly.
-- **Without those env vars:** TREK creates the account with email `admin@trek.local`, username `admin`, and a randomly generated password. The credentials are printed to the container log — run `docker logs trek` to retrieve them.
+- **Without those env vars:** memove creates the account with email `admin@memove.local`, username `admin`, and a randomly generated password. The credentials are printed to the container log — run `docker logs memove` to retrieve them.
 
 You will be prompted to change the password on first login.
 

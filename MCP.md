@@ -39,11 +39,11 @@ management required — just provide the server URL:
 ```json
 {
   "mcpServers": {
-    "trek": {
+    "memove": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://your-trek-instance.com/mcp"
+        "https://your-memove-instance.com/mcp"
       ]
     }
   }
@@ -64,7 +64,7 @@ management required — just provide the server URL:
 
 **For more control over scopes or to use confidential client mode**, pre-create an OAuth client in
 **Settings > Integrations > MCP > OAuth Clients** before connecting. Clients created there have a client secret
-(`trekcs_` prefix) and fixed scopes that you define up front.
+(`memove_cs_` prefix) and fixed scopes that you define up front.
 
 #### Option B: Static API Token (deprecated)
 
@@ -77,13 +77,13 @@ management required — just provide the server URL:
 ```json
 {
   "mcpServers": {
-    "trek": {
+    "memove": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://your-trek-instance.com/mcp",
+        "https://your-memove-instance.com/mcp",
         "--header",
-        "Authorization: Bearer trek_your_token_here"
+        "Authorization: Bearer memove_your_token_here"
       ]
     }
   }
@@ -103,8 +103,8 @@ memove's MCP server supports three authentication methods. OAuth 2.1 is the reco
 
 | Method | Token prefix | Access level | TTL | Notes |
 |--------|-------------|-------------|-----|-------|
-| **OAuth 2.1** | `trekoa_` | Scoped (per-consent) | 1 hour | Recommended. Automatically refreshed via 30-day rolling refresh tokens (`trekrf_` prefix). Replay-detected rotation — replayed tokens cascade-revoke the entire chain. |
-| **Static API token** | `trek_` | Full access | No expiry | **Deprecated.** Triggers deprecation warnings in AI clients. Will be removed in a future release. |
+| **OAuth 2.1** | `memove_oa_` | Scoped (per-consent) | 1 hour | Recommended. Automatically refreshed via 30-day rolling refresh tokens (`memove_rf_` prefix). Replay-detected rotation — replayed tokens cascade-revoke the entire chain. |
+| **Static API token** | `memove_` | Full access | No expiry | **Deprecated.** Triggers deprecation warnings in AI clients. Will be removed in a future release. |
 | **Web session JWT** | — | Full access | Session-based | Used internally by the memove web UI. Not intended for external clients. |
 
 All methods require the `Authorization: Bearer <token>` header (strict scheme enforcement — `Bearer` required).
@@ -186,25 +186,25 @@ making changes.
 
 | Resource              | URI                                             | Description                                                                           |
 |-----------------------|-------------------------------------------------|---------------------------------------------------------------------------------------|
-| Trips                 | `trek://trips`                                  | All trips you own or are a member of                                                  |
-| Trip Detail           | `trek://trips/{tripId}`                         | Single trip with metadata and member count                                            |
-| Days                  | `trek://trips/{tripId}/days`                    | Days of a trip with their assigned places                                             |
-| Places                | `trek://trips/{tripId}/places`                  | All places/POIs saved in a trip. Supports `?assignment=all\|unassigned\|assigned`     |
-| Budget                | `trek://trips/{tripId}/budget`                  | Budget and expense items                                                              |
-| Budget Per-Person     | `trek://trips/{tripId}/budget/per-person`       | Per-person totals and split breakdown                                                 |
-| Budget Settlement     | `trek://trips/{tripId}/budget/settlement`       | Suggested transactions to settle who owes whom                                        |
-| Packing               | `trek://trips/{tripId}/packing`                 | Packing checklist                                                                     |
-| Packing Bags          | `trek://trips/{tripId}/packing/bags`            | Packing bags with their assigned members                                              |
-| Reservations          | `trek://trips/{tripId}/reservations`            | Flights, hotels, restaurants, etc.                                                    |
-| Day Notes             | `trek://trips/{tripId}/days/{dayId}/notes`      | Notes for a specific day                                                              |
-| Accommodations        | `trek://trips/{tripId}/accommodations`          | Hotels/rentals with check-in/out details                                              |
-| Members               | `trek://trips/{tripId}/members`                 | Owner and collaborators                                                               |
-| Collab Notes          | `trek://trips/{tripId}/collab-notes`            | Shared collaborative notes                                                            |
-| To-Dos                | `trek://trips/{tripId}/todos`                   | To-do items ordered by position                                                       |
-| Categories            | `trek://categories`                             | Available place categories (for use when creating places)                             |
-| Bucket List           | `trek://bucket-list`                            | Your personal travel bucket list                                                      |
-| Visited Countries     | `trek://visited-countries`                      | Countries marked as visited in Atlas                                                  |
-| Notifications         | `trek://notifications/in-app`                   | Your in-app notifications (most recent 50, unread first)                              |
+| Trips                 | `memove://trips`                                  | All trips you own or are a member of                                                  |
+| Trip Detail           | `memove://trips/{tripId}`                         | Single trip with metadata and member count                                            |
+| Days                  | `memove://trips/{tripId}/days`                    | Days of a trip with their assigned places                                             |
+| Places                | `memove://trips/{tripId}/places`                  | All places/POIs saved in a trip. Supports `?assignment=all\|unassigned\|assigned`     |
+| Budget                | `memove://trips/{tripId}/budget`                  | Budget and expense items                                                              |
+| Budget Per-Person     | `memove://trips/{tripId}/budget/per-person`       | Per-person totals and split breakdown                                                 |
+| Budget Settlement     | `memove://trips/{tripId}/budget/settlement`       | Suggested transactions to settle who owes whom                                        |
+| Packing               | `memove://trips/{tripId}/packing`                 | Packing checklist                                                                     |
+| Packing Bags          | `memove://trips/{tripId}/packing/bags`            | Packing bags with their assigned members                                              |
+| Reservations          | `memove://trips/{tripId}/reservations`            | Flights, hotels, restaurants, etc.                                                    |
+| Day Notes             | `memove://trips/{tripId}/days/{dayId}/notes`      | Notes for a specific day                                                              |
+| Accommodations        | `memove://trips/{tripId}/accommodations`          | Hotels/rentals with check-in/out details                                              |
+| Members               | `memove://trips/{tripId}/members`                 | Owner and collaborators                                                               |
+| Collab Notes          | `memove://trips/{tripId}/collab-notes`            | Shared collaborative notes                                                            |
+| To-Dos                | `memove://trips/{tripId}/todos`                   | To-do items ordered by position                                                       |
+| Categories            | `memove://categories`                             | Available place categories (for use when creating places)                             |
+| Bucket List           | `memove://bucket-list`                            | Your personal travel bucket list                                                      |
+| Visited Countries     | `memove://visited-countries`                      | Countries marked as visited in Atlas                                                  |
+| Notifications         | `memove://notifications/in-app`                   | Your in-app notifications (most recent 50, unread first)                              |
 
 ### Addon-Gated Resources
 
@@ -212,17 +212,17 @@ These resources are only available when the corresponding addon is enabled by an
 
 | Resource              | URI                                             | Addon    | Description                                                         |
 |-----------------------|-------------------------------------------------|----------|---------------------------------------------------------------------|
-| Atlas Stats           | `trek://atlas/stats`                            | Atlas    | Visited country counts and continent breakdown                      |
-| Atlas Regions         | `trek://atlas/regions`                          | Atlas    | Manually visited sub-country regions                                |
-| Collab Polls          | `trek://trips/{tripId}/collab/polls`            | Collab   | All polls for a trip with vote counts per option                    |
-| Collab Messages       | `trek://trips/{tripId}/collab/messages`         | Collab   | Most recent 100 chat messages for a trip                            |
-| Vacay Plan            | `trek://vacay/plan`                             | Vacay    | Full snapshot of your active vacation plan (members, years, config) |
-| Vacay Entries         | `trek://vacay/entries/{year}`                   | Vacay    | All vacation day entries for the active plan and a specific year    |
-| Vacay Holidays        | `trek://vacay/holidays/{year}`                  | Vacay    | Public holidays for the plan's configured region and year           |
-| Journeys              | `trek://journeys`                               | Journey  | All journeys owned or contributed to by the current user            |
-| Journey Detail        | `trek://journeys/{journeyId}`                   | Journey  | Single journey with entries, contributors, and linked trips         |
-| Journey Entries       | `trek://journeys/{journeyId}/entries`           | Journey  | All entries in a journey (date, text, mood, linked trip)            |
-| Journey Contributors  | `trek://journeys/{journeyId}/contributors`      | Journey  | Contributors (owner and collaborators) of a journey                 |
+| Atlas Stats           | `memove://atlas/stats`                            | Atlas    | Visited country counts and continent breakdown                      |
+| Atlas Regions         | `memove://atlas/regions`                          | Atlas    | Manually visited sub-country regions                                |
+| Collab Polls          | `memove://trips/{tripId}/collab/polls`            | Collab   | All polls for a trip with vote counts per option                    |
+| Collab Messages       | `memove://trips/{tripId}/collab/messages`         | Collab   | Most recent 100 chat messages for a trip                            |
+| Vacay Plan            | `memove://vacay/plan`                             | Vacay    | Full snapshot of your active vacation plan (members, years, config) |
+| Vacay Entries         | `memove://vacay/entries/{year}`                   | Vacay    | All vacation day entries for the active plan and a specific year    |
+| Vacay Holidays        | `memove://vacay/holidays/{year}`                  | Vacay    | Public holidays for the plan's configured region and year           |
+| Journeys              | `memove://journeys`                               | Journey  | All journeys owned or contributed to by the current user            |
+| Journey Detail        | `memove://journeys/{journeyId}`                   | Journey  | Single journey with entries, contributors, and linked trips         |
+| Journey Entries       | `memove://journeys/{journeyId}/entries`           | Journey  | All entries in a journey (date, text, mood, linked trip)            |
+| Journey Contributors  | `memove://journeys/{journeyId}/contributors`      | Journey  | Contributors (owner and collaborators) of a journey                 |
 
 ---
 
@@ -534,7 +534,7 @@ MCP prompts are pre-built context loaders your AI client can invoke to get a str
 | `trip-summary`       | Load a formatted summary of a trip (dates, members, days, budget, packing, reservations) before planning or modifying it. |
 | `packing-list`       | Get a formatted packing checklist for a trip, grouped by category.              |
 | `budget-overview`    | Get a formatted budget summary with totals by category and per-person cost.     |
-| `token_auth_notice`  | Static token deprecation notice and migration guide. Only available in sessions authenticated with a legacy `trek_` token. |
+| `token_auth_notice`  | Static token deprecation notice and migration guide. Only available in sessions authenticated with a legacy `memove_` token. |
 
 ---
 
@@ -572,6 +572,6 @@ Currency: CHF. Use get_trip_summary at the end and give me a quick recap
 of everything that was added.
 ```
 
-PDF of the generated trip: [./docs/TREK-Generated-by-MCP.pdf](./docs/TREK-Generated-by-MCP.pdf)
+PDF of the generated trip: [./docs/memove-Generated-by-MCP.pdf](./docs/memove-Generated-by-MCP.pdf)
 
 ![trip](./docs/screenshot-trip-mcp.png)

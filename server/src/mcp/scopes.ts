@@ -78,7 +78,7 @@ export const SCOPE_INFO: Record<Scope, ScopeInfo> = {
 
 // ---------------------------------------------------------------------------
 // Scope enforcement helpers
-// null scopes = static trek_ token = full access
+// null scopes = static memove_ token = full access
 // ---------------------------------------------------------------------------
 
 /** trips:read OR trips:write OR trips:delete OR trips:share all grant read access to trips */

@@ -7,7 +7,7 @@ const stateFile = 'e2e/.tmp/state.json'
 // Credentials match e2e/server-launch.mjs (ADMIN_EMAIL/ADMIN_PASSWORD). The
 // seeded admin is created with must_change_password=1, so the first login goes
 // through the forced change-password step before reaching the dashboard.
-const EMAIL = 'e2e@trek.local'
+const EMAIL = 'e2e@memove.local'
 const SEED_PW = 'E2eTest12345!'
 const NEW_PW = 'E2eChanged12345!'
 

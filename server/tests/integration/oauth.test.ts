@@ -55,7 +55,7 @@ vi.mock('../../src/services/adminService', async (importOriginal) => {
 
 vi.mock('../../src/services/notifications', async (importOriginal) => {
     const actual = await importOriginal<typeof import('../../src/services/notifications')>();
-    return { ...actual, getMcpSafeUrl: () => 'https://trek.example.com' };
+    return { ...actual, getMcpSafeUrl: () => 'https://memove.example.com' };
 });
 
 vi.mock('../../src/websocket', () => ({ broadcast: vi.fn(), broadcastToUser: vi.fn() }));
@@ -117,7 +117,7 @@ describe('GET /.well-known/oauth-authorization-server', () => {
     it('OAUTH-001 — returns RFC 8414 discovery document', async () => {
         const res = await request(app).get('/.well-known/oauth-authorization-server');
         expect(res.status).toBe(200);
-        expect(res.body.issuer).toBe('https://trek.example.com');
+        expect(res.body.issuer).toBe('https://memove.example.com');
         expect(res.body.authorization_endpoint).toContain('/oauth/authorize');
         expect(res.body.token_endpoint).toContain('/oauth/token');
         expect(Array.isArray(res.body.scopes_supported)).toBe(true);
@@ -1359,7 +1359,7 @@ describe('POST /oauth/token — client_credentials grant', () => {
             .send({
                 grant_type: 'client_credentials',
                 client_id: r.client!.client_id,
-                client_secret: 'trekcs_wrong',
+                client_secret: 'memove_cs_wrong',
             });
 
         expect(res.status).toBe(401);

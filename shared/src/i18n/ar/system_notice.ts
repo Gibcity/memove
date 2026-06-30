@@ -19,10 +19,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'استيراد أماكن من ملفات KMZ/KML',
   'system_notice.v3_mcp.title': 'MCP: ترقية OAuth 2.1',
   'system_notice.v3_mcp.body':
-    'تمت إعادة تصميم تكامل MCP بالكامل. OAuth 2.1 هو الآن طريقة المصادقة الموصى بها. الرموز الثابتة (trek_…) مهملة وستُزال في إصدار مستقبلي.',
+    'تمت إعادة تصميم تكامل MCP بالكامل. OAuth 2.1 هو الآن طريقة المصادقة الموصى بها. الرموز الثابتة (memove_…) مهملة وستُزال في إصدار مستقبلي.',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 موصى به (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 نطاق أذونات دقيق',
-  'system_notice.v3_mcp.highlight_deprecated': 'الرموز الثابتة trek_ مهملة',
+  'system_notice.v3_mcp.highlight_deprecated': 'الرموز الثابتة memove_ مهملة',
   'system_notice.v3_mcp.highlight_tools': 'مجموعة أدوات وإرشادات موسعة',
   'system_notice.v3_thankyou.title': 'كلمة شخصية مني',
   'system_notice.v3_thankyou.body':

@@ -4,7 +4,7 @@ Production-ready setup using Docker Compose with security hardening enabled.
 
 ## Compose File
 
-See https://github.com/mauriceboe/TREK/blob/main/docker-compose.yml
+See https://github.com/Gibcity/memove/blob/main/docker-compose.yml
 
 ## Security Hardening Explained
 
@@ -34,12 +34,12 @@ services:
   app:
     # ... (rest of service config unchanged)
     volumes:
-      - trek_data:/app/data
-      - trek_uploads:/app/uploads
+      - memove_data:/app/data
+      - memove_uploads:/app/uploads
 
 volumes:
-  trek_data:
-  trek_uploads:
+  memove_data:
+  memove_uploads:
 ```
 
 Docker creates the volumes automatically on first `docker compose up`. Use `docker volume ls` and `docker volume inspect` to manage them.
@@ -52,8 +52,8 @@ The compose file reads variables from a `.env` file placed alongside `docker-com
 # .env
 ENCRYPTION_KEY=<output of: openssl rand -hex 32>
 TZ=Europe/Berlin
-ALLOWED_ORIGINS=https://trek.example.com
-APP_URL=https://trek.example.com
+ALLOWED_ORIGINS=https://memove.example.com
+APP_URL=https://memove.example.com
 ```
 
 Uncomment and fill in the OIDC, initial setup, or MCP variables as needed. For a full description of every variable, see [Environment-Variables](Environment-Variables).
@@ -64,15 +64,15 @@ Three tag strategies are available:
 
 | Tag | Example | Behavior |
 |---|---|---|
-| `latest` | `mauriceboe/trek:latest` | Always the newest release across all major versions |
-| Major version | `mauriceboe/trek:3` | Latest release pinned to that major version |
-| Full version | `mauriceboe/trek:3.0.15` | Exact release; never changes |
+| `latest` | `gibcity/memove:latest` | Always the newest release across all major versions |
+| Major version | `gibcity/memove:3` | Latest release pinned to that major version |
+| Full version | `gibcity/memove:3.0.15` | Exact release; never changes |
 
 The compose file above uses `latest`. To pin, change the `image:` line:
 
 ```yaml
-image: mauriceboe/trek:3        # track major version 3
-image: mauriceboe/trek:3.0.15   # pin to exact release
+image: gibcity/memove:3        # track major version 3
+image: gibcity/memove:3.0.15   # pin to exact release
 ```
 
 ## Start memove

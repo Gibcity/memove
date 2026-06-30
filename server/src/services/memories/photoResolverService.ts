@@ -20,18 +20,18 @@ export function getOrCreateTrekPhoto(
   passphrase?: string,
 ): number {
   const existing = db.prepare(
-    'SELECT id FROM trek_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?'
+    'SELECT id FROM memove_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?'
   ).get(provider, assetId, ownerId) as { id: number } | undefined;
   if (existing) {
     if (passphrase) {
-      db.prepare('UPDATE trek_photos SET passphrase = ? WHERE id = ?')
+      db.prepare('UPDATE memove_photos SET passphrase = ? WHERE id = ?')
         .run(encrypt_api_key(passphrase), existing.id);
     }
     return existing.id;
   }
 
   const res = db.prepare(
-    'INSERT INTO trek_photos (provider, asset_id, owner_id, passphrase) VALUES (?, ?, ?, ?)'
+    'INSERT INTO memove_photos (provider, asset_id, owner_id, passphrase) VALUES (?, ?, ?, ?)'
   ).run(provider, assetId, ownerId, passphrase ? encrypt_api_key(passphrase) : null);
   return Number(res.lastInsertRowid);
 }
@@ -43,18 +43,18 @@ export function getOrCreateLocalTrekPhoto(
   height?: number | null,
 ): number {
   const existing = db.prepare(
-    "SELECT id FROM trek_photos WHERE provider = 'local' AND file_path = ?"
+    "SELECT id FROM memove_photos WHERE provider = 'local' AND file_path = ?"
   ).get(filePath) as { id: number } | undefined;
   if (existing) return existing.id;
 
   const res = db.prepare(
-    'INSERT INTO trek_photos (provider, file_path, thumbnail_path, width, height) VALUES (?, ?, ?, ?, ?)'
+    'INSERT INTO memove_photos (provider, file_path, thumbnail_path, width, height) VALUES (?, ?, ?, ?, ?)'
   ).run('local', filePath, thumbnailPath || null, width || null, height || null);
   return Number(res.lastInsertRowid);
 }
 
 export function resolveTrekPhoto(photoId: number): TrekPhoto | null {
-  return db.prepare('SELECT * FROM trek_photos WHERE id = ?').get(photoId) as TrekPhoto | undefined || null;
+  return db.prepare('SELECT * FROM memove_photos WHERE id = ?').get(photoId) as TrekPhoto | undefined || null;
 }
 
 // ── Streaming ────────────────────────────────────────────────────────────
@@ -111,7 +111,7 @@ export async function streamPhoto(
         if (result) {
           thumbRel = result.thumbnailRelPath;
           db.prepare(
-            'UPDATE trek_photos SET thumbnail_path = ?, width = COALESCE(width, ?), height = COALESCE(height, ?) WHERE id = ?'
+            'UPDATE memove_photos SET thumbnail_path = ?, width = COALESCE(width, ?), height = COALESCE(height, ?) WHERE id = ?'
           ).run(thumbRel, result.width, result.height, photo.id);
         }
       }
@@ -204,7 +204,7 @@ export async function getPhotoInfo(
   }
 }
 
-// ── Update provider on existing trek_photo (for Immich upload sync) ─────
+// ── Update provider on existing memove_photo (for Immich upload sync) ─────
 
 export function setTrekPhotoProvider(
   trekPhotoId: number,
@@ -213,7 +213,7 @@ export function setTrekPhotoProvider(
   ownerId: number,
 ): void {
   db.prepare(
-    'UPDATE trek_photos SET provider = ?, asset_id = ?, owner_id = ? WHERE id = ?'
+    'UPDATE memove_photos SET provider = ?, asset_id = ?, owner_id = ? WHERE id = ?'
   ).run(provider, assetId, ownerId, trekPhotoId);
 }
 
@@ -227,6 +227,6 @@ export function deleteTrekPhotoIfOrphan(photoId: number): void {
     LIMIT 1
   `).get(photoId, photoId);
   if (stillUsed) return;
-  db.prepare("DELETE FROM trek_photos WHERE id = ? AND provider != 'local'").run(photoId);
+  db.prepare("DELETE FROM memove_photos WHERE id = ? AND provider != 'local'").run(photoId);
 }
 

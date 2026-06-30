@@ -123,9 +123,9 @@ The client IP is read from the `X-Forwarded-For` header. When memove is behind a
 
 In addition to the database, audit events are written to a plain-text log file:
 
-- **Path:** `./data/logs/trek.log`
+- **Path:** `./data/logs/memove.log`
 - **Rotation:** rotated when the file reaches 10 MB
-- **Retention:** the 4 most recent rotated files are kept (`trek.log.1` through `trek.log.4`)
+- **Retention:** the 4 most recent rotated files are kept (`memove.log.1` through `memove.log.4`)
 
 ## Database retention
 

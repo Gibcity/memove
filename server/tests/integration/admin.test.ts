@@ -207,9 +207,9 @@ describe('Admin user management', () => {
       "INSERT INTO trip_files (trip_id, filename, original_name, uploaded_by) VALUES (?, 'f.pdf', 'file.pdf', ?)"
     ).run(otherTrip.id, target.id);
 
-    // trek_photos.owner_id (SET NULL): target owns a photo in the central registry
+    // memove_photos.owner_id (SET NULL): target owns a photo in the central registry
     const trekPhotoRow = testDb.prepare(
-      "INSERT INTO trek_photos (provider, asset_id, owner_id) VALUES ('immich', 'asset-admin-test', ?)"
+      "INSERT INTO memove_photos (provider, asset_id, owner_id) VALUES ('immich', 'asset-admin-test', ?)"
     ).run(target.id);
 
     // trip_photos.user_id (CASCADE): target added a photo to otherUser's trip
@@ -320,8 +320,8 @@ describe('Admin user management', () => {
     expect(testDb.prepare('SELECT id FROM journey_entries WHERE journey_id = ?').get(ownedJourney.id)).toBeUndefined();
     // uploaded file survives but uploaded_by is now NULL
     expect((testDb.prepare('SELECT uploaded_by FROM trip_files WHERE id = ?').get(fileRow.lastInsertRowid) as any).uploaded_by).toBeNull();
-    // trek_photos row survives but owner_id is now NULL
-    expect((testDb.prepare('SELECT owner_id FROM trek_photos WHERE id = ?').get(trekPhotoRow.lastInsertRowid) as any).owner_id).toBeNull();
+    // memove_photos row survives but owner_id is now NULL
+    expect((testDb.prepare('SELECT owner_id FROM memove_photos WHERE id = ?').get(trekPhotoRow.lastInsertRowid) as any).owner_id).toBeNull();
     // trip_photos row for target is cascade-deleted
     expect(testDb.prepare("SELECT id FROM trip_photos WHERE trip_id = ? AND user_id = ?").get(otherTrip.id, target.id)).toBeUndefined();
     // owned trip is cascade-deleted

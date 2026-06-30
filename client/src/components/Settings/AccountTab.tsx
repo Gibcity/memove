@@ -10,7 +10,7 @@ import type { UserWithOidc } from '../../types'
 import Section from './Section'
 import PasskeysSection from './PasskeysSection'
 
-const MFA_BACKUP_SESSION_KEY = 'trek_mfa_backup_codes_pending'
+const MFA_BACKUP_SESSION_KEY = 'memove_mfa_backup_codes_pending'
 
 export default function AccountTab(): React.ReactElement {
   const { user, updateProfile, uploadAvatar, deleteAvatar, logout, loadUser, demoMode, appRequireMfa } = useAuthStore()

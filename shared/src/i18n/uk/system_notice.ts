@@ -35,10 +35,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'Імпорт місць з KMZ/KML-файлів',
   'system_notice.v3_mcp.title': 'MCP: оновлення OAuth 2.1',
   'system_notice.v3_mcp.body':
-    'Інтеграція MCP була повністю перероблена. OAuth 2.1 тепер є рекомендованим методом автентифікації. Статичні токени (trek_…) застаріли і будуть видалені в майбутній версії.',
+    'Інтеграція MCP була повністю перероблена. OAuth 2.1 тепер є рекомендованим методом автентифікації. Статичні токени (memove_…) застаріли і будуть видалені в майбутній версії.',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 рекомендовано (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 детальні області дозволів',
-  'system_notice.v3_mcp.highlight_deprecated': 'Статичні токени trek_ застаріли',
+  'system_notice.v3_mcp.highlight_deprecated': 'Статичні токени memove_ застаріли',
   'system_notice.v3_mcp.highlight_tools': 'Розширений набір інструментів',
   'system_notice.v3_thankyou.title': 'Особливе слово від мене',
   'system_notice.v3_thankyou.body':

@@ -5,14 +5,14 @@ Deploy memove on Kubernetes using the official Helm chart.
 ## Add the Chart Repository
 
 ```bash
-helm repo add trek https://mauriceboe.github.io/memove
+helm repo add memove https://mauriceboe.github.io/memove
 helm repo update
 ```
 
 ## Basic Install
 
 ```bash
-helm install trek trek/trek
+helm install memove memove/memove
 ```
 
 This deploys memove with default values: a `ClusterIP` service on port 3000, 1 Gi PVCs for data and uploads, and no ingress.
@@ -24,7 +24,7 @@ This deploys memove with default values: a `ClusterIP` service on port 3000, 1 G
 **Option 1 — Let the chart generate a random key (recommended for new installs):**
 
 ```bash
-helm install trek trek/trek --set generateEncryptionKey=true
+helm install memove memove/memove --set generateEncryptionKey=true
 ```
 
 The chart generates a 32-character alphanumeric key at install time and preserves it across upgrades. Note that this differs from the 64-character hex key produced by `openssl rand -hex 32` — both formats are accepted by the server.
@@ -32,18 +32,18 @@ The chart generates a 32-character alphanumeric key at install time and preserve
 **Option 2 — Set an explicit key:**
 
 ```bash
-helm install trek trek/trek \
+helm install memove memove/memove \
   --set secretEnv.ENCRYPTION_KEY=$(openssl rand -hex 32)
 ```
 
 **Option 3 — Use an existing Kubernetes Secret:**
 
 ```bash
-kubectl create secret generic trek-secrets \
+kubectl create secret generic memove-secrets \
   --from-literal=ENCRYPTION_KEY=$(openssl rand -hex 32)
 
-helm install trek trek/trek \
-  --set existingSecret=trek-secrets
+helm install memove memove/memove \
+  --set existingSecret=memove-secrets
 ```
 
 If `existingSecret` uses a different key name than `ENCRYPTION_KEY`, specify it with `--set existingSecretKey=MY_KEY_NAME`.
@@ -56,10 +56,10 @@ If `existingSecret` uses a different key name than `ENCRYPTION_KEY`, specify it 
 
 ## Admin Account
 
-`ADMIN_EMAIL` and `ADMIN_PASSWORD` are set via `secretEnv`. They are only used on first boot when no users exist yet. **Both must be set together** — if either is missing, the server ignores both values and instead creates the admin account with email `admin@trek.local` and a random password, which is printed to the server log.
+`ADMIN_EMAIL` and `ADMIN_PASSWORD` are set via `secretEnv`. They are only used on first boot when no users exist yet. **Both must be set together** — if either is missing, the server ignores both values and instead creates the admin account with email `admin@memove.local` and a random password, which is printed to the server log.
 
 ```bash
-helm install trek trek/trek \
+helm install memove memove/memove \
   --set secretEnv.ADMIN_EMAIL=admin@example.com \
   --set secretEnv.ADMIN_PASSWORD=<your-secure-password>
 ```
@@ -72,7 +72,7 @@ helm install trek trek/trek \
 
 ```yaml
 image:
-  repository: mauriceboe/trek
+  repository: gibcity/memove
   # tag: latest        # defaults to the chart's appVersion
   pullPolicy: IfNotPresent
 
@@ -98,8 +98,8 @@ env:
   # TZ: "Europe/Berlin"          # timezone for logs, reminders, cron jobs
   # LOG_LEVEL: "info"            # "info" = concise, "debug" = verbose
   # DEFAULT_LANGUAGE: "en"       # fallback language on login page; supported: de, en, es, fr, hu, nl, br, cs, pl, ru, zh, zh-TW, it, tr, ar, id, ja, ko, uk, gr
-  # ALLOWED_ORIGINS: "https://trek.example.com"
-  # APP_URL: "https://trek.example.com"
+  # ALLOWED_ORIGINS: "https://memove.example.com"
+  # APP_URL: "https://memove.example.com"
   # FORCE_HTTPS: "false"         # enable HTTPS redirect + HSTS; requires TRUST_PROXY
   # TRUST_PROXY: "1"             # proxy hops for X-Forwarded-For/Proto; defaults to 1 in production
   # COOKIE_SECURE: "true"        # auto-derived; set "false" only for local HTTP testing
@@ -107,7 +107,7 @@ env:
   # DEMO_MODE: "false"           # enable demo mode (hourly data resets)
   # MCP_RATE_LIMIT: "300"        # max MCP requests per user per minute
   # OIDC_ISSUER: "https://auth.example.com"
-  # OIDC_CLIENT_ID: "trek"
+  # OIDC_CLIENT_ID: "memove"
   # OIDC_DISPLAY_NAME: "SSO"
   # OIDC_ONLY: "false"           # force SSO-only mode; disables password login
   # OIDC_ADMIN_CLAIM: ""         # OIDC claim used to identify admin users
@@ -163,13 +163,13 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "86400"  # required for WebSockets
     nginx.ingress.kubernetes.io/proxy-body-size: "500m"       # required for backup restore
   hosts:
-    - host: trek.example.com
+    - host: memove.example.com
       paths:
         - /
   tls:
-    - secretName: trek-tls
+    - secretName: memove-tls
       hosts:
-        - trek.example.com
+        - memove.example.com
 ```
 
 > **Important:** memove uses WebSockets on `/ws`. Your ingress controller must support WebSocket upgrades. Set `proxy-read-timeout` to at least `86400` and `proxy-body-size` to at least `500m` for backup restores.
@@ -182,12 +182,12 @@ ingress:
 
 ```bash
 helm repo update
-helm upgrade trek trek/trek
+helm upgrade memove memove/memove
 ```
 
 ## Full Values Reference
 
-See the [`charts/README.md`](https://github.com/mauriceboe/TREK/blob/main/charts/README.md) for all available values.
+See the [`charts/README.md`](https://github.com/Gibcity/memove/blob/main/charts/README.md) for all available values.
 
 ## Next Steps
 

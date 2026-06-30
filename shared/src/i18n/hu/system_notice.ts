@@ -35,10 +35,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'Helyek importálása KMZ/KML fájlokból',
   'system_notice.v3_mcp.title': 'MCP: OAuth 2.1 frissítés',
   'system_notice.v3_mcp.body':
-    'Az MCP integráció teljesen megújult. Az OAuth 2.1 mostantól az ajánlott hitelesítési módszer. A statikus tokenek (trek_…) elavultak és egy jövőbeli kiadásban eltávolításra kerülnek.',
+    'Az MCP integráció teljesen megújult. Az OAuth 2.1 mostantól az ajánlott hitelesítési módszer. A statikus tokenek (memove_…) elavultak és egy jövőbeli kiadásban eltávolításra kerülnek.',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 ajánlott (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 részletes engedélyezési hatókör',
-  'system_notice.v3_mcp.highlight_deprecated': 'Statikus trek_ tokenek elavultak',
+  'system_notice.v3_mcp.highlight_deprecated': 'Statikus memove_ tokenek elavultak',
   'system_notice.v3_mcp.highlight_tools': 'Bővített eszközkészlet és promptok',
   'system_notice.v3_thankyou.title': 'Egy személyes gondolat tőlem',
   'system_notice.v3_thankyou.body':

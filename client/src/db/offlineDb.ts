@@ -80,7 +80,7 @@ function userDbName(userId: number | string): string {
  */
 function initialDbName(): string {
   try {
-    const raw = typeof localStorage !== 'undefined' ? localStorage.getItem('trek_auth_snapshot') : null;
+    const raw = typeof localStorage !== 'undefined' ? localStorage.getItem('memove_auth_snapshot') : null;
     if (!raw) return ANON_DB_NAME;
     const id = JSON.parse(raw)?.state?.user?.id;
     return id != null ? userDbName(id) : ANON_DB_NAME;

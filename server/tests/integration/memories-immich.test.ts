@@ -425,8 +425,8 @@ describe('Immich asset proxy', () => {
     const { user: member } = createUser(testDb);
     // Insert a shared photo referencing a trip that doesn't exist (FK disabled temporarily)
     testDb.exec('PRAGMA foreign_keys = OFF');
-    testDb.prepare('INSERT OR IGNORE INTO trek_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)').run('immich', 'asset-notrip', owner.id);
-    const tkpNotrip = testDb.prepare('SELECT id FROM trek_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?').get('immich', 'asset-notrip', owner.id) as any;
+    testDb.prepare('INSERT OR IGNORE INTO memove_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)').run('immich', 'asset-notrip', owner.id);
+    const tkpNotrip = testDb.prepare('SELECT id FROM memove_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?').get('immich', 'asset-notrip', owner.id) as any;
     testDb.prepare(
       'INSERT INTO trip_photos (trip_id, user_id, photo_id, shared) VALUES (?, ?, ?, ?)'
     ).run(9999, owner.id, tkpNotrip.id, 1);
@@ -545,7 +545,7 @@ describe('Immich syncAlbumAssets', () => {
     // Verify photos were inserted into the DB
     const photos = testDb.prepare(`
       SELECT tp.*, tkp.provider FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tp.user_id = ?
     `).all(trip.id, user.id) as any[];
     expect(photos.length).toBeGreaterThan(0);

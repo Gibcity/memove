@@ -26,19 +26,19 @@ function cachedFilePath(key: string): string {
 
 export function getFresh(key: string): { filePath: string; contentType: string } | null {
   const row = db.prepare(
-    'SELECT content_type, fetched_at FROM trek_photo_cache_meta WHERE cache_key = ?'
+    'SELECT content_type, fetched_at FROM memove_photo_cache_meta WHERE cache_key = ?'
   ).get(key) as { content_type: string; fetched_at: number } | undefined;
 
   if (!row) return null;
 
   if (Date.now() - row.fetched_at >= CACHE_TTL) {
-    db.prepare('DELETE FROM trek_photo_cache_meta WHERE cache_key = ?').run(key);
+    db.prepare('DELETE FROM memove_photo_cache_meta WHERE cache_key = ?').run(key);
     return null;
   }
 
   const fp = cachedFilePath(key);
   if (!fs.existsSync(fp)) {
-    db.prepare('DELETE FROM trek_photo_cache_meta WHERE cache_key = ?').run(key);
+    db.prepare('DELETE FROM memove_photo_cache_meta WHERE cache_key = ?').run(key);
     return null;
   }
 
@@ -54,7 +54,7 @@ export async function put(key: string, bytes: Buffer, contentType: string): Prom
   await fsPromises.rename(tmp, fp);
 
   db.prepare(
-    'INSERT OR REPLACE INTO trek_photo_cache_meta (cache_key, content_type, fetched_at) VALUES (?, ?, ?)'
+    'INSERT OR REPLACE INTO memove_photo_cache_meta (cache_key, content_type, fetched_at) VALUES (?, ?, ?)'
   ).run(key, contentType, Date.now());
 }
 
@@ -80,11 +80,11 @@ export function setInFlight(key: string, promise: Promise<Buffer | null>): void 
 export function sweepExpired(): void {
   const cutoff = Date.now() - CACHE_TTL * 2;
   const stale = db.prepare(
-    'SELECT cache_key FROM trek_photo_cache_meta WHERE fetched_at < ?'
+    'SELECT cache_key FROM memove_photo_cache_meta WHERE fetched_at < ?'
   ).all(cutoff) as { cache_key: string }[];
 
   for (const row of stale) {
-    db.prepare('DELETE FROM trek_photo_cache_meta WHERE cache_key = ?').run(row.cache_key);
+    db.prepare('DELETE FROM memove_photo_cache_meta WHERE cache_key = ?').run(row.cache_key);
     const fp = cachedFilePath(row.cache_key);
     if (fs.existsSync(fp)) fs.unlinkSync(fp);
   }

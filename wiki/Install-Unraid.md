@@ -29,8 +29,8 @@ The Unraid template exposes the following fields in the container UI:
 | Field | Container path | Default host value |
 |---|---|---|
 | Web UI Port | `3000/tcp` | `3000` |
-| Data | `/app/data` | `/mnt/user/appdata/trek/data` |
-| Uploads | `/app/uploads` | `/mnt/user/appdata/trek/uploads` |
+| Data | `/app/data` | `/mnt/user/appdata/memove/data` |
+| Uploads | `/app/uploads` | `/mnt/user/appdata/memove/uploads` |
 
 ### Core Variables (always visible)
 
@@ -38,10 +38,10 @@ The Unraid template exposes the following fields in the container UI:
 |---|---|---|
 | `ENCRYPTION_KEY` | *(empty)* | Set on first install. Generate with `openssl rand -hex 32` in the Unraid terminal. |
 | `TZ` | `UTC` | Timezone for logs, reminders, and scheduled tasks (e.g. `Europe/Berlin`) |
-| `ALLOWED_ORIGINS` | *(empty)* | Comma-separated origins for CORS and email notification links, e.g. `https://trek.example.com` |
+| `ALLOWED_ORIGINS` | *(empty)* | Comma-separated origins for CORS and email notification links, e.g. `https://memove.example.com` |
 | `APP_URL` | *(empty)* | Public base URL; required when OIDC is enabled (must match the redirect URI registered with your IdP) |
 | `ADMIN_EMAIL` | *(empty)* | Email for the first admin account (first-boot only; no effect once any user exists). Must be set together with `ADMIN_PASSWORD`. |
-| `ADMIN_PASSWORD` | *(empty)* | Password for the first admin account (first-boot only). Must be set together with `ADMIN_EMAIL`. If either is omitted, TREK creates the account with email `admin@trek.local` and a random password printed to the container log. |
+| `ADMIN_PASSWORD` | *(empty)* | Password for the first admin account (first-boot only). Must be set together with `ADMIN_EMAIL`. If either is omitted, memove creates the account with email `admin@memove.local` and a random password printed to the container log. |
 
 ### Advanced Variables
 
@@ -65,7 +65,7 @@ Once the container starts, open your browser at:
 http://<unraid-ip>:<port>
 ```
 
-On first boot, memove automatically creates an admin account. The credentials are printed to the container log — check **Docker → trek → Log** in the Unraid UI. If you set both `ADMIN_EMAIL` and `ADMIN_PASSWORD`, those values are used; otherwise the email is `admin@trek.local` and a random password is generated.
+On first boot, memove automatically creates an admin account. The credentials are printed to the container log — check **Docker → memove → Log** in the Unraid UI. If you set both `ADMIN_EMAIL` and `ADMIN_PASSWORD`, those values are used; otherwise the email is `admin@memove.local` and a random password is generated.
 
 ## Next Steps
 

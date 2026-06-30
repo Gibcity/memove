@@ -19,10 +19,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'KMZ/KMLから場所をインポート',
   'system_notice.v3_mcp.title': 'MCP：OAuth 2.1に更新',
   'system_notice.v3_mcp.body':
-    'MCP連携が全面的に刷新されました。OAuth 2.1が推奨認証方式です。従来の静的トークン（trek_…）は非推奨となり、将来削除されます。',
+    'MCP連携が全面的に刷新されました。OAuth 2.1が推奨認証方式です。従来の静的トークン（memove_…）は非推奨となり、将来削除されます。',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1推奨（mcp-remote）',
   'system_notice.v3_mcp.highlight_scopes': '24の詳細な権限スコープ',
-  'system_notice.v3_mcp.highlight_deprecated': '静的trek_トークンは非推奨',
+  'system_notice.v3_mcp.highlight_deprecated': '静的memove_トークンは非推奨',
   'system_notice.v3_mcp.highlight_tools': 'ツールとプロンプトを拡張',
   'system_notice.v3_thankyou.title': '開発者より一言',
   'system_notice.v3_thankyou.body':

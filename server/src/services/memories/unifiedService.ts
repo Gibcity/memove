@@ -50,7 +50,7 @@ export function listTripPhotos(tripId: string, userId: number): ServiceResult<an
       SELECT tp.photo_id, tkp.asset_id, tkp.provider, tp.user_id, tp.shared, tp.added_at,
              u.username, u.avatar
       FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       JOIN users u ON tp.user_id = u.id
       WHERE tp.trip_id = ?
         AND (tp.user_id = ? OR tp.shared = 1)

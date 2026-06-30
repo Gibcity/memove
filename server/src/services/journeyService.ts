@@ -12,7 +12,7 @@ function ts(): number {
   return Date.now();
 }
 
-// Per-entry photo view: join journey_entry_photos → journey_photos (gallery) → trek_photos.
+// Per-entry photo view: join journey_entry_photos → journey_photos (gallery) → memove_photos.
 // id = gp.id (gallery photo id) — used by clients for linkPhoto/updatePhoto/unlink/delete.
 const JP_SELECT = `
   gp.id, jep.entry_id, gp.photo_id, gp.caption, jep.sort_order, gp.shared, gp.created_at,
@@ -20,14 +20,14 @@ const JP_SELECT = `
 `;
 const JP_JOIN = `journey_entry_photos jep
   JOIN journey_photos gp ON gp.id  = jep.journey_photo_id
-  JOIN trek_photos    tp ON tp.id  = gp.photo_id`;
+  JOIN memove_photos    tp ON tp.id  = gp.photo_id`;
 
-// Per-journey gallery view: journey_photos → trek_photos (no entry context).
+// Per-journey gallery view: journey_photos → memove_photos (no entry context).
 const GALLERY_SELECT = `
   gp.id, gp.journey_id, gp.photo_id, gp.caption, gp.shared, gp.sort_order, gp.created_at,
   tp.provider, tp.asset_id, tp.owner_id, tp.file_path, tp.thumbnail_path, tp.width, tp.height
 `;
-const GALLERY_JOIN = 'journey_photos gp JOIN trek_photos tp ON tp.id = gp.photo_id';
+const GALLERY_JOIN = 'journey_photos gp JOIN memove_photos tp ON tp.id = gp.photo_id';
 
 function broadcastJourneyEvent(
   journeyId: number,
@@ -812,7 +812,7 @@ function promoteSkeletonIfNeeded(entry: JourneyEntry): void {
   db.prepare('UPDATE journey_entries SET type = ?, updated_at = ? WHERE id = ?').run('entry', ts(), entry.id);
 }
 
-// Ensure a trek_photo_id is in the journey gallery; return its gallery row id.
+// Ensure a memove_photo_id is in the journey gallery; return its gallery row id.
 function ensureInGallery(journeyId: number, trekPhotoId: number, caption?: string, shared?: number): number {
   const now = ts();
   const maxOrderRow = db
@@ -982,7 +982,7 @@ export function deleteGalleryPhoto(
   if (!row) return null;
   if (!canEdit(row.journey_id, userId)) return null;
 
-  const trekRow = db.prepare('SELECT file_path, provider FROM trek_photos WHERE id = ?').get(row.photo_id) as
+  const trekRow = db.prepare('SELECT file_path, provider FROM memove_photos WHERE id = ?').get(row.photo_id) as
     | { file_path?: string; provider?: string }
     | undefined;
 
@@ -994,7 +994,7 @@ export function deleteGalleryPhoto(
 }
 
 export function setPhotoProvider(photoId: number, provider: string, assetId: string, ownerId: number) {
-  // photoId = journey_photos.id (gallery row); look up the trek_photo_id
+  // photoId = journey_photos.id (gallery row); look up the memove_photo_id
   const jp = db.prepare('SELECT photo_id FROM journey_photos WHERE id = ?').get(photoId) as
     | { photo_id: number }
     | undefined;
@@ -1047,7 +1047,7 @@ export function deletePhoto(
   if (!row) return null;
   if (!canEdit(row.journey_id, userId)) return null;
 
-  const trekRow = db.prepare('SELECT file_path, provider FROM trek_photos WHERE id = ?').get(row.photo_id) as
+  const trekRow = db.prepare('SELECT file_path, provider FROM memove_photos WHERE id = ?').get(row.photo_id) as
     | { file_path?: string; provider?: string }
     | undefined;
 

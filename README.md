@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/logo-trek-light.gif" />
-  <source media="(prefers-color-scheme: light)" srcset="docs/logo-trek-dark.gif" />
-  <img src="docs/logo-trek-dark.gif" alt="memove" height="96" />
+  <source media="(prefers-color-scheme: dark)" srcset="docs/logo-memove-light.gif" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/logo-memove-dark.gif" />
+  <img src="docs/logo-memove-dark.gif" alt="memove" height="96" />
 </picture>
 
 <br />
@@ -18,9 +18,9 @@ A self-hosted, real-time collaborative travel planner — with maps, budgets, pa
 
 <br />
 
-<a href="https://demo.liketrek.com"><img alt="Demo" src="https://img.shields.io/badge/Demo-try-111827?style=for-the-badge" /></a>
+<a href="https://demo.memove.app"><img alt="Demo" src="https://img.shields.io/badge/Demo-try-111827?style=for-the-badge" /></a>
 &nbsp;
-<a href="https://hub.docker.com/r/mauriceboe/trek"><img alt="Docker" src="https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge" /></a>
+<a href="https://hub.docker.com/r/gibcity/memove"><img alt="Docker" src="https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge" /></a>
 &nbsp;
 <a href="https://discord.gg/NhZBDSd4qW"><img alt="Discord" src="https://img.shields.io/badge/Discord-join-5865F2?style=for-the-badge" /></a>
 &nbsp;
@@ -31,9 +31,9 @@ A self-hosted, real-time collaborative travel planner — with maps, budgets, pa
 <a href="https://www.buymeacoffee.com/mauriceboe"><img alt="BMAC" src="https://img.shields.io/badge/BMAC-support-FFDD00?style=for-the-badge" /></a>
 <br />
 <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-AGPL_v3-6B7280?style=flat-square" /></a>
-<a href="https://github.com/mauriceboe/TREK/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/mauriceboe/memove?include_prereleases&style=flat-square&color=6B7280" /></a>
-<a href="https://hub.docker.com/r/mauriceboe/trek"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/mauriceboe/trek?style=flat-square&color=6B7280" /></a>
-<a href="https://github.com/mauriceboe/TREK"><img alt="Stars" src="https://img.shields.io/github/stars/mauriceboe/memove?style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/Gibcity/memove/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/Gibcity/memove?include_prereleases&style=flat-square&color=6B7280" /></a>
+<a href="https://hub.docker.com/r/gibcity/memove"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/gibcity/memove?style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/Gibcity/memove"><img alt="Stars" src="https://img.shields.io/github/stars/Gibcity/memove?style=flat-square&color=6B7280" /></a>
 
 </div>
 
@@ -41,7 +41,7 @@ A self-hosted, real-time collaborative travel planner — with maps, budgets, pa
 
 <div align="center">
 
-<img src="https://github.com/mauriceboe/trek-media/releases/download/readme-assets/TREK1.gif" alt="memove — 60-second tour" width="100%" />
+<img src="https://github.com/Gibcity/memove-media/releases/download/readme-assets/memove1.gif" alt="memove — 60-second tour" width="100%" />
 
 </div>
 
@@ -176,10 +176,10 @@ A self-hosted, real-time collaborative travel planner — with maps, budgets, pa
 ```bash
 ENCRYPTION_KEY=$(openssl rand -hex 32) docker run -d -p 3000:3000 \
   -e ENCRYPTION_KEY=$ENCRYPTION_KEY \
-  -v ./data:/app/data -v ./uploads:/app/uploads mauriceboe/trek
+  -v ./data:/app/data -v ./uploads:/app/uploads mauriceboe/memove
 ```
 
-Open `http://localhost:3000`. On first boot memove seeds an admin account — if you set `ADMIN_EMAIL`/`ADMIN_PASSWORD` those are used, otherwise the credentials are printed to the container log (`docker logs trek`).
+Open `http://localhost:3000`. On first boot memove seeds an admin account — if you set `ADMIN_EMAIL`/`ADMIN_PASSWORD` those are used, otherwise the credentials are printed to the container log (`docker logs memove`).
 
 <div align="center">
 
@@ -217,8 +217,8 @@ Real-time sync via WebSocket (`ws`). Backend on NestJS 11. State with Zustand. A
 ```yaml
 services:
   app:
-    image: mauriceboe/trek:latest
-    container_name: trek
+    image: gibcity/memove:latest
+    container_name: memove
     read_only: true
     security_opt:
       - no-new-privileges:true
@@ -243,11 +243,11 @@ services:
       # - FORCE_HTTPS=true                   # behind a TLS-terminating proxy
       # - TRUST_PROXY=1
       # - OIDC_ISSUER=https://auth.example.com
-      # - OIDC_CLIENT_ID=trek
+      # - OIDC_CLIENT_ID=memove
       # - OIDC_CLIENT_SECRET=supersecret
       # - OIDC_DISPLAY_NAME=SSO
       # - OIDC_ADMIN_CLAIM=groups
-      # - OIDC_ADMIN_VALUE=app-trek-admins
+      # - OIDC_ADMIN_VALUE=app-memove-admins
     volumes:
       - ./data:/app/data
       - ./uploads:/app/uploads
@@ -275,12 +275,12 @@ docker compose up -d
 <h2 id="helm-kubernetes">Helm (Kubernetes)</h2>
 
 ```bash
-helm repo add trek https://mauriceboe.github.io/memove
+helm repo add memove https://gibcity.github.io/memove
 helm repo update
-helm install trek trek/trek
+helm install memove memove/memove
 ```
 
-See [`charts/README.md`](https://github.com/mauriceboe/TREK/blob/main/charts/README.md) for values.
+See [`charts/README.md`](https://github.com/Gibcity/memove/blob/main/charts/README.md) for values.
 
 <h2 id="install-as-app-pwa">Install as App (PWA)</h2>
 
@@ -305,12 +305,12 @@ docker compose pull && docker compose up -d
 **Docker run** — reuse the original volume paths:
 
 ```bash
-docker pull mauriceboe/trek
-docker rm -f trek
-docker run -d --name trek -p 3000:3000 -v ./data:/app/data -v ./uploads:/app/uploads --restart unless-stopped mauriceboe/trek
+docker pull gibcity/memove
+docker rm -f memove
+docker run -d --name memove -p 3000:3000 -v ./data:/app/data -v ./uploads:/app/uploads --restart unless-stopped gibcity/memove
 ```
 
-> Not sure which paths you used? `docker inspect trek --format '{{json .Mounts}}'` before removing the container.
+> Not sure which paths you used? `docker inspect memove --format '{{json .Mounts}}'` before removing the container.
 
 Your data stays in the mounted `data` and `uploads` volumes — updates never touch it.
 
@@ -322,7 +322,7 @@ Your data stays in the mounted `data` and `uploads` volumes — updates never to
 If you need to rotate `ENCRYPTION_KEY` (e.g. upgrading from a version that derived encryption from `JWT_SECRET`):
 
 ```bash
-docker exec -it trek node --import tsx scripts/migrate-encryption.ts
+docker exec -it memove node --import tsx scripts/migrate-encryption.ts
 ```
 
 The script creates a timestamped DB backup before making changes and prompts for old + new keys (input is not echoed).
@@ -337,13 +337,13 @@ For production, put memove behind a TLS-terminating reverse proxy. memove uses W
 ```nginx
 server {
     listen 80;
-    server_name trek.yourdomain.com;
+    server_name memove.yourdomain.com;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name trek.yourdomain.com;
+    server_name memove.yourdomain.com;
 
     ssl_certificate     /etc/ssl/fullchain.pem;
     ssl_certificate_key /etc/ssl/privkey.pem;
@@ -377,7 +377,7 @@ server {
 <summary>Caddy</summary>
 
 ```caddy
-trek.yourdomain.com {
+memove.yourdomain.com {
     reverse_proxy localhost:3000
 }
 ```
@@ -407,12 +407,12 @@ Caddy handles TLS and WebSockets automatically.
 | `ALLOWED_ORIGINS` | Comma-separated origins for CORS and email links | same-origin |
 | `FORCE_HTTPS` | Optional. When `true`: 301-redirects HTTP to HTTPS, sends HSTS, adds CSP `upgrade-insecure-requests`, forces the session cookie `secure` flag. Useful behind a TLS-terminating reverse proxy. Requires `TRUST_PROXY`. | `false` |
 | `HSTS_INCLUDE_SUBDOMAINS` | When `true`: adds the `includeSubDomains` directive to the HSTS header, extending HTTPS enforcement to all subdomains. Only effective when HSTS is active (`FORCE_HTTPS=true` or `NODE_ENV=production`). Leave `false` if you run other services on sibling subdomains over plain HTTP. | `false` |
-| `COOKIE_SECURE` | Controls the `secure` flag on the `trek_session` cookie. Auto-derived: on when `NODE_ENV=production` or `FORCE_HTTPS=true`. Escape hatch: set `false` to allow session cookies over plain HTTP. Not recommended in production. | auto |
-| `SESSION_DURATION` | How long a login session stays valid when **"Remember me" is unchecked** (the default): sets the `trek_session` JWT `exp` and issues a browser-session cookie (cleared when the browser closes). Accepts `ms`-style strings: `1h`, `12h`, `7d`, `30d`, `90d`. Invalid values warn at startup and fall back to the default. | `24h` |
-| `SESSION_DURATION_REMEMBER` | Session length when **"Remember me" is ticked** at login: a longer-lived JWT plus a persistent `trek_session` cookie that survives browser restarts. Same format and startup-fallback behaviour as `SESSION_DURATION`. | `30d` |
+| `COOKIE_SECURE` | Controls the `secure` flag on the `memove_session` cookie. Auto-derived: on when `NODE_ENV=production` or `FORCE_HTTPS=true`. Escape hatch: set `false` to allow session cookies over plain HTTP. Not recommended in production. | auto |
+| `SESSION_DURATION` | How long a login session stays valid when **"Remember me" is unchecked** (the default): sets the `memove_session` JWT `exp` and issues a browser-session cookie (cleared when the browser closes). Accepts `ms`-style strings: `1h`, `12h`, `7d`, `30d`, `90d`. Invalid values warn at startup and fall back to the default. | `24h` |
+| `SESSION_DURATION_REMEMBER` | Session length when **"Remember me" is ticked** at login: a longer-lived JWT plus a persistent `memove_session` cookie that survives browser restarts. Same format and startup-fallback behaviour as `SESSION_DURATION`. | `30d` |
 | `TRUST_PROXY` | Number of trusted reverse proxies. Tells the server to read client IP from `X-Forwarded-For` and protocol from `X-Forwarded-Proto`. Defaults to `1` in production; off in dev unless set. | `1` |
 | `ALLOW_INTERNAL_NETWORK` | Allow outbound requests to private/RFC-1918 IPs (e.g. Immich on your LAN). Loopback and link-local addresses remain blocked. | `false` |
-| `APP_URL` | Public base URL of this instance (e.g. `https://trek.example.com`). Required when OIDC is enabled; used as base for email notification links. | — |
+| `APP_URL` | Public base URL of this instance (e.g. `https://memove.example.com`). Required when OIDC is enabled; used as base for email notification links. | — |
 | **OIDC / SSO** | | |
 | `OIDC_ISSUER` | OpenID Connect provider URL | — |
 | `OIDC_CLIENT_ID` | OIDC client ID | — |
@@ -422,9 +422,9 @@ Caddy handles TLS and WebSockets automatically.
 | `OIDC_ADMIN_CLAIM` | OIDC claim used to identify admin users | — |
 | `OIDC_ADMIN_VALUE` | Value of the OIDC claim that grants admin role | — |
 | `OIDC_SCOPE` | Space-separated OIDC scopes. **Fully replaces** the default — always include `openid email profile`. | `openid email profile` |
-| `OIDC_DISCOVERY_URL` | Override the auto-constructed OIDC discovery endpoint (e.g. Authentik: `.../application/o/trek/.well-known/openid-configuration`) | — |
+| `OIDC_DISCOVERY_URL` | Override the auto-constructed OIDC discovery endpoint (e.g. Authentik: `.../application/o/memove/.well-known/openid-configuration`) | — |
 | **Initial setup** | | |
-| `ADMIN_EMAIL` | Email for the first admin on initial boot. Must be set together with `ADMIN_PASSWORD`. If either is omitted a random password is printed to the server log. No effect once a user exists. | `admin@trek.local` |
+| `ADMIN_EMAIL` | Email for the first admin on initial boot. Must be set together with `ADMIN_PASSWORD`. If either is omitted a random password is printed to the server log. No effect once a user exists. | `admin@memove.local` |
 | `ADMIN_PASSWORD` | Password for the first admin on initial boot. Pairs with `ADMIN_EMAIL`. | random |
 | **Other** | | |
 | `DEMO_MODE` | Enable demo mode (hourly data resets) | `false` |
@@ -439,7 +439,7 @@ Caddy handles TLS and WebSockets automatically.
 
 - **Database** — SQLite, stored in `./data/travel.db`
 - **Uploads** — stored in `./uploads/`
-- **Logs** — `./data/logs/trek.log` (auto-rotated)
+- **Logs** — `./data/logs/memove.log` (auto-rotated)
 - **Backups** — create and restore via Admin Panel
 - **Auto-Backups** — configurable schedule and retention in Admin Panel
 

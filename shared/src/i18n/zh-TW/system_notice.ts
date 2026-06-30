@@ -34,10 +34,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': '從 KMZ/KML 檔案匯入地點',
   'system_notice.v3_mcp.title': 'MCP：OAuth 2.1 升級',
   'system_notice.v3_mcp.body':
-    'MCP 整合已全面重構。OAuth 2.1 現為建議的身份驗證方式。靜態令牌（trek_…）已棄用，將於未來版本移除。',
+    'MCP 整合已全面重構。OAuth 2.1 現為建議的身份驗證方式。靜態令牌（memove_…）已棄用，將於未來版本移除。',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 建議（mcp-remote）',
   'system_notice.v3_mcp.highlight_scopes': '24 個細粒度權限範圍',
-  'system_notice.v3_mcp.highlight_deprecated': '靜態 trek_ 令牌已棄用',
+  'system_notice.v3_mcp.highlight_deprecated': '靜態 memove_ 令牌已棄用',
   'system_notice.v3_mcp.highlight_tools': '擴展工具集與提示詞',
   'system_notice.v3_thankyou.title': '來自我的一封私人信',
   'system_notice.v3_thankyou.body':

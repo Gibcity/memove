@@ -63,7 +63,7 @@ describe('Weather e2e (real auth guard + temp SQLite)', () => {
   });
 
   it('401 with an invalid token', async () => {
-    const res = await request(server).get('/api/weather').set('Cookie', 'trek_session=not-a-jwt').query({ lat: '1', lng: '2' });
+    const res = await request(server).get('/api/weather').set('Cookie', 'memove_session=not-a-jwt').query({ lat: '1', lng: '2' });
     expect(res.status).toBe(401);
     expect(res.body).toEqual({ error: 'Invalid or expired token', code: 'AUTH_REQUIRED' });
   });

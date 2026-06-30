@@ -68,7 +68,7 @@ interface GooglePlaceDetails extends GooglePlaceResult {
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-const UA = 'TREK Travel Planner (https://github.com/mauriceboe/TREK)';
+const UA = 'memove (https://github.com/Gibcity/memove)';
 
 // TREK's internal language codes mostly coincide with valid BCP-47 codes, but a
 // couple don't: 'br' is Brazilian Portuguese here (BCP-47 'pt-BR'; bare 'br' is
@@ -1033,7 +1033,7 @@ export async function resolveGoogleMapsUrl(url: string): Promise<{ lat: number; 
   if (!coords) {
     try {
       const pageRes = await followRedirects(resolvedUrl, {
-        headers: { 'User-Agent': 'TREK-Travel-Planner/1.0' },
+        headers: { 'User-Agent': 'memove/1.0' },
       });
       coords = extractCoords(await pageRes.text());
     } catch (err) {
@@ -1057,7 +1057,7 @@ export async function resolveGoogleMapsUrl(url: string): Promise<{ lat: number; 
   // Reverse geocode to get address
   const nominatimRes = await fetch(
     `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1`,
-    { headers: { 'User-Agent': 'TREK-Travel-Planner/1.0' }, signal: AbortSignal.timeout(8000) }
+    { headers: { 'User-Agent': 'memove/1.0' }, signal: AbortSignal.timeout(8000) }
   );
   const nominatim = await nominatimRes.json() as { display_name?: string; name?: string; address?: Record<string, string> };
 

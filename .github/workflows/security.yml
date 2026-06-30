@@ -22,7 +22,7 @@ jobs:
           context: .
           push: false
           load: true
-          tags: trek:scan
+          tags: memove:scan
 
       - uses: docker/login-action@v3
         with:
@@ -32,7 +32,7 @@ jobs:
       - uses: docker/scout-action@v1
         with:
           command: cves
-          image: trek:scan
+          image: memove:scan
           only-severities: critical,high
           only-fixed: true
           exit-code: true

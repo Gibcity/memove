@@ -169,7 +169,7 @@ that feels responsive and physical. This replaces all Tailwind defaults.
   `[data-press]` scale to `0.985`. This tactile response is core to the feel.
 - **Enter animations:** Popovers scale from `0.95` at 200ms. Modals from `0.97` at 220ms.
   On mobile, modals slide up as drawers (`translateY(100%)` → `0` at 320ms with `easeDrawer`).
-- **Stagger:** List items fade-up with 40ms offset per child (`.trek-stagger > *`).
+- **Stagger:** List items fade-up with 40ms offset per child (`.memove-stagger > *`).
 - **Theme crossfade:** 320ms transition on `background-color`, `color`, `border-color`
   during dark/light switch.
 - **Reduced motion:** Honored — animations shorten to 120ms ease-out, skeleton shimmer
@@ -205,8 +205,8 @@ Scale to 1.1 on hover with shadow expansion.
 
 - Use CSS variable tokens (`var(--text-primary)`, `bg-surface`, `text-content`)
   instead of hardcoded Tailwind color classes.
-- Apply the `trek-page-enter` class to new pages for the subtle fade-up on mount.
-- Use `trek-stagger` on lists for the cascading entrance.
+- Apply the `memove-page-enter` class to new pages for the subtle fade-up on mount.
+- Use `memove-stagger` on lists for the cascading entrance.
 - Add `[data-press]` to clickable cards/tiles for the gentle press scale.
 - Use `ease-out-quint` for all transitions — it's the signature feel.
 

@@ -38,7 +38,7 @@ export default function RelocationChat(): React.ReactElement {
   const empty = messages.length === 0
 
   return (
-    <div className="flex flex-col h-[calc(100vh-12rem)] trek-page-enter">
+    <div className="flex flex-col h-[calc(100vh-12rem)] memove-page-enter">
       {/* ── Header strip ─────────────────────────────────────────── */}
       <div className="flex items-center justify-between px-1 pb-3">
         <div className="flex items-center gap-2">
@@ -79,7 +79,7 @@ export default function RelocationChat(): React.ReactElement {
         {empty ? (
           <EmptyHero onPick={handleSend} />
         ) : (
-          <div className="space-y-4 trek-stagger">
+          <div className="space-y-4 memove-stagger">
             {messages.map(m => (
               <MessageBubble key={m.id} message={m} onPick={handleSend} />
             ))}
@@ -177,7 +177,7 @@ function EmptyHero({ onPick }: { onPick: (text: string) => void }): React.ReactE
       <p className="text-sm max-w-md mb-6" style={{ color: 'var(--text-muted)' }}>
         {t('relocation.chatEmptyBody')}
       </p>
-      <div className="flex flex-col items-stretch gap-2 w-full max-w-md trek-stagger">
+      <div className="flex flex-col items-stretch gap-2 w-full max-w-md memove-stagger">
         {[
           { icon: MapPin, text: 'Find me a warm, affordable city', q: 'Find me a warm, affordable city' },
           { icon: ListChecks, text: 'Compare cost of living: Austin vs Denver', q: 'Compare cost of living: Austin vs Denver' },

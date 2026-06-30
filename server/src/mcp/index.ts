@@ -199,8 +199,8 @@ function verifyToken(authHeader: string | undefined): VerifyTokenResult | null {
   const token  = authHeader.slice(spaceIdx + 1);
   if (scheme.toLowerCase() !== 'bearer' || !token) return null;
 
-  // OAuth 2.1 access token (trekoa_...)
-  if (token.startsWith('trekoa_')) {
+  // OAuth 2.1 access token (memove_oa_...)
+  if (token.startsWith('memove_oa_')) {
     const result = getUserByAccessToken(token);
     if (!result) return null;
     // RFC 8707: audience must always match this resource endpoint.
@@ -210,8 +210,8 @@ function verifyToken(authHeader: string | undefined): VerifyTokenResult | null {
     return { user: result.user, scopes: result.scopes, clientId: result.clientId, isStaticToken: false };
   }
 
-  // Long-lived static MCP token (trek_...) — full access + deprecation notice
-  if (token.startsWith('trek_')) {
+  // Long-lived static MCP token (memove_...) — full access + deprecation notice
+  if (token.startsWith('memove_')) {
     const user = verifyMcpToken(token);
     if (!user) return null;
     return { user, scopes: null, clientId: null, isStaticToken: true };

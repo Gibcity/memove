@@ -20,10 +20,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'KMZ/KML 파일에서 장소 가져오기',
   'system_notice.v3_mcp.title': 'MCP: OAuth 2.1 업그레이드',
   'system_notice.v3_mcp.body':
-    'MCP 통합이 완전히 개선되었습니다. OAuth 2.1이 이제 권장 인증 방법입니다. 기존 정적 토큰 (trek_…)은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.',
+    'MCP 통합이 완전히 개선되었습니다. OAuth 2.1이 이제 권장 인증 방법입니다. 기존 정적 토큰 (memove_…)은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 권장 (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24개 세분화된 권한 범위',
-  'system_notice.v3_mcp.highlight_deprecated': '정적 trek_ 토큰 더 이상 사용 안 됨',
+  'system_notice.v3_mcp.highlight_deprecated': '정적 memove_ 토큰 더 이상 사용 안 됨',
   'system_notice.v3_mcp.highlight_tools': '확장된 도구 모음 및 프롬프트',
   'system_notice.v3_thankyou.title': '개인적인 감사 인사',
   'system_notice.v3_thankyou.body':

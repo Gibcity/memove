@@ -35,10 +35,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'Import míst ze souborů KMZ/KML',
   'system_notice.v3_mcp.title': 'MCP: aktualizace OAuth 2.1',
   'system_notice.v3_mcp.body':
-    'Integrace MCP byla kompletně přepracována. OAuth 2.1 je nyní doporučenou metodou ověřování. Statické tokeny (trek_…) jsou zastaralé a budou v budoucí verzi odstraněny.',
+    'Integrace MCP byla kompletně přepracována. OAuth 2.1 je nyní doporučenou metodou ověřování. Statické tokeny (memove_…) jsou zastaralé a budou v budoucí verzi odstraněny.',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 doporučeno (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 jemnozrnných oprávnění',
-  'system_notice.v3_mcp.highlight_deprecated': 'Statické tokeny trek_ zastaralé',
+  'system_notice.v3_mcp.highlight_deprecated': 'Statické tokeny memove_ zastaralé',
   'system_notice.v3_mcp.highlight_tools': 'Rozšířená sada nástrojů a promptů',
   'system_notice.v3_thankyou.title': 'Osobní slovo ode mě',
   'system_notice.v3_thankyou.body':

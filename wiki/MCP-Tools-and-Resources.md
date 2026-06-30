@@ -1,6 +1,6 @@
 # MCP Tools and Resources
 
-memove exposes **tools** (read and write actions) and **resources** (read-only `trek://` URIs). Tools are registered per-session based on OAuth scopes and enabled addons.
+memove exposes **tools** (read and write actions) and **resources** (read-only `memove://` URIs). Tools are registered per-session based on OAuth scopes and enabled addons.
 
 For addon-gated tools (Packing, To-Dos, Atlas, Collab, Vacay, Journey) and their resources, see [MCP-Addon-Tools](MCP-Addon-Tools).
 
@@ -168,22 +168,22 @@ Requires `notifications:read` or `notifications:write` scope.
 
 ## Resources
 
-Resources provide read-only access via `trek://` URIs. Read them to understand current state before making changes.
+Resources provide read-only access via `memove://` URIs. Read them to understand current state before making changes.
 
 ### Core resources
 
 | URI | Scope required | Description |
 |---|---|---|
-| `trek://trips` | `trips:*` | All trips you own or are a member of |
-| `trek://trips/{tripId}` | `trips:*` | Single trip with metadata and member count |
-| `trek://trips/{tripId}/days` | `trips:*` | Days of a trip with their assigned places |
-| `trek://trips/{tripId}/places` | `places:read` | All places in a trip. Supports `?assignment=all\|unassigned\|assigned` |
-| `trek://trips/{tripId}/reservations` | `reservations:read` | Flights, hotels, restaurants, and other reservations |
-| `trek://trips/{tripId}/days/{dayId}/notes` | `trips:*` | Notes for a specific day |
-| `trek://trips/{tripId}/accommodations` | `trips:*` | Hotels and rentals with check-in/out details |
-| `trek://trips/{tripId}/members` | `trips:*` | Owner and collaborators |
-| `trek://categories` | (any) | Available place categories (id, name, icon, color) |
-| `trek://notifications/in-app` | `notifications:read` | Your in-app notifications (most recent 50, unread first) |
+| `memove://trips` | `trips:*` | All trips you own or are a member of |
+| `memove://trips/{tripId}` | `trips:*` | Single trip with metadata and member count |
+| `memove://trips/{tripId}/days` | `trips:*` | Days of a trip with their assigned places |
+| `memove://trips/{tripId}/places` | `places:read` | All places in a trip. Supports `?assignment=all\|unassigned\|assigned` |
+| `memove://trips/{tripId}/reservations` | `reservations:read` | Flights, hotels, restaurants, and other reservations |
+| `memove://trips/{tripId}/days/{dayId}/notes` | `trips:*` | Notes for a specific day |
+| `memove://trips/{tripId}/accommodations` | `trips:*` | Hotels and rentals with check-in/out details |
+| `memove://trips/{tripId}/members` | `trips:*` | Owner and collaborators |
+| `memove://categories` | (any) | Available place categories (id, name, icon, color) |
+| `memove://notifications/in-app` | `notifications:read` | Your in-app notifications (most recent 50, unread first) |
 
 For addon-gated resources (Budget, Packing, To-Dos, Collab, Atlas, Vacay, Journey), see [MCP-Addon-Tools](MCP-Addon-Tools).
 

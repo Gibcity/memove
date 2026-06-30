@@ -35,10 +35,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'Importa luoghi da file KMZ/KML',
   'system_notice.v3_mcp.title': 'MCP: aggiornamento OAuth 2.1',
   'system_notice.v3_mcp.body':
-    "L'integrazione MCP è stata completamente rinnovata. OAuth 2.1 è ora il metodo di autenticazione consigliato. I token statici (trek_…) sono deprecati e verranno rimossi in una versione futura.",
+    "L'integrazione MCP è stata completamente rinnovata. OAuth 2.1 è ora il metodo di autenticazione consigliato. I token statici (memove_…) sono deprecati e verranno rimossi in una versione futura.",
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 consigliato (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 scope di autorizzazione granulari',
-  'system_notice.v3_mcp.highlight_deprecated': 'Token statici trek_ deprecati',
+  'system_notice.v3_mcp.highlight_deprecated': 'Token statici memove_ deprecati',
   'system_notice.v3_mcp.highlight_tools': 'Strumenti e prompt estesi',
   'system_notice.v3_thankyou.title': 'Una nota personale da parte mia',
   'system_notice.v3_thankyou.body':

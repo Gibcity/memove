@@ -58,7 +58,7 @@ afterAll(() => {
 
 // -- Helpers ------------------------------------------------------------------
 
-/** Insert a trek_photos + journey_photos (gallery) + journey_entry_photos row and return the trek_photos id (used as photoId in public URLs). */
+/** Insert a memove_photos + journey_photos (gallery) + journey_entry_photos row and return the memove_photos id (used as photoId in public URLs). */
 function insertJourneyPhoto(
   entryId: number,
   opts: { filePath?: string; assetId?: string; ownerId?: number } = {}
@@ -66,7 +66,7 @@ function insertJourneyPhoto(
   const provider = opts.assetId ? 'immich' : 'local';
   const filePath = !opts.assetId ? (opts.filePath ?? '/photos/test.jpg') : null;
   const trekResult = testDb.prepare(`
-    INSERT INTO trek_photos (provider, asset_id, file_path, owner_id, created_at)
+    INSERT INTO memove_photos (provider, asset_id, file_path, owner_id, created_at)
     VALUES (?, ?, ?, ?, ?)
   `).run(provider, opts.assetId ?? null, filePath, opts.ownerId ?? null, Date.now());
   const trekId = trekResult.lastInsertRowid as number;
@@ -88,7 +88,7 @@ function insertJourneyPhoto(
     VALUES (?, ?, 0, ?)
   `).run(entryId, galleryRow.id, now);
 
-  // Return trek_photos.id — this is p.photo_id in the public API response
+  // Return memove_photos.id — this is p.photo_id in the public API response
   // and the value the client sends to /api/public/journey/:token/photos/:photoId/:kind
   return trekId;
 }
@@ -255,24 +255,24 @@ describe('validateShareTokenForPhoto', () => {
     expect(result!.ownerId).toBe(user.id);
   });
 
-  it('JOURNEY-SHARE-016: resolves correctly when trek_photos.id differs from journey_photos.id (Immich bulk-sync scenario)', () => {
-    // Simulate a user who has many trek_photos from Immich syncs before adding a journey photo.
-    // trek_photos.id will be higher than journey_photos.id — the previous bug matched on jp.id
+  it('JOURNEY-SHARE-016: resolves correctly when memove_photos.id differs from journey_photos.id (Immich bulk-sync scenario)', () => {
+    // Simulate a user who has many memove_photos from Immich syncs before adding a journey photo.
+    // memove_photos.id will be higher than journey_photos.id — the previous bug matched on jp.id
     // instead of jp.photo_id, causing a 404 for Immich photos in public shares.
     const { user } = createUser(testDb);
     const journey = createJourney(testDb, user.id);
     const entry = createJourneyEntry(testDb, journey.id, user.id);
 
-    // Pre-populate trek_photos to push the autoincrement higher
+    // Pre-populate memove_photos to push the autoincrement higher
     for (let i = 0; i < 5; i++) {
-      testDb.prepare(`INSERT INTO trek_photos (provider, asset_id, owner_id, created_at) VALUES ('immich', ?, ?, ?)`).run(`bulk-asset-${i}`, user.id, Date.now());
+      testDb.prepare(`INSERT INTO memove_photos (provider, asset_id, owner_id, created_at) VALUES ('immich', ?, ?, ?)`).run(`bulk-asset-${i}`, user.id, Date.now());
     }
 
-    // This trek_photos row gets a high id (e.g. 6) while journey_photos id will be 1
+    // This memove_photos row gets a high id (e.g. 6) while journey_photos id will be 1
     const trekPhotoId = insertJourneyPhoto(entry.id, { assetId: 'journey-asset-xyz', ownerId: user.id });
     const { token } = createOrUpdateJourneyShareLink(journey.id, user.id, {});
 
-    // photoId = trek_photos.id (6), not journey_photos.id (1)
+    // photoId = memove_photos.id (6), not journey_photos.id (1)
     const result = validateShareTokenForPhoto(token, trekPhotoId);
 
     expect(result).not.toBeNull();

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { SESSION_DURATION_MS, SESSION_DURATION_REMEMBER_MS } from '../config';
 
-const COOKIE_NAME = 'trek_session';
+const COOKIE_NAME = 'memove_session';
 
 /**
  * Controls the cookie lifetime for a login:

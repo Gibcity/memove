@@ -20,10 +20,10 @@ const system_notice: TranslationStrings = {
   'system_notice.v3_features.highlight_import': 'KMZ/KML dosyalarından yer İçe aktarma',
   'system_notice.v3_mcp.title': 'MCP: OAuth 2.1 yükseltmesi',
   'system_notice.v3_mcp.body':
-    'MCP entegrasyonu tamamen yenilendi. OAuth 2.1 artık önerilen kimlik doğrulama yöntemidir. Eski statik jetonlar (trek_…) kullanımdan kaldırıldı ve gelecekteki bir sürümde kaldırılacak.',
+    'MCP entegrasyonu tamamen yenilendi. OAuth 2.1 artık önerilen kimlik doğrulama yöntemidir. Eski statik jetonlar (memove_…) kullanımdan kaldırıldı ve gelecekteki bir sürümde kaldırılacak.',
   'system_notice.v3_mcp.highlight_oauth': 'OAuth 2.1 önerilir (mcp-remote)',
   'system_notice.v3_mcp.highlight_scopes': '24 ayrıntılı izin kapsamı',
-  'system_notice.v3_mcp.highlight_deprecated': 'Statik trek_ jetonları kullanımdan kaldırıldı',
+  'system_notice.v3_mcp.highlight_deprecated': 'Statik memove_ jetonları kullanımdan kaldırıldı',
   'system_notice.v3_mcp.highlight_tools': 'Genişletilmiş araç seti ve istemler',
   'system_notice.v3_thankyou.title': 'Benden kişisel bir not',
   'system_notice.v3_thankyou.body':

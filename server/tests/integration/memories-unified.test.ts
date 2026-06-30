@@ -157,7 +157,7 @@ describe('Unified photo management', () => {
 
     const rows = testDb.prepare(`
       SELECT tkp.asset_id FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ?
     `).all(trip.id) as any[];
     expect(rows.map((r: any) => r.asset_id)).toEqual(expect.arrayContaining(['asset-a', 'asset-b']));
@@ -193,7 +193,7 @@ describe('Unified photo management', () => {
     addTripPhoto(testDb, trip.id, user.id, 'asset-tog', 'immich', { shared: false });
     const trekRef = testDb.prepare(`
       SELECT tp.photo_id FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tkp.asset_id = ?
     `).get(trip.id, 'asset-tog') as any;
 
@@ -205,7 +205,7 @@ describe('Unified photo management', () => {
     expect(res.status).toBe(200);
     const row = testDb.prepare(`
       SELECT tp.shared FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tkp.asset_id = ?
     `).get('asset-tog') as any;
     expect(row.shared).toBe(1);
@@ -230,7 +230,7 @@ describe('Unified photo management', () => {
     addTripPhoto(testDb, trip.id, user.id, 'asset-del', 'immich');
     const trekRef = testDb.prepare(`
       SELECT tp.photo_id FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tkp.asset_id = ?
     `).get(trip.id, 'asset-del') as any;
 
@@ -242,7 +242,7 @@ describe('Unified photo management', () => {
     expect(res.status).toBe(200);
     const row = testDb.prepare(`
       SELECT tp.* FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tkp.asset_id = ?
     `).get('asset-del');
     expect(row).toBeUndefined();

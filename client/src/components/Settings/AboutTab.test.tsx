@@ -43,7 +43,7 @@ describe('AboutTab', () => {
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute(
       'href',
-      'https://github.com/mauriceboe/TREK/issues/new?template=bug_report.yml',
+      'https://github.com/Gibcity/memove/issues/new?template=bug_report.yml',
     );
   });
 

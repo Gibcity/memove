@@ -294,12 +294,12 @@ async function main() {
       }
     }
 
-    // --- trek_photos: passphrase ---
-    const photos = db.prepare('SELECT id, passphrase FROM trek_photos WHERE passphrase IS NOT NULL').all() as { id: number; passphrase: string }[];
+    // --- memove_photos: passphrase ---
+    const photos = db.prepare('SELECT id, passphrase FROM memove_photos WHERE passphrase IS NOT NULL').all() as { id: number; passphrase: string }[];
     for (const row of photos) {
-      const newVal = migrateApiKeyValue(row.passphrase, `trek_photos[${row.id}].passphrase`);
+      const newVal = migrateApiKeyValue(row.passphrase, `memove_photos[${row.id}].passphrase`);
       if (newVal !== null) {
-        db.prepare('UPDATE trek_photos SET passphrase = ? WHERE id = ?').run(newVal, row.id);
+        db.prepare('UPDATE memove_photos SET passphrase = ? WHERE id = ?').run(newVal, row.id);
       }
     }
   })();

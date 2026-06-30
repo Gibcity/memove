@@ -45,7 +45,7 @@ memove is a self-hosted, real-time collaborative travel planner licensed under A
 ### AI / MCP Integration
 - **MCP Server** — built-in Model Context Protocol server with OAuth 2.1 authentication
 - **150+ Tools** — create trips, plan itineraries, manage budgets, send messages, and more
-- **30 Resources** — read-only `trek://` URIs for trips, days, places, budget, packing, journeys, and more
+- **30 Resources** — read-only `memove://` URIs for trips, days, places, budget, packing, journeys, and more
 - **27 OAuth Scopes** — granular permissions across 13 permission groups
 - **Pre-built Prompts** — `trip-summary`, `packing-list`, and `budget-overview` context loaders
 

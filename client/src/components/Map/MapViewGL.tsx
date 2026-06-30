@@ -231,7 +231,7 @@ export function MapViewGL({
     // the POI pill (a custom round control instead of Mapbox's default top-right one).
     onMapReadyRef.current?.(map)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ;(window as any).__trek_map = map
+    ;(window as any).__memove_map = map
 
     map.on('load', () => {
       if (mapbox3d) {

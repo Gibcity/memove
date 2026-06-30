@@ -14,10 +14,10 @@ When demo mode is active, the login page shows a one-click **"Try the demo"** bu
 
 | Field | Value |
 |---|---|
-| Email | `demo@trek.app` |
+| Email | `demo@memove.app` |
 | Password | `demo12345` |
 
-**Admin account:** an admin account is also seeded on first start. By default it uses username `admin`, email `admin@trek.app`, and password `admin12345`. You can override these at seed time with the `DEMO_ADMIN_USER`, `DEMO_ADMIN_EMAIL`, and `DEMO_ADMIN_PASS` environment variables (they only take effect when `DEMO_MODE=true`, on the first start before the database is seeded). See [Environment-Variables](Environment-Variables).
+**Admin account:** an admin account is also seeded on first start. By default it uses username `admin`, email `admin@memove.app`, and password `admin12345`. You can override these at seed time with the `DEMO_ADMIN_USER`, `DEMO_ADMIN_EMAIL`, and `DEMO_ADMIN_PASS` environment variables (they only take effect when `DEMO_MODE=true`, on the first start before the database is seeded). See [Environment-Variables](Environment-Variables).
 
 ## What the demo user can and cannot do
 

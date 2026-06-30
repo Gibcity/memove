@@ -475,8 +475,8 @@ const FX_FALLBACK = ['EUR', 'USD', 'GBP', 'CHF', 'JPY', 'CAD', 'AUD', 'CNY', 'SE
 
 function CurrencyTool(): React.ReactElement {
   const { t } = useTranslation()
-  const [from, setFrom] = useState(() => localStorage.getItem('trek_fx_from') || 'EUR')
-  const [to, setTo] = useState(() => localStorage.getItem('trek_fx_to') || 'USD')
+  const [from, setFrom] = useState(() => localStorage.getItem('memove_fx_from') || 'EUR')
+  const [to, setTo] = useState(() => localStorage.getItem('memove_fx_to') || 'USD')
   const [amount, setAmount] = useState('100')
   const [rates, setRates] = useState<Record<string, number> | null>(null)
 
@@ -494,7 +494,7 @@ function CurrencyTool(): React.ReactElement {
   }, [from])
 
   useEffect(() => { fetchRate() }, [fetchRate])
-  useEffect(() => { localStorage.setItem('trek_fx_from', from); localStorage.setItem('trek_fx_to', to) }, [from, to])
+  useEffect(() => { localStorage.setItem('memove_fx_from', from); localStorage.setItem('memove_fx_to', to) }, [from, to])
 
   const currencies = rates ? Object.keys(rates).sort() : FX_FALLBACK
   const ccyOptions = currencies.map(c => ({ value: c, label: c }))
@@ -551,7 +551,7 @@ function TimezoneTool({ locale }: { locale: string }): React.ReactElement {
   const [now, setNow] = useState(() => new Date())
   const [zones, setZones] = useState<string[]>(() => {
     try {
-      const raw = localStorage.getItem('trek_dashboard_tz')
+      const raw = localStorage.getItem('memove_dashboard_tz')
       if (raw) return JSON.parse(raw)
     } catch { /* ignore malformed storage */ }
     return [home, ...DEFAULT_ZONES]
@@ -564,7 +564,7 @@ function TimezoneTool({ locale }: { locale: string }): React.ReactElement {
     return () => clearInterval(id)
   }, [])
 
-  useEffect(() => { localStorage.setItem('trek_dashboard_tz', JSON.stringify(zones)) }, [zones])
+  useEffect(() => { localStorage.setItem('memove_dashboard_tz', JSON.stringify(zones)) }, [zones])
 
   const allZones = React.useMemo<string[]>(() => {
     const supported = (Intl as unknown as { supportedValuesOf?: (k: string) => string[] }).supportedValuesOf

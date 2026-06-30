@@ -141,30 +141,30 @@ Requires `journey:read` or `journey:write` scope.
 
 ## Addon-gated resources
 
-Resources provide read-only access via `trek://` URIs. The following resources require their addon to be enabled.
+Resources provide read-only access via `memove://` URIs. The following resources require their addon to be enabled.
 
 | URI | Addon | Scope required | Description |
 |---|---|---|---|
-| `trek://trips/{tripId}/budget` | Budget | `budget:read` | Budget and expense items |
-| `trek://trips/{tripId}/budget/per-person` | Budget | `budget:read` | Per-person totals and split breakdown |
-| `trek://trips/{tripId}/budget/settlement` | Budget | `budget:read` | Suggested transactions to settle who owes whom |
-| `trek://trips/{tripId}/packing` | Packing | `packing:read` | Packing checklist |
-| `trek://trips/{tripId}/packing/bags` | Packing | `packing:read` | Packing bags with their assigned members |
-| `trek://trips/{tripId}/todos` | Packing | `todos:read` | To-do items ordered by position |
-| `trek://trips/{tripId}/collab-notes` | Collab | `collab:read` | Shared collaborative notes |
-| `trek://bucket-list` | Atlas | `atlas:read` | Your personal travel bucket list |
-| `trek://visited-countries` | Atlas | `atlas:read` | Countries marked as visited in Atlas |
-| `trek://atlas/stats` | Atlas | `atlas:read` | Visited country counts and continent breakdown |
-| `trek://atlas/regions` | Atlas | `atlas:read` | Manually visited sub-country regions |
-| `trek://trips/{tripId}/collab/polls` | Collab | `collab:read` | All polls for a trip with vote counts per option |
-| `trek://trips/{tripId}/collab/messages` | Collab | `collab:read` | Most recent 100 chat messages for a trip |
-| `trek://vacay/plan` | Vacay | `vacay:read` | Full snapshot of your active vacation plan (members, years, config) |
-| `trek://vacay/entries/{year}` | Vacay | `vacay:read` | All vacation day entries for the active plan and a specific year |
-| `trek://vacay/holidays/{year}` | Vacay | `vacay:read` | Public holidays for the plan's configured region and year |
-| `trek://journeys` | Journey | `journey:read` | All journeys owned or contributed to by the current user |
-| `trek://journeys/{journeyId}` | Journey | `journey:read` | Single journey with entries, contributors, and linked trips |
-| `trek://journeys/{journeyId}/entries` | Journey | `journey:read` | All entries in a journey (date, text, mood, linked trip) |
-| `trek://journeys/{journeyId}/contributors` | Journey | `journey:read` | Contributors (owner and collaborators) of a journey |
+| `memove://trips/{tripId}/budget` | Budget | `budget:read` | Budget and expense items |
+| `memove://trips/{tripId}/budget/per-person` | Budget | `budget:read` | Per-person totals and split breakdown |
+| `memove://trips/{tripId}/budget/settlement` | Budget | `budget:read` | Suggested transactions to settle who owes whom |
+| `memove://trips/{tripId}/packing` | Packing | `packing:read` | Packing checklist |
+| `memove://trips/{tripId}/packing/bags` | Packing | `packing:read` | Packing bags with their assigned members |
+| `memove://trips/{tripId}/todos` | Packing | `todos:read` | To-do items ordered by position |
+| `memove://trips/{tripId}/collab-notes` | Collab | `collab:read` | Shared collaborative notes |
+| `memove://bucket-list` | Atlas | `atlas:read` | Your personal travel bucket list |
+| `memove://visited-countries` | Atlas | `atlas:read` | Countries marked as visited in Atlas |
+| `memove://atlas/stats` | Atlas | `atlas:read` | Visited country counts and continent breakdown |
+| `memove://atlas/regions` | Atlas | `atlas:read` | Manually visited sub-country regions |
+| `memove://trips/{tripId}/collab/polls` | Collab | `collab:read` | All polls for a trip with vote counts per option |
+| `memove://trips/{tripId}/collab/messages` | Collab | `collab:read` | Most recent 100 chat messages for a trip |
+| `memove://vacay/plan` | Vacay | `vacay:read` | Full snapshot of your active vacation plan (members, years, config) |
+| `memove://vacay/entries/{year}` | Vacay | `vacay:read` | All vacation day entries for the active plan and a specific year |
+| `memove://vacay/holidays/{year}` | Vacay | `vacay:read` | Public holidays for the plan's configured region and year |
+| `memove://journeys` | Journey | `journey:read` | All journeys owned or contributed to by the current user |
+| `memove://journeys/{journeyId}` | Journey | `journey:read` | Single journey with entries, contributors, and linked trips |
+| `memove://journeys/{journeyId}/entries` | Journey | `journey:read` | All entries in a journey (date, text, mood, linked trip) |
+| `memove://journeys/{journeyId}/contributors` | Journey | `journey:read` | Contributors (owner and collaborators) of a journey |
 
 ---
 

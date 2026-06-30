@@ -45,7 +45,7 @@ Rate limits are tracked per user–client pair, so each OAuth client has its own
 ## Endpoint
 
 ```
-https://<your-trek-instance>/mcp
+https://<your-memove-instance>/mcp
 ```
 
 If the MCP addon is not enabled, this endpoint returns `403`. If authentication fails, it returns `401`.

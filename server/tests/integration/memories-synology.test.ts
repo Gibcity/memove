@@ -578,7 +578,7 @@ describe('Synology asset access', () => {
     setSynologyCredentials(testDb, user.id, 'https://synology.example.com', 'admin', 'pass');
 
     const insert = testDb.prepare(
-      'INSERT INTO trek_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)'
+      'INSERT INTO memove_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)'
     ).run('synologyphotos', '101_cachekey', user.id);
     const trekPhotoId = Number(insert.lastInsertRowid);
 
@@ -624,8 +624,8 @@ describe('Synology asset access', () => {
     const { user: member } = createUser(testDb);
     // Insert a shared photo referencing a trip that doesn't exist (FK disabled temporarily)
     testDb.exec('PRAGMA foreign_keys = OFF');
-    testDb.prepare('INSERT OR IGNORE INTO trek_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)').run('synologyphotos', '101_cachekey', owner.id);
-    const tkpSyno35 = testDb.prepare('SELECT id FROM trek_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?').get('synologyphotos', '101_cachekey', owner.id) as any;
+    testDb.prepare('INSERT OR IGNORE INTO memove_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)').run('synologyphotos', '101_cachekey', owner.id);
+    const tkpSyno35 = testDb.prepare('SELECT id FROM memove_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?').get('synologyphotos', '101_cachekey', owner.id) as any;
     testDb.prepare(
       'INSERT INTO trip_photos (trip_id, user_id, photo_id, shared) VALUES (?, ?, ?, ?)'
     ).run(9999, owner.id, tkpSyno35.id, 1);
@@ -727,7 +727,7 @@ describe('Synology syncSynologyAlbumLink', () => {
     // Verify photos were inserted into the DB
     const photos = testDb.prepare(`
       SELECT tp.*, tkp.provider FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tp.user_id = ?
     `).all(trip.id, user.id) as any[];
     expect(photos.length).toBeGreaterThan(0);
@@ -766,7 +766,7 @@ describe('Synology syncSynologyAlbumLink', () => {
     expect((await request(app).post(`${SYNO}/trips/1/album-links/1/sync`)).status).toBe(401);
   });
 
-  it('SYNO-054 — POST sync with passphrase link: uses passphrase in item-list call and persists encrypted passphrase on trek_photos', async () => {
+  it('SYNO-054 — POST sync with passphrase link: uses passphrase in item-list call and persists encrypted passphrase on memove_photos', async () => {
     const { user } = createUser(testDb);
     const trip = createTrip(testDb, user.id);
     setSynologyCredentials(testDb, user.id, 'https://synology.example.com', 'admin', 'pass');
@@ -818,10 +818,10 @@ describe('Synology syncSynologyAlbumLink', () => {
     expect(res.status).toBe(200);
     expect(res.body.added).toBeGreaterThan(0);
 
-    // The trek_photos row for the synced photo must have a non-null passphrase.
+    // The memove_photos row for the synced photo must have a non-null passphrase.
     const photo = testDb.prepare(`
       SELECT tkp.passphrase FROM trip_photos tp
-      JOIN trek_photos tkp ON tkp.id = tp.photo_id
+      JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tp.user_id = ?
       LIMIT 1
     `).get(trip.id, user.id) as { passphrase: string | null } | undefined;
@@ -1184,7 +1184,7 @@ describe('Synology SSRF blocked error handling', () => {
 import { getOrCreateTrekPhoto, deleteTrekPhotoIfOrphan } from '../../src/services/memories/photoResolverService';
 import { decrypt_api_key } from '../../src/services/apiKeyCrypto';
 
-describe('trek_photos passphrase healing (SYNO-090)', () => {
+describe('memove_photos passphrase healing (SYNO-090)', () => {
   it('SYNO-090 — getOrCreateTrekPhoto overwrites an existing bad passphrase when a new one is supplied', () => {
     const { user } = createUser(testDb);
 
@@ -1192,18 +1192,18 @@ describe('trek_photos passphrase healing (SYNO-090)', () => {
     const correctPass = 'correct-passphrase';
 
     const id1 = getOrCreateTrekPhoto('synologyphotos', 'asset-heal-test', user.id, wrongPass);
-    const row1 = testDb.prepare('SELECT passphrase FROM trek_photos WHERE id = ?').get(id1) as { passphrase: string };
+    const row1 = testDb.prepare('SELECT passphrase FROM memove_photos WHERE id = ?').get(id1) as { passphrase: string };
     expect(decrypt_api_key(row1.passphrase)).toBe(wrongPass);
 
     const id2 = getOrCreateTrekPhoto('synologyphotos', 'asset-heal-test', user.id, correctPass);
     expect(id2).toBe(id1);
-    const row2 = testDb.prepare('SELECT passphrase FROM trek_photos WHERE id = ?').get(id2) as { passphrase: string };
+    const row2 = testDb.prepare('SELECT passphrase FROM memove_photos WHERE id = ?').get(id2) as { passphrase: string };
     expect(decrypt_api_key(row2.passphrase)).toBe(correctPass);
   });
 });
 
-describe('trek_photos orphan cleanup (SYNO-091)', () => {
-  it('SYNO-091 — deleteTrekPhotoIfOrphan removes the trek_photos row when no trip_photos or journey_photos reference it', () => {
+describe('memove_photos orphan cleanup (SYNO-091)', () => {
+  it('SYNO-091 — deleteTrekPhotoIfOrphan removes the memove_photos row when no trip_photos or journey_photos reference it', () => {
     const { user } = createUser(testDb);
     const trip = createTrip(testDb, user.id);
     testDb.prepare("UPDATE photo_providers SET enabled = 1 WHERE id = 'synologyphotos'").run();
@@ -1216,12 +1216,12 @@ describe('trek_photos orphan cleanup (SYNO-091)', () => {
 
     // Still referenced — must not be deleted.
     deleteTrekPhotoIfOrphan(trekPhotoId);
-    expect(testDb.prepare('SELECT id FROM trek_photos WHERE id = ?').get(trekPhotoId)).toBeDefined();
+    expect(testDb.prepare('SELECT id FROM memove_photos WHERE id = ?').get(trekPhotoId)).toBeDefined();
 
-    // Remove the reference, then orphan-cleanup should delete the trek_photos row.
+    // Remove the reference, then orphan-cleanup should delete the memove_photos row.
     testDb.prepare('DELETE FROM trip_photos WHERE photo_id = ?').run(trekPhotoId);
     deleteTrekPhotoIfOrphan(trekPhotoId);
-    expect(testDb.prepare('SELECT id FROM trek_photos WHERE id = ?').get(trekPhotoId)).toBeUndefined();
+    expect(testDb.prepare('SELECT id FROM memove_photos WHERE id = ?').get(trekPhotoId)).toBeUndefined();
   });
 
   it('SYNO-092 — re-adding a previously removed Synology photo stores the new passphrase correctly', () => {
@@ -1240,12 +1240,12 @@ describe('trek_photos orphan cleanup (SYNO-091)', () => {
     testDb.prepare('DELETE FROM trip_photos WHERE photo_id = ?').run(id1);
     deleteTrekPhotoIfOrphan(id1);
 
-    // trek_photos row should be gone.
-    expect(testDb.prepare('SELECT id FROM trek_photos WHERE id = ?').get(id1)).toBeUndefined();
+    // memove_photos row should be gone.
+    expect(testDb.prepare('SELECT id FROM memove_photos WHERE id = ?').get(id1)).toBeUndefined();
 
     // Re-add with the correct passphrase.
     const id2 = getOrCreateTrekPhoto('synologyphotos', 'asset-readd-test', user.id, secondPass);
-    const row = testDb.prepare('SELECT passphrase FROM trek_photos WHERE id = ?').get(id2) as { passphrase: string };
+    const row = testDb.prepare('SELECT passphrase FROM memove_photos WHERE id = ?').get(id2) as { passphrase: string };
     expect(decrypt_api_key(row.passphrase)).toBe(secondPass);
   });
 });

@@ -380,7 +380,7 @@ export default function DemoBanner(): React.ReactElement | null {
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: '#9ca3af' }}>
             <Github size={13} />
             <span>{t.selfHost}</span>
-            <a href="https://github.com/mauriceboe/TREK" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/Gibcity/memove" target="_blank" rel="noopener noreferrer"
               style={{ color: '#111827', fontWeight: 600, textDecoration: 'none' }}>
               {t.selfHostLink}
             </a>

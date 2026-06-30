@@ -128,7 +128,7 @@ See [Encryption Key Rotation](Encryption-Key-Rotation) for how to retrieve or ro
 
 ```yaml
 environment:
-  - APP_URL=https://trek.example.com
+  - APP_URL=https://memove.example.com
 ```
 
 ---
@@ -189,7 +189,7 @@ environment:
 
 ```yaml
 environment:
-  - ALLOWED_ORIGINS=https://trek.example.com,https://other.example.com
+  - ALLOWED_ORIGINS=https://memove.example.com,https://other.example.com
 ```
 
 If `ALLOWED_ORIGINS` is not set, memove allows all origins (development default). See [Environment Variables](Environment-Variables).
@@ -237,11 +237,11 @@ If `ALLOWED_ORIGINS` is not set, memove allows all origins (development default)
 
 **Fix for HTTP referrer restriction:**
 
-Set `APP_URL` to the public URL of your instance and add that URL (or its domain with a wildcard, e.g. `https://trek.example.com/*`) to the allowed referrers in GCP:
+Set `APP_URL` to the public URL of your instance and add that URL (or its domain with a wildcard, e.g. `https://memove.example.com/*`) to the allowed referrers in GCP:
 
 ```yaml
 environment:
-  - APP_URL=https://trek.example.com
+  - APP_URL=https://memove.example.com
 ```
 
 **Fix for wrong restriction type:**
@@ -270,7 +270,7 @@ If the response is `{}` or `{"error": {...}}`, the key or its restrictions are b
 
 ```yaml
 environment:
-  - APP_URL=https://trek.example.com
+  - APP_URL=https://memove.example.com
 ```
 
 Restart the container after adding the variable. Once set, clicking **Connect** in the MCP client should redirect to your memove instance and complete the OAuth flow normally.
@@ -314,10 +314,10 @@ This is the only option available on the **free plan**. It disables bot blocking
 Create a WAF skip rule that bypasses bot management only for the MCP and OAuth paths, leaving protection in place for the rest of the site:
 
 1. Go to **Security → WAF → Custom rules** and click **Create rule**.
-2. Enter the following expression (replace `trek.example.com` with your domain):
+2. Enter the following expression (replace `memove.example.com` with your domain):
 
    ```
-   (http.host eq "trek.example.com") and (
+   (http.host eq "memove.example.com") and (
      http.request.uri.path eq "/mcp" or
      http.request.uri.path starts_with "/oauth/" or
      http.request.uri.path starts_with "/.well-known/"

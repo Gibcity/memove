@@ -18,8 +18,8 @@ Claude.ai (web) supports native MCP connections — no JSON config file required
 
 1. In memove, go to **Settings → Integrations → MCP → OAuth Clients** and click **Create**.
 2. Select the **Claude.ai** preset. This fills in the redirect URI (`https://claude.ai/api/mcp/auth_callback`) and a default scope set.
-3. Give the client a name, adjust scopes if needed, and save. Copy the client ID and client secret (`trekcs_` prefix) — the secret is shown only once.
-4. In Claude.ai, open the MCP settings and add a new server using your TREK URL (`https://<your-trek-instance>/mcp`). Claude.ai will open your browser to complete the OAuth consent flow.
+3. Give the client a name, adjust scopes if needed, and save. Copy the client ID and client secret (`memove_cs_` prefix) — the secret is shown only once.
+4. In Claude.ai, open the MCP settings and add a new server using your memove URL (`https://<your-memove-instance>/mcp`). Claude.ai will open your browser to complete the OAuth consent flow.
 
 ### Claude Desktop
 
@@ -28,7 +28,7 @@ Claude Desktop supports native MCP connections — no JSON config file required:
 1. In memove, go to **Settings → Integrations → MCP → OAuth Clients** and click **Create**.
 2. Select the **Claude Desktop** preset. This fills in the redirect URI and a default scope set.
 3. Give the client a name, adjust scopes if needed, and save. Copy the client ID and client secret — the secret is shown only once.
-4. In Claude Desktop, open Settings → MCP and add a new server using your TREK URL (`https://<your-trek-instance>/mcp`). Claude Desktop will open your browser to complete the OAuth consent flow.
+4. In Claude Desktop, open Settings → MCP and add a new server using your memove URL (`https://<your-memove-instance>/mcp`). Claude Desktop will open your browser to complete the OAuth consent flow.
 
 ### Cursor, VS Code, Windsurf, and Zed
 
@@ -39,11 +39,11 @@ Clients that support `mcp-remote` can connect in one of two ways.
 ```json
 {
   "mcpServers": {
-    "trek": {
+    "memove": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://<your-trek-instance>/mcp"
+        "https://<your-memove-instance>/mcp"
       ]
     }
   }
@@ -59,11 +59,11 @@ Create a client in memove using the appropriate preset (Cursor, VS Code, Windsur
 ```json
 {
   "mcpServers": {
-    "trek": {
+    "memove": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://<your-trek-instance>/mcp",
+        "https://<your-memove-instance>/mcp",
         "--static-oauth-client-info",
         "{\"client_id\": \"<your_client_id>\", \"client_secret\": \"<your_client_secret>\"}"
       ]
@@ -81,7 +81,7 @@ Create a client in memove using the appropriate preset (Cursor, VS Code, Windsur
 **Settings → Integrations → MCP → OAuth Clients** lets you create named OAuth clients before connecting. This gives you:
 
 - A fixed, named scope list defined up front
-- A client secret (`trekcs_` prefix, shown once) for confidential client mode
+- A client secret (`memove_cs_` prefix, shown once) for confidential client mode
 - Preset buttons for Claude.ai, Claude Desktop, Cursor, VS Code, Windsurf, and Zed that fill in the correct redirect URIs and a sensible default scope set
 
 Each user can have up to **10 OAuth clients**.
@@ -118,19 +118,19 @@ Machine clients are designed for **AI agent frameworks and custom MCP client imp
 Static tokens grant full access to all tools and resources with no scope restrictions. Sessions using a static token will receive deprecation warnings in the AI client on every tool call.
 
 1. Go to **Settings → Integrations → MCP**, open the **API Tokens** sub-tab, and click **Create New Token**.
-2. Give the token a name and copy it immediately — it is shown only once. The token starts with `trek_`.
+2. Give the token a name and copy it immediately — it is shown only once. The token starts with `memove_`.
 3. Pass the token as a header in your client config:
 
 ```json
 {
   "mcpServers": {
-    "trek": {
+    "memove": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://<your-trek-instance>/mcp",
+        "https://<your-memove-instance>/mcp",
         "--header",
-        "Authorization: Bearer trek_your_token_here"
+        "Authorization: Bearer memove_your_token_here"
       ]
     }
   }
@@ -143,10 +143,10 @@ Each user can create up to **10 static tokens**.
 
 | Method | Grant | Token prefix | Access level | Expiry |
 |---|---|---|---|---|
-| OAuth 2.1 — browser consent | `authorization_code` | `trekoa_` | Scoped (per-consent) | 1 hour; auto-refreshed via 30-day rolling refresh token (`trekrf_`) |
-| Machine client — no browser | `client_credentials` | `trekoa_` | Scoped (per-client), acts as owner | 1 hour; re-request silently, no refresh token |
-| OAuth client secret | — | `trekcs_` | Used to authenticate the client at the token endpoint | No expiry (revoke via UI) |
-| Static API token | — | `trek_` | Full access | No expiry — **deprecated** |
+| OAuth 2.1 — browser consent | `authorization_code` | `memove_oa_` | Scoped (per-consent) | 1 hour; auto-refreshed via 30-day rolling refresh token (`memove_rf_`) |
+| Machine client — no browser | `client_credentials` | `memove_oa_` | Scoped (per-client), acts as owner | 1 hour; re-request silently, no refresh token |
+| OAuth client secret | — | `memove_cs_` | Used to authenticate the client at the token endpoint | No expiry (revoke via UI) |
+| Static API token | — | `memove_` | Full access | No expiry — **deprecated** |
 
 ## Related
 

@@ -1,8 +1,8 @@
 # memove Relocation Frontend — QA Roast
 
-Scope: `/home/mongo/projects/us-relocation-2026/trek/client/src/pages/relocation/`,
-`/home/mongo/projects/us-relocation-2026/trek/client/src/api/relocation.ts`,
-`/home/mongo/projects/us-relocation-2026/trek/shared/src/relocation/relocation.schema.ts`.
+Scope: `/home/mongo/projects/us-relocation-2026/memove/client/src/pages/relocation/`,
+`/home/mongo/projects/us-relocation-2026/memove/client/src/api/relocation.ts`,
+`/home/mongo/projects/us-relocation-2026/memove/shared/src/relocation/relocation.schema.ts`.
 Cross-referenced with the NestJS server controllers/services to validate wire shapes.
 
 ## Score by area (1–10)

@@ -15,9 +15,9 @@ This is a minimal Helm chart for deploying the memove app.
 A hosted Helm repository is available:
 
 ```sh
-helm repo add trek https://mauriceboe.github.io/memove
+helm repo add memove https://mauriceboe.github.io/memove
 helm repo update
-helm install trek trek/trek
+helm install memove memove/memove
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ helm install trek trek/trek
 Or install directly from the local chart:
 
 ```sh
-helm install trek ./chart \
+helm install memove ./charts/memove \
   --set ingress.enabled=true \
   --set ingress.hosts[0].host=yourdomain.com
 ```

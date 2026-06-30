@@ -270,7 +270,7 @@ describe('DashboardPage', () => {
       await user.click(viewToggle);
 
       // localStorage should be updated to 'list'
-      expect(localStorage.getItem('trek_dashboard_view')).toBe('list');
+      expect(localStorage.getItem('memove_dashboard_view')).toBe('list');
     });
   });
 

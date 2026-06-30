@@ -3,7 +3,7 @@
  * list_collab_polls, create_collab_poll, vote_collab_poll, close_collab_poll,
  * delete_collab_poll, list_collab_messages, send_collab_message,
  * delete_collab_message, react_collab_message.
- * Resources: trek://trips/{tripId}/collab/polls, trek://trips/{tripId}/collab/messages.
+ * Resources: memove://trips/{tripId}/collab/polls, memove://trips/{tripId}/collab/messages.
  */
 import { describe, it, expect, vi, beforeAll, beforeEach, afterAll } from 'vitest';
 
@@ -465,12 +465,12 @@ describe('Tool: react_collab_message', () => {
 // Resources
 // ---------------------------------------------------------------------------
 
-describe('Resource: trek://trips/{tripId}/collab/polls', () => {
+describe('Resource: memove://trips/{tripId}/collab/polls', () => {
   it('returns polls list', async () => {
     const { user } = createUser(testDb);
     const trip = createTrip(testDb, user.id);
     await withResourceHarness(user.id, async (h) => {
-      const result = await h.client.readResource({ uri: `trek://trips/${trip.id}/collab/polls` });
+      const result = await h.client.readResource({ uri: `memove://trips/${trip.id}/collab/polls` });
       const data = parseResourceResult(result) as any;
       expect(Array.isArray(data)).toBe(true);
     });
@@ -481,19 +481,19 @@ describe('Resource: trek://trips/{tripId}/collab/polls', () => {
     const { user: other } = createUser(testDb);
     const trip = createTrip(testDb, other.id);
     await withResourceHarness(user.id, async (h) => {
-      const result = await h.client.readResource({ uri: `trek://trips/${trip.id}/collab/polls` });
+      const result = await h.client.readResource({ uri: `memove://trips/${trip.id}/collab/polls` });
       const data = parseResourceResult(result) as any;
       expect(data.error).toBeDefined();
     });
   });
 });
 
-describe('Resource: trek://trips/{tripId}/collab/messages', () => {
+describe('Resource: memove://trips/{tripId}/collab/messages', () => {
   it('returns messages list', async () => {
     const { user } = createUser(testDb);
     const trip = createTrip(testDb, user.id);
     await withResourceHarness(user.id, async (h) => {
-      const result = await h.client.readResource({ uri: `trek://trips/${trip.id}/collab/messages` });
+      const result = await h.client.readResource({ uri: `memove://trips/${trip.id}/collab/messages` });
       const data = parseResourceResult(result) as any;
       expect(Array.isArray(data)).toBe(true);
     });

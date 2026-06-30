@@ -14,7 +14,7 @@ memove encrypts sensitive settings at rest using AES-256-GCM. The following valu
 - SMTP password (global, in `app_settings`)
 - Admin webhook URL and admin ntfy token (global, in `app_settings`)
 - MFA (TOTP) secrets for all users
-- Photo passphrases for Synology shared-link photos (in `trek_photos`)
+- Photo passphrases for Synology shared-link photos (in `memove_photos`)
 
 The encryption derives a key from `ENCRYPTION_KEY` using SHA-256 (with a domain suffix per secret type), so the raw `ENCRYPTION_KEY` value is never stored in the database.
 
@@ -44,7 +44,7 @@ Use `scripts/migrate-encryption.ts` to re-encrypt all stored secrets without dow
 **Docker:**
 
 ```bash
-docker exec -it trek node --import tsx scripts/migrate-encryption.ts
+docker exec -it memove node --import tsx scripts/migrate-encryption.ts
 ```
 
 **Host (run from the `server/` directory):**
@@ -63,7 +63,7 @@ The script:
    - `users` (per user): `maps_api_key`, `openweather_api_key`, `immich_api_key`, `synology_password`, `synology_sid`, `synology_did`, `mfa_secret`
    - `settings` (per user): `webhook_url`, `ntfy_token`, `mapbox_access_token`
    - `trip_album_links`: `passphrase`
-   - `trek_photos`: `passphrase`
+   - `memove_photos`: `passphrase`
 5. Reports counts of migrated, already-migrated, skipped (empty), and errored values.
 
 After a successful migration:

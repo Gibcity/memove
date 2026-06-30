@@ -409,10 +409,10 @@ describe('sendNtfy', () => {
     const mockFetch = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     mockFetch.mockResolvedValueOnce({ ok: true, text: async () => '' } as never);
 
-    await sendNtfy(ntfyUrl, null, { ...payload, link: 'https://trek.example.com/trips/5' });
+    await sendNtfy(ntfyUrl, null, { ...payload, link: 'https://memove.example.com/trips/5' });
 
     const [, calledOpts] = mockFetch.mock.calls[0];
-    expect(calledOpts.headers['Click']).toBe('https://trek.example.com/trips/5');
+    expect(calledOpts.headers['Click']).toBe('https://memove.example.com/trips/5');
   });
 
   it('NTFY-005 — SSRF guard blocks private URL and returns false', async () => {
