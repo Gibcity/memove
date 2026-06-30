@@ -6,8 +6,19 @@ import type { CandidateView } from '../relocationModel'
 import type { AffordabilityData } from '../useRelocationScore'
 import type { ScoreExplanation } from '../../../api/relocation'
 import type { Location } from '@memove/shared'
+import { RadarChart, type RadarDatum } from '../charts'
 
 type Translator = (key: string, params?: Record<string, string | number>) => string
+
+// ponytail: 0 reads as a real value for ratios/percents but for these fields
+// the API returns 0 to mean "we have no number" (cities with no school
+// dataset, no big-box store footprint, etc.). Reuse the existing '—' fallback
+// glyph so the empty style matches every other MetricItem.
+const fmtMetric = (
+  value: number | null | undefined,
+  formatter: (n: number) => string,
+  notAvailable: string,
+): string => (value == null || value === 0 ? notAvailable : formatter(value))
 
 // ponytail: FOCUSABLE_SELECTOR covers everything Tab can land on inside the
 // dialog. We trap focus by intercepting Tab/Shift+Tab on the last/first
@@ -305,6 +316,48 @@ function CandidateBody({
                 : '—'
             }
           />
+          <MetricItem
+            label={t('relocation.schoolRating')}
+            value={fmtMetric(
+              location.education?.publicSchoolRatingAvg,
+              n => `${n.toFixed(1)} / 10`,
+              '—',
+            )}
+          />
+          <MetricItem
+            label={t('relocation.studentTeacherRatio')}
+            value={fmtMetric(
+              location.education?.studentTeacherRatio,
+              n => `${n.toFixed(1)} : 1`,
+              '—',
+            )}
+          />
+          <MetricItem
+            label={t('relocation.natureAreas')}
+            value={fmtMetric(
+              location.amenities?.natureAreaCount,
+              n => n.toFixed(0),
+              '—',
+            )}
+          />
+          <MetricItem
+            label={t('relocation.bigBoxStores')}
+            value={fmtMetric(
+              location.amenities?.bigBoxStoreCount,
+              n => n.toFixed(0),
+              '—',
+            )}
+          />
+          <MetricItem
+            label={t('relocation.groceryStores')}
+            value={fmtMetric(
+              location.amenities?.groceryStoreDensityPerCapita,
+              // ponytail: per-capita is tiny (~0.00003 for a typical metro);
+              // show per-100k so the number is readable.
+              n => `${(n * 100_000).toFixed(1)}`,
+              '—',
+            )}
+          />
         </div>
       </div>
 
@@ -335,7 +388,7 @@ function CandidateBody({
                     {line}
                   </p>
                 ))}
-                <ScoreBreakdown explanation={explanation} t={t} />
+                <ScoreBreakdown explanation={explanation} t={t} locationName={location.name} />
               </>
             ) : (
               <p className="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
@@ -496,23 +549,44 @@ export function AffordabilityBadge({
  * Score breakdown — expandable list of subscores × weights. Native <details>
  * so no state/accordion lib; ponytail default open=true (parents almost always
  * want to see WHY a city got its score, that's the whole point of the drawer).
+ * ponytail: radar chart on top so the shape of the score profile lands first;
+ * numeric breakdown below for the precise numbers.
  */
 export function ScoreBreakdown({
   explanation,
   t,
+  locationName,
 }: {
   explanation: ScoreExplanation
   t: Translator
+  locationName: string
 }): ReactElement {
   const rows = (Object.entries(explanation.subscores ?? {}) as [string, number][])
     .sort((a, b) => b[1] - a[1])
+  const radarData: RadarDatum[] = rows.map(([metric, sub]) => ({
+    label: metric,
+    value: sub,
+    max: 100,
+  }))
   return (
     <details open className="group rounded-lg border border-slate-200 dark:border-zinc-700 bg-slate-50/50 dark:bg-zinc-800/30">
       <summary className="flex items-center gap-1.5 cursor-pointer px-3 py-2 text-xs font-semibold text-slate-700 dark:text-zinc-300 list-none">
         <ChevronRight size={14} className="transition-transform group-open:rotate-90" />
         {t('relocation.scoreBreakdownLabel', { score: explanation.matchScore })}
       </summary>
-      <div className="px-3 pb-3 space-y-2">
+      <div className="px-3 pb-3 space-y-3">
+        {radarData.length > 0 && (
+          <div
+            className="max-w-[320px] mx-auto text-blue-600 dark:text-blue-400"
+            aria-label={t('relocation.subscoreRadarAria', { name: locationName })}
+          >
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-zinc-400 text-center mb-1">
+              {t('relocation.subscoreRadarLabel')}
+            </p>
+            <RadarChart data={radarData} color="currentColor" />
+          </div>
+        )}
+        <div className="space-y-2">
         {rows.map(([metric, sub]) => {
           const weight = Number(explanation.weightsUsed?.[metric] ?? 0)
           return (
@@ -540,6 +614,7 @@ export function ScoreBreakdown({
             </div>
           )
         })}
+        </div>
       </div>
     </details>
   )

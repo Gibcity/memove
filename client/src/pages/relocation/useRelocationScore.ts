@@ -20,6 +20,18 @@ export interface CandidateDetailState extends CandidateDetail {
 }
 
 /**
+ * ponytail: top-level convenience shape that exposes the structured pieces
+ * of the explain response without forcing callers to dig through
+ * `detail.explanation.{subscores,weightsUsed,dataGaps}` every time. Mirrors
+ * `ScoreExplanation` but the per-axis records are non-null so TS narrows.
+ */
+export interface ScoreBreakdownPayload {
+  subscores: Record<string, number>
+  weightsUsed: Record<string, number>
+  dataGaps: ScoreExplanation['dataGaps']
+}
+
+/**
  * Data hook for relocation scoring — owns candidate detail drawer state,
  * score explanation, and affordability fetching.
  */
@@ -85,6 +97,19 @@ export function useRelocationScore() {
     setDeepData(null)
   }, [])
 
+  // ponytail: derive the structured breakdown from the explain response once
+  // at the return boundary so callers can `const { subscores, dataGaps } =
+  // useRelocationScore()` without poking through `detail.explanation` or
+  // stringifying the NL array. Keep the full object on `detail.explanation`
+  // for the existing renderer.
+  const breakdown: ScoreBreakdownPayload | null = detail.explanation
+    ? {
+        subscores: detail.explanation.subscores ?? {},
+        weightsUsed: detail.explanation.weightsUsed ?? {},
+        dataGaps: detail.explanation.dataGaps ?? { count: 0, fields: [], note: '' },
+      }
+    : null
+
   return {
     detail,
     explainLoading,
@@ -92,5 +117,8 @@ export function useRelocationScore() {
     fetchDeepData,
     openDetail,
     closeDetail,
+    subscores: breakdown?.subscores ?? null,
+    weightsUsed: breakdown?.weightsUsed ?? null,
+    dataGaps: breakdown?.dataGaps ?? null,
   }
 }
