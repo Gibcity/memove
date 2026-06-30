@@ -296,27 +296,28 @@ export default function MissionControlShell(): React.ReactElement {
             onMarkerClick={handleSelectById}
           />
 
-          {/* Score degraded banner */}
+          {/* Score degraded banner. z-[1000] above Leaflet panes */}
           {scoreDegraded && (
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 p-2 px-4 bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700 rounded-full text-xs text-amber-700 dark:text-amber-300 shadow-sm whitespace-nowrap z-10">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 p-2 px-4 bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700 rounded-full text-xs text-amber-700 dark:text-amber-300 shadow-sm whitespace-nowrap z-[1000]">
               {t('relocation.scoreDegraded')}
             </div>
           )}
 
-          {/* Load error */}
+          {/* Load error. z-[1000] above Leaflet panes */}
           {loadError && (
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 p-2 px-4 bg-red-100 dark:bg-red-900/40 border border-red-300 dark:border-red-700 rounded-full text-xs text-red-700 dark:text-red-300 shadow-sm whitespace-nowrap z-10">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 p-2 px-4 bg-red-100 dark:bg-red-900/40 border border-red-300 dark:border-red-700 rounded-full text-xs text-red-700 dark:text-red-300 shadow-sm whitespace-nowrap z-[1000]">
               {t('relocation.loadError')}{' '}
               <button onClick={retryLoad} className="underline font-medium">Retry</button>
             </div>
           )}
 
-          {/* Chat overlay — floats over the map, dismissible via toggle or X */}
+          {/* Chat overlay — floats over the map, dismissible via toggle or X.
+              z-[1000] needed because Leaflet panes sit at z-index 200-700 */}
           {showChat && (
             <div
               className="absolute bottom-4 right-4 w-[min(400px,calc(100%-2rem))] h-[min(600px,calc(100%-2rem))]
                          bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700
-                         rounded-2xl shadow-xl flex flex-col overflow-hidden z-20"
+                         rounded-2xl shadow-xl flex flex-col overflow-hidden z-[1000]"
             >
               <button
                 onClick={() => setShowChat(false)}
@@ -332,13 +333,14 @@ export default function MissionControlShell(): React.ReactElement {
             </div>
           )}
 
-          {/* Chat toggle — fixed bottom-right of the map area */}
+          {/* Chat toggle — fixed bottom-right of the map area.
+              z-[1000] to sit above Leaflet's z-index 200-700 panes */}
           {!showChat && (
             <button
               onClick={() => setShowChat(true)}
               className="absolute bottom-4 right-4 w-12 h-12 rounded-full
                          bg-blue-600 hover:bg-blue-700 text-white shadow-lg
-                         flex items-center justify-center transition-colors z-20"
+                         flex items-center justify-center transition-colors z-[1000]"
               aria-label={t('relocation.chatTitle')}
             >
               <MessageCircle size={20} />
