@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
 import { useTranslation } from '../../i18n'
-import type { UserProfile, HardFilter } from '@trek/shared'
+import type { UserProfile, HardFilter } from '@memove/shared'
 import type { ElicitationState, HardFilterPrompt } from './relocationModel'
 
 const HARD_FILTER_THRESHOLD = 3
@@ -133,18 +133,34 @@ export function useRelocationElicitation(dismissCounts: Record<string, number>) 
     }
   }, [dismissCounts])
 
-  const confirmHardFilter = useCallback(async (_filter: HardFilter) => {
-    // Engine would handle this via discover_hard_filter tool
-    // For now, just record the confirmation
-    setHardFilterPrompt(null)
-    toast.success(
-      t('relocation.hardFilterConfirmed'),
-    )
-  }, [toast, t])
+  const confirmHardFilter = useCallback(async (filter: HardFilter) => {
+    try {
+      // ponytail: POST the actual filter to the profile endpoint
+      const resp = await fetch('/api/relocation/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          hardFilters: [...(profile?.hardFilters ?? []), filter],
+        }),
+      })
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
+      const updated = (await resp.json()) as UserProfile
+      setProfile(updated)
+      setHardFilterPrompt(null)
+      toast.success(t('relocation.hardFilterConfirmed'))
+    } catch {
+      toast.error(t('relocation.hardFilterFailed') || 'Failed to apply filter')
+    }
+  }, [profile, toast, t])
 
   const dismissHardFilterPrompt = useCallback(() => {
     setHardFilterPrompt(null)
   }, [])
+
+  // ponytail: filter sliders in useRelocationCandidates.ts send implicit signals
+  // but don't pass values in the ScoreRequest. To fix: add filters to the
+  // ScoreRequest body in fetchScored(). That file is owned by another agent.
+  // Tracked in Sprint 1 gap #8.
 
   // ── Load profile on mount ─────────────────────────────────────
 

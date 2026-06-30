@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
 import { useTranslation } from '../../i18n'
-import type { Location, ImplicitSignal } from '@trek/shared'
+import type { Location, ImplicitSignal } from '@memove/shared'
 import type { CandidateView, FilterSlider } from './relocationModel'
 import { DEFAULT_FILTER_SLIDERS, sortCandidatesByRank } from './relocationModel'
 
@@ -10,7 +10,7 @@ import { DEFAULT_FILTER_SLIDERS, sortCandidatesByRank } from './relocationModel'
  * Data hook for relocation candidate discovery — owns all state for
  * fetching, filtering and sorting the 59-metro candidate set.
  */
-export function useRelocationCandidates() {
+export function useRelocationCandidates(profileVersion?: number) {
   const [allLocations, setAllLocations] = useState<Location[]>([])
   const [candidates, setCandidates] = useState<CandidateView[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -18,12 +18,11 @@ export function useRelocationCandidates() {
   const [sliders, setSliders] = useState<FilterSlider[]>(DEFAULT_FILTER_SLIDERS)
   const [dismissedIds, setDismissedIds] = useState<Set<string>>(new Set())
   const [dismissCounts, setDismissCounts] = useState<Record<string, number>>({})
+  const [seenAt, setSeenAt] = useState<Record<string, number>>({})
+  const [scoreDegraded, setScoreDegraded] = useState(false)
 
   const toast = useToast()
   const { t } = useTranslation()
-
-  // Track map pan signals with a debounce ref
-  const panDebounce = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // ── Load locations ──────────────────────────────────────────────
 
@@ -47,9 +46,14 @@ export function useRelocationCandidates() {
 
   // ── Score candidates when filters change ───────────────────────
 
-  const fetchScored = useCallback(async () => {
+  const fetchScored = useCallback(async (
+    filters?: Record<string, { min: number; max: number }>,
+  ) => {
     try {
-      const resp = await relocationApi.scoreCandidates()
+      const resp = await relocationApi.scoreCandidates(
+        filters ? { filters } : undefined,
+      )
+      setScoreDegraded(false)
       const mapped: CandidateView[] = (resp.candidates || []).map(c => ({
         location: c,
         score: c.matchScore,
@@ -57,8 +61,18 @@ export function useRelocationCandidates() {
         decisionTrace: c.decisionTrace,
       }))
       setCandidates(sortCandidatesByRank(mapped))
+      // ponytail: seed seenAt on first appearance so dismiss can report real dwell
+      setSeenAt(prev => {
+        const now = Date.now()
+        const next = { ...prev }
+        for (const v of mapped) {
+          if (!(v.location.id in next)) next[v.location.id] = now
+        }
+        return next
+      })
     } catch {
       // Score endpoint may not be ready; fall back to showing all locations
+      setScoreDegraded(true)
       const mapped: CandidateView[] = allLocations.map((loc, i) => ({
         location: loc,
         score: loc.blended?.totalScore0to100 ?? 50,
@@ -66,6 +80,14 @@ export function useRelocationCandidates() {
         decisionTrace: '',
       }))
       setCandidates(sortCandidatesByRank(mapped))
+      setSeenAt(prev => {
+        const now = Date.now()
+        const next = { ...prev }
+        for (const v of mapped) {
+          if (!(v.location.id in next)) next[v.location.id] = now
+        }
+        return next
+      })
     }
   }, [allLocations])
 
@@ -75,6 +97,14 @@ export function useRelocationCandidates() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allLocations.length])
+
+  // Re-rank when the elicitation profile changes server-side
+  useEffect(() => {
+    if (allLocations.length > 0) {
+      fetchScored()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profileVersion])
 
   // ── Filter management ──────────────────────────────────────────
 
@@ -108,16 +138,19 @@ export function useRelocationCandidates() {
       }))
 
       // Fire implicit signal
+      const start = seenAt[locationId] ?? Date.now()
       const signal: ImplicitSignal = {
         kind: 'candidate_dismiss',
         locationId,
-        dwellMs: 0,
+        dwellMs: Math.max(0, Date.now() - start),
         reason,
         ts: new Date().toISOString(),
       }
-      relocationApi.submitSignal(signal).catch(() => {})
+      await relocationApi.submitSignal(signal).catch(() => {})
+      // ponytail: re-fetch so the list re-ranks against the updated profile weights
+      fetchScored()
     },
-    [],
+    [fetchScored, seenAt],
   )
 
   const saveCandidate = useCallback(async (locationId: string) => {
@@ -126,28 +159,14 @@ export function useRelocationCandidates() {
       locationId,
       ts: new Date().toISOString(),
     }
-    relocationApi.submitSignal(signal).catch(() => {})
-  }, [])
-
-  const sendMapPanSignal = useCallback(
-    (center: { lat: number; lng: number }, zoom: number) => {
-      if (panDebounce.current) clearTimeout(panDebounce.current)
-      panDebounce.current = setTimeout(() => {
-        const signal: ImplicitSignal = {
-          kind: 'map_pan',
-          center,
-          zoom,
-          ts: new Date().toISOString(),
-        }
-        relocationApi.submitSignal(signal).catch(() => {})
-      }, 1500)
-    },
-    [],
-  )
+    await relocationApi.submitSignal(signal).catch(() => {})
+    // ponytail: re-fetch so the list re-ranks against the updated profile weights
+    fetchScored()
+  }, [fetchScored])
 
   const sendFilterApplySignal = useCallback(async () => {
     const activeSliders = sliders.filter(s => s.enabled)
-    const filter: Record<string, unknown> = {}
+    const filter: Record<string, { min: number; max: number }> = {}
     for (const s of activeSliders) {
       filter[s.field] = { min: s.value[0], max: s.value[1] }
     }
@@ -157,7 +176,7 @@ export function useRelocationCandidates() {
       ts: new Date().toISOString(),
     }
     relocationApi.submitSignal(signal).catch(() => {})
-    await fetchScored()
+    await fetchScored(Object.keys(filter).length > 0 ? filter : undefined)
   }, [sliders, fetchScored])
 
   // ── Derived ────────────────────────────────────────────────────
@@ -174,6 +193,7 @@ export function useRelocationCandidates() {
     isLoading,
     loadError,
     retryLoad: loadLocations,
+    scoreDegraded,
 
     // Filters
     sliders,
@@ -184,10 +204,6 @@ export function useRelocationCandidates() {
     // Actions
     dismissCandidate,
     saveCandidate,
-    sendMapPanSignal,
     dismissCounts,
-
-    // Scoring
-    fetchScored,
   }
 }

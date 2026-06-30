@@ -7,7 +7,7 @@
  * (see pages/PATTERN.md).
  */
 
-import type { Location, HardFilter } from '@trek/shared'
+import type { Location, HardFilter } from '@memove/shared'
 
 // ── UI view models (enriched for rendering) ─────────────────────────
 
@@ -18,9 +18,6 @@ export interface CandidateView {
   rank: number
   decisionTrace: string
 }
-
-/** The current state of the relocation dashboard. */
-export type DashboardTab = 'map' | 'table' | 'profile'
 
 /** Elicitation flow state */
 export interface ElicitationState {
@@ -70,11 +67,6 @@ export function formatCurrency(value: number): string {
   if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`
   if (value >= 1_000) return `$${(value / 1_000).toFixed(0)}K`
   return `$${value.toFixed(0)}`
-}
-
-/** Format a percentage value. */
-export function formatPct(value: number): string {
-  return `${(value * 100).toFixed(0)}%`
 }
 
 /** Normalize a value 0-100 to a CSS hue (red→yellow→green). */

@@ -6,14 +6,14 @@ import type {
   ScoreRequest,
   ScoreResponse,
   ElicitationQuestion,
-} from '@trek/shared'
+} from '@memove/shared'
 
 // ── Locations ────────────────────────────────────────────────────────────
 
 export const relocationApi = {
-  /** List all 59+ relocation candidate metros (lightweight). */
+  /** List relocation candidate metros (lightweight). */
   listLocations: () =>
-    apiClient.get<Location[]>('/relocation/locations').then(r => r.data),
+    apiClient.get<{ total: number; locations: Location[] }>('/relocation/locations?limit=1000').then(r => r.data.locations),
 
   /** Full detail for one metro. */
   getLocation: (id: string) =>
@@ -71,4 +71,33 @@ export const relocationApi = {
         { locationId },
       )
       .then(r => r.data),
+
+  /** Side-by-side comparison of 2+ locations (POST /relocation/compare). */
+  compareLocations: (locationIds: string[]) =>
+    apiClient
+      .post<{ locations: ScoreResponse['candidates']; winner: string } | { error: string }>(
+        '/relocation/compare',
+        { locationIds },
+      )
+      .then(r => r.data),
+
+  // ── Move checklist ───────────────────────────────────────────────
+
+  /** Apply personalized move checklist to a trip's todo list. */
+  applyMoveChecklist: (tripId: string | number, moveDate: string) =>
+    apiClient
+      .post<{ applied: number; skipped: boolean }>('/relocation/move-checklist', { tripId, moveDate })
+      .then(r => r.data),
+
+  // ── Housing ──────────────────────────────────────────────────────
+
+  /** Check affordability for a budget. */
+  getAffordability: (locationId: string, budget?: number) =>
+    apiClient.get(`/relocation/housing/affordability/${locationId}` + (budget ? `?budget=${budget}` : '')).then(r => r.data),
+
+  // ── Concierge ────────────────────────────────────────────────────
+
+  /** Ask the concierge a general relocation question. */
+  askConcierge: (query: string) =>
+    apiClient.post<{ answer: string; category: string }>('/relocation/concierge', { query }).then(r => r.data),
 }
