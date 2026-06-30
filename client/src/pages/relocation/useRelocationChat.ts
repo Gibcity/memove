@@ -10,6 +10,11 @@ export type RichCard =
   | { kind: 'city_compare'; cities: Array<{ name: string; state: string; colIndex: number; rent: number; weather: string }> }
   | { kind: 'timeline'; weeks: Array<{ week: number; title: string; tasks: string[] }> }
   | { kind: 'checklist'; state: string; items: Array<{ label: string; done: boolean }> }
+  // ponytail: structured payloads the server returns via `type:` discriminator.
+  // The renderer maps city_list → CityListCard, compare_prompt → compare chips.
+  | { kind: 'city_list'; cities: Array<{ id: string; name: string; state: string; matchScore: number; keyMetrics?: Record<string, number | null> }> }
+  | { kind: 'compare_prompt'; shortlist: string[] }
+  | { kind: 'prompt_chips'; chips: Array<{ label: string; query: string }> }
 
 export interface ChatMessage {
   id: string
@@ -31,19 +36,73 @@ const QUICK_PROMPTS = [
   'What do I need for a DMV transfer to Texas?',
 ]
 
-// ponytail: server chat returns { content, cards? } — map it into the shape the UI expects.
-// The route also returns role/phase/shortlistCount which we ignore for now.
+// ponytail: server chat returns { content, cards?, type, cities?, shortlist? } —
+// map the structured payloads into RichCard variants the renderer knows.
+// Unknown `type`s silently degrade to plain text; the contract is forward-compat.
 interface ServerChatResponse {
+  role?: string
   content?: string
   text?: string
   cards?: RichCard[]
+  type?: string
+  cities?: Array<{
+    id: string
+    name: string
+    state: string
+    matchScore: number
+    keyMetrics?: Record<string, number | null>
+  }>
+  shortlist?: string[]
+  phase?: string
+  shortlistCount?: number
 }
 
 function normalizeChatResponse(raw: ServerChatResponse): ChatResponse {
-  return {
-    text: raw.text ?? raw.content ?? '',
-    cards: raw.cards,
+  const text = raw.text ?? raw.content ?? ''
+  const cards: RichCard[] = [...(raw.cards ?? [])]
+  // ponytail: city_list → renderable city cards. Server gives id/matchScore,
+  // renderer decorates with score color; missing keyMetrics fall back to "—".
+  if (raw.type === 'city_list' && Array.isArray(raw.cities) && raw.cities.length > 0) {
+    cards.push({ kind: 'city_list', cities: raw.cities })
   }
+  // ponytail: compare_prompt surfaces the user's existing shortlist as chips;
+  // empty shortlist shows a hint to pick cities from the dashboard.
+  if (raw.type === 'compare_prompt') {
+    cards.push({ kind: 'compare_prompt', shortlist: raw.shortlist ?? [] })
+  }
+  // ponytail: timeline/cost/admin prompts → tappable suggestion chips so the
+  // user can drive the next turn without typing.
+  if (raw.type === 'timeline_prompt') {
+    cards.push({
+      kind: 'prompt_chips',
+      chips: [
+        { label: 'In 3 months', query: 'Plan my move in 3 months' },
+        { label: 'In 6 months', query: 'Plan my move in 6 months' },
+        { label: 'September 2026', query: 'Plan my move for September 2026' },
+      ],
+    })
+  }
+  if (raw.type === 'cost_prompt') {
+    cards.push({
+      kind: 'prompt_chips',
+      chips: [
+        { label: 'Cost of living index', query: 'Show cost of living index for my shortlist' },
+        { label: 'Salary needed', query: 'What salary do I need to maintain my lifestyle?' },
+        { label: 'Tax impact', query: 'Compare tax impact between my shortlisted cities' },
+      ],
+    })
+  }
+  if (raw.type === 'admin_prompt') {
+    cards.push({
+      kind: 'prompt_chips',
+      chips: [
+        { label: 'Driver\u2019s license transfer', query: 'How do I transfer my driver\u2019s license?' },
+        { label: 'Vehicle registration', query: 'How do I register my car in a new state?' },
+        { label: 'Voter registration', query: 'How do I register to vote in a new state?' },
+      ],
+    })
+  }
+  return { text, cards: cards.length > 0 ? cards : undefined }
 }
 
 // ponytail: canned responses keyed by cheap heuristic — the real backend will

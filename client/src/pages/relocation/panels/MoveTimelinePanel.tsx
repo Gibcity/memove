@@ -89,10 +89,46 @@ export default function MoveTimelinePanel({
         />
       )}
 
-      {/* ── Agent activity placeholder ─────────────────────────── */}
-      <div className="text-xs text-slate-400 dark:text-zinc-500 px-1">
-        {t('relocation.agentActivitySoon')}
-      </div>
+      {/* ── Agent activity / progressive disclosure ─────────────────── */}
+      {/* ponytail: after the elicitation card is dismissed, the left panel was
+          empty ("Agent activity coming soon"). Replace with a quick recap so
+          first-time movers have a next step (roast #13). */}
+      {elicitation.status === 'complete' && profile ? (
+        <div className="p-4 bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl text-sm space-y-2">
+          <p className="font-semibold text-slate-700 dark:text-zinc-200">
+            Your profile
+          </p>
+          <p className="text-xs text-slate-500 dark:text-zinc-400">
+            {profile.elicitationRoundsCompleted} question{profile.elicitationRoundsCompleted === 1 ? '' : 's'} answered
+          </p>
+          {profile.hardFilters && profile.hardFilters.length > 0 && (
+            <p className="text-xs text-slate-500 dark:text-zinc-400">
+              {profile.hardFilters.length} location{profile.hardFilters.length === 1 ? '' : 's'} hidden
+            </p>
+          )}
+          <button
+            onClick={onStartElicitation}
+            className="text-xs text-blue-600 dark:text-blue-400 hover:underline mt-1"
+          >
+            Update my answers
+          </button>
+        </div>
+      ) : elicitation.status === 'complete' ? (
+        <div className="p-4 bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl text-xs text-slate-500 dark:text-zinc-400 space-y-2">
+          <p className="font-semibold text-slate-700 dark:text-zinc-200">
+            You\u2019re all set
+          </p>
+          <p>
+            Browse the map and library on the right. Tap the heart to save
+            cities you like, the arrows to compare, and the X to dismiss
+            anything that doesn\u2019t fit.
+          </p>
+        </div>
+      ) : (
+        <div className="text-xs text-slate-400 dark:text-zinc-500 px-1">
+          {t('relocation.agentActivitySoon')}
+        </div>
+      )}
     </aside>
   )
 }

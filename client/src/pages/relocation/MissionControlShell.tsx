@@ -68,6 +68,10 @@ export default function MissionControlShell(): React.ReactElement {
     saveCandidate,
     dismissCounts,
     scoreDegraded,
+    savedIds,
+    stateFilter,
+    setStateFilter,
+    availableStates,
   } = useRelocationCandidates(elicitation.roundsCompleted)
 
   dismissCountsRef.current = dismissCounts
@@ -325,6 +329,10 @@ export default function MissionControlShell(): React.ReactElement {
             onToggleCompare={toggleCompare}
             onClearCompare={clearCompare}
             onOpenCompare={openCompare}
+            savedIds={savedIds}
+            stateFilter={stateFilter}
+            setStateFilter={setStateFilter}
+            availableStates={availableStates}
           />
 
           {/* ── Detail sheet overlay (replaces drawer) ── */}

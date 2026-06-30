@@ -9,6 +9,19 @@ import type { Location } from '@memove/shared'
 
 type Translator = (key: string, params?: Record<string, string | number>) => string
 
+// ponytail: FOCUSABLE_SELECTOR covers everything Tab can land on inside the
+// dialog. We trap focus by intercepting Tab/Shift+Tab on the last/first
+// focusable element. Standard list — buttons, links, inputs, selects,
+// textareas, and anything with tabindex >= 0.
+const FOCUSABLE_SELECTOR = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',')
+
 export function CandidateDetailSheet({
   candidate,
   explanation,
@@ -32,15 +45,44 @@ export function CandidateDetailSheet({
 }): ReactElement {
   const { t } = useTranslation()
   const closeBtnRef = useRef<HTMLButtonElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   // ponytail: focus management for dialog a11y — save opener, focus close,
-  // Escape closes, restore focus on unmount. No deps; effect runs on mount.
+  // Escape closes, Tab cycles within dialog (focus trap), restore focus on
+  // unmount. No deps; effect runs on mount.
   useEffect(() => {
     const previouslyFocused = document.activeElement as HTMLElement | null
     closeBtnRef.current?.focus()
 
+    const getFocusable = (): HTMLElement[] => {
+      const root = dialogRef.current
+      if (!root) return []
+      return Array.from(root.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
+    }
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      // ponytail: focus trap — only when focus is inside our dialog.
+      // Without this check, Tab from outside (e.g. an iframe) would still
+      // get stolen; with it, we only enforce the trap for the dialog.
+      if (e.key !== 'Tab') return
+      const root = dialogRef.current
+      if (!root || !root.contains(document.activeElement)) return
+      const focusables = getFocusable()
+      if (focusables.length === 0) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      if (e.shiftKey && active === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
     document.addEventListener('keydown', onKey)
     return () => {
@@ -58,20 +100,24 @@ export function CandidateDetailSheet({
   if (compareWith) {
     return (
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-label={`Compare ${candidate.location.name} vs ${compareWith.location.name}`}
-        className="absolute right-0 top-0 h-full w-full max-w-[960px] z-30 flex"
+        aria-label={t('relocation.compareAriaLabel', {
+          a: candidate.location.name,
+          b: compareWith.location.name,
+        })}
+        className="absolute right-0 top-0 h-full w-full max-w-[960px] z-30 flex slide-in-right"
       >
         <div className="relative w-full bg-white dark:bg-zinc-900 shadow-2xl h-full overflow-y-auto">
           <div className="sticky top-0 bg-white dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-700 px-5 py-4 flex items-center justify-between z-10">
             <div>
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-                Compare
+                {t('relocation.compareTitle')}
               </h2>
               {compareResult && 'winner' in compareResult && (
                 <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">
-                  Winner: {compareResult.winner}
+                  {t('relocation.winnerLabel', { name: compareResult.winner })}
                 </p>
               )}
               {compareResult && 'error' in compareResult && (
@@ -107,6 +153,12 @@ export function CandidateDetailSheet({
               t={t}
             />
           </div>
+          {/* ponytail: per-metric delta strip below the 2-col grid. No new
+              fetches — derive wins from the two CandidateView.score / cost /
+              climate data already loaded. "Best for X" surfaces which city
+              wins each axis; roast #9 said the winner string alone was too
+              thin. */}
+          <CompareDeltaRow a={candidate} b={compareWith} />
         </div>
       </div>
     )
@@ -114,10 +166,11 @@ export function CandidateDetailSheet({
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
-      aria-label={`${candidate.location.name} details`}
-      className="absolute right-0 top-0 h-full w-full max-w-[480px] z-30 flex"
+      aria-label={t('relocation.detailAriaLabel', { name: candidate.location.name })}
+      className="absolute right-0 top-0 h-full w-full max-w-[480px] z-30 flex slide-in-right"
     >
       {/* Drawer panel */}
       <div className="relative w-full bg-white dark:bg-zinc-900 shadow-2xl h-full overflow-y-auto">
@@ -271,7 +324,7 @@ function CandidateBody({
               <div className="flex gap-2 p-2.5 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-xs text-amber-800 dark:text-amber-200">
                 <AlertTriangle size={14} className="shrink-0 mt-0.5" />
                 <span>
-                  {explanation.dataGaps.count} metrics missing — using neutral score
+                  {t('relocation.dataGapWarning', { count: explanation.dataGaps.count })}
                 </span>
               </div>
             )}
@@ -282,11 +335,11 @@ function CandidateBody({
                     {line}
                   </p>
                 ))}
-                <ScoreBreakdown explanation={explanation} />
+                <ScoreBreakdown explanation={explanation} t={t} />
               </>
             ) : (
               <p className="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
-                {candidate.decisionTrace || 'Explanation not available'}
+                {candidate.decisionTrace || t('relocation.explanationUnavailable')}
               </p>
             )}
           </div>
@@ -299,29 +352,29 @@ function CandidateBody({
           {deepData.healthOutcomes && (
             <div>
               <h3 className="text-sm font-semibold text-slate-700 dark:text-zinc-300 mb-2">
-                Healthcare Outcomes
+                {t('relocation.healthcareOutcomes')}
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 <MetricItem
-                  label="Life Expectancy"
+                  label={t('relocation.lifeExpectancy')}
                   value={deepData.healthOutcomes.lifeExpectancy
                     ? `${deepData.healthOutcomes.lifeExpectancy.toFixed(1)} yrs`
                     : '—'}
                 />
                 <MetricItem
-                  label="PCPs /100k"
+                  label={t('relocation.pcpsPer100k')}
                   value={deepData.healthOutcomes.primaryCarePhysiciansPer100k
                     ? deepData.healthOutcomes.primaryCarePhysiciansPer100k.toFixed(0)
                     : '—'}
                 />
                 <MetricItem
-                  label="Adult Obesity %"
+                  label={t('relocation.adultObesity')}
                   value={deepData.healthOutcomes.adultObesityPct
                     ? `${(deepData.healthOutcomes.adultObesityPct * 100).toFixed(0)}%`
                     : '—'}
                 />
                 <MetricItem
-                  label="Poor Mental Health Days/mo"
+                  label={t('relocation.mentalHealthDays')}
                   value={deepData.healthOutcomes.poorMentalHealthDays
                     ? deepData.healthOutcomes.poorMentalHealthDays.toFixed(1)
                     : '—'}
@@ -333,21 +386,21 @@ function CandidateBody({
           {deepData.fiscal && (
             <div>
               <h3 className="text-sm font-semibold text-slate-700 dark:text-zinc-300 mb-2">
-                Fiscal Health
+                {t('relocation.fiscalHealth')}
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 <MetricItem
-                  label="State Pension Funded Ratio"
+                  label={t('relocation.pensionFunded')}
                   value={deepData.fiscal.statePensionFundedRatio != null
                     ? `${(deepData.fiscal.statePensionFundedRatio * 100).toFixed(0)}%`
                     : '—'}
                 />
                 <MetricItem
-                  label="Tax Competitiveness"
+                  label={t('relocation.taxCompetitiveness')}
                   value={deepData.fiscal.taxCompetitivenessScore?.toFixed(0) ?? '—'}
                 />
                 <MetricItem
-                  label="Property Tax Rate"
+                  label={t('relocation.propertyTaxRate')}
                   value={deepData.cost?.propertyTaxRate != null
                     ? `${(deepData.cost.propertyTaxRate * 100).toFixed(2)}%`
                     : '—'}
@@ -415,23 +468,24 @@ export function AffordabilityBadge({
   data: AffordabilityData | null
 }): ReactElement | null {
   if (!data) return null
+  const { t } = useTranslation()
   const { ratio } = data
   let label: string
   let cls: string
   if (ratio <= 0.3) {
-    label = 'Affordable'
+    label = t('relocation.affordable')
     cls = 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
   } else if (ratio <= 0.4) {
-    label = 'Tight'
+    label = t('relocation.tight')
     cls = 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
   } else {
-    label = 'Stretching'
+    label = t('relocation.stretching')
     cls = 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
   }
   return (
     <span
       className={`mt-1.5 inline-flex items-center text-[11px] px-2 py-0.5 rounded-full font-medium ${cls}`}
-      title={`Rent-to-income ratio: ${(ratio * 100).toFixed(0)}%`}
+      title={t('relocation.rentToIncomeRatio', { pct: (ratio * 100).toFixed(0) })}
     >
       {label} · {(ratio * 100).toFixed(0)}%
     </span>
@@ -445,8 +499,10 @@ export function AffordabilityBadge({
  */
 export function ScoreBreakdown({
   explanation,
+  t,
 }: {
   explanation: ScoreExplanation
+  t: Translator
 }): ReactElement {
   const rows = (Object.entries(explanation.subscores ?? {}) as [string, number][])
     .sort((a, b) => b[1] - a[1])
@@ -454,7 +510,7 @@ export function ScoreBreakdown({
     <details open className="group rounded-lg border border-slate-200 dark:border-zinc-700 bg-slate-50/50 dark:bg-zinc-800/30">
       <summary className="flex items-center gap-1.5 cursor-pointer px-3 py-2 text-xs font-semibold text-slate-700 dark:text-zinc-300 list-none">
         <ChevronRight size={14} className="transition-transform group-open:rotate-90" />
-        Score breakdown · {explanation.matchScore}
+        {t('relocation.scoreBreakdownLabel', { score: explanation.matchScore })}
       </summary>
       <div className="px-3 pb-3 space-y-2">
         {rows.map(([metric, sub]) => {
@@ -466,7 +522,10 @@ export function ScoreBreakdown({
                   {metric}
                 </span>
                 <span className="text-slate-400 dark:text-zinc-500 tabular-nums">
-                  {sub.toFixed(0)} · weight {(weight * 100).toFixed(0)}%
+                  {t('relocation.metricWeight', {
+                    sub: sub.toFixed(0),
+                    weight: (weight * 100).toFixed(0),
+                  })}
                 </span>
               </div>
               <div className="h-1.5 rounded-full bg-slate-200 dark:bg-zinc-700 overflow-hidden">
@@ -483,5 +542,101 @@ export function ScoreBreakdown({
         })}
       </div>
     </details>
+  )
+}
+
+/**
+ * ponytail: per-metric "Best for…" strip below the 2-col compare grid.
+ * Lower-is-better for cost-of-living, rent, crime, hot days; higher-is-better
+ * for score, broadband, healthcare. Tied or missing values skip. No new
+ * fetches — derives from each CandidateView's already-loaded cost/climate/etc.
+ */
+function CompareDeltaRow({
+  a,
+  b,
+}: {
+  a: CandidateView
+  b: CandidateView
+}): ReactElement {
+  const { t } = useTranslation()
+  // ponytail: lower-is-better for cost-of-living, rent, crime, hot days;
+  // higher-is-better for score, broadband, healthcare. Tied or missing values
+  // skip. No new fetches — derives from each CandidateView's already-loaded
+  // cost/climate/etc.
+  const rows: Array<{ axis: string; aVal: number | null; bVal: number | null; lowerBetter: boolean }> = [
+    {
+      axis: 'Match Score',
+      aVal: a.score,
+      bVal: b.score,
+      lowerBetter: false,
+    },
+    {
+      axis: 'Cost of Living',
+      aVal: a.location.cost?.costOfLivingIndex ?? null,
+      bVal: b.location.cost?.costOfLivingIndex ?? null,
+      lowerBetter: true,
+    },
+    {
+      axis: 'Median Rent',
+      aVal: a.location.cost?.medianRent ?? null,
+      bVal: b.location.cost?.medianRent ?? null,
+      lowerBetter: true,
+    },
+    {
+      axis: 'Broadband %',
+      aVal: a.location.broadband?.pctHouseholdsWith100MbpsPlus ?? null,
+      bVal: b.location.broadband?.pctHouseholdsWith100MbpsPlus ?? null,
+      lowerBetter: false,
+    },
+    {
+      axis: 'Violent Crime',
+      aVal: a.location.crime?.violentCrimeRatePer100k ?? null,
+      bVal: b.location.crime?.violentCrimeRatePer100k ?? null,
+      lowerBetter: true,
+    },
+    {
+      axis: 'Hot Days/yr',
+      aVal: a.location.climate?.daysMaxGt90FAnnual ?? null,
+      bVal: b.location.climate?.daysMaxGt90FAnnual ?? null,
+      lowerBetter: true,
+    },
+  ]
+  // ponytail: filter axes where both have data; ties render as neither "best".
+  const winners = rows
+    .filter(r => r.aVal != null && r.bVal != null)
+    .map(r => {
+      const winner: 'a' | 'b' | 'tie' =
+        r.aVal === r.bVal
+          ? 'tie'
+          : r.lowerBetter
+            ? (r.aVal as number) < (r.bVal as number) ? 'a' : 'b'
+            : (r.aVal as number) > (r.bVal as number) ? 'a' : 'b'
+      return { ...r, winner }
+    })
+    .filter(r => r.winner !== 'tie')
+
+  if (winners.length === 0) return <></>
+
+  return (
+    <div
+      className="border-t border-slate-200 dark:border-zinc-700 bg-slate-50/60 dark:bg-zinc-800/40 px-5 py-3"
+      aria-label={t('relocation.compareDeltaLabel')}
+    >
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-zinc-400 mb-2">
+        {t('relocation.bestForLabel')}
+      </p>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1.5 text-[11px]">
+        {winners.map(r => {
+          const winnerName = r.winner === 'a' ? a.location.name : b.location.name
+          const winnerColor = r.winner === 'a' ? 'text-blue-700 dark:text-blue-300' : 'text-purple-700 dark:text-purple-300'
+          return (
+            <div key={r.axis} className="flex items-baseline gap-1.5">
+              <span className="text-slate-500 dark:text-zinc-400">{r.axis}:</span>
+              <span className={`font-semibold truncate ${winnerColor}`}>{winnerName}</span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }

@@ -208,6 +208,18 @@ export default function RelocationMapPanel({
           ? t('relocation.showingMetro', { count: 1 })
           : t('relocation.showingMetros', { count: candidates.length })}
       </div>
+    {/* Empty-state overlay — center */}
+      {candidates.length === 0 && (
+        <div
+          className="absolute inset-0 z-[400] flex items-center justify-center pointer-events-none"
+          aria-live="polite"
+        >
+          <div className="bg-white/90 dark:bg-zinc-800/90 backdrop-blur rounded-2xl px-5 py-3 shadow border border-slate-200 dark:border-zinc-700 text-sm text-slate-600 dark:text-zinc-300">
+            No metros match your current filters. Loosen the filters or clear the
+            state selector to see more.
+          </div>
+        </div>
+      )}
     </div>
   )
 }

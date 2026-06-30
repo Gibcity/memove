@@ -17,6 +17,11 @@ const relocation: TranslationStrings = {
   'relocation.noCandidates': 'No candidates match your filters.',
   'relocation.ofTotal': 'of',
   'relocation.saved': 'Saved',
+  'relocation.savedCount': '{count} saved',
+  'relocation.stateFilter': 'Filter by state',
+  'relocation.allStates': 'All states',
+  'relocation.filterOn': 'On',
+  'relocation.filterOff': 'Off',
 
   // ── Compare bar ──
   'relocation.compareSelected': '{count} selected for compare',
@@ -24,6 +29,33 @@ const relocation: TranslationStrings = {
   'relocation.compareButton': 'Compare ({count})',
   'relocation.compareMinHint': 'Pick at least 2',
   'relocation.compareTitle': 'Compare',
+  'relocation.compareAriaLabel': 'Compare {a} vs {b}',
+  'relocation.detailAriaLabel': '{name} details',
+  'relocation.winnerLabel': 'Winner: {name}',
+  'relocation.compareDeltaLabel': 'Per-metric comparison',
+  'relocation.bestForLabel': 'Best for',
+  'relocation.metricWeight': '{sub} · weight {weight}%',
+  'relocation.scoreBreakdownLabel': 'Score breakdown · {score}',
+  'relocation.affordable': 'Affordable',
+  'relocation.tight': 'Tight',
+  'relocation.stretching': 'Stretching',
+  'relocation.rentToIncomeRatio': 'Rent-to-income ratio: {pct}%',
+  'relocation.compareAddTitle': 'Add to compare',
+  'relocation.compareRemoveTitle': 'Remove from compare',
+  'relocation.compareShortlist': 'Compare side-by-side',
+  'relocation.healthcareOutcomes': 'Healthcare Outcomes',
+  'relocation.fiscalHealth': 'Fiscal Health',
+  'relocation.lifeExpectancy': 'Life Expectancy',
+  'relocation.pcpsPer100k': 'PCPs /100k',
+  'relocation.adultObesity': 'Adult Obesity %',
+  'relocation.mentalHealthDays': 'Poor Mental Health Days/mo',
+  'relocation.pensionFunded': 'State Pension Funded Ratio',
+  'relocation.taxCompetitiveness': 'Tax Competitiveness',
+  'relocation.propertyTaxRate': 'Property Tax Rate',
+  'relocation.dataGapWarning': '{count} metrics missing — using neutral score',
+  'relocation.explanationUnavailable': 'Explanation not available',
+  'relocation.scoreAriaLabel': 'Score: {score}',
+  'relocation.scoreTitle': 'Score {score}',
 
   // ── Detail sheet ──
   'relocation.rank': 'Rank',
@@ -76,6 +108,7 @@ const relocation: TranslationStrings = {
   // ── Candidate row ──
   'relocation.candidateDetail': 'View details for {name}',
   'relocation.save': 'Save candidate',
+  'relocation.unsave': 'Unsave candidate',
   'relocation.dismiss': 'Dismiss candidate',
 
   // ── Timeline panel ──

@@ -18,6 +18,12 @@ export function useRelocationCandidates(profileVersion?: number) {
   const [sliders, setSliders] = useState<FilterSlider[]>(DEFAULT_FILTER_SLIDERS)
   const [dismissedIds, setDismissedIds] = useState<Set<string>>(new Set())
   const [dismissCounts, setDismissCounts] = useState<Record<string, number>>({})
+  // ponytail: in-session saved set. Signal is sent to the server (so the
+  // profile re-ranks) but the local set drives the heart icon's filled/empty
+  // state on each row. Server-persisted saved list replaces this when the
+  // /profile endpoint exposes `savedLocations[]`.
+  const [savedIds, setSavedIds] = useState<Set<string>>(new Set())
+  const [stateFilter, setStateFilter] = useState<string>('')
   const [seenAt, setSeenAt] = useState<Record<string, number>>({})
   const [scoreDegraded, setScoreDegraded] = useState(false)
 
@@ -166,6 +172,14 @@ export function useRelocationCandidates(profileVersion?: number) {
       ts: new Date().toISOString(),
     }
     await relocationApi.submitSignal(signal).catch(() => {})
+    // ponytail: toggle the in-session saved set so the heart icon visually
+    // reflects state. Re-rank so the saved city bubbles up.
+    setSavedIds(prev => {
+      const next = new Set(prev)
+      if (next.has(locationId)) next.delete(locationId)
+      else next.add(locationId)
+      return next
+    })
     // ponytail: re-fetch so the list re-ranks against the updated profile weights
     fetchScored()
   }, [fetchScored])
@@ -187,9 +201,13 @@ export function useRelocationCandidates(profileVersion?: number) {
 
   // ── Derived ────────────────────────────────────────────────────
 
-  const visibleCandidates = candidates.filter(
-    c => !dismissedIds.has(c.location.id),
-  )
+  const visibleCandidates = candidates
+    .filter(c => !dismissedIds.has(c.location.id))
+    // ponytail: stateFilter narrows to a single state. Empty string = all.
+    .filter(c => !stateFilter || c.location.state === stateFilter)
+  const availableStates = Array.from(
+    new Set(allLocations.map(l => l.state)),
+  ).sort()
 
   return {
     // Data
@@ -206,10 +224,14 @@ export function useRelocationCandidates(profileVersion?: number) {
     updateSlider,
     toggleSlider,
     sendFilterApplySignal,
+    stateFilter,
+    setStateFilter,
+    availableStates,
 
     // Actions
     dismissCandidate,
     saveCandidate,
     dismissCounts,
+    savedIds,
   }
 }

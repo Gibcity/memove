@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from '../../i18n'
-import { Send, Sparkles, MapPin, CalendarDays, ListChecks, Trash2 } from 'lucide-react'
+import { Send, Sparkles, MapPin, CalendarDays, ListChecks, Trash2, GitCompareArrows } from 'lucide-react'
 import { useRelocationChat, type ChatMessage, type RichCard } from './useRelocationChat'
 
 // ponytail: whole component is one file, ~one screenful. No subfolders, no
@@ -81,7 +81,7 @@ export default function RelocationChat(): React.ReactElement {
         ) : (
           <div className="space-y-4 trek-stagger">
             {messages.map(m => (
-              <MessageBubble key={m.id} message={m} />
+              <MessageBubble key={m.id} message={m} onPick={handleSend} />
             ))}
             {isLoading && <TypingIndicator />}
           </div>
@@ -206,7 +206,13 @@ function EmptyHero({ onPick }: { onPick: (text: string) => void }): React.ReactE
   )
 }
 
-function MessageBubble({ message }: { message: ChatMessage }): React.ReactElement {
+function MessageBubble({
+  message,
+  onPick,
+}: {
+  message: ChatMessage
+  onPick?: (text: string) => void
+}): React.ReactElement {
   const isUser = message.role === 'user'
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
@@ -226,7 +232,7 @@ function MessageBubble({ message }: { message: ChatMessage }): React.ReactElemen
         {message.cards && message.cards.length > 0 && (
           <div className="mt-3 space-y-3">
             {message.cards.map((c, i) => (
-              <RichCardView key={i} card={c} />
+              <RichCardView key={i} card={c} onPick={onPick} />
             ))}
           </div>
         )}
@@ -235,7 +241,13 @@ function MessageBubble({ message }: { message: ChatMessage }): React.ReactElemen
   )
 }
 
-function RichCardView({ card }: { card: RichCard }): React.ReactElement {
+function RichCardView({
+  card,
+  onPick,
+}: {
+  card: RichCard
+  onPick?: (text: string) => void
+}): React.ReactElement {
   if (card.kind === 'city_compare') {
     return (
       <div
@@ -308,44 +320,175 @@ function RichCardView({ card }: { card: RichCard }): React.ReactElement {
       </div>
     )
   }
-  // checklist
-  return (
-    <div
-      className="rounded-xl p-3"
-      style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-secondary)' }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <ListChecks size={12} style={{ color: 'var(--text-muted)' }} />
-        <span className="text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
-          {card.state} DMV checklist
-        </span>
+  if (card.kind === 'city_list') {
+    // ponytail: server-issued ranked list. Score dot + name+state + key metric
+    // pills. Missing metrics fall back to em-dash so the card never blanks.
+    return (
+      <div
+        className="rounded-xl p-3"
+        style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-secondary)' }}
+      >
+        <div className="flex items-center gap-1.5 mb-2">
+          <MapPin size={12} style={{ color: 'var(--text-muted)' }} />
+          <span className="text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+            Top matches
+          </span>
+        </div>
+        <div className="space-y-1.5">
+          {card.cities.map(c => {
+            const km = c.keyMetrics ?? {}
+            const rent = km.medianRent ?? null
+            const home = km.medianHomeValue ?? null
+            const hot = km.daysMaxGt90FAnnual ?? null
+            return (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => onPick?.(`Tell me more about ${c.name}, ${c.state}`)}
+                className="w-full flex items-center gap-2 p-2 rounded-lg text-left transition-colors"
+                style={{ background: 'var(--bg-card)', border: '1px solid var(--border-secondary)' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)' }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-secondary)' }}
+              >
+                <span
+                  className="w-2.5 h-2.5 rounded-full shrink-0"
+                  style={{ background: scoreHex(c.matchScore) }}
+                  aria-label={`Score ${c.matchScore}`}
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-semibold truncate" style={{ color: 'var(--text-primary)' }}>
+                    {c.name}, {c.state}
+                  </div>
+                  <div className="text-[10px] tabular-nums" style={{ color: 'var(--text-muted)' }}>
+                    Score {c.matchScore} · Rent {rent != null ? `$${rent.toLocaleString()}/mo` : '—'} · Home {home != null ? `$${(home / 1000).toFixed(0)}K` : '—'} · {hot != null ? `${hot} hot days` : '—'}
+                  </div>
+                </div>
+              </button>
+            )
+          })}
+        </div>
       </div>
-      <div className="space-y-1">
-        {card.items.map((item, i) => (
-          <label
-            key={i}
-            className="flex items-start gap-2 p-1.5 rounded-md cursor-pointer"
-            style={{ background: 'var(--bg-card)' }}
+    )
+  }
+  if (card.kind === 'compare_prompt') {
+    // ponytail: server tells the chat to suggest comparison. Existing shortlist
+    // becomes tappable chips; if shortlist is empty, surface a hint.
+    return (
+      <div
+        className="rounded-xl p-3"
+        style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-secondary)' }}
+      >
+        <div className="flex items-center gap-1.5 mb-2">
+          <GitCompareArrows size={12} style={{ color: 'var(--text-muted)' }} />
+          <span className="text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+            Compare cities
+          </span>
+        </div>
+        {card.shortlist.length === 0 ? (
+          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            Save 2 or more cities from the dashboard, then ask to compare.
+          </p>
+        ) : (
+          <div className="flex flex-wrap gap-1.5">
+            {card.shortlist.map(name => (
+              <button
+                key={name}
+                type="button"
+                onClick={() => onPick?.(`Compare ${name} with my other shortlisted cities`)}
+                className="px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors"
+                style={{
+                  background: 'var(--bg-card)',
+                  color: 'var(--text-secondary)',
+                  border: '1px solid var(--border-primary)',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)' }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)' }}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  }
+  if (card.kind === 'prompt_chips') {
+    // ponytail: server-prompted next-turn suggestions. Tappable so the user
+    // can drive the conversation without typing.
+    return (
+      <div className="flex flex-wrap gap-1.5">
+        {card.chips.map(chip => (
+          <button
+            key={chip.query}
+            type="button"
+            onClick={() => onPick?.(chip.query)}
+            className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors"
+            style={{
+              background: 'var(--bg-secondary)',
+              color: 'var(--text-secondary)',
+              border: '1px solid var(--border-primary)',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)' }}
           >
-            <input
-              type="checkbox"
-              defaultChecked={item.done}
-              className="mt-0.5 cursor-pointer accent-indigo-500"
-            />
-            <span
-              className="text-xs leading-snug"
-              style={{
-                color: item.done ? 'var(--text-muted)' : 'var(--text-primary)',
-                textDecoration: item.done ? 'line-through' : 'none',
-              }}
-            >
-              {item.label}
-            </span>
-          </label>
+            {chip.label}
+          </button>
         ))}
       </div>
-    </div>
-  )
+    )
+  }
+  if (card.kind === 'checklist') {
+    return (
+      <div
+        className="rounded-xl p-3"
+        style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-secondary)' }}
+      >
+        <div className="flex items-center gap-1.5 mb-2">
+          <ListChecks size={12} style={{ color: 'var(--text-muted)' }} />
+          <span className="text-[10px] font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+            {card.state} DMV checklist
+          </span>
+        </div>
+        <div className="space-y-1">
+          {card.items.map((item, i) => (
+            <label
+              key={i}
+              className="flex items-start gap-2 p-1.5 rounded-md cursor-pointer"
+              style={{ background: 'var(--bg-card)' }}
+            >
+              <input
+                type="checkbox"
+                defaultChecked={item.done}
+                className="mt-0.5 cursor-pointer accent-indigo-500"
+              />
+              <span
+                className="text-xs leading-snug"
+                style={{
+                  color: item.done ? 'var(--text-muted)' : 'var(--text-primary)',
+                  textDecoration: item.done ? 'line-through' : 'none',
+                }}
+              >
+                {item.label}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+    )
+  }
+  // exhaustive fallback — ponytail: unknown card kinds render nothing rather
+  // than crash. Bump the discriminated union check when new kinds are added.
+  return <></>
+}
+
+// ponytail: tiny hex-color helper for city_list score dots. Inline so the chat
+// file stays self-contained; mirrors scoreToColor breakpoints in relocationModel.
+function scoreHex(score: number): string {
+  if (score >= 80) return '#22c55e' // green
+  if (score >= 60) return '#84cc16' // lime
+  if (score >= 40) return '#eab308' // yellow
+  if (score >= 20) return '#f97316' // orange
+  return '#ef4444' // red
 }
 
 function TypingIndicator(): React.ReactElement {

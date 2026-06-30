@@ -6,6 +6,16 @@ import { Search, ArrowDownAZ, Heart, X, Eye, EyeOff } from 'lucide-react'
 
 type SortKey = 'score' | 'rent' | 'name'
 
+// ponytail: #26 alias map — substring matches the user clearly meant
+// (e.g. "NYC" → New York, "TX" → Texas). Cheap O(n) pass; expand when
+// product asks for more.
+const SEARCH_ALIASES: Record<string, string[]> = {
+  nyc: ['new york'],
+  sf: ['san francisco'],
+  la: ['los angeles'],
+  dc: ['washington'],
+}
+
 /**
  * Right-panel library: search + filter sliders + scrollable candidate rows.
  * ponytail: local search/sort state is fine — caller doesn't need to know
@@ -27,6 +37,10 @@ export default function CandidateLibraryPanel({
   onToggleCompare,
   onClearCompare,
   onOpenCompare,
+  savedIds,
+  stateFilter,
+  setStateFilter,
+  availableStates,
 }: {
   candidates: CandidateView[]
   allCandidates: CandidateView[]
@@ -42,6 +56,10 @@ export default function CandidateLibraryPanel({
   onToggleCompare: (id: string) => void
   onClearCompare: () => void
   onOpenCompare: () => void
+  savedIds: Set<string>
+  stateFilter: string
+  setStateFilter: (s: string) => void
+  availableStates: string[]
 }): React.ReactElement {
   const { t } = useTranslation()
   const [search, setSearch] = useState('')
@@ -56,11 +74,19 @@ export default function CandidateLibraryPanel({
   // upstream; we only handle the text search + sort here.
   const visible = useMemo(() => {
     const q = search.trim().toLowerCase()
+    const aliases = q ? (SEARCH_ALIASES[q] ?? []) : []
     const base = q
-      ? candidates.filter(c =>
-          c.location.name.toLowerCase().includes(q) ||
-          c.location.state.toLowerCase().includes(q),
-        )
+      ? candidates.filter(c => {
+          const name = c.location.name.toLowerCase()
+          const state = c.location.state.toLowerCase()
+          // ponytail: #26 — alias expansion ("NYC" → "new york").
+          // Plain substring still works for partial typing ("aus" → Austin).
+          return (
+            name.includes(q) ||
+            state.includes(q) ||
+            aliases.some(a => name.includes(a) || state.includes(a))
+          )
+        })
       : candidates
     const sorted = [...base]
     if (sortKey === 'score') sorted.sort((a, b) => b.score - a.score)
@@ -112,6 +138,22 @@ export default function CandidateLibraryPanel({
             className="w-full pl-8 pr-3 py-1.5 text-sm bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 rounded-lg text-slate-700 dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </label>
+        {/* ponytail: state filter — native <select> avoids a custom dropdown lib.
+            "All states" = empty value. Search box + state filter compose
+            (filter narrows upstream, search narrows locally). */}
+        {availableStates.length > 0 && (
+          <select
+            value={stateFilter}
+            onChange={e => setStateFilter(e.target.value)}
+            aria-label={t('relocation.stateFilter')}
+            className="mt-2 w-full px-2 py-1.5 text-xs bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-700 rounded-lg text-slate-600 dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">{t('relocation.allStates')}</option>
+            {availableStates.map(s => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        )}
       </div>
 
       {/* Filter sliders (mirrors FilterSidebar pattern, compact) */}
@@ -131,17 +173,21 @@ export default function CandidateLibraryPanel({
                   >
                     {slider.label}
                   </label>
+                  {/* ponytail: explicit text label + icon — Eye/EyeOff alone was
+                      opaque (roast #15). aria-label still set for screen readers. */}
                   <button
                     type="button"
                     onClick={() => onToggleSlider(slider.id)}
-                    className="p-0.5 text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300"
+                    className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium text-slate-500 dark:text-zinc-400 hover:text-slate-700 dark:hover:text-zinc-200 rounded transition-colors"
                     aria-label={
                       slider.enabled
                         ? t('relocation.filterDisable')
                         : t('relocation.filterEnable')
                     }
+                    aria-pressed={slider.enabled}
                   >
-                    {slider.enabled ? <Eye size={12} /> : <EyeOff size={12} />}
+                    {slider.enabled ? <Eye size={11} /> : <EyeOff size={11} />}
+                    <span>{slider.enabled ? 'On' : 'Off'}</span>
                   </button>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -201,7 +247,7 @@ export default function CandidateLibraryPanel({
       {compareIds.length > 0 && (
         <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-slate-200 dark:border-zinc-700 bg-blue-50/60 dark:bg-blue-900/20">
           <span className="text-xs font-medium text-blue-700 dark:text-blue-300">
-            {compareIds.length} selected for compare
+            {t('relocation.compareSelected', { count: compareIds.length })}
           </span>
           <div className="flex items-center gap-1">
             <button
@@ -209,16 +255,16 @@ export default function CandidateLibraryPanel({
               onClick={onClearCompare}
               className="text-[11px] px-2 py-1 text-slate-600 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white"
             >
-              Clear
+              {t('relocation.compareClear')}
             </button>
             <button
               type="button"
               onClick={onOpenCompare}
               disabled={compareIds.length < 2}
               className="text-[11px] px-2.5 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white rounded-md font-medium"
-              title={compareIds.length < 2 ? 'Pick at least 2' : 'Compare side-by-side'}
+              title={compareIds.length < 2 ? t('relocation.compareMinHint') : t('relocation.compareShortlist')}
             >
-              Compare ({compareIds.length})
+              {t('relocation.compareButton', { count: compareIds.length })}
             </button>
           </div>
         </div>
@@ -241,6 +287,7 @@ export default function CandidateLibraryPanel({
             candidate={c}
             isSelected={selectedId === c.location.id}
             isInCompare={compareIds.includes(c.location.id)}
+            isSaved={savedIds.has(c.location.id)}
             onSelect={handleSelect}
             onDismiss={handleDismiss}
             onSave={handleSave}
@@ -253,10 +300,19 @@ export default function CandidateLibraryPanel({
       <div className="px-4 py-2 border-t border-slate-200 dark:border-zinc-700 text-[11px] text-slate-400 dark:text-zinc-500 flex items-center justify-between">
         <span>
           {visible.length} {t('relocation.ofTotal')} {allCandidates.length}
+          {savedIds.size > 0 && (
+            <span className="ml-2 text-red-500">
+              · {t('relocation.savedCount', { count: savedIds.size })}
+            </span>
+          )}
         </span>
         {selectedId && (
           <span className="inline-flex items-center gap-1 text-blue-500">
-            <Heart size={10} aria-label={t('relocation.saved')} />
+            <Heart
+              size={10}
+              fill={savedIds.has(selectedId) ? 'currentColor' : 'none'}
+              aria-label={t('relocation.saved')}
+            />
           </span>
         )}
       </div>

@@ -13,6 +13,7 @@ function CandidateRow({
   candidate,
   isSelected,
   isInCompare,
+  isSaved,
   onSelect,
   onDismiss,
   onSave,
@@ -21,6 +22,7 @@ function CandidateRow({
   candidate: CandidateView
   isSelected: boolean
   isInCompare: boolean
+  isSaved: boolean
   onSelect: (c: CandidateView) => void
   onDismiss: (id: string) => void
   onSave: (id: string) => void
@@ -29,6 +31,12 @@ function CandidateRow({
   const { t } = useTranslation()
   const { location, score } = candidate
   const rent = location.cost?.medianRent
+  // ponytail: degraded-mode fallback (#24). When the score endpoint was
+  // bypassed, decisionTrace is empty and the row shows a generic "below
+  // average" hint. Better than a silent blank line under the city name.
+  const traceLine = candidate.decisionTrace
+    ? candidate.decisionTrace.split('.')[0] + '.'
+    : null
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -55,8 +63,8 @@ function CandidateRow({
       <span
         className="w-3 h-3 rounded-full shrink-0"
         style={{ background: scoreToColor(score) }}
-        aria-label={`Score: ${score}`}
-        title={`Score ${score}`}
+        aria-label={t('relocation.scoreAriaLabel', { score })}
+        title={t('relocation.scoreTitle', { score })}
       />
 
       {/* Name + why */}
@@ -69,9 +77,15 @@ function CandidateRow({
             {location.state}
           </span>
         </div>
-        {candidate.decisionTrace && (
+        {traceLine ? (
           <p className="text-[11px] text-slate-400 dark:text-zinc-500 truncate leading-tight">
-            {candidate.decisionTrace.split('.')[0]}.
+            {traceLine}
+          </p>
+        ) : (
+          // ponytail: degraded-mode placeholder — keeps the same vertical
+          // footprint so the row doesn't reflow when decisionTrace is empty.
+          <p className="text-[11px] text-slate-400 dark:text-zinc-500 truncate leading-tight italic">
+            {t('relocation.scoreDegraded')}
           </p>
         )}
       </div>
@@ -94,9 +108,9 @@ function CandidateRow({
               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30'
               : 'text-slate-400 hover:text-blue-500'
           }`}
-          aria-label="Compare"
+          aria-label={isInCompare ? t('relocation.compareRemoveTitle') : t('relocation.compareAddTitle')}
           aria-pressed={isInCompare}
-          title={isInCompare ? 'Remove from compare' : 'Add to compare'}
+          title={isInCompare ? t('relocation.compareRemoveTitle') : t('relocation.compareAddTitle')}
         >
           <GitCompareArrows size={14} />
         </button>
@@ -104,10 +118,16 @@ function CandidateRow({
           type="button"
           onClick={e => { e.stopPropagation(); onSave(location.id) }}
           onKeyDown={e => e.stopPropagation()}
-          className="p-1 text-slate-400 hover:text-red-500 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-          aria-label={t('relocation.save')}
+          className={`p-1 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+            isSaved
+              ? 'text-red-500 bg-red-50 dark:bg-red-900/20'
+              : 'text-slate-400 hover:text-red-500'
+          }`}
+          aria-label={t(isSaved ? 'relocation.unsave' : 'relocation.save')}
+          aria-pressed={isSaved}
+          title={isSaved ? t('relocation.unsave') : t('relocation.save')}
         >
-          <Heart size={14} />
+          <Heart size={14} fill={isSaved ? 'currentColor' : 'none'} />
         </button>
         <button
           type="button"
