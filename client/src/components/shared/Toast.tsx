@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
 import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react'
 
 type ToastType = 'success' | 'error' | 'warning' | 'info'
@@ -157,12 +157,16 @@ export const useToast = () => {
     }
   }, [])
 
-  return {
+  // ponytail: returning a fresh object literal here would invalidate every
+  // useCallback / useEffect that lists `toast` as a dep — that's how the
+  // /relocation page ended up in an infinite render loop. Memoize so the
+  // toast reference stays stable across renders.
+  return useMemo(() => ({
     success: (message: string, duration?: number) => show(message, 'success', duration),
     error: (message: string, duration?: number) => show(message, 'error', duration),
     warning: (message: string, duration?: number) => show(message, 'warning', duration),
     info: (message: string, duration?: number) => show(message, 'info', duration),
-  }
+  }), [show])
 }
 
 export default useToast

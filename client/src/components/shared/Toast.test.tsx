@@ -1,6 +1,6 @@
 import { render, screen, act } from '../../../tests/helpers/render';
 import userEvent from '@testing-library/user-event';
-import { ToastContainer } from './Toast';
+import { ToastContainer, useToast } from './Toast';
 
 describe('ToastContainer', () => {
   beforeEach(() => {
@@ -90,5 +90,26 @@ describe('ToastContainer', () => {
     expect(screen.getByText('First toast')).toBeTruthy();
     expect(screen.getByText('Second toast')).toBeTruthy();
     expect(screen.getByText('Third toast')).toBeTruthy();
+  });
+
+  // ponytail: regression for the /relocation infinite-render loop. useToast()
+  // used to return a fresh object literal every render — that invalidated
+  // every useCallback that took `toast` as a dep (e.g. loadLocations in
+  // useRelocationCandidates), re-firing its useEffect every render, which
+  // re-fired listLocations 40+ times in 5s. Lock the reference stable across
+  // renders so this can't come back via an innocent `return { ... }` edit.
+  it('FE-COMP-TOAST-009: useToast returns a stable reference across renders', () => {
+    const refs: unknown[] = []
+    function Probe({ tick }: { tick: number }) {
+      const toast = useToast()
+      refs.push(toast)
+      return <div data-testid="probe">{tick}</div>
+    }
+    const { rerender } = render(<Probe tick={0} />)
+    rerender(<Probe tick={1} />)
+    rerender(<Probe tick={2} />)
+    expect(refs).toHaveLength(3)
+    expect(refs[0]).toBe(refs[1])
+    expect(refs[1]).toBe(refs[2])
   });
 });
