@@ -210,6 +210,7 @@ export interface SearchFilters {
 
 export interface ScoreFilters {
   weights?: Record<string, number>;
+  softWeights?: Record<string, number>; // ponytail: alias for weights (UserProfile field)
   states?: string[];
   excludeStates?: string[];
   maxHomeValue?: number;
@@ -221,6 +222,7 @@ export interface ScoreFilters {
   maxHotDays?: number;
   maxColdDays?: number;
   limit?: number;
+  topK?: number; // ponytail: shared-schema field, prefer over `limit`
   // dot-path → [min, max]. Locations whose value at the path falls outside
   // the range are excluded before scoring. Missing fields → skip filter.
   // Shape matches ScoreRequest.filters in @memove/shared.
@@ -579,7 +581,10 @@ export class RelocationService {
 
   searchLocations(filters: SearchFilters): { total: number; locations: Partial<Location>[] } {
     const locations = loadLocations();
-    const limit = filters.limit ?? 20;
+    // ponytail: default to 1000 (corpus is 939 metros) so callers that omit
+    // `limit` get the full list. The FE explicitly passes ?limit=1000; this
+    // raise protects MCP/CLI/OpenAPI consumers that don't.
+    const limit = filters.limit ?? 1000;
     const results: Partial<Location>[] = [];
 
     for (const loc of locations) {

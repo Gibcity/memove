@@ -76,9 +76,13 @@ const searchFiltersSchema = z.object({
 const scoreFiltersSchema = searchFiltersSchema.extend({
   // ponytail: shared schema (relocation.schema.ts) advertises `topK`; honor
   // it here so the FE contract matches what the service reads. Falls back
-  // to `limit` from searchFiltersSchema, then to the service default (20).
+  // to `limit` from searchFiltersSchema, then to the service default (1000).
   topK: z.number().int().positive().optional(),
   weights: z.record(z.string(), z.number()).optional(),
+  // ponytail: UserProfile uses `softWeights` (see shared/relocation.schema.ts);
+  // accept it here so the FE can pass the profile object through unchanged.
+  // Service prefers `weights` when both are present.
+  softWeights: z.record(z.string(), z.number()).optional(),
   filters: z.record(z.string(), z.object({ min: z.number().optional(), max: z.number().optional() })).optional(),
 });
 
@@ -161,6 +165,12 @@ export class RelocationController {
   @Post('score')
   @UsePipes(new ZodValidationPipe(scoreFiltersSchema))
   score(@Body() body: z.infer<typeof scoreFiltersSchema>) {
+    // ponytail: accept `softWeights` (UserProfile field name) as an alias for
+    // `weights` so the FE can forward the profile verbatim. The service
+    // reads `weights`; we map before delegating.
+    if (!body.weights && body.softWeights) {
+      body.weights = body.softWeights;
+    }
     return this.relocation.scoreLocations(body);
   }
 

@@ -90,8 +90,8 @@ paths:
           in: query
           schema:
             type: integer
-            default: 20
-          description: Max results to return
+            default: 1000
+          description: Max results to return (default 1000 covers full 939-metro corpus)
       responses:
         "200":
           description: Successful search

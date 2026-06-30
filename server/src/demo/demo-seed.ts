@@ -8,6 +8,23 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
   const DEMO_EMAIL = 'demo@memove.app';
   const DEMO_PASS = 'demo12345';
 
+  // One-shot rebrand migration: rename legacy `*@trek.app` / `*@trek.local` rows
+  // to their `@memove.app` counterparts. Idempotent and safe on every boot.
+  // If the target `@memove.app` row already exists (from a newer install), the
+  // old orphan row is deleted instead of updated to avoid a UNIQUE(email)
+  // collision — it carries no trips or memberships in this codebase.
+  const renameOrDrop = (oldEmail: string, newEmail: string): void => {
+    const target = db.prepare('SELECT id FROM users WHERE email = ?').get(newEmail);
+    if (target) {
+      db.prepare('DELETE FROM users WHERE email = ?').run(oldEmail);
+    } else {
+      db.prepare('UPDATE users SET email = ? WHERE email = ?').run(newEmail, oldEmail);
+    }
+  };
+  renameOrDrop('admin@trek.local', 'admin@memove.app');
+  renameOrDrop('admin@trek.app',   'admin@memove.app');
+  renameOrDrop('demo@trek.app',    'demo@memove.app');
+
   // Create admin user if not exists
   let admin = db.prepare('SELECT id FROM users WHERE email = ?').get(ADMIN_EMAIL) as { id: number } | undefined;
   if (!admin) {
