@@ -37,6 +37,7 @@ export default function CandidateLibraryPanel({
   onToggleCompare,
   onClearCompare,
   onOpenCompare,
+  onCompareTop,
   savedIds,
   stateFilter,
   setStateFilter,
@@ -56,6 +57,7 @@ export default function CandidateLibraryPanel({
   onToggleCompare: (id: string) => void
   onClearCompare: () => void
   onOpenCompare: () => void
+  onCompareTop: () => void
   savedIds: Set<string>
   stateFilter: string
   setStateFilter: (s: string) => void
@@ -250,6 +252,15 @@ export default function CandidateLibraryPanel({
             {t('relocation.compareSelected', { count: compareIds.length })}
           </span>
           <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={onCompareTop}
+              disabled={allCandidates.length < 2}
+              className="text-[11px] px-2 py-1 text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-white disabled:opacity-40 disabled:cursor-not-allowed"
+              title="Compare top 3 by score"
+            >
+              Top 3
+            </button>
             <button
               type="button"
               onClick={onClearCompare}

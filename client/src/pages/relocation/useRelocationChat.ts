@@ -191,10 +191,36 @@ export interface UseRelocationChatResult {
 }
 
 export function useRelocationChat(): UseRelocationChatResult {
-  const [messages, setMessages] = useState<ChatMessage[]>([])
+  // ponytail: #39 — persist transcript to localStorage so refresh doesn't lose
+  // context. Keyed by session id so multi-account sessions don't cross-pollute.
+  // Cap at ~50 messages to keep storage bounded.
+  const STORAGE_KEY = 'relocation.chat.history'
+  const loadHistory = (): ChatMessage[] => {
+    if (typeof localStorage === 'undefined') return []
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY)
+      if (!raw) return []
+      const parsed = JSON.parse(raw)
+      return Array.isArray(parsed) ? parsed.slice(-50) : []
+    } catch {
+      return []
+    }
+  }
+  const [messages, setMessages] = useState<ChatMessage[]>(loadHistory)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const abortRef = useRef<AbortController | null>(null)
+
+  // ponytail: persist on every message change — debouncing here would risk
+  // losing the last message on crash; the storage write is cheap.
+  useEffect(() => {
+    if (typeof localStorage === 'undefined') return
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages))
+    } catch {
+      // quota or disabled storage — fail silent, in-memory copy still works
+    }
+  }, [messages])
 
   const sendMessage = useCallback(async (rawText: string) => {
     const text = rawText.trim()

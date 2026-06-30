@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { relocationApi, type ScoreExplanation } from '../../api/relocation'
 import type { Location } from '@memove/shared'
 import type { CandidateDetail } from './relocationModel'
@@ -65,11 +65,17 @@ export function useRelocationScore() {
     [],
   )
 
+  // ponytail: per-request token discards stale responses — rapid clicks on A
+  // then B before A resolves would otherwise overwrite B's deepData with A's.
+  const deepSeqRef = useRef(0)
   const fetchDeepData = useCallback(async (locationId: string) => {
+    const seq = ++deepSeqRef.current
     try {
       const loc = await relocationApi.getLocation(locationId)
+      if (seq !== deepSeqRef.current) return // ponytail: a newer fetch has taken over
       setDeepData(loc)
     } catch {
+      if (seq !== deepSeqRef.current) return
       setDeepData(null)
     }
   }, [])

@@ -110,13 +110,16 @@ export function useRelocationCandidates(profileVersion?: number) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allLocations.length])
 
-  // Re-rank when the elicitation profile changes server-side
+  // Re-rank when the elicitation profile changes server-side.
+  // ponytail: gate on allLocations too — on mount profileVersion is 0 and the
+  // hook fires immediately with an empty map, then again when locations land.
+  // Without the gate, mount triggers two /score roundtrips instead of one.
   useEffect(() => {
     if (allLocations.length > 0) {
       fetchScored()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profileVersion])
+  }, [profileVersion, allLocations.length])
 
   // ── Filter management ──────────────────────────────────────────
 

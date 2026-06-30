@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react'
-import { MessageCircle, X } from 'lucide-react'
+import { MessageCircle, X, PanelLeftClose, PanelRightClose, PanelLeftOpen, PanelRightOpen } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import Navbar from '../../components/Layout/Navbar'
 import { useResizablePanels } from '../../hooks/useResizablePanels'
@@ -117,6 +117,37 @@ export default function MissionControlShell(): React.ReactElement {
     setCompareResult(null)
   }, [])
 
+  // ponytail: #38 — one-click "compare top 3 by score" from the current
+  // ranked list. Replaces the manual pick-3 flow with the same compare
+  // modal the manual path already opens.
+  const compareTopByScore = useCallback(() => {
+    const top = candidates.slice(0, MAX_COMPARE).map(c => c.location.id)
+    if (top.length < 2) {
+      toast.warning('Need at least 2 candidates to compare.')
+      return
+    }
+    setCompareIds(top)
+    setCompareOpen(true)
+    setCompareLoading(true)
+    setCompareResult(null)
+    ;(async () => {
+      try {
+        const resp = await relocationApi.compareLocations(top)
+        setCompareResult(resp)
+      } catch (e) {
+        setCompareResult({ error: (e as Error).message || 'Compare failed' })
+      } finally {
+        setCompareLoading(false)
+      }
+      const signal: ImplicitSignal = {
+        kind: 'candidate_compare',
+        locationIds: top,
+        ts: new Date().toISOString(),
+      }
+      relocationApi.submitSignal(signal).catch(() => {})
+    })()
+  }, [candidates, toast])
+
   const openCompare = useCallback(async () => {
     if (compareIds.length < 2) return
     setCompareOpen(true)
@@ -192,7 +223,7 @@ export default function MissionControlShell(): React.ReactElement {
 
   // ── Layout (must be before early returns — hooks ordering) ──
 
-  const { leftWidth, rightWidth, startResizeLeft, startResizeRight } = useResizablePanels()
+  const { leftWidth, rightWidth, leftCollapsed, rightCollapsed, setLeftCollapsed, setRightCollapsed, startResizeLeft, startResizeRight } = useResizablePanels()
 
   // ── Loading state ──
 
@@ -220,8 +251,8 @@ export default function MissionControlShell(): React.ReactElement {
       <div className="fixed inset-0 top-[var(--navbar-height,56px)] flex bg-slate-50 dark:bg-zinc-950 overflow-hidden">
         {/* ── LEFT: Timeline ── */}
         <aside
-          className="h-full shrink-0 overflow-y-auto border-r border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900"
-          style={{ width: leftWidth }}
+          className="h-full shrink-0 overflow-y-auto border-r border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-[width] duration-200"
+          style={{ width: leftCollapsed ? 0 : leftWidth }}
         >
           <MoveTimelinePanel
             elicitation={elicitation}
@@ -239,11 +270,23 @@ export default function MissionControlShell(): React.ReactElement {
           />
         </aside>
 
-        {/* Left resize handle */}
-        <div
-          className="w-1 cursor-col-resize bg-slate-200 dark:bg-zinc-700 hover:bg-blue-400 transition-colors shrink-0"
-          onMouseDown={startResizeLeft}
-        />
+        {/* Left resize handle + collapse toggle. ponytail: pin button to the
+            handle so it's discoverable without eating panel width. */}
+        <div className="relative w-1 shrink-0">
+          <div
+            className="absolute inset-y-0 left-0 w-1 cursor-col-resize bg-slate-200 dark:bg-zinc-700 hover:bg-blue-400 transition-colors"
+            onMouseDown={startResizeLeft}
+          />
+          <button
+            type="button"
+            onClick={() => setLeftCollapsed(!leftCollapsed)}
+            title={leftCollapsed ? 'Show timeline' : 'Hide timeline'}
+            aria-label={leftCollapsed ? 'Show timeline' : 'Hide timeline'}
+            className="absolute top-2 left-1/2 -translate-x-1/2 p-1 rounded-md bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-500 hover:text-slate-900 dark:hover:text-white shadow-sm transition-colors z-30"
+          >
+            {leftCollapsed ? <PanelLeftOpen size={12} /> : <PanelLeftClose size={12} />}
+          </button>
+        </div>
 
         {/* ── CENTER: Map ── */}
         <main className="flex-1 relative min-w-0">
@@ -303,16 +346,27 @@ export default function MissionControlShell(): React.ReactElement {
           )}
         </main>
 
-        {/* Right resize handle */}
-        <div
-          className="w-1 cursor-col-resize bg-slate-200 dark:bg-zinc-700 hover:bg-blue-400 transition-colors shrink-0"
-          onMouseDown={startResizeRight}
-        />
+        {/* Right resize handle + collapse toggle. ponytail: same pattern as left. */}
+        <div className="relative w-1 shrink-0">
+          <div
+            className="absolute inset-y-0 right-0 w-1 cursor-col-resize bg-slate-200 dark:bg-zinc-700 hover:bg-blue-400 transition-colors"
+            onMouseDown={startResizeRight}
+          />
+          <button
+            type="button"
+            onClick={() => setRightCollapsed(!rightCollapsed)}
+            title={rightCollapsed ? 'Show candidates' : 'Hide candidates'}
+            aria-label={rightCollapsed ? 'Show candidates' : 'Hide candidates'}
+            className="absolute top-2 left-1/2 -translate-x-1/2 p-1 rounded-md bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-slate-500 hover:text-slate-900 dark:hover:text-white shadow-sm transition-colors z-30"
+          >
+            {rightCollapsed ? <PanelRightOpen size={12} /> : <PanelRightClose size={12} />}
+          </button>
+        </div>
 
         {/* ── RIGHT: Candidate Library ── */}
         <aside
-          className="h-full shrink-0 overflow-hidden relative border-l border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900"
-          style={{ width: rightWidth }}
+          className="h-full shrink-0 overflow-hidden relative border-l border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-[width] duration-200"
+          style={{ width: rightCollapsed ? 0 : rightWidth }}
         >
           <CandidateLibraryPanel
             candidates={candidates}
@@ -329,6 +383,7 @@ export default function MissionControlShell(): React.ReactElement {
             onToggleCompare={toggleCompare}
             onClearCompare={clearCompare}
             onOpenCompare={openCompare}
+            onCompareTop={compareTopByScore}
             savedIds={savedIds}
             stateFilter={stateFilter}
             setStateFilter={setStateFilter}
