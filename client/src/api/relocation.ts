@@ -8,6 +8,17 @@ import type {
   ElicitationQuestion,
 } from '@memove/shared'
 
+/** Server response for POST /relocation/score/explain. */
+export interface ScoreExplanation {
+  location: { id: string; name: string; state: string }
+  matchScore: number
+  subscores: Record<string, number>
+  explanation: string[]
+  dataGaps: { count: number; fields: string[]; note: string }
+  weightsUsed: Record<string, number>
+  allMetrics: Record<string, unknown>
+}
+
 // ── Locations ────────────────────────────────────────────────────────────
 
 export const relocationApi = {
@@ -63,10 +74,10 @@ export const relocationApi = {
       .post<ScoreResponse>('/relocation/score', req ?? {})
       .then(r => r.data),
 
-  /** Natural-language explanation of why a candidate scored as it did. */
+  /** Why a candidate scored as it did — subscores, weights, data gaps, trace. */
   explainScore: (locationId: string) =>
     apiClient
-      .post<{ explanation: string; trace: Record<string, unknown> }>(
+      .post<ScoreExplanation>(
         '/relocation/score/explain',
         { locationId },
       )
@@ -75,7 +86,7 @@ export const relocationApi = {
   /** Side-by-side comparison of 2+ locations (POST /relocation/compare). */
   compareLocations: (locationIds: string[]) =>
     apiClient
-      .post<{ locations: ScoreResponse['candidates']; winner: string } | { error: string }>(
+      .post<{ locations: unknown[]; winner: string } | { error: string }>(
         '/relocation/compare',
         { locationIds },
       )
@@ -86,7 +97,13 @@ export const relocationApi = {
   /** Apply personalized move checklist to a trip's todo list. */
   applyMoveChecklist: (tripId: string | number, moveDate: string) =>
     apiClient
-      .post<{ applied: number; skipped: boolean }>('/relocation/move-checklist', { tripId, moveDate })
+      .post<{
+        applied: number
+        skipped: boolean
+        reason?: string
+        existing?: number
+        error?: string
+      }>('/relocation/move-checklist', { tripId, moveDate })
       .then(r => r.data),
 
   // ── Housing ──────────────────────────────────────────────────────

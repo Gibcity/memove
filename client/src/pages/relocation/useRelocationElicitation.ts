@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
+import { apiClient } from '../../api/client'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
 import { useTranslation } from '../../i18n'
@@ -25,6 +26,11 @@ export function useRelocationElicitation(dismissCounts: Record<string, number>) 
   const [hardFilterPrompt, setHardFilterPrompt] =
     useState<HardFilterPrompt | null>(null)
   const [showElicitationCard, setShowElicitationCard] = useState(true)
+  // ponytail: id→name lookup so the banner reads "Hide Dallas, TX?" not
+  // "Hide dallas-tx?". One mount-time fetch — same endpoint the candidates
+  // hook uses, no shared-state plumbing needed (the parent shell avoids the
+  // TDZ cycle by passing dismissCounts via ref).
+  const [idToName, setIdToName] = useState<Record<string, string>>({})
 
   const toast = useToast()
   const { t } = useTranslation()
@@ -113,10 +119,11 @@ export function useRelocationElicitation(dismissCounts: Record<string, number>) 
     const entries = Object.entries(dismissCounts)
     for (const [locationId, count] of entries) {
       if (count >= HARD_FILTER_THRESHOLD) {
-        // Find the location name for the prompt
+        // ponytail: fall back to the slug if the name lookup hasn't resolved
+        // yet (rare — same /locations fetch resolves in a few ms on mount).
         setHardFilterPrompt({
           field: locationId,
-          label: locationId,
+          label: idToName[locationId] ?? locationId,
           dismissCount: count,
           threshold: HARD_FILTER_THRESHOLD,
           suggestedFilter: {
@@ -131,20 +138,18 @@ export function useRelocationElicitation(dismissCounts: Record<string, number>) 
         break // One prompt at a time
       }
     }
-  }, [dismissCounts])
+  }, [dismissCounts, idToName])
 
   const confirmHardFilter = useCallback(async (filter: HardFilter) => {
     try {
-      // ponytail: POST the actual filter to the profile endpoint
-      const resp = await fetch('/api/relocation/profile', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      // ponytail: route through apiClient so the auth interceptor, idempotency
+      // key, and 401/demo-login fallback apply (same pattern as
+      // useRelocationChat). raw fetch would skip all three.
+      const updated = await apiClient
+        .post<UserProfile>('/relocation/profile', {
           hardFilters: [...(profile?.hardFilters ?? []), filter],
-        }),
-      })
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
-      const updated = (await resp.json()) as UserProfile
+        })
+        .then(r => r.data)
       setProfile(updated)
       setHardFilterPrompt(null)
       toast.success(t('relocation.hardFilterConfirmed'))
@@ -180,6 +185,20 @@ export function useRelocationElicitation(dismissCounts: Record<string, number>) 
       })
       .catch(() => {
         // No profile yet — that's OK
+      })
+
+    // ponytail: piggyback on mount to build the id→display-name map. Single
+    // /locations call covers both lookups (this hook + the candidates hook
+    // fetch independently — could be deduped via shared cache later).
+    relocationApi
+      .listLocations()
+      .then(locs => {
+        const map: Record<string, string> = {}
+        for (const l of locs) map[l.id] = l.name
+        setIdToName(map)
+      })
+      .catch(() => {
+        // Hard-filter prompt falls back to the slug if the lookup never lands
       })
   }, [])
 

@@ -7,7 +7,9 @@ import type {
   ElicitationSession,
   ElicitationQuestion,
   ImplicitSignal,
-} from '@trek/shared';
+} from '@memove/shared';
+import { createItem as createTodoItem, listItems as listTodoItems } from '../../services/todoService';
+import { selectChecklistTasks } from './move-checklist-templates';
 
 // ── Data loading ──────────────────────────────────────────────────────────────
 
@@ -17,7 +19,7 @@ const LOCATIONS_PATH = path.resolve(
 );
 
 let _locationsCache: Location[] | null = null;
-let _statsCache: Map<string, { min: number; max: number; n: number }> | null = null;
+let _statsCache: Map<string, { min: number; max: number; mean: number; std: number; n: number }> | null = null;
 
 function loadLocations(): Location[] {
   if (_locationsCache === null) {
@@ -68,28 +70,73 @@ function getNested(obj: Record<string, unknown>, path: string): number {
 
 // ── Normalization stats ───────────────────────────────────────────────────────
 
+// ponytail: FEMA NRI risk scores are 0-100 and a 0 is data (not "not in
+// zone"), while density/count/broadband fields use 0 as a missing-data
+// sentinel. Hard-coding the policy here per-field because the JSON
+// payload has no separate "hasData" flag and adding one is out of scope.
+const NRI_RISK_FIELDS = new Set([
+  'tornadoRiskScore',
+  'hurricaneRiskScore',
+  'floodRiskScore',
+  'earthquakeRiskScore',
+  'wildfireRiskScore',
+  'daysMaxGt90FAnnual',
+  'daysMinLt32FAnnual',
+]);
+
+function isMissing(field: string, v: number): boolean {
+  if (!Number.isFinite(v) || Number.isNaN(v)) return true;
+  if (v === 0) {
+    // 0 is meaningful only for NRI risk scores; for everything else the
+    // corpus convention is 0 = "no data captured".
+    return !NRI_RISK_FIELDS.has(field);
+  }
+  return false;
+}
+
 function computeNormalizationStats(
   locations: Location[],
-): Map<string, { min: number; max: number; n: number }> {
-  const stats = new Map<string, { min: number; max: number; n: number }>();
+): Map<string, { min: number; max: number; mean: number; std: number; n: number }> {
+  // ponytail: also stores mean/std so NRI risk scores can be z-score
+  // normalized. Their raw 0-100 scale is already comparable across
+  // metros (FEMA publishes against a national baseline), so min-max
+  // against corpus min/max mis-ranks moderate-risk metros against
+  // maxed-out hurricane counties. Cost fields (ratio-scaled) keep
+  // min-max, which is the right call there.
+  const stats = new Map<string, { min: number; max: number; mean: number; std: number; n: number }>();
   for (const [field, fpath] of Object.entries(FIELD_PATHS)) {
+    // ponytail: 'Unknown' fiscalTier — 93.5% of the corpus — leaks into
+    // taxCompetitivenessScore normalization and silently de-ranks
+    // metropolitan counties. Skip those rows entirely.
     const vals: number[] = [];
     for (const loc of locations) {
+      if (loc.fiscal?.fiscalTier === 'Unknown') continue;
       const v = getNested(loc as unknown as Record<string, unknown>, fpath);
-      if (v !== 0 && Number.isFinite(v) && !Number.isNaN(v)) {
-        vals.push(v);
-      }
+      if (isMissing(field, v)) continue;
+      vals.push(v);
     }
+    if (vals.length === 0) {
+      stats.set(field, { min: 0, max: 1, mean: 0, std: 0, n: 0 });
+      continue;
+    }
+    let sum = 0;
+    for (const x of vals) sum += x;
+    const mean = sum / vals.length;
+    let varSum = 0;
+    for (const x of vals) varSum += (x - mean) * (x - mean);
+    const std = Math.sqrt(varSum / vals.length);
     stats.set(field, {
-      min: vals.length > 0 ? Math.min(...vals) : 0,
-      max: vals.length > 0 ? Math.max(...vals) : 1,
+      min: Math.min(...vals),
+      max: Math.max(...vals),
+      mean,
+      std,
       n: vals.length,
     });
   }
   return stats;
 }
 
-function getStats(): Map<string, { min: number; max: number; n: number }> {
+function getStats(): Map<string, { min: number; max: number; mean: number; std: number; n: number }> {
   if (_statsCache === null) {
     _statsCache = computeNormalizationStats(loadLocations());
   }
@@ -98,14 +145,26 @@ function getStats(): Map<string, { min: number; max: number; n: number }> {
 
 // ── Normalization helper ──────────────────────────────────────────────────────
 
+// ponytail: z-score option for NRI; min-max kept as default for cost fields.
+// Z-score is bounded to [-3, 3] and mapped to [0, 100] so the scale matches
+// the rest of the subscores.
 function normalize(
   value: number,
   rmin: number,
   rmax: number,
   n: number,
+  invertOrZ: boolean | { mean: number; std: number } = false,
   invert = false,
 ): number {
-  if (n === 0 || value === 0 || rmax === rmin) return 0;
+  if (n === 0) return 0;
+  if (typeof invertOrZ === 'object') {
+    if (!Number.isFinite(value) || invertOrZ.std === 0) return 50;
+    const z = (value - invertOrZ.mean) / invertOrZ.std;
+    const clipped = Math.max(-3, Math.min(3, z));
+    const pct = (clipped + 3) / 6;
+    return Math.round((invert ? 1 - pct : pct) * 100);
+  }
+  if (!Number.isFinite(value) || rmax === rmin) return 0;
   const norm = (value - rmin) / (rmax - rmin);
   return Math.round((invert ? 1 - norm : norm) * 100);
 }
@@ -162,6 +221,27 @@ export interface ScoreFilters {
   maxHotDays?: number;
   maxColdDays?: number;
   limit?: number;
+  // dot-path → [min, max]. Locations whose value at the path falls outside
+  // the range are excluded before scoring. Missing fields → skip filter.
+  // Shape matches ScoreRequest.filters in @memove/shared.
+  filters?: Record<string, { min?: number; max?: number }>;
+}
+
+// Apply ScoreRequest-style range filters (dot-path → {min,max}) to a location.
+// Excludes when the resolved value is finite and falls outside [min,max].
+function applyRangeFilters(
+  loc: Location,
+  filters: Record<string, { min?: number; max?: number }> | undefined,
+): { included: boolean; reason?: string } {
+  if (!filters) return { included: true };
+  for (const [path, range] of Object.entries(filters)) {
+    const raw = getNested(loc as unknown as Record<string, unknown>, path);
+    if (!Number.isFinite(raw) || raw === 0) continue; // missing data → don't exclude
+    const { min, max } = range;
+    if (min !== undefined && raw < min) return { included: false, reason: `${path}=${raw} < min=${min}` };
+    if (max !== undefined && raw > max) return { included: false, reason: `${path}=${raw} > max=${max}` };
+  }
+  return { included: true };
 }
 
 // ── Scoring engine ────────────────────────────────────────────────────────────
@@ -169,7 +249,7 @@ export interface ScoreFilters {
 function scoreLocation(
   loc: Location,
   weights: Record<string, number>,
-  stats: Map<string, { min: number; max: number; n: number }>,
+  stats: Map<string, { min: number; max: number; mean: number; std: number; n: number }>,
   filters: Record<string, unknown>,
 ): ScoreResult {
   const failReasons: string[] = [];
@@ -209,7 +289,7 @@ function scoreLocation(
 
   function norm(field: string, value: number, invert = false): number {
     const r = stats.get(field)!;
-    return normalize(value, r.min, r.max, r.n, invert);
+    return normalize(value, r.min, r.max, r.n, false, invert);
   }
 
   // Cost subscore
@@ -230,21 +310,35 @@ function scoreLocation(
   } else {
     costParts.push([taxScore, 0.2]);
   }
-  costParts.push([taxScore, 0.2]);
+  // ponytail: removed unconditional costParts.push([taxScore, 0.2]) — this was a
+  // double-weighting bug. When colScore > 0, taxScore was pushed again below,
+  // giving tax a 0.4 weight instead of 0.2. When colScore === 0, taxScore was
+  // pushed twice (0.2 + 0.2 = 0.4). Now taxScore only appears once.
   const wsum = costParts.reduce((s, [, w]) => s + w, 0);
   const costSub = wsum ? Math.round(costParts.reduce((s, [sc, w]) => s + sc * w, 0) / wsum) : 0;
 
   // Climate/risk subscore
-  const riskScores: number[] = [];
-  for (const rk of [
+  // ponytail: NRI risk fields (incl. the days-above/below thresholds which
+  // share the same per-corpus variability pattern) use z-score
+  // normalization rather than min-max. Their 0-100/0-365 scales are
+  // already comparable across metros, so the corpus min/max would
+  // distort a moderate-risk metro into the wrong end of the range.
+  const NRI_FIELDS = new Set([
     'earthquakeRiskScore',
     'tornadoRiskScore',
     'hurricaneRiskScore',
     'floodRiskScore',
     'wildfireRiskScore',
-  ]) {
+  ]);
+  const riskScores: number[] = [];
+  for (const rk of NRI_FIELDS) {
     const v = (climate as Record<string, number>)[rk] ?? 0;
-    riskScores.push(v > 0 ? norm(rk, v, true) : 100);
+    const r = stats.get(rk);
+    if (r && r.n > 0 && Number.isFinite(v)) {
+      riskScores.push(normalize(v, 0, 0, r.n, { mean: r.mean, std: r.std }, true));
+    } else {
+      riskScores.push(100);
+    }
   }
   const climateSub =
     riskScores.length > 0 ? Math.round(riskScores.reduce((a, b) => a + b, 0) / riskScores.length) : 50;
@@ -380,7 +474,7 @@ function getDefaultProfile(userId: string): UserProfile {
 //
 // Three lightweight questions per RESEARCH.md §1 (cold-start: <5 min to
 // first useful feed).  Each follows the ElicitationQuestion shape from
-// @trek/shared/relocation/relocation.schema.ts.
+// @memove/shared/relocation/relocation.schema.ts.
 
 const ELICITATION_QUESTIONS: ElicitationQuestion[] = [
   {
@@ -587,6 +681,7 @@ export class RelocationService {
     if (filters.maxColdDays) cleanFilters['maxColdDays'] = filters.maxColdDays;
 
     const scored = locations
+      .filter((loc) => applyRangeFilters(loc, filters.filters).included)
       .map((loc) => scoreLocation(loc, weights, stats, cleanFilters))
       .sort((a, b) => b.matchScore - a.matchScore);
 
@@ -711,6 +806,11 @@ export class RelocationService {
     const cost = loc.cost;
 
     // Fiscal health assessment
+    // ponytail: switched to Equable Institute five-tier brackets and
+    // graduated pension/tax adjustments. The previous two-bucket
+    // (<0.6 / >0.9) approach collapsed CT (0.663), HI (0.583), PA (0.616)
+    // into the same -10 penalty as NJ (0.512), KY (0.475) — distinct
+    // fiscal profiles with distinct user-relevant risk profiles.
     let healthScore = 50;
     let riskLevel = 'Moderate';
     let outlook = 'Stable';
@@ -729,9 +829,14 @@ export class RelocationService {
       outlook = 'Moderate risk of tax increases in next 5-10 years';
     }
 
+    // Equable five-tier pension ratios: <0.6 Distressed, 0.6-0.7 Fragile,
+    // 0.7-0.8 Moderate, 0.8-0.9 Healthy, >0.9 Strong.
     const pensionRatio = fiscal.statePensionFundedRatio;
-    if (pensionRatio > 0.9) healthScore += 10;
-    else if (pensionRatio < 0.6) healthScore -= 10;
+    if (pensionRatio >= 0.9) healthScore += 10;
+    else if (pensionRatio >= 0.8) healthScore += 5;
+    // 0.7-0.8 leaves the baseline neutral
+    else if (pensionRatio >= 0.6) healthScore -= 5;
+    else healthScore -= 10;
 
     const taxScore = fiscal.taxCompetitivenessScore;
     if (taxScore > 80) healthScore += 5;
@@ -993,6 +1098,73 @@ export class RelocationService {
     }
 
     this.upsertUserProfile(userId, { softWeights: weights });
+  }
+
+  // ── Move Checklist ──
+
+  /**
+   * Generate and apply a personalized move checklist to a trip's todo list.
+   * Reads templates, filters by user profile (demographic, state, first-timer),
+   * computes absolute dates from moveDate + daysOffset, and bulk-inserts via
+   * todoService.createItem.
+   *
+   * Idempotent: checks for an existing 'move-checklist' category marker before
+   * inserting, so calling twice on the same trip doesn't duplicate tasks.
+   */
+  applyMoveChecklist(
+    userId: string,
+    tripId: string | number,
+    moveDate: string,
+  ): {
+    applied: number;
+    skipped: boolean;
+    reason?: string;
+    existing?: number;
+    error?: string;
+    tasks?: unknown[];
+  } {
+    const profile = userProfiles.get(userId) ?? getDefaultProfile(userId);
+    const ctx = profile.moveContext;
+
+    // Map schema fields (isFirstMove/demographic singular) to selector fields
+    // (firstTimeMover/demographics[]). Without this, the selector silently
+    // returns the baseline only and personalization is broken.
+    const tasks = selectChecklistTasks({
+      firstTimeMover: ctx?.isFirstMove,
+      demographics: ctx?.demographic ? [ctx.demographic] : undefined,
+      destinationState: ctx?.destinationState,
+      hasPets: ctx?.hasPets,
+    });
+
+    // Idempotency: skip if already applied
+    const existing = listTodoItems(tripId).filter(
+      (t: { category?: string }) => t.category === 'move-checklist',
+    );
+    if (existing.length > 0) {
+      return { applied: 0, skipped: true, reason: 'already-applied', existing: existing.length };
+    }
+
+    const base = new Date(moveDate);
+    if (isNaN(base.getTime())) {
+      return { applied: 0, skipped: false, error: 'Invalid move date' };
+    }
+    const added: unknown[] = [];
+
+    for (const task of tasks) {
+      const due = new Date(base);
+      // ponytail: UTC arithmetic — setDate in local TZ shifts across DST.
+      due.setUTCDate(due.getUTCDate() + task.daysOffset);
+      const item = createTodoItem(tripId, {
+        name: task.name,
+        category: 'move-checklist',
+        due_date: due.toISOString().slice(0, 10),
+        description: task.description,
+        priority: task.priority,
+      });
+      added.push(item);
+    }
+
+    return { applied: added.length, skipped: false, tasks: added };
   }
 
   // ── Helpers ──

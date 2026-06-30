@@ -54,12 +54,18 @@ export function useRelocationCandidates(profileVersion?: number) {
         filters ? { filters } : undefined,
       )
       setScoreDegraded(false)
-      const mapped: CandidateView[] = (resp.candidates || []).map(c => ({
-        location: c,
-        score: c.matchScore,
-        rank: c.rank,
-        decisionTrace: c.decisionTrace,
-      }))
+      // ponytail: server returns slim TopMatch rows; join against allLocations to recover full Location
+      const locById = new Map(allLocations.map(l => [l.id, l]))
+      const mapped: CandidateView[] = (resp.topMatches || []).map(m => {
+        const loc = locById.get(m.id)
+        if (!loc) return null
+        return {
+          location: loc,
+          score: m.matchScore,
+          rank: m.rank,
+          decisionTrace: m.trace.join(' • '),
+        }
+      }).filter((v): v is CandidateView => v !== null)
       setCandidates(sortCandidatesByRank(mapped))
       // ponytail: seed seenAt on first appearance so dismiss can report real dwell
       setSeenAt(prev => {

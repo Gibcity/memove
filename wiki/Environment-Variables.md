@@ -1,6 +1,6 @@
 # Environment Variables
 
-Complete reference for all environment variables TREK reads.
+Complete reference for all environment variables memove reads.
 
 ## How to Set Variables
 
@@ -31,12 +31,12 @@ Complete reference for all environment variables TREK reads.
 
 ### `HOST` — Source and Proxmox installs only
 
-By default TREK binds to all network interfaces (`0.0.0.0`), which is the correct behaviour inside a container because
+By default memove binds to all network interfaces (`0.0.0.0`), which is the correct behaviour inside a container because
 Docker handles port exposure at the host level. Setting `HOST` overrides the bind address at the Node.js level.
 
-**When to use it:** only when running TREK directly on a host (git sources or
+**When to use it:** only when running memove directly on a host (git sources or
 the [Proxmox community script](Install-Proxmox)) and you need to restrict which interface the server listens on — for
-example, to expose TREK only on a LAN interface while keeping it off the public-facing one.
+example, to expose memove only on a LAN interface while keeping it off the public-facing one.
 
 **Never set `HOST` in Docker, Docker Compose, Helm, or Unraid deployments.** Use Docker's
 `-p <host-ip>:<host-port>:<container-port>` syntax or your orchestrator's port binding instead.
@@ -64,7 +64,7 @@ Setting `ENCRYPTION_KEY` explicitly is recommended so you can back it up indepen
 
 ### `DEFAULT_LANGUAGE` — Supported Codes
 
-You can set `DEFAULT_LANGUAGE` to any of the 20 languages TREK ships. The currently supported codes are:
+You can set `DEFAULT_LANGUAGE` to any of the 20 languages memove ships. The currently supported codes are:
 
 | Code    | Language           |
 |---------|--------------------|
@@ -89,8 +89,8 @@ You can set `DEFAULT_LANGUAGE` to any of the 20 languages TREK ships. The curren
 | `uk`    | Українська         |
 | `gr`    | Ελληνικά           |
 
-If you set a code that isn't supported, TREK falls back to English (`en`). This list grows as new
-translations are added to TREK.
+If you set a code that isn't supported, memove falls back to English (`en`). This list grows as new
+translations are added to memove.
 
 ---
 
@@ -153,7 +153,7 @@ over the database values.
 | `SMTP_PORT`            | SMTP server port. Port `465` enables implicit TLS (`secure: true`); all other ports use STARTTLS or plain.                              | —       |
 | `SMTP_USER`            | SMTP authentication username                                                                                                            | —       |
 | `SMTP_PASS`            | SMTP authentication password                                                                                                            | —       |
-| `SMTP_FROM`            | Sender address for outbound emails (e.g. `TREK <noreply@example.com>`)                                                                  | —       |
+| `SMTP_FROM`            | Sender address for outbound emails (e.g. `memove <noreply@example.com>`)                                                                  | —       |
 | `SMTP_SKIP_TLS_VERIFY` | Set `true` to disable TLS certificate validation. Useful for self-signed certs on internal SMTP relays — not recommended in production. | `false` |
 
 `SMTP_HOST`, `SMTP_PORT`, and `SMTP_FROM` are all required for email delivery to work. `SMTP_USER` and `SMTP_PASS` are
@@ -190,11 +190,11 @@ For setup instructions, see [MCP-Overview](MCP-Overview).
 
 | Variable                    | Description                                                                                                                                                                                             | Default       |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `KITINERARY_EXTRACTOR_PATH` | Full path to the `kitinerary-extractor` binary. When unset, TREK searches `/usr/lib/*/libexec/kf6/kitinerary-extractor` and then `PATH`. Set this if you install the binary to a non-standard location. | auto-detected |
+| `KITINERARY_EXTRACTOR_PATH` | Full path to the `kitinerary-extractor` binary. When unset, memove searches `/usr/lib/*/libexec/kf6/kitinerary-extractor` and then `PATH`. Set this if you install the binary to a non-standard location. | auto-detected |
 
-The official TREK Docker image bundles the binary automatically: on amd64 it downloads the static release from
+The official memove Docker image bundles the binary automatically: on amd64 it downloads the static release from
 `https://cdn.kde.org/ci-builds/pim/kitinerary/`; on arm64 it installs `libkitinerary-bin` via apt (Debian trixie). When
-running TREK from source, install `libkitinerary-bin` (Debian trixie / Ubuntu 25.04+) or download the static binary
+running memove from source, install `libkitinerary-bin` (Debian trixie / Ubuntu 25.04+) or download the static binary
 directly and place it anywhere on `PATH`. The `GET /api/health/features` endpoint returns `{ "bookingImport": true }`
 when the binary is found, and the Import button in the Reservations panel is hidden when it is not.
 
@@ -219,7 +219,7 @@ when the binary is found, and the Import button in the Reservations panel is hid
 
 ## Demo Mode
 
-Demo mode runs TREK as a public, self-resetting sandbox. Not intended for regular deployments.
+Demo mode runs memove as a public, self-resetting sandbox. Not intended for regular deployments.
 
 | Variable           | Description                                                                                                                                                                                                                                                                 | Default          |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|

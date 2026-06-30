@@ -1,9 +1,9 @@
-# TREK Helm Chart
+# memove Helm Chart
 
-This is a minimal Helm chart for deploying the TREK app.
+This is a minimal Helm chart for deploying the memove app.
 
 ## Features
-- Deploys the TREK container
+- Deploys the memove container
 - Exposes port 3000 via Service
 - Optional persistent storage for `/app/data` and `/app/uploads`
 - Configurable environment variables and secrets
@@ -15,7 +15,7 @@ This is a minimal Helm chart for deploying the TREK app.
 A hosted Helm repository is available:
 
 ```sh
-helm repo add trek https://mauriceboe.github.io/TREK
+helm repo add trek https://mauriceboe.github.io/memove
 helm repo update
 helm install trek trek/trek
 ```

@@ -157,7 +157,7 @@ export function applyPlatformTransport(app: express.Application): void {
       oauthMetadata: metadata,
       resourceServerUrl: new URL(`${metadata.issuer}/mcp`),
       scopesSupported: ALL_SCOPES as string[],
-      resourceName: 'TREK MCP',
+      resourceName: 'memove MCP',
     });
     return _sdkMetaRouter;
   }
@@ -186,7 +186,7 @@ export function applyPlatformTransport(app: express.Application): void {
   // Clients like ChatGPT probe /.well-known/oauth-protected-resource (no path suffix) on every
   // fresh discovery. Without this, they get 404, fall back to the issuer URL as the resource
   // parameter, and the authorize handler rejects them with invalid_target — showing the user
-  // the TREK home page instead of the consent form.
+  // the memove home page instead of the consent form.
   app.get('/.well-known/oauth-protected-resource', (_req: Request, res: Response) => {
     if (!isAddonEnabled(ADDON_IDS.MCP)) return res.status(404).end();
     const meta = getOAuthMetadata();
@@ -195,7 +195,7 @@ export function applyPlatformTransport(app: express.Application): void {
       authorization_servers:    [meta.issuer],
       bearer_methods_supported: ['header'],
       scopes_supported:         ALL_SCOPES,
-      resource_name:            'TREK MCP',
+      resource_name:            'memove MCP',
     });
   });
 

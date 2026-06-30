@@ -3,7 +3,7 @@ import type { Response } from 'express';
 import { MulterError } from 'multer';
 
 /**
- * Normalises every Nest exception to TREK's legacy error envelope so migrated
+ * Normalises every Nest exception to memove's legacy error envelope so migrated
  * routes are byte-identical for the client. This mirrors the legacy global
  * Express error handler (server/src/app.ts) exactly:
  *   - multer errors            -> 413 (LIMIT_FILE_SIZE) / 400, body { error: <multer message> }

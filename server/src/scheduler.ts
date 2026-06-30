@@ -274,7 +274,7 @@ function startTodoReminders(): void {
   }, { timezone: tz });
 }
 
-// Version check: daily at 9 AM — notify admins if a new TREK release is available
+// Version check: daily at 9 AM — notify admins if a new memove release is available
 let versionCheckTask: ScheduledTask | null = null;
 
 function startVersionCheck(): void {
@@ -292,7 +292,7 @@ function startVersionCheck(): void {
 }
 
 // Idempotency key cleanup: nightly at 3 AM — delete keys past their TTL.
-// The TTL must exceed any realistic offline window: the TREK client replays
+// The TTL must exceed any realistic offline window: the memove client replays
 // queued mutations with their X-Idempotency-Key when it reconnects, so a key
 // GC'd before the device comes back online would let the replay create a
 // duplicate. 24h was far too short for a multi-day offline trip; default 30d,
@@ -337,7 +337,7 @@ function startIdempotencyCleanup(): void {
   }, { timezone: tz });
 }
 
-// Trek photo cache cleanup: every 2 hours — evict disk files and DB rows past their 1h TTL
+// memove photo cache cleanup: every 2 hours — evict disk files and DB rows past their 1h TTL
 let trekPhotoCacheTask: ScheduledTask | null = null;
 
 function startTrekPhotoCacheCleanup(): void {
@@ -354,7 +354,7 @@ function startTrekPhotoCacheCleanup(): void {
       const { sweepExpired } = require('./services/memories/trekPhotoCache');
       sweepExpired();
     } catch (err: unknown) {
-      logError(`Trek photo cache cleanup: ${err instanceof Error ? err.message : err}`);
+      logError(`memove photo cache cleanup: ${err instanceof Error ? err.message : err}`);
     }
   });
 }

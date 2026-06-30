@@ -88,7 +88,7 @@ const settings: TranslationStrings = {
   'settings.webhookUrl.testSuccess': 'Test webhook sent successfully',
   'settings.webhookUrl.testFailed': 'Test webhook failed',
   'settings.ntfyUrl.topicLabel': 'Ntfy Topic',
-  'settings.ntfyUrl.topicPlaceholder': 'my-trek-alerts',
+  'settings.ntfyUrl.topicPlaceholder': 'my-memove-alerts',
   'settings.ntfyUrl.serverLabel': 'Ntfy Server URL (optional)',
   'settings.ntfyUrl.serverPlaceholder': 'https://ntfy.sh',
   'settings.ntfyUrl.hint':
@@ -198,9 +198,9 @@ const settings: TranslationStrings = {
   'settings.about.featureRequestHint': 'Suggest a new feature',
   'settings.about.wikiHint': 'Documentation & guides',
   'settings.about.supporters.badge': 'Monthly Supporters',
-  'settings.about.supporters.title': 'Travel companions for TREK',
+  'settings.about.supporters.title': 'Travel companions for memove',
   'settings.about.supporters.subtitle':
-    "While you're planning your next route, these folks are helping plan TREK's future. Their monthly contribution goes straight into development and real hours spent — so TREK stays Open Source.",
+    "While you're planning your next route, these folks are helping plan memove's future. Their monthly contribution goes straight into development and real hours spent — so memove stays Open Source.",
   'settings.about.supporters.since': 'supporter since {date}',
   'settings.about.supporters.tierEmpty': 'Be the first',
   'settings.about.supporter.tier.noReturnTicket': 'No Return Ticket',
@@ -209,7 +209,7 @@ const settings: TranslationStrings = {
   'settings.about.supporter.tier.budgetTraveller': 'Budget Traveller',
   'settings.about.supporter.tier.hostelBunkmate': 'Hostel Bunkmate',
   'settings.about.description':
-    'TREK is a self-hosted travel planner that helps you organize your trips from the first idea to the last memory. Day planning, budget, packing lists, photos and much more — all in one place, on your own server.',
+    'memove is a self-hosted travel planner that helps you organize your trips from the first idea to the last memory. Day planning, budget, packing lists, photos and much more — all in one place, on your own server.',
   'settings.about.madeWith': 'Made with',
   'settings.about.madeBy': 'by Maurice and a growing open-source community.',
   'settings.username': 'Username',
@@ -310,7 +310,7 @@ const settings: TranslationStrings = {
   'settings.airtrail.allowInsecureTlsHint': 'Enable only for a trusted instance on your own network.',
   'settings.airtrail.writeBack': 'Write changes back to AirTrail',
   'settings.airtrail.writeBackHint':
-    'Off by default: AirTrail is the source of truth and TREK only reads from it. Turn on to push edits made in TREK back to AirTrail.',
+    'Off by default: AirTrail is the source of truth and memove only reads from it. Turn on to push edits made in memove back to AirTrail.',
   'settings.airtrail.connected': 'Connected',
   'settings.airtrail.notConnected': 'Not connected',
   'settings.airtrail.toast.saved': 'AirTrail connection saved',

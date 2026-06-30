@@ -232,6 +232,27 @@ export const useAuthStore = create<AuthState>()(
         ? (err as { response?: { status?: number } }).response?.status
         : undefined
       if (status === 401) {
+        // ponytail: auto-demo-login when DEMO_MODE is enabled — avoids the
+        // login redirect dance for local dev. The config endpoint sets
+        // demoMode before loadUser fires, so get().demoMode is authoritative.
+        if (get().demoMode) {
+          try {
+            const data = await authApi.demoLogin()
+            if (seq !== authSequence) return
+            set({
+              user: data.user,
+              isAuthenticated: true,
+              isLoading: false,
+              authCheckFailed: false,
+              error: null,
+            })
+            await onAuthSuccess(data.user.id)
+            connect()
+            return
+          } catch {
+            // demo login failed — fall through to normal 401 handling
+          }
+        }
         // Invalid/expired token — clear auth so the guard redirects to login.
         set({
           user: null,

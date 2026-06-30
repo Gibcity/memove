@@ -3,6 +3,13 @@ packages:
   - server
   - shared
 
+allowBuilds:
+  '@swc/core': true
+  better-sqlite3: true
+  esbuild: true
+  msw: true
+  sharp: true
+
 onlyBuiltDependencies:
   - "@swc/core"
   - better-sqlite3

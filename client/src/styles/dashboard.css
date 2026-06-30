@@ -4,7 +4,7 @@
    under .trek-dash so none of it leaks into the rest of the app. The light
    palette is the design's original; the dark block keeps the exact geometry
    (radii, spacing, shadow structure) and only swaps colour values so the page
-   still feels at home when TREK's dark mode is on.
+   still feels at home when memove's dark mode is on.
    ============================================================================ */
 
 .trek-dash {

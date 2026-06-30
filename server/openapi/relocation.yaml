@@ -1,9 +1,9 @@
 openapi: "3.1.0"
 info:
-  title: TREK Relocation API
+  title: memove Relocation API
   version: "1.0.0"
   description: |
-    Relocation discovery endpoints for the TREK relocation add-on.
+    Relocation discovery endpoints for the memove relocation add-on.
     Provides location search, scoring, comparison, and fiscal health assessment
     across 939 US CBSAs.
 
@@ -13,7 +13,7 @@ info:
 
 servers:
   - url: /api
-    description: TREK API (relative path)
+    description: memove API (relative path)
 
 paths:
   /relocation/locations:

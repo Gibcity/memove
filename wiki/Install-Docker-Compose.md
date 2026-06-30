@@ -75,7 +75,7 @@ image: mauriceboe/trek:3        # track major version 3
 image: mauriceboe/trek:3.0.15   # pin to exact release
 ```
 
-## Start TREK
+## Start memove
 
 ```bash
 docker compose up -d
@@ -89,7 +89,7 @@ docker compose logs -f
 
 ## HTTPS and Reverse Proxy
 
-This compose file is designed for deployments where a reverse proxy (nginx, Caddy, Traefik) terminates TLS in front of TREK. To enable HTTPS redirects and secure cookies, uncomment `FORCE_HTTPS=true` and `TRUST_PROXY=1`.
+This compose file is designed for deployments where a reverse proxy (nginx, Caddy, Traefik) terminates TLS in front of memove. To enable HTTPS redirects and secure cookies, uncomment `FORCE_HTTPS=true` and `TRUST_PROXY=1`.
 
 See [Reverse-Proxy](Reverse-Proxy) for complete proxy configuration examples.
 

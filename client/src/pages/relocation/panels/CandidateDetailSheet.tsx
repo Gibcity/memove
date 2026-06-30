@@ -1,9 +1,10 @@
 import { useEffect, useRef, type ReactElement } from 'react'
-import { X } from 'lucide-react'
+import { AlertTriangle, ChevronRight, X } from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { formatCurrency, scoreToColor } from '../relocationModel'
 import type { CandidateView } from '../relocationModel'
 import type { AffordabilityData } from '../useRelocationScore'
+import type { ScoreExplanation } from '../../../api/relocation'
 import type { Location } from '@memove/shared'
 
 type Translator = (key: string, params?: Record<string, string | number>) => string
@@ -21,7 +22,7 @@ export function CandidateDetailSheet({
   compareResult,
 }: {
   candidate: CandidateView
-  explanation: string | null
+  explanation: ScoreExplanation | null
   affordability: AffordabilityData | null
   deepData: Location | null
   loading: boolean
@@ -99,7 +100,7 @@ export function CandidateDetailSheet({
             />
             <CandidateBody
               candidate={compareWith}
-              explanation={compareWith.decisionTrace || null}
+              explanation={null}
               affordability={null}
               deepData={null}
               loading={false}
@@ -165,7 +166,7 @@ function CandidateBody({
   t,
 }: {
   candidate: CandidateView
-  explanation: string | null
+  explanation: ScoreExplanation | null
   affordability: AffordabilityData | null
   deepData: Location | null
   loading: boolean
@@ -265,9 +266,30 @@ function CandidateBody({
             {t('relocation.analyzing')}
           </div>
         ) : (
-          <p className="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
-            {explanation || candidate.decisionTrace || '—'}
-          </p>
+          <div className="space-y-3">
+            {explanation && explanation.dataGaps.count > 0 && (
+              <div className="flex gap-2 p-2.5 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-xs text-amber-800 dark:text-amber-200">
+                <AlertTriangle size={14} className="shrink-0 mt-0.5" />
+                <span>
+                  {explanation.dataGaps.count} metrics missing — using neutral score
+                </span>
+              </div>
+            )}
+            {explanation ? (
+              <>
+                {(explanation.explanation ?? []).slice(0, 4).map((line, i) => (
+                  <p key={i} className="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+                    {line}
+                  </p>
+                ))}
+                <ScoreBreakdown explanation={explanation} />
+              </>
+            ) : (
+              <p className="text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
+                {candidate.decisionTrace || 'Explanation not available'}
+              </p>
+            )}
+          </div>
         )}
       </div>
 
@@ -413,5 +435,53 @@ export function AffordabilityBadge({
     >
       {label} · {(ratio * 100).toFixed(0)}%
     </span>
+  )
+}
+
+/**
+ * Score breakdown — expandable list of subscores × weights. Native <details>
+ * so no state/accordion lib; ponytail default open=true (parents almost always
+ * want to see WHY a city got its score, that's the whole point of the drawer).
+ */
+export function ScoreBreakdown({
+  explanation,
+}: {
+  explanation: ScoreExplanation
+}): ReactElement {
+  const rows = (Object.entries(explanation.subscores ?? {}) as [string, number][])
+    .sort((a, b) => b[1] - a[1])
+  return (
+    <details open className="group rounded-lg border border-slate-200 dark:border-zinc-700 bg-slate-50/50 dark:bg-zinc-800/30">
+      <summary className="flex items-center gap-1.5 cursor-pointer px-3 py-2 text-xs font-semibold text-slate-700 dark:text-zinc-300 list-none">
+        <ChevronRight size={14} className="transition-transform group-open:rotate-90" />
+        Score breakdown · {explanation.matchScore}
+      </summary>
+      <div className="px-3 pb-3 space-y-2">
+        {rows.map(([metric, sub]) => {
+          const weight = Number(explanation.weightsUsed?.[metric] ?? 0)
+          return (
+            <div key={metric} className="space-y-0.5">
+              <div className="flex items-baseline justify-between text-[11px]">
+                <span className="font-medium text-slate-700 dark:text-zinc-300 capitalize">
+                  {metric}
+                </span>
+                <span className="text-slate-400 dark:text-zinc-500 tabular-nums">
+                  {sub.toFixed(0)} · weight {(weight * 100).toFixed(0)}%
+                </span>
+              </div>
+              <div className="h-1.5 rounded-full bg-slate-200 dark:bg-zinc-700 overflow-hidden">
+                <div
+                  className="h-full rounded-full"
+                  style={{
+                    width: `${Math.max(0, Math.min(100, sub))}%`,
+                    background: scoreToColor(sub),
+                  }}
+                />
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </details>
   )
 }

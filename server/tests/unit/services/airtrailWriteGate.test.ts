@@ -56,7 +56,7 @@ beforeEach(() => {
     all: () => [],
   }));
   (getAirtrailCredentials as any).mockReturnValue({ baseUrl: 'https://at.example', apiKey: 'k', allowInsecureTls: false });
-  // GET returns AirTrail-owned detail TREK doesn't model — must survive the writeback.
+  // GET returns AirTrail-owned detail memove doesn't model — must survive the writeback.
   (getFlight as any).mockResolvedValue({ id: 42, from: { iata: 'JFK' }, to: { iata: 'LHR' }, seats: [], departureTerminal: '7' });
   (saveFlight as any).mockResolvedValue({ id: 42 });
   (getReservationWithJoins as any).mockReturnValue({

@@ -558,7 +558,7 @@ body {
   transition: background-color 0.2s, color 0.2s;
 }
 
-/* Subtext tier in Geist. The faint text token is TREK's caption/secondary tier;
+/* Subtext tier in Geist. The faint text token is memove's caption/secondary tier;
    a direct rule on the element beats the Poppins inherited from wrapper styles,
    giving the design's "Geist text · Poppins numbers" hierarchy. */
 .text-content-faint { font-family: var(--font-subtext); }
@@ -692,7 +692,7 @@ body {
 }
 
 /* Brand images: no save/copy/drag */
-img[alt="TREK"] {
+img[alt="memove"] {
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;

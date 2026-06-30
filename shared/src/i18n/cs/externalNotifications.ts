@@ -2,10 +2,10 @@ import type { NotificationLocale } from '../externalNotifications/types';
 
 const cs: NotificationLocale = {
   email: {
-    footer: 'Toto jsi obdržel/a, protože máš povoleny upozornění v TREK.',
+    footer: 'Toto jsi obdržel/a, protože máš povoleny upozornění v memove.',
     manage: 'Spravovat předvolby v nastavení',
     madeWith: 'Made with',
-    openTrek: 'Otevřít TREK',
+    openTrek: 'Otevřít memove',
   },
   events: {
     trip_invite: (p) => ({
@@ -26,7 +26,7 @@ const cs: NotificationLocale = {
     }),
     vacay_invite: (p) => ({
       title: 'Pozvánka Vacay Fusion',
-      body: `${p.actor} vás pozval ke spojení dovolenkových plánů. Otevřete TREK pro přijetí nebo odmítnutí.`,
+      body: `${p.actor} vás pozval ke spojení dovolenkových plánů. Otevřete memove pro přijetí nebo odmítnutí.`,
     }),
     photos_shared: (p) => ({
       title: `${p.count} sdílených fotek`,
@@ -41,8 +41,8 @@ const cs: NotificationLocale = {
       body: `${p.actor} vás přiřadil do kategorie "${p.category}" v "${p.trip}".`,
     }),
     version_available: (p) => ({
-      title: 'Nová verze TREK dostupná',
-      body: `TREK ${p.version} je nyní dostupný. Navštivte administrátorský panel pro aktualizaci.`,
+      title: 'Nová verze memove dostupná',
+      body: `memove ${p.version} je nyní dostupný. Navštivte administrátorský panel pro aktualizaci.`,
     }),
     synology_session_cleared: () => ({
       title: 'Relace Synology byla zrušena',
@@ -52,7 +52,7 @@ const cs: NotificationLocale = {
   passwordReset: {
     subject: 'Obnovení hesla',
     greeting: 'Ahoj',
-    body: 'Obdrželi jsme žádost o obnovení hesla k tvému účtu TREK. Klikni na tlačítko níže a nastav nové heslo.',
+    body: 'Obdrželi jsme žádost o obnovení hesla k tvému účtu memove. Klikni na tlačítko níže a nastav nové heslo.',
     ctaIntro: 'Obnovit heslo',
     expiry: 'Odkaz vyprší za 60 minut.',
     ignore: 'Pokud jsi o obnovení nežádal/a, tento e-mail ignoruj — heslo zůstane beze změny.',

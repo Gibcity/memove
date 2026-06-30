@@ -2,32 +2,32 @@
 
 ## Introduction
 
-This is the TREK project's policy for the use of our trademarks. While TREK is
+This is the memove project's policy for the use of our trademarks. While memove is
 available under the GNU Affero General Public License v3.0 (AGPL-3.0), that
 license does not include a license to use our trademarks.
 
 This policy describes how you may use our trademarks. Our goal is to strike a
 balance between: 1) our need to ensure that our trademarks remain reliable
 indicators of the software we release; and 2) our community members' desire to
-be full participants in the TREK project.
+be full participants in the memove project.
 
 ## Our trademarks
 
-This policy covers the name "TREK" as well as any associated logos, trade dress,
+This policy covers the name "memove" as well as any associated logos, trade dress,
 goodwill, or designs (our "Marks").
 
 ## In general
 
 Whenever you use our Marks, you must always do so in a way that does not mislead
 anyone about exactly who is the source of the software. For example, you cannot
-say you are distributing TREK when you're distributing a modified version of it,
+say you are distributing memove when you're distributing a modified version of it,
 because people would think they would be getting the same software that they
 can get directly from us when they aren't. You also cannot use our Marks on
-your website in a way that suggests that your website is an official TREK
+your website in a way that suggests that your website is an official memove
 website or that we endorse your website. But, if true, you can say you like
-TREK, that you participate in the TREK community, that you are providing an
-unmodified version of TREK, or that you wrote a guide describing how to use
-TREK.
+memove, that you participate in the memove community, that you are providing an
+unmodified version of memove, or that you wrote a guide describing how to use
+memove.
 
 This fundamental requirement, that it is always clear to people what they are
 getting and from whom, is reflected throughout this policy. It should also
@@ -48,18 +48,18 @@ In addition:
 
 ## Distribution of unmodified source code or unmodified executable code we have compiled
 
-When you redistribute an unmodified copy of TREK, you are not changing the
+When you redistribute an unmodified copy of memove, you are not changing the
 quality or nature of it. Therefore, you may retain the Marks we have placed on
 the software to identify your redistribution. This kind of use only applies if
-you are redistributing an official TREK distribution that has not been changed
+you are redistributing an official memove distribution that has not been changed
 in any way.
 
 ## Distribution of executable code that you have compiled, or modified code
 
-You may use the word mark "TREK", but not any TREK logos, to truthfully
+You may use the word mark "memove", but not any memove logos, to truthfully
 describe the origin of the software that you are providing, that is, that the
-code you are distributing is a modification of TREK. You may say, for example,
-that "this software is derived from the source code for TREK."
+code you are distributing is a modification of memove. You may say, for example,
+that "this software is derived from the source code for memove."
 
 Of course, you can place your own trademarks or logos on versions of the
 software to which you have made substantive modifications, because by modifying
@@ -67,7 +67,7 @@ the software, you have become the origin of that exact version. In that case,
 you should not use our Marks.
 
 However, you may use our Marks for the distribution of code (source or
-executable) on the condition that any executable is built from an official TREK
+executable) on the condition that any executable is built from an official memove
 source code release and that any modifications are limited to switching on or
 off features already included in the software, translations into other
 languages, and incorporating minor bug-fix patches. Use of our Marks on any
@@ -75,42 +75,42 @@ further modification is not permitted.
 
 ## Mobile wrappers, hosted instances, and forks
 
-The following clarifications apply specifically to common ways TREK is
+The following clarifications apply specifically to common ways memove is
 redistributed:
 
-* **Self-hosted instances of unmodified TREK.** You may refer to your instance
-  as "a TREK instance" or "running TREK." You may not name the service itself
-  in a way that suggests it is the official TREK ("TREK Cloud," "TREK
+* **Self-hosted instances of unmodified memove.** You may refer to your instance
+  as "a memove instance" or "running memove." You may not name the service itself
+  in a way that suggests it is the official memove ("memove Cloud," "memove
   Official," etc.).
 * **Mobile wrappers (WebView shells, Capacitor apps, native apps) pointing at
-  TREK.** You may describe your app as "a mobile client for TREK" or "for use
-  with TREK." You may not publish it on app stores under the name "TREK" or a
-  confusingly similar name, and you may not use the TREK logo as the app icon
-  unless your wrapper distributes only an unmodified, official TREK instance
+  memove.** You may describe your app as "a mobile client for memove" or "for use
+  with memove." You may not publish it on app stores under the name "memove" or a
+  confusingly similar name, and you may not use the memove logo as the app icon
+  unless your wrapper distributes only an unmodified, official memove instance
   and you have obtained permission.
-* **Forks of the TREK source code.** Forks that diverge from upstream must use
-  a different name. You may state that your fork is "based on TREK" or "a fork
-  of TREK," but the project name itself must be your own.
+* **Forks of the memove source code.** Forks that diverge from upstream must use
+  a different name. You may state that your fork is "based on memove" or "a fork
+  of memove," but the project name itself must be your own.
 
-## Statements about your software's relation to TREK
+## Statements about your software's relation to memove
 
-You may use the word mark, but not TREK logos, to truthfully describe the
-relationship between your software and ours. The word mark "TREK" should be
+You may use the word mark, but not memove logos, to truthfully describe the
+relationship between your software and ours. The word mark "memove" should be
 used after a verb or preposition that describes the relationship between your
-software and ours. So you may say, for example, "Bob's app for TREK" but may
-not say "Bob's TREK app." Some other examples that may work for you are:
+software and ours. So you may say, for example, "Bob's app for memove" but may
+not say "Bob's memove app." Some other examples that may work for you are:
 
-* [Your software] uses TREK
-* [Your software] is powered by TREK
-* [Your software] runs on TREK
-* [Your software] for use with TREK
-* [Your software] for TREK
+* [Your software] uses memove
+* [Your software] is powered by memove
+* [Your software] runs on memove
+* [Your software] for use with memove
+* [Your software] for memove
 
 ## Questions and permission requests
 
 If you are not sure whether your intended use of the Marks is permitted under
 this policy, or if you would like to request explicit permission for a use that
-is not covered, please open an issue on the TREK GitHub repository or contact
+is not covered, please open an issue on the memove GitHub repository or contact
 the maintainers directly.
 
 ---

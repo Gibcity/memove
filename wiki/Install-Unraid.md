@@ -1,6 +1,6 @@
 # Install: Unraid
 
-Install TREK on Unraid via Community Applications or a direct template import.
+Install memove on Unraid via Community Applications or a direct template import.
 
 <!-- TODO: screenshot: Unraid container template settings -->
 
@@ -11,13 +11,13 @@ Docker must be enabled in Unraid (**Settings → Docker → Enable Docker: Yes**
 ## Install via Community Applications
 
 1. Open the **Apps** tab in Unraid.
-2. Search for **TREK**.
-3. Click **Install** on the TREK result.
+2. Search for **memove**.
+3. Click **Install** on the memove result.
 
 If the app does not appear, you can install directly from the template URL. In **Docker → Add Container**, paste the template URL:
 
 ```
-https://raw.githubusercontent.com/mauriceboe/TREK/main/unraid-template.xml
+https://raw.githubusercontent.com/mauriceboe/memove/main/unraid-template.xml
 ```
 
 ## Template Fields
@@ -55,7 +55,7 @@ Generate a key in the Unraid terminal (**Tools → Terminal**):
 openssl rand -hex 32
 ```
 
-Copy the output into the `ENCRYPTION_KEY` field before starting the container for the first time. If you skip this, TREK auto-generates a key and saves it to `data/.encryption_key` — your data is still protected, but you should record that file in your backups.
+Copy the output into the `ENCRYPTION_KEY` field before starting the container for the first time. If you skip this, memove auto-generates a key and saves it to `data/.encryption_key` — your data is still protected, but you should record that file in your backups.
 
 ## After Install
 
@@ -65,7 +65,7 @@ Once the container starts, open your browser at:
 http://<unraid-ip>:<port>
 ```
 
-On first boot, TREK automatically creates an admin account. The credentials are printed to the container log — check **Docker → trek → Log** in the Unraid UI. If you set both `ADMIN_EMAIL` and `ADMIN_PASSWORD`, those values are used; otherwise the email is `admin@trek.local` and a random password is generated.
+On first boot, memove automatically creates an admin account. The credentials are printed to the container log — check **Docker → trek → Log** in the Unraid UI. If you set both `ADMIN_EMAIL` and `ADMIN_PASSWORD`, those values are used; otherwise the email is `admin@trek.local` and a random password is generated.
 
 ## Next Steps
 

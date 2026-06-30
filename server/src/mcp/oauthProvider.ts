@@ -131,7 +131,7 @@ export const trekOAuthProvider: OAuthServerProvider = {
         if (resource !== mcpResource) {
             const url = new URL(params.redirectUri);
             url.searchParams.set('error', 'invalid_target');
-            url.searchParams.set('error_description', 'Requested resource must be the TREK MCP endpoint');
+            url.searchParams.set('error_description', 'Requested resource must be the memove MCP endpoint');
             if (params.state) url.searchParams.set('state', params.state);
             res.redirect(302, url.toString());
             return;

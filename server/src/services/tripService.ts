@@ -12,6 +12,10 @@ import { shiftOwnerEntriesForTripWindow } from './vacayService';
 export const MS_PER_DAY = 86400000;
 export const MAX_TRIP_DAYS = 365;
 
+export const TRIP_KIND = { TRAVEL: 'travel', RELOCATION: 'relocation' } as const;
+export type TripKind = typeof TRIP_KIND[keyof typeof TRIP_KIND];
+export const TRIP_KINDS: readonly TripKind[] = [TRIP_KIND.TRAVEL, TRIP_KIND.RELOCATION];
+
 export const TRIP_SELECT = `
   SELECT t.*,
     (SELECT COUNT(*) FROM days d WHERE d.trip_id = t.id) as day_count,
@@ -176,6 +180,7 @@ interface CreateTripData {
   currency?: string;
   reminder_days?: number;
   day_count?: number;
+  kind?: string;
 }
 
 export function createTrip(userId: number, data: CreateTripData, maxDays?: number) {
@@ -183,10 +188,17 @@ export function createTrip(userId: number, data: CreateTripData, maxDays?: numbe
     ? (Number(data.reminder_days) >= 0 && Number(data.reminder_days) <= 30 ? Number(data.reminder_days) : 3)
     : 3;
 
+  // ponytail: whitelist at the trust boundary — DB column accepts any string,
+  // so we normalize unknown values to TRIP_KIND.TRAVEL instead of writing garbage
+  const inputKind = data.kind as TripKind | undefined;
+  const kind: TripKind = inputKind && (TRIP_KINDS as readonly TripKind[]).includes(inputKind)
+    ? inputKind
+    : TRIP_KIND.TRAVEL;
+
   const result = db.prepare(`
-    INSERT INTO trips (user_id, title, description, start_date, end_date, currency, reminder_days)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `).run(userId, data.title, data.description || null, data.start_date || null, data.end_date || null, data.currency || 'EUR', rd);
+    INSERT INTO trips (user_id, title, description, start_date, end_date, currency, reminder_days, kind)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(userId, data.title, data.description || null, data.start_date || null, data.end_date || null, data.currency || 'EUR', rd, kind);
 
   const tripId = result.lastInsertRowid;
   generateDays(tripId, data.start_date || null, data.end_date || null, maxDays, data.day_count);
@@ -433,8 +445,8 @@ export function exportICS(tripId: string | number): { ics: string; filename: str
     return d.replace(/[-:]/g, '');
   };
 
-  let ics = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//TREK//Travel Planner//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n';
-  ics += `X-WR-CALNAME:${esc(trip.title || 'TREK Trip')}\r\n`;
+  let ics = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//memove//Travel Planner//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n';
+  ics += `X-WR-CALNAME:${esc(trip.title || 'memove Trip')}\r\n`;
 
   // Trip as all-day event
   if (trip.start_date && trip.end_date) {
@@ -507,7 +519,7 @@ export function exportICS(tripId: string | number): { ics: string; filename: str
       if (notes.length > 0) {
         if (desc) desc += '\n\n';
         desc += 'Notes:\n' + notes.map(n => {
-          let line = n.time ? `${n.time} — ${n.text}` : `• ${n.text}`;
+          const line = n.time ? `${n.time} — ${n.text}` : `• ${n.text}`;
           return line;
         }).join('\n');
       }

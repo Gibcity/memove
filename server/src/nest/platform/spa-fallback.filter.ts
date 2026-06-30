@@ -13,7 +13,7 @@ import { PUBLIC_DIR } from './platform.routes';
  *
  * Behaviour matches the legacy catch-all exactly: in production, an unmatched GET
  * returns index.html; everything else (non-GET, or dev where there is no built
- * client) keeps the standard TREK `{ error }` 404 envelope. The `@Catch(NotFoundException)`
+ * client) keeps the standard memove `{ error }` 404 envelope. The `@Catch(NotFoundException)`
  * is more specific than the global TrekExceptionFilter, so Nest routes 404s here
  * while every other error still flows through TrekExceptionFilter.
  */

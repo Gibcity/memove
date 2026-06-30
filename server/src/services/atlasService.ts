@@ -3,7 +3,7 @@ import path from 'path';
 import zlib from 'zlib';
 import { db } from '../db/database';
 import { Trip, Place } from '../types';
-import { CONTINENT_MAP } from '@trek/shared';
+import { CONTINENT_MAP } from '@memove/shared';
 
 // ── Bundled boundary GeoJSON (admin-0 countries + admin-1 regions) ─────────
 //

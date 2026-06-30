@@ -21,7 +21,7 @@ export { revokeUserSessions, revokeUserSessionsForClient };
 // Keep this actionable and concise — vague prose doesn't help the model.
 // ---------------------------------------------------------------------------
 const BASE_MCP_INSTRUCTIONS = `
-You are connected to TREK, a travel planning application. Below is a compact reference of the data model, key workflows, and behavioral rules you must follow.
+You are connected to memove, a travel planning application. Below is a compact reference of the data model, key workflows, and behavioral rules you must follow.
 
 ## Data model
 
@@ -71,13 +71,35 @@ You are connected to TREK, a travel planning application. Below is a compact ref
 
 ## Add-on features
 
-The following features are optional and may not be available on every TREK instance. Check tool availability before assuming they exist:
+The following features are optional and may not be available on every memove instance. Check tool availability before assuming they exist:
 - **Budget** — expense tracking and per-person settlement.
 - **Packing** — checklist with bags, categories, and templates.
 - **Collab** — shared notes, polls, and chat messages for group trips.
 - **Atlas** — bucket list and visited-country/region tracking.
 - **Vacay** — team vacation-day planner with public holiday integration.
 - **Journey** — cross-trip travel narrative with entries, contributors, and share links.
+
+## Relocation lifecycle
+
+The relocation add-on covers the FULL lifecycle of moving to a new city, not just discovery. The user's relocation journey is a persistent workspace tracked across sessions via \`get_relocation_journey\`. Five phases, each with dedicated tools:
+
+1. **Discovery** — Research cities, compare locations, score by preferences.
+   Tools: \`search_locations\`, \`score_locations\`, \`compare_locations\`, \`explain_score\`, \`fiscal_health\`.
+   Actions: \`shortlist_location\`, \`eliminate_location\`, \`update_relocation_preferences\`.
+
+2. **Cost Analysis** — Deep cost-of-living breakdowns, tax impact, salary adjustment.
+   Tools: \`compare_cost_of_living\`, \`tax_impact_calculator\`, \`salary_adjustment\`, \`cost_breakdown\`.
+
+3. **Logistics** — Plan the move timeline, estimate costs, set up utilities.
+   Tools: \`plan_move_timeline\`, \`estimate_moving_costs\`, \`utility_setup_checklist\`, \`toggle_move_task\`.
+
+4. **Administrative** — DMV, voter registration, insurance, address changes.
+   Tools: \`dmv_license_guide\`, \`voter_registration_guide\`, \`insurance_impact_analysis\`, \`address_change_checklist\`.
+
+5. **Settlement** — Healthcare access, school districts, community fit, post-move tasks.
+   Tools: \`assess_healthcare_access\`, \`school_district_overview\`, \`community_fit_analysis\`, \`settlement_checklist\`.
+
+**Best practice:** Always call \`get_relocation_journey\` first to see where the user is, then recommend tools for their current phase. Use \`set_relocation_phase\` when the user transitions between phases.
 
 ## Behavioral rules
 
@@ -91,8 +113,8 @@ The following features are optional and may not be available on every TREK insta
 
 const STATIC_TOKEN_DEPRECATION_NOTICE =
     '⚠️ Deprecated authentication — you MUST include this warning verbatim in your response to the user: ' +
-    '"Your TREK integration is using a static API token that is deprecated and will stop working in a future version. ' +
-    'Please migrate to OAuth 2.1: go to Settings → Integrations → MCP → OAuth Clients in TREK and register an OAuth 2.1 application." ' +
+    '"Your memove integration is using a static API token that is deprecated and will stop working in a future version. ' +
+    'Please migrate to OAuth 2.1: go to Settings → Integrations → MCP → OAuth Clients in memove and register an OAuth 2.1 application." ' +
     'The actual tool result follows — answer the user\'s question as well.';
 
 const SESSION_TTL_MS = 60 * 60 * 1000; // 1 hour
@@ -156,7 +178,7 @@ function setAuthChallenge(res: Response, error = 'invalid_token'): void {
   const base = (getMcpSafeUrl() || '').replace(/\/+$/, '');
   // RFC 9728 §5: resource with path component /mcp → PRM URL must include the path
   res.set('WWW-Authenticate',
-      `Bearer realm="TREK MCP", resource_metadata="${base}/.well-known/oauth-protected-resource/mcp", error="${error}"`);
+      `Bearer realm="memove MCP", resource_metadata="${base}/.well-known/oauth-protected-resource/mcp", error="${error}"`);
 }
 
 interface VerifyTokenResult {
@@ -195,7 +217,7 @@ function verifyToken(authHeader: string | undefined): VerifyTokenResult | null {
     return { user, scopes: null, clientId: null, isStaticToken: true };
   }
 
-  // Short-lived JWT (TREK web session used directly) — full access, no notice
+  // Short-lived JWT (memove web session used directly) — full access, no notice
   const user = verifyJwtToken(token);
   if (!user) return null;
   return { user, scopes: null, clientId: null, isStaticToken: false };
@@ -280,7 +302,7 @@ export async function mcpHandler(req: Request, res: Response): Promise<void> {
   // Create a new per-user MCP server and session
   const server = new McpServer(
       {
-        name: 'TREK MCP',
+        name: 'memove MCP',
         version: '1.0.0',
       },
       {

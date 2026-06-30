@@ -502,6 +502,20 @@ function createTables(db: Database.Database): void {
     CREATE INDEX IF NOT EXISTS idx_ncp_user ON notification_channel_preferences(user_id);
 
     CREATE TABLE IF NOT EXISTS migrations (id integer PRIMARY KEY AUTOINCREMENT NOT NULL, timestamp bigint NOT NULL, name varchar NOT NULL);
+
+    -- Relocation journey state — per-user persisted relocation workspace
+    CREATE TABLE IF NOT EXISTS relocation_journey (
+      user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+      shortlisted_locations TEXT DEFAULT '[]',
+      saved_comparisons TEXT DEFAULT '[]',
+      move_timeline TEXT DEFAULT NULL,
+      preferences TEXT DEFAULT '{}',
+      decision_log TEXT DEFAULT '[]',
+      completed_tasks TEXT DEFAULT '[]',
+      current_phase TEXT DEFAULT 'discovery',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
   `);
 }
 

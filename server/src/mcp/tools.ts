@@ -16,7 +16,12 @@ import { registerTripTools } from './tools/trips';
 import { registerTransportTools } from './tools/transports';
 import { registerVacayTools } from './tools/vacay';
 import { registerRelocationTools } from './tools/relocation';
+import { registerJourneyTools as registerRelocationJourneyTools } from './tools/relocation_journey';
+import { registerAdminTools } from './tools/relocation_admin';
 import { registerMcpPrompts } from './tools/prompts';
+import { registerCommunityTools } from './tools/relocation_community';
+import { registerCostAnalysisTools } from './tools/relocation_cost';
+import { registerLogisticsTools } from './tools/relocation_logistics';
 
 export function registerTools(server: McpServer, userId: number, scopes: string[] | null, isStaticToken = false, getDeprecationNotice: () => string | null = () => null): void {
   registerTripTools(server, userId, scopes, getDeprecationNotice);
@@ -52,6 +57,16 @@ export function registerTools(server: McpServer, userId: number, scopes: string[
   registerTodoTools(server, userId, scopes);
 
   registerRelocationTools(server, userId, scopes);
+
+  registerRelocationJourneyTools(server, userId, scopes);
+
+  registerAdminTools(server, userId, scopes);
+
+  registerCommunityTools(server, userId, scopes);
+
+  registerCostAnalysisTools(server, userId, scopes);
+
+  registerLogisticsTools(server, userId, scopes);
 
   registerMcpPrompts(server, userId, isStaticToken);
 }

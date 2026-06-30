@@ -1,4 +1,4 @@
-import { SUPPORTED_LANGUAGE_CODES as SUPPORTED_LANG_CODES } from '@trek/shared';
+import { SUPPORTED_LANGUAGE_CODES as SUPPORTED_LANG_CODES } from '@memove/shared';
 
 import crypto from 'node:crypto';
 import fs from 'node:fs';

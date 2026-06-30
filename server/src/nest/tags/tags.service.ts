@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { Tag } from '@trek/shared';
+import type { Tag } from '@memove/shared';
 import {
   listTags,
   createTag,

@@ -3007,7 +3007,7 @@ function runMigrations(db: Database.Database): void {
       }
     },
     () => {
-      // AirTrail flight linkage on reservations (#214) — lets a TREK transport
+      // AirTrail flight linkage on reservations (#214) — lets a memove transport
       // remember its AirTrail origin so the two-way sync can match + update it.
       // sync_enabled flips to 0 when the AirTrail flight is deleted (row kept).
       try {
@@ -3046,10 +3046,32 @@ function runMigrations(db: Database.Database): void {
       );
     },
     () => {
-      // Per-user opt-in for writing TREK edits back to AirTrail (#1240). Default
-      // off: AirTrail is the source of truth and TREK never writes unless asked.
+      // Per-user opt-in for writing memove edits back to AirTrail (#1240). Default
+      // off: AirTrail is the source of truth and memove never writes unless asked.
       try {
         db.exec('ALTER TABLE users ADD COLUMN airtrail_write_enabled INTEGER DEFAULT 0');
+      } catch (err: any) {
+        if (!err.message?.includes('duplicate column name')) throw err;
+      }
+    },
+    // Migration 137: relocation journey state table
+    { raw: () => db.exec(`
+      CREATE TABLE IF NOT EXISTS relocation_journey (
+        user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+        shortlisted_locations TEXT DEFAULT '[]',
+        saved_comparisons TEXT DEFAULT '[]',
+        move_timeline TEXT DEFAULT NULL,
+        preferences TEXT DEFAULT '{}',
+        decision_log TEXT DEFAULT '[]',
+        completed_tasks TEXT DEFAULT '[]',
+        current_phase TEXT DEFAULT 'discovery',
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      );
+    `) },
+    () => {
+      try {
+        db.exec("ALTER TABLE trips ADD COLUMN kind TEXT NOT NULL DEFAULT 'travel'");
       } catch (err: any) {
         if (!err.message?.includes('duplicate column name')) throw err;
       }

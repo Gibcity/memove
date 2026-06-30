@@ -1,6 +1,6 @@
 # Security Hardening
 
-A production TREK deployment checklist. All items reference actual TREK configuration options.
+A production memove deployment checklist. All items reference actual memove configuration options.
 
 ## Encryption & Secrets
 
@@ -10,7 +10,7 @@ A production TREK deployment checklist. All items reference actual TREK configur
 
 ## HTTPS & Network
 
-- [ ] Run TREK behind a TLS-terminating reverse proxy (nginx, Caddy, Traefik). See [Reverse-Proxy](Reverse-Proxy).
+- [ ] Run memove behind a TLS-terminating reverse proxy (nginx, Caddy, Traefik). See [Reverse-Proxy](Reverse-Proxy).
 - [ ] Set `TRUST_PROXY=1` so client IPs are captured correctly in the audit log. In `NODE_ENV=production` this defaults to `1` automatically, but set it explicitly if you use a non-standard proxy hop count.
 - [ ] Set `FORCE_HTTPS=true` to enable HSTS (`max-age=31536000`), redirect HTTP to HTTPS, and add `upgrade-insecure-requests` to the CSP. Requires `TRUST_PROXY` — omitting it causes a redirect loop.
 - [ ] Keep `ALLOW_INTERNAL_NETWORK=false` unless Immich or Synology is on your LAN. See [Internal-Network-Access](Internal-Network-Access). Note: loopback (`127.x`, `::1`) and link-local (`169.254.x`) addresses are always blocked regardless of this setting.
@@ -31,7 +31,7 @@ TREK stores sessions as JWTs in an httpOnly `trek_session` cookie (SameSite=Lax,
 
 ## Password Policy
 
-TREK enforces a minimum password policy on all registrations and password changes:
+memove enforces a minimum password policy on all registrations and password changes:
 
 - Minimum 8 characters
 - Must contain uppercase, lowercase, digit, and special character
@@ -51,7 +51,7 @@ Built-in in-memory rate limits protect authentication endpoints:
 | Password change | 5 attempts | 15 minutes |
 | MCP token creation | 5 attempts | 15 minutes |
 
-These limits are per source IP. If TREK is behind a reverse proxy, set `TRUST_PROXY` so the real client IP is used rather than the proxy's IP.
+These limits are per source IP. If memove is behind a reverse proxy, set `TRUST_PROXY` so the real client IP is used rather than the proxy's IP.
 
 ## Content Security Policy
 
@@ -67,12 +67,12 @@ Helmet applies a strict CSP on all responses. Key directives:
 ## Backups
 
 - [ ] Enable auto-backup with an appropriate retention window. See [Backups](Backups).
-- [ ] Store backups off-site — copy backup ZIPs to a separate location outside the TREK host.
+- [ ] Store backups off-site — copy backup ZIPs to a separate location outside the memove host.
 
 ## Monitoring
 
 - [ ] Review the audit log periodically for unexpected logins or admin changes. See [Audit-Log](Audit-Log).
-- [ ] Check for TREK updates regularly. See [Admin-GitHub-Releases](Admin-GitHub-Releases) and [Updating](Updating).
+- [ ] Check for memove updates regularly. See [Admin-GitHub-Releases](Admin-GitHub-Releases) and [Updating](Updating).
 
 ## See also
 

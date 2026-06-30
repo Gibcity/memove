@@ -8,6 +8,7 @@
  */
 
 import type { Location, HardFilter } from '@memove/shared'
+import type { ScoreExplanation } from '../../api/relocation'
 
 // ── UI view models (enriched for rendering) ─────────────────────────
 
@@ -47,7 +48,7 @@ export interface FilterSlider {
 /** Candidate detail drawer state */
 export interface CandidateDetail {
   candidate: CandidateView | null
-  explanation: string | null
+  explanation: ScoreExplanation | null
   isOpen: boolean
 }
 

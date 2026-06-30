@@ -11,6 +11,9 @@ importers:
       concurrently:
         specifier: ^10.0.3
         version: 10.0.3
+      tsx:
+        specifier: ^4.22.4
+        version: 4.22.4
     optionalDependencies:
       '@img/sharp-linuxmusl-arm64':
         specifier: 0.35.1
@@ -33,15 +36,15 @@ importers:
       '@fontsource/poppins':
         specifier: ^5.2.7
         version: 5.2.7
+      '@memove/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@react-pdf/renderer':
         specifier: ^4.5.1
         version: 4.5.1(react@19.2.7)
       '@simplewebauthn/browser':
         specifier: ^13.1.2
         version: 13.3.0
-      '@trek/shared':
-        specifier: workspace:*
-        version: link:../shared
       axios:
         specifier: ^1.6.7
         version: 1.18.1
@@ -211,9 +214,12 @@ importers:
 
   server:
     dependencies:
+      '@memove/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@modelcontextprotocol/sdk':
         specifier: ^1.28.0
-        version: 1.29.0(zod@4.4.3)
+        version: 1.28.0(zod@4.4.3)
       '@nestjs/common':
         specifier: ^11.1.24
         version: 11.1.27(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -226,9 +232,6 @@ importers:
       '@simplewebauthn/server':
         specifier: ^13.1.2
         version: 13.3.2
-      '@trek/shared':
-        specifier: workspace:*
-        version: link:../shared
       archiver:
         specifier: ^6.0.1
         version: 6.0.2
@@ -265,6 +268,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.3
+      multer:
+        specifier: ^2.2.0
+        version: 2.2.0
       node-cron:
         specifier: ^4.2.1
         version: 4.5.0
@@ -1674,8 +1680,8 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  '@modelcontextprotocol/sdk@1.29.0':
-    resolution: {integrity: sha512-zo37mZA9hJWpULgkRpowewez1y6ML5GsXJPY8FI0tBBCd77HEvza4jDqRKOXgHNn867PVGCyTdzqpz0izu5ZjQ==}
+  '@modelcontextprotocol/sdk@1.28.0':
+    resolution: {integrity: sha512-gmloF+i+flI8ouQK7MWW4mOwuMh4RePBuPFAEPC6+pdqyWOUMDOixb6qZ69owLJpz6XmyllCouc4t8YWO+E2Nw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@cfworker/json-schema': ^4.1.1
@@ -4781,6 +4787,10 @@ packages:
     resolution: {integrity: sha512-mo+QTzKlx8R7E5ylSXxWzGoXoZbOsRMpyitcht8By2KHvMbf3tjwosZ/Mu/XYU6UuJ3VZnODIrak5ZrPiPyB6A==}
     engines: {node: '>= 10.16.0'}
 
+  multer@2.2.0:
+    resolution: {integrity: sha512-6rdyFg2kLrMh9Jee7/BMPuV9lEAd7lLW2YUpF9/YxR7njyoUwwQ0ZPh3TaIY50Sw6vlyD2HW3wGOkTS4P79xrQ==}
+    engines: {node: '>= 10.16.0'}
+
   mute-stream@3.0.0:
     resolution: {integrity: sha512-dkEJPVvun4FryqBmZ5KhDo0K9iDXAwn08tMLDinNdRBNPcYEDiWYysLcc6k3mjTMlbP9KyylvRpd4wFtwrT9rw==}
     engines: {node: ^20.17.0 || >=22.9.0}
@@ -7811,7 +7821,7 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@modelcontextprotocol/sdk@1.29.0(zod@4.4.3)':
+  '@modelcontextprotocol/sdk@1.28.0(zod@4.4.3)':
     dependencies:
       '@hono/node-server': 1.19.14(hono@4.12.27)
       ajv: 8.20.0
@@ -11412,6 +11422,13 @@ snapshots:
       - '@types/node'
 
   multer@2.1.1:
+    dependencies:
+      append-field: 1.0.0
+      busboy: 1.6.0
+      concat-stream: 2.0.0
+      type-is: 1.6.18
+
+  multer@2.2.0:
     dependencies:
       append-field: 1.0.0
       busboy: 1.6.0

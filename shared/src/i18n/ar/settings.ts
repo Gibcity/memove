@@ -182,13 +182,13 @@ const settings: TranslationStrings = {
   'settings.about.featureRequestHint': 'اقترح ميزة جديدة',
   'settings.about.wikiHint': 'التوثيق والأدلة',
   'settings.about.supporters.badge': 'الداعمون الشهريون',
-  'settings.about.supporters.title': 'رفاق رحلة TREK',
+  'settings.about.supporters.title': 'رفاق رحلة memove',
   'settings.about.supporters.subtitle':
-    'بينما تخطّط لمسارك التالي، يساعد هؤلاء الأشخاص في التخطيط لمستقبل TREK. تذهب مساهمتهم الشهرية مباشرةً إلى التطوير والساعات الفعلية المبذولة — حتى يظلّ TREK مفتوح المصدر.',
+    'بينما تخطّط لمسارك التالي، يساعد هؤلاء الأشخاص في التخطيط لمستقبل memove. تذهب مساهمتهم الشهرية مباشرةً إلى التطوير والساعات الفعلية المبذولة — حتى يظلّ memove مفتوح المصدر.',
   'settings.about.supporters.since': 'داعم منذ {date}',
   'settings.about.supporters.tierEmpty': 'كن الأول',
   'settings.about.description':
-    'TREK هو مخطط سفر مستضاف ذاتيًا يساعدك على تنظيم رحلاتك من أول فكرة حتى آخر ذكرى. تخطيط يومي، ميزانية، قوائم تعبئة، صور والمزيد — كل شيء في مكان واحد، على خادمك الخاص.',
+    'memove هو مخطط سفر مستضاف ذاتيًا يساعدك على تنظيم رحلاتك من أول فكرة حتى آخر ذكرى. تخطيط يومي، ميزانية، قوائم تعبئة، صور والمزيد — كل شيء في مكان واحد، على خادمك الخاص.',
   'settings.about.madeWith': 'صُنع بـ',
   'settings.about.madeBy': 'بواسطة موريس ومجتمع مفتوح المصدر متنامٍ.',
   'settings.username': 'اسم المستخدم',
@@ -257,7 +257,7 @@ const settings: TranslationStrings = {
   'settings.notificationPreferences.inapp': 'In-App', // en-fallback
   'settings.notificationPreferences.ntfy': 'Ntfy', // en-fallback
   'settings.webhookUrl.placeholder': 'https://discord.com/api/webhooks/...', // en-fallback
-  'settings.ntfyUrl.topicPlaceholder': 'my-trek-alerts', // en-fallback
+  'settings.ntfyUrl.topicPlaceholder': 'my-memove-alerts', // en-fallback
   'settings.ntfyUrl.serverPlaceholder': 'https://ntfy.sh', // en-fallback
   'settings.oauth.modal.redirectUrisPlaceholder': 'https://your-app.com/callback\nhttps://your-app.com/auth', // en-fallback
   'settings.about.supporter.tier.noReturnTicket': 'No Return Ticket', // en-fallback
@@ -303,7 +303,7 @@ const settings: TranslationStrings = {
   'settings.airtrail.allowInsecureTlsHint': 'فعّل هذا فقط لنسخة موثوقة على شبكتك الخاصة.',
   'settings.airtrail.writeBack': 'كتابة التغييرات إلى AirTrail',
   'settings.airtrail.writeBackHint':
-    'مُعطّل افتراضيًا: AirTrail هو مصدر الحقيقة وTREK يقرأ منه فقط. فعّله لإرسال التعديلات التي تجريها في TREK إلى AirTrail.',
+    'مُعطّل افتراضيًا: AirTrail هو مصدر الحقيقة وmemove يقرأ منه فقط. فعّله لإرسال التعديلات التي تجريها في memove إلى AirTrail.',
   'settings.airtrail.connected': 'متصل',
   'settings.airtrail.notConnected': 'غير متصل',
   'settings.airtrail.toast.saved': 'تم حفظ اتصال AirTrail',

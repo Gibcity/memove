@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { relocationApi } from '../../api/relocation'
+import { relocationApi, type ScoreExplanation } from '../../api/relocation'
 import type { Location } from '@memove/shared'
 import type { CandidateDetail } from './relocationModel'
 
@@ -49,10 +49,8 @@ export function useRelocationScore() {
         relocationApi.explainScore(candidate.location.id),
         relocationApi.getAffordability(candidate.location.id),
       ])
-      const explanation =
-        explainResp.status === 'fulfilled'
-          ? explainResp.value.explanation
-          : candidate.decisionTrace || 'Explanation not available'
+      const explanation: ScoreExplanation | null =
+        explainResp.status === 'fulfilled' ? explainResp.value : null
       const affordability =
         affordabilityResp.status === 'fulfilled'
           ? (affordabilityResp.value as AffordabilityData)

@@ -1,0 +1,276 @@
+import { Injectable } from '@nestjs/common';
+import { DatabaseService } from '../database/database.service';
+
+/**
+ * RelocationJourneyService — persisted per-user relocation workspace.
+ *
+ * Replaces the in-memory Maps in RelocationService with durable SQLite state.
+ * Each user has exactly one journey row, created lazily on first access.
+ *
+ * State shape (JSON columns):
+ *   shortlisted_locations: locationId[]  — cities the user is considering
+ *   saved_comparisons:     comparison[]  — saved side-by-side comparisons
+ *   move_timeline:         timeline|null — generated move plan with tasks
+ *   preferences:           preferences   — evolving preference snapshot
+ *   decision_log:          decision[]    — append-only log of key decisions
+ *   completed_tasks:       string[]      — task IDs the user has done
+ *   current_phase:         phase         — discovery|housing|logistics|settlement
+ */
+
+export interface JourneyPreferences {
+  maxBudget?: number;
+  householdSize?: number;
+  employment?: 'remote' | 'hybrid' | 'onsite' | 'retired' | 'student' | 'looking';
+  demographics?: {
+    ageRange?: string;
+    hasChildren?: boolean;
+    schoolAgeChildren?: number;
+  };
+  climatePreference?: 'warm' | 'mild' | 'four_seasons' | 'cold_tolerant';
+  priorities?: Record<string, number>; // cost: 5, climate: 3, etc.
+}
+
+export interface JourneyTimelineTask {
+  id: string;
+  phase: string;
+  title: string;
+  description: string;
+  dueOffsetDays: number; // days relative to move date
+  category: 'research' | 'logistics' | 'admin' | 'housing' | 'financial';
+  completed: boolean;
+}
+
+export interface JourneyTimeline {
+  moveDate?: string;
+  tasks: JourneyTimelineTask[];
+}
+
+export interface JourneyDecision {
+  timestamp: string;
+  type: 'shortlist' | 'eliminate' | 'compare' | 'preference_update' | 'phase_change';
+  description: string;
+  data?: Record<string, unknown>;
+}
+
+export interface RelocationJourney {
+  userId: number;
+  shortlistedLocations: string[];
+  savedComparisons: unknown[];
+  moveTimeline: JourneyTimeline | null;
+  preferences: JourneyPreferences;
+  decisionLog: JourneyDecision[];
+  completedTasks: string[];
+  currentPhase: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface JourneyRow {
+  user_id: number;
+  shortlisted_locations: string;
+  saved_comparisons: string;
+  move_timeline: string | null;
+  preferences: string;
+  decision_log: string;
+  completed_tasks: string;
+  current_phase: string;
+  created_at: string;
+  updated_at: string;
+}
+
+function rowToJourney(row: JourneyRow): RelocationJourney {
+  return {
+    userId: row.user_id,
+    shortlistedLocations: JSON.parse(row.shortlisted_locations || '[]'),
+    savedComparisons: JSON.parse(row.saved_comparisons || '[]'),
+    moveTimeline: row.move_timeline ? JSON.parse(row.move_timeline) : null,
+    preferences: JSON.parse(row.preferences || '{}'),
+    decisionLog: JSON.parse(row.decision_log || '[]'),
+    completedTasks: JSON.parse(row.completed_tasks || '[]'),
+    currentPhase: row.current_phase || 'discovery',
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+  };
+}
+
+const DEFAULT_PREFERENCES: JourneyPreferences = {};
+
+@Injectable()
+export class RelocationJourneyService {
+  constructor(private readonly db: DatabaseService) {}
+
+  /**
+   * Get or create the user's relocation journey.
+   */
+  getJourney(userId: number): RelocationJourney {
+    this.ensureRow(userId);
+    const row = this.db.get<JourneyRow>(
+      'SELECT * FROM relocation_journey WHERE user_id = ?',
+      userId,
+    )!;
+    return rowToJourney(row);
+  }
+
+  /**
+   * Add a location to the shortlist.
+   */
+  shortlistLocation(userId: number, locationId: string): RelocationJourney {
+    this.ensureRow(userId);
+    const journey = this.getJourney(userId);
+    if (!journey.shortlistedLocations.includes(locationId)) {
+      const updated = [...journey.shortlistedLocations, locationId];
+      this.db.run(
+        'UPDATE relocation_journey SET shortlisted_locations = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+        JSON.stringify(updated),
+        userId,
+      );
+      this.logDecision(userId, {
+        timestamp: new Date().toISOString(),
+        type: 'shortlist',
+        description: `Added ${locationId} to shortlist`,
+      });
+    }
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Remove a location from the shortlist.
+   */
+  eliminateLocation(userId: number, locationId: string, reason?: string): RelocationJourney {
+    this.ensureRow(userId);
+    const journey = this.getJourney(userId);
+    const updated = journey.shortlistedLocations.filter((id) => id !== locationId);
+    this.db.run(
+      'UPDATE relocation_journey SET shortlisted_locations = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+      JSON.stringify(updated),
+      userId,
+    );
+    this.logDecision(userId, {
+      timestamp: new Date().toISOString(),
+      type: 'eliminate',
+      description: `Eliminated ${locationId} from shortlist${reason ? `: ${reason}` : ''}`,
+    });
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Update preferences (merges, doesn't replace).
+   */
+  updatePreferences(userId: number, prefs: Partial<JourneyPreferences>): RelocationJourney {
+    this.ensureRow(userId);
+    const journey = this.getJourney(userId);
+    const merged = { ...journey.preferences, ...prefs };
+    this.db.run(
+      'UPDATE relocation_journey SET preferences = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+      JSON.stringify(merged),
+      userId,
+    );
+    this.logDecision(userId, {
+      timestamp: new Date().toISOString(),
+      type: 'preference_update',
+      description: `Updated preferences: ${Object.keys(prefs).join(', ')}`,
+    });
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Save a move timeline (generated by the logistics agent).
+   */
+  setMoveTimeline(userId: number, timeline: JourneyTimeline): RelocationJourney {
+    this.ensureRow(userId);
+    this.db.run(
+      'UPDATE relocation_journey SET move_timeline = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+      JSON.stringify(timeline),
+      userId,
+    );
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Mark a task complete/incomplete.
+   */
+  toggleTask(userId: number, taskId: string): RelocationJourney {
+    this.ensureRow(userId);
+    const journey = this.getJourney(userId);
+    const completed = journey.completedTasks.includes(taskId)
+      ? journey.completedTasks.filter((id) => id !== taskId)
+      : [...journey.completedTasks, taskId];
+
+    // Also update the timeline task if it exists
+    if (journey.moveTimeline) {
+      journey.moveTimeline.tasks = journey.moveTimeline.tasks.map((t) =>
+        t.id === taskId ? { ...t, completed: completed.includes(taskId) } : t,
+      );
+      this.db.run(
+        'UPDATE relocation_journey SET completed_tasks = ?, move_timeline = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+        JSON.stringify(completed),
+        JSON.stringify(journey.moveTimeline),
+        userId,
+      );
+    } else {
+      this.db.run(
+        'UPDATE relocation_journey SET completed_tasks = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+        JSON.stringify(completed),
+        userId,
+      );
+    }
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Set the current phase of the relocation journey.
+   */
+  setPhase(userId: number, phase: string): RelocationJourney {
+    this.ensureRow(userId);
+    this.db.run(
+      'UPDATE relocation_journey SET current_phase = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+      phase,
+      userId,
+    );
+    this.logDecision(userId, {
+      timestamp: new Date().toISOString(),
+      type: 'phase_change',
+      description: `Moved to ${phase} phase`,
+    });
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Save a comparison result.
+   */
+  saveComparison(userId: number, comparison: unknown): RelocationJourney {
+    this.ensureRow(userId);
+    const journey = this.getJourney(userId);
+    const updated = [...journey.savedComparisons, comparison];
+    this.db.run(
+      'UPDATE relocation_journey SET saved_comparisons = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+      JSON.stringify(updated),
+      userId,
+    );
+    return this.getJourney(userId);
+  }
+
+  /**
+   * Append to the decision log.
+   */
+  logDecision(userId: number, decision: JourneyDecision): void {
+    this.ensureRow(userId);
+    const journey = this.getJourney(userId);
+    const log = [...journey.decisionLog, decision].slice(-100); // cap at 100
+    this.db.run(
+      'UPDATE relocation_journey SET decision_log = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?',
+      JSON.stringify(log),
+      userId,
+    );
+  }
+
+  // ── Private ──
+
+  private ensureRow(userId: number): void {
+    this.db.run(
+      `INSERT OR IGNORE INTO relocation_journey (user_id, preferences) VALUES (?, ?)`,
+      userId,
+      JSON.stringify(DEFAULT_PREFERENCES),
+    );
+  }
+}

@@ -8,6 +8,7 @@ import { useRelocationElicitation } from './useRelocationElicitation'
 import { useRelocationScore } from './useRelocationScore'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
+import { useTripStore } from '../../store/tripStore'
 import MoveTimelinePanel from './panels/MoveTimelinePanel'
 import RelocationMapPanel from './panels/RelocationMapPanel'
 import CandidateLibraryPanel from './panels/CandidateLibraryPanel'
@@ -74,6 +75,9 @@ export default function MissionControlShell(): React.ReactElement {
   const { detail, explainLoading, openDetail, closeDetail, deepData, fetchDeepData } =
     useRelocationScore()
 
+  // ponytail: read active trip reactively; null until user opens a trip elsewhere.
+  const activeTrip = useTripStore(s => s.trip)
+
   // ── Selection state (shared between map + library + detail) ──
 
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -95,10 +99,13 @@ export default function MissionControlShell(): React.ReactElement {
   const toggleCompare = useCallback((id: string) => {
     setCompareIds(prev => {
       if (prev.includes(id)) return prev.filter(x => x !== id)
-      if (prev.length >= MAX_COMPARE) return prev // ponytail: silent cap, surface in UI when adding a counter
+      if (prev.length >= MAX_COMPARE) {
+        toast.warning(`You can compare up to ${MAX_COMPARE} cities at once — remove one to swap.`)
+        return prev
+      }
       return [...prev, id]
     })
-  }, [])
+  }, [toast])
 
   const clearCompare = useCallback(() => {
     setCompareIds([])
@@ -154,10 +161,30 @@ export default function MissionControlShell(): React.ReactElement {
 
   // ── Checklist CTA ──
 
-  // ponytail: trip wiring not yet shipped — disabled until real trip context lands
-  const handleApplyChecklist = useCallback(() => {
-    toast.info('Move checklist coming soon — create a relocation trip first to enable task tracking.')
-  }, [toast])
+  const handleApplyChecklist = useCallback(async () => {
+    const tripId = activeTrip?.id
+    const moveDate = profile?.moveContext?.moveDate
+    if (!tripId) {
+      toast.warning('Open a trip first — the checklist attaches to that trip\'s todo list.')
+      return
+    }
+    if (!moveDate) {
+      toast.warning('Set your move date in the elicitation card first.')
+      return
+    }
+    try {
+      const resp = await relocationApi.applyMoveChecklist(tripId, moveDate)
+      if (resp.skipped) {
+        toast.info(`Move checklist already applied (${resp.existing ?? 0} task${resp.existing === 1 ? '' : 's'} on this trip).`)
+      } else if (resp.error) {
+        toast.error(resp.error)
+      } else {
+        toast.success(`Added ${resp.applied} move-checklist task${resp.applied === 1 ? '' : 's'} to your trip.`)
+      }
+    } catch (e) {
+      toast.error((e as Error).message || 'Failed to apply move checklist')
+    }
+  }, [activeTrip, profile, toast])
 
   // ── Layout (must be before early returns — hooks ordering) ──
 

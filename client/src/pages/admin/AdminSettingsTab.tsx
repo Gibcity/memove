@@ -159,7 +159,7 @@ export default function AdminSettingsTab({ admin, t }: AdminSettingsTabProps): R
               type="text"
               value={webauthnRpId}
               onChange={e => setWebauthnRpId(e.target.value)}
-              placeholder="trek.example.org"
+              placeholder="memove.example.org"
               className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-slate-400 focus:border-transparent"
             />
           </div>
@@ -170,7 +170,7 @@ export default function AdminSettingsTab({ admin, t }: AdminSettingsTabProps): R
               type="text"
               value={webauthnOrigins}
               onChange={e => setWebauthnOrigins(e.target.value)}
-              placeholder="https://trek.example.org"
+              placeholder="https://memove.example.org"
               className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-slate-400 focus:border-transparent"
             />
           </div>

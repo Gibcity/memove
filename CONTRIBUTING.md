@@ -1,4 +1,4 @@
-# Contributing to TREK
+# Contributing to memove
 
 Thanks for your interest in contributing! Please read these guidelines before opening a pull request.
 

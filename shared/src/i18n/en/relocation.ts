@@ -90,7 +90,8 @@ const relocation: TranslationStrings = {
   'relocation.chatSend': 'Send message',
   'relocation.chatClear': 'Clear conversation',
   'relocation.chatEmptyTitle': 'What would you like to know?',
-  'relocation.chatEmptyBody': 'I can discover cities, compare cost of living, build your move timeline, and walk you through state-by-state paperwork.',
+  'relocation.chatEmptyBody':
+    'I can discover cities, compare cost of living, build your move timeline, and walk you through state-by-state paperwork.',
   'relocation.chatTyping': 'Agent is typing',
 };
 export default relocation;
