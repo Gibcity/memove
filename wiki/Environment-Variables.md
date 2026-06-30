@@ -204,7 +204,7 @@ when the binary is found, and the Import button in the Reservations panel is hid
 
 | Variable                 | Description                                                                                                                                                                                                                                            | Default                 |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
-| `TREK_PLACE_PHOTO_DIR`   | Directory where cached Google place photos are stored. Created recursively on boot. Set this to point photo storage at a dedicated mounted volume.                                                                                                     | `uploads/photos/google` |
+| `MEMOVE_PLACE_PHOTO_DIR`   | Directory where cached Google place photos are stored. Created recursively on boot. Set this to point photo storage at a dedicated mounted volume.                                                                                                     | `uploads/photos/google` |
 | `BACKUP_UPLOAD_LIMIT_MB` | Maximum **compressed** size (in MB) of a restore-backup archive that may be uploaded. Raise it if your backups (which include the `uploads/` directory) exceed the default. Non-positive or invalid values log a warning and fall back to the default. | `500`                   |
 
 ---

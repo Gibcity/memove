@@ -70,6 +70,7 @@ const searchFiltersSchema = z.object({
   maxHotDays: numericString.optional(),
   maxColdDays: numericString.optional(),
   nameContains: z.string().optional(),
+  minPopulation: numericString.optional(),
   limit: numericString.optional(),
 });
 

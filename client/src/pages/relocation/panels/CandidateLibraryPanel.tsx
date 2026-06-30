@@ -66,6 +66,9 @@ export default function CandidateLibraryPanel({
   const { t } = useTranslation()
   const [search, setSearch] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('score')
+  // ponytail: local view tab — session-local like search/sort. Two-segment
+  // toggle; revisit when a third view (e.g. Dismissed) is requested.
+  const [view, setView] = useState<'all' | 'saved'>('all')
 
   // stable handlers so CandidateRow (when memoized upstream) can skip re-render
   const handleSelect = useCallback((c: CandidateView) => onSelect(c), [onSelect])
@@ -73,12 +76,16 @@ export default function CandidateLibraryPanel({
   const handleSave = useCallback((id: string) => onSave(id), [onSave])
 
   // ponytail: derived view, no need to lift. candidates is already filtered
-  // upstream; we only handle the text search + sort here.
+  // upstream; we only handle the text search + sort + saved-tab filter here.
+  // Saved-tab filter runs first so search/sort operate on the narrowed set.
   const visible = useMemo(() => {
+    const base = view === 'saved'
+      ? candidates.filter(c => savedIds.has(c.location.id))
+      : candidates
     const q = search.trim().toLowerCase()
     const aliases = q ? (SEARCH_ALIASES[q] ?? []) : []
-    const base = q
-      ? candidates.filter(c => {
+    const searched = q
+      ? base.filter(c => {
           const name = c.location.name.toLowerCase()
           const state = c.location.state.toLowerCase()
           // ponytail: #26 — alias expansion ("NYC" → "new york").
@@ -89,8 +96,8 @@ export default function CandidateLibraryPanel({
             aliases.some(a => name.includes(a) || state.includes(a))
           )
         })
-      : candidates
-    const sorted = [...base]
+      : base
+    const sorted = [...searched]
     if (sortKey === 'score') sorted.sort((a, b) => b.score - a.score)
     else if (sortKey === 'rent') {
       sorted.sort((a, b) => {
@@ -100,7 +107,7 @@ export default function CandidateLibraryPanel({
       })
     } else sorted.sort((a, b) => a.location.name.localeCompare(b.location.name))
     return sorted
-  }, [candidates, search, sortKey])
+  }, [candidates, search, sortKey, view, savedIds])
 
   return (
     <div className="w-full lg:w-96 shrink-0 flex flex-col bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl overflow-hidden">
@@ -122,6 +129,51 @@ export default function CandidateLibraryPanel({
           <option value="rent">{t('relocation.sortRent')}</option>
           <option value="name">{t('relocation.sortName')}</option>
         </select>
+      </div>
+
+      {/* View tabs — ponytail: segmented toggle, two buttons sharing a rounded
+          container. Reuses the same slate/blue palette as the rest of the
+          panel. Saved tab shows a count badge in the same style as the
+          header count. */}
+      <div
+        role="tablist"
+        aria-label="Candidate library view"
+        className="flex items-center gap-1 px-3 pt-2 border-b border-slate-200 dark:border-zinc-700"
+      >
+        {([
+          { key: 'all', label: t('relocation.topCandidates') },
+          { key: 'saved', label: t('relocation.saved') },
+        ] as const).map(({ key, label }) => {
+          const isActive = view === key
+          const count = key === 'saved' ? savedIds.size : allCandidates.length
+          return (
+            <button
+              key={key}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              aria-pressed={isActive}
+              onClick={() => setView(key)}
+              className={
+                isActive
+                  ? 'inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-blue-600 text-white'
+                  : 'inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors'
+              }
+            >
+              {key === 'saved' && <Heart size={11} className={isActive ? 'fill-current' : ''} />}
+              <span>{label}</span>
+              <span
+                className={
+                  isActive
+                    ? 'text-[10px] px-1.5 py-0.5 rounded-full bg-white/20 text-white font-medium'
+                    : 'text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-700 text-slate-600 dark:text-zinc-300 font-medium'
+                }
+              >
+                {count}
+              </span>
+            </button>
+          )
+        })}
       </div>
 
       {/* Search */}

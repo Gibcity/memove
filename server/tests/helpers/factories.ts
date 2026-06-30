@@ -562,13 +562,13 @@ export function addTripPhoto(
   db.prepare(
     'INSERT OR IGNORE INTO memove_photos (provider, asset_id, owner_id) VALUES (?, ?, ?)'
   ).run(provider, assetId, userId);
-  const trekPhoto = db.prepare(
+  const memovePhoto = db.prepare(
     'SELECT id FROM memove_photos WHERE provider = ? AND asset_id = ? AND owner_id = ?'
   ).get(provider, assetId, userId) as { id: number };
 
   const result = db.prepare(
     'INSERT OR IGNORE INTO trip_photos (trip_id, user_id, photo_id, shared, album_link_id) VALUES (?, ?, ?, ?, ?)'
-  ).run(tripId, userId, trekPhoto.id, opts.shared ? 1 : 0, opts.albumLinkId ?? null);
+  ).run(tripId, userId, memovePhoto.id, opts.shared ? 1 : 0, opts.albumLinkId ?? null);
   return db.prepare(`
     SELECT tp.id, tp.trip_id, tp.user_id, tkp.asset_id, tkp.provider, tp.shared, tp.album_link_id
     FROM trip_photos tp

@@ -5,7 +5,7 @@ const id: NotificationLocale = {
     footer: 'Anda menerima ini karena Anda telah mengaktifkan notifikasi di memove.',
     manage: 'Kelola preferensi di Pengaturan',
     madeWith: 'Dibuat dengan',
-    openTrek: 'Buka memove',
+    openMemove: 'Buka memove',
   },
   events: {
     trip_invite: (p) => ({

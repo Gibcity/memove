@@ -41,15 +41,15 @@ const { fileSvc } = vi.hoisted(() => ({
 vi.mock('../../src/services/fileService', () => fileSvc);
 
 const { photoSvc, helperSvc } = vi.hoisted(() => ({
-  photoSvc: { streamPhoto: vi.fn(), getPhotoInfo: vi.fn(), resolveTrekPhoto: vi.fn() },
-  helperSvc: { canAccessTrekPhoto: vi.fn() },
+  photoSvc: { streamPhoto: vi.fn(), getPhotoInfo: vi.fn(), resolveMemovePhoto: vi.fn() },
+  helperSvc: { canAccessMemovePhoto: vi.fn() },
 }));
 vi.mock('../../src/services/memories/photoResolverService', () => photoSvc);
 vi.mock('../../src/services/memories/helpersService', () => helperSvc);
 
 import { FilesModule } from '../../src/nest/files/files.module';
 import { PhotosModule } from '../../src/nest/photos/photos.module';
-import { TrekExceptionFilter } from '../../src/nest/common/trek-exception.filter';
+import { MemoveExceptionFilter } from '../../src/nest/common/memove-exception.filter';
 
 describe('Files + photos e2e (real auth guard + temp SQLite)', () => {
   let server: Server;
@@ -59,7 +59,7 @@ describe('Files + photos e2e (real auth guard + temp SQLite)', () => {
     const moduleRef = await Test.createTestingModule({ imports: [FilesModule, PhotosModule] }).compile();
     const nest = moduleRef.createNestApplication();
     nest.use(cookieParser());
-    nest.useGlobalFilters(new TrekExceptionFilter());
+    nest.useGlobalFilters(new MemoveExceptionFilter());
     await nest.init();
     return nest;
   }
@@ -76,7 +76,7 @@ describe('Files + photos e2e (real auth guard + temp SQLite)', () => {
   beforeEach(() => {
     fileSvc.verifyTripAccess.mockReturnValue({ id: 5, user_id: 1 });
     checkPermission.mockReturnValue(true);
-    helperSvc.canAccessTrekPhoto.mockReturnValue(true);
+    helperSvc.canAccessMemovePhoto.mockReturnValue(true);
   });
 
   afterAll(async () => {
@@ -127,7 +127,7 @@ describe('Files + photos e2e (real auth guard + temp SQLite)', () => {
   });
 
   it('403 on a photo the user cannot access', async () => {
-    helperSvc.canAccessTrekPhoto.mockReturnValue(false);
+    helperSvc.canAccessMemovePhoto.mockReturnValue(false);
     const res = await request(server).get('/api/photos/5/original').set('Cookie', sessionCookie(1));
     expect(res.status).toBe(403);
     expect(res.body).toEqual({ error: 'Forbidden' });

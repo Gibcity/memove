@@ -36,7 +36,7 @@ const { shareSvc } = vi.hoisted(() => ({
 vi.mock('../../src/services/shareService', () => shareSvc);
 
 import { ShareModule } from '../../src/nest/share/share.module';
-import { TrekExceptionFilter } from '../../src/nest/common/trek-exception.filter';
+import { MemoveExceptionFilter } from '../../src/nest/common/memove-exception.filter';
 
 describe('Share-link e2e (real auth guard + temp SQLite)', () => {
   let server: Server;
@@ -46,7 +46,7 @@ describe('Share-link e2e (real auth guard + temp SQLite)', () => {
     const moduleRef = await Test.createTestingModule({ imports: [ShareModule] }).compile();
     const nest = moduleRef.createNestApplication();
     nest.use(cookieParser());
-    nest.useGlobalFilters(new TrekExceptionFilter());
+    nest.useGlobalFilters(new MemoveExceptionFilter());
     await nest.init();
     return nest;
   }

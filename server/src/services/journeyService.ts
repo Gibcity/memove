@@ -2,10 +2,10 @@ import { db, canAccessTrip } from '../db/database';
 import type { Journey, JourneyEntry, JourneyPhoto, JourneyContributor } from '../types';
 import { broadcastToUser } from '../websocket';
 import {
-  getOrCreateTrekPhoto,
-  getOrCreateLocalTrekPhoto,
-  setTrekPhotoProvider,
-  deleteTrekPhotoIfOrphan,
+  getOrCreateMemovePhoto,
+  getOrCreateLocalMemovePhoto,
+  setMemovePhotoProvider,
+  deleteMemovePhotoIfOrphan,
 } from './memories/photoResolverService';
 
 function ts(): number {
@@ -813,7 +813,7 @@ function promoteSkeletonIfNeeded(entry: JourneyEntry): void {
 }
 
 // Ensure a memove_photo_id is in the journey gallery; return its gallery row id.
-function ensureInGallery(journeyId: number, trekPhotoId: number, caption?: string, shared?: number): number {
+function ensureInGallery(journeyId: number, memovePhotoId: number, caption?: string, shared?: number): number {
   const now = ts();
   const maxOrderRow = db
     .prepare('SELECT MAX(sort_order) as m FROM journey_photos WHERE journey_id = ?')
@@ -823,10 +823,10 @@ function ensureInGallery(journeyId: number, trekPhotoId: number, caption?: strin
     INSERT OR IGNORE INTO journey_photos (journey_id, photo_id, caption, shared, sort_order, created_at)
     VALUES (?, ?, ?, ?, ?, ?)
   `,
-  ).run(journeyId, trekPhotoId, caption || null, shared ?? 0, (maxOrderRow?.m ?? -1) + 1, now);
+  ).run(journeyId, memovePhotoId, caption || null, shared ?? 0, (maxOrderRow?.m ?? -1) + 1, now);
   const row = db
     .prepare('SELECT id FROM journey_photos WHERE journey_id = ? AND photo_id = ?')
-    .get(journeyId, trekPhotoId) as { id: number };
+    .get(journeyId, memovePhotoId) as { id: number };
   return row.id;
 }
 
@@ -858,8 +858,8 @@ export function addPhoto(
   if (!entry) return null;
   if (!canEdit(entry.journey_id, userId)) return null;
 
-  const trekPhotoId = getOrCreateLocalTrekPhoto(filePath, thumbnailPath);
-  const galleryId = db.transaction(() => ensureInGallery(entry.journey_id, trekPhotoId, caption))();
+  const memovePhotoId = getOrCreateLocalMemovePhoto(filePath, thumbnailPath);
+  const galleryId = db.transaction(() => ensureInGallery(entry.journey_id, memovePhotoId, caption))();
   const result = linkGalleryPhotoToEntry(galleryId, entryId);
   promoteSkeletonIfNeeded(entry);
   return result;
@@ -877,7 +877,7 @@ export function addProviderPhoto(
   if (!entry) return null;
   if (!canEdit(entry.journey_id, userId)) return null;
 
-  const trekPhotoId = getOrCreateTrekPhoto(provider, assetId, userId, passphrase);
+  const memovePhotoId = getOrCreateMemovePhoto(provider, assetId, userId, passphrase);
 
   // skip if this photo is already linked to this entry
   const alreadyLinked = db
@@ -888,10 +888,10 @@ export function addProviderPhoto(
     WHERE jep.entry_id = ? AND gp.photo_id = ?
   `,
     )
-    .get(entryId, trekPhotoId);
+    .get(entryId, memovePhotoId);
   if (alreadyLinked) return null;
 
-  const galleryId = db.transaction(() => ensureInGallery(entry.journey_id, trekPhotoId, caption))();
+  const galleryId = db.transaction(() => ensureInGallery(entry.journey_id, memovePhotoId, caption))();
   const result = linkGalleryPhotoToEntry(galleryId, entryId);
   promoteSkeletonIfNeeded(entry);
   return result;
@@ -929,16 +929,16 @@ export function uploadGalleryPhotos(
   let nextOrder = (maxOrderRow?.m ?? -1) + 1;
 
   for (const f of filePaths) {
-    const trekPhotoId = getOrCreateLocalTrekPhoto(f.path, f.thumbnail);
+    const memovePhotoId = getOrCreateLocalMemovePhoto(f.path, f.thumbnail);
     db.prepare(
       `
       INSERT OR IGNORE INTO journey_photos (journey_id, photo_id, shared, sort_order, created_at)
       VALUES (?, ?, 0, ?, ?)
     `,
-    ).run(journeyId, trekPhotoId, nextOrder++, now);
+    ).run(journeyId, memovePhotoId, nextOrder++, now);
     const row = db
       .prepare(`SELECT ${GALLERY_SELECT} FROM ${GALLERY_JOIN} WHERE gp.journey_id = ? AND gp.photo_id = ?`)
-      .get(journeyId, trekPhotoId);
+      .get(journeyId, memovePhotoId);
     if (row) results.push(row);
   }
   return results;
@@ -954,8 +954,8 @@ export function addProviderPhotoToGallery(
   passphrase?: string,
 ): any | null {
   if (!canEdit(journeyId, userId)) return null;
-  const trekPhotoId = getOrCreateTrekPhoto(provider, assetId, userId, passphrase);
-  const galleryId = db.transaction(() => ensureInGallery(journeyId, trekPhotoId, caption))();
+  const memovePhotoId = getOrCreateMemovePhoto(provider, assetId, userId, passphrase);
+  const galleryId = db.transaction(() => ensureInGallery(journeyId, memovePhotoId, caption))();
   return db.prepare(`SELECT ${GALLERY_SELECT} FROM ${GALLERY_JOIN} WHERE gp.id = ?`).get(galleryId) ?? null;
 }
 
@@ -982,15 +982,15 @@ export function deleteGalleryPhoto(
   if (!row) return null;
   if (!canEdit(row.journey_id, userId)) return null;
 
-  const trekRow = db.prepare('SELECT file_path, provider FROM memove_photos WHERE id = ?').get(row.photo_id) as
+  const memoveRow = db.prepare('SELECT file_path, provider FROM memove_photos WHERE id = ?').get(row.photo_id) as
     | { file_path?: string; provider?: string }
     | undefined;
 
   // cascade on journey_entry_photos.journey_photo_id handles junction cleanup
   db.prepare('DELETE FROM journey_photos WHERE id = ?').run(journeyPhotoId);
-  deleteTrekPhotoIfOrphan(row.photo_id);
+  deleteMemovePhotoIfOrphan(row.photo_id);
 
-  return { photo_id: row.photo_id, file_path: trekRow?.file_path ?? null };
+  return { photo_id: row.photo_id, file_path: memoveRow?.file_path ?? null };
 }
 
 export function setPhotoProvider(photoId: number, provider: string, assetId: string, ownerId: number) {
@@ -999,7 +999,7 @@ export function setPhotoProvider(photoId: number, provider: string, assetId: str
     | { photo_id: number }
     | undefined;
   if (!jp) return;
-  setTrekPhotoProvider(jp.photo_id, provider, assetId, ownerId);
+  setMemovePhotoProvider(jp.photo_id, provider, assetId, ownerId);
   // also denorm on gallery row for fast reads
   db.prepare('UPDATE journey_photos SET provider = ?, asset_id = ?, owner_id = ? WHERE id = ?').run(
     provider,
@@ -1047,14 +1047,14 @@ export function deletePhoto(
   if (!row) return null;
   if (!canEdit(row.journey_id, userId)) return null;
 
-  const trekRow = db.prepare('SELECT file_path, provider FROM memove_photos WHERE id = ?').get(row.photo_id) as
+  const memoveRow = db.prepare('SELECT file_path, provider FROM memove_photos WHERE id = ?').get(row.photo_id) as
     | { file_path?: string; provider?: string }
     | undefined;
 
   db.prepare('DELETE FROM journey_photos WHERE id = ?').run(photoId);
-  deleteTrekPhotoIfOrphan(row.photo_id);
+  deleteMemovePhotoIfOrphan(row.photo_id);
 
-  return { id: row.id, photo_id: row.photo_id, file_path: trekRow?.file_path ?? null, journey_id: row.journey_id };
+  return { id: row.id, photo_id: row.photo_id, file_path: memoveRow?.file_path ?? null, journey_id: row.journey_id };
 }
 
 // ── Contributors ─────────────────────────────────────────────────────────

@@ -21,6 +21,7 @@ import InAppNotificationsPage from './pages/InAppNotificationsPage.tsx'
 import MissionControlShell from './pages/relocation/MissionControlShell'
 import OAuthAuthorizePage from './pages/OAuthAuthorizePage'
 import { ToastContainer } from './components/shared/Toast'
+import { ErrorBoundary } from './components/shared/ErrorBoundary'
 import BottomNav from './components/Layout/BottomNav'
 import { TranslationProvider, useTranslation } from './i18n'
 import { authApi } from './api/client'
@@ -304,7 +305,9 @@ export default function App() {
           path="/relocation"
           element={
             <ProtectedRoute addonId="relocation">
-              <MissionControlShell />
+              <ErrorBoundary>
+                <MissionControlShell />
+              </ErrorBoundary>
             </ProtectedRoute>
           }
         />

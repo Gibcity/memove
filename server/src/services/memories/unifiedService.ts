@@ -8,7 +8,7 @@ import {
   mapDbError,
   Selection,
 } from './helpersService';
-import { getOrCreateTrekPhoto, deleteTrekPhotoIfOrphan } from './photoResolverService';
+import { getOrCreateMemovePhoto, deleteMemovePhotoIfOrphan } from './photoResolverService';
 import { encrypt_api_key } from '../apiKeyCrypto';
 
 
@@ -111,7 +111,7 @@ function _addTripPhoto(tripId: string, userId: number, provider: string, assetId
     return providerResult as ServiceResult<boolean>;
   }
   try {
-    const photoId = getOrCreateTrekPhoto(provider, assetId, userId, passphrase);
+    const photoId = getOrCreateMemovePhoto(provider, assetId, userId, passphrase);
     const result = db.prepare(
       'INSERT OR IGNORE INTO trip_photos (trip_id, user_id, photo_id, shared, album_link_id) VALUES (?, ?, ?, ?, ?)'
     ).run(tripId, userId, photoId, shared ? 1 : 0, albumLinkId || null);
@@ -212,7 +212,7 @@ export function removeTripPhoto(
         AND photo_id = ?
     `).run(tripId, userId, photoId);
 
-    deleteTrekPhotoIfOrphan(photoId);
+    deleteMemovePhotoIfOrphan(photoId);
     broadcast(tripId, 'memories:updated', { userId }, sid);
 
     return success(true);
@@ -281,7 +281,7 @@ export function removeAlbumLink(tripId: string, linkId: string, userId: number):
     })();
 
     for (const { photo_id } of linkedPhotos) {
-      deleteTrekPhotoIfOrphan(photo_id);
+      deleteMemovePhotoIfOrphan(photo_id);
     }
 
     return success(true);

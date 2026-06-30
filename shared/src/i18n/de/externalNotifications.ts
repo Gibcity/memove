@@ -5,7 +5,7 @@ const de: NotificationLocale = {
     footer: 'Du erhältst diese E-Mail, weil du Benachrichtigungen in memove aktiviert hast.',
     manage: 'Einstellungen verwalten',
     madeWith: 'Made with',
-    openTrek: 'memove öffnen',
+    openMemove: 'memove öffnen',
   },
   events: {
     trip_invite: (p) => ({

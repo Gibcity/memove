@@ -146,6 +146,23 @@ export default function AtlasCountrySearch({
             ))}
           </div>
         )}
+        {open && results.length === 0 && search.trim().length > 0 && (
+          <div
+            style={{
+              marginTop: 8,
+              borderRadius: 14,
+              padding: '10px 12px',
+              border: '1px solid ' + (dark ? 'rgba(255,255,255,0.10)' : 'rgba(0,0,0,0.08)'),
+              background: dark ? 'rgba(10,10,15,0.75)' : 'rgba(255,255,255,0.75)',
+              backdropFilter: 'blur(18px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(18px) saturate(180%)',
+              fontSize: 12,
+              color: dark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.55)',
+            }}
+          >
+            No matches found.
+          </div>
+        )}
       </div>
     </div>
   )

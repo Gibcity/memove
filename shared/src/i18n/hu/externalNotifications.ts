@@ -5,7 +5,7 @@ const hu: NotificationLocale = {
     footer: 'Ezt az értesítést azért kaptad, mert engedélyezted az értesítéseket a memove-ben.',
     manage: 'Beállítások kezelése',
     madeWith: 'Made with',
-    openTrek: 'memove megnyitása',
+    openMemove: 'memove megnyitása',
   },
   events: {
     trip_invite: (p) => ({

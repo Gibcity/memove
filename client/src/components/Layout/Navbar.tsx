@@ -75,11 +75,11 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
   }, [])
 
   const toggleDarkMode = () => {
-    document.documentElement.classList.add('trek-theme-transitioning')
+    document.documentElement.classList.add('memove-theme-transitioning')
     updateSetting('dark_mode', dark ? 'light' : 'dark').catch(() => {})
     if (themeTransitionTimer.current !== null) window.clearTimeout(themeTransitionTimer.current)
     themeTransitionTimer.current = window.setTimeout(() => {
-      document.documentElement.classList.remove('trek-theme-transitioning')
+      document.documentElement.classList.remove('memove-theme-transitioning')
       themeTransitionTimer.current = null
     }, 360)
   }
@@ -110,10 +110,10 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
       <div className="flex items-center gap-3 min-w-0">
         {showBack && (
           <button onClick={onBack}
-            className="trek-back-btn p-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-sm flex-shrink-0 text-content-muted"
+            className="memove-back-btn p-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-sm flex-shrink-0 text-content-muted"
             onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-hover)'}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-            <ArrowLeft className="trek-back-icon w-4 h-4" />
+            <ArrowLeft className="memove-back-icon w-4 h-4" />
             <span className="hidden sm:inline">{t('common.back')}</span>
           </button>
         )}
@@ -137,7 +137,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
           the left brand block and the right action cluster keep their layout. */}
       {globalAddons.length > 0 && !tripTitle && (
         <div
-          className="trek-nav-pill"
+          className="memove-nav-pill"
           style={{
             position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)',
             display: 'flex', gap: 4, padding: 4, borderRadius: 14,
@@ -232,7 +232,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
           {userMenuOpen && ReactDOM.createPortal(
             <>
               <div style={{ position: 'fixed', inset: 0, zIndex: 9998 }} onClick={() => setUserMenuOpen(false)} />
-              <div className="trek-menu-enter w-52 rounded-xl shadow-xl border overflow-hidden bg-surface-card border-edge" style={{ position: 'fixed', top: 'var(--nav-h)', right: 8, zIndex: 9999 }}>
+              <div className="memove-menu-enter w-52 rounded-xl shadow-xl border overflow-hidden bg-surface-card border-edge" style={{ position: 'fixed', top: 'var(--nav-h)', right: 8, zIndex: 9999 }}>
                 <div className="px-4 py-3 border-b border-edge-secondary">
                   <p className="text-sm font-medium text-content">{user.username}</p>
                   <p className="text-xs truncate text-content-muted">{user.email}</p>

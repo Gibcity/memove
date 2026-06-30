@@ -18,7 +18,7 @@ import { MulterError } from 'multer';
  * from the legacy `{ error: 'File too large' }` (413) and `{ error: '<reason>' }` (400).
  */
 @Catch()
-export class TrekExceptionFilter implements ExceptionFilter {
+export class MemoveExceptionFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost): void {
     const res = host.switchToHttp().getResponse<Response>();
 

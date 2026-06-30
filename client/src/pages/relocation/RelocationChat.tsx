@@ -514,13 +514,13 @@ function TypingIndicator(): React.ReactElement {
             className="w-1.5 h-1.5 rounded-full inline-block"
             style={{
               background: 'var(--text-faint)',
-              animation: `trek-typing-bounce 1.2s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
+              animation: `memove-typing-bounce 1.2s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
               animationDelay: `${i * 150}ms`,
             }}
           />
         ))}
         <style>{`
-          @keyframes trek-typing-bounce {
+          @keyframes memove-typing-bounce {
             0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
             30% { transform: translateY(-3px); opacity: 1; }
           }

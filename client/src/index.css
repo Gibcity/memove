@@ -13,7 +13,7 @@ body { height: 100%; overflow: auto; overscroll-behavior: none; -webkit-overflow
 
 /* Leaflet Popups — Enter-Animation vom Anchor-Tip */
 .leaflet-popup {
-  animation: trek-popover-enter 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  animation: memove-popover-enter 220ms cubic-bezier(0.23, 1, 0.32, 1);
   transform-origin: bottom center;
   will-change: transform, opacity;
 }
@@ -38,14 +38,14 @@ body { height: 100%; overflow: auto; overscroll-behavior: none; -webkit-overflow
 /* Mapbox GL hover popup — the name/category/address card on marker hover.
    Matches the Leaflet map's white hover tooltip. pointer-events:none so moving
    onto the popup never steals the marker's mouseleave and causes flicker. */
-.trek-map-popup { pointer-events: none; }
-.trek-map-popup .mapboxgl-popup-content {
+.memove-map-popup { pointer-events: none; }
+.memove-map-popup .mapboxgl-popup-content {
   padding: 7px 10px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
 }
-.trek-map-popup .mapboxgl-popup-tip {
+.memove-map-popup .mapboxgl-popup-tip {
   border-top-color: #fff;
   border-bottom-color: #fff;
   border-left-color: #fff;
@@ -216,10 +216,10 @@ input, textarea, select {
 }
 
 /* Back-Button Icon-Slide on hover */
-.trek-back-btn .trek-back-icon {
+.memove-back-btn .memove-back-icon {
   transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.trek-back-btn:hover .trek-back-icon {
+.memove-back-btn:hover .memove-back-icon {
   transform: translateX(-2px);
 }
 
@@ -238,9 +238,9 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 
 /* Theme crossfade — beim Dark/Light switch, Hauptflächen + Text faden ihre Farben.
    Sparingly: nur background-color und color bekommen eine Transition. */
-html.trek-theme-transitioning,
-html.trek-theme-transitioning body,
-html.trek-theme-transitioning *:not(img):not(video):not(canvas):not([class*="trek-skeleton"]):not(.leaflet-layer) {
+html.memove-theme-transitioning,
+html.memove-theme-transitioning body,
+html.memove-theme-transitioning *:not(img):not(video):not(canvas):not([class*="memove-skeleton"]):not(.leaflet-layer) {
   transition:
     background-color 320ms cubic-bezier(0.23, 1, 0.32, 1),
     color 320ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -275,68 +275,68 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
 /* ── Popover/Dropdown Enter-Animationen ─────────────────────────
    Emil: Popovers sollen von ihrem Trigger aus scalen, nicht vom Center.
    Start bei scale(0.95) — nichts in der echten Welt poppt aus dem Nichts. */
-@keyframes trek-menu-enter {
+@keyframes memove-menu-enter {
   from { opacity: 0; transform: scale(0.95) translateY(-4px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
-@keyframes trek-popover-enter {
+@keyframes memove-popover-enter {
   from { opacity: 0; transform: scale(0.96); }
   to   { opacity: 1; transform: scale(1); }
 }
-@keyframes trek-modal-enter {
+@keyframes memove-modal-enter {
   from { opacity: 0; transform: scale(0.97); }
   to   { opacity: 1; transform: scale(1); }
 }
-@keyframes trek-backdrop-enter {
+@keyframes memove-backdrop-enter {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-@keyframes trek-toast-enter {
+@keyframes memove-toast-enter {
   from { opacity: 0; transform: translateY(8px) scale(0.96); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
-@keyframes trek-progress-fill {
+@keyframes memove-progress-fill {
   from { width: 0%; }
-  to   { width: var(--trek-progress-to, 0%); }
+  to   { width: var(--memove-progress-to, 0%); }
 }
 
 /* Pie-Chart Reveal — rotate + fade-in, gibt dem Kreisdiagramm ein "Draw"-Gefühl */
-@keyframes trek-pie-reveal {
+@keyframes memove-pie-reveal {
   from { opacity: 0; transform: rotate(-90deg) scale(0.85); }
   to   { opacity: 1; transform: rotate(0deg) scale(1); }
 }
-.trek-pie-reveal {
-  animation: trek-pie-reveal 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
+.memove-pie-reveal {
+  animation: memove-pie-reveal 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
   transform-origin: center;
   will-change: transform, opacity;
 }
 
 /* Bar-Chart Reveal — horizontaler Fill von links */
-@keyframes trek-bar-fill {
+@keyframes memove-bar-fill {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
-.trek-bar-fill {
-  animation: trek-bar-fill 700ms cubic-bezier(0.23, 1, 0.32, 1) both;
+.memove-bar-fill {
+  animation: memove-bar-fill 700ms cubic-bezier(0.23, 1, 0.32, 1) both;
   transform-origin: left center;
   will-change: transform;
 }
 
 /* Page-Transition — subtiler Fade-Up beim Mount */
-@keyframes trek-page-enter {
+@keyframes memove-page-enter {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.trek-page-enter {
-  animation: trek-page-enter 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
+.memove-page-enter {
+  animation: memove-page-enter 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 /* Skeleton shimmer — ein fließender Gradient-Strip überquert den Platzhalter */
-@keyframes trek-shimmer {
+@keyframes memove-shimmer {
   from { background-position: -200% 0; }
   to   { background-position: 200% 0; }
 }
-.trek-skeleton {
+.memove-skeleton {
   background: linear-gradient(
     90deg,
     var(--bg-tertiary) 0%,
@@ -344,12 +344,12 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
     var(--bg-tertiary) 100%
   );
   background-size: 200% 100%;
-  animation: trek-shimmer 1.6s linear infinite;
+  animation: memove-shimmer 1.6s linear infinite;
   border-radius: 8px;
   color: transparent;
   user-select: none;
 }
-.dark .trek-skeleton {
+.dark .memove-skeleton {
   background: linear-gradient(
     90deg,
     rgba(255,255,255,0.04) 0%,
@@ -358,72 +358,72 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
   );
   background-size: 200% 100%;
 }
-.trek-menu-enter {
-  animation: trek-menu-enter 200ms cubic-bezier(0.23, 1, 0.32, 1);
+.memove-menu-enter {
+  animation: memove-menu-enter 200ms cubic-bezier(0.23, 1, 0.32, 1);
   transform-origin: top right;
   will-change: transform, opacity;
 }
-.trek-menu-enter-left {
-  animation: trek-menu-enter 200ms cubic-bezier(0.23, 1, 0.32, 1);
+.memove-menu-enter-left {
+  animation: memove-menu-enter 200ms cubic-bezier(0.23, 1, 0.32, 1);
   transform-origin: top left;
   will-change: transform, opacity;
 }
-.trek-popover-enter {
-  animation: trek-popover-enter 180ms cubic-bezier(0.23, 1, 0.32, 1);
+.memove-popover-enter {
+  animation: memove-popover-enter 180ms cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform, opacity;
 }
-.trek-modal-enter {
-  animation: trek-modal-enter 220ms cubic-bezier(0.23, 1, 0.32, 1);
+.memove-modal-enter {
+  animation: memove-modal-enter 220ms cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform, opacity;
 }
 
 /* Mobile-Drawer-Feel — Modal slidet von unten rein, wird unten am Screen angedockt */
-@keyframes trek-drawer-enter {
+@keyframes memove-drawer-enter {
   from { opacity: 0; transform: translateY(100%); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 639px) {
-  .trek-modal-enter {
-    animation: trek-drawer-enter 320ms cubic-bezier(0.32, 0.72, 0, 1);
+  .memove-modal-enter {
+    animation: memove-drawer-enter 320ms cubic-bezier(0.32, 0.72, 0, 1);
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     margin-top: auto !important;
     align-self: flex-end;
   }
 }
-.trek-backdrop-enter {
-  animation: trek-backdrop-enter 180ms cubic-bezier(0.23, 1, 0.32, 1);
+.memove-backdrop-enter {
+  animation: memove-backdrop-enter 180ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.trek-toast-enter {
-  animation: trek-toast-enter 260ms cubic-bezier(0.23, 1, 0.32, 1);
+.memove-toast-enter {
+  animation: memove-toast-enter 260ms cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform, opacity;
 }
 
 /* Stagger-Helpers für Listen — Enter-Animation mit Offset */
-@keyframes trek-fade-up {
+@keyframes memove-fade-up {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.trek-stagger > * {
-  animation: trek-fade-up 280ms cubic-bezier(0.23, 1, 0.32, 1) both;
+.memove-stagger > * {
+  animation: memove-fade-up 280ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
-.trek-stagger > *:nth-child(1) { animation-delay: 0ms; }
-.trek-stagger > *:nth-child(2) { animation-delay: 40ms; }
-.trek-stagger > *:nth-child(3) { animation-delay: 80ms; }
-.trek-stagger > *:nth-child(4) { animation-delay: 120ms; }
-.trek-stagger > *:nth-child(5) { animation-delay: 160ms; }
-.trek-stagger > *:nth-child(6) { animation-delay: 200ms; }
-.trek-stagger > *:nth-child(7) { animation-delay: 240ms; }
-.trek-stagger > *:nth-child(8) { animation-delay: 280ms; }
-.trek-stagger > *:nth-child(n+9) { animation-delay: 320ms; }
+.memove-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.memove-stagger > *:nth-child(2) { animation-delay: 40ms; }
+.memove-stagger > *:nth-child(3) { animation-delay: 80ms; }
+.memove-stagger > *:nth-child(4) { animation-delay: 120ms; }
+.memove-stagger > *:nth-child(5) { animation-delay: 160ms; }
+.memove-stagger > *:nth-child(6) { animation-delay: 200ms; }
+.memove-stagger > *:nth-child(7) { animation-delay: 240ms; }
+.memove-stagger > *:nth-child(8) { animation-delay: 280ms; }
+.memove-stagger > *:nth-child(n+9) { animation-delay: 320ms; }
 
 /* Reduced motion — Emil's Accessibility-Regel: fewer and gentler, not zero */
 @media (prefers-reduced-motion: reduce) {
-  .trek-menu-enter, .trek-menu-enter-left, .trek-popover-enter,
-  .trek-modal-enter, .trek-toast-enter, .trek-stagger > * {
-    animation: trek-backdrop-enter 120ms ease-out;
+  .memove-menu-enter, .memove-menu-enter-left, .memove-popover-enter,
+  .memove-modal-enter, .memove-toast-enter, .memove-stagger > * {
+    animation: memove-backdrop-enter 120ms ease-out;
   }
-  .trek-skeleton {
+  .memove-skeleton {
     animation: none;
     background: var(--bg-tertiary);
   }
@@ -758,7 +758,7 @@ img[alt="memove"] {
 .dark .min-h-screen { background-color: var(--bg-primary) !important; }
 
 /* Modal-Hintergrund */
-.dark .trek-modal-backdrop { background: rgba(0,0,0,0.6); }
+.dark .memove-modal-backdrop { background: rgba(0,0,0,0.6); }
 
 /* ── Dark: Fallback für Komponenten die noch nicht auf CSS-Variablen umgestellt sind ── */
 .dark {
@@ -798,7 +798,7 @@ img[alt="memove"] {
 }
 
 /* Modal-Hintergrund (eigener Namespace, sonst blenden Content-Blocker .modal-backdrop aus) */
-.trek-modal-backdrop {
+.memove-modal-backdrop {
   backdrop-filter: blur(4px);
 }
 

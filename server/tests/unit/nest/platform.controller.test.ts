@@ -19,7 +19,7 @@ const h = vi.hoisted(() => ({
 vi.mock('../../../src/middleware/auth', () => ({ verifyJwtAndLoadUser: h.verifyJwtAndLoadUser }));
 vi.mock('../../../src/db/database', () => ({ db: { prepare: h.dbPrepare } }));
 vi.mock('../../../src/mcp', () => ({ mcpHandler: h.mcpHandler }));
-vi.mock('../../../src/mcp/oauthProvider', () => ({ trekOAuthProvider: {}, trekClientsStore: {} }));
+vi.mock('../../../src/mcp/oauthProvider', () => ({ memoveOAuthProvider: {}, memoveClientsStore: {} }));
 vi.mock('../../../src/services/adminService', () => ({ isAddonEnabled: h.isAddonEnabled }));
 vi.mock('../../../src/services/notifications', () => ({ getMcpSafeUrl: h.getMcpSafeUrl }));
 

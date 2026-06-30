@@ -35,7 +35,7 @@ const { backupSvc } = vi.hoisted(() => ({
 vi.mock('../../src/services/backupService', () => backupSvc);
 
 import { BackupModule } from '../../src/nest/backup/backup.module';
-import { TrekExceptionFilter } from '../../src/nest/common/trek-exception.filter';
+import { MemoveExceptionFilter } from '../../src/nest/common/memove-exception.filter';
 
 describe('Backup e2e (real auth + admin guard + temp SQLite)', () => {
   let server: Server;
@@ -45,7 +45,7 @@ describe('Backup e2e (real auth + admin guard + temp SQLite)', () => {
     const moduleRef = await Test.createTestingModule({ imports: [BackupModule] }).compile();
     const nest = moduleRef.createNestApplication();
     nest.use(cookieParser());
-    nest.useGlobalFilters(new TrekExceptionFilter());
+    nest.useGlobalFilters(new MemoveExceptionFilter());
     await nest.init();
     return nest;
   }

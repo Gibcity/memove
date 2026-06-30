@@ -24,8 +24,8 @@ execSync('node scripts/build.mjs', { cwd: serverDir, stdio: 'inherit' })
 
 const env = {
   ...process.env,
-  TREK_DB_FILE: dbFile,
-  ADMIN_EMAIL: 'e2e@trek.local',
+  MEMOVE_DB_FILE: dbFile,
+  ADMIN_EMAIL: 'e2e@memove.local',
   ADMIN_PASSWORD: 'E2eTest12345!',
   PORT: '3001',
   NODE_ENV: 'development',

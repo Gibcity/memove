@@ -14,8 +14,8 @@ import { PUBLIC_DIR } from './platform.routes';
  * Behaviour matches the legacy catch-all exactly: in production, an unmatched GET
  * returns index.html; everything else (non-GET, or dev where there is no built
  * client) keeps the standard memove `{ error }` 404 envelope. The `@Catch(NotFoundException)`
- * is more specific than the global TrekExceptionFilter, so Nest routes 404s here
- * while every other error still flows through TrekExceptionFilter.
+ * is more specific than the global MemoveExceptionFilter, so Nest routes 404s here
+ * while every other error still flows through MemoveExceptionFilter.
  */
 @Catch(NotFoundException)
 export class SpaFallbackFilter implements ExceptionFilter {
@@ -31,7 +31,7 @@ export class SpaFallbackFilter implements ExceptionFilter {
     }
 
     // Non-production, or a non-GET miss: keep the standard memove 404 envelope
-    // (identical to what TrekExceptionFilter produces for a NotFoundException).
+    // (identical to what MemoveExceptionFilter produces for a NotFoundException).
     res.status(404).json({ error: exception.message || 'Not Found' });
   }
 }

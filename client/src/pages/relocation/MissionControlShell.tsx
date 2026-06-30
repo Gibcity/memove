@@ -5,6 +5,7 @@ import Navbar from '../../components/Layout/Navbar'
 import { useResizablePanels } from '../../hooks/useResizablePanels'
 import { useRelocationCandidates } from './useRelocationCandidates'
 import { useRelocationElicitation } from './useRelocationElicitation'
+import { useRelocationJourney } from './useRelocationJourney'
 import { useRelocationScore } from './useRelocationScore'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
@@ -17,7 +18,7 @@ import RelocationChat from './RelocationChat'
 import type { CandidateView } from './relocationModel'
 import type { ImplicitSignal } from '@memove/shared'
 
-const MAX_COMPARE = 3 // ponytail: 2–3 is the readable band, hard cap to keep the side-by-side sane
+const MAX_COMPARE = 2 // ponytail: matches the 2-col grid in CandidateDetailSheet; raise + widen grid when product wants 3-up
 
 /**
  * MissionControlShell — 3-panel relocation dashboard.
@@ -51,6 +52,7 @@ export default function MissionControlShell(): React.ReactElement {
     skipAll,
     confirmHardFilter,
     dismissHardFilterPrompt,
+    idToName,
   } = useRelocationElicitation(dismissCountsRef.current)
 
   const {
@@ -79,12 +81,36 @@ export default function MissionControlShell(): React.ReactElement {
   const { detail, explainLoading, openDetail, closeDetail, deepData, fetchDeepData } =
     useRelocationScore()
 
+  // ponytail: journey workspace loads in parallel with the candidates list —
+  // server returns a default row on first access (per relocation-journey.service).
+  const {
+    journey,
+    shortlist: serverShortlist,
+    eliminate: serverEliminate,
+    toggleTask,
+    setPhase,
+  } = useRelocationJourney()
+
   // ponytail: read active trip reactively; null until user opens a trip elsewhere.
   const activeTrip = useTripStore(s => s.trip)
 
   // ── Selection state (shared between map + library + detail) ──
 
   const [selectedId, setSelectedId] = useState<string | null>(null)
+
+  // ponytail: heart-icon saves and the server shortlist are the same fact —
+  // savedIds is the in-session mirror, journey.shortlistedLocations is durable.
+  // Wrap saveCandidate so toggling the heart also pushes to the persisted
+  // workspace. Otherwise the left panel never knows what the user saved.
+  const handleSaveCandidate = useCallback(
+    async (locationId: string) => {
+      await saveCandidate(locationId)
+      const nowSaved = !savedIds.has(locationId)
+      if (nowSaved) await serverShortlist(locationId)
+      else await serverEliminate(locationId, 'unsaved_from_library')
+    },
+    [saveCandidate, savedIds, serverShortlist, serverEliminate],
+  )
 
   // ── Chat toggle ──
   const [showChat, setShowChat] = useState(false)
@@ -267,6 +293,11 @@ export default function MissionControlShell(): React.ReactElement {
             onDismissHardFilter={dismissHardFilterPrompt}
             profile={profile}
             onApplyChecklist={handleApplyChecklist}
+            journey={journey}
+            shortlistedNames={idToName}
+            onToggleTask={toggleTask}
+            onAdvancePhase={setPhase}
+            onEliminateShortlist={serverEliminate}
           />
         </aside>
 
@@ -376,7 +407,7 @@ export default function MissionControlShell(): React.ReactElement {
             selectedId={selectedId}
             onSelect={handleSelectByCandidate}
             onDismiss={(id: string) => dismissCandidate(id, 'dismissed_from_library')}
-            onSave={saveCandidate}
+            onSave={handleSaveCandidate}
             sliders={sliders}
             onUpdateSlider={updateSlider}
             onToggleSlider={toggleSlider}

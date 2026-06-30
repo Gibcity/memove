@@ -31,7 +31,7 @@ import { applyPlatformUploads, applyPlatformTransport, applyPlatformStatic } fro
  *
  * The SPA index.html fallback (unmatched GET → index.html in production) is the
  * SpaFallbackFilter (APP_FILTER in AppModule); the global error envelope is the
- * TrekExceptionFilter (also APP_FILTER).
+ * MemoveExceptionFilter (also APP_FILTER).
  */
 export async function buildApp(): Promise<INestApplication> {
   const app = await NestFactory.create(AppModule, new ExpressAdapter());

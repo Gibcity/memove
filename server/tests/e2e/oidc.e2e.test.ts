@@ -25,7 +25,7 @@ const { oidcSvc } = vi.hoisted(() => ({
 vi.mock('../../src/services/oidcService', () => oidcSvc);
 
 import { OidcModule } from '../../src/nest/oidc/oidc.module';
-import { TrekExceptionFilter } from '../../src/nest/common/trek-exception.filter';
+import { MemoveExceptionFilter } from '../../src/nest/common/memove-exception.filter';
 
 describe('OIDC e2e (real cookie service)', () => {
   let server: Server;
@@ -35,7 +35,7 @@ describe('OIDC e2e (real cookie service)', () => {
     const moduleRef = await Test.createTestingModule({ imports: [OidcModule] }).compile();
     const nest = moduleRef.createNestApplication();
     nest.use(cookieParser());
-    nest.useGlobalFilters(new TrekExceptionFilter());
+    nest.useGlobalFilters(new MemoveExceptionFilter());
     await nest.init();
     return nest;
   }

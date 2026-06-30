@@ -5,7 +5,7 @@ const zh: NotificationLocale = {
     footer: '您收到此邮件是因为您在 memove 中启用了通知。',
     manage: '管理偏好设置',
     madeWith: 'Made with',
-    openTrek: '打开 memove',
+    openMemove: '打开 memove',
   },
   events: {
     trip_invite: (p) => ({

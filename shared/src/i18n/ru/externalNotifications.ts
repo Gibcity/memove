@@ -5,7 +5,7 @@ const ru: NotificationLocale = {
     footer: 'Вы получили это, потому что у вас включены уведомления в memove.',
     manage: 'Управление настройками',
     madeWith: 'Made with',
-    openTrek: 'Открыть memove',
+    openMemove: 'Открыть memove',
   },
   events: {
     trip_invite: (p) => ({

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from '../i18n'
 import Navbar from '../components/Layout/Navbar'
-import DemoBanner from '../components/Layout/DemoBanner'
 import TripFormModal from '../components/Trips/TripFormModal'
 import ConfirmDialog from '../components/shared/ConfirmDialog'
 import CopyTripDialog from '../components/shared/CopyTripDialog'
@@ -93,13 +92,12 @@ export default function DashboardPage(): React.ReactElement {
 
   return (
     <>
-      {/* Navbar lives outside .trek-dash so it keeps the app-wide font + button
+      {/* Navbar lives outside .memove-dash so it keeps the app-wide font + button
           styling instead of inheriting the dashboard scope's font and the
-          `.trek-dash button` reset (which shifted the bell icon + menu items). */}
+          `.memove-dash button` reset (which shifted the bell icon + menu items). */}
       <Navbar />
-      <div className="trek-dash trek-dash-shell">
-      {demoMode && <DemoBanner />}
-      <div className="trek-dash-scroll">
+      <div className="memove-dash memove-dash-shell">
+      <div className="memove-dash-scroll">
         <MobileTopBar />
         <main className="page">
           <div className="page-main">

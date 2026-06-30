@@ -1,10 +1,10 @@
-import { useEffect, useRef, type ReactElement } from 'react'
-import { AlertTriangle, ChevronRight, X } from 'lucide-react'
+import { useEffect, useRef, useState, type ReactElement } from 'react'
+import { AlertTriangle, ChevronRight, ExternalLink, X } from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { formatCurrency, scoreToColor } from '../relocationModel'
 import type { CandidateView } from '../relocationModel'
 import type { AffordabilityData } from '../useRelocationScore'
-import type { ScoreExplanation } from '../../../api/relocation'
+import { relocationApi, type ScoreExplanation } from '../../../api/relocation'
 import type { Location } from '@memove/shared'
 import { RadarChart, type RadarDatum } from '../charts'
 
@@ -464,6 +464,10 @@ function CandidateBody({
         </div>
       )}
 
+      {/* Career & Housing Market — lazy on expand (native <details>) */}
+      <CareerSection locationName={location.name} stateCode={location.state} t={t} />
+      <HousingMarketSection locationId={location.id} t={t} />
+
       {/* Provenance */}
       {location.metricsProvenance &&
         Object.keys(location.metricsProvenance).length > 0 && (
@@ -713,5 +717,252 @@ function CompareDeltaRow({
         })}
       </div>
     </div>
+  )
+}
+
+/**
+ * ponytail: collapsible Career section. Native <details> gives free lazy-load
+ * on first expand via onToggle. We fetch economicIndicators + licensing for
+ * the candidate's state in parallel (same pattern as useRelocationScore:60-71
+ * for affordability). Occupation outlook is opened on demand from a tiny
+ * inline input — one extra fetch, no auto-load.
+ */
+function CareerSection({
+  locationName,
+  stateCode,
+  t,
+}: {
+  locationName: string
+  stateCode: string
+  t: Translator
+}): ReactElement {
+  const [econ, setEcon] = useState<Record<string, unknown> | null>(null)
+  const [boards, setBoards] = useState<Record<string, { name: string; url: string }> | null>(null)
+  const [loading, setLoading] = useState(false)
+  const seqRef = useRef(0)
+  // ponytail: ref tracks the latest request so a stale candidate click
+  // doesn't overwrite the active drawer's data (mirrors deepSeqRef pattern).
+  const loadedFor = useRef<string | null>(null)
+
+  const load = () => {
+    if (loadedFor.current === locationName || loading) return
+    loadedFor.current = locationName
+    const seq = ++seqRef.current
+    setLoading(true)
+    Promise.allSettled([
+      relocationApi.economicIndicators(locationName),
+      relocationApi.licensing(stateCode),
+    ]).then(([e, l]) => {
+      if (seq !== seqRef.current) return
+      setEcon(e.status === 'fulfilled' ? (e.value as Record<string, unknown>) : null)
+      setBoards(l.status === 'fulfilled' ? (l.value as Record<string, { name: string; url: string }>) : null)
+      setLoading(false)
+    })
+  }
+  // ponytail: occupation outlook is its own tiny input + go button. Keeps the
+  // section cheap by not requiring user context we don't have server-side.
+  const [occ, setOcc] = useState('')
+  const [occData, setOccData] = useState<{ blsOohUrl: string } | null>(null)
+  const lookupOcc = () => {
+    const q = occ.trim()
+    if (!q) return
+    relocationApi.outlook(q).then((d: { blsOohUrl: string }) => setOccData(d)).catch(() => setOccData(null))
+  }
+
+  return (
+    <details
+      className="group rounded-lg border border-slate-200 dark:border-zinc-700 bg-slate-50/50 dark:bg-zinc-800/30"
+      onToggle={e => { if ((e.currentTarget as HTMLDetailsElement).open) load() }}
+    >
+      <summary className="flex items-center gap-1.5 cursor-pointer px-3 py-2 text-xs font-semibold text-slate-700 dark:text-zinc-300 list-none">
+        <ChevronRight size={14} className="transition-transform group-open:rotate-90" />
+        {t('relocation.careerSectionLabel')}
+      </summary>
+      <div className="px-3 pb-3 space-y-3 text-xs">
+        {loading && (
+          <div className="flex items-center gap-2 text-slate-400">
+            <div className="w-3.5 h-3.5 border-2 border-slate-300 border-t-slate-600 rounded-full animate-spin" />
+            {t('relocation.loading')}
+          </div>
+        )}
+        {!loading && econ && (
+          <div className="grid grid-cols-2 gap-2">
+            <MetricItem label={t('relocation.colIndex')} value={String(econ.costOfLivingIndex ?? '—')} />
+            <MetricItem label={t('relocation.taxScore')} value={String(econ.taxCompetitivenessScore ?? '—')} />
+            <MetricItem
+              label={t('relocation.medianHome')}
+              value={typeof econ.medianHomeValue === 'number' ? formatCurrency(econ.medianHomeValue as number) : '—'}
+            />
+            <MetricItem
+              label={t('relocation.medianRent')}
+              value={typeof econ.medianRent === 'number' ? `${formatCurrency(econ.medianRent as number)}/mo` : '—'}
+            />
+          </div>
+        )}
+        {!loading && boards && (
+          <div>
+            <p className="font-semibold text-slate-700 dark:text-zinc-300 mb-1.5">
+              {t('relocation.licensingLabel', { state: stateCode })}
+            </p>
+            <ul className="space-y-1">
+              {Object.entries(boards).map(([prof, b]) => (
+                <li key={prof} className="flex items-baseline justify-between gap-2">
+                  <span className="text-slate-500 dark:text-zinc-400 capitalize">{prof.replace(/_/g, ' ')}</span>
+                  <a
+                    href={b.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-blue-400 hover:underline truncate inline-flex items-center gap-1"
+                  >
+                    {b.name} <ExternalLink size={10} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <div>
+          <p className="font-semibold text-slate-700 dark:text-zinc-300 mb-1.5">{t('relocation.outlookLabel')}</p>
+          <div className="flex gap-1.5">
+            <input
+              type="text"
+              value={occ}
+              onChange={e => setOcc(e.target.value)}
+              onKeyDown={e => { if (e.key === 'Enter') lookupOcc() }}
+              placeholder={t('relocation.outlookPlaceholder')}
+              className="flex-1 min-w-0 px-2 py-1 rounded border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-200"
+            />
+            <button
+              onClick={lookupOcc}
+              disabled={!occ.trim()}
+              className="px-2 py-1 rounded bg-blue-600 text-white disabled:opacity-50"
+            >
+              {t('relocation.outlookGo')}
+            </button>
+          </div>
+          {occData && (
+            <a
+              href={occData.blsOohUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1.5 inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              {t('relocation.viewOnBls')} <ExternalLink size={10} />
+            </a>
+          )}
+        </div>
+      </div>
+    </details>
+  )
+}
+
+/**
+ * ponytail: collapsible Housing Market section. Native <details>, lazy fetch
+ * market + listings on first open. Listings are external search URLs, not
+ * scraped MLS data — render as a small link list.
+ */
+function HousingMarketSection({
+  locationId,
+  t,
+}: {
+  locationId: string
+  t: Translator
+}): ReactElement {
+  // ponytail: keep return shape untyped — server endpoints return stub data;
+  // tighten when contract settles. captured flag avoids duplicate fetches when
+  // the user opens/closes the section.
+  const [market, setMarket] = useState<Record<string, unknown> | null>(null)
+  const [listings, setListings] = useState<Array<{ platform: string; url: string; type: string }> | null>(null)
+  const [loading, setLoading] = useState(false)
+  const fetchedRef = useRef<string | null>(null)
+
+  const load = () => {
+    if (fetchedRef.current === locationId || loading) return
+    fetchedRef.current = locationId
+    setLoading(true)
+    Promise.allSettled([
+      relocationApi.getMarketData(locationId),
+      relocationApi.getListings(locationId),
+    ]).then(([m, l]) => {
+      setMarket(m.status === 'fulfilled' ? (m.value as Record<string, unknown>) : null)
+      setListings(
+        l.status === 'fulfilled'
+          ? (l.value as Array<{ platform: string; url: string; type: string }>)
+          : null,
+      )
+      setLoading(false)
+    })
+  }
+
+  // ponytail: priceToRentRatio is the one derived market metric the server
+  // ships but the drawer doesn't otherwise show — surface it alongside the
+  // three core fields.
+  const listingsSorted = listings ? [...listings].sort((a, b) => a.type.localeCompare(b.type)) : null
+
+  return (
+    <details
+      className="group rounded-lg border border-slate-200 dark:border-zinc-700 bg-slate-50/50 dark:bg-zinc-800/30"
+      onToggle={e => { if ((e.currentTarget as HTMLDetailsElement).open) load() }}
+    >
+      <summary className="flex items-center gap-1.5 cursor-pointer px-3 py-2 text-xs font-semibold text-slate-700 dark:text-zinc-300 list-none">
+        <ChevronRight size={14} className="transition-transform group-open:rotate-90" />
+        {t('relocation.housingMarketLabel')}
+      </summary>
+      <div className="px-3 pb-3 space-y-3 text-xs">
+        {loading && (
+          <div className="flex items-center gap-2 text-slate-400">
+            <div className="w-3.5 h-3.5 border-2 border-slate-300 border-t-slate-600 rounded-full animate-spin" />
+            {t('relocation.loading')}
+          </div>
+        )}
+        {!loading && market && (
+          <div className="grid grid-cols-2 gap-2">
+            <MetricItem
+              label={t('relocation.medianHome')}
+              value={typeof market.medianHomeValue === 'number' ? formatCurrency(market.medianHomeValue as number) : '—'}
+            />
+            <MetricItem
+              label={t('relocation.medianRent')}
+              value={typeof market.medianRent === 'number' ? `${formatCurrency(market.medianRent as number)}/mo` : '—'}
+            />
+            <MetricItem
+              label={t('relocation.priceToRent')}
+              value={typeof market.priceToRentRatio === 'number' ? (market.priceToRentRatio as number).toFixed(1) : '—'}
+            />
+            <MetricItem
+              label={t('relocation.propertyTaxRate')}
+              value={typeof market.propertyTaxRate === 'number' ? `${((market.propertyTaxRate as number) * 100).toFixed(2)}%` : '—'}
+            />
+          </div>
+        )}
+        {!loading && listingsSorted && listingsSorted.length > 0 && (
+          <div>
+            <p className="font-semibold text-slate-700 dark:text-zinc-300 mb-1.5">
+              {t('relocation.listingsLabel')}
+            </p>
+            <ul className="space-y-1">
+              {listingsSorted.map((l, i) => (
+                <li key={`${l.platform}-${l.type}-${i}`} className="flex items-baseline justify-between gap-2">
+                  <span className="text-slate-500 dark:text-zinc-400">
+                    {l.platform} · <span className="capitalize">{l.type}</span>
+                  </span>
+                  <a
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1"
+                  >
+                    {t('relocation.openListing')} <ExternalLink size={10} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {!loading && listingsSorted && listingsSorted.length === 0 && (
+          <p className="text-slate-400 dark:text-zinc-500">{t('relocation.noListings')}</p>
+        )}
+      </div>
+    </details>
   )
 }

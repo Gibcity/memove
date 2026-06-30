@@ -91,12 +91,12 @@ function formatEntryDate(iso: string): string {
 // Inject the popup styles once per document. Two-line frosted-glass card in
 // the Apple/Google Maps idiom — title on top, location / date subtly below.
 function ensureJourneyPopupStyle() {
-  if (document.getElementById('trek-journey-popup-style')) return
+  if (document.getElementById('memove-journey-popup-style')) return
   const s = document.createElement('style')
-  s.id = 'trek-journey-popup-style'
+  s.id = 'memove-journey-popup-style'
   s.textContent = `
-    .mapboxgl-popup.trek-journey-popup { pointer-events: none; animation: trek-journey-popup-in 180ms ease-out; }
-    .mapboxgl-popup.trek-journey-popup .mapboxgl-popup-content {
+    .mapboxgl-popup.memove-journey-popup { pointer-events: none; animation: memove-journey-popup-in 180ms ease-out; }
+    .mapboxgl-popup.memove-journey-popup .mapboxgl-popup-content {
       padding: 9px 14px 10px;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.94);
@@ -108,21 +108,21 @@ function ensureJourneyPopupStyle() {
       min-width: 160px;
       max-width: 280px;
     }
-    .mapboxgl-popup.trek-journey-popup.trek-dark .mapboxgl-popup-content {
+    .mapboxgl-popup.memove-journey-popup.memove-dark .mapboxgl-popup-content {
       background: rgba(24, 24, 27, 0.88);
       border-color: rgba(255, 255, 255, 0.08);
       color: #FAFAFA;
     }
-    .mapboxgl-popup.trek-journey-popup .mapboxgl-popup-tip {
+    .mapboxgl-popup.memove-journey-popup .mapboxgl-popup-tip {
       border-top-color: rgba(255, 255, 255, 0.94);
       border-bottom-color: rgba(255, 255, 255, 0.94);
     }
-    .mapboxgl-popup.trek-journey-popup.trek-dark .mapboxgl-popup-tip {
+    .mapboxgl-popup.memove-journey-popup.memove-dark .mapboxgl-popup-tip {
       border-top-color: rgba(24, 24, 27, 0.88);
       border-bottom-color: rgba(24, 24, 27, 0.88);
     }
-    .mapboxgl-popup.trek-journey-popup .mapboxgl-popup-close-button { display: none; }
-    .trek-journey-popup-title {
+    .mapboxgl-popup.memove-journey-popup .mapboxgl-popup-close-button { display: none; }
+    .memove-journey-popup-title {
       font-size: 13.5px;
       font-weight: 600;
       letter-spacing: -0.01em;
@@ -132,8 +132,8 @@ function ensureJourneyPopupStyle() {
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .mapboxgl-popup.trek-journey-popup.trek-dark .trek-journey-popup-title { color: #FAFAFA; }
-    .trek-journey-popup-sub {
+    .mapboxgl-popup.memove-journey-popup.memove-dark .memove-journey-popup-title { color: #FAFAFA; }
+    .memove-journey-popup-sub {
       display: flex;
       align-items: baseline;
       gap: 7px;
@@ -143,19 +143,19 @@ function ensureJourneyPopupStyle() {
       line-height: 1.35;
       white-space: nowrap;
     }
-    .mapboxgl-popup.trek-journey-popup.trek-dark .trek-journey-popup-sub { color: #A1A1AA; }
-    .trek-journey-popup-place {
+    .mapboxgl-popup.memove-journey-popup.memove-dark .memove-journey-popup-sub { color: #A1A1AA; }
+    .memove-journey-popup-place {
       min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .trek-journey-popup-sep {
+    .memove-journey-popup-sep {
       flex: 0 0 auto;
       opacity: 0.55;
       font-weight: 500;
     }
-    .trek-journey-popup-date { flex: 0 0 auto; }
-    @keyframes trek-journey-popup-in {
+    .memove-journey-popup-date { flex: 0 0 auto; }
+    @keyframes memove-journey-popup-in {
       from { opacity: 0; }
       to { opacity: 1; }
     }
@@ -180,7 +180,7 @@ function markerHtml(dayColor: string, dayLabel: number, highlighted: boolean): H
   const wrap = document.createElement('div')
   wrap.style.cssText = `width:${MARKER_W}px;height:${MARKER_H}px;cursor:pointer;`
   const inner = document.createElement('div')
-  inner.className = 'trek-journey-marker-inner'
+  inner.className = 'memove-journey-marker-inner'
   inner.style.cssText = `width:100%;height:100%;transform:scale(${scale});transform-origin:bottom center;transition:transform 0.2s ease;filter:${shadow};`
   inner.innerHTML = `<svg width="${MARKER_W}" height="${MARKER_H}" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14 34C14 34 26 22.36 26 13C26 6.37 20.63 1 14 1C7.37 1 2 6.37 2 13C2 22.36 14 34 14 34Z" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>
@@ -227,15 +227,15 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
     const date = escapeHtml(dateStr)
 
     const subParts: string[] = []
-    if (place) subParts.push(`<span class="trek-journey-popup-place">${place}</span>`)
-    if (date) subParts.push(`<span class="trek-journey-popup-date">${date}</span>`)
+    if (place) subParts.push(`<span class="memove-journey-popup-place">${place}</span>`)
+    if (date) subParts.push(`<span class="memove-journey-popup-date">${date}</span>`)
     const subline = subParts.length === 2
-      ? `${subParts[0]}<span class="trek-journey-popup-sep">\u00B7</span>${subParts[1]}`
+      ? `${subParts[0]}<span class="memove-journey-popup-sep">\u00B7</span>${subParts[1]}`
       : subParts.join('')
 
     const html = `
-      <div class="trek-journey-popup-title">${primary}</div>
-      ${subline ? `<div class="trek-journey-popup-sub">${subline}</div>` : ''}
+      <div class="memove-journey-popup-title">${primary}</div>
+      ${subline ? `<div class="memove-journey-popup-sub">${subline}</div>` : ''}
     `
     // Marker is bottom-anchored with a visible height of 36px (1.2× on
     // highlight ≈ 44px), so -46 keeps the popup just clear of the pin top.
@@ -245,7 +245,7 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
       popupRef.current.setHTML(html)
       popupRef.current.setOffset(offset)
       const el = popupRef.current.getElement()
-      if (el) el.classList.toggle('trek-dark', !!darkRef.current)
+      if (el) el.classList.toggle('memove-dark', !!darkRef.current)
     } else {
       popupRef.current = new mapboxgl.Popup({
         closeButton: false,
@@ -253,7 +253,7 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
         closeOnMove: false,
         anchor: 'bottom',
         offset,
-        className: `trek-journey-popup${darkRef.current ? ' trek-dark' : ''}`,
+        className: `memove-journey-popup${darkRef.current ? ' memove-dark' : ''}`,
         maxWidth: '280px',
       })
         .setLngLat([item.lng, item.lat])
@@ -274,12 +274,12 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
     const marker = markersRef.current.get(id)
     if (!item || !marker) return
     const el = marker.getElement()
-    const currentInner = el.querySelector('.trek-journey-marker-inner') as HTMLDivElement | null
+    const currentInner = el.querySelector('.memove-journey-marker-inner') as HTMLDivElement | null
     if (!currentInner) return
     // Only swap the inner element's styles/HTML. Touching `el.style.cssText`
     // would wipe mapbox's positional transform and make the marker flicker.
     const next = markerHtml(item.dayColor, item.dayLabel, highlighted)
-    const nextInner = next.querySelector('.trek-journey-marker-inner') as HTMLDivElement
+    const nextInner = next.querySelector('.memove-journey-marker-inner') as HTMLDivElement
     currentInner.style.cssText = nextInner.style.cssText
     currentInner.innerHTML = nextInner.innerHTML
     el.style.zIndex = highlighted ? '1000' : '0'

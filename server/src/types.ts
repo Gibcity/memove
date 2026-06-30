@@ -375,7 +375,7 @@ export interface JourneyEntry {
   updated_at: number;
 }
 
-export interface TrekPhoto {
+export interface MemovePhoto {
   id: number;
   provider: string;
   asset_id?: string | null;

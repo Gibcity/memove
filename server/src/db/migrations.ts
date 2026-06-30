@@ -1409,11 +1409,11 @@ function runMigrations(db: Database.Database): void {
     },
     // Migration 84: Journey addon — trip tracking & travel journal
     () => {
-      // Register addon (disabled by default — opt-in)
+      // Register addon (enabled by default — was disabled originally, flipped via seed upsert; kept enabled=1 here so fresh installs match)
       db.prepare(
         `
         INSERT OR IGNORE INTO addons (id, name, description, type, icon, enabled, config, sort_order)
-        VALUES ('journey', 'Journey', 'Trip tracking & travel journal — check-ins, photos, daily stories', 'global', 'Compass', 0, '{}', 35)
+        VALUES ('journey', 'Journey', 'Trip tracking & travel journal — check-ins, photos, daily stories', 'global', 'Compass', 1, '{}', 35)
       `,
       ).run();
 
@@ -3067,6 +3067,16 @@ function runMigrations(db: Database.Database): void {
         current_phase TEXT DEFAULT 'discovery',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      );
+    `) },
+    // Migration 138: per-user relocation UserProfile (JSON blob)
+    { raw: () => db.exec(`
+      CREATE TABLE IF NOT EXISTS relocation_user_profile (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id TEXT NOT NULL UNIQUE,
+        profile_data TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
     `) },
     () => {

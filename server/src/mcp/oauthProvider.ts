@@ -76,7 +76,7 @@ function rowToInfo(row: OAuthClientRow): OAuthClientInformationFull {
 // Clients store
 // ---------------------------------------------------------------------------
 
-export const trekClientsStore: OAuthRegisteredClientsStore = {
+export const memoveClientsStore: OAuthRegisteredClientsStore = {
     async getClient(clientId: string): Promise<OAuthClientInformationFull | undefined> {
         const row = db.prepare(
             'SELECT client_id, name, redirect_uris, allowed_scopes, is_public, created_via FROM oauth_clients WHERE client_id = ?'
@@ -120,8 +120,8 @@ export const trekClientsStore: OAuthRegisteredClientsStore = {
 // OAuthServerProvider
 // ---------------------------------------------------------------------------
 
-export const trekOAuthProvider: OAuthServerProvider = {
-    get clientsStore() { return trekClientsStore; },
+export const memoveOAuthProvider: OAuthServerProvider = {
+    get clientsStore() { return memoveClientsStore; },
 
     // Redirects browser to the SPA consent page with OAuth params forwarded.
     async authorize(client: OAuthClientInformationFull, params: AuthorizationParams, res: Response): Promise<void> {

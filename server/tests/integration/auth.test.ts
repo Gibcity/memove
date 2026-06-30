@@ -647,7 +647,7 @@ describe('Account deletion', () => {
     ).run(otherTrip.id, target.id);
 
     // memove_photos.owner_id (SET NULL): target owns a photo in the central registry
-    const trekPhotoRow = testDb.prepare(
+    const memovePhotoRow = testDb.prepare(
       "INSERT INTO memove_photos (provider, asset_id, owner_id) VALUES ('immich', 'asset-auth-test', ?)"
     ).run(target.id);
 
@@ -763,7 +763,7 @@ describe('Account deletion', () => {
     // uploaded file survives but uploaded_by is now NULL
     expect((testDb.prepare('SELECT uploaded_by FROM trip_files WHERE id = ?').get(fileRow.lastInsertRowid) as any).uploaded_by).toBeNull();
     // memove_photos row survives but owner_id is now NULL
-    expect((testDb.prepare('SELECT owner_id FROM memove_photos WHERE id = ?').get(trekPhotoRow.lastInsertRowid) as any).owner_id).toBeNull();
+    expect((testDb.prepare('SELECT owner_id FROM memove_photos WHERE id = ?').get(memovePhotoRow.lastInsertRowid) as any).owner_id).toBeNull();
     // trip_photos row for target is cascade-deleted
     expect(testDb.prepare("SELECT id FROM trip_photos WHERE trip_id = ? AND user_id = ?").get(otherTrip.id, target.id)).toBeUndefined();
     // owned trip is cascade-deleted

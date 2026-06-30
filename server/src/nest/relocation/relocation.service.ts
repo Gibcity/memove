@@ -10,6 +10,7 @@ import type {
 } from '@memove/shared';
 import { createItem as createTodoItem, listItems as listTodoItems } from '../../services/todoService';
 import { selectChecklistTasks } from './move-checklist-templates';
+import { DatabaseService } from '../database/database.service';
 
 // ── Data loading ──────────────────────────────────────────────────────────────
 
@@ -205,6 +206,7 @@ export interface SearchFilters {
   maxHotDays?: number;
   maxColdDays?: number;
   nameContains?: string;
+  minPopulation?: number;
   limit?: number;
 }
 
@@ -221,6 +223,7 @@ export interface ScoreFilters {
   maxRiskWildfire?: number;
   maxHotDays?: number;
   maxColdDays?: number;
+  minPopulation?: number;
   limit?: number;
   topK?: number; // ponytail: shared-schema field, prefer over `limit`
   // dot-path → [min, max]. Locations whose value at the path falls outside
@@ -287,6 +290,9 @@ function scoreLocation(
   }
   if (filters['maxColdDays'] && climate.daysMinLt32FAnnual > (filters['maxColdDays'] as number)) {
     failReasons.push(`Cold days ${climate.daysMinLt32FAnnual} > ${filters['maxColdDays']}`);
+  }
+  if (filters['minPopulation'] && loc.population < (filters['minPopulation'] as number)) {
+    failReasons.push(`Population ${loc.population.toLocaleString()} < ${(filters['minPopulation'] as number).toLocaleString()}`);
   }
 
   function norm(field: string, value: number, invert = false): number {
@@ -449,8 +455,6 @@ function scoreLocation(
 
 // ── In-memory user profiles ──────────────────────────────────────────────────
 
-const userProfiles = new Map<string, UserProfile>();
-
 function getDefaultProfile(userId: string): UserProfile {
   return {
     userId,
@@ -571,12 +575,44 @@ function newSessionId(): string {
 export class RelocationService {
   // ── Data access ──
 
+  constructor(private readonly db: DatabaseService) {}
+
   getAllLocations(): Location[] {
     return loadLocations();
   }
 
   getLocationById(id: string): Location | undefined {
     return loadLocations().find((l) => l.id === id);
+  }
+
+  // ponytail: simple in-bounds check; US-only corpus never crosses the antimeridian,
+  // so a plain west <= lng <= east covers every real viewport (matches the shared
+  // viewportBoundsSchema comment).
+  aggregateViewportStats(bounds: { north: number; south: number; east: number; west: number }): {
+    count: number;
+    bounds: { north: number; south: number; east: number; west: number };
+    averages: Record<string, number>;
+  } {
+    const locations = loadLocations().filter(
+      (l) =>
+        l.lat <= bounds.north &&
+        l.lat >= bounds.south &&
+        l.lng <= bounds.east &&
+        l.lng >= bounds.west,
+    );
+    const averages: Record<string, number> = {};
+    for (const [field, fpath] of Object.entries(FIELD_PATHS)) {
+      let sum = 0;
+      let n = 0;
+      for (const loc of locations) {
+        const v = getNested(loc as unknown as Record<string, unknown>, fpath);
+        if (isMissing(field, v)) continue;
+        sum += v;
+        n += 1;
+      }
+      if (n > 0) averages[field] = Math.round((sum / n) * 100) / 100;
+    }
+    return { count: locations.length, bounds, averages };
   }
 
   searchLocations(filters: SearchFilters): { total: number; locations: Partial<Location>[] } {
@@ -603,6 +639,7 @@ export class RelocationService {
       if (filters.maxRiskWildfire && climate.wildfireRiskScore > filters.maxRiskWildfire) continue;
       if (filters.maxHotDays && climate.daysMaxGt90FAnnual > filters.maxHotDays) continue;
       if (filters.maxColdDays && climate.daysMinLt32FAnnual > filters.maxColdDays) continue;
+      if (filters.minPopulation && loc.population < filters.minPopulation) continue;
       if (
         filters.nameContains &&
         !loc.name.toLowerCase().includes(filters.nameContains.toLowerCase())
@@ -615,6 +652,7 @@ export class RelocationService {
         state: loc.state,
         lat: loc.lat,
         lng: loc.lng,
+        population: loc.population,
         cost: {
           costOfLivingIndex: cost.costOfLivingIndex,
           medianHomeValue: cost.medianHomeValue,
@@ -682,7 +720,7 @@ export class RelocationService {
     if (filters.weights) {
       weights = filters.weights;
     } else if (userId) {
-      const profileWeights = userProfiles.get(userId)?.softWeights;
+      const profileWeights = this.getUserProfile(userId).softWeights;
       if (profileWeights && Object.keys(profileWeights).length > 0) {
         weights = {
           cost: profileWeights.cost ?? DEFAULT_WEIGHTS.cost,
@@ -714,6 +752,7 @@ export class RelocationService {
     if (filters.maxRiskWildfire) cleanFilters['maxRiskWildfire'] = filters.maxRiskWildfire;
     if (filters.maxHotDays) cleanFilters['maxHotDays'] = filters.maxHotDays;
     if (filters.maxColdDays) cleanFilters['maxColdDays'] = filters.maxColdDays;
+    if (filters.minPopulation) cleanFilters['minPopulation'] = filters.minPopulation;
 
     const scored = locations
       .filter((loc) => applyRangeFilters(loc, filters.filters).included)
@@ -901,19 +940,40 @@ export class RelocationService {
 
   // ── User profiles ──
 
+  // ponytail: JSON blob storage — profile is small, read-once-per-session,
+  // no column-per-field needed; full upsert via ON CONFLICT replaces a
+  // read-modify-write pair with one statement.
   getUserProfile(userId: string): UserProfile {
-    return userProfiles.get(userId) ?? getDefaultProfile(userId);
+    const row = this.db.get<{ profile_data: string }>(
+      'SELECT profile_data FROM relocation_user_profile WHERE user_id = ?',
+      userId,
+    );
+    if (!row) return getDefaultProfile(userId);
+    try {
+      return JSON.parse(row.profile_data) as UserProfile;
+    } catch {
+      // ponytail: corrupt JSON → fall back to default rather than 500ing the
+      // whole profile endpoint. Caller can upsert to overwrite.
+      return getDefaultProfile(userId);
+    }
   }
 
   upsertUserProfile(userId: string, updates: Partial<UserProfile>): UserProfile {
-    const existing = userProfiles.get(userId) ?? getDefaultProfile(userId);
+    const existing = this.getUserProfile(userId);
     const updated: UserProfile = {
       ...existing,
       ...updates,
       userId,
       updatedAt: new Date().toISOString(),
     };
-    userProfiles.set(userId, updated);
+    this.db.run(
+      `INSERT INTO relocation_user_profile (user_id, profile_data) VALUES (?, ?)
+       ON CONFLICT(user_id) DO UPDATE SET
+         profile_data = excluded.profile_data,
+         updated_at = CURRENT_TIMESTAMP`,
+      userId,
+      JSON.stringify(updated),
+    );
     return updated;
   }
 
@@ -1159,7 +1219,7 @@ export class RelocationService {
     error?: string;
     tasks?: unknown[];
   } {
-    const profile = userProfiles.get(userId) ?? getDefaultProfile(userId);
+    const profile = this.getUserProfile(userId);
     const ctx = profile.moveContext;
 
     // Map schema fields (isFirstMove/demographic singular) to selector fields

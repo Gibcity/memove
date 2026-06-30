@@ -498,7 +498,7 @@ export default function ReservationsPanel({ tripId, reservations, days, assignme
   const canEdit = can('reservation_edit', trip)
   const [showHint, setShowHint] = useState(() => !localStorage.getItem('hideReservationHint'))
 
-  const storageKey = `trek-reservation-filters-${tripId}`
+  const storageKey = `memove-reservation-filters-${tripId}`
   const [typeFilters, setTypeFilters] = useState<Set<string>>(() => {
     try {
       const saved = sessionStorage.getItem(storageKey)

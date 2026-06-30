@@ -17,15 +17,19 @@ import { canRead, canWrite } from '../scopes';
  * Scope-gated: relocation:read for read ops, relocation:write for mutation.
  */
 
-const relocationService = new RelocationService();
+// ponytail: minimal DatabaseService-shaped adapter so the Nest-injected
+// RelocationService and RelocationJourneyService work without DI in the
+// MCP layer (same pattern as relocation_journey.ts).
+const dbAdapter = {
+  get: <T>(sql: string, ...params: unknown[]): T | undefined =>
+    db.prepare(sql).get(...params) as T | undefined,
+  run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
+} as never;
+
+const relocationService = new RelocationService(dbAdapter);
 
 function createJourneyService(): RelocationJourneyService {
-  const adapter = {
-    get: <T>(sql: string, ...params: unknown[]): T | undefined =>
-      db.prepare(sql).get(...params) as T | undefined,
-    run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
-  } as never;
-  return new RelocationJourneyService(adapter);
+  return new RelocationJourneyService(dbAdapter);
 }
 
 // ponytail: inline haversine; one call per estimate, accuracy > a util import here.

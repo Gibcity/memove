@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import { verifyJwtAndLoadUser } from '../../middleware/auth';
 import { db } from '../../db/database';
 import { mcpHandler } from '../../mcp';
-import { trekOAuthProvider, trekClientsStore } from '../../mcp/oauthProvider';
+import { memoveOAuthProvider, memoveClientsStore } from '../../mcp/oauthProvider';
 import { isAddonEnabled } from '../../services/adminService';
 import { ADDON_IDS } from '../../addons';
 import { ALL_SCOPES } from '../../mcp/scopes';
@@ -201,10 +201,10 @@ export function applyPlatformTransport(app: express.Application): void {
 
   // SDK authorize handler: validates OAuth params, calls provider.authorize() which redirects
   // to the SPA consent page at /oauth/consent
-  app.use('/oauth/authorize', mcpAddonGate, authorizationHandler({ provider: trekOAuthProvider }));
+  app.use('/oauth/authorize', mcpAddonGate, authorizationHandler({ provider: memoveOAuthProvider }));
 
   // SDK DCR handler: accepts registrations without scope (fixes issue #959 bug 2)
-  app.use('/oauth/register', mcpAddonGate, clientRegistrationHandler({ clientsStore: trekClientsStore }));
+  app.use('/oauth/register', mcpAddonGate, clientRegistrationHandler({ clientsStore: memoveClientsStore }));
 
   // MCP endpoint
   app.post('/mcp', mcpHandler);

@@ -43,7 +43,7 @@ const { mocks } = vi.hoisted(() => ({
 vi.mock('../../src/services/atlasService', () => mocks);
 
 import { AtlasModule } from '../../src/nest/atlas/atlas.module';
-import { TrekExceptionFilter } from '../../src/nest/common/trek-exception.filter';
+import { MemoveExceptionFilter } from '../../src/nest/common/memove-exception.filter';
 
 describe('Atlas e2e (real auth guard + temp SQLite)', () => {
   let server: Server;
@@ -53,7 +53,7 @@ describe('Atlas e2e (real auth guard + temp SQLite)', () => {
     const moduleRef = await Test.createTestingModule({ imports: [AtlasModule] }).compile();
     const nest = moduleRef.createNestApplication();
     nest.use(cookieParser());
-    nest.useGlobalFilters(new TrekExceptionFilter());
+    nest.useGlobalFilters(new MemoveExceptionFilter());
     await nest.init();
     return nest;
   }

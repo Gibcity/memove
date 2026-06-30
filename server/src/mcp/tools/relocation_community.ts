@@ -6,6 +6,7 @@ import { RelocationService } from '../../nest/relocation/relocation.service';
 import { TOOL_ANNOTATIONS_READONLY, ok } from './_shared';
 import { canRead } from '../scopes';
 import type { Location } from '@memove/shared';
+import { db } from '../../db/database';
 
 /**
  * MCP tools for the Settlement & Community agent (post-decision phase).
@@ -16,7 +17,18 @@ import type { Location } from '@memove/shared';
  * All read-only. Registry is gated by the relocation add-on.
  */
 
-const relocationService = new RelocationService();
+// ponytail: minimal DatabaseService-shaped adapter so the Nest-injected
+// RelocationService works without DI in the MCP layer (same pattern as
+// relocation_journey.ts).
+const dbAdapter = {
+  get: <T>(sql: string, ...params: unknown[]): T | undefined =>
+    db.prepare(sql).get(...params) as T | undefined,
+  run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
+  all: <T>(sql: string, ...params: unknown[]): T[] =>
+    db.prepare(sql).all(...params) as T[],
+} as never;
+
+const relocationService = new RelocationService(dbAdapter);
 
 // ── Shared helpers ───────────────────────────────────────────────────────────
 

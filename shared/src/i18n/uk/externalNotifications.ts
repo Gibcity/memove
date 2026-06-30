@@ -5,7 +5,7 @@ const uk: NotificationLocale = {
     footer: 'Ви отримали це, оскільки увімкнули сповіщення в memove.',
     manage: 'Керувати налаштуваннями у Налаштуваннях',
     madeWith: 'Made with',
-    openTrek: 'Відкрити memove',
+    openMemove: 'Відкрити memove',
   },
   events: {
     trip_invite: (p) => ({

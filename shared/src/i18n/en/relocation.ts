@@ -136,5 +136,21 @@ const relocation: TranslationStrings = {
   'relocation.chatEmptyBody':
     'I can discover cities, compare cost of living, build your move timeline, and walk you through state-by-state paperwork.',
   'relocation.chatTyping': 'Agent is typing',
+
+  // ── Career & Housing Market sections (lazy-fetched detail-drawer panels) ──
+  'relocation.loading': 'Loading…',
+  'relocation.careerSectionLabel': 'Career',
+  'relocation.housingMarketLabel': 'Housing Market',
+  'relocation.colIndex': 'Cost-of-Living Index',
+  'relocation.taxScore': 'Tax Score',
+  'relocation.licensingLabel': 'Licensing Boards ({state})',
+  'relocation.outlookLabel': 'Occupation Outlook',
+  'relocation.outlookPlaceholder': 'e.g. Registered Nurse',
+  'relocation.outlookGo': 'Look up',
+  'relocation.viewOnBls': 'View on BLS OOH',
+  'relocation.priceToRent': 'Price-to-Rent Ratio',
+  'relocation.listingsLabel': 'Listings Search',
+  'relocation.openListing': 'Open',
+  'relocation.noListings': 'No listings available for this metro.',
 };
 export default relocation;

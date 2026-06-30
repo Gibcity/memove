@@ -65,11 +65,11 @@ function insertJourneyPhoto(
 ): number {
   const provider = opts.assetId ? 'immich' : 'local';
   const filePath = !opts.assetId ? (opts.filePath ?? '/photos/test.jpg') : null;
-  const trekResult = testDb.prepare(`
+  const memoveResult = testDb.prepare(`
     INSERT INTO memove_photos (provider, asset_id, file_path, owner_id, created_at)
     VALUES (?, ?, ?, ?, ?)
   `).run(provider, opts.assetId ?? null, filePath, opts.ownerId ?? null, Date.now());
-  const trekId = trekResult.lastInsertRowid as number;
+  const memoveId = memoveResult.lastInsertRowid as number;
 
   // Look up journey_id from entry so gallery row is keyed to the journey (not entry).
   const entryRow = testDb.prepare('SELECT journey_id FROM journey_entries WHERE id = ?').get(entryId) as { journey_id: number };
@@ -79,9 +79,9 @@ function insertJourneyPhoto(
   testDb.prepare(`
     INSERT OR IGNORE INTO journey_photos (journey_id, photo_id, caption, sort_order, created_at)
     VALUES (?, ?, NULL, 0, ?)
-  `).run(journeyId, trekId, now);
+  `).run(journeyId, memoveId, now);
 
-  const galleryRow = testDb.prepare('SELECT id FROM journey_photos WHERE journey_id = ? AND photo_id = ?').get(journeyId, trekId) as { id: number };
+  const galleryRow = testDb.prepare('SELECT id FROM journey_photos WHERE journey_id = ? AND photo_id = ?').get(journeyId, memoveId) as { id: number };
 
   testDb.prepare(`
     INSERT OR IGNORE INTO journey_entry_photos (entry_id, journey_photo_id, sort_order, created_at)
@@ -90,7 +90,7 @@ function insertJourneyPhoto(
 
   // Return memove_photos.id — this is p.photo_id in the public API response
   // and the value the client sends to /api/public/journey/:token/photos/:photoId/:kind
-  return trekId;
+  return memoveId;
 }
 
 // -- Tests --------------------------------------------------------------------
@@ -269,11 +269,11 @@ describe('validateShareTokenForPhoto', () => {
     }
 
     // This memove_photos row gets a high id (e.g. 6) while journey_photos id will be 1
-    const trekPhotoId = insertJourneyPhoto(entry.id, { assetId: 'journey-asset-xyz', ownerId: user.id });
+    const memovePhotoId = insertJourneyPhoto(entry.id, { assetId: 'journey-asset-xyz', ownerId: user.id });
     const { token } = createOrUpdateJourneyShareLink(journey.id, user.id, {});
 
     // photoId = memove_photos.id (6), not journey_photos.id (1)
-    const result = validateShareTokenForPhoto(token, trekPhotoId);
+    const result = validateShareTokenForPhoto(token, memovePhotoId);
 
     expect(result).not.toBeNull();
     expect(result!.ownerId).toBe(user.id);

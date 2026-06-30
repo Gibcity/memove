@@ -208,6 +208,7 @@ export function useRelocationElicitation(dismissCounts: Record<string, number>) 
     profile,
     showElicitationCard,
     hardFilterPrompt,
+    idToName,
 
     // Actions
     startElicitation,

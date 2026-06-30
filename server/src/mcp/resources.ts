@@ -1,5 +1,5 @@
 import { McpServer, ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp';
-import { canAccessTrip } from '../db/database';
+import { db, canAccessTrip } from '../db/database';
 import { listTrips, getTrip, getTripOwner, listMembers } from '../services/tripService';
 import { listDays, listAccommodations } from '../services/dayService';
 import { listPlaces } from '../services/placeService';
@@ -443,7 +443,16 @@ export function registerResources(server: McpServer, userId: number, scopes: str
 
   // Relocation resources (relocation addon)
   if (isAddonEnabled(ADDON_IDS.RELOCATION) && canRead(scopes, 'relocation')) {
-    const relocService = new RelocationService();
+    // ponytail: minimal DatabaseService-shaped adapter so the Nest-injected
+    // RelocationService works without DI in the MCP layer (same pattern as
+    // relocation_journey.ts).
+    const dbAdapter = {
+      get: <T>(sql: string, ...params: unknown[]): T | undefined =>
+        db.prepare(sql).get(...params) as T | undefined,
+      run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
+    } as never;
+
+    const relocService = new RelocationService(dbAdapter);
 
     server.registerResource(
       'relocation-locations',

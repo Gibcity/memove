@@ -102,10 +102,26 @@ function seedAddons(db: Database.Database): void {
       { id: 'mcp', name: 'MCP', description: 'Model Context Protocol for AI assistant integration', type: 'integration', icon: 'Terminal', enabled: 0, sort_order: 12 },
       { id: 'naver_list_import', name: 'Naver List Import', description: 'Import places from shared Naver Maps lists', type: 'trip', icon: 'Link2', enabled: 1, sort_order: 13 },
       { id: 'collab', name: 'Collab', description: 'Notes, polls, and live chat for trip collaboration', type: 'trip', icon: 'Users', enabled: 1, sort_order: 6 },
-      { id: 'journey', name: 'Journey', description: 'Trip tracking & travel journal — check-ins, photos, daily stories', type: 'global', icon: 'Compass', enabled: 0, sort_order: 35 },
+      { id: 'journey', name: 'Journey', description: 'Trip tracking & travel journal — check-ins, photos, daily stories', type: 'global', icon: 'Compass', enabled: 1, sort_order: 35 },
       { id: 'airtrail', name: 'AirTrail', description: 'Sync flights from your self-hosted AirTrail instance', type: 'integration', icon: 'Plane', enabled: 0, sort_order: 14 },
+      { id: 'relocation', name: 'Relocation', description: 'AI-powered relocation intelligence and city comparison', type: 'global', icon: 'MapPin', enabled: 1, sort_order: 5 },
     ];
-    const insertAddon = db.prepare('INSERT OR IGNORE INTO addons (id, name, description, type, icon, enabled, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    // ponytail: UPSERT — only sets enabled when the seed default is on (1), so admin UI
+    // disabling of off-by-default addons (mcp, airtrail) is preserved across boots.
+    // Display fields (name/desc/icon/type/sort_order) always sync from the seed.
+    // Needed because migration 84 inserts journey with enabled=0; without this upsert
+    // the journey row stays off in fresh DBs (INSERT OR IGNORE silently no-ops).
+    const insertAddon = db.prepare(`
+      INSERT INTO addons (id, name, description, type, icon, enabled, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        name = excluded.name,
+        description = excluded.description,
+        type = excluded.type,
+        icon = excluded.icon,
+        enabled = CASE WHEN excluded.enabled = 1 THEN 1 ELSE addons.enabled END,
+        sort_order = excluded.sort_order
+    `);
     for (const a of defaultAddons) insertAddon.run(a.id, a.name, a.description, a.type, a.icon, a.enabled, a.sort_order);
 
     const providerRows = [

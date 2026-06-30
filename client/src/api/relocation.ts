@@ -106,11 +106,57 @@ export const relocationApi = {
       }>('/relocation/move-checklist', { tripId, moveDate })
       .then(r => r.data),
 
+  // ── Journey state (persistent relocation workspace) ─────────────
+
+  /** GET /relocation/journey — load user's full relocation workspace. */
+  getJourney: () => apiClient.get('/relocation/journey').then(r => r.data),
+
+  /** POST /relocation/journey/shortlist — add location to persisted shortlist. */
+  shortlist: (locationId: string) =>
+    apiClient.post('/relocation/journey/shortlist', { locationId }).then(r => r.data),
+
+  /** POST /relocation/journey/eliminate — remove from persisted shortlist. */
+  eliminate: (locationId: string, reason?: string) =>
+    apiClient.post('/relocation/journey/eliminate', { locationId, reason }).then(r => r.data),
+
+  /** POST /relocation/journey/preferences — merge-update journey preferences. */
+  updateJourneyPreferences: (prefs: Record<string, unknown>) =>
+    apiClient.post('/relocation/journey/preferences', prefs).then(r => r.data),
+
+  /** POST /relocation/journey/toggle-task — flip a timeline task's completion. */
+  toggleTask: (taskId: string) =>
+    apiClient.post('/relocation/journey/toggle-task', { taskId }).then(r => r.data),
+
+  /** POST /relocation/journey/phase — set current journey phase. */
+  setPhase: (phase: string) =>
+    apiClient.post('/relocation/journey/phase', { phase }).then(r => r.data),
+
   // ── Housing ──────────────────────────────────────────────────────
 
   /** Check affordability for a budget. */
   getAffordability: (locationId: string, budget?: number) =>
     apiClient.get(`/relocation/housing/affordability/${locationId}` + (budget ? `?budget=${budget}` : '')).then(r => r.data),
+
+  // ponytail: market + listings both keyed by locationId; same pattern as
+  // getAffordability. Return raw `any` because the server shapes are stubbed
+  // and may grow — tighten types when the endpoints stabilize.
+  getMarketData: (locationId: string) =>
+    apiClient.get(`/relocation/housing/market/${locationId}`).then(r => r.data),
+  getListings: (locationId: string) =>
+    apiClient.get(`/relocation/housing/listings/${locationId}`).then(r => r.data),
+
+  // ── Career ───────────────────────────────────────────────────────
+
+  // ponytail: three career endpoints; economicIndicators is keyed by metro
+  // name (e.g. "Austin, TX"), licensing by state code (e.g. "TX"), outlook
+  // by occupation string. All raw `any` returns — server shapes are minimal
+  // placeholders today; tighten when contracts settle.
+  economicIndicators: (metro: string) =>
+    apiClient.get(`/relocation/career/economic-indicators/${encodeURIComponent(metro)}`).then(r => r.data),
+  licensing: (state: string) =>
+    apiClient.get(`/relocation/career/licensing/${state}`).then(r => r.data),
+  outlook: (occupation: string) =>
+    apiClient.get(`/relocation/career/outlook/${encodeURIComponent(occupation)}`).then(r => r.data),
 
   // ── Concierge ────────────────────────────────────────────────────
 

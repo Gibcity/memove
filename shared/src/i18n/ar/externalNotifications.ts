@@ -5,7 +5,7 @@ const ar: NotificationLocale = {
     footer: 'تلقيت هذا لأنك قمت بتفعيل الإشعارات في memove.',
     manage: 'إدارة التفضيلات',
     madeWith: 'Made with',
-    openTrek: 'فتح memove',
+    openMemove: 'فتح memove',
   },
   events: {
     trip_invite: (p) => ({

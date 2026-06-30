@@ -191,7 +191,7 @@ describe('Unified photo management', () => {
     const { user } = createUser(testDb);
     const trip = createTrip(testDb, user.id);
     addTripPhoto(testDb, trip.id, user.id, 'asset-tog', 'immich', { shared: false });
-    const trekRef = testDb.prepare(`
+    const memoveRef = testDb.prepare(`
       SELECT tp.photo_id FROM trip_photos tp
       JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tkp.asset_id = ?
@@ -200,7 +200,7 @@ describe('Unified photo management', () => {
     const res = await request(app)
       .put(`${photosUrl(trip.id)}/sharing`)
       .set('Cookie', authCookie(user.id))
-      .send({ photo_id: trekRef.photo_id, shared: true });
+      .send({ photo_id: memoveRef.photo_id, shared: true });
 
     expect(res.status).toBe(200);
     const row = testDb.prepare(`
@@ -228,7 +228,7 @@ describe('Unified photo management', () => {
     const { user } = createUser(testDb);
     const trip = createTrip(testDb, user.id);
     addTripPhoto(testDb, trip.id, user.id, 'asset-del', 'immich');
-    const trekRef = testDb.prepare(`
+    const memoveRef = testDb.prepare(`
       SELECT tp.photo_id FROM trip_photos tp
       JOIN memove_photos tkp ON tkp.id = tp.photo_id
       WHERE tp.trip_id = ? AND tkp.asset_id = ?
@@ -237,7 +237,7 @@ describe('Unified photo management', () => {
     const res = await request(app)
       .delete(photosUrl(trip.id))
       .set('Cookie', authCookie(user.id))
-      .send({ photo_id: trekRef.photo_id });
+      .send({ photo_id: memoveRef.photo_id });
 
     expect(res.status).toBe(200);
     const row = testDb.prepare(`

@@ -2,11 +2,22 @@ import React from 'react'
 import { useTranslation } from '../../../i18n'
 import type { UserProfile, HardFilter } from '@memove/shared'
 import type { ElicitationState, HardFilterPrompt } from '../relocationModel'
-import { X, ArrowRight, Check, Info, ListChecks } from 'lucide-react'
+import type { RelocationJourney, JourneyPhase } from '../useRelocationJourney'
+import { JOURNEY_PHASES } from '../useRelocationJourney'
+import {
+  X,
+  ArrowRight,
+  Check,
+  Info,
+  ListChecks,
+  Heart,
+  ChevronRight,
+} from 'lucide-react'
 
 /**
- * Left panel: My Move header + elicitation + hard-filter banner +
- * "Apply Checklist" CTA + agent activity placeholder.
+ * Left panel: My Move header + journey workspace + elicitation + hard-filter
+ * banner + "Apply Checklist" CTA + agent activity placeholder.
+ *
  * ponytail: extracted verbatim from RelocationDashboardPage — layout
  * extraction only. v1 apply-checklist is button+toast; tripId/result
  * state lands when the move-trip wiring ships.
@@ -24,6 +35,12 @@ export interface MoveTimelinePanelProps {
   onDismissHardFilter: () => void
   profile: UserProfile | null
   onApplyChecklist: () => void
+  // ── Journey workspace (optional — rendered when the hook provides state) ──
+  journey?: RelocationJourney | null
+  shortlistedNames?: Record<string, string>
+  onToggleTask?: (taskId: string) => void
+  onAdvancePhase?: (phase: JourneyPhase) => void
+  onEliminateShortlist?: (locationId: string) => void
 }
 
 export default function MoveTimelinePanel({
@@ -39,6 +56,11 @@ export default function MoveTimelinePanel({
   onDismissHardFilter,
   profile,
   onApplyChecklist,
+  journey,
+  shortlistedNames,
+  onToggleTask,
+  onAdvancePhase,
+  onEliminateShortlist,
 }: MoveTimelinePanelProps): React.ReactElement {
   const { t } = useTranslation()
   const moveDate = profile?.moveContext?.moveDate
@@ -67,6 +89,17 @@ export default function MoveTimelinePanel({
           {t('relocation.applyChecklist')}
         </button>
       </header>
+
+      {/* ── Journey workspace ───────────────────────────────────────── */}
+      {journey && (
+        <JourneyWorkspace
+          journey={journey}
+          shortlistedNames={shortlistedNames}
+          onToggleTask={onToggleTask}
+          onAdvancePhase={onAdvancePhase}
+          onEliminateShortlist={onEliminateShortlist}
+        />
+      )}
 
       {/* ── Elicitation card ────────────────────────────────────── */}
       {showElicitationCard && (
@@ -116,12 +149,12 @@ export default function MoveTimelinePanel({
       ) : elicitation.status === 'complete' ? (
         <div className="p-4 bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl text-xs text-slate-500 dark:text-zinc-400 space-y-2">
           <p className="font-semibold text-slate-700 dark:text-zinc-200">
-            You\u2019re all set
+            You’re all set
           </p>
           <p>
             Browse the map and library on the right. Tap the heart to save
             cities you like, the arrows to compare, and the X to dismiss
-            anything that doesn\u2019t fit.
+            anything that doesn’t fit.
           </p>
         </div>
       ) : (
@@ -292,5 +325,150 @@ function HardFilterBanner({
         </div>
       </div>
     </div>
+  )
+}
+
+// ── Journey workspace (phase chips + shortlist + tasks) ────────────────────
+
+interface JourneyWorkspaceProps {
+  journey: RelocationJourney
+  shortlistedNames?: Record<string, string>
+  onToggleTask?: (taskId: string) => void
+  onAdvancePhase?: (phase: JourneyPhase) => void
+  onEliminateShortlist?: (locationId: string) => void
+}
+
+function JourneyWorkspace({
+  journey,
+  shortlistedNames,
+  onToggleTask,
+  onAdvancePhase,
+  onEliminateShortlist,
+}: JourneyWorkspaceProps): React.ReactElement {
+  const tasks = journey.moveTimeline?.tasks ?? []
+  const completed = journey.completedTasks.length
+  const total = tasks.length
+  const shortlist = journey.shortlistedLocations
+
+  return (
+    <section className="p-4 bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 rounded-2xl space-y-4">
+      {/* Phase chips */}
+      <div>
+        <p className="text-xs font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wide mb-2">
+          Phase
+        </p>
+        <ol className="flex items-center gap-1 text-xs">
+          {JOURNEY_PHASES.map((phase, idx) => {
+            const isCurrent = journey.currentPhase === phase
+            return (
+              <li key={phase} className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => onAdvancePhase?.(phase)}
+                  aria-current={isCurrent ? 'step' : undefined}
+                  className={
+                    isCurrent
+                      ? 'px-2 py-1 rounded-md bg-blue-600 text-white font-medium'
+                      : 'px-2 py-1 rounded-md text-slate-500 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors'
+                  }
+                >
+                  {phase}
+                </button>
+                {idx < JOURNEY_PHASES.length - 1 && (
+                  <ChevronRight
+                    size={12}
+                    className="text-slate-300 dark:text-zinc-600"
+                  />
+                )}
+              </li>
+            )
+          })}
+        </ol>
+      </div>
+
+      {/* Shortlist */}
+      <div>
+        <p className="text-xs font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wide mb-2">
+          <Heart size={12} className="inline mr-1" />
+          Shortlist{shortlist.length > 0 ? ` (${shortlist.length})` : ''}
+        </p>
+        {shortlist.length === 0 ? (
+          <p className="text-xs text-slate-400 dark:text-zinc-500">
+            Tap the heart on any city to start your shortlist.
+          </p>
+        ) : (
+          <ul className="flex flex-wrap gap-1.5">
+            {shortlist.map(id => (
+              <li
+                key={id}
+                className="inline-flex items-center gap-1 px-2 py-1 bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-full text-xs text-rose-700 dark:text-rose-300"
+              >
+                <Heart size={10} className="fill-current" />
+                <span>{shortlistedNames?.[id] ?? id}</span>
+                {onEliminateShortlist && (
+                  <button
+                    type="button"
+                    onClick={() => onEliminateShortlist(id)}
+                    aria-label={`Remove ${shortlistedNames?.[id] ?? id} from shortlist`}
+                    className="ml-1 text-rose-400 hover:text-rose-700 dark:hover:text-rose-200"
+                  >
+                    <X size={10} />
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Timeline tasks */}
+      {total > 0 && (
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wide">
+              Move tasks
+            </p>
+            <span className="text-xs text-slate-400 dark:text-zinc-500">
+              {completed}/{total}
+            </span>
+          </div>
+          {/* ponytail: progress bar = completed/total, no width transition lib
+              needed. Native CSS keeps the bundle slim. */}
+          <div
+            className="h-1 bg-slate-100 dark:bg-zinc-700 rounded-full overflow-hidden mb-2"
+            aria-hidden="true"
+          >
+            <div
+              className="h-full bg-blue-500 transition-[width] duration-200"
+              style={{ width: `${total ? (completed / total) * 100 : 0}%` }}
+            />
+          </div>
+          <ul className="space-y-1.5 max-h-48 overflow-y-auto">
+            {tasks.map(task => (
+              <li key={task.id}>
+                <label className="flex items-start gap-2 text-xs cursor-pointer hover:bg-slate-50 dark:hover:bg-zinc-700/40 rounded-md p-1.5 -m-1.5 transition-colors">
+                  <input
+                    type="checkbox"
+                    checked={task.completed}
+                    disabled={!onToggleTask}
+                    onChange={() => onToggleTask?.(task.id)}
+                    className="mt-0.5 shrink-0"
+                  />
+                  <span
+                    className={
+                      task.completed
+                        ? 'line-through text-slate-400 dark:text-zinc-500'
+                        : 'text-slate-700 dark:text-zinc-200'
+                    }
+                  >
+                    {task.title}
+                  </span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
   )
 }

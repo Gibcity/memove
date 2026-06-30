@@ -5,7 +5,7 @@ const ja: NotificationLocale = {
     footer: 'memoveで通知を有効にしているため、このメールが届きました。',
     manage: '設定で通知設定を管理',
     madeWith: 'Made with',
-    openTrek: 'memoveを開く',
+    openMemove: 'memoveを開く',
   },
   events: {
     trip_invite: (p) => ({

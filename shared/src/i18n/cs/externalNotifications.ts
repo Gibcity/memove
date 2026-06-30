@@ -5,7 +5,7 @@ const cs: NotificationLocale = {
     footer: 'Toto jsi obdržel/a, protože máš povoleny upozornění v memove.',
     manage: 'Spravovat předvolby v nastavení',
     madeWith: 'Made with',
-    openTrek: 'Otevřít memove',
+    openMemove: 'Otevřít memove',
   },
   events: {
     trip_invite: (p) => ({

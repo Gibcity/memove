@@ -40,7 +40,7 @@ const { asg } = vi.hoisted(() => ({
 vi.mock('../../src/services/assignmentService', () => asg);
 
 import { AssignmentsModule } from '../../src/nest/assignments/assignments.module';
-import { TrekExceptionFilter } from '../../src/nest/common/trek-exception.filter';
+import { MemoveExceptionFilter } from '../../src/nest/common/memove-exception.filter';
 
 describe('Assignments e2e (real auth guard + temp SQLite)', () => {
   let server: Server;
@@ -50,7 +50,7 @@ describe('Assignments e2e (real auth guard + temp SQLite)', () => {
     const moduleRef = await Test.createTestingModule({ imports: [AssignmentsModule] }).compile();
     const nest = moduleRef.createNestApplication();
     nest.use(cookieParser());
-    nest.useGlobalFilters(new TrekExceptionFilter());
+    nest.useGlobalFilters(new MemoveExceptionFilter());
     await nest.init();
     return nest;
   }

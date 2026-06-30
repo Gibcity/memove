@@ -5,7 +5,7 @@ const tr: NotificationLocale = {
     footer: "memove'te bildirimleri etkinleştirdiğiniz için bunu aldınız.",
     manage: 'Ayarlarda tercihleri yönetin',
     madeWith: 'Made with',
-    openTrek: "memove'i aç",
+    openMemove: "memove'i aç",
   },
   events: {
     trip_invite: (p) => ({

@@ -2,18 +2,18 @@ import { Response } from 'express';
 import path from 'path';
 import fs from 'fs';
 import { db } from '../../db/database';
-import type { TrekPhoto } from '../../types';
+import type { MemovePhoto } from '../../types';
 import { streamImmichAsset, fetchImmichThumbnailBytes, getAssetInfo as getImmichAssetInfo } from './immichService';
 import { streamSynologyAsset, fetchSynologyThumbnailBytes, getSynologyAssetInfo } from './synologyService';
 import type { ServiceResult, AssetInfo } from './helpersService';
 import { fail, success } from './helpersService';
 import { encrypt_api_key, decrypt_api_key } from '../apiKeyCrypto';
-import * as photoCache from './trekPhotoCache';
+import * as photoCache from './memovePhotoCache';
 import { ensureLocalThumbnail } from './thumbnailService';
 
 // ── Lookup / Register ────────────────────────────────────────────────────
 
-export function getOrCreateTrekPhoto(
+export function getOrCreateMemovePhoto(
   provider: string,
   assetId: string,
   ownerId: number,
@@ -36,7 +36,7 @@ export function getOrCreateTrekPhoto(
   return Number(res.lastInsertRowid);
 }
 
-export function getOrCreateLocalTrekPhoto(
+export function getOrCreateLocalMemovePhoto(
   filePath: string,
   thumbnailPath?: string | null,
   width?: number | null,
@@ -53,15 +53,15 @@ export function getOrCreateLocalTrekPhoto(
   return Number(res.lastInsertRowid);
 }
 
-export function resolveTrekPhoto(photoId: number): TrekPhoto | null {
-  return db.prepare('SELECT * FROM memove_photos WHERE id = ?').get(photoId) as TrekPhoto | undefined || null;
+export function resolveMemovePhoto(photoId: number): MemovePhoto | null {
+  return db.prepare('SELECT * FROM memove_photos WHERE id = ?').get(photoId) as MemovePhoto | undefined || null;
 }
 
 // ── Streaming ────────────────────────────────────────────────────────────
 
 async function streamCachedThumbnail(
   res: Response,
-  photo: TrekPhoto,
+  photo: MemovePhoto,
   fetchBytes: () => Promise<{ bytes: Buffer; contentType: string } | { error: string; status: number }>,
   fallback: () => Promise<unknown>,
 ): Promise<void> {
@@ -95,7 +95,7 @@ export async function streamPhoto(
   photoId: number,
   kind: 'thumbnail' | 'original',
 ): Promise<void> {
-  const photo = resolveTrekPhoto(photoId);
+  const photo = resolveMemovePhoto(photoId);
   if (!photo) {
     res.status(404).json({ error: 'Photo not found' });
     return;
@@ -175,7 +175,7 @@ export async function getPhotoInfo(
   userId: number,
   photoId: number,
 ): Promise<ServiceResult<AssetInfo>> {
-  const photo = resolveTrekPhoto(photoId);
+  const photo = resolveMemovePhoto(photoId);
   if (!photo) return fail('Photo not found', 404);
 
   switch (photo.provider) {
@@ -206,20 +206,20 @@ export async function getPhotoInfo(
 
 // ── Update provider on existing memove_photo (for Immich upload sync) ─────
 
-export function setTrekPhotoProvider(
-  trekPhotoId: number,
+export function setMemovePhotoProvider(
+  memovePhotoId: number,
   provider: string,
   assetId: string,
   ownerId: number,
 ): void {
   db.prepare(
     'UPDATE memove_photos SET provider = ?, asset_id = ?, owner_id = ? WHERE id = ?'
-  ).run(provider, assetId, ownerId, trekPhotoId);
+  ).run(provider, assetId, ownerId, memovePhotoId);
 }
 
 // ── Orphan cleanup ───────────────────────────────────────────────────────
 
-export function deleteTrekPhotoIfOrphan(photoId: number): void {
+export function deleteMemovePhotoIfOrphan(photoId: number): void {
   const stillUsed = db.prepare(`
     SELECT 1 FROM trip_photos WHERE photo_id = ?
     UNION ALL

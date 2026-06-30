@@ -5,7 +5,7 @@ const nl: NotificationLocale = {
     footer: 'Je ontvangt dit omdat je meldingen hebt ingeschakeld in memove.',
     manage: 'Voorkeuren beheren',
     madeWith: 'Made with',
-    openTrek: 'memove openen',
+    openMemove: 'memove openen',
   },
   events: {
     trip_invite: (p) => ({

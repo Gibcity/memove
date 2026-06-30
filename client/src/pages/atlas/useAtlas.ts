@@ -155,7 +155,7 @@ export function useAtlas() {
         }
         setGeoData(geo)
       })
-      .catch(() => {})
+      .catch(err => console.warn('[atlas] geo data load failed:', err))
   }, [])
 
   // Load visited regions (geocoded from places/trips) — once on mount

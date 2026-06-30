@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
 import { useTranslation } from '../../i18n'
@@ -6,9 +6,11 @@ import type { Location, ImplicitSignal } from '@memove/shared'
 import type { CandidateView, FilterSlider } from './relocationModel'
 import { DEFAULT_FILTER_SLIDERS, sortCandidatesByRank } from './relocationModel'
 
+const DEFAULT_TOPK = 50 // ponytail: 50 keeps the ranked list scannable; raise via localStorage or env if a user wants all 939
+
 /**
  * Data hook for relocation candidate discovery — owns all state for
- * fetching, filtering and sorting the 59-metro candidate set.
+ * fetching, filtering and sorting the 939-metro candidate set.
  */
 export function useRelocationCandidates(profileVersion?: number) {
   const [allLocations, setAllLocations] = useState<Location[]>([])
@@ -57,9 +59,9 @@ export function useRelocationCandidates(profileVersion?: number) {
   ) => {
     try {
       const resp = await relocationApi.scoreCandidates(
-        // ponytail: topK=1000 so all ~939 metros land in the ranked set; the
-        // server defaults to 20 otherwise, which leaves the map nearly empty.
-        filters ? { topK: 1000, filters } : { topK: 1000 },
+        // ponytail: DEFAULT_TOPK so the ranked list is scannable; raise
+        // server-side /score {topK} default if a user wants the full 939.
+        filters ? { topK: DEFAULT_TOPK, filters } : { topK: DEFAULT_TOPK },
       )
       setScoreDegraded(false)
       // ponytail: server returns slim TopMatch rows; join against allLocations to recover full Location
@@ -139,6 +141,23 @@ export function useRelocationCandidates(profileVersion?: number) {
       prev.map(s => (s.id === id ? { ...s, enabled: !s.enabled } : s)),
     )
   }, [])
+
+  // ponytail: debounce auto-rescore when a slider changes — 300ms feels live
+  // without thrashing the /score endpoint on every drag tick. Apply button
+  // remains for users who want explicit control (calls sendFilterApplySignal).
+  const slidersRef = useRef(sliders)
+  slidersRef.current = sliders
+  useEffect(() => {
+    if (allLocations.length === 0) return
+    const handle = setTimeout(() => {
+      const active = slidersRef.current.filter(s => s.enabled)
+      const filter: Record<string, { min: number; max: number }> = {}
+      for (const s of active) filter[s.field] = { min: s.value[0], max: s.value[1] }
+      fetchScored(Object.keys(filter).length > 0 ? filter : undefined)
+    }, 300)
+    return () => clearTimeout(handle)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sliders])
 
   // ── Candidate actions ──────────────────────────────────────────
 

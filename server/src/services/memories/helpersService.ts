@@ -170,8 +170,8 @@ export function canAccessUserPhoto(requestingUserId: number, ownerUserId: number
 
 // ── Unified photo access check (memove_photos based) ──────────────────────
 
-export function canAccessTrekPhoto(requestingUserId: number, trekPhotoId: number): boolean {
-    const photo = db.prepare('SELECT * FROM memove_photos WHERE id = ?').get(trekPhotoId) as { id: number; provider: string; owner_id: number | null } | undefined;
+export function canAccessMemovePhoto(requestingUserId: number, memovePhotoId: number): boolean {
+    const photo = db.prepare('SELECT * FROM memove_photos WHERE id = ?').get(memovePhotoId) as { id: number; provider: string; owner_id: number | null } | undefined;
     if (!photo) return false;
 
     // Owner always has access
@@ -188,7 +188,7 @@ export function canAccessTrekPhoto(requestingUserId: number, trekPhotoId: number
             SELECT 1 FROM trips t WHERE t.id = tp.trip_id AND t.user_id = ?
           )
         LIMIT 1
-    `).get(trekPhotoId, requestingUserId, requestingUserId);
+    `).get(memovePhotoId, requestingUserId, requestingUserId);
     if (tripAccess) return true;
 
     // Check journey_photos — is this photo in a journey the user can access?
@@ -201,7 +201,7 @@ export function canAccessTrekPhoto(requestingUserId: number, trekPhotoId: number
             SELECT 1 FROM journey_contributors jc WHERE jc.journey_id = gp.journey_id AND jc.user_id = ?
           )
         LIMIT 1
-    `).get(trekPhotoId, requestingUserId, requestingUserId);
+    `).get(memovePhotoId, requestingUserId, requestingUserId);
     if (journeyAccess) return true;
 
     // Local photos without owner (uploaded files) — check if user has journey access

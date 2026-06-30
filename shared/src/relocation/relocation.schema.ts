@@ -3,8 +3,8 @@ import { z } from 'zod';
 /**
  * Relocation domain contract — single source of truth for the relocation
  * add-on. Schemas defined here are consumed by:
- *   - trek/server/src/ (NestJS relocation module: validation + DTO types)
- *   - trek/client/src/ (typed requests/responses for relocation pages)
+ *   - memove/server/src/ (NestJS relocation module: validation + DTO types)
+ *   - memove/client/src/ (typed requests/responses for relocation pages)
  *   - sources/processed/relocation/locations.json (Python ETL validates against
  *     the inferred TS types via JSON Schema export)
  *
@@ -129,6 +129,7 @@ export const locationSchema = z.object({
   state: z.string(), // 'TX'
   lat: z.number(), // centroid lat (US Census Gazetteer)
   lng: z.number(), // centroid lng
+  population: z.number(), // Census ACS total population
 
   // Relocation metrics
   cost: costSummarySchema,
@@ -279,6 +280,29 @@ export const scoreResponseSchema = z.object({
   topMatches: z.array(topMatchSchema),
 });
 export type ScoreResponse = z.infer<typeof scoreResponseSchema>;
+
+// --- Viewport stats (map aggregation over in-view metros) ------------------
+
+// ponytail: US-only corpus never crosses the antimeridian, so a plain
+// west <= lng <= east covers every real viewport. Add wrap handling only if
+// the corpus ever goes global.
+export const viewportBoundsSchema = z.object({
+  north: z.number().min(-90).max(90),
+  south: z.number().min(-90).max(90),
+  east: z.number().min(-180).max(180),
+  west: z.number().min(-180).max(180),
+});
+export type ViewportBounds = z.infer<typeof viewportBoundsSchema>;
+
+// `averages` is metric → mean over the in-view metros (keys match the
+// service's FIELD_PATHS, e.g. 'medianHomeValue'). Metrics with no data in
+// view are omitted rather than reported as 0.
+export const viewportStatsResponseSchema = z.object({
+  count: z.number().int().nonnegative(),
+  bounds: viewportBoundsSchema,
+  averages: z.record(z.string(), z.number()),
+});
+export type ViewportStatsResponse = z.infer<typeof viewportStatsResponseSchema>;
 
 // --- Elicitation shapes (companion to §1d elicitation tools) -----------------
 

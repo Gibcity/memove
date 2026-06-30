@@ -34,6 +34,9 @@
     "react-dom": "19.2.6",
     "multer": "^2.2.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["agent-browser"]
+  },
   "optionalDependencies": {
     "@img/sharp-linuxmusl-arm64": "0.35.1",
     "@img/sharp-linuxmusl-x64": "0.35.1",
