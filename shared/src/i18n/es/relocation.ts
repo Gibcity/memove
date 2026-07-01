@@ -126,6 +126,31 @@ const relocation: TranslationStrings = {
   'relocation.chatEmptyBody':
     'I can discover cities, compare cost of living, build your move timeline, and walk you through state-by-state paperwork.',
   'relocation.chatTyping': 'Agent is typing',
+  // ponytail: 24 new keys added to en for parity; fallback to en values until translated.
+  'relocation.education': 'Education', // TODO: translate
+  'relocation.schoolRating': 'Public School Rating', // TODO: translate
+  'relocation.studentTeacherRatio': 'Student–Teacher Ratio', // TODO: translate
+  'relocation.amenities': 'Amenities', // TODO: translate
+  'relocation.natureAreas': 'Nature Areas', // TODO: translate
+  'relocation.bigBoxStores': 'Big-Box Stores', // TODO: translate
+  'relocation.groceryStores': 'Grocery Stores /capita', // TODO: translate
+  'relocation.notAvailable': 'N/A', // TODO: translate
+  'relocation.subscoreRadarLabel': 'Score Profile', // TODO: translate
+  'relocation.subscoreRadarAria': 'Subscore radar for {name}', // TODO: translate
+  'relocation.loading': 'Loading…', // TODO: translate
+  'relocation.careerSectionLabel': 'Career', // TODO: translate
+  'relocation.housingMarketLabel': 'Housing Market', // TODO: translate
+  'relocation.colIndex': 'Cost-of-Living Index', // TODO: translate
+  'relocation.taxScore': 'Tax Score', // TODO: translate
+  'relocation.licensingLabel': 'Licensing Boards ({state})', // TODO: translate
+  'relocation.outlookLabel': 'Occupation Outlook', // TODO: translate
+  'relocation.outlookPlaceholder': 'e.g. Registered Nurse', // TODO: translate
+  'relocation.outlookGo': 'Look up', // TODO: translate
+  'relocation.viewOnBls': 'View on BLS OOH', // TODO: translate
+  'relocation.priceToRent': 'Price-to-Rent Ratio', // TODO: translate
+  'relocation.listingsLabel': 'Listings Search', // TODO: translate
+  'relocation.openListing': 'Open', // TODO: translate
+  'relocation.noListings': 'No listings available for this metro.', // TODO: translate
 };
 // TODO: translate
 export default relocation;
