@@ -773,7 +773,23 @@ export class RelocationService {
     if (filters.maxColdDays) cleanFilters['maxColdDays'] = filters.maxColdDays;
     if (filters.minPopulation) cleanFilters['minPopulation'] = filters.minPopulation;
 
+    // ponytail: F17 — exclude locationIds the user has hard-filtered via
+    // { field: 'locationId', operator: 'notIn', value: string[] }. Guard
+    // lives here (the shared scoring pipeline) so every caller — FE /api/
+    // relocation/score, MCP scoreLocations, future wrappers — respects the
+    // dismissal in one place.
+    const dismissedIds = new Set<string>();
+    if (userId) {
+      const hf = this.getUserProfile(userId).hardFilters ?? [];
+      for (const f of hf) {
+        if (f.field === 'locationId' && f.operator === 'notIn' && Array.isArray(f.value)) {
+          for (const id of f.value) dismissedIds.add(String(id));
+        }
+      }
+    }
+
     const scored = locations
+      .filter((loc) => !dismissedIds.has(loc.id))
       .filter((loc) => applyRangeFilters(loc, filters.filters).included)
       .map((loc) => scoreLocation(loc, weights, stats, cleanFilters))
       .sort((a, b) => b.matchScore - a.matchScore);
