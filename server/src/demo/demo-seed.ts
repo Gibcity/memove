@@ -3,8 +3,19 @@ import Database from 'better-sqlite3';
 
 function seedDemoData(db: Database.Database): { adminId: number; demoId: number } {
   const ADMIN_USER = process.env.DEMO_ADMIN_USER || 'admin';
-  const ADMIN_EMAIL = process.env.DEMO_ADMIN_EMAIL || 'admin@memove.app';
-  const ADMIN_PASS = process.env.DEMO_ADMIN_PASS || 'admin12345';
+  // ponytail: honor ADMIN_EMAIL/ADMIN_PASSWORD when both are set so e2e harnesses
+  // (and any other caller passing ADMIN_*) get the credentials they expect, instead
+  // of the hardcoded admin@memove.app/admin12345. Mirrors the env-read pattern in
+  // db/seeds.ts:seedAdminAccount. Falls back to defaults when env is unset so
+  // plain `DEMO_MODE=true` local dev still creates the documented demo admin.
+  const env_admin_email = process.env.ADMIN_EMAIL;
+  const env_admin_pw = process.env.ADMIN_PASSWORD;
+  const ADMIN_EMAIL = (env_admin_email && env_admin_pw)
+    ? env_admin_email
+    : (process.env.DEMO_ADMIN_EMAIL || 'admin@memove.app');
+  const ADMIN_PASS = (env_admin_email && env_admin_pw)
+    ? env_admin_pw
+    : (process.env.DEMO_ADMIN_PASS || 'admin12345');
   const DEMO_EMAIL = 'demo@memove.app';
   const DEMO_PASS = 'demo12345';
 

@@ -22,7 +22,8 @@
     "test:e2e": "npm run test:e2e --workspace=server",
     "lint": "npm run lint --workspace=shared && npm run lint --workspace=server && npm run lint --workspace=client",
     "format": "npm run format --workspace=shared && npm run format --workspace=server && npm run format --workspace=client",
-    "format:check": "npm run format:check --workspace=shared && npm run format:check --workspace=server && npm run format:check --workspace=client"
+    "format:check": "npm run format:check --workspace=shared && npm run format:check --workspace=server && npm run format:check --workspace=client",
+    "eval": "node scripts/eval.mjs"
   },
   "devDependencies": {
     "concurrently": "^10.0.3",

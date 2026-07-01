@@ -1,0 +1,855 @@
+{
+  "generatedAt": "2026-07-01T00:30:36.314Z",
+  "fixtures": [
+    {
+      "id": "budget-retiree",
+      "label": "Budget retiree — cost dominant, low climate/safety weight",
+      "weights": {
+        "cost": 10,
+        "climate": 1,
+        "safety": 3,
+        "healthcare": 5,
+        "jobs": 0,
+        "outdoors": 2
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "plainview-tx",
+          "name": "Plainview, TX",
+          "state": "TX",
+          "score": 83
+        },
+        {
+          "id": "vernon-tx",
+          "name": "Vernon, TX",
+          "state": "TX",
+          "score": 83
+        },
+        {
+          "id": "levelland-tx",
+          "name": "Levelland, TX",
+          "state": "TX",
+          "score": 82
+        },
+        {
+          "id": "borger-tx",
+          "name": "Borger, TX",
+          "state": "TX",
+          "score": 81
+        },
+        {
+          "id": "carroll-ia",
+          "name": "Carroll, IA",
+          "state": "IA",
+          "score": 81
+        }
+      ],
+      "assertions": {
+        "minTopScore": 83,
+        "top5Contains": [
+          "TX",
+          "IA",
+          "OK",
+          "KS",
+          "MS",
+          "AL",
+          "AR"
+        ]
+      }
+    },
+    {
+      "id": "tech-young-pro",
+      "label": "Young tech professional — broadband/tax (jobs) heavy",
+      "weights": {
+        "cost": 4,
+        "climate": 2,
+        "safety": 3,
+        "healthcare": 2,
+        "jobs": 10,
+        "outdoors": 2
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "laramie-wy",
+          "name": "Laramie, WY",
+          "state": "WY",
+          "score": 82
+        },
+        {
+          "id": "pierre-sd",
+          "name": "Pierre, SD",
+          "state": "SD",
+          "score": 81
+        },
+        {
+          "id": "aberdeen-sd",
+          "name": "Aberdeen, SD",
+          "state": "SD",
+          "score": 80
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 80
+        },
+        {
+          "id": "sioux-falls-sd",
+          "name": "Sioux Falls, SD",
+          "state": "SD",
+          "score": 80
+        }
+      ],
+      "assertions": {
+        "minTopScore": 82,
+        "top5Contains": [
+          "WY",
+          "SD",
+          "TX",
+          "NV",
+          "TN",
+          "FL"
+        ]
+      }
+    },
+    {
+      "id": "family-school-kids",
+      "label": "Family w/ school-age kids — balanced, healthcare lifted",
+      "weights": {
+        "cost": 4,
+        "climate": 3,
+        "safety": 5,
+        "healthcare": 6,
+        "jobs": 4,
+        "outdoors": 3
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 75
+        },
+        {
+          "id": "aberdeen-sd",
+          "name": "Aberdeen, SD",
+          "state": "SD",
+          "score": 73
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 73
+        },
+        {
+          "id": "hereford-tx",
+          "name": "Hereford, TX",
+          "state": "TX",
+          "score": 73
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 73
+        }
+      ],
+      "assertions": {
+        "minTopScore": 75,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "SD",
+          "NE",
+          "MN",
+          "IA"
+        ]
+      }
+    },
+    {
+      "id": "outdoor-enthusiast",
+      "label": "Outdoor enthusiast — sunshine + low precip max",
+      "weights": {
+        "cost": 3,
+        "climate": 2,
+        "safety": 3,
+        "healthcare": 2,
+        "jobs": 1,
+        "outdoors": 10
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 85
+        },
+        {
+          "id": "deming-nm",
+          "name": "Deming, NM",
+          "state": "NM",
+          "score": 81
+        },
+        {
+          "id": "safford-az",
+          "name": "Safford, AZ",
+          "state": "AZ",
+          "score": 81
+        },
+        {
+          "id": "el-paso-tx",
+          "name": "El Paso, TX",
+          "state": "TX",
+          "score": 80
+        },
+        {
+          "id": "hereford-tx",
+          "name": "Hereford, TX",
+          "state": "TX",
+          "score": 80
+        }
+      ],
+      "assertions": {
+        "minTopScore": 85,
+        "top5Contains": [
+          "TX",
+          "NM",
+          "AZ",
+          "CA",
+          "NV",
+          "UT",
+          "CO"
+        ]
+      }
+    },
+    {
+      "id": "climate-mild-seeker",
+      "label": "Climate-mild seeker — low extremes only",
+      "weights": {
+        "cost": 3,
+        "climate": 10,
+        "safety": 3,
+        "healthcare": 3,
+        "jobs": 2,
+        "outdoors": 4
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 74
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 71
+        },
+        {
+          "id": "gillette-wy",
+          "name": "Gillette, WY",
+          "state": "WY",
+          "score": 70
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 70
+        },
+        {
+          "id": "rock-springs-wy",
+          "name": "Rock Springs, WY",
+          "state": "WY",
+          "score": 70
+        }
+      ],
+      "assertions": {
+        "minTopScore": 74,
+        "top5Contains": [
+          "WY",
+          "TX",
+          "CO",
+          "NM",
+          "OR",
+          "CA"
+        ]
+      }
+    },
+    {
+      "id": "safety-first",
+      "label": "Safety-first — minimize violent crime",
+      "weights": {
+        "cost": 3,
+        "climate": 2,
+        "safety": 10,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 2
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 79
+        },
+        {
+          "id": "hereford-tx",
+          "name": "Hereford, TX",
+          "state": "TX",
+          "score": 78
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 78
+        },
+        {
+          "id": "levelland-tx",
+          "name": "Levelland, TX",
+          "state": "TX",
+          "score": 78
+        },
+        {
+          "id": "plainview-tx",
+          "name": "Plainview, TX",
+          "state": "TX",
+          "score": 78
+        }
+      ],
+      "assertions": {
+        "minTopScore": 79,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "SD",
+          "NE",
+          "MN",
+          "IA"
+        ]
+      }
+    },
+    {
+      "id": "remote-worker",
+      "label": "Remote worker — broadband + cost, no job weight",
+      "weights": {
+        "cost": 6,
+        "climate": 4,
+        "safety": 4,
+        "healthcare": 4,
+        "jobs": 0,
+        "outdoors": 4
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 79
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 77
+        },
+        {
+          "id": "hereford-tx",
+          "name": "Hereford, TX",
+          "state": "TX",
+          "score": 76
+        },
+        {
+          "id": "levelland-tx",
+          "name": "Levelland, TX",
+          "state": "TX",
+          "score": 76
+        },
+        {
+          "id": "pampa-tx",
+          "name": "Pampa, TX",
+          "state": "TX",
+          "score": 76
+        }
+      ],
+      "assertions": {
+        "minTopScore": 79,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "NM",
+          "AZ",
+          "SD"
+        ]
+      }
+    },
+    {
+      "id": "healthcare-senior",
+      "label": "Healthcare-prioritizing senior — hospitals/access",
+      "weights": {
+        "cost": 5,
+        "climate": 4,
+        "safety": 5,
+        "healthcare": 10,
+        "jobs": 1,
+        "outdoors": 3
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 73
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 72
+        },
+        {
+          "id": "hereford-tx",
+          "name": "Hereford, TX",
+          "state": "TX",
+          "score": 71
+        },
+        {
+          "id": "lexington-ne",
+          "name": "Lexington, NE",
+          "state": "NE",
+          "score": 71
+        },
+        {
+          "id": "plainview-tx",
+          "name": "Plainview, TX",
+          "state": "TX",
+          "score": 71
+        }
+      ],
+      "assertions": {
+        "minTopScore": 73,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "NE",
+          "SD",
+          "IA",
+          "MN"
+        ]
+      }
+    },
+    {
+      "id": "default-balanced",
+      "label": "Default engine weights (5/4/3/3/3/3)",
+      "weights": {
+        "cost": 5,
+        "climate": 4,
+        "safety": 3,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 3
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 77
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 75
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 75
+        },
+        {
+          "id": "levelland-tx",
+          "name": "Levelland, TX",
+          "state": "TX",
+          "score": 75
+        },
+        {
+          "id": "pampa-tx",
+          "name": "Pampa, TX",
+          "state": "TX",
+          "score": 75
+        }
+      ],
+      "assertions": {
+        "minTopScore": 77,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "SD",
+          "NE"
+        ]
+      }
+    },
+    {
+      "id": "sun-seeker-cheap",
+      "label": "Sunshine + cheap — outdoors + cost dominant",
+      "weights": {
+        "cost": 8,
+        "climate": 1,
+        "safety": 2,
+        "healthcare": 2,
+        "jobs": 1,
+        "outdoors": 8
+      },
+      "filters": {},
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 86
+        },
+        {
+          "id": "deming-nm",
+          "name": "Deming, NM",
+          "state": "NM",
+          "score": 85
+        },
+        {
+          "id": "levelland-tx",
+          "name": "Levelland, TX",
+          "state": "TX",
+          "score": 84
+        },
+        {
+          "id": "plainview-tx",
+          "name": "Plainview, TX",
+          "state": "TX",
+          "score": 84
+        },
+        {
+          "id": "gallup-nm",
+          "name": "Gallup, NM",
+          "state": "NM",
+          "score": 83
+        }
+      ],
+      "assertions": {
+        "minTopScore": 86,
+        "top5Contains": [
+          "TX",
+          "NM",
+          "AZ",
+          "NV",
+          "CA"
+        ]
+      }
+    },
+    {
+      "id": "no-hurricane",
+      "label": "Hurricane-averse — climate weight + risk filter",
+      "weights": {
+        "cost": 4,
+        "climate": 10,
+        "safety": 4,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 3
+      },
+      "filters": {
+        "maxRiskHurricane": 30
+      },
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 73
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 72
+        },
+        {
+          "id": "gillette-wy",
+          "name": "Gillette, WY",
+          "state": "WY",
+          "score": 71
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 71
+        },
+        {
+          "id": "laramie-wy",
+          "name": "Laramie, WY",
+          "state": "WY",
+          "score": 71
+        }
+      ],
+      "assertions": {
+        "minTopScore": 73,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "CO",
+          "NM",
+          "OR"
+        ]
+      }
+    },
+    {
+      "id": "no-tornado",
+      "label": "Tornado-averse — climate weight + risk filter",
+      "weights": {
+        "cost": 4,
+        "climate": 10,
+        "safety": 4,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 3
+      },
+      "filters": {
+        "maxRiskTornado": 20
+      },
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 73
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 72
+        },
+        {
+          "id": "gillette-wy",
+          "name": "Gillette, WY",
+          "state": "WY",
+          "score": 71
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 71
+        },
+        {
+          "id": "laramie-wy",
+          "name": "Laramie, WY",
+          "state": "WY",
+          "score": 71
+        }
+      ],
+      "assertions": {
+        "minTopScore": 73,
+        "top5Contains": [
+          "WY",
+          "CO",
+          "CA",
+          "OR",
+          "WA",
+          "NM"
+        ]
+      }
+    },
+    {
+      "id": "no-wildfire",
+      "label": "Wildfire-averse — west-coast exclusion",
+      "weights": {
+        "cost": 4,
+        "climate": 10,
+        "safety": 4,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 3
+      },
+      "filters": {
+        "maxRiskWildfire": 25
+      },
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 73
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 72
+        },
+        {
+          "id": "gillette-wy",
+          "name": "Gillette, WY",
+          "state": "WY",
+          "score": 71
+        },
+        {
+          "id": "lamesa-tx",
+          "name": "Lamesa, TX",
+          "state": "TX",
+          "score": 71
+        },
+        {
+          "id": "laramie-wy",
+          "name": "Laramie, WY",
+          "state": "WY",
+          "score": 71
+        }
+      ],
+      "assertions": {
+        "minTopScore": 73,
+        "top5Contains": [
+          "WY",
+          "TX",
+          "CO",
+          "NE",
+          "IA",
+          "MN"
+        ]
+      }
+    },
+    {
+      "id": "metro-only",
+      "label": "Cheap California — excludeStates CA/AK/HI",
+      "weights": {
+        "cost": 5,
+        "climate": 3,
+        "safety": 3,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 3
+      },
+      "filters": {
+        "excludeStates": [
+          "CA",
+          "AK",
+          "HI"
+        ]
+      },
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 77
+        },
+        {
+          "id": "evanston-wy",
+          "name": "Evanston, WY",
+          "state": "WY",
+          "score": 76
+        },
+        {
+          "id": "levelland-tx",
+          "name": "Levelland, TX",
+          "state": "TX",
+          "score": 76
+        },
+        {
+          "id": "plainview-tx",
+          "name": "Plainview, TX",
+          "state": "TX",
+          "score": 76
+        },
+        {
+          "id": "aberdeen-sd",
+          "name": "Aberdeen, SD",
+          "state": "SD",
+          "score": 75
+        }
+      ],
+      "assertions": {
+        "minTopScore": 77,
+        "top5Contains": [
+          "TX",
+          "WY",
+          "SD",
+          "NE",
+          "IA"
+        ]
+      }
+    },
+    {
+      "id": "cold-free",
+      "label": "No deep cold — maxColdDays 30",
+      "weights": {
+        "cost": 4,
+        "climate": 8,
+        "safety": 4,
+        "healthcare": 3,
+        "jobs": 3,
+        "outdoors": 4
+      },
+      "filters": {
+        "maxColdDays": 30
+      },
+      "expectedTop5": [
+        {
+          "id": "pecos-tx",
+          "name": "Pecos, TX",
+          "state": "TX",
+          "score": 75
+        },
+        {
+          "id": "snyder-tx",
+          "name": "Snyder, TX",
+          "state": "TX",
+          "score": 70
+        },
+        {
+          "id": "vernon-tx",
+          "name": "Vernon, TX",
+          "state": "TX",
+          "score": 70
+        },
+        {
+          "id": "safford-az",
+          "name": "Safford, AZ",
+          "state": "AZ",
+          "score": 69
+        },
+        {
+          "id": "big-spring-tx",
+          "name": "Big Spring, TX",
+          "state": "TX",
+          "score": 68
+        }
+      ],
+      "assertions": {
+        "minTopScore": 75,
+        "top5Contains": [
+          "TX",
+          "NM",
+          "AZ",
+          "CA",
+          "FL",
+          "GA"
+        ]
+      }
+    }
+  ]
+}
