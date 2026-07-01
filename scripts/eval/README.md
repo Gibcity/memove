@@ -4,10 +4,17 @@ Deterministic gate for the relocation scoring engine.
 
 ## Run
 
+The eval imports the compiled server (`server/dist/nest/relocation/relocation.service.js`),
+so the server workspace must be built first. From the `trek/` root:
+
 ```
-npm run eval                    # gate; exits 1 if below threshold
-npm run eval --workspace=trek   # from project root
+npm run build --workspace=server   # one-time per server change; produces server/dist/
+npm run eval                      # from the trek/ root — gate; exits 1 if below threshold
 ```
+
+If `server/dist/` is stale or missing, eval fails with
+`Cannot find module '.../server/dist/nest/relocation/relocation.service.js'`
+— re-run the build step. CI runs `npm run build` before `npm run eval`.
 
 Env knobs:
 
