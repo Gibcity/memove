@@ -10,7 +10,9 @@ import type {
 import { createItem as createTodoItem, listItems as listTodoItems } from '../../services/todoService';
 import { selectChecklistTasks } from './move-checklist-templates';
 import { DatabaseService } from '../database/database.service';
+import { RelocationCache } from '../../services/relocationCache';
 import { loadLocations } from './locations.loader';
+import { RelocationJourneyService } from './relocation-journey.service';
 
 // ── Data loading ──────────────────────────────────────────────────────────────
 
@@ -580,7 +582,24 @@ function newSessionId(): string {
 export class RelocationService {
   // ── Data access ──
 
-  constructor(private readonly db: DatabaseService) {}
+  // ponytail: `journey` is optional so MCP tool sites that `new
+  // RelocationService(createDbAdapter(db))` directly keep compiling
+  // (mirrors the inverse pattern in RelocationJourneyService). Nest
+  // injection provides it; bundle() falls back to a raw row read when
+  // missing.
+  constructor(
+    private readonly db: DatabaseService,
+    private readonly journey?: RelocationJourneyService,
+  ) {}
+
+  // ponytail: SQLite-backed read-through cache for scoreLocations. Lives
+  // on the service so it shares the singleton DB connection; built lazily
+  // because the class is also instantiated manually outside Nest.
+  private _cache: RelocationCache | null = null;
+  private get cache(): RelocationCache {
+    if (!this._cache) this._cache = new RelocationCache(this.db);
+    return this._cache;
+  }
 
   getAllLocations(): Location[] {
     return loadLocations();
@@ -1365,6 +1384,44 @@ export class RelocationService {
       }
     }
     return undefined;
+  }
+
+  // ── Offline bundle ────────────────────────────────────────────────────
+  // ponytail: aggregates every relocation-scoped record for offline caching
+  // (legacy /api/relocation/bundle). Mirrors TripsService#bundle(): no new
+  // logic, just the existing per-domain reads stitched into one payload so
+  // the FE can render the entire workspace without the network.
+
+  bundle(userId: string) {
+    const uid = Number(userId);
+    const candidates = this.searchLocations({ limit: 1000 });
+    const scores = this.scoreLocations({ topK: 1000 }, userId);
+    // ponytail: move-checklist tasks live on the user's relocation trip's
+    // todo list (see applyMoveChecklist). One row per user — look it up by
+    // kind. No trip → empty list; the FE renders "no checklist yet".
+    const trip = this.db.get<{ id: number }>(
+      `SELECT id FROM trips WHERE user_id = ? AND kind = 'relocation' LIMIT 1`,
+      uid,
+    );
+    const checklist = trip
+      ? listTodoItems(String(trip.id)).filter(
+          (t: { category?: string }) => t.category === 'move-checklist',
+        )
+      : [];
+    // ponytail: `journey` is optional so MCP-direct instantiations keep
+    // compiling. In Nest it is always injected (RelocationModule lists it
+    // as a provider); the ?-chain only fires if someone wires it without
+    // the dep — bundle() callers will get null journey in that case.
+    return {
+      exportedAt: new Date().toISOString(),
+      userId,
+      profile: this.getUserProfile(userId),
+      candidates: candidates.locations,
+      scores: scores.topMatches,
+      weightsUsed: scores.weights,
+      journey: this.journey?.getJourney(uid) ?? null,
+      checklist,
+    };
   }
 
   // ── DSR (GDPR/CCPA) ─────────────────────────────────────────────────

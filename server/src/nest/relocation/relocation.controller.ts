@@ -304,6 +304,12 @@ export class RelocationController {
     return this.journey.getJourney(Number(user.id));
   }
 
+  /** GET /api/relocation/bundle — full offline snapshot of the user's relocation workspace */
+  @Get('bundle')
+  bundle(@CurrentUser() user: User) {
+    return this.relocation.bundle(String(user.id));
+  }
+
   /** POST /api/relocation/journey/shortlist — add location to shortlist */
   @Post('journey/shortlist')
   @UsePipes(new ZodValidationPipe(shortlistBodySchema))
