@@ -5,14 +5,20 @@ import OpenAI from 'openai';
 const baseURL = process.env.MINIMAX_BASE_URL || 'https://api.minimax.io/v1';
 const apiKey = process.env.MINIMAX_API_KEY;
 
-if (!apiKey) {
-  throw new Error('MINIMAX_API_KEY env var is required');
+// ponytail: lazy-init so importing this module never crashes the server when
+// MINIMAX_API_KEY is unset. Callers (concierge, relocation chat) wrap `complete`
+// in try/catch and fall back to hardcoded responses. Throw at call site, not
+// import time — root cause for the "every endpoint 500s when key missing" class.
+let _client: OpenAI | null = null;
+function client(): OpenAI {
+  if (!_client) {
+    if (!apiKey) {
+      throw new Error('MINIMAX_API_KEY env var is required');
+    }
+    _client = new OpenAI({ baseURL, apiKey });
+  }
+  return _client;
 }
-
-export const llm = new OpenAI({
-  baseURL,
-  apiKey,
-});
 
 export const LLM_MODEL = process.env.MINIMAX_MODEL || 'MiniMax-M3';
 
@@ -24,7 +30,7 @@ export async function complete(
   messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[],
   opts?: { temperature?: number; maxTokens?: number },
 ): Promise<string> {
-  const res = await llm.chat.completions.create({
+  const res = await client().chat.completions.create({
     model: LLM_MODEL,
     messages,
     temperature: opts?.temperature ?? 0.7,

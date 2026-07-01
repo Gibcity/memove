@@ -22,6 +22,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { verifyTripAccess } from '../../services/tripAccess';
+import { complete } from '../../services/llm/client';
 
 // ── Local Zod schemas (request shapes) ─────────────────────────────────────
 //
@@ -465,12 +466,44 @@ export class RelocationController {
       };
     }
 
-    // Default: acknowledge and guide
-    return {
-      role: 'agent' as const,
-      content: `I understand you're asking about: "${body.message}"\n\nI can help with finding cities, comparing costs, planning your move, handling paperwork, and settling in. Could you give me a bit more detail about what you need? For example:\n\n• "Find warm cities under $300k homes"\n• "Compare Austin TX and Raleigh NC"\n• "Plan a move for October 2026"\n• "What do I need to register my car in Texas?"`,
-      type: 'clarify' as const,
-    };
+    // Default: LLM fallback. The regex chain above covers the common intents;
+    // anything that falls through here is either ambiguous or out-of-pattern.
+    // ponytail: graceful degradation — same payload shape the client already
+    // understands (text/content), unknown `type` so the renderer degrades to
+    // plain text. No new files, no service split. Upgrade path: stream tokens,
+    // attach MCP tool calls (server/src/mcp/), or run tool-call loop in-process.
+    try {
+      const sysPrompt =
+        `You are the memove relocation assistant. Help the user plan a move to a US city.\n` +
+        `Current journey phase: ${journey.currentPhase}.\n` +
+        `Shortlisted cities: ${journey.shortlistedLocations.length > 0 ? journey.shortlistedLocations.join(', ') : 'none yet'}.\n` +
+        `You can recommend cities, compare costs, outline timelines, and explain admin tasks ` +
+        `(DMV, voter registration, insurance, address changes). Keep replies concise and actionable. ` +
+        `If you need data you don't have, say what you'd need.`;
+      const history = (body.history ?? []).slice(-10).map((h) => ({
+        role: (h.role === 'agent' ? 'assistant' : 'user') as 'assistant' | 'user',
+        content: h.content,
+      }));
+      const messages = [
+        { role: 'system' as const, content: sysPrompt },
+        ...history,
+        { role: 'user' as const, content: body.message },
+      ];
+      const reply = await complete(messages, { temperature: 0.6, maxTokens: 600 });
+      return {
+        role: 'agent' as const,
+        content: reply || `I couldn't reach the assistant right now — could you rephrase that?`,
+        type: 'assistant' as const,
+      };
+    } catch (_e) {
+      // ponytail: LLM unavailable (no API key, network, rate limit) → original
+      // clarify response. Same payload the client rendered before this change.
+      return {
+        role: 'agent' as const,
+        content: `I understand you're asking about: "${body.message}"\n\nI can help with finding cities, comparing costs, planning your move, handling paperwork, and settling in. Could you give me a bit more detail about what you need? For example:\n\n• "Find warm cities under $300k homes"\n• "Compare Austin TX and Raleigh NC"\n• "Plan a move for October 2026"\n• "What do I need to register my car in Texas?"`,
+        type: 'clarify' as const,
+      };
+    }
   }
 
   // ── Move Checklist ──

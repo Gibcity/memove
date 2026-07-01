@@ -1,8 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { RelocationService } from './relocation.service';
+import { complete } from '../../services/llm/client';
 
 // ponytail: in-memory log, upgrade to agent_runs table when persistence ships.
 const queryLog: { userId: string; query: string; category: string; ts: string; handled: boolean }[] = [];
+
+// ponytail: short system prompt for the fallback LLM path. Keep tight — token cost per non-categorized query.
+const CONCIERGE_SYSTEM_PROMPT =
+  'You are a practical relocation concierge for someone moving within the US. ' +
+  'Answer concisely (under 120 words) about housing, costs, logistics, utilities, ' +
+  'pets, insurance, mail, banking, schools, or community. No fluff, no medical/legal advice.';
 
 @Injectable()
 export class ConciergeService {
@@ -12,21 +19,37 @@ export class ConciergeService {
    * Handle a relocation question that no dedicated lane covers.
    * Returns a best-effort answer + logs the query for future lane promotion.
    */
-  handleQuery(userId: string, query: string): { answer: string; category: string; logged: boolean } {
+  async handleQuery(userId: string, query: string): Promise<{ answer: string; category: string; logged: boolean }> {
     const category = this.classifyQuery(query);
+    const isGeneral = category === 'general';
 
-    // Log for lane-promotion pipeline
+    // ponytail: async is fine — controller just returns the promise, response shape unchanged.
+    if (isGeneral) {
+      try {
+        const answer = await complete(
+          [
+            { role: 'system', content: CONCIERGE_SYSTEM_PROMPT },
+            { role: 'user', content: query },
+          ],
+          { temperature: 0.4, maxTokens: 300 },
+        );
+        if (answer && answer.trim()) {
+          // ponytail: tag LLM-path so stats can compare table hits vs model synthesis.
+          this.log(userId, query, 'general_llm');
+          return { answer: answer.trim(), category: 'general_llm', logged: true };
+        }
+      } catch {
+        // fall through to hardcoded general response below
+      }
+    }
+
+    this.log(userId, query, category);
+    return { answer: this.buildResponse(query, category), category, logged: true };
+  }
+
+  private log(userId: string, query: string, category: string): void {
     if (queryLog.length > 1000) queryLog.shift();
     queryLog.push({ userId, query, category, ts: new Date().toISOString(), handled: true });
-
-    // Build a helpful response based on category.
-    // This is NOT an LLM call — it's a structured response builder.
-    // The real LLM routing happens when the user's model connects via MCP.
-    return {
-      answer: this.buildResponse(query, category),
-      category,
-      logged: true,
-    };
   }
 
   /**
