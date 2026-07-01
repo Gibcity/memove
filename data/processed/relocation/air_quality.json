@@ -1,0 +1,5082 @@
+{
+  "metadata": {
+    "source": "EPA Air Quality System (AQS) daily data, aggregated to CBSA annual means",
+    "source_urls": [
+      "https://aqs.epa.gov/aqsweb/airdata/daily_88101_2021.zip",
+      "https://aqs.epa.gov/aqsweb/airdata/daily_44201_2021.zip",
+      "https://aqs.epa.gov/aqsweb/airdata/daily_88101_2022.zip",
+      "https://aqs.epa.gov/aqsweb/airdata/daily_44201_2022.zip",
+      "https://aqs.epa.gov/aqsweb/airdata/daily_88101_2023.zip",
+      "https://aqs.epa.gov/aqsweb/airdata/daily_44201_2023.zip"
+    ],
+    "publication": "https://www.epa.gov/outdoor-air-quality-data",
+    "params": {
+      "88101": "PM2.5 (FRM/FEM), ug/m3, annual mean of daily means per site",
+      "44201": "Ozone, ppm, annual mean of daily max 8-hr means per site"
+    },
+    "years": [
+      2021,
+      2022,
+      2023
+    ],
+    "join_keys": "monitor site (state_fips+county_fips+site_num+poc) -> CBSA via cbsa_county_crosswalk.json",
+    "filter": "drop days with observation_percent < 75% (partial coverage)",
+    "aggregation": "CBSA mean = mean(per-year per-CBSA means); per-year per-CBSA mean = mean(site annual means)",
+    "generated_at": "2026-07-01T15:31:48.984762+00:00",
+    "cbsa_count": 459,
+    "cbsas_with_pm25": 377,
+    "cbsas_with_ozone": 397,
+    "elapsed_seconds": 24.6
+  },
+  "air_quality": {
+    "19300": {
+      "pm25_annual_mean": 7.411,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22840": {
+      "pm25_annual_mean": 7.841,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23460": {
+      "pm25_annual_mean": 8.761,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13820": {
+      "pm25_annual_mean": 8.909,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26620": {
+      "pm25_annual_mean": 7.805,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33660": {
+      "pm25_annual_mean": 8.152,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33860": {
+      "pm25_annual_mean": 8.072,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19460": {
+      "pm25_annual_mean": 7.835,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17980": {
+      "pm25_annual_mean": 9.442,
+      "pm25_monitor_count": 21,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46220": {
+      "pm25_annual_mean": 7.908,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11260": {
+      "pm25_annual_mean": 4.519,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21820": {
+      "pm25_annual_mean": 10.579,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.017,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27940": {
+      "pm25_annual_mean": 4.914,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38060": {
+      "pm25_annual_mean": 8.369,
+      "pm25_monitor_count": 56,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 88,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46060": {
+      "pm25_annual_mean": 5.926,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 24,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35700": {
+      "pm25_annual_mean": 8.78,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49740": {
+      "pm25_annual_mean": 8.517,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32820": {
+      "pm25_annual_mean": 8.728,
+      "pm25_monitor_count": 27,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26300": {
+      "pm25_annual_mean": 8.738,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30780": {
+      "pm25_annual_mean": 9.786,
+      "pm25_monitor_count": 20,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20980": {
+      "pm25_annual_mean": 9.367,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22220": {
+      "pm25_annual_mean": 7.662,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41860": {
+      "pm25_annual_mean": 7.487,
+      "pm25_monitor_count": 36,
+      "ozone_annual_mean": 0.025,
+      "ozone_monitor_count": 36,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17020": {
+      "pm25_annual_mean": 8.948,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 7,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23420": {
+      "pm25_annual_mean": 11.644,
+      "pm25_monitor_count": 21,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21700": {
+      "pm25_annual_mean": 7.901,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.021,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20940": {
+      "pm25_annual_mean": 9.033,
+      "pm25_monitor_count": 19,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12540": {
+      "pm25_annual_mean": 13.017,
+      "pm25_monitor_count": 20,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 25,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25260": {
+      "pm25_annual_mean": 13.655,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17340": {
+      "pm25_annual_mean": 4.883,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31080": {
+      "pm25_annual_mean": 10.856,
+      "pm25_monitor_count": 56,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 47,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31460": {
+      "pm25_annual_mean": 10.932,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46380": {
+      "pm25_annual_mean": 9.504,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.024,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32900": {
+      "pm25_annual_mean": 10.121,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41500": {
+      "pm25_annual_mean": 5.419,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34900": {
+      "pm25_annual_mean": 7.251,
+      "pm25_monitor_count": 1,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 1,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46020": {
+      "pm25_annual_mean": 6.127,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.045,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40900": {
+      "pm25_annual_mean": 8.482,
+      "pm25_monitor_count": 38,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 48,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40140": {
+      "pm25_annual_mean": 9.728,
+      "pm25_monitor_count": 70,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 70,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41940": {
+      "pm25_annual_mean": 7.497,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41740": {
+      "pm25_annual_mean": 8.288,
+      "pm25_monitor_count": 55,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 25,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44700": {
+      "pm25_annual_mean": 11.463,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 7,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42020": {
+      "pm25_annual_mean": 6.153,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 20,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42200": {
+      "pm25_annual_mean": 5.995,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 26,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42100": {
+      "pm25_annual_mean": 5.297,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.025,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39820": {
+      "pm25_annual_mean": 10.945,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46700": {
+      "pm25_annual_mean": 7.59,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42220": {
+      "pm25_annual_mean": 6.15,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.022,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33700": {
+      "pm25_annual_mean": 12.221,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49700": {
+      "pm25_annual_mean": 10.879,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39780": {
+      "pm25_annual_mean": 7.674,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.041,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47300": {
+      "pm25_annual_mean": 12.685,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.041,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37100": {
+      "pm25_annual_mean": 6.713,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19740": {
+      "pm25_annual_mean": 7.357,
+      "pm25_monitor_count": 51,
+      "ozone_annual_mean": 0.042,
+      "ozone_monitor_count": 39,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14500": {
+      "pm25_annual_mean": 6.947,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17820": {
+      "pm25_annual_mean": 5.344,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24060": {
+      "pm25_annual_mean": 4.763,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": 0.044,
+      "ozone_monitor_count": 16,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22660": {
+      "pm25_annual_mean": 7.102,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.045,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24300": {
+      "pm25_annual_mean": 5.298,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.043,
+      "ozone_monitor_count": 5,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39380": {
+      "pm25_annual_mean": 6.24,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 1,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24540": {
+      "pm25_annual_mean": 7.817,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14860": {
+      "pm25_annual_mean": 7.607,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25540": {
+      "pm25_annual_mean": 7.257,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45860": {
+      "pm25_annual_mean": 5.332,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35300": {
+      "pm25_annual_mean": 7.61,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35980": {
+      "pm25_annual_mean": 6.843,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20100": {
+      "pm25_annual_mean": 7.312,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37980": {
+      "pm25_annual_mean": 8.946,
+      "pm25_monitor_count": 133,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 48,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41540": {
+      "pm25_annual_mean": 8.157,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47900": {
+      "pm25_annual_mean": 7.859,
+      "pm25_monitor_count": 50,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 51,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23540": {
+      "pm25_annual_mean": 6.693,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37340": {
+      "pm25_annual_mean": 7.297,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33100": {
+      "pm25_annual_mean": 7.077,
+      "pm25_monitor_count": 67,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 24,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27260": {
+      "pm25_annual_mean": 7.73,
+      "pm25_monitor_count": 19,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37860": {
+      "pm25_annual_mean": 9.287,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45300": {
+      "pm25_annual_mean": 7.496,
+      "pm25_monitor_count": 27,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 27,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15980": {
+      "pm25_annual_mean": 6.866,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45220": {
+      "pm25_annual_mean": 7.435,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29460": {
+      "pm25_annual_mean": 7.595,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35840": {
+      "pm25_annual_mean": 7.478,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36740": {
+      "pm25_annual_mean": 6.826,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19660": {
+      "pm25_annual_mean": 7.927,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31420": {
+      "pm25_annual_mean": 9.335,
+      "pm25_monitor_count": 17,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42340": {
+      "pm25_annual_mean": 9.252,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12020": {
+      "pm25_annual_mean": 9.245,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12060": {
+      "pm25_annual_mean": 9.244,
+      "pm25_monitor_count": 32,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 27,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20060": {
+      "pm25_annual_mean": 7.275,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10500": {
+      "pm25_annual_mean": 9.723,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15260": {
+      "pm25_annual_mean": 8.399,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23580": {
+      "pm25_annual_mean": 8.958,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47580": {
+      "pm25_annual_mean": 9.024,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46660": {
+      "pm25_annual_mean": 8.754,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12260": {
+      "pm25_annual_mean": 9.346,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16860": {
+      "pm25_annual_mean": 9.608,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25900": {
+      "pm25_annual_mean": 2.98,
+      "pm25_monitor_count": 36,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46520": {
+      "pm25_annual_mean": 3.669,
+      "pm25_monitor_count": 22,
+      "ozone_annual_mean": 0.023,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28180": {
+      "pm25_annual_mean": 2.763,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27980": {
+      "pm25_annual_mean": 3.474,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14260": {
+      "pm25_annual_mean": 8.225,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30860": {
+      "pm25_annual_mean": 7.975,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16580": {
+      "pm25_annual_mean": 8.23,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16980": {
+      "pm25_annual_mean": 9.591,
+      "pm25_monitor_count": 140,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 63,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41180": {
+      "pm25_annual_mean": 9.28,
+      "pm25_monitor_count": 70,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 63,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14010": {
+      "pm25_annual_mean": 9.314,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19500": {
+      "pm25_annual_mean": 9.508,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37900": {
+      "pm25_annual_mean": 9.106,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19340": {
+      "pm25_annual_mean": 9.157,
+      "pm25_monitor_count": 25,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44100": {
+      "pm25_annual_mean": 9.199,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40420": {
+      "pm25_annual_mean": 9.151,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23060": {
+      "pm25_annual_mean": 8.858,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 5,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18020": {
+      "pm25_annual_mean": 7.659,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31140": {
+      "pm25_annual_mean": 9.46,
+      "pm25_monitor_count": 52,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 22,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34620": {
+      "pm25_annual_mean": 8.217,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27540": {
+      "pm25_annual_mean": 8.919,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21140": {
+      "pm25_annual_mean": 8.926,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26900": {
+      "pm25_annual_mean": 10.758,
+      "pm25_monitor_count": 48,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 30,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35220": {
+      "pm25_annual_mean": 8.334,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29020": {
+      "pm25_annual_mean": 7.966,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33140": {
+      "pm25_annual_mean": 8.306,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14020": {
+      "pm25_annual_mean": 8.153,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43780": {
+      "pm25_annual_mean": 9.604,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29200": {
+      "pm25_annual_mean": 8.369,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21780": {
+      "pm25_annual_mean": 9.455,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45460": {
+      "pm25_annual_mean": 9.689,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47940": {
+      "pm25_annual_mean": 8.445,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17540": {
+      "pm25_annual_mean": 9.113,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26980": {
+      "pm25_annual_mean": 8.889,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22800": {
+      "pm25_annual_mean": 8.606,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16300": {
+      "pm25_annual_mean": 9.223,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34700": {
+      "pm25_annual_mean": 8.565,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19780": {
+      "pm25_annual_mean": 7.997,
+      "pm25_monitor_count": 16,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36540": {
+      "pm25_annual_mean": 7.724,
+      "pm25_monitor_count": 25,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43580": {
+      "pm25_annual_mean": 8.435,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 1,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28140": {
+      "pm25_annual_mean": 8.581,
+      "pm25_monitor_count": 33,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 39,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48620": {
+      "pm25_annual_mean": 9.729,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45820": {
+      "pm25_annual_mean": 9.342,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33180": {
+      "pm25_annual_mean": 9.706,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26580": {
+      "pm25_annual_mean": 7.945,
+      "pm25_monitor_count": 26,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17140": {
+      "pm25_annual_mean": 9.715,
+      "pm25_monitor_count": 102,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 30,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17300": {
+      "pm25_annual_mean": 8.537,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 5,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36980": {
+      "pm25_annual_mean": 9.359,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30460": {
+      "pm25_annual_mean": 8.472,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21060": {
+      "pm25_annual_mean": 8.216,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37140": {
+      "pm25_annual_mean": 9.085,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43700": {
+      "pm25_annual_mean": 8.101,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14540": {
+      "pm25_annual_mean": 8.179,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43340": {
+      "pm25_annual_mean": 9.466,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29340": {
+      "pm25_annual_mean": 8.468,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12940": {
+      "pm25_annual_mean": 8.836,
+      "pm25_monitor_count": 20,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 27,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35380": {
+      "pm25_annual_mean": 7.963,
+      "pm25_monitor_count": 26,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29180": {
+      "pm25_annual_mean": 7.9,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33740": {
+      "pm25_annual_mean": 7.853,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10780": {
+      "pm25_annual_mean": 7.938,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25220": {
+      "pm25_annual_mean": 7.498,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26380": {
+      "pm25_annual_mean": 7.987,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30340": {
+      "pm25_annual_mean": 5.394,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38860": {
+      "pm25_annual_mean": 6.179,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 14,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12300": {
+      "pm25_annual_mean": 5.957,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12620": {
+      "pm25_annual_mean": 4.804,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12580": {
+      "pm25_annual_mean": 7.846,
+      "pm25_monitor_count": 21,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15700": {
+      "pm25_annual_mean": 6.958,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25180": {
+      "pm25_annual_mean": 8.064,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38340": {
+      "pm25_annual_mean": 7.196,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39300": {
+      "pm25_annual_mean": 6.716,
+      "pm25_monitor_count": 33,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14460": {
+      "pm25_annual_mean": 6.656,
+      "pm25_monitor_count": 85,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 33,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44140": {
+      "pm25_annual_mean": 7.44,
+      "pm25_monitor_count": 28,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49340": {
+      "pm25_annual_mean": 7.79,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26090": {
+      "pm25_annual_mean": 6.957,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13020": {
+      "pm25_annual_mean": 7.378,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22420": {
+      "pm25_annual_mean": 7.749,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29620": {
+      "pm25_annual_mean": 9.39,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28020": {
+      "pm25_annual_mean": 10.94,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24340": {
+      "pm25_annual_mean": 9.577,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10300": {
+      "pm25_annual_mean": 9.194,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19820": {
+      "pm25_annual_mean": 10.337,
+      "pm25_monitor_count": 74,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15620": {
+      "pm25_annual_mean": 9.407,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11460": {
+      "pm25_annual_mean": 9.89,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33460": {
+      "pm25_annual_mean": 8.552,
+      "pm25_monitor_count": 65,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13420": {
+      "pm25_annual_mean": 7.966,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20260": {
+      "pm25_annual_mean": 5.609,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14660": {
+      "pm25_annual_mean": 8.411,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32140": {
+      "pm25_annual_mean": 7.872,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40340": {
+      "pm25_annual_mean": 7.795,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41060": {
+      "pm25_annual_mean": 8.677,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17380": {
+      "pm25_annual_mean": 8.764,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25620": {
+      "pm25_annual_mean": 9.427,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25060": {
+      "pm25_annual_mean": 8.352,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27140": {
+      "pm25_annual_mean": 9.457,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41140": {
+      "pm25_annual_mean": 7.926,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44180": {
+      "pm25_annual_mean": 7.637,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28060": {
+      "pm25_annual_mean": 8.619,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14580": {
+      "pm25_annual_mean": 3.822,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25740": {
+      "pm25_annual_mean": 6.501,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33540": {
+      "pm25_annual_mean": 8.514,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15580": {
+      "pm25_annual_mean": 9.064,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13740": {
+      "pm25_annual_mean": 7.894,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13100": {
+      "pm25_annual_mean": 6.464,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24260": {
+      "pm25_annual_mean": 6.882,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30700": {
+      "pm25_annual_mean": 7.168,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42420": {
+      "pm25_annual_mean": 4.5,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29820": {
+      "pm25_annual_mean": 5.984,
+      "pm25_monitor_count": 103,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 44,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23820": {
+      "pm25_annual_mean": 8.469,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39900": {
+      "pm25_annual_mean": 8.472,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16180": {
+      "pm25_annual_mean": 7.478,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29060": {
+      "pm25_annual_mean": 4.721,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28300": {
+      "pm25_annual_mean": 6.63,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.024,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30100": {
+      "pm25_annual_mean": 5.276,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31700": {
+      "pm25_annual_mean": 3.972,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12100": {
+      "pm25_annual_mean": 6.782,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35620": {
+      "pm25_annual_mean": 8.235,
+      "pm25_monitor_count": 90,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 62,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47220": {
+      "pm25_annual_mean": 7.012,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45940": {
+      "pm25_annual_mean": 8.783,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10900": {
+      "pm25_annual_mean": 8.684,
+      "pm25_monitor_count": 22,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10740": {
+      "pm25_annual_mean": 7.124,
+      "pm25_monitor_count": 40,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 17,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29740": {
+      "pm25_annual_mean": 7.346,
+      "pm25_monitor_count": 22,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26020": {
+      "pm25_annual_mean": 6.63,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42140": {
+      "pm25_annual_mean": 3.552,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45340": {
+      "pm25_annual_mean": 4.856,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10580": {
+      "pm25_annual_mean": 6.837,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27460": {
+      "pm25_annual_mean": 6.458,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15380": {
+      "pm25_annual_mean": 7.138,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40380": {
+      "pm25_annual_mean": 6.941,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45060": {
+      "pm25_annual_mean": 6.576,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39100": {
+      "pm25_annual_mean": 6.584,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 5,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18500": {
+      "pm25_annual_mean": 6.356,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11700": {
+      "pm25_annual_mean": 6.885,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25860": {
+      "pm25_annual_mean": 8.236,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22180": {
+      "pm25_annual_mean": 8.399,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49180": {
+      "pm25_annual_mean": 8.487,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20500": {
+      "pm25_annual_mean": 7.575,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24660": {
+      "pm25_annual_mean": 8.624,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19000": {
+      "pm25_annual_mean": 6.078,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39580": {
+      "pm25_annual_mean": 8.181,
+      "pm25_monitor_count": 16,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16740": {
+      "pm25_annual_mean": 8.421,
+      "pm25_monitor_count": 21,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48900": {
+      "pm25_annual_mean": 6.823,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40260": {
+      "pm25_annual_mean": 7.229,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24780": {
+      "pm25_annual_mean": 6.776,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19860": {
+      "pm25_annual_mean": 6.097,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13900": {
+      "pm25_annual_mean": 7.778,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22020": {
+      "pm25_annual_mean": 9.944,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33500": {
+      "pm25_annual_mean": 7.559,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30620": {
+      "pm25_annual_mean": 8.107,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11900": {
+      "pm25_annual_mean": 6.67,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48540": {
+      "pm25_annual_mean": 9.357,
+      "pm25_monitor_count": 16,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44220": {
+      "pm25_annual_mean": 9.15,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17460": {
+      "pm25_annual_mean": 9.237,
+      "pm25_monitor_count": 56,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 27,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18140": {
+      "pm25_annual_mean": 9.176,
+      "pm25_monitor_count": 23,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48260": {
+      "pm25_annual_mean": 9.466,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45780": {
+      "pm25_annual_mean": 8.678,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49660": {
+      "pm25_annual_mean": 8.642,
+      "pm25_monitor_count": 30,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19430": {
+      "pm25_annual_mean": 9.164,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10420": {
+      "pm25_annual_mean": 9.688,
+      "pm25_monitor_count": 17,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 7,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39020": {
+      "pm25_annual_mean": 8.142,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15940": {
+      "pm25_annual_mean": 9.643,
+      "pm25_monitor_count": 16,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11620": {
+      "pm25_annual_mean": 7.973,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36420": {
+      "pm25_annual_mean": 9.171,
+      "pm25_monitor_count": 24,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30020": {
+      "pm25_annual_mean": 7.655,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38620": {
+      "pm25_annual_mean": 9.462,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33060": {
+      "pm25_annual_mean": 11.53,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32540": {
+      "pm25_annual_mean": 8.393,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22900": {
+      "pm25_annual_mean": 8.056,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46140": {
+      "pm25_annual_mean": 8.778,
+      "pm25_monitor_count": 18,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 17,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12780": {
+      "pm25_annual_mean": 9.547,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 1,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39260": {
+      "pm25_annual_mean": 7.605,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32780": {
+      "pm25_annual_mean": 13.086,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24420": {
+      "pm25_annual_mean": 10.332,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28900": {
+      "pm25_annual_mean": 10.839,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21660": {
+      "pm25_annual_mean": 9.005,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38900": {
+      "pm25_annual_mean": 6.779,
+      "pm25_monitor_count": 20,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23900": {
+      "pm25_annual_mean": 9.394,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38300": {
+      "pm25_annual_mean": 9.248,
+      "pm25_monitor_count": 101,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 37,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39740": {
+      "pm25_annual_mean": 8.604,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11020": {
+      "pm25_annual_mean": 8.613,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42380": {
+      "pm25_annual_mean": 6.845,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27780": {
+      "pm25_annual_mean": 9.415,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44300": {
+      "pm25_annual_mean": 8.283,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25420": {
+      "pm25_annual_mean": 9.273,
+      "pm25_monitor_count": 20,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21500": {
+      "pm25_annual_mean": 7.228,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26860": {
+      "pm25_annual_mean": 8.092,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42540": {
+      "pm25_annual_mean": 7.458,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 8,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29540": {
+      "pm25_annual_mean": 10.71,
+      "pm25_monitor_count": 22,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30140": {
+      "pm25_annual_mean": 9.375,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48700": {
+      "pm25_annual_mean": 7.1,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49620": {
+      "pm25_annual_mean": 10.048,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16700": {
+      "pm25_annual_mean": 8.056,
+      "pm25_monitor_count": 22,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22500": {
+      "pm25_annual_mean": 8.291,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24860": {
+      "pm25_annual_mean": 8.62,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17900": {
+      "pm25_annual_mean": 7.896,
+      "pm25_monitor_count": 21,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43900": {
+      "pm25_annual_mean": 8.825,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15100": {
+      "pm25_annual_mean": 5.588,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10100": {
+      "pm25_annual_mean": 5.97,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47980": {
+      "pm25_annual_mean": 8.599,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38180": {
+      "pm25_annual_mean": 3.609,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43620": {
+      "pm25_annual_mean": 7.371,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 4,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39660": {
+      "pm25_annual_mean": 7.861,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28940": {
+      "pm25_annual_mean": 8.532,
+      "pm25_monitor_count": 36,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 18,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34980": {
+      "pm25_annual_mean": 8.748,
+      "pm25_monitor_count": 23,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20540": {
+      "pm25_annual_mean": 7.756,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29980": {
+      "pm25_annual_mean": 6.854,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11940": {
+      "pm25_annual_mean": 7.887,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27180": {
+      "pm25_annual_mean": 8.113,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18260": {
+      "pm25_annual_mean": 7.197,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28700": {
+      "pm25_annual_mean": 6.986,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41700": {
+      "pm25_annual_mean": 8.189,
+      "pm25_monitor_count": 16,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28660": {
+      "pm25_annual_mean": 7.305,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45500": {
+      "pm25_annual_mean": 10.315,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17780": {
+      "pm25_annual_mean": 7.992,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15180": {
+      "pm25_annual_mean": 9.522,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19100": {
+      "pm25_annual_mean": 8.942,
+      "pm25_monitor_count": 32,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 53,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36220": {
+      "pm25_annual_mean": 7.305,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21340": {
+      "pm25_annual_mean": 8.981,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 19,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26420": {
+      "pm25_annual_mean": 9.965,
+      "pm25_monitor_count": 48,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 63,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "30980": {
+      "pm25_annual_mean": 9.646,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32580": {
+      "pm25_annual_mean": 9.534,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13140": {
+      "pm25_annual_mean": 8.43,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28780": {
+      "pm25_annual_mean": 9.813,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31180": {
+      "pm25_annual_mean": 5.729,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20580": {
+      "pm25_annual_mean": 7.858,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18580": {
+      "pm25_annual_mean": 8.611,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11100": {
+      "pm25_annual_mean": 6.048,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.041,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12420": {
+      "pm25_annual_mean": 9.106,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29700": {
+      "pm25_annual_mean": 9.703,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39220": {
+      "pm25_annual_mean": 7.506,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36260": {
+      "pm25_annual_mean": 7.185,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16260": {
+      "pm25_annual_mean": 5.743,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41620": {
+      "pm25_annual_mean": 8.081,
+      "pm25_monitor_count": 53,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 29,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46860": {
+      "pm25_annual_mean": 5.508,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.042,
+      "ozone_monitor_count": 21,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39340": {
+      "pm25_annual_mean": 6.959,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41100": {
+      "pm25_annual_mean": 5.17,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.041,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13540": {
+      "pm25_annual_mean": 5.889,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "15540": {
+      "pm25_annual_mean": 5.379,
+      "pm25_monitor_count": 17,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40860": {
+      "pm25_annual_mean": 6.894,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.025,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16820": {
+      "pm25_annual_mean": 7.093,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40060": {
+      "pm25_annual_mean": 7.647,
+      "pm25_monitor_count": 30,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 12,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49020": {
+      "pm25_annual_mean": 8.171,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40220": {
+      "pm25_annual_mean": 7.527,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25500": {
+      "pm25_annual_mean": 7.417,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47260": {
+      "pm25_annual_mean": 7.295,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31340": {
+      "pm25_annual_mean": 6.659,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42660": {
+      "pm25_annual_mean": 7.212,
+      "pm25_monitor_count": 43,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 14,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "14740": {
+      "pm25_annual_mean": 5.533,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21260": {
+      "pm25_annual_mean": 6.701,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34580": {
+      "pm25_annual_mean": 5.258,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.024,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44060": {
+      "pm25_annual_mean": 8.77,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13380": {
+      "pm25_annual_mean": 5.123,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.025,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "49420": {
+      "pm25_annual_mean": 9.956,
+      "pm25_monitor_count": 10,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17220": {
+      "pm25_annual_mean": 7.43,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16620": {
+      "pm25_annual_mean": 7.794,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.024,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21900": {
+      "pm25_annual_mean": 7.803,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34060": {
+      "pm25_annual_mean": 7.731,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37620": {
+      "pm25_annual_mean": 8.105,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24580": {
+      "pm25_annual_mean": 8.431,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31540": {
+      "pm25_annual_mean": 8.963,
+      "pm25_monitor_count": 15,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13180": {
+      "pm25_annual_mean": 8.133,
+      "pm25_monitor_count": 9,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20740": {
+      "pm25_annual_mean": 8.557,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38420": {
+      "pm25_annual_mean": 9.332,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29100": {
+      "pm25_annual_mean": 8.482,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33340": {
+      "pm25_annual_mean": 9.183,
+      "pm25_monitor_count": 32,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 19,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11540": {
+      "pm25_annual_mean": 8.835,
+      "pm25_monitor_count": 12,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12660": {
+      "pm25_annual_mean": 8.298,
+      "pm25_monitor_count": 6,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29660": {
+      "pm25_annual_mean": 3.317,
+      "pm25_monitor_count": 11,
+      "ozone_annual_mean": 0.041,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "23940": {
+      "pm25_annual_mean": 6.845,
+      "pm25_monitor_count": 3,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40180": {
+      "pm25_annual_mean": 4.75,
+      "pm25_monitor_count": 14,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16940": {
+      "pm25_annual_mean": 4.357,
+      "pm25_monitor_count": 13,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 4,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16220": {
+      "pm25_annual_mean": 3.251,
+      "pm25_monitor_count": 5,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43260": {
+      "pm25_annual_mean": 7.001,
+      "pm25_monitor_count": 7,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40540": {
+      "pm25_annual_mean": 4.434,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 7,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27220": {
+      "pm25_annual_mean": 3.4,
+      "pm25_monitor_count": 8,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38660": {
+      "pm25_annual_mean": 5.987,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41980": {
+      "pm25_annual_mean": 6.692,
+      "pm25_monitor_count": 16,
+      "ozone_annual_mean": 0.013,
+      "ozone_monitor_count": 4,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25020": {
+      "pm25_annual_mean": 5.645,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38940": {
+      "pm25_annual_mean": 6.289,
+      "pm25_monitor_count": 4,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46820": {
+      "pm25_annual_mean": 7.379,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 2,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18620": {
+      "pm25_annual_mean": 8.676,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13460": {
+      "pm25_annual_mean": 6.872,
+      "pm25_monitor_count": 1,
+      "ozone_annual_mean": null,
+      "ozone_monitor_count": 0,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34820": {
+      "pm25_annual_mean": 8.424,
+      "pm25_monitor_count": 2,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48140": {
+      "pm25_annual_mean": 10.742,
+      "pm25_monitor_count": 1,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43420": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.042,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22380": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.043,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37740": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.045,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43320": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.042,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39150": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11660": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.025,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25460": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43760": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20420": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 9,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "37460": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34940": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "29380": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42700": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42680": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36100": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18880": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "44900": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.024,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "19140": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11140": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.029,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38540": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.038,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "26820": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.042,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39500": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20820": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47180": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47340": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "12700": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47240": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "45900": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35660": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31220": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34740": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39860": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32940": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46180": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "17860": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27620": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27900": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21980": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21220": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.045,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22280": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13620": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "18180": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16100": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.042,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "21580": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22140": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 15,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48060": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27060": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "33980": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "40580": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28820": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "11780": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48940": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47920": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 2,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34540": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31930": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41420": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "25840": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20180": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 2,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "41260": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "16540": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "35260": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.028,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "20700": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.032,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43740": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.03,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "34100": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "42940": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.04,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "24180": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47380": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "46340": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.034,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "47020": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.026,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "13980": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "28420": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "38820": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.031,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "22540": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.036,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48020": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "31820": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "39540": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.039,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "27500": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.035,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "43100": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 6,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "48580": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.037,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "32420": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.015,
+      "ozone_monitor_count": 3,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "10220": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.033,
+      "ozone_monitor_count": 2,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "36500": {
+      "pm25_annual_mean": null,
+      "pm25_monitor_count": 0,
+      "ozone_annual_mean": 0.027,
+      "ozone_monitor_count": 2,
+      "years_covered": [
+        2021,
+        2022,
+        2023
+      ]
+    }
+  }
+}

@@ -1,0 +1,5642 @@
+{
+  "metadata": {
+    "source": "EPA National Walkability Index (NWI), 2020 release",
+    "service_url": "https://geodata.epa.gov/arcgis/rest/services/OA/WalkabilityIndex/MapServer/0",
+    "publication_url": "https://www.epa.gov/smartgrowth/national-walkability-index-user-guide-and-methodology",
+    "license": "public_domain",
+    "generated_at": "2026-06-30T23:38:37Z",
+    "cbsa_count": 938,
+    "aggregation": "population-weighted mean of NatWalkInd (1-20) within CBSA",
+    "scale": "block group (12-digit FIPS GEOID10)"
+  },
+  "walkability": {
+    "19100": {
+      "walkabilityScore": 9.707,
+      "walkabilityUnweighted": 10.204,
+      "blockGroupCount": 4128,
+      "totPop": 7189384
+    },
+    "33260": {
+      "walkabilityScore": 7.981,
+      "walkabilityUnweighted": 8.228,
+      "blockGroupCount": 101,
+      "totPop": 169808
+    },
+    "26420": {
+      "walkabilityScore": 9.61,
+      "walkabilityUnweighted": 10.153,
+      "blockGroupCount": 3018,
+      "totPop": 6779104
+    },
+    "18580": {
+      "walkabilityScore": 10.659,
+      "walkabilityUnweighted": 11.019,
+      "blockGroupCount": 286,
+      "totPop": 427532
+    },
+    "31180": {
+      "walkabilityScore": 7.963,
+      "walkabilityUnweighted": 8.104,
+      "blockGroupCount": 214,
+      "totPop": 313123
+    },
+    "13140": {
+      "walkabilityScore": 6.576,
+      "walkabilityUnweighted": 6.84,
+      "blockGroupCount": 308,
+      "totPop": 395636
+    },
+    "30980": {
+      "walkabilityScore": 6.214,
+      "walkabilityUnweighted": 6.339,
+      "blockGroupCount": 215,
+      "totPop": 284503
+    },
+    "47380": {
+      "walkabilityScore": 6.723,
+      "walkabilityUnweighted": 6.928,
+      "blockGroupCount": 178,
+      "totPop": 265728
+    },
+    "37580": {
+      "walkabilityScore": 6.377,
+      "walkabilityUnweighted": 6.434,
+      "blockGroupCount": 38,
+      "totPop": 49532
+    },
+    "20580": {
+      "walkabilityScore": 6.695,
+      "walkabilityUnweighted": 7.339,
+      "blockGroupCount": 29,
+      "totPop": 57970
+    },
+    "46900": {
+      "walkabilityScore": 7.427,
+      "walkabilityUnweighted": 7.444,
+      "blockGroupCount": 12,
+      "totPop": 12906
+    },
+    "10180": {
+      "walkabilityScore": 7.03,
+      "walkabilityUnweighted": 7.323,
+      "blockGroupCount": 144,
+      "totPop": 170009
+    },
+    "40100": {
+      "walkabilityScore": 5.29,
+      "walkabilityUnweighted": 5.392,
+      "blockGroupCount": 37,
+      "totPop": 63894
+    },
+    "36220": {
+      "walkabilityScore": 7.395,
+      "walkabilityUnweighted": 7.635,
+      "blockGroupCount": 109,
+      "totPop": 158342
+    },
+    "12420": {
+      "walkabilityScore": 9.239,
+      "walkabilityUnweighted": 9.753,
+      "blockGroupCount": 967,
+      "totPop": 2058351
+    },
+    "11100": {
+      "walkabilityScore": 9.991,
+      "walkabilityUnweighted": 10.717,
+      "blockGroupCount": 204,
+      "totPop": 263412
+    },
+    "32580": {
+      "walkabilityScore": 6.566,
+      "walkabilityUnweighted": 7.176,
+      "blockGroupCount": 339,
+      "totPop": 849389
+    },
+    "26660": {
+      "walkabilityScore": 5.334,
+      "walkabilityUnweighted": 5.526,
+      "blockGroupCount": 38,
+      "totPop": 71539
+    },
+    "41700": {
+      "walkabilityScore": 9.767,
+      "walkabilityUnweighted": 10.473,
+      "blockGroupCount": 1335,
+      "totPop": 2426204
+    },
+    "24180": {
+      "walkabilityScore": 6.044,
+      "walkabilityUnweighted": 6.128,
+      "blockGroupCount": 30,
+      "totPop": 56901
+    },
+    "34420": {
+      "walkabilityScore": 5.624,
+      "walkabilityUnweighted": 5.995,
+      "blockGroupCount": 31,
+      "totPop": 45543
+    },
+    "28660": {
+      "walkabilityScore": 6.651,
+      "walkabilityUnweighted": 6.946,
+      "blockGroupCount": 253,
+      "totPop": 438265
+    },
+    "11380": {
+      "walkabilityScore": 8.388,
+      "walkabilityUnweighted": 8.833,
+      "blockGroupCount": 11,
+      "totPop": 17818
+    },
+    "15180": {
+      "walkabilityScore": 6.535,
+      "walkabilityUnweighted": 7.017,
+      "blockGroupCount": 224,
+      "totPop": 421750
+    },
+    "29700": {
+      "walkabilityScore": 7.748,
+      "walkabilityUnweighted": 8.338,
+      "blockGroupCount": 141,
+      "totPop": 272053
+    },
+    "41660": {
+      "walkabilityScore": 7.274,
+      "walkabilityUnweighted": 7.653,
+      "blockGroupCount": 100,
+      "totPop": 120131
+    },
+    "40530": {
+      "walkabilityScore": 7.374,
+      "walkabilityUnweighted": 7.556,
+      "blockGroupCount": 18,
+      "totPop": 24763
+    },
+    "44860": {
+      "walkabilityScore": 5.547,
+      "walkabilityUnweighted": 5.414,
+      "blockGroupCount": 27,
+      "totPop": 36240
+    },
+    "21340": {
+      "walkabilityScore": 11.126,
+      "walkabilityUnweighted": 11.53,
+      "blockGroupCount": 516,
+      "totPop": 841752
+    },
+    "43300": {
+      "walkabilityScore": 6.133,
+      "walkabilityUnweighted": 6.379,
+      "blockGroupCount": 92,
+      "totPop": 128560
+    },
+    "10860": {
+      "walkabilityScore": 6.297,
+      "walkabilityUnweighted": 6.65,
+      "blockGroupCount": 41,
+      "totPop": 52547
+    },
+    "48660": {
+      "walkabilityScore": 6.97,
+      "walkabilityUnweighted": 7.108,
+      "blockGroupCount": 126,
+      "totPop": 150994
+    },
+    "17780": {
+      "walkabilityScore": 7.062,
+      "walkabilityUnweighted": 7.001,
+      "blockGroupCount": 146,
+      "totPop": 253946
+    },
+    "14420": {
+      "walkabilityScore": 6.212,
+      "walkabilityUnweighted": 6.341,
+      "blockGroupCount": 22,
+      "totPop": 21571
+    },
+    "46340": {
+      "walkabilityScore": 6.812,
+      "walkabilityUnweighted": 7.169,
+      "blockGroupCount": 130,
+      "totPop": 225015
+    },
+    "20900": {
+      "walkabilityScore": 6.493,
+      "walkabilityUnweighted": 6.81,
+      "blockGroupCount": 35,
+      "totPop": 41551
+    },
+    "47020": {
+      "walkabilityScore": 6.977,
+      "walkabilityUnweighted": 7.117,
+      "blockGroupCount": 71,
+      "totPop": 99501
+    },
+    "13300": {
+      "walkabilityScore": 6.214,
+      "walkabilityUnweighted": 6.847,
+      "blockGroupCount": 24,
+      "totPop": 32691
+    },
+    "28500": {
+      "walkabilityScore": 6.422,
+      "walkabilityUnweighted": 6.803,
+      "blockGroupCount": 33,
+      "totPop": 51365
+    },
+    "28780": {
+      "walkabilityScore": 7.157,
+      "walkabilityUnweighted": 7.652,
+      "blockGroupCount": 23,
+      "totPop": 32020
+    },
+    "18620": {
+      "walkabilityScore": 5.936,
+      "walkabilityUnweighted": 6.2,
+      "blockGroupCount": 35,
+      "totPop": 48583
+    },
+    "38380": {
+      "walkabilityScore": 6.897,
+      "walkabilityUnweighted": 6.756,
+      "blockGroupCount": 30,
+      "totPop": 34113
+    },
+    "20300": {
+      "walkabilityScore": 7.342,
+      "walkabilityUnweighted": 7.811,
+      "blockGroupCount": 15,
+      "totPop": 21801
+    },
+    "14300": {
+      "walkabilityScore": 5.182,
+      "walkabilityUnweighted": 5.283,
+      "blockGroupCount": 30,
+      "totPop": 34175
+    },
+    "19620": {
+      "walkabilityScore": 7.153,
+      "walkabilityUnweighted": 7.662,
+      "blockGroupCount": 34,
+      "totPop": 49027
+    },
+    "46620": {
+      "walkabilityScore": 7.428,
+      "walkabilityUnweighted": 6.935,
+      "blockGroupCount": 18,
+      "totPop": 27009
+    },
+    "37780": {
+      "walkabilityScore": 8.095,
+      "walkabilityUnweighted": 8.417,
+      "blockGroupCount": 12,
+      "totPop": 15227
+    },
+    "30220": {
+      "walkabilityScore": 6.293,
+      "walkabilityUnweighted": 6.25,
+      "blockGroupCount": 18,
+      "totPop": 23162
+    },
+    "45500": {
+      "walkabilityScore": 6.244,
+      "walkabilityUnweighted": 6.345,
+      "blockGroupCount": 125,
+      "totPop": 150034
+    },
+    "13060": {
+      "walkabilityScore": 6.808,
+      "walkabilityUnweighted": 6.724,
+      "blockGroupCount": 35,
+      "totPop": 36743
+    },
+    "11980": {
+      "walkabilityScore": 5.289,
+      "walkabilityUnweighted": 5.225,
+      "blockGroupCount": 54,
+      "totPop": 80460
+    },
+    "34860": {
+      "walkabilityScore": 5.843,
+      "walkabilityUnweighted": 5.902,
+      "blockGroupCount": 39,
+      "totPop": 65558
+    },
+    "23620": {
+      "walkabilityScore": 6.223,
+      "walkabilityUnweighted": 6.572,
+      "blockGroupCount": 30,
+      "totPop": 39571
+    },
+    "37770": {
+      "walkabilityScore": 5.536,
+      "walkabilityUnweighted": 5.736,
+      "blockGroupCount": 12,
+      "totPop": 19394
+    },
+    "23240": {
+      "walkabilityScore": 6.391,
+      "walkabilityUnweighted": 6.625,
+      "blockGroupCount": 16,
+      "totPop": 26208
+    },
+    "15220": {
+      "walkabilityScore": 6.554,
+      "walkabilityUnweighted": 6.833,
+      "blockGroupCount": 32,
+      "totPop": 37834
+    },
+    "27380": {
+      "walkabilityScore": 4.921,
+      "walkabilityUnweighted": 4.952,
+      "blockGroupCount": 35,
+      "totPop": 51903
+    },
+    "37420": {
+      "walkabilityScore": 7.256,
+      "walkabilityUnweighted": 7.627,
+      "blockGroupCount": 25,
+      "totPop": 23570
+    },
+    "29500": {
+      "walkabilityScore": 7.642,
+      "walkabilityUnweighted": 7.893,
+      "blockGroupCount": 14,
+      "totPop": 12964
+    },
+    "25820": {
+      "walkabilityScore": 6.986,
+      "walkabilityUnweighted": 6.725,
+      "blockGroupCount": 17,
+      "totPop": 18899
+    },
+    "39700": {
+      "walkabilityScore": 5.912,
+      "walkabilityUnweighted": 6.244,
+      "blockGroupCount": 15,
+      "totPop": 21754
+    },
+    "44500": {
+      "walkabilityScore": 6.775,
+      "walkabilityUnweighted": 6.764,
+      "blockGroupCount": 29,
+      "totPop": 41482
+    },
+    "33420": {
+      "walkabilityScore": 6.53,
+      "walkabilityUnweighted": 6.986,
+      "blockGroupCount": 24,
+      "totPop": 28317
+    },
+    "37300": {
+      "walkabilityScore": 4.809,
+      "walkabilityUnweighted": 5.436,
+      "blockGroupCount": 39,
+      "totPop": 57863
+    },
+    "43660": {
+      "walkabilityScore": 7.216,
+      "walkabilityUnweighted": 7.44,
+      "blockGroupCount": 14,
+      "totPop": 17239
+    },
+    "14780": {
+      "walkabilityScore": 7.223,
+      "walkabilityUnweighted": 6.972,
+      "blockGroupCount": 24,
+      "totPop": 34796
+    },
+    "13700": {
+      "walkabilityScore": 6.936,
+      "walkabilityUnweighted": 7.47,
+      "blockGroupCount": 28,
+      "totPop": 36667
+    },
+    "45020": {
+      "walkabilityScore": 7.466,
+      "walkabilityUnweighted": 7.471,
+      "blockGroupCount": 17,
+      "totPop": 14966
+    },
+    "49820": {
+      "walkabilityScore": 6.487,
+      "walkabilityUnweighted": 6.593,
+      "blockGroupCount": 9,
+      "totPop": 14369
+    },
+    "31260": {
+      "walkabilityScore": 5.972,
+      "walkabilityUnweighted": 6.353,
+      "blockGroupCount": 52,
+      "totPop": 87607
+    },
+    "38920": {
+      "walkabilityScore": 6.977,
+      "walkabilityUnweighted": 7.216,
+      "blockGroupCount": 17,
+      "totPop": 21807
+    },
+    "47260": {
+      "walkabilityScore": 9.962,
+      "walkabilityUnweighted": 10.199,
+      "blockGroupCount": 1174,
+      "totPop": 1758598
+    },
+    "31340": {
+      "walkabilityScore": 8.229,
+      "walkabilityUnweighted": 8.079,
+      "blockGroupCount": 167,
+      "totPop": 260668
+    },
+    "40060": {
+      "walkabilityScore": 8.46,
+      "walkabilityUnweighted": 8.712,
+      "blockGroupCount": 731,
+      "totPop": 1258398
+    },
+    "47900": {
+      "walkabilityScore": 11.046,
+      "walkabilityUnweighted": 11.249,
+      "blockGroupCount": 3575,
+      "totPop": 6151521
+    },
+    "16820": {
+      "walkabilityScore": 8.787,
+      "walkabilityUnweighted": 8.955,
+      "blockGroupCount": 138,
+      "totPop": 213901
+    },
+    "32300": {
+      "walkabilityScore": 5.527,
+      "walkabilityUnweighted": 5.685,
+      "blockGroupCount": 56,
+      "totPop": 64689
+    },
+    "13980": {
+      "walkabilityScore": 8.518,
+      "walkabilityUnweighted": 8.223,
+      "blockGroupCount": 116,
+      "totPop": 166675
+    },
+    "44420": {
+      "walkabilityScore": 6.074,
+      "walkabilityUnweighted": 6.097,
+      "blockGroupCount": 89,
+      "totPop": 121079
+    },
+    "25500": {
+      "walkabilityScore": 9.058,
+      "walkabilityUnweighted": 8.408,
+      "blockGroupCount": 74,
+      "totPop": 132835
+    },
+    "40220": {
+      "walkabilityScore": 8.639,
+      "walkabilityUnweighted": 9.053,
+      "blockGroupCount": 209,
+      "totPop": 313291
+    },
+    "49020": {
+      "walkabilityScore": 6.331,
+      "walkabilityUnweighted": 6.514,
+      "blockGroupCount": 86,
+      "totPop": 136305
+    },
+    "28700": {
+      "walkabilityScore": 6.014,
+      "walkabilityUnweighted": 6.102,
+      "blockGroupCount": 215,
+      "totPop": 306394
+    },
+    "19260": {
+      "walkabilityScore": 5.515,
+      "walkabilityUnweighted": 5.703,
+      "blockGroupCount": 83,
+      "totPop": 103188
+    },
+    "13720": {
+      "walkabilityScore": 6.138,
+      "walkabilityUnweighted": 5.974,
+      "blockGroupCount": 32,
+      "totPop": 43015
+    },
+    "14140": {
+      "walkabilityScore": 6.104,
+      "walkabilityUnweighted": 6.035,
+      "blockGroupCount": 91,
+      "totPop": 109013
+    },
+    "13820": {
+      "walkabilityScore": 7.693,
+      "walkabilityUnweighted": 8.567,
+      "blockGroupCount": 749,
+      "totPop": 1082561
+    },
+    "17980": {
+      "walkabilityScore": 6.441,
+      "walkabilityUnweighted": 6.685,
+      "blockGroupCount": 203,
+      "totPop": 320144
+    },
+    "10700": {
+      "walkabilityScore": 5.905,
+      "walkabilityUnweighted": 5.746,
+      "blockGroupCount": 65,
+      "totPop": 95145
+    },
+    "46220": {
+      "walkabilityScore": 6.304,
+      "walkabilityUnweighted": 6.169,
+      "blockGroupCount": 157,
+      "totPop": 249824
+    },
+    "33660": {
+      "walkabilityScore": 6.701,
+      "walkabilityUnweighted": 6.948,
+      "blockGroupCount": 285,
+      "totPop": 431302
+    },
+    "21460": {
+      "walkabilityScore": 6.014,
+      "walkabilityUnweighted": 5.687,
+      "blockGroupCount": 33,
+      "totPop": 51288
+    },
+    "20020": {
+      "walkabilityScore": 6.099,
+      "walkabilityUnweighted": 5.923,
+      "blockGroupCount": 110,
+      "totPop": 147967
+    },
+    "26620": {
+      "walkabilityScore": 7.086,
+      "walkabilityUnweighted": 7.837,
+      "blockGroupCount": 234,
+      "totPop": 450612
+    },
+    "18980": {
+      "walkabilityScore": 5.099,
+      "walkabilityUnweighted": 5.331,
+      "blockGroupCount": 62,
+      "totPop": 82313
+    },
+    "10760": {
+      "walkabilityScore": 4.743,
+      "walkabilityUnweighted": 4.709,
+      "blockGroupCount": 47,
+      "totPop": 51491
+    },
+    "19300": {
+      "walkabilityScore": 6.813,
+      "walkabilityUnweighted": 6.509,
+      "blockGroupCount": 93,
+      "totPop": 208107
+    },
+    "19460": {
+      "walkabilityScore": 5.593,
+      "walkabilityUnweighted": 5.487,
+      "blockGroupCount": 106,
+      "totPop": 152293
+    },
+    "33860": {
+      "walkabilityScore": 9.067,
+      "walkabilityUnweighted": 9.627,
+      "blockGroupCount": 289,
+      "totPop": 373589
+    },
+    "45980": {
+      "walkabilityScore": 5.549,
+      "walkabilityUnweighted": 5.362,
+      "blockGroupCount": 23,
+      "totPop": 33403
+    },
+    "23460": {
+      "walkabilityScore": 5.933,
+      "walkabilityUnweighted": 6.239,
+      "blockGroupCount": 83,
+      "totPop": 102939
+    },
+    "12220": {
+      "walkabilityScore": 6.217,
+      "walkabilityUnweighted": 6.39,
+      "blockGroupCount": 77,
+      "totPop": 159287
+    },
+    "22520": {
+      "walkabilityScore": 6.176,
+      "walkabilityUnweighted": 6.482,
+      "blockGroupCount": 119,
+      "totPop": 147080
+    },
+    "37120": {
+      "walkabilityScore": 5.143,
+      "walkabilityUnweighted": 5.419,
+      "blockGroupCount": 43,
+      "totPop": 49255
+    },
+    "42460": {
+      "walkabilityScore": 4.708,
+      "walkabilityUnweighted": 4.803,
+      "blockGroupCount": 44,
+      "totPop": 52094
+    },
+    "27530": {
+      "walkabilityScore": 5.35,
+      "walkabilityUnweighted": 5.256,
+      "blockGroupCount": 58,
+      "totPop": 64493
+    },
+    "42820": {
+      "walkabilityScore": 6.113,
+      "walkabilityUnweighted": 6.09,
+      "blockGroupCount": 39,
+      "totPop": 40029
+    },
+    "29300": {
+      "walkabilityScore": 5.876,
+      "walkabilityUnweighted": 6.146,
+      "blockGroupCount": 74,
+      "totPop": 103600
+    },
+    "12120": {
+      "walkabilityScore": 5.598,
+      "walkabilityUnweighted": 5.833,
+      "blockGroupCount": 30,
+      "totPop": 37328
+    },
+    "22840": {
+      "walkabilityScore": 4.864,
+      "walkabilityUnweighted": 5.066,
+      "blockGroupCount": 53,
+      "totPop": 71200
+    },
+    "21640": {
+      "walkabilityScore": 5.13,
+      "walkabilityUnweighted": 5.14,
+      "blockGroupCount": 25,
+      "totPop": 28058
+    },
+    "45180": {
+      "walkabilityScore": 5.273,
+      "walkabilityUnweighted": 5.488,
+      "blockGroupCount": 54,
+      "totPop": 80565
+    },
+    "11500": {
+      "walkabilityScore": 5.731,
+      "walkabilityUnweighted": 5.67,
+      "blockGroupCount": 91,
+      "totPop": 115098
+    },
+    "28540": {
+      "walkabilityScore": 7.793,
+      "walkabilityUnweighted": 7.154,
+      "blockGroupCount": 13,
+      "totPop": 13804
+    },
+    "21820": {
+      "walkabilityScore": 5.743,
+      "walkabilityUnweighted": 6.417,
+      "blockGroupCount": 62,
+      "totPop": 99653
+    },
+    "11260": {
+      "walkabilityScore": 8.856,
+      "walkabilityUnweighted": 9.896,
+      "blockGroupCount": 263,
+      "totPop": 399576
+    },
+    "27940": {
+      "walkabilityScore": 10.241,
+      "walkabilityUnweighted": 10.543,
+      "blockGroupCount": 23,
+      "totPop": 32330
+    },
+    "38060": {
+      "walkabilityScore": 10.616,
+      "walkabilityUnweighted": 10.928,
+      "blockGroupCount": 2704,
+      "totPop": 4673634
+    },
+    "46060": {
+      "walkabilityScore": 9.891,
+      "walkabilityUnweighted": 10.713,
+      "blockGroupCount": 630,
+      "totPop": 1019722
+    },
+    "29420": {
+      "walkabilityScore": 6.911,
+      "walkabilityUnweighted": 7.397,
+      "blockGroupCount": 118,
+      "totPop": 206064
+    },
+    "39150": {
+      "walkabilityScore": 7.156,
+      "walkabilityUnweighted": 7.129,
+      "blockGroupCount": 114,
+      "totPop": 224645
+    },
+    "43420": {
+      "walkabilityScore": 6.095,
+      "walkabilityUnweighted": 6.16,
+      "blockGroupCount": 102,
+      "totPop": 126279
+    },
+    "37740": {
+      "walkabilityScore": 5.522,
+      "walkabilityUnweighted": 5.456,
+      "blockGroupCount": 45,
+      "totPop": 53400
+    },
+    "35700": {
+      "walkabilityScore": 5.584,
+      "walkabilityUnweighted": 5.727,
+      "blockGroupCount": 33,
+      "totPop": 46584
+    },
+    "22380": {
+      "walkabilityScore": 8.867,
+      "walkabilityUnweighted": 8.211,
+      "blockGroupCount": 98,
+      "totPop": 140217
+    },
+    "49740": {
+      "walkabilityScore": 9.905,
+      "walkabilityUnweighted": 10.013,
+      "blockGroupCount": 142,
+      "totPop": 207829
+    },
+    "43320": {
+      "walkabilityScore": 5.352,
+      "walkabilityUnweighted": 5.321,
+      "blockGroupCount": 78,
+      "totPop": 108705
+    },
+    "40940": {
+      "walkabilityScore": 5.243,
+      "walkabilityUnweighted": 5.701,
+      "blockGroupCount": 29,
+      "totPop": 37879
+    },
+    "22220": {
+      "walkabilityScore": 7.041,
+      "walkabilityUnweighted": 7.088,
+      "blockGroupCount": 262,
+      "totPop": 503585
+    },
+    "12900": {
+      "walkabilityScore": 5.448,
+      "walkabilityUnweighted": 5.37,
+      "blockGroupCount": 46,
+      "totPop": 54307
+    },
+    "26300": {
+      "walkabilityScore": 6.974,
+      "walkabilityUnweighted": 7.324,
+      "blockGroupCount": 70,
+      "totPop": 98296
+    },
+    "30780": {
+      "walkabilityScore": 8.039,
+      "walkabilityUnweighted": 8.729,
+      "blockGroupCount": 472,
+      "totPop": 734502
+    },
+    "38220": {
+      "walkabilityScore": 5.71,
+      "walkabilityUnweighted": 6.235,
+      "blockGroupCount": 88,
+      "totPop": 92345
+    },
+    "15780": {
+      "walkabilityScore": 5.445,
+      "walkabilityUnweighted": 5.597,
+      "blockGroupCount": 31,
+      "totPop": 29308
+    },
+    "20980": {
+      "walkabilityScore": 5.902,
+      "walkabilityUnweighted": 6.341,
+      "blockGroupCount": 41,
+      "totPop": 39732
+    },
+    "26260": {
+      "walkabilityScore": 5.274,
+      "walkabilityUnweighted": 5.369,
+      "blockGroupCount": 28,
+      "totPop": 30458
+    },
+    "22900": {
+      "walkabilityScore": 6.427,
+      "walkabilityUnweighted": 6.838,
+      "blockGroupCount": 166,
+      "totPop": 249072
+    },
+    "40780": {
+      "walkabilityScore": 5.909,
+      "walkabilityUnweighted": 5.857,
+      "blockGroupCount": 50,
+      "totPop": 85217
+    },
+    "22620": {
+      "walkabilityScore": 4.918,
+      "walkabilityUnweighted": 5.068,
+      "blockGroupCount": 27,
+      "totPop": 26294
+    },
+    "27860": {
+      "walkabilityScore": 6.503,
+      "walkabilityUnweighted": 6.532,
+      "blockGroupCount": 83,
+      "totPop": 129755
+    },
+    "37500": {
+      "walkabilityScore": 5.748,
+      "walkabilityUnweighted": 5.788,
+      "blockGroupCount": 26,
+      "totPop": 44623
+    },
+    "31620": {
+      "walkabilityScore": 6.337,
+      "walkabilityUnweighted": 5.864,
+      "blockGroupCount": 11,
+      "totPop": 23892
+    },
+    "11660": {
+      "walkabilityScore": 6.193,
+      "walkabilityUnweighted": 6.316,
+      "blockGroupCount": 19,
+      "totPop": 22385
+    },
+    "14180": {
+      "walkabilityScore": 6.091,
+      "walkabilityUnweighted": 6.244,
+      "blockGroupCount": 43,
+      "totPop": 42831
+    },
+    "32820": {
+      "walkabilityScore": 9.019,
+      "walkabilityUnweighted": 9.64,
+      "blockGroupCount": 850,
+      "totPop": 1337738
+    },
+    "25760": {
+      "walkabilityScore": 6.008,
+      "walkabilityUnweighted": 6.271,
+      "blockGroupCount": 24,
+      "totPop": 19034
+    },
+    "25460": {
+      "walkabilityScore": 5.929,
+      "walkabilityUnweighted": 5.939,
+      "blockGroupCount": 30,
+      "totPop": 45136
+    },
+    "31680": {
+      "walkabilityScore": 5.447,
+      "walkabilityUnweighted": 5.736,
+      "blockGroupCount": 24,
+      "totPop": 33520
+    },
+    "42620": {
+      "walkabilityScore": 5.821,
+      "walkabilityUnweighted": 5.971,
+      "blockGroupCount": 46,
+      "totPop": 78804
+    },
+    "34260": {
+      "walkabilityScore": 5.96,
+      "walkabilityUnweighted": 6.033,
+      "blockGroupCount": 30,
+      "totPop": 41219
+    },
+    "41500": {
+      "walkabilityScore": 11.832,
+      "walkabilityUnweighted": 11.926,
+      "blockGroupCount": 232,
+      "totPop": 433212
+    },
+    "42220": {
+      "walkabilityScore": 10.962,
+      "walkabilityUnweighted": 10.889,
+      "blockGroupCount": 386,
+      "totPop": 501317
+    },
+    "41860": {
+      "walkabilityScore": 12.984,
+      "walkabilityUnweighted": 13.159,
+      "blockGroupCount": 2898,
+      "totPop": 4673221
+    },
+    "37100": {
+      "walkabilityScore": 11.975,
+      "walkabilityUnweighted": 11.716,
+      "blockGroupCount": 429,
+      "totPop": 848112
+    },
+    "40140": {
+      "walkabilityScore": 10.805,
+      "walkabilityUnweighted": 10.826,
+      "blockGroupCount": 2122,
+      "totPop": 4518699
+    },
+    "31080": {
+      "walkabilityScore": 13.404,
+      "walkabilityUnweighted": 13.492,
+      "blockGroupCount": 8243,
+      "totPop": 13262234
+    },
+    "41940": {
+      "walkabilityScore": 13.579,
+      "walkabilityUnweighted": 13.442,
+      "blockGroupCount": 1115,
+      "totPop": 1981616
+    },
+    "25260": {
+      "walkabilityScore": 10.484,
+      "walkabilityUnweighted": 10.825,
+      "blockGroupCount": 81,
+      "totPop": 150075
+    },
+    "46700": {
+      "walkabilityScore": 11.925,
+      "walkabilityUnweighted": 12.224,
+      "blockGroupCount": 285,
+      "totPop": 438530
+    },
+    "41740": {
+      "walkabilityScore": 11.802,
+      "walkabilityUnweighted": 12.193,
+      "blockGroupCount": 1794,
+      "totPop": 3302833
+    },
+    "34900": {
+      "walkabilityScore": 8.591,
+      "walkabilityUnweighted": 8.127,
+      "blockGroupCount": 106,
+      "totPop": 140530
+    },
+    "40900": {
+      "walkabilityScore": 11.759,
+      "walkabilityUnweighted": 11.846,
+      "blockGroupCount": 1370,
+      "totPop": 2291738
+    },
+    "33700": {
+      "walkabilityScore": 12.25,
+      "walkabilityUnweighted": 12.023,
+      "blockGroupCount": 308,
+      "totPop": 539301
+    },
+    "46380": {
+      "walkabilityScore": 9.18,
+      "walkabilityUnweighted": 9.12,
+      "blockGroupCount": 78,
+      "totPop": 87422
+    },
+    "49700": {
+      "walkabilityScore": 10.328,
+      "walkabilityUnweighted": 10.275,
+      "blockGroupCount": 111,
+      "totPop": 171365
+    },
+    "42020": {
+      "walkabilityScore": 10.379,
+      "walkabilityUnweighted": 10.805,
+      "blockGroupCount": 162,
+      "totPop": 281455
+    },
+    "21700": {
+      "walkabilityScore": 10.778,
+      "walkabilityUnweighted": 10.643,
+      "blockGroupCount": 107,
+      "totPop": 135768
+    },
+    "46020": {
+      "walkabilityScore": 7.733,
+      "walkabilityUnweighted": 7.787,
+      "blockGroupCount": 75,
+      "totPop": 99092
+    },
+    "47300": {
+      "walkabilityScore": 7.45,
+      "walkabilityUnweighted": 7.356,
+      "blockGroupCount": 270,
+      "totPop": 460477
+    },
+    "42200": {
+      "walkabilityScore": 10.77,
+      "walkabilityUnweighted": 10.526,
+      "blockGroupCount": 312,
+      "totPop": 443738
+    },
+    "32900": {
+      "walkabilityScore": 10.978,
+      "walkabilityUnweighted": 10.953,
+      "blockGroupCount": 144,
+      "totPop": 269075
+    },
+    "17340": {
+      "walkabilityScore": 9.606,
+      "walkabilityUnweighted": 9.441,
+      "blockGroupCount": 48,
+      "totPop": 64148
+    },
+    "12540": {
+      "walkabilityScore": 9.95,
+      "walkabilityUnweighted": 10.323,
+      "blockGroupCount": 456,
+      "totPop": 883053
+    },
+    "17020": {
+      "walkabilityScore": 7.034,
+      "walkabilityUnweighted": 7.059,
+      "blockGroupCount": 195,
+      "totPop": 227075
+    },
+    "20940": {
+      "walkabilityScore": 8.083,
+      "walkabilityUnweighted": 8.569,
+      "blockGroupCount": 96,
+      "totPop": 180216
+    },
+    "23420": {
+      "walkabilityScore": 10.939,
+      "walkabilityUnweighted": 11.119,
+      "blockGroupCount": 589,
+      "totPop": 978130
+    },
+    "44700": {
+      "walkabilityScore": 10.814,
+      "walkabilityUnweighted": 11.057,
+      "blockGroupCount": 395,
+      "totPop": 732212
+    },
+    "45000": {
+      "walkabilityScore": 6.117,
+      "walkabilityUnweighted": 7.74,
+      "blockGroupCount": 25,
+      "totPop": 31185
+    },
+    "42100": {
+      "walkabilityScore": 12.042,
+      "walkabilityUnweighted": 12.033,
+      "blockGroupCount": 195,
+      "totPop": 273765
+    },
+    "43760": {
+      "walkabilityScore": 6.207,
+      "walkabilityUnweighted": 6.302,
+      "blockGroupCount": 48,
+      "totPop": 53932
+    },
+    "39820": {
+      "walkabilityScore": 9.154,
+      "walkabilityUnweighted": 8.938,
+      "blockGroupCount": 131,
+      "totPop": 179085
+    },
+    "39780": {
+      "walkabilityScore": 7.87,
+      "walkabilityUnweighted": 8.415,
+      "blockGroupCount": 43,
+      "totPop": 63373
+    },
+    "31460": {
+      "walkabilityScore": 9.031,
+      "walkabilityUnweighted": 8.917,
+      "blockGroupCount": 80,
+      "totPop": 155013
+    },
+    "18860": {
+      "walkabilityScore": 10.538,
+      "walkabilityUnweighted": 9.096,
+      "blockGroupCount": 19,
+      "totPop": 27424
+    },
+    "19740": {
+      "walkabilityScore": 11.844,
+      "walkabilityUnweighted": 12.033,
+      "blockGroupCount": 1797,
+      "totPop": 2850221
+    },
+    "15860": {
+      "walkabilityScore": 5.582,
+      "walkabilityUnweighted": 6.528,
+      "blockGroupCount": 36,
+      "totPop": 47002
+    },
+    "22660": {
+      "walkabilityScore": 9.985,
+      "walkabilityUnweighted": 10.392,
+      "blockGroupCount": 192,
+      "totPop": 338161
+    },
+    "18780": {
+      "walkabilityScore": 6.28,
+      "walkabilityUnweighted": 6.578,
+      "blockGroupCount": 15,
+      "totPop": 13060
+    },
+    "24540": {
+      "walkabilityScore": 7.355,
+      "walkabilityUnweighted": 7.324,
+      "blockGroupCount": 175,
+      "totPop": 295123
+    },
+    "17820": {
+      "walkabilityScore": 10.199,
+      "walkabilityUnweighted": 10.924,
+      "blockGroupCount": 380,
+      "totPop": 712266
+    },
+    "14500": {
+      "walkabilityScore": 12.74,
+      "walkabilityUnweighted": 12.35,
+      "blockGroupCount": 200,
+      "totPop": 321030
+    },
+    "24060": {
+      "walkabilityScore": 8.444,
+      "walkabilityUnweighted": 9.272,
+      "blockGroupCount": 49,
+      "totPop": 76447
+    },
+    "24300": {
+      "walkabilityScore": 7.322,
+      "walkabilityUnweighted": 7.689,
+      "blockGroupCount": 88,
+      "totPop": 149998
+    },
+    "20420": {
+      "walkabilityScore": 6.609,
+      "walkabilityUnweighted": 6.682,
+      "blockGroupCount": 33,
+      "totPop": 55101
+    },
+    "39380": {
+      "walkabilityScore": 7.094,
+      "walkabilityUnweighted": 7.235,
+      "blockGroupCount": 134,
+      "totPop": 164685
+    },
+    "33940": {
+      "walkabilityScore": 6.235,
+      "walkabilityUnweighted": 6.302,
+      "blockGroupCount": 37,
+      "totPop": 45990
+    },
+    "14720": {
+      "walkabilityScore": 7.706,
+      "walkabilityUnweighted": 7.114,
+      "blockGroupCount": 22,
+      "totPop": 30429
+    },
+    "20780": {
+      "walkabilityScore": 8.86,
+      "walkabilityUnweighted": 8.851,
+      "blockGroupCount": 29,
+      "totPop": 54357
+    },
+    "22820": {
+      "walkabilityScore": 6.592,
+      "walkabilityUnweighted": 6.46,
+      "blockGroupCount": 25,
+      "totPop": 28257
+    },
+    "44540": {
+      "walkabilityScore": 7.443,
+      "walkabilityUnweighted": 7.344,
+      "blockGroupCount": 16,
+      "totPop": 21689
+    },
+    "44460": {
+      "walkabilityScore": 7.116,
+      "walkabilityUnweighted": 7.0,
+      "blockGroupCount": 19,
+      "totPop": 24874
+    },
+    "35300": {
+      "walkabilityScore": 10.726,
+      "walkabilityUnweighted": 11.242,
+      "blockGroupCount": 627,
+      "totPop": 859339
+    },
+    "25540": {
+      "walkabilityScore": 9.709,
+      "walkabilityUnweighted": 10.026,
+      "blockGroupCount": 883,
+      "totPop": 1209367
+    },
+    "14860": {
+      "walkabilityScore": 10.26,
+      "walkabilityUnweighted": 10.359,
+      "blockGroupCount": 653,
+      "totPop": 944348
+    },
+    "35980": {
+      "walkabilityScore": 9.07,
+      "walkabilityUnweighted": 9.258,
+      "blockGroupCount": 187,
+      "totPop": 268881
+    },
+    "49340": {
+      "walkabilityScore": 8.944,
+      "walkabilityUnweighted": 9.421,
+      "blockGroupCount": 648,
+      "totPop": 938818
+    },
+    "45860": {
+      "walkabilityScore": 7.274,
+      "walkabilityUnweighted": 7.502,
+      "blockGroupCount": 143,
+      "totPop": 183031
+    },
+    "37980": {
+      "walkabilityScore": 11.747,
+      "walkabilityUnweighted": 12.384,
+      "blockGroupCount": 4304,
+      "totPop": 6069448
+    },
+    "41540": {
+      "walkabilityScore": 7.16,
+      "walkabilityUnweighted": 7.657,
+      "blockGroupCount": 270,
+      "totPop": 399013
+    },
+    "20100": {
+      "walkabilityScore": 8.545,
+      "walkabilityUnweighted": 8.385,
+      "blockGroupCount": 71,
+      "totPop": 174822
+    },
+    "36740": {
+      "walkabilityScore": 9.652,
+      "walkabilityUnweighted": 10.201,
+      "blockGroupCount": 833,
+      "totPop": 2450261
+    },
+    "15980": {
+      "walkabilityScore": 9.211,
+      "walkabilityUnweighted": 9.437,
+      "blockGroupCount": 513,
+      "totPop": 718679
+    },
+    "33100": {
+      "walkabilityScore": 12.503,
+      "walkabilityUnweighted": 12.721,
+      "blockGroupCount": 3416,
+      "totPop": 6070944
+    },
+    "37860": {
+      "walkabilityScore": 8.558,
+      "walkabilityUnweighted": 9.1,
+      "blockGroupCount": 267,
+      "totPop": 481964
+    },
+    "35840": {
+      "walkabilityScore": 10.596,
+      "walkabilityUnweighted": 11.538,
+      "blockGroupCount": 458,
+      "totPop": 785997
+    },
+    "26140": {
+      "walkabilityScore": 6.888,
+      "walkabilityUnweighted": 6.933,
+      "blockGroupCount": 87,
+      "totPop": 143087
+    },
+    "23540": {
+      "walkabilityScore": 9.286,
+      "walkabilityUnweighted": 9.151,
+      "blockGroupCount": 196,
+      "totPop": 320724
+    },
+    "45300": {
+      "walkabilityScore": 10.432,
+      "walkabilityUnweighted": 11.047,
+      "blockGroupCount": 2011,
+      "totPop": 3030047
+    },
+    "29460": {
+      "walkabilityScore": 7.596,
+      "walkabilityUnweighted": 8.129,
+      "blockGroupCount": 331,
+      "totPop": 668671
+    },
+    "37340": {
+      "walkabilityScore": 9.722,
+      "walkabilityUnweighted": 10.073,
+      "blockGroupCount": 317,
+      "totPop": 576808
+    },
+    "42680": {
+      "walkabilityScore": 7.204,
+      "walkabilityUnweighted": 7.346,
+      "blockGroupCount": 92,
+      "totPop": 150984
+    },
+    "29380": {
+      "walkabilityScore": 6.024,
+      "walkabilityUnweighted": 6.492,
+      "blockGroupCount": 40,
+      "totPop": 69105
+    },
+    "36100": {
+      "walkabilityScore": 7.284,
+      "walkabilityUnweighted": 7.351,
+      "blockGroupCount": 175,
+      "totPop": 348371
+    },
+    "17500": {
+      "walkabilityScore": 6.33,
+      "walkabilityUnweighted": 6.382,
+      "blockGroupCount": 24,
+      "totPop": 40127
+    },
+    "45220": {
+      "walkabilityScore": 8.622,
+      "walkabilityUnweighted": 8.745,
+      "blockGroupCount": 233,
+      "totPop": 380101
+    },
+    "18880": {
+      "walkabilityScore": 7.371,
+      "walkabilityUnweighted": 7.383,
+      "blockGroupCount": 159,
+      "totPop": 266595
+    },
+    "38940": {
+      "walkabilityScore": 7.238,
+      "walkabilityUnweighted": 7.176,
+      "blockGroupCount": 232,
+      "totPop": 463172
+    },
+    "45540": {
+      "walkabilityScore": 7.307,
+      "walkabilityUnweighted": 5.634,
+      "blockGroupCount": 41,
+      "totPop": 120999
+    },
+    "34940": {
+      "walkabilityScore": 7.008,
+      "walkabilityUnweighted": 7.262,
+      "blockGroupCount": 192,
+      "totPop": 363922
+    },
+    "28580": {
+      "walkabilityScore": 11.456,
+      "walkabilityUnweighted": 10.987,
+      "blockGroupCount": 75,
+      "totPop": 76325
+    },
+    "37260": {
+      "walkabilityScore": 5.753,
+      "walkabilityUnweighted": 5.773,
+      "blockGroupCount": 61,
+      "totPop": 72766
+    },
+    "27260": {
+      "walkabilityScore": 9.17,
+      "walkabilityUnweighted": 10.214,
+      "blockGroupCount": 701,
+      "totPop": 1475386
+    },
+    "19660": {
+      "walkabilityScore": 9.429,
+      "walkabilityUnweighted": 10.145,
+      "blockGroupCount": 339,
+      "totPop": 634773
+    },
+    "39460": {
+      "walkabilityScore": 7.235,
+      "walkabilityUnweighted": 7.302,
+      "blockGroupCount": 107,
+      "totPop": 176954
+    },
+    "37460": {
+      "walkabilityScore": 9.457,
+      "walkabilityUnweighted": 10.299,
+      "blockGroupCount": 108,
+      "totPop": 182482
+    },
+    "42700": {
+      "walkabilityScore": 6.54,
+      "walkabilityUnweighted": 6.441,
+      "blockGroupCount": 79,
+      "totPop": 102101
+    },
+    "11580": {
+      "walkabilityScore": 5.885,
+      "walkabilityUnweighted": 6.013,
+      "blockGroupCount": 26,
+      "totPop": 36399
+    },
+    "48100": {
+      "walkabilityScore": 5.719,
+      "walkabilityUnweighted": 6.275,
+      "blockGroupCount": 20,
+      "totPop": 27228
+    },
+    "36380": {
+      "walkabilityScore": 5.752,
+      "walkabilityUnweighted": 6.043,
+      "blockGroupCount": 27,
+      "totPop": 40572
+    },
+    "48180": {
+      "walkabilityScore": 6.127,
+      "walkabilityUnweighted": 6.63,
+      "blockGroupCount": 45,
+      "totPop": 54763
+    },
+    "12260": {
+      "walkabilityScore": 6.258,
+      "walkabilityUnweighted": 6.404,
+      "blockGroupCount": 362,
+      "totPop": 594300
+    },
+    "12060": {
+      "walkabilityScore": 8.513,
+      "walkabilityUnweighted": 8.898,
+      "blockGroupCount": 2597,
+      "totPop": 5779463
+    },
+    "10500": {
+      "walkabilityScore": 6.844,
+      "walkabilityUnweighted": 7.058,
+      "blockGroupCount": 107,
+      "totPop": 149912
+    },
+    "47080": {
+      "walkabilityScore": 5.641,
+      "walkabilityUnweighted": 5.855,
+      "blockGroupCount": 31,
+      "totPop": 36084
+    },
+    "46660": {
+      "walkabilityScore": 6.345,
+      "walkabilityUnweighted": 6.243,
+      "blockGroupCount": 94,
+      "totPop": 144564
+    },
+    "15260": {
+      "walkabilityScore": 6.536,
+      "walkabilityUnweighted": 6.774,
+      "blockGroupCount": 73,
+      "totPop": 116655
+    },
+    "12460": {
+      "walkabilityScore": 5.782,
+      "walkabilityUnweighted": 5.706,
+      "blockGroupCount": 21,
+      "totPop": 26833
+    },
+    "18460": {
+      "walkabilityScore": 6.327,
+      "walkabilityUnweighted": 6.513,
+      "blockGroupCount": 26,
+      "totPop": 44289
+    },
+    "33300": {
+      "walkabilityScore": 5.416,
+      "walkabilityUnweighted": 5.513,
+      "blockGroupCount": 38,
+      "totPop": 53821
+    },
+    "19140": {
+      "walkabilityScore": 5.454,
+      "walkabilityUnweighted": 5.347,
+      "blockGroupCount": 97,
+      "totPop": 143406
+    },
+    "27600": {
+      "walkabilityScore": 5.606,
+      "walkabilityUnweighted": 5.557,
+      "blockGroupCount": 29,
+      "totPop": 65755
+    },
+    "34220": {
+      "walkabilityScore": 5.495,
+      "walkabilityUnweighted": 6.011,
+      "blockGroupCount": 30,
+      "totPop": 45606
+    },
+    "40660": {
+      "walkabilityScore": 5.861,
+      "walkabilityUnweighted": 6.077,
+      "blockGroupCount": 56,
+      "totPop": 96824
+    },
+    "15660": {
+      "walkabilityScore": 5.554,
+      "walkabilityUnweighted": 5.649,
+      "blockGroupCount": 29,
+      "totPop": 56790
+    },
+    "20140": {
+      "walkabilityScore": 5.34,
+      "walkabilityUnweighted": 5.588,
+      "blockGroupCount": 51,
+      "totPop": 63925
+    },
+    "31420": {
+      "walkabilityScore": 6.255,
+      "walkabilityUnweighted": 6.519,
+      "blockGroupCount": 167,
+      "totPop": 229676
+    },
+    "47580": {
+      "walkabilityScore": 6.735,
+      "walkabilityUnweighted": 6.82,
+      "blockGroupCount": 86,
+      "totPop": 178648
+    },
+    "22340": {
+      "walkabilityScore": 5.46,
+      "walkabilityUnweighted": 6.411,
+      "blockGroupCount": 15,
+      "totPop": 17154
+    },
+    "25980": {
+      "walkabilityScore": 5.001,
+      "walkabilityUnweighted": 5.224,
+      "blockGroupCount": 38,
+      "totPop": 80264
+    },
+    "18380": {
+      "walkabilityScore": 5.915,
+      "walkabilityUnweighted": 6.433,
+      "blockGroupCount": 20,
+      "totPop": 22846
+    },
+    "42340": {
+      "walkabilityScore": 9.226,
+      "walkabilityUnweighted": 10.633,
+      "blockGroupCount": 240,
+      "totPop": 381623
+    },
+    "20060": {
+      "walkabilityScore": 4.966,
+      "walkabilityUnweighted": 5.631,
+      "blockGroupCount": 33,
+      "totPop": 51226
+    },
+    "11140": {
+      "walkabilityScore": 6.104,
+      "walkabilityUnweighted": 6.224,
+      "blockGroupCount": 29,
+      "totPop": 35563
+    },
+    "12020": {
+      "walkabilityScore": 6.742,
+      "walkabilityUnweighted": 6.571,
+      "blockGroupCount": 111,
+      "totPop": 205303
+    },
+    "44340": {
+      "walkabilityScore": 6.314,
+      "walkabilityUnweighted": 6.397,
+      "blockGroupCount": 42,
+      "totPop": 74782
+    },
+    "16860": {
+      "walkabilityScore": 6.941,
+      "walkabilityUnweighted": 7.273,
+      "blockGroupCount": 362,
+      "totPop": 552043
+    },
+    "23580": {
+      "walkabilityScore": 6.229,
+      "walkabilityUnweighted": 6.256,
+      "blockGroupCount": 90,
+      "totPop": 195961
+    },
+    "45700": {
+      "walkabilityScore": 7.017,
+      "walkabilityUnweighted": 7.505,
+      "blockGroupCount": 31,
+      "totPop": 40510
+    },
+    "41220": {
+      "walkabilityScore": 6.484,
+      "walkabilityUnweighted": 6.097,
+      "blockGroupCount": 24,
+      "totPop": 52714
+    },
+    "16340": {
+      "walkabilityScore": 5.604,
+      "walkabilityUnweighted": 5.958,
+      "blockGroupCount": 32,
+      "totPop": 41621
+    },
+    "45740": {
+      "walkabilityScore": 6.293,
+      "walkabilityUnweighted": 6.741,
+      "blockGroupCount": 18,
+      "totPop": 25676
+    },
+    "27700": {
+      "walkabilityScore": 5.287,
+      "walkabilityUnweighted": 5.529,
+      "blockGroupCount": 23,
+      "totPop": 29767
+    },
+    "45580": {
+      "walkabilityScore": 5.227,
+      "walkabilityUnweighted": 5.508,
+      "blockGroupCount": 21,
+      "totPop": 26216
+    },
+    "44900": {
+      "walkabilityScore": 4.97,
+      "walkabilityUnweighted": 5.098,
+      "blockGroupCount": 22,
+      "totPop": 24817
+    },
+    "45620": {
+      "walkabilityScore": 5.708,
+      "walkabilityUnweighted": 5.986,
+      "blockGroupCount": 36,
+      "totPop": 44730
+    },
+    "28180": {
+      "walkabilityScore": 6.472,
+      "walkabilityUnweighted": 6.346,
+      "blockGroupCount": 53,
+      "totPop": 71377
+    },
+    "27980": {
+      "walkabilityScore": 6.913,
+      "walkabilityUnweighted": 6.875,
+      "blockGroupCount": 100,
+      "totPop": 165281
+    },
+    "25900": {
+      "walkabilityScore": 5.459,
+      "walkabilityUnweighted": 5.626,
+      "blockGroupCount": 106,
+      "totPop": 197658
+    },
+    "46520": {
+      "walkabilityScore": 12.241,
+      "walkabilityUnweighted": 12.018,
+      "blockGroupCount": 590,
+      "totPop": 987638
+    },
+    "26820": {
+      "walkabilityScore": 7.104,
+      "walkabilityUnweighted": 7.214,
+      "blockGroupCount": 85,
+      "totPop": 142968
+    },
+    "41760": {
+      "walkabilityScore": 5.99,
+      "walkabilityUnweighted": 6.152,
+      "blockGroupCount": 35,
+      "totPop": 42711
+    },
+    "14260": {
+      "walkabilityScore": 10.041,
+      "walkabilityUnweighted": 10.912,
+      "blockGroupCount": 279,
+      "totPop": 693952
+    },
+    "46300": {
+      "walkabilityScore": 7.481,
+      "walkabilityUnweighted": 7.287,
+      "blockGroupCount": 68,
+      "totPop": 107097
+    },
+    "39940": {
+      "walkabilityScore": 7.177,
+      "walkabilityUnweighted": 6.633,
+      "blockGroupCount": 35,
+      "totPop": 51670
+    },
+    "15420": {
+      "walkabilityScore": 6.416,
+      "walkabilityUnweighted": 6.562,
+      "blockGroupCount": 35,
+      "totPop": 44230
+    },
+    "30300": {
+      "walkabilityScore": 7.03,
+      "walkabilityUnweighted": 7.082,
+      "blockGroupCount": 57,
+      "totPop": 62492
+    },
+    "34300": {
+      "walkabilityScore": 7.046,
+      "walkabilityUnweighted": 7.073,
+      "blockGroupCount": 16,
+      "totPop": 26433
+    },
+    "27220": {
+      "walkabilityScore": 7.175,
+      "walkabilityUnweighted": 7.62,
+      "blockGroupCount": 18,
+      "totPop": 34139
+    },
+    "25200": {
+      "walkabilityScore": 9.891,
+      "walkabilityUnweighted": 9.869,
+      "blockGroupCount": 14,
+      "totPop": 22880
+    },
+    "34140": {
+      "walkabilityScore": 6.395,
+      "walkabilityUnweighted": 6.769,
+      "blockGroupCount": 31,
+      "totPop": 39239
+    },
+    "38540": {
+      "walkabilityScore": 7.325,
+      "walkabilityUnweighted": 7.229,
+      "blockGroupCount": 67,
+      "totPop": 92778
+    },
+    "17660": {
+      "walkabilityScore": 7.957,
+      "walkabilityUnweighted": 7.841,
+      "blockGroupCount": 66,
+      "totPop": 153605
+    },
+    "13940": {
+      "walkabilityScore": 5.786,
+      "walkabilityUnweighted": 5.689,
+      "blockGroupCount": 30,
+      "totPop": 45551
+    },
+    "36620": {
+      "walkabilityScore": 8.487,
+      "walkabilityUnweighted": 8.812,
+      "blockGroupCount": 46,
+      "totPop": 53472
+    },
+    "30860": {
+      "walkabilityScore": 7.478,
+      "walkabilityUnweighted": 7.314,
+      "blockGroupCount": 87,
+      "totPop": 135615
+    },
+    "44580": {
+      "walkabilityScore": 6.397,
+      "walkabilityUnweighted": 6.593,
+      "blockGroupCount": 63,
+      "totPop": 56396
+    },
+    "37900": {
+      "walkabilityScore": 8.831,
+      "walkabilityUnweighted": 8.865,
+      "blockGroupCount": 320,
+      "totPop": 409844
+    },
+    "16980": {
+      "walkabilityScore": 11.584,
+      "walkabilityUnweighted": 11.949,
+      "blockGroupCount": 6585,
+      "totPop": 9536428
+    },
+    "34500": {
+      "walkabilityScore": 5.558,
+      "walkabilityUnweighted": 5.486,
+      "blockGroupCount": 37,
+      "totPop": 38169
+    },
+    "40420": {
+      "walkabilityScore": 6.919,
+      "walkabilityUnweighted": 7.081,
+      "blockGroupCount": 290,
+      "totPop": 339780
+    },
+    "41180": {
+      "walkabilityScore": 9.476,
+      "walkabilityUnweighted": 10.135,
+      "blockGroupCount": 1990,
+      "totPop": 2805551
+    },
+    "36837": {
+      "walkabilityScore": 6.61,
+      "walkabilityUnweighted": 6.759,
+      "blockGroupCount": 150,
+      "totPop": 149528
+    },
+    "19340": {
+      "walkabilityScore": 7.378,
+      "walkabilityUnweighted": 7.24,
+      "blockGroupCount": 311,
+      "totPop": 382720
+    },
+    "14010": {
+      "walkabilityScore": 10.5,
+      "walkabilityUnweighted": 10.756,
+      "blockGroupCount": 108,
+      "totPop": 173219
+    },
+    "16580": {
+      "walkabilityScore": 11.138,
+      "walkabilityUnweighted": 10.858,
+      "blockGroupCount": 167,
+      "totPop": 225875
+    },
+    "16660": {
+      "walkabilityScore": 6.604,
+      "walkabilityUnweighted": 6.57,
+      "blockGroupCount": 62,
+      "totPop": 62601
+    },
+    "40300": {
+      "walkabilityScore": 5.866,
+      "walkabilityUnweighted": 6.087,
+      "blockGroupCount": 44,
+      "totPop": 51328
+    },
+    "44100": {
+      "walkabilityScore": 9.922,
+      "walkabilityUnweighted": 10.171,
+      "blockGroupCount": 193,
+      "totPop": 210028
+    },
+    "16060": {
+      "walkabilityScore": 6.185,
+      "walkabilityUnweighted": 6.397,
+      "blockGroupCount": 121,
+      "totPop": 138452
+    },
+    "28100": {
+      "walkabilityScore": 6.907,
+      "walkabilityUnweighted": 6.792,
+      "blockGroupCount": 84,
+      "totPop": 111061
+    },
+    "39500": {
+      "walkabilityScore": 7.018,
+      "walkabilityUnweighted": 7.032,
+      "blockGroupCount": 72,
+      "totPop": 76454
+    },
+    "19180": {
+      "walkabilityScore": 6.582,
+      "walkabilityUnweighted": 6.604,
+      "blockGroupCount": 66,
+      "totPop": 78407
+    },
+    "45380": {
+      "walkabilityScore": 6.257,
+      "walkabilityUnweighted": 6.401,
+      "blockGroupCount": 37,
+      "totPop": 33231
+    },
+    "16020": {
+      "walkabilityScore": 6.508,
+      "walkabilityUnweighted": 6.43,
+      "blockGroupCount": 76,
+      "totPop": 97137
+    },
+    "23660": {
+      "walkabilityScore": 6.698,
+      "walkabilityUnweighted": 6.236,
+      "blockGroupCount": 58,
+      "totPop": 50999
+    },
+    "16460": {
+      "walkabilityScore": 6.242,
+      "walkabilityUnweighted": 6.422,
+      "blockGroupCount": 43,
+      "totPop": 38084
+    },
+    "27300": {
+      "walkabilityScore": 6.401,
+      "walkabilityUnweighted": 6.296,
+      "blockGroupCount": 40,
+      "totPop": 39473
+    },
+    "30660": {
+      "walkabilityScore": 6.695,
+      "walkabilityUnweighted": 6.609,
+      "blockGroupCount": 29,
+      "totPop": 29207
+    },
+    "38700": {
+      "walkabilityScore": 6.415,
+      "walkabilityUnweighted": 6.319,
+      "blockGroupCount": 35,
+      "totPop": 36324
+    },
+    "20820": {
+      "walkabilityScore": 6.623,
+      "walkabilityUnweighted": 6.713,
+      "blockGroupCount": 25,
+      "totPop": 34174
+    },
+    "19500": {
+      "walkabilityScore": 6.924,
+      "walkabilityUnweighted": 7.019,
+      "blockGroupCount": 99,
+      "totPop": 106512
+    },
+    "37140": {
+      "walkabilityScore": 6.209,
+      "walkabilityUnweighted": 6.327,
+      "blockGroupCount": 84,
+      "totPop": 97067
+    },
+    "31380": {
+      "walkabilityScore": 5.573,
+      "walkabilityUnweighted": 5.623,
+      "blockGroupCount": 34,
+      "totPop": 30875
+    },
+    "23300": {
+      "walkabilityScore": 6.459,
+      "walkabilityUnweighted": 6.449,
+      "blockGroupCount": 49,
+      "totPop": 45433
+    },
+    "22800": {
+      "walkabilityScore": 6.354,
+      "walkabilityUnweighted": 6.505,
+      "blockGroupCount": 63,
+      "totPop": 59453
+    },
+    "15460": {
+      "walkabilityScore": 10.63,
+      "walkabilityUnweighted": 10.654,
+      "blockGroupCount": 52,
+      "totPop": 46484
+    },
+    "19940": {
+      "walkabilityScore": 6.258,
+      "walkabilityUnweighted": 6.0,
+      "blockGroupCount": 38,
+      "totPop": 34527
+    },
+    "26900": {
+      "walkabilityScore": 8.777,
+      "walkabilityUnweighted": 9.398,
+      "blockGroupCount": 1178,
+      "totPop": 2007497
+    },
+    "35220": {
+      "walkabilityScore": 6.168,
+      "walkabilityUnweighted": 6.42,
+      "blockGroupCount": 44,
+      "totPop": 48483
+    },
+    "31140": {
+      "walkabilityScore": 9.497,
+      "walkabilityUnweighted": 9.994,
+      "blockGroupCount": 887,
+      "totPop": 1252890
+    },
+    "45460": {
+      "walkabilityScore": 8.089,
+      "walkabilityUnweighted": 8.362,
+      "blockGroupCount": 179,
+      "totPop": 187309
+    },
+    "14020": {
+      "walkabilityScore": 9.807,
+      "walkabilityUnweighted": 9.356,
+      "blockGroupCount": 111,
+      "totPop": 166281
+    },
+    "23060": {
+      "walkabilityScore": 9.183,
+      "walkabilityUnweighted": 9.608,
+      "blockGroupCount": 297,
+      "totPop": 403665
+    },
+    "39980": {
+      "walkabilityScore": 6.872,
+      "walkabilityUnweighted": 6.734,
+      "blockGroupCount": 52,
+      "totPop": 66613
+    },
+    "21140": {
+      "walkabilityScore": 6.767,
+      "walkabilityUnweighted": 7.324,
+      "blockGroupCount": 125,
+      "totPop": 203604
+    },
+    "42980": {
+      "walkabilityScore": 6.094,
+      "walkabilityUnweighted": 6.4,
+      "blockGroupCount": 35,
+      "totPop": 43938
+    },
+    "18020": {
+      "walkabilityScore": 6.584,
+      "walkabilityUnweighted": 6.528,
+      "blockGroupCount": 59,
+      "totPop": 81893
+    },
+    "12140": {
+      "walkabilityScore": 5.815,
+      "walkabilityUnweighted": 6.29,
+      "blockGroupCount": 35,
+      "totPop": 42704
+    },
+    "43780": {
+      "walkabilityScore": 7.007,
+      "walkabilityUnweighted": 7.286,
+      "blockGroupCount": 273,
+      "totPop": 320700
+    },
+    "27540": {
+      "walkabilityScore": 6.257,
+      "walkabilityUnweighted": 5.833,
+      "blockGroupCount": 43,
+      "totPop": 54829
+    },
+    "24700": {
+      "walkabilityScore": 5.958,
+      "walkabilityUnweighted": 6.214,
+      "blockGroupCount": 21,
+      "totPop": 26552
+    },
+    "21780": {
+      "walkabilityScore": 6.92,
+      "walkabilityUnweighted": 7.093,
+      "blockGroupCount": 258,
+      "totPop": 314967
+    },
+    "29200": {
+      "walkabilityScore": 9.804,
+      "walkabilityUnweighted": 9.311,
+      "blockGroupCount": 141,
+      "totPop": 226202
+    },
+    "47700": {
+      "walkabilityScore": 6.107,
+      "walkabilityUnweighted": 6.141,
+      "blockGroupCount": 58,
+      "totPop": 78806
+    },
+    "31980": {
+      "walkabilityScore": 7.123,
+      "walkabilityUnweighted": 6.799,
+      "blockGroupCount": 54,
+      "totPop": 66944
+    },
+    "11420": {
+      "walkabilityScore": 5.588,
+      "walkabilityUnweighted": 5.575,
+      "blockGroupCount": 31,
+      "totPop": 34474
+    },
+    "37940": {
+      "walkabilityScore": 5.496,
+      "walkabilityUnweighted": 5.884,
+      "blockGroupCount": 36,
+      "totPop": 35901
+    },
+    "13260": {
+      "walkabilityScore": 5.85,
+      "walkabilityUnweighted": 6.282,
+      "blockGroupCount": 39,
+      "totPop": 45619
+    },
+    "38500": {
+      "walkabilityScore": 5.624,
+      "walkabilityUnweighted": 5.64,
+      "blockGroupCount": 38,
+      "totPop": 46595
+    },
+    "33140": {
+      "walkabilityScore": 6.883,
+      "walkabilityUnweighted": 7.237,
+      "blockGroupCount": 83,
+      "totPop": 110552
+    },
+    "18220": {
+      "walkabilityScore": 5.901,
+      "walkabilityUnweighted": 6.526,
+      "blockGroupCount": 26,
+      "totPop": 23259
+    },
+    "35860": {
+      "walkabilityScore": 4.677,
+      "walkabilityUnweighted": 4.735,
+      "blockGroupCount": 17,
+      "totPop": 27727
+    },
+    "30900": {
+      "walkabilityScore": 6.257,
+      "walkabilityUnweighted": 6.312,
+      "blockGroupCount": 39,
+      "totPop": 38084
+    },
+    "29020": {
+      "walkabilityScore": 6.719,
+      "walkabilityUnweighted": 6.917,
+      "blockGroupCount": 66,
+      "totPop": 82387
+    },
+    "42500": {
+      "walkabilityScore": 5.231,
+      "walkabilityUnweighted": 5.583,
+      "blockGroupCount": 18,
+      "totPop": 23743
+    },
+    "28340": {
+      "walkabilityScore": 5.525,
+      "walkabilityUnweighted": 5.71,
+      "blockGroupCount": 35,
+      "totPop": 47451
+    },
+    "47180": {
+      "walkabilityScore": 7.193,
+      "walkabilityUnweighted": 7.492,
+      "blockGroupCount": 43,
+      "totPop": 37409
+    },
+    "26540": {
+      "walkabilityScore": 6.723,
+      "walkabilityUnweighted": 6.657,
+      "blockGroupCount": 33,
+      "totPop": 36378
+    },
+    "18820": {
+      "walkabilityScore": 6.01,
+      "walkabilityUnweighted": 5.848,
+      "blockGroupCount": 34,
+      "totPop": 38276
+    },
+    "47780": {
+      "walkabilityScore": 6.658,
+      "walkabilityUnweighted": 7.092,
+      "blockGroupCount": 29,
+      "totPop": 32937
+    },
+    "47340": {
+      "walkabilityScore": 6.366,
+      "walkabilityUnweighted": 6.545,
+      "blockGroupCount": 33,
+      "totPop": 31631
+    },
+    "17140": {
+      "walkabilityScore": 8.892,
+      "walkabilityUnweighted": 9.608,
+      "blockGroupCount": 1564,
+      "totPop": 2191667
+    },
+    "34620": {
+      "walkabilityScore": 7.348,
+      "walkabilityUnweighted": 7.366,
+      "blockGroupCount": 101,
+      "totPop": 115616
+    },
+    "23140": {
+      "walkabilityScore": 6.146,
+      "walkabilityUnweighted": 6.057,
+      "blockGroupCount": 32,
+      "totPop": 32301
+    },
+    "19540": {
+      "walkabilityScore": 5.349,
+      "walkabilityUnweighted": 5.761,
+      "blockGroupCount": 30,
+      "totPop": 35195
+    },
+    "31500": {
+      "walkabilityScore": 5.985,
+      "walkabilityUnweighted": 6.194,
+      "blockGroupCount": 24,
+      "totPop": 32237
+    },
+    "20220": {
+      "walkabilityScore": 7.319,
+      "walkabilityUnweighted": 7.423,
+      "blockGroupCount": 80,
+      "totPop": 96802
+    },
+    "36540": {
+      "walkabilityScore": 9.698,
+      "walkabilityUnweighted": 10.074,
+      "blockGroupCount": 809,
+      "totPop": 922891
+    },
+    "19780": {
+      "walkabilityScore": 10.092,
+      "walkabilityUnweighted": 10.355,
+      "blockGroupCount": 431,
+      "totPop": 671092
+    },
+    "47940": {
+      "walkabilityScore": 7.515,
+      "walkabilityUnweighted": 7.524,
+      "blockGroupCount": 133,
+      "totPop": 170132
+    },
+    "17540": {
+      "walkabilityScore": 9.223,
+      "walkabilityUnweighted": 9.229,
+      "blockGroupCount": 48,
+      "totPop": 47218
+    },
+    "16300": {
+      "walkabilityScore": 9.861,
+      "walkabilityUnweighted": 10.38,
+      "blockGroupCount": 176,
+      "totPop": 268315
+    },
+    "26980": {
+      "walkabilityScore": 8.974,
+      "walkabilityUnweighted": 8.766,
+      "blockGroupCount": 91,
+      "totPop": 169144
+    },
+    "43580": {
+      "walkabilityScore": 11.099,
+      "walkabilityUnweighted": 11.184,
+      "blockGroupCount": 137,
+      "totPop": 143638
+    },
+    "36820": {
+      "walkabilityScore": 9.433,
+      "walkabilityUnweighted": 9.651,
+      "blockGroupCount": 21,
+      "totPop": 22208
+    },
+    "44740": {
+      "walkabilityScore": 7.01,
+      "walkabilityUnweighted": 6.633,
+      "blockGroupCount": 15,
+      "totPop": 20260
+    },
+    "16140": {
+      "walkabilityScore": 7.578,
+      "walkabilityUnweighted": 7.471,
+      "blockGroupCount": 23,
+      "totPop": 20344
+    },
+    "11180": {
+      "walkabilityScore": 7.48,
+      "walkabilityUnweighted": 7.327,
+      "blockGroupCount": 82,
+      "totPop": 123321
+    },
+    "32260": {
+      "walkabilityScore": 9.491,
+      "walkabilityUnweighted": 9.358,
+      "blockGroupCount": 41,
+      "totPop": 40271
+    },
+    "34700": {
+      "walkabilityScore": 9.864,
+      "walkabilityUnweighted": 9.333,
+      "blockGroupCount": 34,
+      "totPop": 42950
+    },
+    "22700": {
+      "walkabilityScore": 10.467,
+      "walkabilityUnweighted": 10.325,
+      "blockGroupCount": 38,
+      "totPop": 36757
+    },
+    "37800": {
+      "walkabilityScore": 6.493,
+      "walkabilityUnweighted": 6.673,
+      "blockGroupCount": 28,
+      "totPop": 33207
+    },
+    "32380": {
+      "walkabilityScore": 9.542,
+      "walkabilityUnweighted": 9.269,
+      "blockGroupCount": 52,
+      "totPop": 50473
+    },
+    "36900": {
+      "walkabilityScore": 6.832,
+      "walkabilityUnweighted": 6.586,
+      "blockGroupCount": 37,
+      "totPop": 35315
+    },
+    "43980": {
+      "walkabilityScore": 6.719,
+      "walkabilityUnweighted": 6.843,
+      "blockGroupCount": 18,
+      "totPop": 16313
+    },
+    "44020": {
+      "walkabilityScore": 7.143,
+      "walkabilityUnweighted": 7.3,
+      "blockGroupCount": 15,
+      "totPop": 17056
+    },
+    "21840": {
+      "walkabilityScore": 7.227,
+      "walkabilityUnweighted": 7.077,
+      "blockGroupCount": 13,
+      "totPop": 18077
+    },
+    "28140": {
+      "walkabilityScore": 9.62,
+      "walkabilityUnweighted": 10.028,
+      "blockGroupCount": 1533,
+      "totPop": 2106632
+    },
+    "48620": {
+      "walkabilityScore": 9.441,
+      "walkabilityUnweighted": 10.045,
+      "blockGroupCount": 464,
+      "totPop": 636295
+    },
+    "49060": {
+      "walkabilityScore": 6.644,
+      "walkabilityUnweighted": 6.662,
+      "blockGroupCount": 33,
+      "totPop": 35591
+    },
+    "31740": {
+      "walkabilityScore": 7.027,
+      "walkabilityUnweighted": 7.167,
+      "blockGroupCount": 88,
+      "totPop": 133736
+    },
+    "23780": {
+      "walkabilityScore": 7.752,
+      "walkabilityUnweighted": 7.919,
+      "blockGroupCount": 33,
+      "totPop": 40889
+    },
+    "17700": {
+      "walkabilityScore": 6.562,
+      "walkabilityUnweighted": 6.446,
+      "blockGroupCount": 37,
+      "totPop": 32970
+    },
+    "38260": {
+      "walkabilityScore": 7.28,
+      "walkabilityUnweighted": 7.289,
+      "blockGroupCount": 34,
+      "totPop": 39108
+    },
+    "41460": {
+      "walkabilityScore": 11.091,
+      "walkabilityUnweighted": 10.873,
+      "blockGroupCount": 51,
+      "totPop": 60879
+    },
+    "45820": {
+      "walkabilityScore": 8.98,
+      "walkabilityUnweighted": 9.529,
+      "blockGroupCount": 184,
+      "totPop": 233260
+    },
+    "36840": {
+      "walkabilityScore": 6.389,
+      "walkabilityUnweighted": 6.225,
+      "blockGroupCount": 23,
+      "totPop": 25563
+    },
+    "25700": {
+      "walkabilityScore": 8.335,
+      "walkabilityUnweighted": 8.393,
+      "blockGroupCount": 25,
+      "totPop": 28878
+    },
+    "37660": {
+      "walkabilityScore": 6.864,
+      "walkabilityUnweighted": 6.818,
+      "blockGroupCount": 22,
+      "totPop": 20367
+    },
+    "19980": {
+      "walkabilityScore": 7.393,
+      "walkabilityUnweighted": 7.58,
+      "blockGroupCount": 25,
+      "totPop": 34484
+    },
+    "32700": {
+      "walkabilityScore": 6.631,
+      "walkabilityUnweighted": 6.954,
+      "blockGroupCount": 29,
+      "totPop": 28630
+    },
+    "21380": {
+      "walkabilityScore": 7.27,
+      "walkabilityUnweighted": 7.287,
+      "blockGroupCount": 36,
+      "totPop": 35944
+    },
+    "29940": {
+      "walkabilityScore": 8.666,
+      "walkabilityUnweighted": 8.551,
+      "blockGroupCount": 65,
+      "totPop": 119319
+    },
+    "24460": {
+      "walkabilityScore": 7.755,
+      "walkabilityUnweighted": 7.528,
+      "blockGroupCount": 30,
+      "totPop": 26791
+    },
+    "26740": {
+      "walkabilityScore": 7.131,
+      "walkabilityUnweighted": 7.107,
+      "blockGroupCount": 59,
+      "totPop": 63101
+    },
+    "11860": {
+      "walkabilityScore": 6.235,
+      "walkabilityUnweighted": 6.104,
+      "blockGroupCount": 16,
+      "totPop": 16363
+    },
+    "30580": {
+      "walkabilityScore": 7.887,
+      "walkabilityUnweighted": 7.804,
+      "blockGroupCount": 17,
+      "totPop": 22692
+    },
+    "41140": {
+      "walkabilityScore": 7.531,
+      "walkabilityUnweighted": 7.428,
+      "blockGroupCount": 106,
+      "totPop": 126779
+    },
+    "16420": {
+      "walkabilityScore": 4.733,
+      "walkabilityUnweighted": 4.615,
+      "blockGroupCount": 29,
+      "totPop": 31081
+    },
+    "31580": {
+      "walkabilityScore": 5.229,
+      "walkabilityUnweighted": 5.427,
+      "blockGroupCount": 41,
+      "totPop": 45664
+    },
+    "15820": {
+      "walkabilityScore": 5.224,
+      "walkabilityUnweighted": 5.104,
+      "blockGroupCount": 32,
+      "totPop": 36523
+    },
+    "23180": {
+      "walkabilityScore": 6.341,
+      "walkabilityUnweighted": 6.634,
+      "blockGroupCount": 51,
+      "totPop": 72510
+    },
+    "43700": {
+      "walkabilityScore": 5.712,
+      "walkabilityUnweighted": 5.643,
+      "blockGroupCount": 43,
+      "totPop": 64145
+    },
+    "36980": {
+      "walkabilityScore": 6.545,
+      "walkabilityUnweighted": 6.655,
+      "blockGroupCount": 84,
+      "totPop": 117987
+    },
+    "14540": {
+      "walkabilityScore": 5.99,
+      "walkabilityUnweighted": 5.917,
+      "blockGroupCount": 109,
+      "totPop": 172088
+    },
+    "30460": {
+      "walkabilityScore": 9.518,
+      "walkabilityUnweighted": 9.439,
+      "blockGroupCount": 334,
+      "totPop": 506786
+    },
+    "30940": {
+      "walkabilityScore": 5.18,
+      "walkabilityUnweighted": 5.097,
+      "blockGroupCount": 112,
+      "totPop": 148357
+    },
+    "12680": {
+      "walkabilityScore": 5.304,
+      "walkabilityUnweighted": 5.435,
+      "blockGroupCount": 23,
+      "totPop": 45388
+    },
+    "32460": {
+      "walkabilityScore": 4.951,
+      "walkabilityUnweighted": 5.241,
+      "blockGroupCount": 29,
+      "totPop": 37294
+    },
+    "19220": {
+      "walkabilityScore": 5.955,
+      "walkabilityUnweighted": 5.89,
+      "blockGroupCount": 41,
+      "totPop": 54371
+    },
+    "34660": {
+      "walkabilityScore": 6.104,
+      "walkabilityUnweighted": 6.194,
+      "blockGroupCount": 31,
+      "totPop": 38776
+    },
+    "26580": {
+      "walkabilityScore": 6.699,
+      "walkabilityUnweighted": 6.801,
+      "blockGroupCount": 300,
+      "totPop": 364446
+    },
+    "34460": {
+      "walkabilityScore": 4.827,
+      "walkabilityUnweighted": 4.958,
+      "blockGroupCount": 32,
+      "totPop": 46432
+    },
+    "17300": {
+      "walkabilityScore": 5.992,
+      "walkabilityUnweighted": 5.82,
+      "blockGroupCount": 158,
+      "totPop": 296295
+    },
+    "40080": {
+      "walkabilityScore": 6.132,
+      "walkabilityUnweighted": 6.011,
+      "blockGroupCount": 62,
+      "totPop": 104013
+    },
+    "23980": {
+      "walkabilityScore": 5.043,
+      "walkabilityUnweighted": 5.019,
+      "blockGroupCount": 44,
+      "totPop": 53684
+    },
+    "21060": {
+      "walkabilityScore": 5.867,
+      "walkabilityUnweighted": 5.72,
+      "blockGroupCount": 100,
+      "totPop": 150577
+    },
+    "33180": {
+      "walkabilityScore": 5.216,
+      "walkabilityUnweighted": 5.327,
+      "blockGroupCount": 26,
+      "totPop": 27188
+    },
+    "32500": {
+      "walkabilityScore": 5.717,
+      "walkabilityUnweighted": 6.26,
+      "blockGroupCount": 16,
+      "totPop": 17153
+    },
+    "26380": {
+      "walkabilityScore": 6.126,
+      "walkabilityUnweighted": 6.282,
+      "blockGroupCount": 145,
+      "totPop": 210801
+    },
+    "35380": {
+      "walkabilityScore": 9.808,
+      "walkabilityUnweighted": 10.698,
+      "blockGroupCount": 1104,
+      "totPop": 1263635
+    },
+    "12940": {
+      "walkabilityScore": 6.313,
+      "walkabilityUnweighted": 6.431,
+      "blockGroupCount": 500,
+      "totPop": 852356
+    },
+    "29180": {
+      "walkabilityScore": 6.855,
+      "walkabilityUnweighted": 6.951,
+      "blockGroupCount": 305,
+      "totPop": 488969
+    },
+    "19760": {
+      "walkabilityScore": 4.49,
+      "walkabilityUnweighted": 4.913,
+      "blockGroupCount": 23,
+      "totPop": 36769
+    },
+    "14220": {
+      "walkabilityScore": 5.141,
+      "walkabilityUnweighted": 5.333,
+      "blockGroupCount": 30,
+      "totPop": 46457
+    },
+    "22860": {
+      "walkabilityScore": 4.48,
+      "walkabilityUnweighted": 4.402,
+      "blockGroupCount": 44,
+      "totPop": 51007
+    },
+    "34020": {
+      "walkabilityScore": 7.006,
+      "walkabilityUnweighted": 7.304,
+      "blockGroupCount": 45,
+      "totPop": 51734
+    },
+    "25220": {
+      "walkabilityScore": 5.925,
+      "walkabilityUnweighted": 5.919,
+      "blockGroupCount": 66,
+      "totPop": 130504
+    },
+    "29340": {
+      "walkabilityScore": 6.661,
+      "walkabilityUnweighted": 7.001,
+      "blockGroupCount": 146,
+      "totPop": 207050
+    },
+    "35060": {
+      "walkabilityScore": 5.624,
+      "walkabilityUnweighted": 5.786,
+      "blockGroupCount": 35,
+      "totPop": 38963
+    },
+    "27660": {
+      "walkabilityScore": 5.653,
+      "walkabilityUnweighted": 6.173,
+      "blockGroupCount": 26,
+      "totPop": 31467
+    },
+    "40820": {
+      "walkabilityScore": 6.127,
+      "walkabilityUnweighted": 6.404,
+      "blockGroupCount": 33,
+      "totPop": 47356
+    },
+    "43340": {
+      "walkabilityScore": 6.295,
+      "walkabilityUnweighted": 6.56,
+      "blockGroupCount": 291,
+      "totPop": 401708
+    },
+    "10780": {
+      "walkabilityScore": 6.122,
+      "walkabilityUnweighted": 6.077,
+      "blockGroupCount": 112,
+      "totPop": 153894
+    },
+    "35020": {
+      "walkabilityScore": 5.747,
+      "walkabilityUnweighted": 6.075,
+      "blockGroupCount": 49,
+      "totPop": 51568
+    },
+    "33740": {
+      "walkabilityScore": 6.157,
+      "walkabilityUnweighted": 6.314,
+      "blockGroupCount": 157,
+      "totPop": 204542
+    },
+    "33380": {
+      "walkabilityScore": 5.667,
+      "walkabilityUnweighted": 5.859,
+      "blockGroupCount": 39,
+      "totPop": 39631
+    },
+    "36660": {
+      "walkabilityScore": 6.097,
+      "walkabilityUnweighted": 6.402,
+      "blockGroupCount": 66,
+      "totPop": 83449
+    },
+    "12620": {
+      "walkabilityScore": 6.34,
+      "walkabilityUnweighted": 6.456,
+      "blockGroupCount": 117,
+      "totPop": 151748
+    },
+    "12300": {
+      "walkabilityScore": 6.625,
+      "walkabilityUnweighted": 6.851,
+      "blockGroupCount": 103,
+      "totPop": 121545
+    },
+    "30340": {
+      "walkabilityScore": 7.144,
+      "walkabilityUnweighted": 7.558,
+      "blockGroupCount": 72,
+      "totPop": 107444
+    },
+    "38860": {
+      "walkabilityScore": 8.306,
+      "walkabilityUnweighted": 8.597,
+      "blockGroupCount": 378,
+      "totPop": 529323
+    },
+    "12580": {
+      "walkabilityScore": 10.646,
+      "walkabilityUnweighted": 11.08,
+      "blockGroupCount": 1945,
+      "totPop": 2793250
+    },
+    "25180": {
+      "walkabilityScore": 6.414,
+      "walkabilityUnweighted": 6.743,
+      "blockGroupCount": 173,
+      "totPop": 280930
+    },
+    "15680": {
+      "walkabilityScore": 6.172,
+      "walkabilityUnweighted": 5.921,
+      "blockGroupCount": 55,
+      "totPop": 111531
+    },
+    "15700": {
+      "walkabilityScore": 5.615,
+      "walkabilityUnweighted": 5.586,
+      "blockGroupCount": 29,
+      "totPop": 32261
+    },
+    "19060": {
+      "walkabilityScore": 9.114,
+      "walkabilityUnweighted": 8.829,
+      "blockGroupCount": 74,
+      "totPop": 99255
+    },
+    "20660": {
+      "walkabilityScore": 7.098,
+      "walkabilityUnweighted": 7.185,
+      "blockGroupCount": 27,
+      "totPop": 37211
+    },
+    "44140": {
+      "walkabilityScore": 10.208,
+      "walkabilityUnweighted": 10.432,
+      "blockGroupCount": 504,
+      "totPop": 701210
+    },
+    "14460": {
+      "walkabilityScore": 11.581,
+      "walkabilityUnweighted": 12.023,
+      "blockGroupCount": 3414,
+      "totPop": 4811665
+    },
+    "12700": {
+      "walkabilityScore": 8.71,
+      "walkabilityUnweighted": 9.015,
+      "blockGroupCount": 195,
+      "totPop": 213690
+    },
+    "39300": {
+      "walkabilityScore": 11.687,
+      "walkabilityUnweighted": 12.284,
+      "blockGroupCount": 1201,
+      "totPop": 1615516
+    },
+    "38340": {
+      "walkabilityScore": 9.215,
+      "walkabilityUnweighted": 9.163,
+      "blockGroupCount": 143,
+      "totPop": 127328
+    },
+    "47240": {
+      "walkabilityScore": 11.845,
+      "walkabilityUnweighted": 11.375,
+      "blockGroupCount": 20,
+      "totPop": 17313
+    },
+    "19820": {
+      "walkabilityScore": 8.517,
+      "walkabilityUnweighted": 8.975,
+      "blockGroupCount": 3694,
+      "totPop": 4317179
+    },
+    "22420": {
+      "walkabilityScore": 8.286,
+      "walkabilityUnweighted": 9.042,
+      "blockGroupCount": 373,
+      "totPop": 409361
+    },
+    "15620": {
+      "walkabilityScore": 5.855,
+      "walkabilityUnweighted": 6.0,
+      "blockGroupCount": 37,
+      "totPop": 48117
+    },
+    "21540": {
+      "walkabilityScore": 6.786,
+      "walkabilityUnweighted": 6.435,
+      "blockGroupCount": 28,
+      "totPop": 36190
+    },
+    "29620": {
+      "walkabilityScore": 8.703,
+      "walkabilityUnweighted": 9.018,
+      "blockGroupCount": 427,
+      "totPop": 545108
+    },
+    "25880": {
+      "walkabilityScore": 4.844,
+      "walkabilityUnweighted": 4.87,
+      "blockGroupCount": 41,
+      "totPop": 45830
+    },
+    "31220": {
+      "walkabilityScore": 6.172,
+      "walkabilityUnweighted": 6.301,
+      "blockGroupCount": 26,
+      "totPop": 28884
+    },
+    "31940": {
+      "walkabilityScore": 6.189,
+      "walkabilityUnweighted": 6.082,
+      "blockGroupCount": 61,
+      "totPop": 63771
+    },
+    "33220": {
+      "walkabilityScore": 5.871,
+      "walkabilityUnweighted": 5.862,
+      "blockGroupCount": 65,
+      "totPop": 83389
+    },
+    "28020": {
+      "walkabilityScore": 6.659,
+      "walkabilityUnweighted": 6.794,
+      "blockGroupCount": 189,
+      "totPop": 261573
+    },
+    "24340": {
+      "walkabilityScore": 8.34,
+      "walkabilityUnweighted": 8.709,
+      "blockGroupCount": 637,
+      "totPop": 1054559
+    },
+    "33780": {
+      "walkabilityScore": 5.69,
+      "walkabilityUnweighted": 5.728,
+      "blockGroupCount": 122,
+      "totPop": 149699
+    },
+    "27100": {
+      "walkabilityScore": 5.729,
+      "walkabilityUnweighted": 5.978,
+      "blockGroupCount": 131,
+      "totPop": 158913
+    },
+    "34740": {
+      "walkabilityScore": 6.465,
+      "walkabilityUnweighted": 6.856,
+      "blockGroupCount": 137,
+      "totPop": 173043
+    },
+    "13020": {
+      "walkabilityScore": 7.324,
+      "walkabilityUnweighted": 7.545,
+      "blockGroupCount": 92,
+      "totPop": 104786
+    },
+    "32100": {
+      "walkabilityScore": 7.039,
+      "walkabilityUnweighted": 7.211,
+      "blockGroupCount": 60,
+      "totPop": 66939
+    },
+    "40980": {
+      "walkabilityScore": 6.465,
+      "walkabilityUnweighted": 6.636,
+      "blockGroupCount": 173,
+      "totPop": 192778
+    },
+    "35660": {
+      "walkabilityScore": 6.465,
+      "walkabilityUnweighted": 6.352,
+      "blockGroupCount": 143,
+      "totPop": 154807
+    },
+    "45900": {
+      "walkabilityScore": 6.88,
+      "walkabilityUnweighted": 7.168,
+      "blockGroupCount": 101,
+      "totPop": 148400
+    },
+    "34380": {
+      "walkabilityScore": 6.635,
+      "walkabilityUnweighted": 6.473,
+      "blockGroupCount": 43,
+      "totPop": 70775
+    },
+    "26090": {
+      "walkabilityScore": 5.45,
+      "walkabilityUnweighted": 5.38,
+      "blockGroupCount": 75,
+      "totPop": 115250
+    },
+    "12980": {
+      "walkabilityScore": 6.126,
+      "walkabilityUnweighted": 6.217,
+      "blockGroupCount": 117,
+      "totPop": 134473
+    },
+    "10980": {
+      "walkabilityScore": 6.175,
+      "walkabilityUnweighted": 6.46,
+      "blockGroupCount": 33,
+      "totPop": 28612
+    },
+    "11460": {
+      "walkabilityScore": 9.619,
+      "walkabilityUnweighted": 10.24,
+      "blockGroupCount": 251,
+      "totPop": 365961
+    },
+    "26340": {
+      "walkabilityScore": 6.866,
+      "walkabilityUnweighted": 6.608,
+      "blockGroupCount": 37,
+      "totPop": 38490
+    },
+    "27020": {
+      "walkabilityScore": 6.817,
+      "walkabilityUnweighted": 6.465,
+      "blockGroupCount": 24,
+      "totPop": 29907
+    },
+    "17740": {
+      "walkabilityScore": 5.426,
+      "walkabilityUnweighted": 5.361,
+      "blockGroupCount": 42,
+      "totPop": 43584
+    },
+    "10940": {
+      "walkabilityScore": 5.46,
+      "walkabilityUnweighted": 5.464,
+      "blockGroupCount": 37,
+      "totPop": 41067
+    },
+    "44780": {
+      "walkabilityScore": 5.248,
+      "walkabilityUnweighted": 5.06,
+      "blockGroupCount": 56,
+      "totPop": 60897
+    },
+    "13660": {
+      "walkabilityScore": 6.282,
+      "walkabilityUnweighted": 6.369,
+      "blockGroupCount": 33,
+      "totPop": 43264
+    },
+    "42300": {
+      "walkabilityScore": 6.123,
+      "walkabilityUnweighted": 6.11,
+      "blockGroupCount": 35,
+      "totPop": 37834
+    },
+    "10300": {
+      "walkabilityScore": 6.027,
+      "walkabilityUnweighted": 6.02,
+      "blockGroupCount": 82,
+      "totPop": 98474
+    },
+    "33460": {
+      "walkabilityScore": 10.304,
+      "walkabilityUnweighted": 10.91,
+      "blockGroupCount": 2354,
+      "totPop": 3542616
+    },
+    "22060": {
+      "walkabilityScore": 7.406,
+      "walkabilityUnweighted": 7.252,
+      "blockGroupCount": 43,
+      "totPop": 65765
+    },
+    "41060": {
+      "walkabilityScore": 7.187,
+      "walkabilityUnweighted": 7.168,
+      "blockGroupCount": 126,
+      "totPop": 196598
+    },
+    "31860": {
+      "walkabilityScore": 7.033,
+      "walkabilityUnweighted": 7.035,
+      "blockGroupCount": 66,
+      "totPop": 100105
+    },
+    "24330": {
+      "walkabilityScore": 5.677,
+      "walkabilityUnweighted": 5.191,
+      "blockGroupCount": 41,
+      "totPop": 45203
+    },
+    "40340": {
+      "walkabilityScore": 7.69,
+      "walkabilityUnweighted": 7.582,
+      "blockGroupCount": 168,
+      "totPop": 216035
+    },
+    "10660": {
+      "walkabilityScore": 6.529,
+      "walkabilityUnweighted": 6.441,
+      "blockGroupCount": 31,
+      "totPop": 30526
+    },
+    "14660": {
+      "walkabilityScore": 6.17,
+      "walkabilityUnweighted": 6.0,
+      "blockGroupCount": 77,
+      "totPop": 92877
+    },
+    "24220": {
+      "walkabilityScore": 11.232,
+      "walkabilityUnweighted": 10.678,
+      "blockGroupCount": 86,
+      "totPop": 101991
+    },
+    "36940": {
+      "walkabilityScore": 6.639,
+      "walkabilityUnweighted": 6.667,
+      "blockGroupCount": 26,
+      "totPop": 36676
+    },
+    "12380": {
+      "walkabilityScore": 7.362,
+      "walkabilityUnweighted": 7.554,
+      "blockGroupCount": 34,
+      "totPop": 39602
+    },
+    "10820": {
+      "walkabilityScore": 6.706,
+      "walkabilityUnweighted": 6.433,
+      "blockGroupCount": 25,
+      "totPop": 37203
+    },
+    "20260": {
+      "walkabilityScore": 8.876,
+      "walkabilityUnweighted": 8.986,
+      "blockGroupCount": 291,
+      "totPop": 289591
+    },
+    "35580": {
+      "walkabilityScore": 7.668,
+      "walkabilityUnweighted": 7.564,
+      "blockGroupCount": 26,
+      "totPop": 25211
+    },
+    "22020": {
+      "walkabilityScore": 12.2,
+      "walkabilityUnweighted": 11.742,
+      "blockGroupCount": 140,
+      "totPop": 237003
+    },
+    "13420": {
+      "walkabilityScore": 6.017,
+      "walkabilityUnweighted": 5.843,
+      "blockGroupCount": 33,
+      "totPop": 46117
+    },
+    "39860": {
+      "walkabilityScore": 7.069,
+      "walkabilityUnweighted": 6.838,
+      "blockGroupCount": 37,
+      "totPop": 46217
+    },
+    "29100": {
+      "walkabilityScore": 10.706,
+      "walkabilityUnweighted": 11.322,
+      "blockGroupCount": 99,
+      "totPop": 136513
+    },
+    "21860": {
+      "walkabilityScore": 6.862,
+      "walkabilityUnweighted": 6.563,
+      "blockGroupCount": 21,
+      "totPop": 19964
+    },
+    "26780": {
+      "walkabilityScore": 6.46,
+      "walkabilityUnweighted": 6.518,
+      "blockGroupCount": 28,
+      "totPop": 35825
+    },
+    "49100": {
+      "walkabilityScore": 7.246,
+      "walkabilityUnweighted": 7.675,
+      "blockGroupCount": 38,
+      "totPop": 50847
+    },
+    "22260": {
+      "walkabilityScore": 5.89,
+      "walkabilityUnweighted": 5.87,
+      "blockGroupCount": 54,
+      "totPop": 57992
+    },
+    "48820": {
+      "walkabilityScore": 7.065,
+      "walkabilityUnweighted": 6.637,
+      "blockGroupCount": 34,
+      "totPop": 42658
+    },
+    "32140": {
+      "walkabilityScore": 7.354,
+      "walkabilityUnweighted": 7.035,
+      "blockGroupCount": 24,
+      "totPop": 25839
+    },
+    "49380": {
+      "walkabilityScore": 6.321,
+      "walkabilityUnweighted": 6.008,
+      "blockGroupCount": 22,
+      "totPop": 21839
+    },
+    "47420": {
+      "walkabilityScore": 6.419,
+      "walkabilityUnweighted": 6.406,
+      "blockGroupCount": 23,
+      "totPop": 22631
+    },
+    "27140": {
+      "walkabilityScore": 7.192,
+      "walkabilityUnweighted": 7.541,
+      "blockGroupCount": 410,
+      "totPop": 598355
+    },
+    "46980": {
+      "walkabilityScore": 5.755,
+      "walkabilityUnweighted": 6.321,
+      "blockGroupCount": 39,
+      "totPop": 47075
+    },
+    "15020": {
+      "walkabilityScore": 4.636,
+      "walkabilityUnweighted": 4.929,
+      "blockGroupCount": 26,
+      "totPop": 34432
+    },
+    "18420": {
+      "walkabilityScore": 5.269,
+      "walkabilityUnweighted": 5.691,
+      "blockGroupCount": 27,
+      "totPop": 37180
+    },
+    "24740": {
+      "walkabilityScore": 7.317,
+      "walkabilityUnweighted": 7.593,
+      "blockGroupCount": 54,
+      "totPop": 47086
+    },
+    "32940": {
+      "walkabilityScore": 5.492,
+      "walkabilityUnweighted": 5.778,
+      "blockGroupCount": 91,
+      "totPop": 103358
+    },
+    "18060": {
+      "walkabilityScore": 6.425,
+      "walkabilityUnweighted": 6.686,
+      "blockGroupCount": 44,
+      "totPop": 59437
+    },
+    "25060": {
+      "walkabilityScore": 6.174,
+      "walkabilityUnweighted": 6.614,
+      "blockGroupCount": 276,
+      "totPop": 409668
+    },
+    "32620": {
+      "walkabilityScore": 5.942,
+      "walkabilityUnweighted": 6.033,
+      "blockGroupCount": 30,
+      "totPop": 39737
+    },
+    "29860": {
+      "walkabilityScore": 5.129,
+      "walkabilityUnweighted": 5.203,
+      "blockGroupCount": 65,
+      "totPop": 84983
+    },
+    "17260": {
+      "walkabilityScore": 6.167,
+      "walkabilityUnweighted": 6.34,
+      "blockGroupCount": 24,
+      "totPop": 23802
+    },
+    "25620": {
+      "walkabilityScore": 6.275,
+      "walkabilityUnweighted": 6.596,
+      "blockGroupCount": 104,
+      "totPop": 167859
+    },
+    "17380": {
+      "walkabilityScore": 6.138,
+      "walkabilityUnweighted": 5.845,
+      "blockGroupCount": 28,
+      "totPop": 32592
+    },
+    "24980": {
+      "walkabilityScore": 6.059,
+      "walkabilityUnweighted": 6.441,
+      "blockGroupCount": 17,
+      "totPop": 21278
+    },
+    "37060": {
+      "walkabilityScore": 5.807,
+      "walkabilityUnweighted": 5.733,
+      "blockGroupCount": 30,
+      "totPop": 53459
+    },
+    "46180": {
+      "walkabilityScore": 5.256,
+      "walkabilityUnweighted": 5.324,
+      "blockGroupCount": 113,
+      "totPop": 165070
+    },
+    "38100": {
+      "walkabilityScore": 5.319,
+      "walkabilityUnweighted": 5.382,
+      "blockGroupCount": 31,
+      "totPop": 55149
+    },
+    "44260": {
+      "walkabilityScore": 5.847,
+      "walkabilityUnweighted": 5.8,
+      "blockGroupCount": 35,
+      "totPop": 59309
+    },
+    "26940": {
+      "walkabilityScore": 5.905,
+      "walkabilityUnweighted": 6.313,
+      "blockGroupCount": 25,
+      "totPop": 26532
+    },
+    "24900": {
+      "walkabilityScore": 5.966,
+      "walkabilityUnweighted": 6.211,
+      "blockGroupCount": 38,
+      "totPop": 39933
+    },
+    "48500": {
+      "walkabilityScore": 5.537,
+      "walkabilityUnweighted": 5.882,
+      "blockGroupCount": 17,
+      "totPop": 19808
+    },
+    "44180": {
+      "walkabilityScore": 7.153,
+      "walkabilityUnweighted": 7.136,
+      "blockGroupCount": 263,
+      "totPop": 458834
+    },
+    "14700": {
+      "walkabilityScore": 6.584,
+      "walkabilityUnweighted": 6.51,
+      "blockGroupCount": 34,
+      "totPop": 54720
+    },
+    "27900": {
+      "walkabilityScore": 6.945,
+      "walkabilityUnweighted": 7.235,
+      "blockGroupCount": 139,
+      "totPop": 177440
+    },
+    "33020": {
+      "walkabilityScore": 6.196,
+      "walkabilityUnweighted": 6.41,
+      "blockGroupCount": 24,
+      "totPop": 25735
+    },
+    "48460": {
+      "walkabilityScore": 5.901,
+      "walkabilityUnweighted": 6.203,
+      "blockGroupCount": 32,
+      "totPop": 40102
+    },
+    "17860": {
+      "walkabilityScore": 7.184,
+      "walkabilityUnweighted": 7.347,
+      "blockGroupCount": 111,
+      "totPop": 204250
+    },
+    "25300": {
+      "walkabilityScore": 7.072,
+      "walkabilityUnweighted": 7.25,
+      "blockGroupCount": 38,
+      "totPop": 38889
+    },
+    "40620": {
+      "walkabilityScore": 6.346,
+      "walkabilityUnweighted": 6.297,
+      "blockGroupCount": 37,
+      "totPop": 44789
+    },
+    "47660": {
+      "walkabilityScore": 6.115,
+      "walkabilityUnweighted": 6.138,
+      "blockGroupCount": 35,
+      "totPop": 53689
+    },
+    "28860": {
+      "walkabilityScore": 7.166,
+      "walkabilityUnweighted": 7.344,
+      "blockGroupCount": 30,
+      "totPop": 29827
+    },
+    "28380": {
+      "walkabilityScore": 7.1,
+      "walkabilityUnweighted": 7.045,
+      "blockGroupCount": 33,
+      "totPop": 30428
+    },
+    "27620": {
+      "walkabilityScore": 6.114,
+      "walkabilityUnweighted": 6.341,
+      "blockGroupCount": 111,
+      "totPop": 151157
+    },
+    "22780": {
+      "walkabilityScore": 5.939,
+      "walkabilityUnweighted": 5.782,
+      "blockGroupCount": 29,
+      "totPop": 52591
+    },
+    "42740": {
+      "walkabilityScore": 6.937,
+      "walkabilityUnweighted": 7.417,
+      "blockGroupCount": 38,
+      "totPop": 42371
+    },
+    "43460": {
+      "walkabilityScore": 6.601,
+      "walkabilityUnweighted": 7.381,
+      "blockGroupCount": 35,
+      "totPop": 38729
+    },
+    "38740": {
+      "walkabilityScore": 6.04,
+      "walkabilityUnweighted": 5.927,
+      "blockGroupCount": 50,
+      "totPop": 56426
+    },
+    "32340": {
+      "walkabilityScore": 7.217,
+      "walkabilityUnweighted": 6.833,
+      "blockGroupCount": 18,
+      "totPop": 22547
+    },
+    "33620": {
+      "walkabilityScore": 6.417,
+      "walkabilityUnweighted": 6.754,
+      "blockGroupCount": 21,
+      "totPop": 24945
+    },
+    "22100": {
+      "walkabilityScore": 7.117,
+      "walkabilityUnweighted": 7.194,
+      "blockGroupCount": 43,
+      "totPop": 66342
+    },
+    "30060": {
+      "walkabilityScore": 5.24,
+      "walkabilityUnweighted": 5.452,
+      "blockGroupCount": 28,
+      "totPop": 35507
+    },
+    "32180": {
+      "walkabilityScore": 6.838,
+      "walkabilityUnweighted": 6.799,
+      "blockGroupCount": 24,
+      "totPop": 23102
+    },
+    "25740": {
+      "walkabilityScore": 7.459,
+      "walkabilityUnweighted": 7.593,
+      "blockGroupCount": 61,
+      "totPop": 78855
+    },
+    "13740": {
+      "walkabilityScore": 7.395,
+      "walkabilityUnweighted": 7.765,
+      "blockGroupCount": 130,
+      "totPop": 177772
+    },
+    "24500": {
+      "walkabilityScore": 7.772,
+      "walkabilityUnweighted": 8.111,
+      "blockGroupCount": 72,
+      "totPop": 81746
+    },
+    "28060": {
+      "walkabilityScore": 7.168,
+      "walkabilityUnweighted": 7.286,
+      "blockGroupCount": 70,
+      "totPop": 98082
+    },
+    "15580": {
+      "walkabilityScore": 13.337,
+      "walkabilityUnweighted": 13.694,
+      "blockGroupCount": 37,
+      "totPop": 34814
+    },
+    "14580": {
+      "walkabilityScore": 10.878,
+      "walkabilityUnweighted": 10.608,
+      "blockGroupCount": 60,
+      "totPop": 104729
+    },
+    "33540": {
+      "walkabilityScore": 11.709,
+      "walkabilityUnweighted": 11.963,
+      "blockGroupCount": 76,
+      "totPop": 115983
+    },
+    "30700": {
+      "walkabilityScore": 12.509,
+      "walkabilityUnweighted": 12.805,
+      "blockGroupCount": 213,
+      "totPop": 327221
+    },
+    "24260": {
+      "walkabilityScore": 7.835,
+      "walkabilityUnweighted": 7.713,
+      "blockGroupCount": 61,
+      "totPop": 75551
+    },
+    "35820": {
+      "walkabilityScore": 7.831,
+      "walkabilityUnweighted": 7.977,
+      "blockGroupCount": 37,
+      "totPop": 36773
+    },
+    "13100": {
+      "walkabilityScore": 7.155,
+      "walkabilityUnweighted": 7.417,
+      "blockGroupCount": 22,
+      "totPop": 21595
+    },
+    "18100": {
+      "walkabilityScore": 8.0,
+      "walkabilityUnweighted": 7.899,
+      "blockGroupCount": 28,
+      "totPop": 33063
+    },
+    "23340": {
+      "walkabilityScore": 8.083,
+      "walkabilityUnweighted": 8.333,
+      "blockGroupCount": 32,
+      "totPop": 36683
+    },
+    "28260": {
+      "walkabilityScore": 7.802,
+      "walkabilityUnweighted": 7.562,
+      "blockGroupCount": 43,
+      "totPop": 55582
+    },
+    "25580": {
+      "walkabilityScore": 7.576,
+      "walkabilityUnweighted": 7.632,
+      "blockGroupCount": 29,
+      "totPop": 31583
+    },
+    "30420": {
+      "walkabilityScore": 6.644,
+      "walkabilityUnweighted": 6.793,
+      "blockGroupCount": 25,
+      "totPop": 25819
+    },
+    "35740": {
+      "walkabilityScore": 7.393,
+      "walkabilityUnweighted": 7.187,
+      "blockGroupCount": 42,
+      "totPop": 48313
+    },
+    "42420": {
+      "walkabilityScore": 7.483,
+      "walkabilityUnweighted": 7.248,
+      "blockGroupCount": 39,
+      "totPop": 38217
+    },
+    "23820": {
+      "walkabilityScore": 7.14,
+      "walkabilityUnweighted": 6.613,
+      "blockGroupCount": 31,
+      "totPop": 47828
+    },
+    "29820": {
+      "walkabilityScore": 11.738,
+      "walkabilityUnweighted": 11.958,
+      "blockGroupCount": 1294,
+      "totPop": 2141574
+    },
+    "21220": {
+      "walkabilityScore": 5.927,
+      "walkabilityUnweighted": 6.132,
+      "blockGroupCount": 39,
+      "totPop": 54082
+    },
+    "21980": {
+      "walkabilityScore": 5.962,
+      "walkabilityUnweighted": 6.383,
+      "blockGroupCount": 20,
+      "totPop": 24010
+    },
+    "22280": {
+      "walkabilityScore": 5.298,
+      "walkabilityUnweighted": 5.019,
+      "blockGroupCount": 27,
+      "totPop": 53155
+    },
+    "39900": {
+      "walkabilityScore": 9.993,
+      "walkabilityUnweighted": 10.151,
+      "blockGroupCount": 313,
+      "totPop": 454427
+    },
+    "49080": {
+      "walkabilityScore": 5.514,
+      "walkabilityUnweighted": 6.024,
+      "blockGroupCount": 14,
+      "totPop": 16904
+    },
+    "16180": {
+      "walkabilityScore": 9.917,
+      "walkabilityUnweighted": 9.984,
+      "blockGroupCount": 42,
+      "totPop": 54467
+    },
+    "37220": {
+      "walkabilityScore": 5.541,
+      "walkabilityUnweighted": 5.123,
+      "blockGroupCount": 23,
+      "totPop": 43705
+    },
+    "31700": {
+      "walkabilityScore": 7.302,
+      "walkabilityUnweighted": 7.645,
+      "blockGroupCount": 270,
+      "totPop": 411087
+    },
+    "30100": {
+      "walkabilityScore": 7.392,
+      "walkabilityUnweighted": 7.209,
+      "blockGroupCount": 186,
+      "totPop": 217300
+    },
+    "18180": {
+      "walkabilityScore": 6.688,
+      "walkabilityUnweighted": 6.782,
+      "blockGroupCount": 101,
+      "totPop": 149452
+    },
+    "29060": {
+      "walkabilityScore": 6.95,
+      "walkabilityUnweighted": 7.204,
+      "blockGroupCount": 49,
+      "totPop": 60640
+    },
+    "13620": {
+      "walkabilityScore": 6.478,
+      "walkabilityUnweighted": 6.481,
+      "blockGroupCount": 36,
+      "totPop": 32038
+    },
+    "28300": {
+      "walkabilityScore": 6.846,
+      "walkabilityUnweighted": 6.743,
+      "blockGroupCount": 59,
+      "totPop": 76263
+    },
+    "35620": {
+      "walkabilityScore": 12.574,
+      "walkabilityUnweighted": 12.715,
+      "blockGroupCount": 14153,
+      "totPop": 19318471
+    },
+    "45940": {
+      "walkabilityScore": 11.9,
+      "walkabilityUnweighted": 12.33,
+      "blockGroupCount": 242,
+      "totPop": 368762
+    },
+    "36140": {
+      "walkabilityScore": 10.804,
+      "walkabilityUnweighted": 11.298,
+      "blockGroupCount": 90,
+      "totPop": 93705
+    },
+    "47220": {
+      "walkabilityScore": 8.799,
+      "walkabilityUnweighted": 8.785,
+      "blockGroupCount": 99,
+      "totPop": 153400
+    },
+    "12100": {
+      "walkabilityScore": 11.365,
+      "walkabilityUnweighted": 12.25,
+      "blockGroupCount": 183,
+      "totPop": 268539
+    },
+    "10900": {
+      "walkabilityScore": 10.893,
+      "walkabilityUnweighted": 11.325,
+      "blockGroupCount": 578,
+      "totPop": 834615
+    },
+    "10740": {
+      "walkabilityScore": 10.871,
+      "walkabilityUnweighted": 11.232,
+      "blockGroupCount": 570,
+      "totPop": 910012
+    },
+    "29780": {
+      "walkabilityScore": 5.951,
+      "walkabilityUnweighted": 6.31,
+      "blockGroupCount": 29,
+      "totPop": 32597
+    },
+    "24380": {
+      "walkabilityScore": 5.744,
+      "walkabilityUnweighted": 5.532,
+      "blockGroupCount": 21,
+      "totPop": 26978
+    },
+    "22140": {
+      "walkabilityScore": 7.719,
+      "walkabilityUnweighted": 7.737,
+      "blockGroupCount": 97,
+      "totPop": 127455
+    },
+    "29740": {
+      "walkabilityScore": 7.077,
+      "walkabilityUnweighted": 7.403,
+      "blockGroupCount": 129,
+      "totPop": 215338
+    },
+    "42140": {
+      "walkabilityScore": 9.432,
+      "walkabilityUnweighted": 9.201,
+      "blockGroupCount": 102,
+      "totPop": 148917
+    },
+    "17580": {
+      "walkabilityScore": 7.575,
+      "walkabilityUnweighted": 7.842,
+      "blockGroupCount": 40,
+      "totPop": 50199
+    },
+    "43500": {
+      "walkabilityScore": 6.407,
+      "walkabilityUnweighted": 6.18,
+      "blockGroupCount": 25,
+      "totPop": 28061
+    },
+    "26020": {
+      "walkabilityScore": 7.471,
+      "walkabilityUnweighted": 7.517,
+      "blockGroupCount": 60,
+      "totPop": 70126
+    },
+    "19700": {
+      "walkabilityScore": 7.203,
+      "walkabilityUnweighted": 7.569,
+      "blockGroupCount": 17,
+      "totPop": 24264
+    },
+    "38780": {
+      "walkabilityScore": 6.701,
+      "walkabilityUnweighted": 6.696,
+      "blockGroupCount": 17,
+      "totPop": 19117
+    },
+    "23700": {
+      "walkabilityScore": 5.363,
+      "walkabilityUnweighted": 5.157,
+      "blockGroupCount": 53,
+      "totPop": 72849
+    },
+    "40740": {
+      "walkabilityScore": 7.918,
+      "walkabilityUnweighted": 7.904,
+      "blockGroupCount": 52,
+      "totPop": 65459
+    },
+    "21580": {
+      "walkabilityScore": 4.924,
+      "walkabilityUnweighted": 4.845,
+      "blockGroupCount": 29,
+      "totPop": 39307
+    },
+    "16100": {
+      "walkabilityScore": 7.548,
+      "walkabilityUnweighted": 7.739,
+      "blockGroupCount": 44,
+      "totPop": 57437
+    },
+    "10460": {
+      "walkabilityScore": 5.676,
+      "walkabilityUnweighted": 6.387,
+      "blockGroupCount": 47,
+      "totPop": 65745
+    },
+    "45340": {
+      "walkabilityScore": 6.286,
+      "walkabilityUnweighted": 6.379,
+      "blockGroupCount": 22,
+      "totPop": 32888
+    },
+    "40760": {
+      "walkabilityScore": 7.378,
+      "walkabilityUnweighted": 7.238,
+      "blockGroupCount": 14,
+      "totPop": 19482
+    },
+    "31060": {
+      "walkabilityScore": 6.359,
+      "walkabilityUnweighted": 6.304,
+      "blockGroupCount": 17,
+      "totPop": 18356
+    },
+    "21300": {
+      "walkabilityScore": 6.917,
+      "walkabilityUnweighted": 7.011,
+      "blockGroupCount": 87,
+      "totPop": 85740
+    },
+    "15380": {
+      "walkabilityScore": 10.553,
+      "walkabilityUnweighted": 11.267,
+      "blockGroupCount": 953,
+      "totPop": 1131570
+    },
+    "13780": {
+      "walkabilityScore": 6.55,
+      "walkabilityUnweighted": 6.901,
+      "blockGroupCount": 249,
+      "totPop": 243447
+    },
+    "40380": {
+      "walkabilityScore": 9.22,
+      "walkabilityUnweighted": 9.843,
+      "blockGroupCount": 847,
+      "totPop": 1074667
+    },
+    "24100": {
+      "walkabilityScore": 6.56,
+      "walkabilityUnweighted": 6.625,
+      "blockGroupCount": 56,
+      "totPop": 53743
+    },
+    "10580": {
+      "walkabilityScore": 9.601,
+      "walkabilityUnweighted": 10.13,
+      "blockGroupCount": 670,
+      "totPop": 880481
+    },
+    "24020": {
+      "walkabilityScore": 6.647,
+      "walkabilityUnweighted": 6.192,
+      "blockGroupCount": 93,
+      "totPop": 126308
+    },
+    "36460": {
+      "walkabilityScore": 6.092,
+      "walkabilityUnweighted": 5.85,
+      "blockGroupCount": 80,
+      "totPop": 77686
+    },
+    "36580": {
+      "walkabilityScore": 5.634,
+      "walkabilityUnweighted": 5.44,
+      "blockGroupCount": 56,
+      "totPop": 60244
+    },
+    "12860": {
+      "walkabilityScore": 5.722,
+      "walkabilityUnweighted": 5.813,
+      "blockGroupCount": 57,
+      "totPop": 58112
+    },
+    "39100": {
+      "walkabilityScore": 7.589,
+      "walkabilityUnweighted": 7.679,
+      "blockGroupCount": 524,
+      "totPop": 672121
+    },
+    "18660": {
+      "walkabilityScore": 6.442,
+      "walkabilityUnweighted": 6.489,
+      "blockGroupCount": 47,
+      "totPop": 48123
+    },
+    "31660": {
+      "walkabilityScore": 5.573,
+      "walkabilityUnweighted": 5.536,
+      "blockGroupCount": 42,
+      "totPop": 50692
+    },
+    "11220": {
+      "walkabilityScore": 6.064,
+      "walkabilityUnweighted": 5.921,
+      "blockGroupCount": 42,
+      "totPop": 49426
+    },
+    "46540": {
+      "walkabilityScore": 8.35,
+      "walkabilityUnweighted": 8.836,
+      "blockGroupCount": 248,
+      "totPop": 293287
+    },
+    "18500": {
+      "walkabilityScore": 6.443,
+      "walkabilityUnweighted": 6.464,
+      "blockGroupCount": 92,
+      "totPop": 96927
+    },
+    "45060": {
+      "walkabilityScore": 9.82,
+      "walkabilityUnweighted": 10.287,
+      "blockGroupCount": 508,
+      "totPop": 654705
+    },
+    "28740": {
+      "walkabilityScore": 6.342,
+      "walkabilityUnweighted": 6.303,
+      "blockGroupCount": 152,
+      "totPop": 179303
+    },
+    "38460": {
+      "walkabilityScore": 5.533,
+      "walkabilityUnweighted": 5.595,
+      "blockGroupCount": 77,
+      "totPop": 80794
+    },
+    "48060": {
+      "walkabilityScore": 6.028,
+      "walkabilityUnweighted": 5.989,
+      "blockGroupCount": 95,
+      "totPop": 114448
+    },
+    "36300": {
+      "walkabilityScore": 5.718,
+      "walkabilityUnweighted": 5.83,
+      "blockGroupCount": 107,
+      "totPop": 109558
+    },
+    "27060": {
+      "walkabilityScore": 6.523,
+      "walkabilityUnweighted": 6.589,
+      "blockGroupCount": 64,
+      "totPop": 102962
+    },
+    "42900": {
+      "walkabilityScore": 5.925,
+      "walkabilityUnweighted": 6.009,
+      "blockGroupCount": 37,
+      "totPop": 34612
+    },
+    "12180": {
+      "walkabilityScore": 7.745,
+      "walkabilityUnweighted": 7.836,
+      "blockGroupCount": 75,
+      "totPop": 77868
+    },
+    "26460": {
+      "walkabilityScore": 6.074,
+      "walkabilityUnweighted": 6.123,
+      "blockGroupCount": 61,
+      "totPop": 60919
+    },
+    "27460": {
+      "walkabilityScore": 6.865,
+      "walkabilityUnweighted": 7.096,
+      "blockGroupCount": 121,
+      "totPop": 129656
+    },
+    "22580": {
+      "walkabilityScore": 5.7,
+      "walkabilityUnweighted": 6.029,
+      "blockGroupCount": 52,
+      "totPop": 66532
+    },
+    "49180": {
+      "walkabilityScore": 6.291,
+      "walkabilityUnweighted": 6.427,
+      "blockGroupCount": 435,
+      "totPop": 661798
+    },
+    "16740": {
+      "walkabilityScore": 8.251,
+      "walkabilityUnweighted": 8.326,
+      "blockGroupCount": 1386,
+      "totPop": 2498431
+    },
+    "21020": {
+      "walkabilityScore": 6.845,
+      "walkabilityUnweighted": 7.205,
+      "blockGroupCount": 35,
+      "totPop": 52938
+    },
+    "24660": {
+      "walkabilityScore": 6.916,
+      "walkabilityUnweighted": 7.081,
+      "blockGroupCount": 447,
+      "totPop": 757810
+    },
+    "15500": {
+      "walkabilityScore": 6.504,
+      "walkabilityUnweighted": 6.779,
+      "blockGroupCount": 113,
+      "totPop": 160576
+    },
+    "22180": {
+      "walkabilityScore": 6.133,
+      "walkabilityUnweighted": 6.315,
+      "blockGroupCount": 281,
+      "totPop": 515706
+    },
+    "40460": {
+      "walkabilityScore": 5.759,
+      "walkabilityUnweighted": 5.935,
+      "blockGroupCount": 41,
+      "totPop": 45189
+    },
+    "33980": {
+      "walkabilityScore": 6.343,
+      "walkabilityUnweighted": 6.614,
+      "blockGroupCount": 70,
+      "totPop": 68920
+    },
+    "47820": {
+      "walkabilityScore": 5.77,
+      "walkabilityUnweighted": 5.929,
+      "blockGroupCount": 35,
+      "totPop": 47243
+    },
+    "24780": {
+      "walkabilityScore": 6.972,
+      "walkabilityUnweighted": 7.047,
+      "blockGroupCount": 96,
+      "totPop": 177372
+    },
+    "35100": {
+      "walkabilityScore": 6.065,
+      "walkabilityUnweighted": 6.295,
+      "blockGroupCount": 83,
+      "totPop": 125519
+    },
+    "48900": {
+      "walkabilityScore": 9.647,
+      "walkabilityUnweighted": 10.059,
+      "blockGroupCount": 150,
+      "totPop": 283251
+    },
+    "48980": {
+      "walkabilityScore": 6.648,
+      "walkabilityUnweighted": 6.758,
+      "blockGroupCount": 55,
+      "totPop": 81336
+    },
+    "34340": {
+      "walkabilityScore": 5.68,
+      "walkabilityUnweighted": 5.749,
+      "blockGroupCount": 59,
+      "totPop": 72099
+    },
+    "11700": {
+      "walkabilityScore": 7.92,
+      "walkabilityUnweighted": 7.982,
+      "blockGroupCount": 290,
+      "totPop": 449937
+    },
+    "25860": {
+      "walkabilityScore": 5.918,
+      "walkabilityUnweighted": 5.868,
+      "blockGroupCount": 239,
+      "totPop": 365339
+    },
+    "40260": {
+      "walkabilityScore": 5.327,
+      "walkabilityUnweighted": 5.338,
+      "blockGroupCount": 73,
+      "totPop": 71923
+    },
+    "40580": {
+      "walkabilityScore": 7.521,
+      "walkabilityUnweighted": 8.19,
+      "blockGroupCount": 112,
+      "totPop": 147335
+    },
+    "29900": {
+      "walkabilityScore": 5.817,
+      "walkabilityUnweighted": 5.994,
+      "blockGroupCount": 27,
+      "totPop": 35262
+    },
+    "25780": {
+      "walkabilityScore": 5.935,
+      "walkabilityUnweighted": 6.475,
+      "blockGroupCount": 33,
+      "totPop": 44482
+    },
+    "20500": {
+      "walkabilityScore": 8.783,
+      "walkabilityUnweighted": 8.953,
+      "blockGroupCount": 321,
+      "totPop": 617365
+    },
+    "31300": {
+      "walkabilityScore": 5.012,
+      "walkabilityUnweighted": 5.263,
+      "blockGroupCount": 88,
+      "totPop": 133442
+    },
+    "10620": {
+      "walkabilityScore": 5.911,
+      "walkabilityUnweighted": 6.174,
+      "blockGroupCount": 46,
+      "totPop": 61114
+    },
+    "39580": {
+      "walkabilityScore": 8.983,
+      "walkabilityUnweighted": 9.368,
+      "blockGroupCount": 569,
+      "totPop": 1302632
+    },
+    "34820": {
+      "walkabilityScore": 6.683,
+      "walkabilityUnweighted": 6.694,
+      "blockGroupCount": 237,
+      "totPop": 447775
+    },
+    "27340": {
+      "walkabilityScore": 5.74,
+      "walkabilityUnweighted": 5.933,
+      "blockGroupCount": 95,
+      "totPop": 193912
+    },
+    "28620": {
+      "walkabilityScore": 7.806,
+      "walkabilityUnweighted": 7.806,
+      "blockGroupCount": 24,
+      "totPop": 35741
+    },
+    "35900": {
+      "walkabilityScore": 4.604,
+      "walkabilityUnweighted": 4.667,
+      "blockGroupCount": 53,
+      "totPop": 68460
+    },
+    "24140": {
+      "walkabilityScore": 5.608,
+      "walkabilityUnweighted": 5.767,
+      "blockGroupCount": 75,
+      "totPop": 124002
+    },
+    "41820": {
+      "walkabilityScore": 6.02,
+      "walkabilityUnweighted": 6.045,
+      "blockGroupCount": 37,
+      "totPop": 60125
+    },
+    "28820": {
+      "walkabilityScore": 6.038,
+      "walkabilityUnweighted": 6.401,
+      "blockGroupCount": 47,
+      "totPop": 57227
+    },
+    "43140": {
+      "walkabilityScore": 5.704,
+      "walkabilityUnweighted": 5.892,
+      "blockGroupCount": 77,
+      "totPop": 97159
+    },
+    "14820": {
+      "walkabilityScore": 6.066,
+      "walkabilityUnweighted": 6.293,
+      "blockGroupCount": 25,
+      "totPop": 33513
+    },
+    "38240": {
+      "walkabilityScore": 6.075,
+      "walkabilityUnweighted": 5.883,
+      "blockGroupCount": 57,
+      "totPop": 95629
+    },
+    "32000": {
+      "walkabilityScore": 5.407,
+      "walkabilityUnweighted": 5.629,
+      "blockGroupCount": 31,
+      "totPop": 45109
+    },
+    "14380": {
+      "walkabilityScore": 7.574,
+      "walkabilityUnweighted": 7.0,
+      "blockGroupCount": 31,
+      "totPop": 54117
+    },
+    "19000": {
+      "walkabilityScore": 5.982,
+      "walkabilityUnweighted": 5.873,
+      "blockGroupCount": 38,
+      "totPop": 56510
+    },
+    "19860": {
+      "walkabilityScore": 7.647,
+      "walkabilityUnweighted": 7.607,
+      "blockGroupCount": 25,
+      "totPop": 31822
+    },
+    "13900": {
+      "walkabilityScore": 7.771,
+      "walkabilityUnweighted": 7.825,
+      "blockGroupCount": 77,
+      "totPop": 126118
+    },
+    "33500": {
+      "walkabilityScore": 7.733,
+      "walkabilityUnweighted": 7.547,
+      "blockGroupCount": 57,
+      "totPop": 77456
+    },
+    "27420": {
+      "walkabilityScore": 7.205,
+      "walkabilityUnweighted": 7.417,
+      "blockGroupCount": 22,
+      "totPop": 21064
+    },
+    "48780": {
+      "walkabilityScore": 7.674,
+      "walkabilityUnweighted": 7.88,
+      "blockGroupCount": 18,
+      "totPop": 34061
+    },
+    "44220": {
+      "walkabilityScore": 6.489,
+      "walkabilityUnweighted": 6.598,
+      "blockGroupCount": 136,
+      "totPop": 135198
+    },
+    "45660": {
+      "walkabilityScore": 6.465,
+      "walkabilityUnweighted": 6.675,
+      "blockGroupCount": 57,
+      "totPop": 55475
+    },
+    "10420": {
+      "walkabilityScore": 7.251,
+      "walkabilityUnweighted": 7.458,
+      "blockGroupCount": 553,
+      "totPop": 704454
+    },
+    "49300": {
+      "walkabilityScore": 6.242,
+      "walkabilityUnweighted": 6.444,
+      "blockGroupCount": 83,
+      "totPop": 116208
+    },
+    "16380": {
+      "walkabilityScore": 6.111,
+      "walkabilityUnweighted": 6.172,
+      "blockGroupCount": 33,
+      "totPop": 40806
+    },
+    "15940": {
+      "walkabilityScore": 7.373,
+      "walkabilityUnweighted": 7.425,
+      "blockGroupCount": 301,
+      "totPop": 401053
+    },
+    "48540": {
+      "walkabilityScore": 7.065,
+      "walkabilityUnweighted": 7.338,
+      "blockGroupCount": 149,
+      "totPop": 142664
+    },
+    "49660": {
+      "walkabilityScore": 6.541,
+      "walkabilityUnweighted": 6.642,
+      "blockGroupCount": 520,
+      "totPop": 545488
+    },
+    "18140": {
+      "walkabilityScore": 9.224,
+      "walkabilityUnweighted": 9.753,
+      "blockGroupCount": 1349,
+      "totPop": 2054062
+    },
+    "23380": {
+      "walkabilityScore": 6.555,
+      "walkabilityUnweighted": 6.669,
+      "blockGroupCount": 59,
+      "totPop": 59299
+    },
+    "46500": {
+      "walkabilityScore": 5.089,
+      "walkabilityUnweighted": 5.083,
+      "blockGroupCount": 34,
+      "totPop": 38864
+    },
+    "41400": {
+      "walkabilityScore": 6.15,
+      "walkabilityUnweighted": 6.434,
+      "blockGroupCount": 94,
+      "totPop": 104003
+    },
+    "34540": {
+      "walkabilityScore": 5.804,
+      "walkabilityUnweighted": 6.359,
+      "blockGroupCount": 46,
+      "totPop": 61215
+    },
+    "47540": {
+      "walkabilityScore": 6.363,
+      "walkabilityUnweighted": 6.557,
+      "blockGroupCount": 41,
+      "totPop": 45784
+    },
+    "11740": {
+      "walkabilityScore": 6.081,
+      "walkabilityUnweighted": 6.705,
+      "blockGroupCount": 44,
+      "totPop": 53477
+    },
+    "32020": {
+      "walkabilityScore": 5.979,
+      "walkabilityUnweighted": 6.275,
+      "blockGroupCount": 57,
+      "totPop": 65344
+    },
+    "19430": {
+      "walkabilityScore": 9.702,
+      "walkabilityUnweighted": 10.075,
+      "blockGroupCount": 618,
+      "totPop": 802645
+    },
+    "22300": {
+      "walkabilityScore": 6.984,
+      "walkabilityUnweighted": 7.269,
+      "blockGroupCount": 62,
+      "totPop": 75690
+    },
+    "39020": {
+      "walkabilityScore": 5.717,
+      "walkabilityUnweighted": 5.95,
+      "blockGroupCount": 73,
+      "totPop": 76377
+    },
+    "13340": {
+      "walkabilityScore": 5.716,
+      "walkabilityUnweighted": 6.128,
+      "blockGroupCount": 39,
+      "totPop": 45307
+    },
+    "45780": {
+      "walkabilityScore": 9.669,
+      "walkabilityUnweighted": 10.303,
+      "blockGroupCount": 561,
+      "totPop": 645329
+    },
+    "17460": {
+      "walkabilityScore": 10.176,
+      "walkabilityUnweighted": 10.695,
+      "blockGroupCount": 1691,
+      "totPop": 2061766
+    },
+    "48260": {
+      "walkabilityScore": 6.304,
+      "walkabilityUnweighted": 6.306,
+      "blockGroupCount": 120,
+      "totPop": 119338
+    },
+    "31900": {
+      "walkabilityScore": 6.345,
+      "walkabilityUnweighted": 6.439,
+      "blockGroupCount": 95,
+      "totPop": 121324
+    },
+    "30620": {
+      "walkabilityScore": 6.716,
+      "walkabilityUnweighted": 6.947,
+      "blockGroupCount": 92,
+      "totPop": 103642
+    },
+    "11900": {
+      "walkabilityScore": 8.805,
+      "walkabilityUnweighted": 7.997,
+      "blockGroupCount": 48,
+      "totPop": 65936
+    },
+    "49780": {
+      "walkabilityScore": 6.128,
+      "walkabilityUnweighted": 6.378,
+      "blockGroupCount": 75,
+      "totPop": 86076
+    },
+    "31930": {
+      "walkabilityScore": 6.078,
+      "walkabilityUnweighted": 5.922,
+      "blockGroupCount": 47,
+      "totPop": 60671
+    },
+    "43380": {
+      "walkabilityScore": 5.796,
+      "walkabilityUnweighted": 5.996,
+      "blockGroupCount": 39,
+      "totPop": 48797
+    },
+    "15340": {
+      "walkabilityScore": 6.642,
+      "walkabilityUnweighted": 6.882,
+      "blockGroupCount": 48,
+      "totPop": 42021
+    },
+    "41780": {
+      "walkabilityScore": 8.975,
+      "walkabilityUnweighted": 9.652,
+      "blockGroupCount": 69,
+      "totPop": 75136
+    },
+    "11780": {
+      "walkabilityScore": 5.875,
+      "walkabilityUnweighted": 6.192,
+      "blockGroupCount": 93,
+      "totPop": 98136
+    },
+    "15740": {
+      "walkabilityScore": 5.588,
+      "walkabilityUnweighted": 5.843,
+      "blockGroupCount": 35,
+      "totPop": 39274
+    },
+    "18740": {
+      "walkabilityScore": 5.454,
+      "walkabilityUnweighted": 6.0,
+      "blockGroupCount": 33,
+      "totPop": 36574
+    },
+    "35420": {
+      "walkabilityScore": 7.136,
+      "walkabilityUnweighted": 7.636,
+      "blockGroupCount": 77,
+      "totPop": 92526
+    },
+    "35940": {
+      "walkabilityScore": 5.884,
+      "walkabilityUnweighted": 6.049,
+      "blockGroupCount": 48,
+      "totPop": 58457
+    },
+    "24820": {
+      "walkabilityScore": 5.854,
+      "walkabilityUnweighted": 5.958,
+      "blockGroupCount": 52,
+      "totPop": 51734
+    },
+    "46780": {
+      "walkabilityScore": 6.227,
+      "walkabilityUnweighted": 6.179,
+      "blockGroupCount": 28,
+      "totPop": 28281
+    },
+    "27160": {
+      "walkabilityScore": 5.349,
+      "walkabilityUnweighted": 5.794,
+      "blockGroupCount": 30,
+      "totPop": 32524
+    },
+    "17060": {
+      "walkabilityScore": 5.133,
+      "walkabilityUnweighted": 5.575,
+      "blockGroupCount": 62,
+      "totPop": 77051
+    },
+    "48940": {
+      "walkabilityScore": 5.144,
+      "walkabilityUnweighted": 5.333,
+      "blockGroupCount": 32,
+      "totPop": 41896
+    },
+    "19580": {
+      "walkabilityScore": 5.908,
+      "walkabilityUnweighted": 6.005,
+      "blockGroupCount": 36,
+      "totPop": 38279
+    },
+    "47920": {
+      "walkabilityScore": 5.476,
+      "walkabilityUnweighted": 5.936,
+      "blockGroupCount": 26,
+      "totPop": 28645
+    },
+    "38580": {
+      "walkabilityScore": 4.681,
+      "walkabilityUnweighted": 4.883,
+      "blockGroupCount": 47,
+      "totPop": 57134
+    },
+    "46140": {
+      "walkabilityScore": 8.945,
+      "walkabilityUnweighted": 9.479,
+      "blockGroupCount": 650,
+      "totPop": 985233
+    },
+    "36420": {
+      "walkabilityScore": 8.955,
+      "walkabilityUnweighted": 9.667,
+      "blockGroupCount": 1027,
+      "totPop": 1369759
+    },
+    "21420": {
+      "walkabilityScore": 7.758,
+      "walkabilityUnweighted": 7.728,
+      "blockGroupCount": 46,
+      "totPop": 62190
+    },
+    "44660": {
+      "walkabilityScore": 7.506,
+      "walkabilityUnweighted": 7.574,
+      "blockGroupCount": 54,
+      "totPop": 81512
+    },
+    "10220": {
+      "walkabilityScore": 6.621,
+      "walkabilityUnweighted": 7.005,
+      "blockGroupCount": 32,
+      "totPop": 38358
+    },
+    "43060": {
+      "walkabilityScore": 6.557,
+      "walkabilityUnweighted": 6.906,
+      "blockGroupCount": 53,
+      "totPop": 72000
+    },
+    "34780": {
+      "walkabilityScore": 6.688,
+      "walkabilityUnweighted": 7.109,
+      "blockGroupCount": 61,
+      "totPop": 69084
+    },
+    "20460": {
+      "walkabilityScore": 6.049,
+      "walkabilityUnweighted": 5.995,
+      "blockGroupCount": 31,
+      "totPop": 45759
+    },
+    "25100": {
+      "walkabilityScore": 6.896,
+      "walkabilityUnweighted": 6.875,
+      "blockGroupCount": 20,
+      "totPop": 21121
+    },
+    "33060": {
+      "walkabilityScore": 6.653,
+      "walkabilityUnweighted": 6.787,
+      "blockGroupCount": 29,
+      "totPop": 31566
+    },
+    "38620": {
+      "walkabilityScore": 7.242,
+      "walkabilityUnweighted": 7.553,
+      "blockGroupCount": 38,
+      "totPop": 44880
+    },
+    "12780": {
+      "walkabilityScore": 6.962,
+      "walkabilityUnweighted": 6.992,
+      "blockGroupCount": 43,
+      "totPop": 52001
+    },
+    "11620": {
+      "walkabilityScore": 6.984,
+      "walkabilityUnweighted": 7.398,
+      "blockGroupCount": 49,
+      "totPop": 58339
+    },
+    "21120": {
+      "walkabilityScore": 8.013,
+      "walkabilityUnweighted": 8.213,
+      "blockGroupCount": 18,
+      "totPop": 22621
+    },
+    "30020": {
+      "walkabilityScore": 7.061,
+      "walkabilityUnweighted": 7.248,
+      "blockGroupCount": 90,
+      "totPop": 128490
+    },
+    "32540": {
+      "walkabilityScore": 6.161,
+      "walkabilityUnweighted": 6.238,
+      "blockGroupCount": 42,
+      "totPop": 44382
+    },
+    "49260": {
+      "walkabilityScore": 7.021,
+      "walkabilityUnweighted": 6.97,
+      "blockGroupCount": 22,
+      "totPop": 25039
+    },
+    "11060": {
+      "walkabilityScore": 7.292,
+      "walkabilityUnweighted": 7.312,
+      "blockGroupCount": 23,
+      "totPop": 25384
+    },
+    "45140": {
+      "walkabilityScore": 5.782,
+      "walkabilityUnweighted": 5.74,
+      "blockGroupCount": 32,
+      "totPop": 48599
+    },
+    "48220": {
+      "walkabilityScore": 7.883,
+      "walkabilityUnweighted": 7.977,
+      "blockGroupCount": 22,
+      "totPop": 29209
+    },
+    "20340": {
+      "walkabilityScore": 6.495,
+      "walkabilityUnweighted": 6.733,
+      "blockGroupCount": 35,
+      "totPop": 43983
+    },
+    "21660": {
+      "walkabilityScore": 11.546,
+      "walkabilityUnweighted": 11.134,
+      "blockGroupCount": 257,
+      "totPop": 368882
+    },
+    "41420": {
+      "walkabilityScore": 11.552,
+      "walkabilityUnweighted": 11.491,
+      "blockGroupCount": 233,
+      "totPop": 416980
+    },
+    "38900": {
+      "walkabilityScore": 12.595,
+      "walkabilityUnweighted": 12.754,
+      "blockGroupCount": 1421,
+      "totPop": 2417931
+    },
+    "25840": {
+      "walkabilityScore": 9.395,
+      "walkabilityUnweighted": 9.498,
+      "blockGroupCount": 75,
+      "totPop": 88113
+    },
+    "26220": {
+      "walkabilityScore": 9.919,
+      "walkabilityUnweighted": 10.211,
+      "blockGroupCount": 19,
+      "totPop": 23131
+    },
+    "32780": {
+      "walkabilityScore": 10.809,
+      "walkabilityUnweighted": 10.262,
+      "blockGroupCount": 127,
+      "totPop": 214267
+    },
+    "29260": {
+      "walkabilityScore": 10.636,
+      "walkabilityUnweighted": 10.769,
+      "blockGroupCount": 26,
+      "totPop": 26028
+    },
+    "18300": {
+      "walkabilityScore": 9.329,
+      "walkabilityUnweighted": 9.418,
+      "blockGroupCount": 63,
+      "totPop": 63308
+    },
+    "13460": {
+      "walkabilityScore": 9.524,
+      "walkabilityUnweighted": 9.38,
+      "blockGroupCount": 85,
+      "totPop": 180640
+    },
+    "39260": {
+      "walkabilityScore": 8.113,
+      "walkabilityUnweighted": 7.948,
+      "blockGroupCount": 16,
+      "totPop": 22337
+    },
+    "35440": {
+      "walkabilityScore": 10.076,
+      "walkabilityUnweighted": 10.581,
+      "blockGroupCount": 39,
+      "totPop": 47881
+    },
+    "45520": {
+      "walkabilityScore": 9.647,
+      "walkabilityUnweighted": 9.689,
+      "blockGroupCount": 22,
+      "totPop": 25866
+    },
+    "28900": {
+      "walkabilityScore": 9.791,
+      "walkabilityUnweighted": 10.286,
+      "blockGroupCount": 67,
+      "totPop": 66310
+    },
+    "15060": {
+      "walkabilityScore": 7.669,
+      "walkabilityUnweighted": 8.302,
+      "blockGroupCount": 16,
+      "totPop": 22507
+    },
+    "24420": {
+      "walkabilityScore": 8.646,
+      "walkabilityUnweighted": 8.491,
+      "blockGroupCount": 54,
+      "totPop": 85481
+    },
+    "11820": {
+      "walkabilityScore": 10.132,
+      "walkabilityUnweighted": 10.662,
+      "blockGroupCount": 37,
+      "totPop": 38562
+    },
+    "10540": {
+      "walkabilityScore": 9.222,
+      "walkabilityUnweighted": 9.02,
+      "blockGroupCount": 85,
+      "totPop": 122870
+    },
+    "40700": {
+      "walkabilityScore": 8.802,
+      "walkabilityUnweighted": 8.911,
+      "blockGroupCount": 84,
+      "totPop": 108323
+    },
+    "18700": {
+      "walkabilityScore": 11.676,
+      "walkabilityUnweighted": 11.689,
+      "blockGroupCount": 61,
+      "totPop": 89780
+    },
+    "42540": {
+      "walkabilityScore": 7.751,
+      "walkabilityUnweighted": 7.836,
+      "blockGroupCount": 486,
+      "totPop": 556926
+    },
+    "38300": {
+      "walkabilityScore": 9.823,
+      "walkabilityUnweighted": 10.493,
+      "blockGroupCount": 1919,
+      "totPop": 2339941
+    },
+    "49620": {
+      "walkabilityScore": 8.831,
+      "walkabilityUnweighted": 9.563,
+      "blockGroupCount": 322,
+      "totPop": 444014
+    },
+    "25420": {
+      "walkabilityScore": 9.994,
+      "walkabilityUnweighted": 10.868,
+      "blockGroupCount": 376,
+      "totPop": 567872
+    },
+    "35260": {
+      "walkabilityScore": 7.068,
+      "walkabilityUnweighted": 6.866,
+      "blockGroupCount": 77,
+      "totPop": 87382
+    },
+    "39740": {
+      "walkabilityScore": 7.701,
+      "walkabilityUnweighted": 7.906,
+      "blockGroupCount": 265,
+      "totPop": 416642
+    },
+    "29540": {
+      "walkabilityScore": 7.249,
+      "walkabilityUnweighted": 7.429,
+      "blockGroupCount": 326,
+      "totPop": 538347
+    },
+    "39060": {
+      "walkabilityScore": 7.13,
+      "walkabilityUnweighted": 7.356,
+      "blockGroupCount": 135,
+      "totPop": 143555
+    },
+    "26500": {
+      "walkabilityScore": 6.036,
+      "walkabilityUnweighted": 6.162,
+      "blockGroupCount": 40,
+      "totPop": 45421
+    },
+    "44980": {
+      "walkabilityScore": 7.472,
+      "walkabilityUnweighted": 7.924,
+      "blockGroupCount": 92,
+      "totPop": 92325
+    },
+    "44300": {
+      "walkabilityScore": 10.632,
+      "walkabilityUnweighted": 10.687,
+      "blockGroupCount": 99,
+      "totPop": 161443
+    },
+    "23900": {
+      "walkabilityScore": 7.219,
+      "walkabilityUnweighted": 7.527,
+      "blockGroupCount": 56,
+      "totPop": 102023
+    },
+    "11020": {
+      "walkabilityScore": 8.018,
+      "walkabilityUnweighted": 8.211,
+      "blockGroupCount": 113,
+      "totPop": 123842
+    },
+    "14100": {
+      "walkabilityScore": 6.946,
+      "walkabilityUnweighted": 7.098,
+      "blockGroupCount": 68,
+      "totPop": 84514
+    },
+    "16540": {
+      "walkabilityScore": 6.466,
+      "walkabilityUnweighted": 6.665,
+      "blockGroupCount": 89,
+      "totPop": 153751
+    },
+    "30260": {
+      "walkabilityScore": 6.525,
+      "walkabilityUnweighted": 7.08,
+      "blockGroupCount": 29,
+      "totPop": 45114
+    },
+    "21500": {
+      "walkabilityScore": 10.867,
+      "walkabilityUnweighted": 11.113,
+      "blockGroupCount": 231,
+      "totPop": 275972
+    },
+    "32740": {
+      "walkabilityScore": 6.011,
+      "walkabilityUnweighted": 5.968,
+      "blockGroupCount": 84,
+      "totPop": 86164
+    },
+    "43740": {
+      "walkabilityScore": 6.261,
+      "walkabilityUnweighted": 6.229,
+      "blockGroupCount": 72,
+      "totPop": 74949
+    },
+    "27780": {
+      "walkabilityScore": 7.618,
+      "walkabilityUnweighted": 7.772,
+      "blockGroupCount": 135,
+      "totPop": 134550
+    },
+    "30140": {
+      "walkabilityScore": 7.936,
+      "walkabilityUnweighted": 8.259,
+      "blockGroupCount": 85,
+      "totPop": 138674
+    },
+    "42780": {
+      "walkabilityScore": 6.492,
+      "walkabilityUnweighted": 6.611,
+      "blockGroupCount": 30,
+      "totPop": 40466
+    },
+    "41260": {
+      "walkabilityScore": 6.228,
+      "walkabilityUnweighted": 6.21,
+      "blockGroupCount": 27,
+      "totPop": 30608
+    },
+    "36340": {
+      "walkabilityScore": 6.224,
+      "walkabilityUnweighted": 6.333,
+      "blockGroupCount": 51,
+      "totPop": 52376
+    },
+    "20180": {
+      "walkabilityScore": 6.681,
+      "walkabilityUnweighted": 6.903,
+      "blockGroupCount": 65,
+      "totPop": 80216
+    },
+    "42380": {
+      "walkabilityScore": 6.273,
+      "walkabilityUnweighted": 6.291,
+      "blockGroupCount": 59,
+      "totPop": 61304
+    },
+    "20700": {
+      "walkabilityScore": 7.074,
+      "walkabilityUnweighted": 7.266,
+      "blockGroupCount": 94,
+      "totPop": 167586
+    },
+    "26860": {
+      "walkabilityScore": 6.586,
+      "walkabilityUnweighted": 6.571,
+      "blockGroupCount": 70,
+      "totPop": 85755
+    },
+    "47620": {
+      "walkabilityScore": 5.996,
+      "walkabilityUnweighted": 6.061,
+      "blockGroupCount": 44,
+      "totPop": 40035
+    },
+    "30380": {
+      "walkabilityScore": 6.75,
+      "walkabilityUnweighted": 6.961,
+      "blockGroupCount": 38,
+      "totPop": 46362
+    },
+    "30820": {
+      "walkabilityScore": 7.07,
+      "walkabilityUnweighted": 7.054,
+      "blockGroupCount": 37,
+      "totPop": 39074
+    },
+    "14620": {
+      "walkabilityScore": 6.644,
+      "walkabilityUnweighted": 6.353,
+      "blockGroupCount": 34,
+      "totPop": 41806
+    },
+    "48700": {
+      "walkabilityScore": 7.342,
+      "walkabilityUnweighted": 7.636,
+      "blockGroupCount": 113,
+      "totPop": 114859
+    },
+    "16700": {
+      "walkabilityScore": 8.642,
+      "walkabilityUnweighted": 9.216,
+      "blockGroupCount": 401,
+      "totPop": 759247
+    },
+    "24860": {
+      "walkabilityScore": 7.584,
+      "walkabilityUnweighted": 7.778,
+      "blockGroupCount": 510,
+      "totPop": 883853
+    },
+    "17900": {
+      "walkabilityScore": 7.943,
+      "walkabilityUnweighted": 8.645,
+      "blockGroupCount": 487,
+      "totPop": 816664
+    },
+    "36700": {
+      "walkabilityScore": 5.408,
+      "walkabilityUnweighted": 5.599,
+      "blockGroupCount": 74,
+      "totPop": 88454
+    },
+    "44940": {
+      "walkabilityScore": 5.804,
+      "walkabilityUnweighted": 5.927,
+      "blockGroupCount": 98,
+      "totPop": 141012
+    },
+    "22500": {
+      "walkabilityScore": 6.059,
+      "walkabilityUnweighted": 6.057,
+      "blockGroupCount": 162,
+      "totPop": 205814
+    },
+    "25940": {
+      "walkabilityScore": 6.572,
+      "walkabilityUnweighted": 6.599,
+      "blockGroupCount": 126,
+      "totPop": 210558
+    },
+    "35140": {
+      "walkabilityScore": 5.489,
+      "walkabilityUnweighted": 5.194,
+      "blockGroupCount": 31,
+      "totPop": 38068
+    },
+    "42860": {
+      "walkabilityScore": 5.909,
+      "walkabilityUnweighted": 6.026,
+      "blockGroupCount": 52,
+      "totPop": 76696
+    },
+    "43900": {
+      "walkabilityScore": 6.179,
+      "walkabilityUnweighted": 6.323,
+      "blockGroupCount": 195,
+      "totPop": 302195
+    },
+    "24940": {
+      "walkabilityScore": 6.337,
+      "walkabilityUnweighted": 6.602,
+      "blockGroupCount": 49,
+      "totPop": 70264
+    },
+    "13500": {
+      "walkabilityScore": 5.278,
+      "walkabilityUnweighted": 5.333,
+      "blockGroupCount": 24,
+      "totPop": 27131
+    },
+    "23860": {
+      "walkabilityScore": 6.317,
+      "walkabilityUnweighted": 6.47,
+      "blockGroupCount": 45,
+      "totPop": 61605
+    },
+    "46420": {
+      "walkabilityScore": 4.735,
+      "walkabilityUnweighted": 4.932,
+      "blockGroupCount": 27,
+      "totPop": 27644
+    },
+    "23500": {
+      "walkabilityScore": 5.161,
+      "walkabilityUnweighted": 5.711,
+      "blockGroupCount": 41,
+      "totPop": 56711
+    },
+    "39660": {
+      "walkabilityScore": 7.079,
+      "walkabilityUnweighted": 7.577,
+      "blockGroupCount": 84,
+      "totPop": 136718
+    },
+    "38180": {
+      "walkabilityScore": 7.674,
+      "walkabilityUnweighted": 7.912,
+      "blockGroupCount": 17,
+      "totPop": 20614
+    },
+    "43620": {
+      "walkabilityScore": 9.922,
+      "walkabilityUnweighted": 10.306,
+      "blockGroupCount": 164,
+      "totPop": 255438
+    },
+    "49460": {
+      "walkabilityScore": 7.076,
+      "walkabilityUnweighted": 6.956,
+      "blockGroupCount": 19,
+      "totPop": 22717
+    },
+    "33580": {
+      "walkabilityScore": 7.593,
+      "walkabilityUnweighted": 7.786,
+      "blockGroupCount": 21,
+      "totPop": 23298
+    },
+    "10100": {
+      "walkabilityScore": 7.427,
+      "walkabilityUnweighted": 7.505,
+      "blockGroupCount": 35,
+      "totPop": 42780
+    },
+    "26700": {
+      "walkabilityScore": 7.209,
+      "walkabilityUnweighted": 7.211,
+      "blockGroupCount": 19,
+      "totPop": 20403
+    },
+    "43940": {
+      "walkabilityScore": 7.11,
+      "walkabilityUnweighted": 7.078,
+      "blockGroupCount": 17,
+      "totPop": 25234
+    },
+    "47980": {
+      "walkabilityScore": 7.494,
+      "walkabilityUnweighted": 7.801,
+      "blockGroupCount": 26,
+      "totPop": 33993
+    },
+    "15100": {
+      "walkabilityScore": 7.105,
+      "walkabilityUnweighted": 6.944,
+      "blockGroupCount": 21,
+      "totPop": 34239
+    },
+    "46820": {
+      "walkabilityScore": 6.948,
+      "walkabilityUnweighted": 6.528,
+      "blockGroupCount": 12,
+      "totPop": 13925
+    },
+    "34980": {
+      "walkabilityScore": 7.762,
+      "walkabilityUnweighted": 8.322,
+      "blockGroupCount": 1006,
+      "totPop": 1839460
+    },
+    "28940": {
+      "walkabilityScore": 7.054,
+      "walkabilityUnweighted": 7.073,
+      "blockGroupCount": 506,
+      "totPop": 845486
+    },
+    "34100": {
+      "walkabilityScore": 5.58,
+      "walkabilityUnweighted": 5.581,
+      "blockGroupCount": 90,
+      "totPop": 140000
+    },
+    "35460": {
+      "walkabilityScore": 4.888,
+      "walkabilityUnweighted": 4.716,
+      "blockGroupCount": 27,
+      "totPop": 35336
+    },
+    "27180": {
+      "walkabilityScore": 5.896,
+      "walkabilityUnweighted": 5.77,
+      "blockGroupCount": 131,
+      "totPop": 178506
+    },
+    "18260": {
+      "walkabilityScore": 5.442,
+      "walkabilityUnweighted": 5.372,
+      "blockGroupCount": 65,
+      "totPop": 110059
+    },
+    "24620": {
+      "walkabilityScore": 4.618,
+      "walkabilityUnweighted": 4.653,
+      "blockGroupCount": 48,
+      "totPop": 68669
+    },
+    "27740": {
+      "walkabilityScore": 5.688,
+      "walkabilityUnweighted": 5.981,
+      "blockGroupCount": 130,
+      "totPop": 201226
+    },
+    "42940": {
+      "walkabilityScore": 5.959,
+      "walkabilityUnweighted": 6.027,
+      "blockGroupCount": 44,
+      "totPop": 96287
+    },
+    "29980": {
+      "walkabilityScore": 4.88,
+      "walkabilityUnweighted": 5.122,
+      "blockGroupCount": 30,
+      "totPop": 42937
+    },
+    "32660": {
+      "walkabilityScore": 5.305,
+      "walkabilityUnweighted": 5.364,
+      "blockGroupCount": 27,
+      "totPop": 40454
+    },
+    "46100": {
+      "walkabilityScore": 5.395,
+      "walkabilityUnweighted": 5.454,
+      "blockGroupCount": 65,
+      "totPop": 102365
+    },
+    "15140": {
+      "walkabilityScore": 5.027,
+      "walkabilityUnweighted": 4.956,
+      "blockGroupCount": 15,
+      "totPop": 17779
+    },
+    "32280": {
+      "walkabilityScore": 5.19,
+      "walkabilityUnweighted": 4.853,
+      "blockGroupCount": 25,
+      "totPop": 33626
+    },
+    "20540": {
+      "walkabilityScore": 5.18,
+      "walkabilityUnweighted": 5.288,
+      "blockGroupCount": 26,
+      "totPop": 37576
+    },
+    "46460": {
+      "walkabilityScore": 5.341,
+      "walkabilityUnweighted": 5.202,
+      "blockGroupCount": 28,
+      "totPop": 30520
+    },
+    "17420": {
+      "walkabilityScore": 5.823,
+      "walkabilityUnweighted": 6.119,
+      "blockGroupCount": 67,
+      "totPop": 121339
+    },
+    "19420": {
+      "walkabilityScore": 5.446,
+      "walkabilityUnweighted": 5.325,
+      "blockGroupCount": 19,
+      "totPop": 32628
+    },
+    "37540": {
+      "walkabilityScore": 5.09,
+      "walkabilityUnweighted": 5.202,
+      "blockGroupCount": 28,
+      "totPop": 32279
+    },
+    "43180": {
+      "walkabilityScore": 5.31,
+      "walkabilityUnweighted": 5.38,
+      "blockGroupCount": 25,
+      "totPop": 47558
+    },
+    "11940": {
+      "walkabilityScore": 4.966,
+      "walkabilityUnweighted": 5.583,
+      "blockGroupCount": 34,
+      "totPop": 52773
+    },
+    "30280": {
+      "walkabilityScore": 5.386,
+      "walkabilityUnweighted": 5.561,
+      "blockGroupCount": 19,
+      "totPop": 32269
+    },
+    "18900": {
+      "walkabilityScore": 5.293,
+      "walkabilityUnweighted": 5.328,
+      "blockGroupCount": 32,
+      "totPop": 58634
+    },
+    "39340": {
+      "walkabilityScore": 10.59,
+      "walkabilityUnweighted": 10.792,
+      "blockGroupCount": 352,
+      "totPop": 601388
+    },
+    "41620": {
+      "walkabilityScore": 12.879,
+      "walkabilityUnweighted": 13.13,
+      "blockGroupCount": 644,
+      "totPop": 1185990
+    },
+    "36260": {
+      "walkabilityScore": 10.793,
+      "walkabilityUnweighted": 11.093,
+      "blockGroupCount": 345,
+      "totPop": 652744
+    },
+    "16260": {
+      "walkabilityScore": 7.731,
+      "walkabilityUnweighted": 7.914,
+      "blockGroupCount": 27,
+      "totPop": 49691
+    },
+    "25720": {
+      "walkabilityScore": 7.561,
+      "walkabilityUnweighted": 7.268,
+      "blockGroupCount": 46,
+      "totPop": 71034
+    },
+    "41100": {
+      "walkabilityScore": 7.805,
+      "walkabilityUnweighted": 7.906,
+      "blockGroupCount": 57,
+      "totPop": 160537
+    },
+    "39220": {
+      "walkabilityScore": 6.944,
+      "walkabilityUnweighted": 7.036,
+      "blockGroupCount": 14,
+      "totPop": 20356
+    },
+    "46860": {
+      "walkabilityScore": 6.506,
+      "walkabilityUnweighted": 6.491,
+      "blockGroupCount": 19,
+      "totPop": 36323
+    },
+    "15540": {
+      "walkabilityScore": 9.759,
+      "walkabilityUnweighted": 9.74,
+      "blockGroupCount": 145,
+      "totPop": 218042
+    },
+    "13540": {
+      "walkabilityScore": 8.322,
+      "walkabilityUnweighted": 8.581,
+      "blockGroupCount": 35,
+      "totPop": 35920
+    },
+    "12740": {
+      "walkabilityScore": 9.155,
+      "walkabilityUnweighted": 9.557,
+      "blockGroupCount": 53,
+      "totPop": 58477
+    },
+    "40860": {
+      "walkabilityScore": 9.127,
+      "walkabilityUnweighted": 9.097,
+      "blockGroupCount": 60,
+      "totPop": 59273
+    },
+    "36020": {
+      "walkabilityScore": 8.745,
+      "walkabilityUnweighted": 9.164,
+      "blockGroupCount": 56,
+      "totPop": 81636
+    },
+    "42660": {
+      "walkabilityScore": 11.793,
+      "walkabilityUnweighted": 11.866,
+      "blockGroupCount": 2480,
+      "totPop": 3809717
+    },
+    "36500": {
+      "walkabilityScore": 9.362,
+      "walkabilityUnweighted": 9.369,
+      "blockGroupCount": 160,
+      "totPop": 274684
+    },
+    "36830": {
+      "walkabilityScore": 8.855,
+      "walkabilityUnweighted": 7.856,
+      "blockGroupCount": 15,
+      "totPop": 19452
+    },
+    "44060": {
+      "walkabilityScore": 10.563,
+      "walkabilityUnweighted": 11.187,
+      "blockGroupCount": 356,
+      "totPop": 542089
+    },
+    "34580": {
+      "walkabilityScore": 6.647,
+      "walkabilityUnweighted": 7.006,
+      "blockGroupCount": 81,
+      "totPop": 123907
+    },
+    "16500": {
+      "walkabilityScore": 5.821,
+      "walkabilityUnweighted": 6.099,
+      "blockGroupCount": 62,
+      "totPop": 76947
+    },
+    "47460": {
+      "walkabilityScore": 8.643,
+      "walkabilityUnweighted": 8.915,
+      "blockGroupCount": 43,
+      "totPop": 60236
+    },
+    "14740": {
+      "walkabilityScore": 9.321,
+      "walkabilityUnweighted": 9.18,
+      "blockGroupCount": 163,
+      "totPop": 262475
+    },
+    "10140": {
+      "walkabilityScore": 9.797,
+      "walkabilityUnweighted": 10.284,
+      "blockGroupCount": 61,
+      "totPop": 71967
+    },
+    "28420": {
+      "walkabilityScore": 10.842,
+      "walkabilityUnweighted": 10.461,
+      "blockGroupCount": 186,
+      "totPop": 284828
+    },
+    "38820": {
+      "walkabilityScore": 8.749,
+      "walkabilityUnweighted": 8.781,
+      "blockGroupCount": 54,
+      "totPop": 74487
+    },
+    "49420": {
+      "walkabilityScore": 7.998,
+      "walkabilityUnweighted": 7.706,
+      "blockGroupCount": 149,
+      "totPop": 249325
+    },
+    "21260": {
+      "walkabilityScore": 6.755,
+      "walkabilityUnweighted": 7.027,
+      "blockGroupCount": 25,
+      "totPop": 44825
+    },
+    "31020": {
+      "walkabilityScore": 8.389,
+      "walkabilityUnweighted": 8.938,
+      "blockGroupCount": 89,
+      "totPop": 105112
+    },
+    "13380": {
+      "walkabilityScore": 7.299,
+      "walkabilityUnweighted": 7.27,
+      "blockGroupCount": 102,
+      "totPop": 216812
+    },
+    "34180": {
+      "walkabilityScore": 6.829,
+      "walkabilityUnweighted": 6.815,
+      "blockGroupCount": 46,
+      "totPop": 94860
+    },
+    "48300": {
+      "walkabilityScore": 9.835,
+      "walkabilityUnweighted": 10.034,
+      "blockGroupCount": 84,
+      "totPop": 117128
+    },
+    "39420": {
+      "walkabilityScore": 6.858,
+      "walkabilityUnweighted": 6.369,
+      "blockGroupCount": 33,
+      "totPop": 48593
+    },
+    "43220": {
+      "walkabilityScore": 6.278,
+      "walkabilityUnweighted": 6.446,
+      "blockGroupCount": 49,
+      "totPop": 62627
+    },
+    "37620": {
+      "walkabilityScore": 7.052,
+      "walkabilityUnweighted": 7.043,
+      "blockGroupCount": 73,
+      "totPop": 91353
+    },
+    "34060": {
+      "walkabilityScore": 6.862,
+      "walkabilityUnweighted": 6.728,
+      "blockGroupCount": 133,
+      "totPop": 139089
+    },
+    "21180": {
+      "walkabilityScore": 5.99,
+      "walkabilityUnweighted": 5.963,
+      "blockGroupCount": 27,
+      "totPop": 29065
+    },
+    "16620": {
+      "walkabilityScore": 6.315,
+      "walkabilityUnweighted": 6.528,
+      "blockGroupCount": 240,
+      "totPop": 267408
+    },
+    "21900": {
+      "walkabilityScore": 6.754,
+      "walkabilityUnweighted": 7.006,
+      "blockGroupCount": 59,
+      "totPop": 56497
+    },
+    "13220": {
+      "walkabilityScore": 6.319,
+      "walkabilityUnweighted": 6.161,
+      "blockGroupCount": 96,
+      "totPop": 120358
+    },
+    "34350": {
+      "walkabilityScore": 5.201,
+      "walkabilityUnweighted": 4.978,
+      "blockGroupCount": 31,
+      "totPop": 33801
+    },
+    "17220": {
+      "walkabilityScore": 6.674,
+      "walkabilityUnweighted": 6.675,
+      "blockGroupCount": 85,
+      "totPop": 93696
+    },
+    "36780": {
+      "walkabilityScore": 9.232,
+      "walkabilityUnweighted": 9.762,
+      "blockGroupCount": 131,
+      "totPop": 169926
+    },
+    "48580": {
+      "walkabilityScore": 6.668,
+      "walkabilityUnweighted": 6.457,
+      "blockGroupCount": 86,
+      "totPop": 103013
+    },
+    "24580": {
+      "walkabilityScore": 6.802,
+      "walkabilityUnweighted": 6.902,
+      "blockGroupCount": 217,
+      "totPop": 317702
+    },
+    "13180": {
+      "walkabilityScore": 6.423,
+      "walkabilityUnweighted": 6.423,
+      "blockGroupCount": 67,
+      "totPop": 87776
+    },
+    "27500": {
+      "walkabilityScore": 10.151,
+      "walkabilityUnweighted": 10.554,
+      "blockGroupCount": 118,
+      "totPop": 161769
+    },
+    "39540": {
+      "walkabilityScore": 10.007,
+      "walkabilityUnweighted": 10.8,
+      "blockGroupCount": 166,
+      "totPop": 195398
+    },
+    "11540": {
+      "walkabilityScore": 7.212,
+      "walkabilityUnweighted": 7.416,
+      "blockGroupCount": 164,
+      "totPop": 234561
+    },
+    "20740": {
+      "walkabilityScore": 7.248,
+      "walkabilityUnweighted": 7.201,
+      "blockGroupCount": 115,
+      "totPop": 166626
+    },
+    "33340": {
+      "walkabilityScore": 11.234,
+      "walkabilityUnweighted": 11.763,
+      "blockGroupCount": 1300,
+      "totPop": 1575907
+    },
+    "48140": {
+      "walkabilityScore": 6.524,
+      "walkabilityUnweighted": 6.571,
+      "blockGroupCount": 129,
+      "totPop": 163112
+    },
+    "49220": {
+      "walkabilityScore": 6.867,
+      "walkabilityUnweighted": 7.039,
+      "blockGroupCount": 72,
+      "totPop": 73274
+    },
+    "44620": {
+      "walkabilityScore": 6.807,
+      "walkabilityUnweighted": 6.718,
+      "blockGroupCount": 52,
+      "totPop": 70599
+    },
+    "31820": {
+      "walkabilityScore": 6.492,
+      "walkabilityUnweighted": 6.845,
+      "blockGroupCount": 74,
+      "totPop": 79407
+    },
+    "22540": {
+      "walkabilityScore": 6.927,
+      "walkabilityUnweighted": 6.977,
+      "blockGroupCount": 86,
+      "totPop": 102315
+    },
+    "31540": {
+      "walkabilityScore": 10.293,
+      "walkabilityUnweighted": 10.123,
+      "blockGroupCount": 404,
+      "totPop": 647281
+    },
+    "43100": {
+      "walkabilityScore": 7.38,
+      "walkabilityUnweighted": 7.308,
+      "blockGroupCount": 67,
+      "totPop": 115205
+    },
+    "12660": {
+      "walkabilityScore": 6.778,
+      "walkabilityUnweighted": 6.478,
+      "blockGroupCount": 38,
+      "totPop": 63596
+    },
+    "38420": {
+      "walkabilityScore": 6.253,
+      "walkabilityUnweighted": 6.217,
+      "blockGroupCount": 46,
+      "totPop": 51828
+    },
+    "32860": {
+      "walkabilityScore": 6.142,
+      "walkabilityUnweighted": 5.794,
+      "blockGroupCount": 30,
+      "totPop": 44498
+    },
+    "48020": {
+      "walkabilityScore": 6.648,
+      "walkabilityUnweighted": 7.029,
+      "blockGroupCount": 58,
+      "totPop": 84652
+    },
+    "43020": {
+      "walkabilityScore": 6.058,
+      "walkabilityUnweighted": 5.944,
+      "blockGroupCount": 33,
+      "totPop": 45588
+    },
+    "40180": {
+      "walkabilityScore": 6.632,
+      "walkabilityUnweighted": 6.763,
+      "blockGroupCount": 31,
+      "totPop": 40076
+    },
+    "23940": {
+      "walkabilityScore": 6.283,
+      "walkabilityUnweighted": 6.895,
+      "blockGroupCount": 35,
+      "totPop": 62218
+    },
+    "40540": {
+      "walkabilityScore": 7.693,
+      "walkabilityUnweighted": 7.211,
+      "blockGroupCount": 34,
+      "totPop": 44117
+    },
+    "16940": {
+      "walkabilityScore": 7.79,
+      "walkabilityUnweighted": 7.884,
+      "blockGroupCount": 69,
+      "totPop": 97692
+    },
+    "21740": {
+      "walkabilityScore": 6.652,
+      "walkabilityUnweighted": 6.979,
+      "blockGroupCount": 16,
+      "totPop": 20609
+    },
+    "29660": {
+      "walkabilityScore": 7.495,
+      "walkabilityUnweighted": 7.833,
+      "blockGroupCount": 28,
+      "totPop": 38102
+    },
+    "43260": {
+      "walkabilityScore": 7.53,
+      "walkabilityUnweighted": 7.746,
+      "blockGroupCount": 21,
+      "totPop": 30012
+    },
+    "16220": {
+      "walkabilityScore": 8.425,
+      "walkabilityUnweighted": 8.941,
+      "blockGroupCount": 48,
+      "totPop": 80610
+    },
+    "10380": {
+      "walkabilityScore": 3.544,
+      "walkabilityUnweighted": 3.74,
+      "blockGroupCount": 214,
+      "totPop": 307555
+    },
+    "17620": {
+      "walkabilityScore": 3.482,
+      "walkabilityUnweighted": 4.0,
+      "blockGroupCount": 23,
+      "totPop": 39265
+    },
+    "41980": {
+      "walkabilityScore": 4.686,
+      "walkabilityUnweighted": 4.99,
+      "blockGroupCount": 1624,
+      "totPop": 2142392
+    },
+    "49500": {
+      "walkabilityScore": 4.057,
+      "walkabilityUnweighted": 4.201,
+      "blockGroupCount": 73,
+      "totPop": 93214
+    },
+    "11640": {
+      "walkabilityScore": 3.778,
+      "walkabilityUnweighted": 3.915,
+      "blockGroupCount": 129,
+      "totPop": 183890
+    },
+    "42180": {
+      "walkabilityScore": 4.157,
+      "walkabilityUnweighted": 4.578,
+      "blockGroupCount": 15,
+      "totPop": 22066
+    },
+    "38660": {
+      "walkabilityScore": 4.525,
+      "walkabilityUnweighted": 4.689,
+      "blockGroupCount": 195,
+      "totPop": 232060
+    },
+    "27580": {
+      "walkabilityScore": 2.791,
+      "walkabilityUnweighted": 3.111,
+      "blockGroupCount": 9,
+      "totPop": 14906
+    },
+    "41900": {
+      "walkabilityScore": 3.504,
+      "walkabilityUnweighted": 3.574,
+      "blockGroupCount": 90,
+      "totPop": 127488
+    },
+    "25020": {
+      "walkabilityScore": 4.339,
+      "walkabilityUnweighted": 4.466,
+      "blockGroupCount": 58,
+      "totPop": 77151
+    },
+    "32420": {
+      "walkabilityScore": 4.139,
+      "walkabilityUnweighted": 4.533,
+      "blockGroupCount": 87,
+      "totPop": 102034
+    },
+    "17640": {
+      "walkabilityScore": 4.666,
+      "walkabilityUnweighted": 4.545,
+      "blockGroupCount": 22,
+      "totPop": 28633
+    }
+  }
+}

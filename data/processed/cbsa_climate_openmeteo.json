@@ -1,0 +1,5758 @@
+{
+  "metadata": {
+    "source": "open_meteo_archive_2023",
+    "downloaded_at": "2026-06-28T23:04:24Z",
+    "source_url": "https://archive-api.open-meteo.com/v1/archive",
+    "cbsa_count": 939,
+    "cbsa_with_data": 939,
+    "cbsa_failed": 0,
+    "failed_codes": [],
+    "note": "Full-year 2023 daily data aggregated to annual normals",
+    "multi_year_fill": {
+      "filled_daysMaxGt90FAnnual": 39,
+      "filled_daysMinLt32FAnnual": 23,
+      "failed": [
+        "22300",
+        "22660",
+        "24330",
+        "25020",
+        "25200",
+        "25720",
+        "25880",
+        "25900",
+        "25940",
+        "27580",
+        "27980",
+        "28180",
+        "32420",
+        "37260",
+        "37340",
+        "37460",
+        "37770",
+        "38340",
+        "38460",
+        "38660",
+        "38820",
+        "38920",
+        "38940",
+        "39300",
+        "39460",
+        "39700",
+        "40100",
+        "40140",
+        "40530",
+        "41260",
+        "41400",
+        "41700",
+        "41860",
+        "41900",
+        "41980",
+        "42100",
+        "42180",
+        "42300",
+        "42660",
+        "42680",
+        "42700",
+        "43380",
+        "43740",
+        "43940",
+        "44220",
+        "45060",
+        "45300",
+        "45540",
+        "45660",
+        "45860",
+        "45900",
+        "46520",
+        "46620",
+        "47020",
+        "47240",
+        "47620",
+        "48060",
+        "48100",
+        "49500",
+        "49740",
+        "49820"
+      ],
+      "window": "2019-01-01 to 2023-12-31"
+    },
+    "multi_year_fill_retry": {
+      "filled_daysMaxGt90FAnnual": 14,
+      "filled_daysMinLt32FAnnual": 13,
+      "hard_fails": [
+        "22660",
+        "27580",
+        "27980",
+        "28180",
+        "32420",
+        "42180",
+        "42300",
+        "42660",
+        "42680",
+        "42700",
+        "46520",
+        "46620",
+        "47020",
+        "47240",
+        "47620",
+        "48060",
+        "48100",
+        "49500",
+        "49740",
+        "49820"
+      ],
+      "window": "2019-01-01 to 2023-12-31"
+    },
+    "concurrent_fill_2023": {
+      "note": "Metadata reconstructed after retry timeout; data values intact",
+      "window": "2023-01-01 to 2023-12-31",
+      "api": "https://archive-api.open-meteo.com/v1/archive"
+    },
+    "final_retry_2023": {
+      "filled_daysMaxGt90FAnnual": 0,
+      "filled_daysMinLt32FAnnual": 0,
+      "hard_fails": [
+        "10380",
+        "11260"
+      ],
+      "remaining": 65,
+      "elapsed_seconds": 138.6
+    }
+  },
+  "climate": {
+    "10100": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 166,
+      "annualPrecipitationInches": 24.3,
+      "sunshineHoursAnnual": 3469.0
+    },
+    "10140": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 38,
+      "annualPrecipitationInches": 74.7,
+      "sunshineHoursAnnual": 2810.0
+    },
+    "10180": {
+      "daysMaxGt90FAnnual": 111,
+      "daysMinLt32FAnnual": 18,
+      "annualPrecipitationInches": 18.6,
+      "sunshineHoursAnnual": 3724.0
+    },
+    "10220": {
+      "daysMaxGt90FAnnual": 72,
+      "daysMinLt32FAnnual": 24,
+      "annualPrecipitationInches": 36.3,
+      "sunshineHoursAnnual": 3476.0
+    },
+    "10300": {
+      "daysMaxGt90FAnnual": 4.0,
+      "daysMinLt32FAnnual": 104,
+      "annualPrecipitationInches": 35.1,
+      "sunshineHoursAnnual": 3013.0
+    },
+    "10380": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 54.6,
+      "sunshineHoursAnnual": 4018.0
+    },
+    "10420": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 86,
+      "annualPrecipitationInches": 40.8,
+      "sunshineHoursAnnual": 3008.0
+    },
+    "10460": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 58,
+      "annualPrecipitationInches": 15.8,
+      "sunshineHoursAnnual": 4076.0
+    },
+    "10500": {
+      "daysMaxGt90FAnnual": 64,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 46.5,
+      "sunshineHoursAnnual": 3414.0
+    },
+    "10540": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 76.0,
+      "sunshineHoursAnnual": 2974.0
+    },
+    "10580": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 119,
+      "annualPrecipitationInches": 55.6,
+      "sunshineHoursAnnual": 2942.0
+    },
+    "10620": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 23,
+      "annualPrecipitationInches": 42.8,
+      "sunshineHoursAnnual": 3347.0
+    },
+    "10660": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 147,
+      "annualPrecipitationInches": 29.1,
+      "sunshineHoursAnnual": 3225.0
+    },
+    "10700": {
+      "daysMaxGt90FAnnual": 27,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 43.9,
+      "sunshineHoursAnnual": 3400.0
+    },
+    "10740": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 149,
+      "annualPrecipitationInches": 16.7,
+      "sunshineHoursAnnual": 3961.0
+    },
+    "10760": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 52.6,
+      "sunshineHoursAnnual": 3406.0
+    },
+    "10780": {
+      "daysMaxGt90FAnnual": 119,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 41.1,
+      "sunshineHoursAnnual": 3524.0
+    },
+    "10820": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 161,
+      "annualPrecipitationInches": 26.7,
+      "sunshineHoursAnnual": 3237.0
+    },
+    "10860": {
+      "daysMaxGt90FAnnual": 132,
+      "daysMinLt32FAnnual": 2.6,
+      "annualPrecipitationInches": 29.3,
+      "sunshineHoursAnnual": 3448.0
+    },
+    "10900": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 48.8,
+      "sunshineHoursAnnual": 3110.0
+    },
+    "10940": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 125,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 2953.0
+    },
+    "10980": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 132,
+      "annualPrecipitationInches": 31.6,
+      "sunshineHoursAnnual": 2910.0
+    },
+    "11020": {
+      "daysMaxGt90FAnnual": 4.8,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 36.6,
+      "sunshineHoursAnnual": 3066.0
+    },
+    "11060": {
+      "daysMaxGt90FAnnual": 104,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 23.0,
+      "sunshineHoursAnnual": 3682.0
+    },
+    "11100": {
+      "daysMaxGt90FAnnual": 71,
+      "daysMinLt32FAnnual": 64,
+      "annualPrecipitationInches": 15.9,
+      "sunshineHoursAnnual": 3864.0
+    },
+    "11140": {
+      "daysMaxGt90FAnnual": 76,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 42.2,
+      "sunshineHoursAnnual": 3371.0
+    },
+    "11180": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 124,
+      "annualPrecipitationInches": 30.2,
+      "sunshineHoursAnnual": 3363.0
+    },
+    "11220": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 136,
+      "annualPrecipitationInches": 49.0,
+      "sunshineHoursAnnual": 2897.0
+    },
+    "11260": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 234,
+      "annualPrecipitationInches": 56.9,
+      "sunshineHoursAnnual": 2193.0
+    },
+    "11380": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 9.3,
+      "sunshineHoursAnnual": 3864.0
+    },
+    "11420": {
+      "daysMaxGt90FAnnual": 2.0,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 39.7,
+      "sunshineHoursAnnual": 2991.0
+    },
+    "11460": {
+      "daysMaxGt90FAnnual": 3.2,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 36.0,
+      "sunshineHoursAnnual": 2980.0
+    },
+    "11500": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 24,
+      "annualPrecipitationInches": 48.9,
+      "sunshineHoursAnnual": 3429.0
+    },
+    "11540": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 142,
+      "annualPrecipitationInches": 31.1,
+      "sunshineHoursAnnual": 3130.0
+    },
+    "11580": {
+      "daysMaxGt90FAnnual": 142,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 52.1,
+      "sunshineHoursAnnual": 3732.0
+    },
+    "11620": {
+      "daysMaxGt90FAnnual": 96,
+      "daysMinLt32FAnnual": 20,
+      "annualPrecipitationInches": 31.3,
+      "sunshineHoursAnnual": 3508.0
+    },
+    "11640": {
+      "daysMaxGt90FAnnual": 45,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 45.5,
+      "sunshineHoursAnnual": 4028.0
+    },
+    "11660": {
+      "daysMaxGt90FAnnual": 95,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 56.0,
+      "sunshineHoursAnnual": 3320.0
+    },
+    "11700": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 72,
+      "annualPrecipitationInches": 35.7,
+      "sunshineHoursAnnual": 3375.0
+    },
+    "11740": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 87,
+      "annualPrecipitationInches": 41.2,
+      "sunshineHoursAnnual": 3025.0
+    },
+    "11780": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 3046.0
+    },
+    "11820": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 69.9,
+      "sunshineHoursAnnual": 2637.0
+    },
+    "11860": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 96,
+      "annualPrecipitationInches": 30.0,
+      "sunshineHoursAnnual": 3453.0
+    },
+    "11900": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 35.1,
+      "sunshineHoursAnnual": 3207.0
+    },
+    "11940": {
+      "daysMaxGt90FAnnual": 31,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 44.7,
+      "sunshineHoursAnnual": 3306.0
+    },
+    "11980": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 43.8,
+      "sunshineHoursAnnual": 3336.0
+    },
+    "12020": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 19,
+      "annualPrecipitationInches": 48.3,
+      "sunshineHoursAnnual": 3285.0
+    },
+    "12060": {
+      "daysMaxGt90FAnnual": 34,
+      "daysMinLt32FAnnual": 22,
+      "annualPrecipitationInches": 55.4,
+      "sunshineHoursAnnual": 3307.0
+    },
+    "12100": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 45.4,
+      "sunshineHoursAnnual": 3242.0
+    },
+    "12120": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 47.4,
+      "sunshineHoursAnnual": 3458.0
+    },
+    "12140": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 36.6,
+      "sunshineHoursAnnual": 3090.0
+    },
+    "12180": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 51.9,
+      "sunshineHoursAnnual": 2765.0
+    },
+    "12220": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 51.2,
+      "sunshineHoursAnnual": 3429.0
+    },
+    "12260": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 47.7,
+      "sunshineHoursAnnual": 3365.0
+    },
+    "12300": {
+      "daysMaxGt90FAnnual": 3.6,
+      "daysMinLt32FAnnual": 136,
+      "annualPrecipitationInches": 58.4,
+      "sunshineHoursAnnual": 2847.0
+    },
+    "12380": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 146,
+      "annualPrecipitationInches": 30.6,
+      "sunshineHoursAnnual": 3256.0
+    },
+    "12420": {
+      "daysMaxGt90FAnnual": 118,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 40.7,
+      "sunshineHoursAnnual": 3284.0
+    },
+    "12460": {
+      "daysMaxGt90FAnnual": 74,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 60.5,
+      "sunshineHoursAnnual": 3441.0
+    },
+    "12540": {
+      "daysMaxGt90FAnnual": 94,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 19.6,
+      "sunshineHoursAnnual": 3935.0
+    },
+    "12580": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 58,
+      "annualPrecipitationInches": 49.7,
+      "sunshineHoursAnnual": 3291.0
+    },
+    "12620": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 157,
+      "annualPrecipitationInches": 54.5,
+      "sunshineHoursAnnual": 2804.0
+    },
+    "12660": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 138,
+      "annualPrecipitationInches": 30.9,
+      "sunshineHoursAnnual": 3140.0
+    },
+    "12680": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 45.9,
+      "sunshineHoursAnnual": 3266.0
+    },
+    "12700": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 44,
+      "annualPrecipitationInches": 44.4,
+      "sunshineHoursAnnual": 3003.0
+    },
+    "12740": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 147,
+      "annualPrecipitationInches": 49.4,
+      "sunshineHoursAnnual": 2723.0
+    },
+    "12780": {
+      "daysMaxGt90FAnnual": 60,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 33.1,
+      "sunshineHoursAnnual": 3425.0
+    },
+    "12860": {
+      "daysMaxGt90FAnnual": 2.0,
+      "daysMinLt32FAnnual": 112,
+      "annualPrecipitationInches": 42.8,
+      "sunshineHoursAnnual": 2744.0
+    },
+    "12900": {
+      "daysMaxGt90FAnnual": 61,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 44.0,
+      "sunshineHoursAnnual": 3477.0
+    },
+    "12940": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 40.1,
+      "sunshineHoursAnnual": 3582.0
+    },
+    "12980": {
+      "daysMaxGt90FAnnual": 2.2,
+      "daysMinLt32FAnnual": 112,
+      "annualPrecipitationInches": 38.9,
+      "sunshineHoursAnnual": 2930.0
+    },
+    "13020": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 129,
+      "annualPrecipitationInches": 33.2,
+      "sunshineHoursAnnual": 2962.0
+    },
+    "13060": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 3.2,
+      "annualPrecipitationInches": 46.3,
+      "sunshineHoursAnnual": 3587.0
+    },
+    "13100": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 114,
+      "annualPrecipitationInches": 19.6,
+      "sunshineHoursAnnual": 3504.0
+    },
+    "13140": {
+      "daysMaxGt90FAnnual": 105,
+      "daysMinLt32FAnnual": 5.2,
+      "annualPrecipitationInches": 57.4,
+      "sunshineHoursAnnual": 3443.0
+    },
+    "13180": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 135,
+      "annualPrecipitationInches": 34.9,
+      "sunshineHoursAnnual": 3107.0
+    },
+    "13220": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3164.0
+    },
+    "13260": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 64,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 3261.0
+    },
+    "13300": {
+      "daysMaxGt90FAnnual": 122,
+      "daysMinLt32FAnnual": 3.4,
+      "annualPrecipitationInches": 32.5,
+      "sunshineHoursAnnual": 3379.0
+    },
+    "13340": {
+      "daysMaxGt90FAnnual": 2.2,
+      "daysMinLt32FAnnual": 88,
+      "annualPrecipitationInches": 37.5,
+      "sunshineHoursAnnual": 3128.0
+    },
+    "13380": {
+      "daysMaxGt90FAnnual": 0.6,
+      "daysMinLt32FAnnual": 181,
+      "annualPrecipitationInches": 91.3,
+      "sunshineHoursAnnual": 2769.0
+    },
+    "13420": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 171,
+      "annualPrecipitationInches": 25.5,
+      "sunshineHoursAnnual": 3139.0
+    },
+    "13460": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 137,
+      "annualPrecipitationInches": 20.5,
+      "sunshineHoursAnnual": 3477.0
+    },
+    "13500": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 47.1,
+      "sunshineHoursAnnual": 3406.0
+    },
+    "13540": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 144,
+      "annualPrecipitationInches": 61.7,
+      "sunshineHoursAnnual": 2757.0
+    },
+    "13620": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 166,
+      "annualPrecipitationInches": 53.0,
+      "sunshineHoursAnnual": 2698.0
+    },
+    "13660": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 134,
+      "annualPrecipitationInches": 36.2,
+      "sunshineHoursAnnual": 2938.0
+    },
+    "13700": {
+      "daysMaxGt90FAnnual": 110,
+      "daysMinLt32FAnnual": 23,
+      "annualPrecipitationInches": 16.7,
+      "sunshineHoursAnnual": 3785.0
+    },
+    "13720": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 69,
+      "annualPrecipitationInches": 36.6,
+      "sunshineHoursAnnual": 3260.0
+    },
+    "13740": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 151,
+      "annualPrecipitationInches": 18.9,
+      "sunshineHoursAnnual": 3494.0
+    },
+    "13780": {
+      "daysMaxGt90FAnnual": 1.8,
+      "daysMinLt32FAnnual": 120,
+      "annualPrecipitationInches": 47.1,
+      "sunshineHoursAnnual": 2934.0
+    },
+    "13820": {
+      "daysMaxGt90FAnnual": 47,
+      "daysMinLt32FAnnual": 16,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 3417.0
+    },
+    "13900": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 179,
+      "annualPrecipitationInches": 20.3,
+      "sunshineHoursAnnual": 3354.0
+    },
+    "13940": {
+      "daysMaxGt90FAnnual": 37,
+      "daysMinLt32FAnnual": 172,
+      "annualPrecipitationInches": 15.9,
+      "sunshineHoursAnnual": 3444.0
+    },
+    "13980": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 68,
+      "annualPrecipitationInches": 35.8,
+      "sunshineHoursAnnual": 3352.0
+    },
+    "14010": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 38.8,
+      "sunshineHoursAnnual": 3226.0
+    },
+    "14020": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 65,
+      "annualPrecipitationInches": 36.8,
+      "sunshineHoursAnnual": 3250.0
+    },
+    "14100": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 91,
+      "annualPrecipitationInches": 47.5,
+      "sunshineHoursAnnual": 3135.0
+    },
+    "14140": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 37.0,
+      "sunshineHoursAnnual": 3216.0
+    },
+    "14160": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 34.7,
+      "sunshineHoursAnnual": 3108.0
+    },
+    "14180": {
+      "daysMaxGt90FAnnual": 45,
+      "daysMinLt32FAnnual": 27,
+      "annualPrecipitationInches": 44.6,
+      "sunshineHoursAnnual": 3461.0
+    },
+    "14220": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 54.3,
+      "sunshineHoursAnnual": 3510.0
+    },
+    "14260": {
+      "daysMaxGt90FAnnual": 66,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 9.7,
+      "sunshineHoursAnnual": 3545.0
+    },
+    "14300": {
+      "daysMaxGt90FAnnual": 85,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 49.7,
+      "sunshineHoursAnnual": 3374.0
+    },
+    "14380": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 44.9,
+      "sunshineHoursAnnual": 3344.0
+    },
+    "14420": {
+      "daysMaxGt90FAnnual": 72,
+      "daysMinLt32FAnnual": 67,
+      "annualPrecipitationInches": 23.8,
+      "sunshineHoursAnnual": 3786.0
+    },
+    "14460": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 103,
+      "annualPrecipitationInches": 58.4,
+      "sunshineHoursAnnual": 3005.0
+    },
+    "14500": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 200,
+      "annualPrecipitationInches": 43.0,
+      "sunshineHoursAnnual": 3637.0
+    },
+    "14540": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 43,
+      "annualPrecipitationInches": 46.6,
+      "sunshineHoursAnnual": 3357.0
+    },
+    "14580": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 203,
+      "annualPrecipitationInches": 30.4,
+      "sunshineHoursAnnual": 3408.0
+    },
+    "14620": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 132,
+      "annualPrecipitationInches": 41.6,
+      "sunshineHoursAnnual": 2817.0
+    },
+    "14660": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 163,
+      "annualPrecipitationInches": 23.8,
+      "sunshineHoursAnnual": 3032.0
+    },
+    "14700": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3491.0
+    },
+    "14720": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 333,
+      "annualPrecipitationInches": 24.5,
+      "sunshineHoursAnnual": 3750.0
+    },
+    "14740": {
+      "daysMaxGt90FAnnual": 1.2,
+      "daysMinLt32FAnnual": 16,
+      "annualPrecipitationInches": 45.4,
+      "sunshineHoursAnnual": 2900.0
+    },
+    "14780": {
+      "daysMaxGt90FAnnual": 109,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 38.2,
+      "sunshineHoursAnnual": 3414.0
+    },
+    "14820": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 56,
+      "annualPrecipitationInches": 49.0,
+      "sunshineHoursAnnual": 3356.0
+    },
+    "14860": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 86,
+      "annualPrecipitationInches": 63.3,
+      "sunshineHoursAnnual": 3120.0
+    },
+    "15020": {
+      "daysMaxGt90FAnnual": 101,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 43.8,
+      "sunshineHoursAnnual": 3508.0
+    },
+    "15060": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 81.9,
+      "sunshineHoursAnnual": 3147.0
+    },
+    "15100": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 163,
+      "annualPrecipitationInches": 29.1,
+      "sunshineHoursAnnual": 3393.0
+    },
+    "15140": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 52.2,
+      "sunshineHoursAnnual": 3420.0
+    },
+    "15180": {
+      "daysMaxGt90FAnnual": 135,
+      "daysMinLt32FAnnual": 1.2,
+      "annualPrecipitationInches": 29.8,
+      "sunshineHoursAnnual": 3478.0
+    },
+    "15220": {
+      "daysMaxGt90FAnnual": 117,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 29.1,
+      "sunshineHoursAnnual": 3594.0
+    },
+    "15260": {
+      "daysMaxGt90FAnnual": 61,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 52.4,
+      "sunshineHoursAnnual": 3501.0
+    },
+    "15340": {
+      "daysMaxGt90FAnnual": 3.4,
+      "daysMinLt32FAnnual": 88,
+      "annualPrecipitationInches": 42.8,
+      "sunshineHoursAnnual": 3084.0
+    },
+    "15380": {
+      "daysMaxGt90FAnnual": 0.8,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 43.5,
+      "sunshineHoursAnnual": 2773.0
+    },
+    "15420": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 163,
+      "annualPrecipitationInches": 28.1,
+      "sunshineHoursAnnual": 3547.0
+    },
+    "15460": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 97,
+      "annualPrecipitationInches": 29.8,
+      "sunshineHoursAnnual": 3356.0
+    },
+    "15500": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 38.2,
+      "sunshineHoursAnnual": 3393.0
+    },
+    "15540": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 133,
+      "annualPrecipitationInches": 57.3,
+      "sunshineHoursAnnual": 2741.0
+    },
+    "15580": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 201,
+      "annualPrecipitationInches": 19.6,
+      "sunshineHoursAnnual": 3550.0
+    },
+    "15620": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 142,
+      "annualPrecipitationInches": 31.2,
+      "sunshineHoursAnnual": 2858.0
+    },
+    "15660": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 30,
+      "annualPrecipitationInches": 47.4,
+      "sunshineHoursAnnual": 3325.0
+    },
+    "15680": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 20,
+      "annualPrecipitationInches": 38.8,
+      "sunshineHoursAnnual": 3385.0
+    },
+    "15700": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 43.7,
+      "sunshineHoursAnnual": 3357.0
+    },
+    "15740": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3137.0
+    },
+    "15780": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 16,
+      "annualPrecipitationInches": 54.0,
+      "sunshineHoursAnnual": 3434.0
+    },
+    "15820": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 51,
+      "annualPrecipitationInches": 41.2,
+      "sunshineHoursAnnual": 3295.0
+    },
+    "15860": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 175,
+      "annualPrecipitationInches": 16.8,
+      "sunshineHoursAnnual": 3964.0
+    },
+    "15940": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 42.5,
+      "sunshineHoursAnnual": 3041.0
+    },
+    "15980": {
+      "daysMaxGt90FAnnual": 75,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 47.9,
+      "sunshineHoursAnnual": 3884.0
+    },
+    "16020": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 48.1,
+      "sunshineHoursAnnual": 3484.0
+    },
+    "16060": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 46,
+      "annualPrecipitationInches": 43.0,
+      "sunshineHoursAnnual": 3433.0
+    },
+    "16100": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 23,
+      "annualPrecipitationInches": 4.4,
+      "sunshineHoursAnnual": 3970.0
+    },
+    "16140": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 131,
+      "annualPrecipitationInches": 28.0,
+      "sunshineHoursAnnual": 3379.0
+    },
+    "16180": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 117,
+      "annualPrecipitationInches": 19.6,
+      "sunshineHoursAnnual": 3844.0
+    },
+    "16220": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 170,
+      "annualPrecipitationInches": 19.6,
+      "sunshineHoursAnnual": 3638.0
+    },
+    "16260": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 145,
+      "annualPrecipitationInches": 12.9,
+      "sunshineHoursAnnual": 3886.0
+    },
+    "16300": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 124,
+      "annualPrecipitationInches": 29.2,
+      "sunshineHoursAnnual": 3308.0
+    },
+    "16340": {
+      "daysMaxGt90FAnnual": 32,
+      "daysMinLt32FAnnual": 19,
+      "annualPrecipitationInches": 48.2,
+      "sunshineHoursAnnual": 3374.0
+    },
+    "16380": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 37.2,
+      "sunshineHoursAnnual": 3094.0
+    },
+    "16420": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 45,
+      "annualPrecipitationInches": 45.8,
+      "sunshineHoursAnnual": 3390.0
+    },
+    "16460": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 56,
+      "annualPrecipitationInches": 41.1,
+      "sunshineHoursAnnual": 3414.0
+    },
+    "16500": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 73.6,
+      "sunshineHoursAnnual": 2821.0
+    },
+    "16540": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 34.3,
+      "sunshineHoursAnnual": 3179.0
+    },
+    "16580": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 81,
+      "annualPrecipitationInches": 35.0,
+      "sunshineHoursAnnual": 3226.0
+    },
+    "16620": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 59,
+      "annualPrecipitationInches": 45.0,
+      "sunshineHoursAnnual": 3167.0
+    },
+    "16660": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 72,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3325.0
+    },
+    "16700": {
+      "daysMaxGt90FAnnual": 51,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 56.2,
+      "sunshineHoursAnnual": 3505.0
+    },
+    "16740": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 27,
+      "annualPrecipitationInches": 41.0,
+      "sunshineHoursAnnual": 3363.0
+    },
+    "16820": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 55,
+      "annualPrecipitationInches": 36.1,
+      "sunshineHoursAnnual": 3397.0
+    },
+    "16860": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 27,
+      "annualPrecipitationInches": 48.5,
+      "sunshineHoursAnnual": 3306.0
+    },
+    "16940": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 153,
+      "annualPrecipitationInches": 19.9,
+      "sunshineHoursAnnual": 3600.0
+    },
+    "16980": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 100,
+      "annualPrecipitationInches": 51.3,
+      "sunshineHoursAnnual": 3046.0
+    },
+    "17020": {
+      "daysMaxGt90FAnnual": 80,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3586.0
+    },
+    "17060": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 3245.0
+    },
+    "17140": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 66,
+      "annualPrecipitationInches": 40.7,
+      "sunshineHoursAnnual": 3305.0
+    },
+    "17220": {
+      "daysMaxGt90FAnnual": 2.8,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 45.1,
+      "sunshineHoursAnnual": 3085.0
+    },
+    "17260": {
+      "daysMaxGt90FAnnual": 45,
+      "daysMinLt32FAnnual": 15,
+      "annualPrecipitationInches": 47.2,
+      "sunshineHoursAnnual": 3407.0
+    },
+    "17300": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 48.1,
+      "sunshineHoursAnnual": 3377.0
+    },
+    "17340": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 68,
+      "annualPrecipitationInches": 43.5,
+      "sunshineHoursAnnual": 3669.0
+    },
+    "17380": {
+      "daysMaxGt90FAnnual": 63,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 49.5,
+      "sunshineHoursAnnual": 3437.0
+    },
+    "17420": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 45.1,
+      "sunshineHoursAnnual": 3331.0
+    },
+    "17460": {
+      "daysMaxGt90FAnnual": 0.4,
+      "daysMinLt32FAnnual": 65,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 3112.0
+    },
+    "17500": {
+      "daysMaxGt90FAnnual": 141,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 60.4,
+      "sunshineHoursAnnual": 3698.0
+    },
+    "17540": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 113,
+      "annualPrecipitationInches": 29.0,
+      "sunshineHoursAnnual": 3258.0
+    },
+    "17580": {
+      "daysMaxGt90FAnnual": 73,
+      "daysMinLt32FAnnual": 62,
+      "annualPrecipitationInches": 9.5,
+      "sunshineHoursAnnual": 3962.0
+    },
+    "17620": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 37.4,
+      "sunshineHoursAnnual": 3955.0
+    },
+    "17640": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 27.2,
+      "sunshineHoursAnnual": 4039.0
+    },
+    "17660": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 149,
+      "annualPrecipitationInches": 24.4,
+      "sunshineHoursAnnual": 3187.0
+    },
+    "17700": {
+      "daysMaxGt90FAnnual": 56,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 34.2,
+      "sunshineHoursAnnual": 3434.0
+    },
+    "17740": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 102,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 2934.0
+    },
+    "17780": {
+      "daysMaxGt90FAnnual": 113,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 39.8,
+      "sunshineHoursAnnual": 3378.0
+    },
+    "17820": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 146,
+      "annualPrecipitationInches": 19.8,
+      "sunshineHoursAnnual": 3798.0
+    },
+    "17860": {
+      "daysMaxGt90FAnnual": 29,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 33.7,
+      "sunshineHoursAnnual": 3399.0
+    },
+    "17900": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 48.2,
+      "sunshineHoursAnnual": 3390.0
+    },
+    "17980": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 15,
+      "annualPrecipitationInches": 51.1,
+      "sunshineHoursAnnual": 3381.0
+    },
+    "18020": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 73,
+      "annualPrecipitationInches": 37.0,
+      "sunshineHoursAnnual": 3234.0
+    },
+    "18060": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 47.7,
+      "sunshineHoursAnnual": 3514.0
+    },
+    "18100": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 137,
+      "annualPrecipitationInches": 25.9,
+      "sunshineHoursAnnual": 3496.0
+    },
+    "18140": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 76,
+      "annualPrecipitationInches": 44.8,
+      "sunshineHoursAnnual": 3097.0
+    },
+    "18180": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 133,
+      "annualPrecipitationInches": 60.0,
+      "sunshineHoursAnnual": 2886.0
+    },
+    "18220": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3212.0
+    },
+    "18260": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 54.0,
+      "sunshineHoursAnnual": 3238.0
+    },
+    "18300": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 62.3,
+      "sunshineHoursAnnual": 3083.0
+    },
+    "18380": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 45.0,
+      "sunshineHoursAnnual": 3434.0
+    },
+    "18420": {
+      "daysMaxGt90FAnnual": 52,
+      "daysMinLt32FAnnual": 26,
+      "annualPrecipitationInches": 48.3,
+      "sunshineHoursAnnual": 3354.0
+    },
+    "18460": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 32,
+      "annualPrecipitationInches": 53.7,
+      "sunshineHoursAnnual": 3319.0
+    },
+    "18500": {
+      "daysMaxGt90FAnnual": 0.8,
+      "daysMinLt32FAnnual": 123,
+      "annualPrecipitationInches": 38.0,
+      "sunshineHoursAnnual": 2906.0
+    },
+    "18580": {
+      "daysMaxGt90FAnnual": 100,
+      "daysMinLt32FAnnual": 2.6,
+      "annualPrecipitationInches": 30.4,
+      "sunshineHoursAnnual": 3528.0
+    },
+    "18620": {
+      "daysMaxGt90FAnnual": 109,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 50.9,
+      "sunshineHoursAnnual": 3290.0
+    },
+    "18660": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 132,
+      "annualPrecipitationInches": 54.7,
+      "sunshineHoursAnnual": 2794.0
+    },
+    "18700": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 2974.0
+    },
+    "18740": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 41.3,
+      "sunshineHoursAnnual": 3088.0
+    },
+    "18780": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 186,
+      "annualPrecipitationInches": 10.9,
+      "sunshineHoursAnnual": 3700.0
+    },
+    "18820": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 76,
+      "annualPrecipitationInches": 36.4,
+      "sunshineHoursAnnual": 3190.0
+    },
+    "18860": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 76.1,
+      "sunshineHoursAnnual": 3257.0
+    },
+    "18880": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 63.4,
+      "sunshineHoursAnnual": 3576.0
+    },
+    "18900": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 46,
+      "annualPrecipitationInches": 43.2,
+      "sunshineHoursAnnual": 3285.0
+    },
+    "18980": {
+      "daysMaxGt90FAnnual": 34,
+      "daysMinLt32FAnnual": 26,
+      "annualPrecipitationInches": 51.5,
+      "sunshineHoursAnnual": 3366.0
+    },
+    "19000": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 65,
+      "annualPrecipitationInches": 43.3,
+      "sunshineHoursAnnual": 3300.0
+    },
+    "19060": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 92,
+      "annualPrecipitationInches": 30.4,
+      "sunshineHoursAnnual": 3305.0
+    },
+    "19100": {
+      "daysMaxGt90FAnnual": 110,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 51.3,
+      "sunshineHoursAnnual": 3391.0
+    },
+    "19140": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 28,
+      "annualPrecipitationInches": 45.9,
+      "sunshineHoursAnnual": 3319.0
+    },
+    "19180": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 82,
+      "annualPrecipitationInches": 35.4,
+      "sunshineHoursAnnual": 3228.0
+    },
+    "19220": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 52,
+      "annualPrecipitationInches": 41.3,
+      "sunshineHoursAnnual": 3263.0
+    },
+    "19260": {
+      "daysMaxGt90FAnnual": 32,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 38.2,
+      "sunshineHoursAnnual": 3399.0
+    },
+    "19300": {
+      "daysMaxGt90FAnnual": 84,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 54.0,
+      "sunshineHoursAnnual": 3574.0
+    },
+    "19340": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 30.5,
+      "sunshineHoursAnnual": 3271.0
+    },
+    "19420": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 44,
+      "annualPrecipitationInches": 44.7,
+      "sunshineHoursAnnual": 3268.0
+    },
+    "19430": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 79,
+      "annualPrecipitationInches": 39.4,
+      "sunshineHoursAnnual": 3186.0
+    },
+    "19460": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 47.9,
+      "sunshineHoursAnnual": 3367.0
+    },
+    "19500": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 78,
+      "annualPrecipitationInches": 35.9,
+      "sunshineHoursAnnual": 3323.0
+    },
+    "19540": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 34.6,
+      "sunshineHoursAnnual": 3094.0
+    },
+    "19580": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 94,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3089.0
+    },
+    "19620": {
+      "daysMaxGt90FAnnual": 125,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 16.0,
+      "sunshineHoursAnnual": 3540.0
+    },
+    "19660": {
+      "daysMaxGt90FAnnual": 67,
+      "daysMinLt32FAnnual": 0.6,
+      "annualPrecipitationInches": 52.6,
+      "sunshineHoursAnnual": 3634.0
+    },
+    "19700": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 5.4,
+      "sunshineHoursAnnual": 4061.0
+    },
+    "19740": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 174,
+      "annualPrecipitationInches": 29.2,
+      "sunshineHoursAnnual": 3699.0
+    },
+    "19760": {
+      "daysMaxGt90FAnnual": 119,
+      "daysMinLt32FAnnual": 6.6,
+      "annualPrecipitationInches": 45.7,
+      "sunshineHoursAnnual": 3453.0
+    },
+    "19780": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 118,
+      "annualPrecipitationInches": 28.1,
+      "sunshineHoursAnnual": 3381.0
+    },
+    "19820": {
+      "daysMaxGt90FAnnual": 2.2,
+      "daysMinLt32FAnnual": 112,
+      "annualPrecipitationInches": 37.8,
+      "sunshineHoursAnnual": 2921.0
+    },
+    "19860": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 174,
+      "annualPrecipitationInches": 15.8,
+      "sunshineHoursAnnual": 3403.0
+    },
+    "19940": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 111,
+      "annualPrecipitationInches": 33.5,
+      "sunshineHoursAnnual": 3181.0
+    },
+    "19980": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 91,
+      "annualPrecipitationInches": 28.4,
+      "sunshineHoursAnnual": 3598.0
+    },
+    "20020": {
+      "daysMaxGt90FAnnual": 76,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 48.4,
+      "sunshineHoursAnnual": 3435.0
+    },
+    "20060": {
+      "daysMaxGt90FAnnual": 70,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 48.2,
+      "sunshineHoursAnnual": 3424.0
+    },
+    "20100": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 35,
+      "annualPrecipitationInches": 46.8,
+      "sunshineHoursAnnual": 3303.0
+    },
+    "20140": {
+      "daysMaxGt90FAnnual": 72,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 49.2,
+      "sunshineHoursAnnual": 3402.0
+    },
+    "20180": {
+      "daysMaxGt90FAnnual": 1.6,
+      "daysMinLt32FAnnual": 112,
+      "annualPrecipitationInches": 39.0,
+      "sunshineHoursAnnual": 2941.0
+    },
+    "20220": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 134,
+      "annualPrecipitationInches": 32.5,
+      "sunshineHoursAnnual": 3257.0
+    },
+    "20260": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 168,
+      "annualPrecipitationInches": 25.7,
+      "sunshineHoursAnnual": 2887.0
+    },
+    "20300": {
+      "daysMaxGt90FAnnual": 67,
+      "daysMinLt32FAnnual": 66,
+      "annualPrecipitationInches": 18.8,
+      "sunshineHoursAnnual": 3835.0
+    },
+    "20340": {
+      "daysMaxGt90FAnnual": 89,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 31.4,
+      "sunshineHoursAnnual": 3550.0
+    },
+    "20420": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 194,
+      "annualPrecipitationInches": 20.6,
+      "sunshineHoursAnnual": 3922.0
+    },
+    "20460": {
+      "daysMaxGt90FAnnual": 92,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 42.5,
+      "sunshineHoursAnnual": 3413.0
+    },
+    "20500": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 42.8,
+      "sunshineHoursAnnual": 3345.0
+    },
+    "20540": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 48.1,
+      "sunshineHoursAnnual": 3484.0
+    },
+    "20580": {
+      "daysMaxGt90FAnnual": 143,
+      "daysMinLt32FAnnual": 3.2,
+      "annualPrecipitationInches": 19.9,
+      "sunshineHoursAnnual": 3470.0
+    },
+    "20660": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 44.4,
+      "sunshineHoursAnnual": 3344.0
+    },
+    "20700": {
+      "daysMaxGt90FAnnual": 1.0,
+      "daysMinLt32FAnnual": 100,
+      "annualPrecipitationInches": 52.5,
+      "sunshineHoursAnnual": 3118.0
+    },
+    "20740": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 150,
+      "annualPrecipitationInches": 38.5,
+      "sunshineHoursAnnual": 3083.0
+    },
+    "20780": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 240,
+      "annualPrecipitationInches": 20.8,
+      "sunshineHoursAnnual": 3852.0
+    },
+    "20820": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 41.0,
+      "sunshineHoursAnnual": 3375.0
+    },
+    "20900": {
+      "daysMaxGt90FAnnual": 113,
+      "daysMinLt32FAnnual": 4.2,
+      "annualPrecipitationInches": 43.0,
+      "sunshineHoursAnnual": 3410.0
+    },
+    "20940": {
+      "daysMaxGt90FAnnual": 170,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 5.3,
+      "sunshineHoursAnnual": 4058.0
+    },
+    "20980": {
+      "daysMaxGt90FAnnual": 98,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 44.0,
+      "sunshineHoursAnnual": 3462.0
+    },
+    "21020": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 44.2,
+      "sunshineHoursAnnual": 3413.0
+    },
+    "21060": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 46.6,
+      "sunshineHoursAnnual": 3337.0
+    },
+    "21120": {
+      "daysMaxGt90FAnnual": 80,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 23.3,
+      "sunshineHoursAnnual": 3696.0
+    },
+    "21140": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 102,
+      "annualPrecipitationInches": 44.0,
+      "sunshineHoursAnnual": 3006.0
+    },
+    "21180": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 45.3,
+      "sunshineHoursAnnual": 2954.0
+    },
+    "21220": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 163,
+      "annualPrecipitationInches": 12.3,
+      "sunshineHoursAnnual": 3725.0
+    },
+    "21260": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 136,
+      "annualPrecipitationInches": 17.4,
+      "sunshineHoursAnnual": 3491.0
+    },
+    "21300": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 121,
+      "annualPrecipitationInches": 45.7,
+      "sunshineHoursAnnual": 2904.0
+    },
+    "21340": {
+      "daysMaxGt90FAnnual": 83,
+      "daysMinLt32FAnnual": 29,
+      "annualPrecipitationInches": 3.7,
+      "sunshineHoursAnnual": 4059.0
+    },
+    "21380": {
+      "daysMaxGt90FAnnual": 53,
+      "daysMinLt32FAnnual": 87,
+      "annualPrecipitationInches": 27.3,
+      "sunshineHoursAnnual": 3517.0
+    },
+    "21420": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 49,
+      "annualPrecipitationInches": 26.5,
+      "sunshineHoursAnnual": 3525.0
+    },
+    "21460": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 49.8,
+      "sunshineHoursAnnual": 3431.0
+    },
+    "21500": {
+      "daysMaxGt90FAnnual": 0.6,
+      "daysMinLt32FAnnual": 79,
+      "annualPrecipitationInches": 50.5,
+      "sunshineHoursAnnual": 3012.0
+    },
+    "21540": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 137,
+      "annualPrecipitationInches": 33.9,
+      "sunshineHoursAnnual": 2937.0
+    },
+    "21580": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 171,
+      "annualPrecipitationInches": 16.4,
+      "sunshineHoursAnnual": 3873.0
+    },
+    "21640": {
+      "daysMaxGt90FAnnual": 80,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 48.4,
+      "sunshineHoursAnnual": 3422.0
+    },
+    "21660": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 69,
+      "annualPrecipitationInches": 46.7,
+      "sunshineHoursAnnual": 3019.0
+    },
+    "21700": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 65.0,
+      "sunshineHoursAnnual": 3395.0
+    },
+    "21740": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 184,
+      "annualPrecipitationInches": 16.8,
+      "sunshineHoursAnnual": 3771.0
+    },
+    "21780": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 44,
+      "annualPrecipitationInches": 39.2,
+      "sunshineHoursAnnual": 3429.0
+    },
+    "21820": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 229,
+      "annualPrecipitationInches": 23.7,
+      "sunshineHoursAnnual": 2254.0
+    },
+    "21840": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 30.7,
+      "sunshineHoursAnnual": 3365.0
+    },
+    "21860": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 146,
+      "annualPrecipitationInches": 34.5,
+      "sunshineHoursAnnual": 3298.0
+    },
+    "21900": {
+      "daysMaxGt90FAnnual": 3.4,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 44.6,
+      "sunshineHoursAnnual": 3040.0
+    },
+    "21980": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 145,
+      "annualPrecipitationInches": 19.4,
+      "sunshineHoursAnnual": 3872.0
+    },
+    "22020": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 169,
+      "annualPrecipitationInches": 20.1,
+      "sunshineHoursAnnual": 3232.0
+    },
+    "22060": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 146,
+      "annualPrecipitationInches": 32.9,
+      "sunshineHoursAnnual": 3262.0
+    },
+    "22100": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 37.5,
+      "sunshineHoursAnnual": 3425.0
+    },
+    "22140": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 125,
+      "annualPrecipitationInches": 7.4,
+      "sunshineHoursAnnual": 3981.0
+    },
+    "22180": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 50.0,
+      "sunshineHoursAnnual": 3380.0
+    },
+    "22220": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 3422.0
+    },
+    "22260": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 162,
+      "annualPrecipitationInches": 24.5,
+      "sunshineHoursAnnual": 3209.0
+    },
+    "22280": {
+      "daysMaxGt90FAnnual": 51,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 14.0,
+      "sunshineHoursAnnual": 3898.0
+    },
+    "22300": {
+      "daysMaxGt90FAnnual": 5.6,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 36.7,
+      "sunshineHoursAnnual": 3116.0
+    },
+    "22340": {
+      "daysMaxGt90FAnnual": 75,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 49.9,
+      "sunshineHoursAnnual": 3412.0
+    },
+    "22380": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 126,
+      "annualPrecipitationInches": 12.8,
+      "sunshineHoursAnnual": 4004.0
+    },
+    "22420": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 114,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 2889.0
+    },
+    "22500": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 50.2,
+      "sunshineHoursAnnual": 3432.0
+    },
+    "22520": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 20,
+      "annualPrecipitationInches": 49.3,
+      "sunshineHoursAnnual": 3386.0
+    },
+    "22540": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 136,
+      "annualPrecipitationInches": 32.8,
+      "sunshineHoursAnnual": 3133.0
+    },
+    "22580": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 41.0,
+      "sunshineHoursAnnual": 3379.0
+    },
+    "22620": {
+      "daysMaxGt90FAnnual": 61,
+      "daysMinLt32FAnnual": 20,
+      "annualPrecipitationInches": 51.9,
+      "sunshineHoursAnnual": 3448.0
+    },
+    "22660": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 193,
+      "annualPrecipitationInches": 30.2,
+      "sunshineHoursAnnual": 3733.0
+    },
+    "22700": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 129,
+      "annualPrecipitationInches": 29.5,
+      "sunshineHoursAnnual": 3315.0
+    },
+    "22780": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 55,
+      "annualPrecipitationInches": 38.0,
+      "sunshineHoursAnnual": 3434.0
+    },
+    "22800": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 87,
+      "annualPrecipitationInches": 32.1,
+      "sunshineHoursAnnual": 3384.0
+    },
+    "22820": {
+      "daysMaxGt90FAnnual": 28,
+      "daysMinLt32FAnnual": 157,
+      "annualPrecipitationInches": 22.1,
+      "sunshineHoursAnnual": 3653.0
+    },
+    "22840": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 46.3,
+      "sunshineHoursAnnual": 3352.0
+    },
+    "22860": {
+      "daysMaxGt90FAnnual": 121,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 41.9,
+      "sunshineHoursAnnual": 3464.0
+    },
+    "22900": {
+      "daysMaxGt90FAnnual": 68,
+      "daysMinLt32FAnnual": 28,
+      "annualPrecipitationInches": 56.3,
+      "sunshineHoursAnnual": 3415.0
+    },
+    "23060": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 94,
+      "annualPrecipitationInches": 33.1,
+      "sunshineHoursAnnual": 3087.0
+    },
+    "23140": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 82,
+      "annualPrecipitationInches": 35.7,
+      "sunshineHoursAnnual": 3162.0
+    },
+    "23180": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 55,
+      "annualPrecipitationInches": 41.1,
+      "sunshineHoursAnnual": 3246.0
+    },
+    "23240": {
+      "daysMaxGt90FAnnual": 101,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 24.1,
+      "sunshineHoursAnnual": 3428.0
+    },
+    "23300": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 121,
+      "annualPrecipitationInches": 34.5,
+      "sunshineHoursAnnual": 3143.0
+    },
+    "23340": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 135,
+      "annualPrecipitationInches": 28.4,
+      "sunshineHoursAnnual": 3428.0
+    },
+    "23380": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 40.1,
+      "sunshineHoursAnnual": 3084.0
+    },
+    "23420": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 25.7,
+      "sunshineHoursAnnual": 3846.0
+    },
+    "23460": {
+      "daysMaxGt90FAnnual": 37,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 50.5,
+      "sunshineHoursAnnual": 3344.0
+    },
+    "23500": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 27,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3345.0
+    },
+    "23540": {
+      "daysMaxGt90FAnnual": 82,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 42.5,
+      "sunshineHoursAnnual": 3652.0
+    },
+    "23580": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 50.0,
+      "sunshineHoursAnnual": 3315.0
+    },
+    "23620": {
+      "daysMaxGt90FAnnual": 104,
+      "daysMinLt32FAnnual": 19,
+      "annualPrecipitationInches": 38.6,
+      "sunshineHoursAnnual": 3473.0
+    },
+    "23660": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 103,
+      "annualPrecipitationInches": 34.1,
+      "sunshineHoursAnnual": 3296.0
+    },
+    "23700": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 153,
+      "annualPrecipitationInches": 11.4,
+      "sunshineHoursAnnual": 3958.0
+    },
+    "23780": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 24.7,
+      "sunshineHoursAnnual": 3644.0
+    },
+    "23820": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 149,
+      "annualPrecipitationInches": 22.0,
+      "sunshineHoursAnnual": 3873.0
+    },
+    "23860": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 59.1,
+      "sunshineHoursAnnual": 3526.0
+    },
+    "23900": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 64,
+      "annualPrecipitationInches": 38.6,
+      "sunshineHoursAnnual": 3234.0
+    },
+    "23940": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 164,
+      "annualPrecipitationInches": 19.1,
+      "sunshineHoursAnnual": 3503.0
+    },
+    "23980": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 42,
+      "annualPrecipitationInches": 44.9,
+      "sunshineHoursAnnual": 3304.0
+    },
+    "24020": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 119,
+      "annualPrecipitationInches": 52.7,
+      "sunshineHoursAnnual": 2948.0
+    },
+    "24060": {
+      "daysMaxGt90FAnnual": 26,
+      "daysMinLt32FAnnual": 169,
+      "annualPrecipitationInches": 19.7,
+      "sunshineHoursAnnual": 3743.0
+    },
+    "24100": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 135,
+      "annualPrecipitationInches": 55.8,
+      "sunshineHoursAnnual": 2854.0
+    },
+    "24140": {
+      "daysMaxGt90FAnnual": 44,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 48.3,
+      "sunshineHoursAnnual": 3406.0
+    },
+    "24180": {
+      "daysMaxGt90FAnnual": 113,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 47.8,
+      "sunshineHoursAnnual": 3486.0
+    },
+    "24220": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 175,
+      "annualPrecipitationInches": 20.5,
+      "sunshineHoursAnnual": 3190.0
+    },
+    "24260": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 138,
+      "annualPrecipitationInches": 22.5,
+      "sunshineHoursAnnual": 3506.0
+    },
+    "24300": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 140,
+      "annualPrecipitationInches": 22.2,
+      "sunshineHoursAnnual": 3943.0
+    },
+    "24330": {
+      "daysMaxGt90FAnnual": 0.6,
+      "daysMinLt32FAnnual": 169,
+      "annualPrecipitationInches": 24.3,
+      "sunshineHoursAnnual": 2996.0
+    },
+    "24340": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 39.1,
+      "sunshineHoursAnnual": 2883.0
+    },
+    "24380": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 143,
+      "annualPrecipitationInches": 11.7,
+      "sunshineHoursAnnual": 3966.0
+    },
+    "24420": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 68,
+      "annualPrecipitationInches": 42.3,
+      "sunshineHoursAnnual": 3367.0
+    },
+    "24460": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 26.3,
+      "sunshineHoursAnnual": 3584.0
+    },
+    "24500": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 132,
+      "annualPrecipitationInches": 17.0,
+      "sunshineHoursAnnual": 3362.0
+    },
+    "24540": {
+      "daysMaxGt90FAnnual": 26,
+      "daysMinLt32FAnnual": 157,
+      "annualPrecipitationInches": 18.8,
+      "sunshineHoursAnnual": 3659.0
+    },
+    "24580": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 136,
+      "annualPrecipitationInches": 32.7,
+      "sunshineHoursAnnual": 3113.0
+    },
+    "24620": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 52,
+      "annualPrecipitationInches": 40.6,
+      "sunshineHoursAnnual": 3336.0
+    },
+    "24660": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 36.8,
+      "sunshineHoursAnnual": 3378.0
+    },
+    "24700": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 73,
+      "annualPrecipitationInches": 39.6,
+      "sunshineHoursAnnual": 3227.0
+    },
+    "24740": {
+      "daysMaxGt90FAnnual": 73,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 39.4,
+      "sunshineHoursAnnual": 3494.0
+    },
+    "24780": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 51.1,
+      "sunshineHoursAnnual": 3409.0
+    },
+    "24820": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 36.1,
+      "sunshineHoursAnnual": 3167.0
+    },
+    "24860": {
+      "daysMaxGt90FAnnual": 34,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3345.0
+    },
+    "24900": {
+      "daysMaxGt90FAnnual": 52,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 44.9,
+      "sunshineHoursAnnual": 3481.0
+    },
+    "24940": {
+      "daysMaxGt90FAnnual": 50,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 46.5,
+      "sunshineHoursAnnual": 3365.0
+    },
+    "24980": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 45.1,
+      "sunshineHoursAnnual": 3474.0
+    },
+    "25020": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 31.2,
+      "sunshineHoursAnnual": 4014.0
+    },
+    "25060": {
+      "daysMaxGt90FAnnual": 79,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 50.6,
+      "sunshineHoursAnnual": 3542.0
+    },
+    "25100": {
+      "daysMaxGt90FAnnual": 63,
+      "daysMinLt32FAnnual": 81,
+      "annualPrecipitationInches": 17.5,
+      "sunshineHoursAnnual": 3754.0
+    },
+    "25180": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 63,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3327.0
+    },
+    "25200": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 214,
+      "annualPrecipitationInches": 21.2,
+      "sunshineHoursAnnual": 3665.0
+    },
+    "25220": {
+      "daysMaxGt90FAnnual": 110,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 54.1,
+      "sunshineHoursAnnual": 3544.0
+    },
+    "25260": {
+      "daysMaxGt90FAnnual": 117,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 19.2,
+      "sunshineHoursAnnual": 3892.0
+    },
+    "25300": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 75,
+      "annualPrecipitationInches": 28.8,
+      "sunshineHoursAnnual": 3357.0
+    },
+    "25420": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 75,
+      "annualPrecipitationInches": 40.4,
+      "sunshineHoursAnnual": 3221.0
+    },
+    "25460": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 35.8,
+      "sunshineHoursAnnual": 3473.0
+    },
+    "25500": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 28.8,
+      "sunshineHoursAnnual": 3377.0
+    },
+    "25540": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 57.1,
+      "sunshineHoursAnnual": 3076.0
+    },
+    "25580": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 134,
+      "annualPrecipitationInches": 23.1,
+      "sunshineHoursAnnual": 3564.0
+    },
+    "25620": {
+      "daysMaxGt90FAnnual": 104,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 47.9,
+      "sunshineHoursAnnual": 3555.0
+    },
+    "25700": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 20.7,
+      "sunshineHoursAnnual": 3582.0
+    },
+    "25720": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 280,
+      "annualPrecipitationInches": 42.0,
+      "sunshineHoursAnnual": 3546.0
+    },
+    "25740": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 170,
+      "annualPrecipitationInches": 18.6,
+      "sunshineHoursAnnual": 3446.0
+    },
+    "25760": {
+      "daysMaxGt90FAnnual": 51,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 3440.0
+    },
+    "25780": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 22,
+      "annualPrecipitationInches": 46.4,
+      "sunshineHoursAnnual": 3370.0
+    },
+    "25820": {
+      "daysMaxGt90FAnnual": 69,
+      "daysMinLt32FAnnual": 61,
+      "annualPrecipitationInches": 12.6,
+      "sunshineHoursAnnual": 3908.0
+    },
+    "25840": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 17.9,
+      "sunshineHoursAnnual": 3326.0
+    },
+    "25860": {
+      "daysMaxGt90FAnnual": 28,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 40.8,
+      "sunshineHoursAnnual": 3397.0
+    },
+    "25880": {
+      "daysMaxGt90FAnnual": 1.8,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 35.0,
+      "sunshineHoursAnnual": 2919.0
+    },
+    "25900": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 1.5,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3914.0
+    },
+    "25940": {
+      "daysMaxGt90FAnnual": 59,
+      "daysMinLt32FAnnual": 2.6,
+      "annualPrecipitationInches": 51.4,
+      "sunshineHoursAnnual": 3542.0
+    },
+    "25980": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 50.2,
+      "sunshineHoursAnnual": 3464.0
+    },
+    "26020": {
+      "daysMaxGt90FAnnual": 103,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 7.8,
+      "sunshineHoursAnnual": 3949.0
+    },
+    "26090": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 43.0,
+      "sunshineHoursAnnual": 2964.0
+    },
+    "26140": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 0.6,
+      "annualPrecipitationInches": 47.0,
+      "sunshineHoursAnnual": 3728.0
+    },
+    "26220": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 122,
+      "annualPrecipitationInches": 51.0,
+      "sunshineHoursAnnual": 3005.0
+    },
+    "26260": {
+      "daysMaxGt90FAnnual": 97,
+      "daysMinLt32FAnnual": 16,
+      "annualPrecipitationInches": 53.4,
+      "sunshineHoursAnnual": 3419.0
+    },
+    "26300": {
+      "daysMaxGt90FAnnual": 72,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 52.6,
+      "sunshineHoursAnnual": 3388.0
+    },
+    "26340": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 34.0,
+      "sunshineHoursAnnual": 2849.0
+    },
+    "26380": {
+      "daysMaxGt90FAnnual": 64,
+      "daysMinLt32FAnnual": 1.6,
+      "annualPrecipitationInches": 41.8,
+      "sunshineHoursAnnual": 3671.0
+    },
+    "26420": {
+      "daysMaxGt90FAnnual": 104,
+      "daysMinLt32FAnnual": 5.0,
+      "annualPrecipitationInches": 57.2,
+      "sunshineHoursAnnual": 3304.0
+    },
+    "26460": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 55.4,
+      "sunshineHoursAnnual": 3008.0
+    },
+    "26500": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 102,
+      "annualPrecipitationInches": 34.9,
+      "sunshineHoursAnnual": 3107.0
+    },
+    "26540": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 88,
+      "annualPrecipitationInches": 32.9,
+      "sunshineHoursAnnual": 3067.0
+    },
+    "26580": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 56,
+      "annualPrecipitationInches": 33.4,
+      "sunshineHoursAnnual": 3267.0
+    },
+    "26620": {
+      "daysMaxGt90FAnnual": 32,
+      "daysMinLt32FAnnual": 30,
+      "annualPrecipitationInches": 51.3,
+      "sunshineHoursAnnual": 3307.0
+    },
+    "26660": {
+      "daysMaxGt90FAnnual": 110,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 45.5,
+      "sunshineHoursAnnual": 3373.0
+    },
+    "26700": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 159,
+      "annualPrecipitationInches": 23.0,
+      "sunshineHoursAnnual": 3457.0
+    },
+    "26740": {
+      "daysMaxGt90FAnnual": 49,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 23.1,
+      "sunshineHoursAnnual": 3585.0
+    },
+    "26780": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 152,
+      "annualPrecipitationInches": 35.4,
+      "sunshineHoursAnnual": 3306.0
+    },
+    "26820": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 176,
+      "annualPrecipitationInches": 12.9,
+      "sunshineHoursAnnual": 3479.0
+    },
+    "26860": {
+      "daysMaxGt90FAnnual": 2.0,
+      "daysMinLt32FAnnual": 91,
+      "annualPrecipitationInches": 41.9,
+      "sunshineHoursAnnual": 2905.0
+    },
+    "26900": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3213.0
+    },
+    "26940": {
+      "daysMaxGt90FAnnual": 62,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 44.8,
+      "sunshineHoursAnnual": 3453.0
+    },
+    "26980": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 113,
+      "annualPrecipitationInches": 27.9,
+      "sunshineHoursAnnual": 3334.0
+    },
+    "27020": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 160,
+      "annualPrecipitationInches": 27.8,
+      "sunshineHoursAnnual": 2863.0
+    },
+    "27060": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 115,
+      "annualPrecipitationInches": 48.7,
+      "sunshineHoursAnnual": 2838.0
+    },
+    "27100": {
+      "daysMaxGt90FAnnual": 1.8,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 35.1,
+      "sunshineHoursAnnual": 2955.0
+    },
+    "27140": {
+      "daysMaxGt90FAnnual": 71,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 50.6,
+      "sunshineHoursAnnual": 3545.0
+    },
+    "27160": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 35.8,
+      "sunshineHoursAnnual": 3208.0
+    },
+    "27180": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 51.4,
+      "sunshineHoursAnnual": 3410.0
+    },
+    "27220": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 233,
+      "annualPrecipitationInches": 35.1,
+      "sunshineHoursAnnual": 3373.0
+    },
+    "27260": {
+      "daysMaxGt90FAnnual": 69,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 47.6,
+      "sunshineHoursAnnual": 3579.0
+    },
+    "27300": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 72,
+      "annualPrecipitationInches": 31.6,
+      "sunshineHoursAnnual": 3375.0
+    },
+    "27340": {
+      "daysMaxGt90FAnnual": 31,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 53.1,
+      "sunshineHoursAnnual": 3415.0
+    },
+    "27380": {
+      "daysMaxGt90FAnnual": 100,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 45.6,
+      "sunshineHoursAnnual": 3321.0
+    },
+    "27420": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 170,
+      "annualPrecipitationInches": 24.8,
+      "sunshineHoursAnnual": 3318.0
+    },
+    "27460": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 106,
+      "annualPrecipitationInches": 55.4,
+      "sunshineHoursAnnual": 2898.0
+    },
+    "27500": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 124,
+      "annualPrecipitationInches": 37.0,
+      "sunshineHoursAnnual": 3103.0
+    },
+    "27530": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 51.5,
+      "sunshineHoursAnnual": 3418.0
+    },
+    "27540": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 52,
+      "annualPrecipitationInches": 40.6,
+      "sunshineHoursAnnual": 3366.0
+    },
+    "27580": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 40.3,
+      "sunshineHoursAnnual": 3971.0
+    },
+    "27600": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 47.1,
+      "sunshineHoursAnnual": 3292.0
+    },
+    "27620": {
+      "daysMaxGt90FAnnual": 32,
+      "daysMinLt32FAnnual": 62,
+      "annualPrecipitationInches": 31.9,
+      "sunshineHoursAnnual": 3401.0
+    },
+    "27660": {
+      "daysMaxGt90FAnnual": 117,
+      "daysMinLt32FAnnual": 5.2,
+      "annualPrecipitationInches": 43.7,
+      "sunshineHoursAnnual": 3530.0
+    },
+    "27700": {
+      "daysMaxGt90FAnnual": 64,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 47.9,
+      "sunshineHoursAnnual": 3475.0
+    },
+    "27740": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 42.4,
+      "sunshineHoursAnnual": 3309.0
+    },
+    "27780": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 40.8,
+      "sunshineHoursAnnual": 2954.0
+    },
+    "27860": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 29,
+      "annualPrecipitationInches": 45.8,
+      "sunshineHoursAnnual": 3466.0
+    },
+    "27900": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 55,
+      "annualPrecipitationInches": 43.2,
+      "sunshineHoursAnnual": 3417.0
+    },
+    "27940": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 137,
+      "annualPrecipitationInches": 188.8,
+      "sunshineHoursAnnual": 1724.0
+    },
+    "27980": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 25.6,
+      "sunshineHoursAnnual": 4061.0
+    },
+    "28020": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 104,
+      "annualPrecipitationInches": 40.6,
+      "sunshineHoursAnnual": 2952.0
+    },
+    "28060": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 225,
+      "annualPrecipitationInches": 29.8,
+      "sunshineHoursAnnual": 3318.0
+    },
+    "28100": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 99,
+      "annualPrecipitationInches": 43.5,
+      "sunshineHoursAnnual": 3135.0
+    },
+    "28140": {
+      "daysMaxGt90FAnnual": 31,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 40.3,
+      "sunshineHoursAnnual": 3399.0
+    },
+    "28180": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 94.0,
+      "sunshineHoursAnnual": 4002.0
+    },
+    "28260": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 139,
+      "annualPrecipitationInches": 23.4,
+      "sunshineHoursAnnual": 3514.0
+    },
+    "28300": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 139,
+      "annualPrecipitationInches": 57.4,
+      "sunshineHoursAnnual": 2912.0
+    },
+    "28340": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 103,
+      "annualPrecipitationInches": 41.4,
+      "sunshineHoursAnnual": 3013.0
+    },
+    "28380": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 46.7,
+      "sunshineHoursAnnual": 3533.0
+    },
+    "28420": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 91,
+      "annualPrecipitationInches": 9.3,
+      "sunshineHoursAnnual": 3421.0
+    },
+    "28500": {
+      "daysMaxGt90FAnnual": 106,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 22.8,
+      "sunshineHoursAnnual": 3418.0
+    },
+    "28540": {
+      "daysMaxGt90FAnnual": 0.4,
+      "daysMinLt32FAnnual": 81,
+      "annualPrecipitationInches": 151.7,
+      "sunshineHoursAnnual": 1881.0
+    },
+    "28580": {
+      "daysMaxGt90FAnnual": 115,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 55.5,
+      "sunshineHoursAnnual": 3752.0
+    },
+    "28620": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 52.1,
+      "sunshineHoursAnnual": 3429.0
+    },
+    "28660": {
+      "daysMaxGt90FAnnual": 120,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 37.3,
+      "sunshineHoursAnnual": 3368.0
+    },
+    "28700": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 40.5,
+      "sunshineHoursAnnual": 3292.0
+    },
+    "28740": {
+      "daysMaxGt90FAnnual": 2.8,
+      "daysMinLt32FAnnual": 100,
+      "annualPrecipitationInches": 63.3,
+      "sunshineHoursAnnual": 2998.0
+    },
+    "28780": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 1.8,
+      "annualPrecipitationInches": 27.6,
+      "sunshineHoursAnnual": 3440.0
+    },
+    "28820": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 52.8,
+      "sunshineHoursAnnual": 3406.0
+    },
+    "28860": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 32.2,
+      "sunshineHoursAnnual": 3377.0
+    },
+    "28900": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 175,
+      "annualPrecipitationInches": 24.4,
+      "sunshineHoursAnnual": 3550.0
+    },
+    "28940": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 39,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3280.0
+    },
+    "29020": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 38.0,
+      "sunshineHoursAnnual": 3150.0
+    },
+    "29060": {
+      "daysMaxGt90FAnnual": 4.2,
+      "daysMinLt32FAnnual": 134,
+      "annualPrecipitationInches": 53.9,
+      "sunshineHoursAnnual": 2919.0
+    },
+    "29100": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 139,
+      "annualPrecipitationInches": 31.2,
+      "sunshineHoursAnnual": 3179.0
+    },
+    "29180": {
+      "daysMaxGt90FAnnual": 110,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 43.4,
+      "sunshineHoursAnnual": 3607.0
+    },
+    "29200": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 81,
+      "annualPrecipitationInches": 35.3,
+      "sunshineHoursAnnual": 3161.0
+    },
+    "29260": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 128,
+      "annualPrecipitationInches": 33.0,
+      "sunshineHoursAnnual": 3201.0
+    },
+    "29300": {
+      "daysMaxGt90FAnnual": 55,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 49.6,
+      "sunshineHoursAnnual": 3414.0
+    },
+    "29340": {
+      "daysMaxGt90FAnnual": 71,
+      "daysMinLt32FAnnual": 3.0,
+      "annualPrecipitationInches": 39.1,
+      "sunshineHoursAnnual": 3549.0
+    },
+    "29380": {
+      "daysMaxGt90FAnnual": 74,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 47.9,
+      "sunshineHoursAnnual": 3542.0
+    },
+    "29420": {
+      "daysMaxGt90FAnnual": 44,
+      "daysMinLt32FAnnual": 73,
+      "annualPrecipitationInches": 16.6,
+      "sunshineHoursAnnual": 3940.0
+    },
+    "29460": {
+      "daysMaxGt90FAnnual": 102,
+      "daysMinLt32FAnnual": 0.2,
+      "annualPrecipitationInches": 45.8,
+      "sunshineHoursAnnual": 3706.0
+    },
+    "29500": {
+      "daysMaxGt90FAnnual": 109,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 17.0,
+      "sunshineHoursAnnual": 3817.0
+    },
+    "29540": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 60,
+      "annualPrecipitationInches": 39.6,
+      "sunshineHoursAnnual": 3241.0
+    },
+    "29620": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 106,
+      "annualPrecipitationInches": 39.9,
+      "sunshineHoursAnnual": 2905.0
+    },
+    "29660": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 188,
+      "annualPrecipitationInches": 16.6,
+      "sunshineHoursAnnual": 3744.0
+    },
+    "29700": {
+      "daysMaxGt90FAnnual": 159,
+      "daysMinLt32FAnnual": 2.2,
+      "annualPrecipitationInches": 23.3,
+      "sunshineHoursAnnual": 3507.0
+    },
+    "29740": {
+      "daysMaxGt90FAnnual": 106,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 5.0,
+      "sunshineHoursAnnual": 4073.0
+    },
+    "29780": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 129,
+      "annualPrecipitationInches": 13.5,
+      "sunshineHoursAnnual": 3968.0
+    },
+    "29820": {
+      "daysMaxGt90FAnnual": 129,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 9.4,
+      "sunshineHoursAnnual": 3950.0
+    },
+    "29860": {
+      "daysMaxGt90FAnnual": 94,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 47.1,
+      "sunshineHoursAnnual": 3554.0
+    },
+    "29900": {
+      "daysMaxGt90FAnnual": 34,
+      "daysMinLt32FAnnual": 24,
+      "annualPrecipitationInches": 49.9,
+      "sunshineHoursAnnual": 3381.0
+    },
+    "29940": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 81,
+      "annualPrecipitationInches": 38.7,
+      "sunshineHoursAnnual": 3425.0
+    },
+    "29980": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 27,
+      "annualPrecipitationInches": 52.7,
+      "sunshineHoursAnnual": 3294.0
+    },
+    "30020": {
+      "daysMaxGt90FAnnual": 103,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 22.7,
+      "sunshineHoursAnnual": 3610.0
+    },
+    "30060": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 60,
+      "annualPrecipitationInches": 35.7,
+      "sunshineHoursAnnual": 3418.0
+    },
+    "30100": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 157,
+      "annualPrecipitationInches": 52.7,
+      "sunshineHoursAnnual": 2830.0
+    },
+    "30140": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 39.1,
+      "sunshineHoursAnnual": 3169.0
+    },
+    "30220": {
+      "daysMaxGt90FAnnual": 93,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 12.9,
+      "sunshineHoursAnnual": 3829.0
+    },
+    "30260": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 99,
+      "annualPrecipitationInches": 43.4,
+      "sunshineHoursAnnual": 3164.0
+    },
+    "30280": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 30,
+      "annualPrecipitationInches": 53.7,
+      "sunshineHoursAnnual": 3289.0
+    },
+    "30300": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 115,
+      "annualPrecipitationInches": 17.9,
+      "sunshineHoursAnnual": 3402.0
+    },
+    "30340": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 138,
+      "annualPrecipitationInches": 61.5,
+      "sunshineHoursAnnual": 2866.0
+    },
+    "30380": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 36.3,
+      "sunshineHoursAnnual": 3122.0
+    },
+    "30420": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 140,
+      "annualPrecipitationInches": 22.0,
+      "sunshineHoursAnnual": 3569.0
+    },
+    "30460": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 54,
+      "annualPrecipitationInches": 37.8,
+      "sunshineHoursAnnual": 3274.0
+    },
+    "30580": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 22.8,
+      "sunshineHoursAnnual": 3684.0
+    },
+    "30620": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 82,
+      "annualPrecipitationInches": 33.2,
+      "sunshineHoursAnnual": 3091.0
+    },
+    "30660": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 82,
+      "annualPrecipitationInches": 34.4,
+      "sunshineHoursAnnual": 3318.0
+    },
+    "30700": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 120,
+      "annualPrecipitationInches": 23.4,
+      "sunshineHoursAnnual": 3485.0
+    },
+    "30780": {
+      "daysMaxGt90FAnnual": 75,
+      "daysMinLt32FAnnual": 23,
+      "annualPrecipitationInches": 47.7,
+      "sunshineHoursAnnual": 3424.0
+    },
+    "30820": {
+      "daysMaxGt90FAnnual": 2.2,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3062.0
+    },
+    "30860": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 170,
+      "annualPrecipitationInches": 27.5,
+      "sunshineHoursAnnual": 3568.0
+    },
+    "30900": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 87,
+      "annualPrecipitationInches": 36.9,
+      "sunshineHoursAnnual": 3109.0
+    },
+    "30940": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 54,
+      "annualPrecipitationInches": 40.5,
+      "sunshineHoursAnnual": 3277.0
+    },
+    "30980": {
+      "daysMaxGt90FAnnual": 107,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 49.6,
+      "sunshineHoursAnnual": 3408.0
+    },
+    "31020": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 63,
+      "annualPrecipitationInches": 61.7,
+      "sunshineHoursAnnual": 2761.0
+    },
+    "31060": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 150,
+      "annualPrecipitationInches": 20.2,
+      "sunshineHoursAnnual": 3995.0
+    },
+    "31080": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 44.0,
+      "sunshineHoursAnnual": 3767.0
+    },
+    "31140": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 43.1,
+      "sunshineHoursAnnual": 3335.0
+    },
+    "31180": {
+      "daysMaxGt90FAnnual": 100,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 14.4,
+      "sunshineHoursAnnual": 3803.0
+    },
+    "31220": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 100,
+      "annualPrecipitationInches": 38.9,
+      "sunshineHoursAnnual": 3033.0
+    },
+    "31260": {
+      "daysMaxGt90FAnnual": 110,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 51.1,
+      "sunshineHoursAnnual": 3376.0
+    },
+    "31300": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 49.8,
+      "sunshineHoursAnnual": 3446.0
+    },
+    "31340": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 33.8,
+      "sunshineHoursAnnual": 3423.0
+    },
+    "31380": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 30.9,
+      "sunshineHoursAnnual": 3350.0
+    },
+    "31420": {
+      "daysMaxGt90FAnnual": 74,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 49.5,
+      "sunshineHoursAnnual": 3374.0
+    },
+    "31460": {
+      "daysMaxGt90FAnnual": 52,
+      "daysMinLt32FAnnual": 49,
+      "annualPrecipitationInches": 40.5,
+      "sunshineHoursAnnual": 3831.0
+    },
+    "31500": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 41.3,
+      "sunshineHoursAnnual": 3251.0
+    },
+    "31540": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 133,
+      "annualPrecipitationInches": 33.3,
+      "sunshineHoursAnnual": 3107.0
+    },
+    "31580": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 43,
+      "annualPrecipitationInches": 45.1,
+      "sunshineHoursAnnual": 3441.0
+    },
+    "31620": {
+      "daysMaxGt90FAnnual": 94,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 47.3,
+      "sunshineHoursAnnual": 3417.0
+    },
+    "31660": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 158,
+      "annualPrecipitationInches": 51.2,
+      "sunshineHoursAnnual": 2577.0
+    },
+    "31680": {
+      "daysMaxGt90FAnnual": 84,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 58.3,
+      "sunshineHoursAnnual": 3381.0
+    },
+    "31700": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 125,
+      "annualPrecipitationInches": 61.9,
+      "sunshineHoursAnnual": 2968.0
+    },
+    "31740": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 97,
+      "annualPrecipitationInches": 20.5,
+      "sunshineHoursAnnual": 3506.0
+    },
+    "31820": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 123,
+      "annualPrecipitationInches": 33.0,
+      "sunshineHoursAnnual": 3156.0
+    },
+    "31860": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 39.6,
+      "sunshineHoursAnnual": 3290.0
+    },
+    "31900": {
+      "daysMaxGt90FAnnual": 0.6,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 43.1,
+      "sunshineHoursAnnual": 3049.0
+    },
+    "31930": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 69,
+      "annualPrecipitationInches": 41.0,
+      "sunshineHoursAnnual": 3163.0
+    },
+    "31940": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 30.0,
+      "sunshineHoursAnnual": 3032.0
+    },
+    "31980": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 38.2,
+      "sunshineHoursAnnual": 3139.0
+    },
+    "32000": {
+      "daysMaxGt90FAnnual": 27,
+      "daysMinLt32FAnnual": 38,
+      "annualPrecipitationInches": 39.2,
+      "sunshineHoursAnnual": 3411.0
+    },
+    "32020": {
+      "daysMaxGt90FAnnual": 4.2,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 43.9,
+      "sunshineHoursAnnual": 3070.0
+    },
+    "32100": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 147,
+      "annualPrecipitationInches": 37.4,
+      "sunshineHoursAnnual": 2847.0
+    },
+    "32140": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 150,
+      "annualPrecipitationInches": 32.4,
+      "sunshineHoursAnnual": 3353.0
+    },
+    "32180": {
+      "daysMaxGt90FAnnual": 27,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 33.0,
+      "sunshineHoursAnnual": 3401.0
+    },
+    "32260": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 120,
+      "annualPrecipitationInches": 28.5,
+      "sunshineHoursAnnual": 3319.0
+    },
+    "32280": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 35,
+      "annualPrecipitationInches": 47.0,
+      "sunshineHoursAnnual": 3463.0
+    },
+    "32300": {
+      "daysMaxGt90FAnnual": 29,
+      "daysMinLt32FAnnual": 38,
+      "annualPrecipitationInches": 38.9,
+      "sunshineHoursAnnual": 3365.0
+    },
+    "32340": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 29.2,
+      "sunshineHoursAnnual": 3429.0
+    },
+    "32380": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 143,
+      "annualPrecipitationInches": 28.0,
+      "sunshineHoursAnnual": 3305.0
+    },
+    "32420": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 37.2,
+      "sunshineHoursAnnual": 4056.0
+    },
+    "32460": {
+      "daysMaxGt90FAnnual": 32,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 40.8,
+      "sunshineHoursAnnual": 3457.0
+    },
+    "32500": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 65,
+      "annualPrecipitationInches": 37.9,
+      "sunshineHoursAnnual": 3260.0
+    },
+    "32540": {
+      "daysMaxGt90FAnnual": 79,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 44.9,
+      "sunshineHoursAnnual": 3427.0
+    },
+    "32580": {
+      "daysMaxGt90FAnnual": 166,
+      "daysMinLt32FAnnual": 1.2,
+      "annualPrecipitationInches": 24.9,
+      "sunshineHoursAnnual": 3507.0
+    },
+    "32620": {
+      "daysMaxGt90FAnnual": 109,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 48.4,
+      "sunshineHoursAnnual": 3530.0
+    },
+    "32660": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 52.4,
+      "sunshineHoursAnnual": 3287.0
+    },
+    "32700": {
+      "daysMaxGt90FAnnual": 55,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 24.6,
+      "sunshineHoursAnnual": 3577.0
+    },
+    "32740": {
+      "daysMaxGt90FAnnual": 0.8,
+      "daysMinLt32FAnnual": 108,
+      "annualPrecipitationInches": 45.0,
+      "sunshineHoursAnnual": 2813.0
+    },
+    "32780": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 100,
+      "annualPrecipitationInches": 36.6,
+      "sunshineHoursAnnual": 3357.0
+    },
+    "32820": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 53.6,
+      "sunshineHoursAnnual": 3392.0
+    },
+    "32860": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 152,
+      "annualPrecipitationInches": 36.6,
+      "sunshineHoursAnnual": 3144.0
+    },
+    "32900": {
+      "daysMaxGt90FAnnual": 93,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 22.8,
+      "sunshineHoursAnnual": 3821.0
+    },
+    "32940": {
+      "daysMaxGt90FAnnual": 74,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 44.5,
+      "sunshineHoursAnnual": 3519.0
+    },
+    "33020": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 71,
+      "annualPrecipitationInches": 32.3,
+      "sunshineHoursAnnual": 3384.0
+    },
+    "33060": {
+      "daysMaxGt90FAnnual": 49,
+      "daysMinLt32FAnnual": 49,
+      "annualPrecipitationInches": 39.2,
+      "sunshineHoursAnnual": 3398.0
+    },
+    "33100": {
+      "daysMaxGt90FAnnual": 97,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 80.0,
+      "sunshineHoursAnnual": 3693.0
+    },
+    "33140": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 47.4,
+      "sunshineHoursAnnual": 3015.0
+    },
+    "33180": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 59,
+      "annualPrecipitationInches": 42.9,
+      "sunshineHoursAnnual": 3281.0
+    },
+    "33220": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 128,
+      "annualPrecipitationInches": 32.8,
+      "sunshineHoursAnnual": 2958.0
+    },
+    "33260": {
+      "daysMaxGt90FAnnual": 118,
+      "daysMinLt32FAnnual": 22,
+      "annualPrecipitationInches": 13.4,
+      "sunshineHoursAnnual": 3822.0
+    },
+    "33300": {
+      "daysMaxGt90FAnnual": 61,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 47.2,
+      "sunshineHoursAnnual": 3376.0
+    },
+    "33340": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 96,
+      "annualPrecipitationInches": 41.4,
+      "sunshineHoursAnnual": 3111.0
+    },
+    "33380": {
+      "daysMaxGt90FAnnual": 109,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 52.8,
+      "sunshineHoursAnnual": 3426.0
+    },
+    "33420": {
+      "daysMaxGt90FAnnual": 113,
+      "daysMinLt32FAnnual": 15,
+      "annualPrecipitationInches": 32.8,
+      "sunshineHoursAnnual": 3526.0
+    },
+    "33460": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 39.7,
+      "sunshineHoursAnnual": 3195.0
+    },
+    "33500": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 178,
+      "annualPrecipitationInches": 19.5,
+      "sunshineHoursAnnual": 3324.0
+    },
+    "33540": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 203,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3384.0
+    },
+    "33580": {
+      "daysMaxGt90FAnnual": 27,
+      "daysMinLt32FAnnual": 151,
+      "annualPrecipitationInches": 25.1,
+      "sunshineHoursAnnual": 3430.0
+    },
+    "33620": {
+      "daysMaxGt90FAnnual": 29,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 32.5,
+      "sunshineHoursAnnual": 3369.0
+    },
+    "33660": {
+      "daysMaxGt90FAnnual": 97,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 45.1,
+      "sunshineHoursAnnual": 3535.0
+    },
+    "33700": {
+      "daysMaxGt90FAnnual": 89,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 25.5,
+      "sunshineHoursAnnual": 3777.0
+    },
+    "33740": {
+      "daysMaxGt90FAnnual": 101,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 37.8,
+      "sunshineHoursAnnual": 3453.0
+    },
+    "33780": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 35.0,
+      "sunshineHoursAnnual": 3047.0
+    },
+    "33860": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 50.1,
+      "sunshineHoursAnnual": 3506.0
+    },
+    "33940": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 183,
+      "annualPrecipitationInches": 30.2,
+      "sunshineHoursAnnual": 3830.0
+    },
+    "33980": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 62.0,
+      "sunshineHoursAnnual": 3508.0
+    },
+    "34020": {
+      "daysMaxGt90FAnnual": 78,
+      "daysMinLt32FAnnual": 3.0,
+      "annualPrecipitationInches": 41.9,
+      "sunshineHoursAnnual": 3671.0
+    },
+    "34060": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 50.4,
+      "sunshineHoursAnnual": 2936.0
+    },
+    "34100": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 41,
+      "annualPrecipitationInches": 38.3,
+      "sunshineHoursAnnual": 3324.0
+    },
+    "34140": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 22.2,
+      "sunshineHoursAnnual": 3330.0
+    },
+    "34180": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 10.3,
+      "sunshineHoursAnnual": 3428.0
+    },
+    "34220": {
+      "daysMaxGt90FAnnual": 68,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 51.8,
+      "sunshineHoursAnnual": 3416.0
+    },
+    "34260": {
+      "daysMaxGt90FAnnual": 61,
+      "daysMinLt32FAnnual": 42,
+      "annualPrecipitationInches": 39.4,
+      "sunshineHoursAnnual": 3487.0
+    },
+    "34300": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 197,
+      "annualPrecipitationInches": 27.1,
+      "sunshineHoursAnnual": 3506.0
+    },
+    "34340": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 52,
+      "annualPrecipitationInches": 42.4,
+      "sunshineHoursAnnual": 3342.0
+    },
+    "34350": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 56,
+      "annualPrecipitationInches": 36.9,
+      "sunshineHoursAnnual": 3237.0
+    },
+    "34380": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 130,
+      "annualPrecipitationInches": 34.7,
+      "sunshineHoursAnnual": 2958.0
+    },
+    "34420": {
+      "daysMaxGt90FAnnual": 95,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 44.5,
+      "sunshineHoursAnnual": 3410.0
+    },
+    "34460": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 35.1,
+      "sunshineHoursAnnual": 3311.0
+    },
+    "34500": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 40.1,
+      "sunshineHoursAnnual": 3408.0
+    },
+    "34540": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 85,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 3043.0
+    },
+    "34580": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 139,
+      "annualPrecipitationInches": 74.8,
+      "sunshineHoursAnnual": 2728.0
+    },
+    "34620": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 86,
+      "annualPrecipitationInches": 38.8,
+      "sunshineHoursAnnual": 3169.0
+    },
+    "34660": {
+      "daysMaxGt90FAnnual": 28,
+      "daysMinLt32FAnnual": 35,
+      "annualPrecipitationInches": 46.3,
+      "sunshineHoursAnnual": 3414.0
+    },
+    "34700": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 27.0,
+      "sunshineHoursAnnual": 3318.0
+    },
+    "34740": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 97,
+      "annualPrecipitationInches": 34.6,
+      "sunshineHoursAnnual": 3060.0
+    },
+    "34780": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 29,
+      "annualPrecipitationInches": 37.3,
+      "sunshineHoursAnnual": 3419.0
+    },
+    "34820": {
+      "daysMaxGt90FAnnual": 28,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 55.8,
+      "sunshineHoursAnnual": 3464.0
+    },
+    "34860": {
+      "daysMaxGt90FAnnual": 108,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 45.8,
+      "sunshineHoursAnnual": 3360.0
+    },
+    "34900": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 20,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 3661.0
+    },
+    "34940": {
+      "daysMaxGt90FAnnual": 112,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 59.2,
+      "sunshineHoursAnnual": 3770.0
+    },
+    "34980": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 26,
+      "annualPrecipitationInches": 64.3,
+      "sunshineHoursAnnual": 3256.0
+    },
+    "35020": {
+      "daysMaxGt90FAnnual": 115,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 46.3,
+      "sunshineHoursAnnual": 3549.0
+    },
+    "35060": {
+      "daysMaxGt90FAnnual": 106,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 47.2,
+      "sunshineHoursAnnual": 3457.0
+    },
+    "35100": {
+      "daysMaxGt90FAnnual": 37,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 51.9,
+      "sunshineHoursAnnual": 3412.0
+    },
+    "35140": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 16,
+      "annualPrecipitationInches": 46.9,
+      "sunshineHoursAnnual": 3372.0
+    },
+    "35220": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 39.8,
+      "sunshineHoursAnnual": 3170.0
+    },
+    "35260": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 94,
+      "annualPrecipitationInches": 41.5,
+      "sunshineHoursAnnual": 2933.0
+    },
+    "35300": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 87,
+      "annualPrecipitationInches": 64.2,
+      "sunshineHoursAnnual": 3162.0
+    },
+    "35380": {
+      "daysMaxGt90FAnnual": 68,
+      "daysMinLt32FAnnual": 1.6,
+      "annualPrecipitationInches": 50.6,
+      "sunshineHoursAnnual": 3644.0
+    },
+    "35420": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 41.8,
+      "sunshineHoursAnnual": 3056.0
+    },
+    "35440": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 22,
+      "annualPrecipitationInches": 74.4,
+      "sunshineHoursAnnual": 3002.0
+    },
+    "35460": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 43,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3335.0
+    },
+    "35580": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 35.4,
+      "sunshineHoursAnnual": 3326.0
+    },
+    "35620": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 72,
+      "annualPrecipitationInches": 59.4,
+      "sunshineHoursAnnual": 3109.0
+    },
+    "35660": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 48.2,
+      "sunshineHoursAnnual": 3007.0
+    },
+    "35700": {
+      "daysMaxGt90FAnnual": 99,
+      "daysMinLt32FAnnual": 26,
+      "annualPrecipitationInches": 13.4,
+      "sunshineHoursAnnual": 4019.0
+    },
+    "35740": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 146,
+      "annualPrecipitationInches": 27.2,
+      "sunshineHoursAnnual": 3442.0
+    },
+    "35820": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 157,
+      "annualPrecipitationInches": 20.0,
+      "sunshineHoursAnnual": 3569.0
+    },
+    "35840": {
+      "daysMaxGt90FAnnual": 100,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 43.4,
+      "sunshineHoursAnnual": 3774.0
+    },
+    "35860": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 59,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3220.0
+    },
+    "35900": {
+      "daysMaxGt90FAnnual": 26,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 39.0,
+      "sunshineHoursAnnual": 3341.0
+    },
+    "35940": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 85,
+      "annualPrecipitationInches": 39.0,
+      "sunshineHoursAnnual": 3054.0
+    },
+    "35980": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 58.7,
+      "sunshineHoursAnnual": 3135.0
+    },
+    "36020": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 29.9,
+      "sunshineHoursAnnual": 2960.0
+    },
+    "36100": {
+      "daysMaxGt90FAnnual": 98,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 45.3,
+      "sunshineHoursAnnual": 3622.0
+    },
+    "36140": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 18,
+      "annualPrecipitationInches": 40.3,
+      "sunshineHoursAnnual": 3337.0
+    },
+    "36220": {
+      "daysMaxGt90FAnnual": 119,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 6.0,
+      "sunshineHoursAnnual": 3889.0
+    },
+    "36260": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 154,
+      "annualPrecipitationInches": 15.2,
+      "sunshineHoursAnnual": 3568.0
+    },
+    "36300": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 137,
+      "annualPrecipitationInches": 53.9,
+      "sunshineHoursAnnual": 2667.0
+    },
+    "36340": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 104,
+      "annualPrecipitationInches": 41.9,
+      "sunshineHoursAnnual": 2881.0
+    },
+    "36380": {
+      "daysMaxGt90FAnnual": 111,
+      "daysMinLt32FAnnual": 0.2,
+      "annualPrecipitationInches": 57.0,
+      "sunshineHoursAnnual": 3715.0
+    },
+    "36420": {
+      "daysMaxGt90FAnnual": 70,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 31.8,
+      "sunshineHoursAnnual": 3541.0
+    },
+    "36460": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 137,
+      "annualPrecipitationInches": 44.5,
+      "sunshineHoursAnnual": 2765.0
+    },
+    "36500": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 46,
+      "annualPrecipitationInches": 40.3,
+      "sunshineHoursAnnual": 2935.0
+    },
+    "36540": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 126,
+      "annualPrecipitationInches": 25.5,
+      "sunshineHoursAnnual": 3455.0
+    },
+    "36580": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 138,
+      "annualPrecipitationInches": 47.8,
+      "sunshineHoursAnnual": 2787.0
+    },
+    "36620": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 126,
+      "annualPrecipitationInches": 12.0,
+      "sunshineHoursAnnual": 3538.0
+    },
+    "36660": {
+      "daysMaxGt90FAnnual": 121,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 42.7,
+      "sunshineHoursAnnual": 3519.0
+    },
+    "36700": {
+      "daysMaxGt90FAnnual": 64,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 50.6,
+      "sunshineHoursAnnual": 3393.0
+    },
+    "36740": {
+      "daysMaxGt90FAnnual": 76,
+      "daysMinLt32FAnnual": 0.2,
+      "annualPrecipitationInches": 69.1,
+      "sunshineHoursAnnual": 3621.0
+    },
+    "36780": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 133,
+      "annualPrecipitationInches": 29.2,
+      "sunshineHoursAnnual": 3158.0
+    },
+    "36820": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 32.7,
+      "sunshineHoursAnnual": 3376.0
+    },
+    "36830": {
+      "daysMaxGt90FAnnual": 32,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 12.4,
+      "sunshineHoursAnnual": 3415.0
+    },
+    "36837": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 106,
+      "annualPrecipitationInches": 38.4,
+      "sunshineHoursAnnual": 3183.0
+    },
+    "36840": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 79,
+      "annualPrecipitationInches": 30.3,
+      "sunshineHoursAnnual": 3440.0
+    },
+    "36900": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 32.5,
+      "sunshineHoursAnnual": 3344.0
+    },
+    "36940": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 35.3,
+      "sunshineHoursAnnual": 3249.0
+    },
+    "36980": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 39.3,
+      "sunshineHoursAnnual": 3426.0
+    },
+    "37060": {
+      "daysMaxGt90FAnnual": 47,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 46.4,
+      "sunshineHoursAnnual": 3396.0
+    },
+    "37100": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 40.4,
+      "sunshineHoursAnnual": 3780.0
+    },
+    "37120": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 50.8,
+      "sunshineHoursAnnual": 3403.0
+    },
+    "37140": {
+      "daysMaxGt90FAnnual": 27,
+      "daysMinLt32FAnnual": 38,
+      "annualPrecipitationInches": 40.8,
+      "sunshineHoursAnnual": 3493.0
+    },
+    "37220": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 187,
+      "annualPrecipitationInches": 14.3,
+      "sunshineHoursAnnual": 3938.0
+    },
+    "37260": {
+      "daysMaxGt90FAnnual": 81,
+      "daysMinLt32FAnnual": 1.0,
+      "annualPrecipitationInches": 41.6,
+      "sunshineHoursAnnual": 3581.0
+    },
+    "37300": {
+      "daysMaxGt90FAnnual": 108,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 43.3,
+      "sunshineHoursAnnual": 3332.0
+    },
+    "37340": {
+      "daysMaxGt90FAnnual": 29,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 63.3,
+      "sunshineHoursAnnual": 3732.0
+    },
+    "37420": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 62,
+      "annualPrecipitationInches": 22.3,
+      "sunshineHoursAnnual": 3780.0
+    },
+    "37460": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 1.6,
+      "annualPrecipitationInches": 69.2,
+      "sunshineHoursAnnual": 3582.0
+    },
+    "37500": {
+      "daysMaxGt90FAnnual": 47,
+      "daysMinLt32FAnnual": 32,
+      "annualPrecipitationInches": 45.6,
+      "sunshineHoursAnnual": 3504.0
+    },
+    "37540": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 48.4,
+      "sunshineHoursAnnual": 3408.0
+    },
+    "37580": {
+      "daysMaxGt90FAnnual": 85,
+      "daysMinLt32FAnnual": 15,
+      "annualPrecipitationInches": 50.4,
+      "sunshineHoursAnnual": 3382.0
+    },
+    "37620": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 67,
+      "annualPrecipitationInches": 40.3,
+      "sunshineHoursAnnual": 3187.0
+    },
+    "37660": {
+      "daysMaxGt90FAnnual": 50,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 35.5,
+      "sunshineHoursAnnual": 3403.0
+    },
+    "37740": {
+      "daysMaxGt90FAnnual": 98,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 16.0,
+      "sunshineHoursAnnual": 3962.0
+    },
+    "37770": {
+      "daysMaxGt90FAnnual": 137,
+      "daysMinLt32FAnnual": 4.4,
+      "annualPrecipitationInches": 24.4,
+      "sunshineHoursAnnual": 3433.0
+    },
+    "37780": {
+      "daysMaxGt90FAnnual": 141,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 3.6,
+      "sunshineHoursAnnual": 3917.0
+    },
+    "37800": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 110,
+      "annualPrecipitationInches": 32.1,
+      "sunshineHoursAnnual": 3386.0
+    },
+    "37860": {
+      "daysMaxGt90FAnnual": 64,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 53.4,
+      "sunshineHoursAnnual": 3597.0
+    },
+    "37900": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 94,
+      "annualPrecipitationInches": 34.7,
+      "sunshineHoursAnnual": 3239.0
+    },
+    "37940": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 36.9,
+      "sunshineHoursAnnual": 3112.0
+    },
+    "37980": {
+      "daysMaxGt90FAnnual": 26,
+      "daysMinLt32FAnnual": 52,
+      "annualPrecipitationInches": 48.1,
+      "sunshineHoursAnnual": 3161.0
+    },
+    "38060": {
+      "daysMaxGt90FAnnual": 166,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 9.3,
+      "sunshineHoursAnnual": 3934.0
+    },
+    "38100": {
+      "daysMaxGt90FAnnual": 113,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 54.3,
+      "sunshineHoursAnnual": 3532.0
+    },
+    "38180": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 156,
+      "annualPrecipitationInches": 20.6,
+      "sunshineHoursAnnual": 3525.0
+    },
+    "38220": {
+      "daysMaxGt90FAnnual": 72,
+      "daysMinLt32FAnnual": 16,
+      "annualPrecipitationInches": 53.3,
+      "sunshineHoursAnnual": 3421.0
+    },
+    "38240": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 18,
+      "annualPrecipitationInches": 44.1,
+      "sunshineHoursAnnual": 3388.0
+    },
+    "38260": {
+      "daysMaxGt90FAnnual": 46,
+      "daysMinLt32FAnnual": 61,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 3421.0
+    },
+    "38300": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 80,
+      "annualPrecipitationInches": 41.7,
+      "sunshineHoursAnnual": 2957.0
+    },
+    "38340": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 147,
+      "annualPrecipitationInches": 58.5,
+      "sunshineHoursAnnual": 2986.0
+    },
+    "38380": {
+      "daysMaxGt90FAnnual": 82,
+      "daysMinLt32FAnnual": 43,
+      "annualPrecipitationInches": 14.7,
+      "sunshineHoursAnnual": 3834.0
+    },
+    "38420": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 130,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3214.0
+    },
+    "38460": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 156,
+      "annualPrecipitationInches": 50.7,
+      "sunshineHoursAnnual": 2713.0
+    },
+    "38500": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 94,
+      "annualPrecipitationInches": 45.4,
+      "sunshineHoursAnnual": 3003.0
+    },
+    "38540": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 164,
+      "annualPrecipitationInches": 22.6,
+      "sunshineHoursAnnual": 3462.0
+    },
+    "38580": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 61,
+      "annualPrecipitationInches": 34.4,
+      "sunshineHoursAnnual": 3228.0
+    },
+    "38620": {
+      "daysMaxGt90FAnnual": 57,
+      "daysMinLt32FAnnual": 57,
+      "annualPrecipitationInches": 31.6,
+      "sunshineHoursAnnual": 3501.0
+    },
+    "38660": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 34.0,
+      "sunshineHoursAnnual": 4032.0
+    },
+    "38700": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3231.0
+    },
+    "38740": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 40.7,
+      "sunshineHoursAnnual": 3506.0
+    },
+    "38780": {
+      "daysMaxGt90FAnnual": 92,
+      "daysMinLt32FAnnual": 51,
+      "annualPrecipitationInches": 9.3,
+      "sunshineHoursAnnual": 3959.0
+    },
+    "38820": {
+      "daysMaxGt90FAnnual": 0.2,
+      "daysMinLt32FAnnual": 65,
+      "annualPrecipitationInches": 58.5,
+      "sunshineHoursAnnual": 2985.0
+    },
+    "38860": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 121,
+      "annualPrecipitationInches": 61.1,
+      "sunshineHoursAnnual": 2934.0
+    },
+    "38900": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 57.7,
+      "sunshineHoursAnnual": 2852.0
+    },
+    "38920": {
+      "daysMaxGt90FAnnual": 85,
+      "daysMinLt32FAnnual": 2.2,
+      "annualPrecipitationInches": 33.5,
+      "sunshineHoursAnnual": 3565.0
+    },
+    "38940": {
+      "daysMaxGt90FAnnual": 87,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 58.5,
+      "sunshineHoursAnnual": 3699.0
+    },
+    "39020": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 64,
+      "annualPrecipitationInches": 36.5,
+      "sunshineHoursAnnual": 3251.0
+    },
+    "39060": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 102,
+      "annualPrecipitationInches": 44.0,
+      "sunshineHoursAnnual": 3164.0
+    },
+    "39100": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 91,
+      "annualPrecipitationInches": 58.2,
+      "sunshineHoursAnnual": 3068.0
+    },
+    "39150": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 96,
+      "annualPrecipitationInches": 16.1,
+      "sunshineHoursAnnual": 3975.0
+    },
+    "39220": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 160,
+      "annualPrecipitationInches": 14.9,
+      "sunshineHoursAnnual": 3883.0
+    },
+    "39260": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 147,
+      "annualPrecipitationInches": 20.3,
+      "sunshineHoursAnnual": 3328.0
+    },
+    "39300": {
+      "daysMaxGt90FAnnual": 3.2,
+      "daysMinLt32FAnnual": 67,
+      "annualPrecipitationInches": 55.4,
+      "sunshineHoursAnnual": 3022.0
+    },
+    "39340": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 155,
+      "annualPrecipitationInches": 19.9,
+      "sunshineHoursAnnual": 3666.0
+    },
+    "39380": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 134,
+      "annualPrecipitationInches": 14.1,
+      "sunshineHoursAnnual": 3869.0
+    },
+    "39420": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 107,
+      "annualPrecipitationInches": 17.9,
+      "sunshineHoursAnnual": 3362.0
+    },
+    "39460": {
+      "daysMaxGt90FAnnual": 100,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 39.2,
+      "sunshineHoursAnnual": 3844.0
+    },
+    "39500": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 82,
+      "annualPrecipitationInches": 30.6,
+      "sunshineHoursAnnual": 3407.0
+    },
+    "39540": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 101,
+      "annualPrecipitationInches": 39.7,
+      "sunshineHoursAnnual": 3072.0
+    },
+    "39580": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 40.3,
+      "sunshineHoursAnnual": 3415.0
+    },
+    "39660": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 157,
+      "annualPrecipitationInches": 22.8,
+      "sunshineHoursAnnual": 3555.0
+    },
+    "39700": {
+      "daysMaxGt90FAnnual": 145,
+      "daysMinLt32FAnnual": 1.2,
+      "annualPrecipitationInches": 27.8,
+      "sunshineHoursAnnual": 3486.0
+    },
+    "39740": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 81,
+      "annualPrecipitationInches": 45.1,
+      "sunshineHoursAnnual": 3143.0
+    },
+    "39780": {
+      "daysMaxGt90FAnnual": 106,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 3582.0
+    },
+    "39820": {
+      "daysMaxGt90FAnnual": 70,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 54.2,
+      "sunshineHoursAnnual": 3534.0
+    },
+    "39860": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 34.0,
+      "sunshineHoursAnnual": 3180.0
+    },
+    "39900": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 120,
+      "annualPrecipitationInches": 12.1,
+      "sunshineHoursAnnual": 3788.0
+    },
+    "39940": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 191,
+      "annualPrecipitationInches": 23.4,
+      "sunshineHoursAnnual": 3357.0
+    },
+    "39980": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 86,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3176.0
+    },
+    "40060": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 39.4,
+      "sunshineHoursAnnual": 3318.0
+    },
+    "40080": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 42.0,
+      "sunshineHoursAnnual": 3288.0
+    },
+    "40100": {
+      "daysMaxGt90FAnnual": 168,
+      "daysMinLt32FAnnual": 1.6,
+      "annualPrecipitationInches": 21.5,
+      "sunshineHoursAnnual": 3554.0
+    },
+    "40140": {
+      "daysMaxGt90FAnnual": 130,
+      "daysMinLt32FAnnual": 1.8,
+      "annualPrecipitationInches": 6.1,
+      "sunshineHoursAnnual": 4030.0
+    },
+    "40180": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 181,
+      "annualPrecipitationInches": 17.8,
+      "sunshineHoursAnnual": 3631.0
+    },
+    "40220": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 64,
+      "annualPrecipitationInches": 39.6,
+      "sunshineHoursAnnual": 3421.0
+    },
+    "40260": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 41.5,
+      "sunshineHoursAnnual": 3381.0
+    },
+    "40300": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 116,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3205.0
+    },
+    "40340": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 144,
+      "annualPrecipitationInches": 33.9,
+      "sunshineHoursAnnual": 3217.0
+    },
+    "40380": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 115,
+      "annualPrecipitationInches": 44.1,
+      "sunshineHoursAnnual": 2790.0
+    },
+    "40420": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 115,
+      "annualPrecipitationInches": 34.8,
+      "sunshineHoursAnnual": 3129.0
+    },
+    "40460": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 24,
+      "annualPrecipitationInches": 50.0,
+      "sunshineHoursAnnual": 3370.0
+    },
+    "40530": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 2.4,
+      "annualPrecipitationInches": 32.5,
+      "sunshineHoursAnnual": 3616.0
+    },
+    "40540": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 186,
+      "annualPrecipitationInches": 11.4,
+      "sunshineHoursAnnual": 3749.0
+    },
+    "40580": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 26,
+      "annualPrecipitationInches": 44.3,
+      "sunshineHoursAnnual": 3398.0
+    },
+    "40620": {
+      "daysMaxGt90FAnnual": 31,
+      "daysMinLt32FAnnual": 56,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 3411.0
+    },
+    "40660": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 48.0,
+      "sunshineHoursAnnual": 3331.0
+    },
+    "40700": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 69,
+      "annualPrecipitationInches": 47.7,
+      "sunshineHoursAnnual": 3100.0
+    },
+    "40740": {
+      "daysMaxGt90FAnnual": 118,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 4.7,
+      "sunshineHoursAnnual": 3970.0
+    },
+    "40760": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 7.5,
+      "sunshineHoursAnnual": 4048.0
+    },
+    "40780": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 3426.0
+    },
+    "40820": {
+      "daysMaxGt90FAnnual": 108,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 39.2,
+      "sunshineHoursAnnual": 3508.0
+    },
+    "40860": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 129,
+      "annualPrecipitationInches": 59.9,
+      "sunshineHoursAnnual": 2837.0
+    },
+    "40900": {
+      "daysMaxGt90FAnnual": 49,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 45.6,
+      "sunshineHoursAnnual": 3634.0
+    },
+    "40940": {
+      "daysMaxGt90FAnnual": 153,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 6.7,
+      "sunshineHoursAnnual": 3993.0
+    },
+    "40980": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 120,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 2899.0
+    },
+    "41060": {
+      "daysMaxGt90FAnnual": 10,
+      "daysMinLt32FAnnual": 155,
+      "annualPrecipitationInches": 32.2,
+      "sunshineHoursAnnual": 3240.0
+    },
+    "41100": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 25.3,
+      "sunshineHoursAnnual": 3860.0
+    },
+    "41140": {
+      "daysMaxGt90FAnnual": 27,
+      "daysMinLt32FAnnual": 101,
+      "annualPrecipitationInches": 33.8,
+      "sunshineHoursAnnual": 3395.0
+    },
+    "41180": {
+      "daysMaxGt90FAnnual": 24,
+      "daysMinLt32FAnnual": 63,
+      "annualPrecipitationInches": 46.8,
+      "sunshineHoursAnnual": 3333.0
+    },
+    "41220": {
+      "daysMaxGt90FAnnual": 62,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 51.1,
+      "sunshineHoursAnnual": 3519.0
+    },
+    "41260": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 129,
+      "annualPrecipitationInches": 41.7,
+      "sunshineHoursAnnual": 2857.0
+    },
+    "41400": {
+      "daysMaxGt90FAnnual": 4.4,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 36.5,
+      "sunshineHoursAnnual": 2945.0
+    },
+    "41420": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 49,
+      "annualPrecipitationInches": 51.9,
+      "sunshineHoursAnnual": 2995.0
+    },
+    "41460": {
+      "daysMaxGt90FAnnual": 60,
+      "daysMinLt32FAnnual": 92,
+      "annualPrecipitationInches": 18.8,
+      "sunshineHoursAnnual": 3585.0
+    },
+    "41500": {
+      "daysMaxGt90FAnnual": 61,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 24.4,
+      "sunshineHoursAnnual": 3852.0
+    },
+    "41540": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 29,
+      "annualPrecipitationInches": 45.7,
+      "sunshineHoursAnnual": 3348.0
+    },
+    "41620": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 158,
+      "annualPrecipitationInches": 16.9,
+      "sunshineHoursAnnual": 3663.0
+    },
+    "41660": {
+      "daysMaxGt90FAnnual": 111,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 20.1,
+      "sunshineHoursAnnual": 3725.0
+    },
+    "41700": {
+      "daysMaxGt90FAnnual": 122,
+      "daysMinLt32FAnnual": 6.0,
+      "annualPrecipitationInches": 32.0,
+      "sunshineHoursAnnual": 3369.0
+    },
+    "41740": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3799.0
+    },
+    "41760": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 180,
+      "annualPrecipitationInches": 35.7,
+      "sunshineHoursAnnual": 3191.0
+    },
+    "41780": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 38.3,
+      "sunshineHoursAnnual": 3105.0
+    },
+    "41820": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 28,
+      "annualPrecipitationInches": 45.3,
+      "sunshineHoursAnnual": 3370.0
+    },
+    "41860": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 34.7,
+      "sunshineHoursAnnual": 3632.0
+    },
+    "41900": {
+      "daysMaxGt90FAnnual": 63,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 43.5,
+      "sunshineHoursAnnual": 4050.0
+    },
+    "41940": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 28.4,
+      "sunshineHoursAnnual": 3640.0
+    },
+    "41980": {
+      "daysMaxGt90FAnnual": 86,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 35.4,
+      "sunshineHoursAnnual": 3978.0
+    },
+    "42020": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 25.7,
+      "sunshineHoursAnnual": 3870.0
+    },
+    "42100": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 49.6,
+      "sunshineHoursAnnual": 3543.0
+    },
+    "42140": {
+      "daysMaxGt90FAnnual": 26,
+      "daysMinLt32FAnnual": 130,
+      "annualPrecipitationInches": 10.6,
+      "sunshineHoursAnnual": 4036.0
+    },
+    "42180": {
+      "daysMaxGt90FAnnual": 76,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 33.3,
+      "sunshineHoursAnnual": 4045.0
+    },
+    "42200": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 30,
+      "annualPrecipitationInches": 32.4,
+      "sunshineHoursAnnual": 3781.0
+    },
+    "42220": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 57.9,
+      "sunshineHoursAnnual": 3585.0
+    },
+    "42300": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 151,
+      "annualPrecipitationInches": 34.4,
+      "sunshineHoursAnnual": 2865.0
+    },
+    "42340": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 49.4,
+      "sunshineHoursAnnual": 3467.0
+    },
+    "42380": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 112,
+      "annualPrecipitationInches": 42.1,
+      "sunshineHoursAnnual": 2979.0
+    },
+    "42780": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 44.1,
+      "sunshineHoursAnnual": 3168.0
+    },
+    "42820": {
+      "daysMaxGt90FAnnual": 91,
+      "daysMinLt32FAnnual": 7,
+      "annualPrecipitationInches": 51.1,
+      "sunshineHoursAnnual": 3516.0
+    },
+    "42860": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 26,
+      "annualPrecipitationInches": 50.5,
+      "sunshineHoursAnnual": 3350.0
+    },
+    "42900": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 45.5,
+      "sunshineHoursAnnual": 2810.0
+    },
+    "42940": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 43.8,
+      "sunshineHoursAnnual": 3335.0
+    },
+    "42980": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 38.5,
+      "sunshineHoursAnnual": 3295.0
+    },
+    "43020": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 149,
+      "annualPrecipitationInches": 29.4,
+      "sunshineHoursAnnual": 3053.0
+    },
+    "43060": {
+      "daysMaxGt90FAnnual": 75,
+      "daysMinLt32FAnnual": 32,
+      "annualPrecipitationInches": 35.5,
+      "sunshineHoursAnnual": 3458.0
+    },
+    "43100": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 123,
+      "annualPrecipitationInches": 33.5,
+      "sunshineHoursAnnual": 3098.0
+    },
+    "43140": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3373.0
+    },
+    "43180": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 54.8,
+      "sunshineHoursAnnual": 3259.0
+    },
+    "43220": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 48,
+      "annualPrecipitationInches": 62.3,
+      "sunshineHoursAnnual": 2956.0
+    },
+    "43260": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 171,
+      "annualPrecipitationInches": 23.3,
+      "sunshineHoursAnnual": 3523.0
+    },
+    "43300": {
+      "daysMaxGt90FAnnual": 92,
+      "daysMinLt32FAnnual": 18,
+      "annualPrecipitationInches": 48.6,
+      "sunshineHoursAnnual": 3378.0
+    },
+    "43320": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 116,
+      "annualPrecipitationInches": 9.4,
+      "sunshineHoursAnnual": 4000.0
+    },
+    "43340": {
+      "daysMaxGt90FAnnual": 100,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 44.9,
+      "sunshineHoursAnnual": 3418.0
+    },
+    "43380": {
+      "daysMaxGt90FAnnual": 4.0,
+      "daysMinLt32FAnnual": 86,
+      "annualPrecipitationInches": 37.7,
+      "sunshineHoursAnnual": 3114.0
+    },
+    "43420": {
+      "daysMaxGt90FAnnual": 90,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 8.1,
+      "sunshineHoursAnnual": 4037.0
+    },
+    "43460": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 45,
+      "annualPrecipitationInches": 46.4,
+      "sunshineHoursAnnual": 3478.0
+    },
+    "43500": {
+      "daysMaxGt90FAnnual": 52,
+      "daysMinLt32FAnnual": 72,
+      "annualPrecipitationInches": 8.2,
+      "sunshineHoursAnnual": 4015.0
+    },
+    "43580": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 141,
+      "annualPrecipitationInches": 27.1,
+      "sunshineHoursAnnual": 3414.0
+    },
+    "43620": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 152,
+      "annualPrecipitationInches": 26.9,
+      "sunshineHoursAnnual": 3404.0
+    },
+    "43660": {
+      "daysMaxGt90FAnnual": 105,
+      "daysMinLt32FAnnual": 27,
+      "annualPrecipitationInches": 16.9,
+      "sunshineHoursAnnual": 3769.0
+    },
+    "43700": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 45,
+      "annualPrecipitationInches": 46.3,
+      "sunshineHoursAnnual": 3314.0
+    },
+    "43740": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 37.2,
+      "sunshineHoursAnnual": 2992.0
+    },
+    "43760": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 135,
+      "annualPrecipitationInches": 62.4,
+      "sunshineHoursAnnual": 3641.0
+    },
+    "43780": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 98,
+      "annualPrecipitationInches": 46.5,
+      "sunshineHoursAnnual": 2964.0
+    },
+    "43900": {
+      "daysMaxGt90FAnnual": 40,
+      "daysMinLt32FAnnual": 31,
+      "annualPrecipitationInches": 40.2,
+      "sunshineHoursAnnual": 3359.0
+    },
+    "43940": {
+      "daysMaxGt90FAnnual": 1.0,
+      "daysMinLt32FAnnual": 182,
+      "annualPrecipitationInches": 32.7,
+      "sunshineHoursAnnual": 3547.0
+    },
+    "43980": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 141,
+      "annualPrecipitationInches": 28.6,
+      "sunshineHoursAnnual": 3249.0
+    },
+    "44020": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 149,
+      "annualPrecipitationInches": 31.9,
+      "sunshineHoursAnnual": 3327.0
+    },
+    "44060": {
+      "daysMaxGt90FAnnual": 19,
+      "daysMinLt32FAnnual": 155,
+      "annualPrecipitationInches": 17.4,
+      "sunshineHoursAnnual": 3297.0
+    },
+    "44100": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 76,
+      "annualPrecipitationInches": 34.0,
+      "sunshineHoursAnnual": 3363.0
+    },
+    "44140": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 118,
+      "annualPrecipitationInches": 62.3,
+      "sunshineHoursAnnual": 2987.0
+    },
+    "44180": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 58,
+      "annualPrecipitationInches": 35.6,
+      "sunshineHoursAnnual": 3451.0
+    },
+    "44220": {
+      "daysMaxGt90FAnnual": 3.0,
+      "daysMinLt32FAnnual": 77,
+      "annualPrecipitationInches": 39.7,
+      "sunshineHoursAnnual": 3130.0
+    },
+    "44260": {
+      "daysMaxGt90FAnnual": 62,
+      "daysMinLt32FAnnual": 13,
+      "annualPrecipitationInches": 41.8,
+      "sunshineHoursAnnual": 3490.0
+    },
+    "44300": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 106,
+      "annualPrecipitationInches": 36.6,
+      "sunshineHoursAnnual": 3068.0
+    },
+    "44340": {
+      "daysMaxGt90FAnnual": 63,
+      "daysMinLt32FAnnual": 4,
+      "annualPrecipitationInches": 50.4,
+      "sunshineHoursAnnual": 3447.0
+    },
+    "44420": {
+      "daysMaxGt90FAnnual": 20,
+      "daysMinLt32FAnnual": 73,
+      "annualPrecipitationInches": 29.3,
+      "sunshineHoursAnnual": 3434.0
+    },
+    "44460": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 225,
+      "annualPrecipitationInches": 22.8,
+      "sunshineHoursAnnual": 3673.0
+    },
+    "44500": {
+      "daysMaxGt90FAnnual": 109,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 3504.0
+    },
+    "44540": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 154,
+      "annualPrecipitationInches": 19.6,
+      "sunshineHoursAnnual": 3609.0
+    },
+    "44580": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 109,
+      "annualPrecipitationInches": 32.6,
+      "sunshineHoursAnnual": 3217.0
+    },
+    "44620": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 151,
+      "annualPrecipitationInches": 30.5,
+      "sunshineHoursAnnual": 3095.0
+    },
+    "44660": {
+      "daysMaxGt90FAnnual": 66,
+      "daysMinLt32FAnnual": 37,
+      "annualPrecipitationInches": 32.8,
+      "sunshineHoursAnnual": 3463.0
+    },
+    "44700": {
+      "daysMaxGt90FAnnual": 75,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 29.6,
+      "sunshineHoursAnnual": 3708.0
+    },
+    "44740": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 136,
+      "annualPrecipitationInches": 29.3,
+      "sunshineHoursAnnual": 3326.0
+    },
+    "44780": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 102,
+      "annualPrecipitationInches": 38.2,
+      "sunshineHoursAnnual": 2958.0
+    },
+    "44860": {
+      "daysMaxGt90FAnnual": 97,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 50.7,
+      "sunshineHoursAnnual": 3381.0
+    },
+    "44900": {
+      "daysMaxGt90FAnnual": 34,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 51.2,
+      "sunshineHoursAnnual": 3285.0
+    },
+    "44940": {
+      "daysMaxGt90FAnnual": 57,
+      "daysMinLt32FAnnual": 8,
+      "annualPrecipitationInches": 51.1,
+      "sunshineHoursAnnual": 3431.0
+    },
+    "44980": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 88,
+      "annualPrecipitationInches": 44.4,
+      "sunshineHoursAnnual": 3145.0
+    },
+    "45000": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 197,
+      "annualPrecipitationInches": 22.1,
+      "sunshineHoursAnnual": 3708.0
+    },
+    "45020": {
+      "daysMaxGt90FAnnual": 96,
+      "daysMinLt32FAnnual": 23,
+      "annualPrecipitationInches": 17.0,
+      "sunshineHoursAnnual": 3723.0
+    },
+    "45060": {
+      "daysMaxGt90FAnnual": 2.0,
+      "daysMinLt32FAnnual": 116,
+      "annualPrecipitationInches": 55.8,
+      "sunshineHoursAnnual": 2744.0
+    },
+    "45140": {
+      "daysMaxGt90FAnnual": 62,
+      "daysMinLt32FAnnual": 42,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 3384.0
+    },
+    "45180": {
+      "daysMaxGt90FAnnual": 57,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 51.5,
+      "sunshineHoursAnnual": 3443.0
+    },
+    "45220": {
+      "daysMaxGt90FAnnual": 55,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 62.4,
+      "sunshineHoursAnnual": 3461.0
+    },
+    "45300": {
+      "daysMaxGt90FAnnual": 55,
+      "daysMinLt32FAnnual": 0.4,
+      "annualPrecipitationInches": 45.3,
+      "sunshineHoursAnnual": 3702.0
+    },
+    "45340": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 159,
+      "annualPrecipitationInches": 13.2,
+      "sunshineHoursAnnual": 4002.0
+    },
+    "45380": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 34.8,
+      "sunshineHoursAnnual": 3338.0
+    },
+    "45460": {
+      "daysMaxGt90FAnnual": 13,
+      "daysMinLt32FAnnual": 61,
+      "annualPrecipitationInches": 38.9,
+      "sunshineHoursAnnual": 3217.0
+    },
+    "45500": {
+      "daysMaxGt90FAnnual": 94,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 49.7,
+      "sunshineHoursAnnual": 3419.0
+    },
+    "45520": {
+      "daysMaxGt90FAnnual": 29,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 17.2,
+      "sunshineHoursAnnual": 3377.0
+    },
+    "45540": {
+      "daysMaxGt90FAnnual": 97,
+      "daysMinLt32FAnnual": 1.4,
+      "annualPrecipitationInches": 45.4,
+      "sunshineHoursAnnual": 3639.0
+    },
+    "45580": {
+      "daysMaxGt90FAnnual": 71,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 52.4,
+      "sunshineHoursAnnual": 3392.0
+    },
+    "45620": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 1,
+      "annualPrecipitationInches": 55.7,
+      "sunshineHoursAnnual": 3367.0
+    },
+    "45660": {
+      "daysMaxGt90FAnnual": 6.6,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 38.6,
+      "sunshineHoursAnnual": 3083.0
+    },
+    "45700": {
+      "daysMaxGt90FAnnual": 68,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 47.8,
+      "sunshineHoursAnnual": 3411.0
+    },
+    "45740": {
+      "daysMaxGt90FAnnual": 43,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 54.6,
+      "sunshineHoursAnnual": 3330.0
+    },
+    "45780": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 89,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3116.0
+    },
+    "45820": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 96,
+      "annualPrecipitationInches": 32.9,
+      "sunshineHoursAnnual": 3429.0
+    },
+    "45860": {
+      "daysMaxGt90FAnnual": 2.8,
+      "daysMinLt32FAnnual": 111,
+      "annualPrecipitationInches": 61.2,
+      "sunshineHoursAnnual": 3048.0
+    },
+    "45900": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 102,
+      "annualPrecipitationInches": 36.2,
+      "sunshineHoursAnnual": 2966.0
+    },
+    "45940": {
+      "daysMaxGt90FAnnual": 17,
+      "daysMinLt32FAnnual": 61,
+      "annualPrecipitationInches": 51.2,
+      "sunshineHoursAnnual": 3204.0
+    },
+    "45980": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 45.5,
+      "sunshineHoursAnnual": 3380.0
+    },
+    "46020": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 121,
+      "annualPrecipitationInches": 63.2,
+      "sunshineHoursAnnual": 3538.0
+    },
+    "46060": {
+      "daysMaxGt90FAnnual": 115,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 8.4,
+      "sunshineHoursAnnual": 4029.0
+    },
+    "46100": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 25,
+      "annualPrecipitationInches": 55.8,
+      "sunshineHoursAnnual": 3262.0
+    },
+    "46140": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3469.0
+    },
+    "46180": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 18,
+      "annualPrecipitationInches": 49.8,
+      "sunshineHoursAnnual": 3368.0
+    },
+    "46220": {
+      "daysMaxGt90FAnnual": 74,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 45.2,
+      "sunshineHoursAnnual": 3507.0
+    },
+    "46300": {
+      "daysMaxGt90FAnnual": 37,
+      "daysMinLt32FAnnual": 138,
+      "annualPrecipitationInches": 15.2,
+      "sunshineHoursAnnual": 3466.0
+    },
+    "46340": {
+      "daysMaxGt90FAnnual": 96,
+      "daysMinLt32FAnnual": 9,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3409.0
+    },
+    "46380": {
+      "daysMaxGt90FAnnual": 8,
+      "daysMinLt32FAnnual": 29,
+      "annualPrecipitationInches": 58.3,
+      "sunshineHoursAnnual": 3529.0
+    },
+    "46420": {
+      "daysMaxGt90FAnnual": 51,
+      "daysMinLt32FAnnual": 22,
+      "annualPrecipitationInches": 46.2,
+      "sunshineHoursAnnual": 3374.0
+    },
+    "46460": {
+      "daysMaxGt90FAnnual": 41,
+      "daysMinLt32FAnnual": 36,
+      "annualPrecipitationInches": 47.2,
+      "sunshineHoursAnnual": 3501.0
+    },
+    "46500": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 86,
+      "annualPrecipitationInches": 39.3,
+      "sunshineHoursAnnual": 3156.0
+    },
+    "46520": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 23.5,
+      "sunshineHoursAnnual": 4002.0
+    },
+    "46540": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 135,
+      "annualPrecipitationInches": 56.1,
+      "sunshineHoursAnnual": 2727.0
+    },
+    "46620": {
+      "daysMaxGt90FAnnual": 122,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 23.9,
+      "sunshineHoursAnnual": 3399.0
+    },
+    "46660": {
+      "daysMaxGt90FAnnual": 65,
+      "daysMinLt32FAnnual": 2,
+      "annualPrecipitationInches": 53.7,
+      "sunshineHoursAnnual": 3493.0
+    },
+    "46700": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 33.2,
+      "sunshineHoursAnnual": 3717.0
+    },
+    "46780": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 85,
+      "annualPrecipitationInches": 34.1,
+      "sunshineHoursAnnual": 3106.0
+    },
+    "46820": {
+      "daysMaxGt90FAnnual": 21,
+      "daysMinLt32FAnnual": 145,
+      "annualPrecipitationInches": 26.4,
+      "sunshineHoursAnnual": 3446.0
+    },
+    "46860": {
+      "daysMaxGt90FAnnual": 54,
+      "daysMinLt32FAnnual": 161,
+      "annualPrecipitationInches": 7.8,
+      "sunshineHoursAnnual": 3744.0
+    },
+    "46900": {
+      "daysMaxGt90FAnnual": 117,
+      "daysMinLt32FAnnual": 30,
+      "annualPrecipitationInches": 21.9,
+      "sunshineHoursAnnual": 3638.0
+    },
+    "46980": {
+      "daysMaxGt90FAnnual": 88,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 42.8,
+      "sunshineHoursAnnual": 3541.0
+    },
+    "47020": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 31.2,
+      "sunshineHoursAnnual": 3439.0
+    },
+    "47080": {
+      "daysMaxGt90FAnnual": 77,
+      "daysMinLt32FAnnual": 5,
+      "annualPrecipitationInches": 48.4,
+      "sunshineHoursAnnual": 3433.0
+    },
+    "47180": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 56,
+      "annualPrecipitationInches": 42.6,
+      "sunshineHoursAnnual": 3393.0
+    },
+    "47220": {
+      "daysMaxGt90FAnnual": 11,
+      "daysMinLt32FAnnual": 34,
+      "annualPrecipitationInches": 44.2,
+      "sunshineHoursAnnual": 3311.0
+    },
+    "47240": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 33,
+      "annualPrecipitationInches": 45.6,
+      "sunshineHoursAnnual": 3156.0
+    },
+    "47260": {
+      "daysMaxGt90FAnnual": 23,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 55.4,
+      "sunshineHoursAnnual": 3357.0
+    },
+    "47300": {
+      "daysMaxGt90FAnnual": 39,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 35.7,
+      "sunshineHoursAnnual": 3869.0
+    },
+    "47340": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 88,
+      "annualPrecipitationInches": 34.9,
+      "sunshineHoursAnnual": 3112.0
+    },
+    "47380": {
+      "daysMaxGt90FAnnual": 116,
+      "daysMinLt32FAnnual": 6,
+      "annualPrecipitationInches": 45.7,
+      "sunshineHoursAnnual": 3350.0
+    },
+    "47420": {
+      "daysMaxGt90FAnnual": 16,
+      "daysMinLt32FAnnual": 164,
+      "annualPrecipitationInches": 25.8,
+      "sunshineHoursAnnual": 3260.0
+    },
+    "47460": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 90,
+      "annualPrecipitationInches": 13.6,
+      "sunshineHoursAnnual": 3367.0
+    },
+    "47540": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 79,
+      "annualPrecipitationInches": 36.4,
+      "sunshineHoursAnnual": 3080.0
+    },
+    "47580": {
+      "daysMaxGt90FAnnual": 70,
+      "daysMinLt32FAnnual": 12,
+      "annualPrecipitationInches": 47.1,
+      "sunshineHoursAnnual": 3347.0
+    },
+    "47620": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 119,
+      "annualPrecipitationInches": 44.3,
+      "sunshineHoursAnnual": 2820.0
+    },
+    "47660": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 75,
+      "annualPrecipitationInches": 30.0,
+      "sunshineHoursAnnual": 3386.0
+    },
+    "47700": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 97,
+      "annualPrecipitationInches": 41.6,
+      "sunshineHoursAnnual": 3036.0
+    },
+    "47780": {
+      "daysMaxGt90FAnnual": 15,
+      "daysMinLt32FAnnual": 59,
+      "annualPrecipitationInches": 39.2,
+      "sunshineHoursAnnual": 3364.0
+    },
+    "47820": {
+      "daysMaxGt90FAnnual": 35,
+      "daysMinLt32FAnnual": 14,
+      "annualPrecipitationInches": 46.9,
+      "sunshineHoursAnnual": 3383.0
+    },
+    "47900": {
+      "daysMaxGt90FAnnual": 30,
+      "daysMinLt32FAnnual": 47,
+      "annualPrecipitationInches": 36.8,
+      "sunshineHoursAnnual": 3261.0
+    },
+    "47920": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 76,
+      "annualPrecipitationInches": 38.2,
+      "sunshineHoursAnnual": 3274.0
+    },
+    "47940": {
+      "daysMaxGt90FAnnual": 12,
+      "daysMinLt32FAnnual": 131,
+      "annualPrecipitationInches": 25.4,
+      "sunshineHoursAnnual": 3291.0
+    },
+    "47980": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 165,
+      "annualPrecipitationInches": 25.1,
+      "sunshineHoursAnnual": 3416.0
+    },
+    "48020": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 124,
+      "annualPrecipitationInches": 38.4,
+      "sunshineHoursAnnual": 3098.0
+    },
+    "48060": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 109,
+      "annualPrecipitationInches": 54.9,
+      "sunshineHoursAnnual": 2858.0
+    },
+    "48100": {
+      "daysMaxGt90FAnnual": 131,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 46.7,
+      "sunshineHoursAnnual": 3736.0
+    },
+    "48140": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 156,
+      "annualPrecipitationInches": 31.6,
+      "sunshineHoursAnnual": 3057.0
+    },
+    "48180": {
+      "daysMaxGt90FAnnual": 76,
+      "daysMinLt32FAnnual": 3,
+      "annualPrecipitationInches": 46.6,
+      "sunshineHoursAnnual": 3480.0
+    },
+    "48220": {
+      "daysMaxGt90FAnnual": 70,
+      "daysMinLt32FAnnual": 50,
+      "annualPrecipitationInches": 22.3,
+      "sunshineHoursAnnual": 3626.0
+    },
+    "48260": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 83,
+      "annualPrecipitationInches": 40.5,
+      "sunshineHoursAnnual": 3018.0
+    },
+    "48300": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 178,
+      "annualPrecipitationInches": 20.3,
+      "sunshineHoursAnnual": 3422.0
+    },
+    "48460": {
+      "daysMaxGt90FAnnual": 36,
+      "daysMinLt32FAnnual": 52,
+      "annualPrecipitationInches": 38.0,
+      "sunshineHoursAnnual": 3467.0
+    },
+    "48500": {
+      "daysMaxGt90FAnnual": 58,
+      "daysMinLt32FAnnual": 17,
+      "annualPrecipitationInches": 47.5,
+      "sunshineHoursAnnual": 3477.0
+    },
+    "48540": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 75,
+      "annualPrecipitationInches": 42.2,
+      "sunshineHoursAnnual": 3079.0
+    },
+    "48580": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 122,
+      "annualPrecipitationInches": 35.6,
+      "sunshineHoursAnnual": 3090.0
+    },
+    "48620": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 73,
+      "annualPrecipitationInches": 26.4,
+      "sunshineHoursAnnual": 3524.0
+    },
+    "48660": {
+      "daysMaxGt90FAnnual": 117,
+      "daysMinLt32FAnnual": 23,
+      "annualPrecipitationInches": 30.7,
+      "sunshineHoursAnnual": 3605.0
+    },
+    "48700": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 121,
+      "annualPrecipitationInches": 45.2,
+      "sunshineHoursAnnual": 3055.0
+    },
+    "48780": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 176,
+      "annualPrecipitationInches": 16.1,
+      "sunshineHoursAnnual": 3376.0
+    },
+    "48820": {
+      "daysMaxGt90FAnnual": 7,
+      "daysMinLt32FAnnual": 154,
+      "annualPrecipitationInches": 29.1,
+      "sunshineHoursAnnual": 3353.0
+    },
+    "48900": {
+      "daysMaxGt90FAnnual": 26,
+      "daysMinLt32FAnnual": 10,
+      "annualPrecipitationInches": 57.1,
+      "sunshineHoursAnnual": 3448.0
+    },
+    "48940": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 37.6,
+      "sunshineHoursAnnual": 3254.0
+    },
+    "48980": {
+      "daysMaxGt90FAnnual": 42,
+      "daysMinLt32FAnnual": 21,
+      "annualPrecipitationInches": 44.0,
+      "sunshineHoursAnnual": 3377.0
+    },
+    "49020": {
+      "daysMaxGt90FAnnual": 22,
+      "daysMinLt32FAnnual": 70,
+      "annualPrecipitationInches": 29.4,
+      "sunshineHoursAnnual": 3353.0
+    },
+    "49060": {
+      "daysMaxGt90FAnnual": 45,
+      "daysMinLt32FAnnual": 69,
+      "annualPrecipitationInches": 29.0,
+      "sunshineHoursAnnual": 3514.0
+    },
+    "49080": {
+      "daysMaxGt90FAnnual": 48,
+      "daysMinLt32FAnnual": 140,
+      "annualPrecipitationInches": 11.4,
+      "sunshineHoursAnnual": 3762.0
+    },
+    "49100": {
+      "daysMaxGt90FAnnual": 6,
+      "daysMinLt32FAnnual": 144,
+      "annualPrecipitationInches": 31.4,
+      "sunshineHoursAnnual": 3156.0
+    },
+    "49180": {
+      "daysMaxGt90FAnnual": 33,
+      "daysMinLt32FAnnual": 40,
+      "annualPrecipitationInches": 37.1,
+      "sunshineHoursAnnual": 3341.0
+    },
+    "49220": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 148,
+      "annualPrecipitationInches": 31.5,
+      "sunshineHoursAnnual": 3066.0
+    },
+    "49260": {
+      "daysMaxGt90FAnnual": 52,
+      "daysMinLt32FAnnual": 61,
+      "annualPrecipitationInches": 24.3,
+      "sunshineHoursAnnual": 3649.0
+    },
+    "49300": {
+      "daysMaxGt90FAnnual": 3,
+      "daysMinLt32FAnnual": 84,
+      "annualPrecipitationInches": 43.1,
+      "sunshineHoursAnnual": 2976.0
+    },
+    "49340": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 117,
+      "annualPrecipitationInches": 58.2,
+      "sunshineHoursAnnual": 3046.0
+    },
+    "49380": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 153,
+      "annualPrecipitationInches": 33.6,
+      "sunshineHoursAnnual": 3361.0
+    },
+    "49420": {
+      "daysMaxGt90FAnnual": 49,
+      "daysMinLt32FAnnual": 93,
+      "annualPrecipitationInches": 15.1,
+      "sunshineHoursAnnual": 3399.0
+    },
+    "49460": {
+      "daysMaxGt90FAnnual": 25,
+      "daysMinLt32FAnnual": 149,
+      "annualPrecipitationInches": 30.7,
+      "sunshineHoursAnnual": 3447.0
+    },
+    "49500": {
+      "daysMaxGt90FAnnual": 2,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 38.0,
+      "sunshineHoursAnnual": 4041.0
+    },
+    "49620": {
+      "daysMaxGt90FAnnual": 9,
+      "daysMinLt32FAnnual": 60,
+      "annualPrecipitationInches": 40.7,
+      "sunshineHoursAnnual": 3246.0
+    },
+    "49660": {
+      "daysMaxGt90FAnnual": 1,
+      "daysMinLt32FAnnual": 95,
+      "annualPrecipitationInches": 43.6,
+      "sunshineHoursAnnual": 2936.0
+    },
+    "49700": {
+      "daysMaxGt90FAnnual": 104,
+      "daysMinLt32FAnnual": 11,
+      "annualPrecipitationInches": 35.2,
+      "sunshineHoursAnnual": 3672.0
+    },
+    "49740": {
+      "daysMaxGt90FAnnual": 179,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 5.5,
+      "sunshineHoursAnnual": 4029.0
+    },
+    "49780": {
+      "daysMaxGt90FAnnual": 5,
+      "daysMinLt32FAnnual": 74,
+      "annualPrecipitationInches": 41.9,
+      "sunshineHoursAnnual": 3125.0
+    },
+    "49820": {
+      "daysMaxGt90FAnnual": 175,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 26.9,
+      "sunshineHoursAnnual": 3518.0
+    },
+    "42420": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 154,
+      "annualPrecipitationInches": 21.6,
+      "sunshineHoursAnnual": 3584.0
+    },
+    "42460": {
+      "daysMaxGt90FAnnual": 18,
+      "daysMinLt32FAnnual": 35,
+      "annualPrecipitationInches": 52.5,
+      "sunshineHoursAnnual": 3294.0
+    },
+    "42500": {
+      "daysMaxGt90FAnnual": 14,
+      "daysMinLt32FAnnual": 53,
+      "annualPrecipitationInches": 39.9,
+      "sunshineHoursAnnual": 3291.0
+    },
+    "42540": {
+      "daysMaxGt90FAnnual": 4,
+      "daysMinLt32FAnnual": 105,
+      "annualPrecipitationInches": 45.9,
+      "sunshineHoursAnnual": 3135.0
+    },
+    "42620": {
+      "daysMaxGt90FAnnual": 66,
+      "daysMinLt32FAnnual": 29,
+      "annualPrecipitationInches": 47.2,
+      "sunshineHoursAnnual": 3445.0
+    },
+    "42660": {
+      "daysMaxGt90FAnnual": 0,
+      "daysMinLt32FAnnual": 131,
+      "annualPrecipitationInches": 65.5,
+      "sunshineHoursAnnual": 2792.0
+    },
+    "42680": {
+      "daysMaxGt90FAnnual": 75,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 53.9,
+      "sunshineHoursAnnual": 3741.0
+    },
+    "42700": {
+      "daysMaxGt90FAnnual": 118,
+      "daysMinLt32FAnnual": 0,
+      "annualPrecipitationInches": 50.1,
+      "sunshineHoursAnnual": 3698.0
+    },
+    "42740": {
+      "daysMaxGt90FAnnual": 38,
+      "daysMinLt32FAnnual": 64,
+      "annualPrecipitationInches": 29.3,
+      "sunshineHoursAnnual": 3423.0
+    }
+  }
+}

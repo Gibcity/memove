@@ -1,0 +1,145 @@
+{
+  "source": {
+    "name": "Zillow ZHVI - Metro (SFR/Condo, 0.33-0.67 tier, smoothed, seasonally adjusted)",
+    "url": "https://www.zillow.com/research/data/",
+    "pulled_at": "2026-06-18T19:52:00Z",
+    "retrieval_method": "curl (csv, region 'City, ST' parsed)",
+    "fix_note": "Phase A (2026-06-18): Austin and Columbus metro-match bugs fixed. Prior version had Austin=MN ($205K) and Columbus=NE ($281K). Now Austin=TX ($428K) and Columbus=OH ($333K). Added wife's 6 metros + Minneapolis anchor (Twin Cities for Lakeville/Eagan)."
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "record_type": "scalar_set",
+  "attribute": "zhvi_metro_sfrcondo_tier_0.33_0.67",
+  "as_of_date": "2026-05-31",
+  "metros": {
+    "Dallas": {
+      "name": "Dallas, TX",
+      "state": "TX",
+      "zhvi": 366823.21013551723
+    },
+    "Houston": {
+      "name": "Houston, TX",
+      "state": "TX",
+      "zhvi": 308305.81214176427
+    },
+    "Minneapolis": {
+      "name": "Minneapolis, MN",
+      "state": "MN",
+      "zhvi": 393773.94718804845
+    },
+    "Denver": {
+      "name": "Denver, CO",
+      "state": "CO",
+      "zhvi": 573221.0447101688
+    },
+    "St. Louis": {
+      "name": "St. Louis, MO",
+      "state": "MO",
+      "zhvi": 276877.7014272255
+    },
+    "San Antonio": {
+      "name": "San Antonio, TX",
+      "state": "TX",
+      "zhvi": 280297.0273029063
+    },
+    "Pittsburgh": {
+      "name": "Pittsburgh, PA",
+      "state": "PA",
+      "zhvi": 231356.03044424407
+    },
+    "Cincinnati": {
+      "name": "Cincinnati, OH",
+      "state": "OH",
+      "zhvi": 311269.73243333615
+    },
+    "Austin": {
+      "name": "Austin, TX",
+      "state": "TX",
+      "zhvi": 428524.1177891283
+    },
+    "Kansas City": {
+      "name": "Kansas City, MO",
+      "state": "MO",
+      "zhvi": 329640.5190672718
+    },
+    "Columbus": {
+      "name": "Columbus, OH",
+      "state": "OH",
+      "zhvi": 333537.2356753699
+    },
+    "Indianapolis": {
+      "name": "Indianapolis, IN",
+      "state": "IN",
+      "zhvi": 295921.27605814656
+    },
+    "Nashville": {
+      "name": "Nashville, TN",
+      "state": "TN",
+      "zhvi": 455957.77819186664
+    },
+    "Memphis": {
+      "name": "Memphis, TN",
+      "state": "TN",
+      "zhvi": 247228.65765758898
+    },
+    "Louisville": {
+      "name": "Louisville, KY",
+      "state": "KY",
+      "zhvi": 283231.8191382916
+    },
+    "Grand Rapids": {
+      "name": "Grand Rapids, MI",
+      "state": "MI",
+      "zhvi": 359922.75917669706
+    },
+    "Colorado Springs": {
+      "name": "Colorado Springs, CO",
+      "state": "CO",
+      "zhvi": 457299.67172576574
+    },
+    "Madison": {
+      "name": "Madison, WI",
+      "state": "WI",
+      "zhvi": 452769.31962457666
+    },
+    "Spokane": {
+      "name": "Spokane, WA",
+      "state": "WA",
+      "zhvi": 423841.58051760076
+    },
+    "Boulder": {
+      "name": "Boulder, CO",
+      "state": "CO",
+      "zhvi": 727953.9194274591
+    },
+    "Kalamazoo": {
+      "name": "Kalamazoo, MI",
+      "state": "MI",
+      "zhvi": 279751.72484707093
+    },
+    "Appleton": {
+      "name": "Appleton, WI",
+      "state": "WI",
+      "zhvi": 350370.12970403774
+    },
+    "Rochester": {
+      "name": "Rochester, MN",
+      "state": "MN",
+      "zhvi": 343120.8481959726
+    },
+    "Bend": {
+      "name": "Bend, OR",
+      "state": "OR",
+      "zhvi": 672285.6594895012
+    },
+    "Bozeman": {
+      "name": "Bozeman, MT",
+      "state": "MT",
+      "zhvi": 705739.4029383049
+    },
+    "Boise": {
+      "name": "Boise City, ID",
+      "state": "ID",
+      "zhvi": 496287.93420281756
+    }
+  }
+}

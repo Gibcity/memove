@@ -1,0 +1,224 @@
+{
+  "source": {
+    "name": "Equable Institute State of Pensions 2024 - per-state classification",
+    "url_pattern": "https://equable.org/state/<slug>/",
+    "pulled_at": "2026-06-18T20:00:00Z",
+    "retrieval_method": "Puppeteer (headless) via /home/mongo/projects/browser-tools/repo install",
+    "scrape_script": "sources/scripts/equable_state_scrape.mjs",
+    "raw_per_state_dir": "sources/raw/equable-states/",
+    "notes": "Each state page renders the qualitative classification (Resilient/Fragile/Distressed) as JS-rendered text. Funded ratio is sometimes surfaced as a numeric value too; collected where found."
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "record_type": "scalar_set",
+  "attribute": "fiscal_hygiene_state_pension_classification",
+  "states": {
+    "alabama": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "alaska": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "arizona": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "arkansas": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "california": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": [
+        84.2
+      ]
+    },
+    "colorado": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "connecticut": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": [
+        66.3
+      ]
+    },
+    "delaware": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "florida": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": [
+        86.0
+      ]
+    },
+    "georgia": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "hawaii": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "idaho": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "illinois": {
+      "classification": "Distressed",
+      "funded_ratio_candidates": []
+    },
+    "indiana": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "iowa": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "kansas": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "kentucky": {
+      "classification": "Distressed",
+      "funded_ratio_candidates": []
+    },
+    "louisiana": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "maine": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "maryland": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "massachusetts": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "michigan": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "minnesota": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "mississippi": {
+      "classification": "Distressed",
+      "funded_ratio_candidates": []
+    },
+    "missouri": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "montana": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "nebraska": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "nevada": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "new-hampshire": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "new-jersey": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "new-mexico": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "new-york": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "north-carolina": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "north-dakota": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "ohio": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": [
+        83.7
+      ]
+    },
+    "oklahoma": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "oregon": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "pennsylvania": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "rhode-island": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "south-carolina": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "south-dakota": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "tennessee": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "texas": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "utah": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "vermont": {
+      "classification": "Fragile",
+      "funded_ratio_candidates": []
+    },
+    "virginia": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "washington": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "west-virginia": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "wisconsin": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    },
+    "wyoming": {
+      "classification": "Resilient",
+      "funded_ratio_candidates": []
+    }
+  }
+}

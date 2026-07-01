@@ -1,0 +1,1096 @@
+{
+  "source": {
+    "name": "Phase D costflow v2 \u2014 8-corner cashflow model for all 24 survivors",
+    "method": "Annual carry = mortgage P&I (new 6.75% 30-yr fixed) + property tax (state effective %) + state income tax (Tyler + Wife) + childcare + insurance. Denver baseline = existing 3.5% mortgage PITI.",
+    "caveats": [
+      "State income tax uses simplified flat-rate approximation. Real rates are bracket-based.",
+      "Property tax uses state-level effective rate. County-level drilldown deferred.",
+      "Childcare uses EPI 2024 state average. Real quotes vary.",
+      "Insurance baseline $1,800/yr; SOFT_FAIL states get 1.5\u00d7 (per prior session)."
+    ],
+    "pulled_at": "2026-06-19T02:10:00Z"
+  },
+  "schema_version": "us-reloc-2026.v2",
+  "constants": {
+    "current_mortgage_rate_pct": 6.75,
+    "denver_home_value": 650000,
+    "denver_net_equity_low": 35000,
+    "denver_net_equity_high": 295000,
+    "tyler_gross_income": 100000,
+    "wife_gross_income": 50000,
+    "household_gross": 150000,
+    "denver_mortgage_rate_pct": 3.5,
+    "denver_monthly_piti": 2450
+  },
+  "killed_by_gates": {},
+  "surviving_candidates": [
+    "Shape_0_Boulder",
+    "Shape_0_ColoradoSprings",
+    "Shape_0_Denver",
+    "Shape_3a_Boise",
+    "Shape_3a_Bozeman",
+    "Shape_3a_Spokane",
+    "Shape_3b_Appleton",
+    "Shape_3b_Cincinnati",
+    "Shape_3b_Columbus",
+    "Shape_3b_GrandRapids",
+    "Shape_3b_Indianapolis",
+    "Shape_3b_Kalamazoo",
+    "Shape_3b_KansasCity",
+    "Shape_3b_Louisville",
+    "Shape_3b_Madison",
+    "Shape_3b_Memphis",
+    "Shape_3b_Minneapolis",
+    "Shape_3b_Nashville",
+    "Shape_3b_Pittsburgh",
+    "Shape_3b_Rochester",
+    "Shape_3b_StLouis",
+    "Shape_3c_Austin",
+    "Shape_3c_Dallas",
+    "Shape_3c_SanAntonio"
+  ],
+  "results_8_corner": {
+    "Shape_3b_Memphis": {
+      "low_eq+both+lowTax": {
+        "total_annual": 34604.0,
+        "delta_vs_denver_annual": -20781.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 34604.0,
+        "delta_vs_denver_annual": -22761.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 21104.0,
+        "delta_vs_denver_annual": -20781.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 21104.0,
+        "delta_vs_denver_annual": -22761.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 18086.0,
+        "delta_vs_denver_annual": -37299.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 18086.0,
+        "delta_vs_denver_annual": -39279.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 4586.0,
+        "delta_vs_denver_annual": -37299.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 4586.0,
+        "delta_vs_denver_annual": -39279.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Nashville": {
+      "low_eq+both+lowTax": {
+        "total_annual": 51935.0,
+        "delta_vs_denver_annual": -3450.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 51935.0,
+        "delta_vs_denver_annual": -5430.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 38435.0,
+        "delta_vs_denver_annual": -3450.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 38435.0,
+        "delta_vs_denver_annual": -5430.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 31699.0,
+        "delta_vs_denver_annual": -23686.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 31699.0,
+        "delta_vs_denver_annual": -25666.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 18199.0,
+        "delta_vs_denver_annual": -23686.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 18199.0,
+        "delta_vs_denver_annual": -25666.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Louisville": {
+      "low_eq+both+lowTax": {
+        "total_annual": 43571.0,
+        "delta_vs_denver_annual": -11814.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 45371.0,
+        "delta_vs_denver_annual": -11994.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 30071.0,
+        "delta_vs_denver_annual": -11814.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 31871.0,
+        "delta_vs_denver_annual": -11994.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 24251.0,
+        "delta_vs_denver_annual": -31134.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 26051.0,
+        "delta_vs_denver_annual": -31314.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 10751.0,
+        "delta_vs_denver_annual": -31134.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 12551.0,
+        "delta_vs_denver_annual": -31314.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_StLouis": {
+      "low_eq+both+lowTax": {
+        "total_annual": 44304.0,
+        "delta_vs_denver_annual": -11081.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 46419.0,
+        "delta_vs_denver_annual": -10946.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 30804.0,
+        "delta_vs_denver_annual": -11081.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 32919.0,
+        "delta_vs_denver_annual": -10946.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 25478.0,
+        "delta_vs_denver_annual": -29907.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 27593.0,
+        "delta_vs_denver_annual": -29772.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 11978.0,
+        "delta_vs_denver_annual": -29907.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 14093.0,
+        "delta_vs_denver_annual": -29772.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_KansasCity": {
+      "low_eq+both+lowTax": {
+        "total_annual": 48922.0,
+        "delta_vs_denver_annual": -6463.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 51037.0,
+        "delta_vs_denver_annual": -6328.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 35422.0,
+        "delta_vs_denver_annual": -6463.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 37537.0,
+        "delta_vs_denver_annual": -6328.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 28686.0,
+        "delta_vs_denver_annual": -26699.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 30801.0,
+        "delta_vs_denver_annual": -26564.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 15186.0,
+        "delta_vs_denver_annual": -26699.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 17301.0,
+        "delta_vs_denver_annual": -26564.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Indianapolis": {
+      "low_eq+both+lowTax": {
+        "total_annual": 43419.0,
+        "delta_vs_denver_annual": -11966.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 44769.0,
+        "delta_vs_denver_annual": -12596.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 29919.0,
+        "delta_vs_denver_annual": -11966.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 31269.0,
+        "delta_vs_denver_annual": -12596.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 23182.0,
+        "delta_vs_denver_annual": -32203.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 24532.0,
+        "delta_vs_denver_annual": -32833.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 9682.0,
+        "delta_vs_denver_annual": -32203.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 11032.0,
+        "delta_vs_denver_annual": -32833.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Columbus": {
+      "low_eq+both+lowTax": {
+        "total_annual": 49164.0,
+        "delta_vs_denver_annual": -6221.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 50514.0,
+        "delta_vs_denver_annual": -6851.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 35664.0,
+        "delta_vs_denver_annual": -6221.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 37014.0,
+        "delta_vs_denver_annual": -6851.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 28928.0,
+        "delta_vs_denver_annual": -26457.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 30278.0,
+        "delta_vs_denver_annual": -27087.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 15428.0,
+        "delta_vs_denver_annual": -26457.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 16778.0,
+        "delta_vs_denver_annual": -27087.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Cincinnati": {
+      "low_eq+both+lowTax": {
+        "total_annual": 47077.0,
+        "delta_vs_denver_annual": -8308.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 48427.0,
+        "delta_vs_denver_annual": -8938.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 33577.0,
+        "delta_vs_denver_annual": -8308.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 34927.0,
+        "delta_vs_denver_annual": -8938.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 26840.0,
+        "delta_vs_denver_annual": -28545.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 28190.0,
+        "delta_vs_denver_annual": -29175.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 13340.0,
+        "delta_vs_denver_annual": -28545.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 14690.0,
+        "delta_vs_denver_annual": -29175.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Pittsburgh": {
+      "low_eq+both+lowTax": {
+        "total_annual": 39031.0,
+        "delta_vs_denver_annual": -16354.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 40381.0,
+        "delta_vs_denver_annual": -16984.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 25531.0,
+        "delta_vs_denver_annual": -16354.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 26881.0,
+        "delta_vs_denver_annual": -16984.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 23748.0,
+        "delta_vs_denver_annual": -31637.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 25098.0,
+        "delta_vs_denver_annual": -32267.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 10248.0,
+        "delta_vs_denver_annual": -31637.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 11598.0,
+        "delta_vs_denver_annual": -32267.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3c_Dallas": {
+      "low_eq+both+lowTax": {
+        "total_annual": 48789.0,
+        "delta_vs_denver_annual": -6596.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 48789.0,
+        "delta_vs_denver_annual": -8576.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 35289.0,
+        "delta_vs_denver_annual": -6596.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 35289.0,
+        "delta_vs_denver_annual": -8576.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 28553.0,
+        "delta_vs_denver_annual": -26832.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 28553.0,
+        "delta_vs_denver_annual": -28812.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 15053.0,
+        "delta_vs_denver_annual": -26832.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 15053.0,
+        "delta_vs_denver_annual": -28812.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3c_SanAntonio": {
+      "low_eq+both+lowTax": {
+        "total_annual": 40601.0,
+        "delta_vs_denver_annual": -14784.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 40601.0,
+        "delta_vs_denver_annual": -16764.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 27101.0,
+        "delta_vs_denver_annual": -14784.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 27101.0,
+        "delta_vs_denver_annual": -16764.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 21509.0,
+        "delta_vs_denver_annual": -33876.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 21509.0,
+        "delta_vs_denver_annual": -35856.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 8009.0,
+        "delta_vs_denver_annual": -33876.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 8009.0,
+        "delta_vs_denver_annual": -35856.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3c_Austin": {
+      "low_eq+both+lowTax": {
+        "total_annual": 54628.0,
+        "delta_vs_denver_annual": -757.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 54628.0,
+        "delta_vs_denver_annual": -2737.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 41128.0,
+        "delta_vs_denver_annual": -757.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 41128.0,
+        "delta_vs_denver_annual": -2737.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 34392.0,
+        "delta_vs_denver_annual": -20993.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 34392.0,
+        "delta_vs_denver_annual": -22973.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 20892.0,
+        "delta_vs_denver_annual": -20993.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 20892.0,
+        "delta_vs_denver_annual": -22973.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_0_Denver": {
+      "low_eq+both+lowTax": {
+        "total_annual": 67453.0,
+        "delta_vs_denver_annual": 12068.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 69433.0,
+        "delta_vs_denver_annual": 12068.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 53953.0,
+        "delta_vs_denver_annual": 12068.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 55933.0,
+        "delta_vs_denver_annual": 12068.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 47217.0,
+        "delta_vs_denver_annual": -8168.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 49197.0,
+        "delta_vs_denver_annual": -8168.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 33717.0,
+        "delta_vs_denver_annual": -8168.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 35697.0,
+        "delta_vs_denver_annual": -8168.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_0_ColoradoSprings": {
+      "low_eq+both+lowTax": {
+        "total_annual": 57793.0,
+        "delta_vs_denver_annual": 2408.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 59773.0,
+        "delta_vs_denver_annual": 2408.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 44293.0,
+        "delta_vs_denver_annual": 2408.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 46273.0,
+        "delta_vs_denver_annual": 2408.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 37557.0,
+        "delta_vs_denver_annual": -17828.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 39537.0,
+        "delta_vs_denver_annual": -17828.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 24057.0,
+        "delta_vs_denver_annual": -17828.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 26037.0,
+        "delta_vs_denver_annual": -17828.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_0_Boulder": {
+      "low_eq+both+lowTax": {
+        "total_annual": 80348.0,
+        "delta_vs_denver_annual": 24963.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 82328.0,
+        "delta_vs_denver_annual": 24963.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 66848.0,
+        "delta_vs_denver_annual": 24963.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 68828.0,
+        "delta_vs_denver_annual": 24963.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 60111.0,
+        "delta_vs_denver_annual": 4726.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 62091.0,
+        "delta_vs_denver_annual": 4726.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 46611.0,
+        "delta_vs_denver_annual": 4726.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 48591.0,
+        "delta_vs_denver_annual": 4726.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3a_Boise": {
+      "low_eq+both+lowTax": {
+        "total_annual": 63047.0,
+        "delta_vs_denver_annual": 7662.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 65612.0,
+        "delta_vs_denver_annual": 8247.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 49547.0,
+        "delta_vs_denver_annual": 7662.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 52112.0,
+        "delta_vs_denver_annual": 8247.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 42811.0,
+        "delta_vs_denver_annual": -12574.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 45376.0,
+        "delta_vs_denver_annual": -11989.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 29311.0,
+        "delta_vs_denver_annual": -12574.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 31876.0,
+        "delta_vs_denver_annual": -11989.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3a_Spokane": {
+      "low_eq+both+lowTax": {
+        "total_annual": 50752.0,
+        "delta_vs_denver_annual": -4633.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 50752.0,
+        "delta_vs_denver_annual": -6613.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 37252.0,
+        "delta_vs_denver_annual": -4633.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 37252.0,
+        "delta_vs_denver_annual": -6613.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 30515.0,
+        "delta_vs_denver_annual": -24870.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 30515.0,
+        "delta_vs_denver_annual": -26850.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 17015.0,
+        "delta_vs_denver_annual": -24870.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 17015.0,
+        "delta_vs_denver_annual": -26850.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3a_Bozeman": {
+      "low_eq+both+lowTax": {
+        "total_annual": 81367.0,
+        "delta_vs_denver_annual": 25982.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 83887.0,
+        "delta_vs_denver_annual": 26522.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 67867.0,
+        "delta_vs_denver_annual": 25982.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 70387.0,
+        "delta_vs_denver_annual": 26522.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 61131.0,
+        "delta_vs_denver_annual": 5746.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 63651.0,
+        "delta_vs_denver_annual": 6286.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 47631.0,
+        "delta_vs_denver_annual": 5746.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 50151.0,
+        "delta_vs_denver_annual": 6286.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_GrandRapids": {
+      "low_eq+both+lowTax": {
+        "total_annual": 52411.0,
+        "delta_vs_denver_annual": -2974.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 54301.0,
+        "delta_vs_denver_annual": -3064.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 38911.0,
+        "delta_vs_denver_annual": -2974.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 40801.0,
+        "delta_vs_denver_annual": -3064.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 32175.0,
+        "delta_vs_denver_annual": -23210.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 34065.0,
+        "delta_vs_denver_annual": -23300.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 18675.0,
+        "delta_vs_denver_annual": -23210.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 20565.0,
+        "delta_vs_denver_annual": -23300.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Kalamazoo": {
+      "low_eq+both+lowTax": {
+        "total_annual": 45065.0,
+        "delta_vs_denver_annual": -10320.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 46955.0,
+        "delta_vs_denver_annual": -10410.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 31565.0,
+        "delta_vs_denver_annual": -10320.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 33455.0,
+        "delta_vs_denver_annual": -10410.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 26016.0,
+        "delta_vs_denver_annual": -29369.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 27906.0,
+        "delta_vs_denver_annual": -29459.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 12516.0,
+        "delta_vs_denver_annual": -29369.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 14406.0,
+        "delta_vs_denver_annual": -29459.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Rochester": {
+      "low_eq+both+lowTax": {
+        "total_annual": 53260.0,
+        "delta_vs_denver_annual": -2125.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 56320.0,
+        "delta_vs_denver_annual": -1045.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 39760.0,
+        "delta_vs_denver_annual": -2125.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 42820.0,
+        "delta_vs_denver_annual": -1045.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 33024.0,
+        "delta_vs_denver_annual": -22361.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 36084.0,
+        "delta_vs_denver_annual": -21281.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 19524.0,
+        "delta_vs_denver_annual": -22361.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 22584.0,
+        "delta_vs_denver_annual": -21281.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Minneapolis": {
+      "low_eq+both+lowTax": {
+        "total_annual": 57765.0,
+        "delta_vs_denver_annual": 2380.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 60825.0,
+        "delta_vs_denver_annual": 3460.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 44265.0,
+        "delta_vs_denver_annual": 2380.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 47325.0,
+        "delta_vs_denver_annual": 3460.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 37529.0,
+        "delta_vs_denver_annual": -17856.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 40589.0,
+        "delta_vs_denver_annual": -16776.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 24029.0,
+        "delta_vs_denver_annual": -17856.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 27089.0,
+        "delta_vs_denver_annual": -16776.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Appleton": {
+      "low_eq+both+lowTax": {
+        "total_annual": 55019.0,
+        "delta_vs_denver_annual": -366.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 57854.0,
+        "delta_vs_denver_annual": 489.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 41519.0,
+        "delta_vs_denver_annual": -366.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 44354.0,
+        "delta_vs_denver_annual": 489.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 34783.0,
+        "delta_vs_denver_annual": -20602.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 37618.0,
+        "delta_vs_denver_annual": -19747.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 21283.0,
+        "delta_vs_denver_annual": -20602.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 24118.0,
+        "delta_vs_denver_annual": -19747.0,
+        "golden_handcuff_annual": 0.0
+      }
+    },
+    "Shape_3b_Madison": {
+      "low_eq+both+lowTax": {
+        "total_annual": 64638.0,
+        "delta_vs_denver_annual": 9253.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+both+highTax": {
+        "total_annual": 67473.0,
+        "delta_vs_denver_annual": 10108.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+lowTax": {
+        "total_annual": 51138.0,
+        "delta_vs_denver_annual": 9253.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "low_eq+one+highTax": {
+        "total_annual": 53973.0,
+        "delta_vs_denver_annual": 10108.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+lowTax": {
+        "total_annual": 44402.0,
+        "delta_vs_denver_annual": -10983.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+both+highTax": {
+        "total_annual": 47237.0,
+        "delta_vs_denver_annual": -10128.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+lowTax": {
+        "total_annual": 30902.0,
+        "delta_vs_denver_annual": -10983.0,
+        "golden_handcuff_annual": 0.0
+      },
+      "high_eq+one+highTax": {
+        "total_annual": 33737.0,
+        "delta_vs_denver_annual": -10128.0,
+        "golden_handcuff_annual": 0.0
+      }
+    }
+  },
+  "denver_baseline": {
+    "low_eq+both+lowTax": {
+      "total_annual": 55385.0,
+      "delta_vs_denver_annual": 0
+    },
+    "low_eq+both+highTax": {
+      "total_annual": 57365.0,
+      "delta_vs_denver_annual": 0
+    },
+    "low_eq+one+lowTax": {
+      "total_annual": 41885.0,
+      "delta_vs_denver_annual": 0
+    },
+    "low_eq+one+highTax": {
+      "total_annual": 43865.0,
+      "delta_vs_denver_annual": 0
+    },
+    "high_eq+both+lowTax": {
+      "total_annual": 55385.0,
+      "delta_vs_denver_annual": 0
+    },
+    "high_eq+both+highTax": {
+      "total_annual": 57365.0,
+      "delta_vs_denver_annual": 0
+    },
+    "high_eq+one+lowTax": {
+      "total_annual": 41885.0,
+      "delta_vs_denver_annual": 0
+    },
+    "high_eq+one+highTax": {
+      "total_annual": 43865.0,
+      "delta_vs_denver_annual": 0
+    }
+  }
+}

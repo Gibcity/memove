@@ -1,0 +1,4716 @@
+{
+  "metadata": {
+    "source": "internal_pipeline",
+    "script": "sources/scripts/build_blended_scores.py",
+    "scoring_engine": "app/src/lib/scoring.ts (replicated in Python)",
+    "normalization_cost": "percentile (rank of medianHomeValue, higher value = worse)",
+    "normalization_life": "min-max (same as scoring.ts), scaled to 0-50 via 0.5 * weighted_avg",
+    "weights_life": {
+      "climate": 0.25,
+      "safety": 0.1875,
+      "healthcare": 0.1875,
+      "jobs": 0.1875,
+      "outdoors": 0.1875
+    },
+    "note": "Default user weights from scoring.ts (cost=5, climate=4, safety=3, healthcare=3, jobs=3, outdoors=3), renormalized without cost",
+    "location_count": 939,
+    "blended_count": 939
+  },
+  "blended": {
+    "aberdeen-sd": {
+      "costScore0to50": 20.5,
+      "lifeScore0to50": 36.8,
+      "totalScore0to100": 57.3
+    },
+    "aberdeen-wa": {
+      "costScore0to50": 12.3,
+      "lifeScore0to50": 24.9,
+      "totalScore0to100": 37.2
+    },
+    "abilene-tx": {
+      "costScore0to50": 30.9,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 64.3
+    },
+    "ada-ok": {
+      "costScore0to50": 33.6,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 66.1
+    },
+    "adrian-mi": {
+      "costScore0to50": 27.5,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 56.6
+    },
+    "aguadilla-isabela-pr": {
+      "costScore0to50": 46.2,
+      "lifeScore0to50": 26.8,
+      "totalScore0to100": 73.0
+    },
+    "akron-oh": {
+      "costScore0to50": 23.0,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 50.6
+    },
+    "alamogordo-nm": {
+      "costScore0to50": 38.4,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 68.0
+    },
+    "albany-ga": {
+      "costScore0to50": 38.1,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 68.4
+    },
+    "albany-lebanon-or": {
+      "costScore0to50": 6.8,
+      "lifeScore0to50": 27.1,
+      "totalScore0to100": 33.9
+    },
+    "albany-schenectady-troy-ny": {
+      "costScore0to50": 11.9,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 37.9
+    },
+    "albemarle-nc": {
+      "costScore0to50": 21.7,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 52.6
+    },
+    "albert-lea-mn": {
+      "costScore0to50": 32.1,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 61.4
+    },
+    "albertville-al": {
+      "costScore0to50": 28.5,
+      "lifeScore0to50": 26.3,
+      "totalScore0to100": 54.8
+    },
+    "albuquerque-nm": {
+      "costScore0to50": 13.4,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 44.3
+    },
+    "alexander-city-al": {
+      "costScore0to50": 43.2,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 73.0
+    },
+    "alexandria-la": {
+      "costScore0to50": 28.2,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 60.4
+    },
+    "alexandria-mn": {
+      "costScore0to50": 9.9,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 41.0
+    },
+    "alice-tx": {
+      "costScore0to50": 49.4,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 81.3
+    },
+    "allentown-bethlehem-easton-pa": {
+      "costScore0to50": 11.4,
+      "lifeScore0to50": 27.3,
+      "totalScore0to100": 38.7
+    },
+    "alma-mi": {
+      "costScore0to50": 42.0,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 73.1
+    },
+    "alpena-mi": {
+      "costScore0to50": 41.7,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 74.3
+    },
+    "altoona-pa": {
+      "costScore0to50": 34.5,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 64.6
+    },
+    "altus-ok": {
+      "costScore0to50": 44.8,
+      "lifeScore0to50": 33.5,
+      "totalScore0to100": 78.3
+    },
+    "amarillo-tx": {
+      "costScore0to50": 24.0,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 58.2
+    },
+    "americus-ga": {
+      "costScore0to50": 39.6,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 70.9
+    },
+    "ames-ia": {
+      "costScore0to50": 17.4,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 49.9
+    },
+    "amsterdam-ny": {
+      "costScore0to50": 40.0,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 66.4
+    },
+    "anchorage-ak": {
+      "costScore0to50": 5.7,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 39.4
+    },
+    "andrews-tx": {
+      "costScore0to50": 24.2,
+      "lifeScore0to50": 37.2,
+      "totalScore0to100": 61.4
+    },
+    "angola-in": {
+      "costScore0to50": 22.5,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 54.8
+    },
+    "ann-arbor-mi": {
+      "costScore0to50": 6.1,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 37.6
+    },
+    "anniston-oxford-al": {
+      "costScore0to50": 37.8,
+      "lifeScore0to50": 25.7,
+      "totalScore0to100": 63.5
+    },
+    "appleton-wi": {
+      "costScore0to50": 15.4,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 48.1
+    },
+    "arcadia-fl": {
+      "costScore0to50": 38.2,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 70.0
+    },
+    "ardmore-ok": {
+      "costScore0to50": 35.4,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 68.1
+    },
+    "arecibo-pr": {
+      "costScore0to50": 46.6,
+      "lifeScore0to50": 27.3,
+      "totalScore0to100": 73.9
+    },
+    "arkadelphia-ar": {
+      "costScore0to50": 36.4,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 66.7
+    },
+    "asheville-nc": {
+      "costScore0to50": 8.1,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 38.7
+    },
+    "ashland-oh": {
+      "costScore0to50": 29.3,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 57.5
+    },
+    "ashtabula-oh": {
+      "costScore0to50": 38.4,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 68.9
+    },
+    "astoria-or": {
+      "costScore0to50": 3.2,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 30.8
+    },
+    "atchison-ks": {
+      "costScore0to50": 43.0,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 76.1
+    },
+    "athens-oh": {
+      "costScore0to50": 29.8,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 59.7
+    },
+    "athens-tn": {
+      "costScore0to50": 26.0,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 56.8
+    },
+    "athens-tx": {
+      "costScore0to50": 30.4,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 59.8
+    },
+    "athens-clarke-county-ga": {
+      "costScore0to50": 12.1,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 42.2
+    },
+    "atlanta-sandy-springs-alpharetta-ga": {
+      "costScore0to50": 7.5,
+      "lifeScore0to50": 34.6,
+      "totalScore0to100": 42.1
+    },
+    "atlantic-city-hammonton-nj": {
+      "costScore0to50": 11.9,
+      "lifeScore0to50": 22.6,
+      "totalScore0to100": 34.5
+    },
+    "atmore-al": {
+      "costScore0to50": 43.4,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 71.5
+    },
+    "auburn-in": {
+      "costScore0to50": 31.2,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 64.9
+    },
+    "auburn-ny": {
+      "costScore0to50": 30.7,
+      "lifeScore0to50": 25.5,
+      "totalScore0to100": 56.2
+    },
+    "auburn-opelika-al": {
+      "costScore0to50": 16.0,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 43.8
+    },
+    "augusta-richmond-county-ga": {
+      "costScore0to50": 22.8,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 53.1
+    },
+    "augusta-waterville-me": {
+      "costScore0to50": 19.7,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 49.9
+    },
+    "austin-mn": {
+      "costScore0to50": 31.1,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 62.2
+    },
+    "austin-round-rock-georgetown-tx": {
+      "costScore0to50": 3.6,
+      "lifeScore0to50": 35.2,
+      "totalScore0to100": 38.8
+    },
+    "bainbridge-ga": {
+      "costScore0to50": 37.6,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 66.7
+    },
+    "bakersfield-ca": {
+      "costScore0to50": 9.3,
+      "lifeScore0to50": 26.3,
+      "totalScore0to100": 35.6
+    },
+    "baltimore-columbia-towson-md": {
+      "costScore0to50": 5.0,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 32.6
+    },
+    "bangor-me": {
+      "costScore0to50": 24.8,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 56.3
+    },
+    "baraboo-wi": {
+      "costScore0to50": 15.4,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 48.2
+    },
+    "bardstown-ky": {
+      "costScore0to50": 18.8,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 49.3
+    },
+    "barnstable-town-ma": {
+      "costScore0to50": 1.7,
+      "lifeScore0to50": 27.1,
+      "totalScore0to100": 28.8
+    },
+    "barre-vt": {
+      "costScore0to50": 9.8,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 39.1
+    },
+    "bartlesville-ok": {
+      "costScore0to50": 34.0,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 63.7
+    },
+    "batavia-ny": {
+      "costScore0to50": 34.6,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 61.3
+    },
+    "batesville-ar": {
+      "costScore0to50": 48.0,
+      "lifeScore0to50": 27.1,
+      "totalScore0to100": 75.1
+    },
+    "baton-rouge-la": {
+      "costScore0to50": 16.2,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 45.1
+    },
+    "battle-creek-mi": {
+      "costScore0to50": 38.5,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 69.9
+    },
+    "bay-city-mi": {
+      "costScore0to50": 42.5,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 71.9
+    },
+    "bay-city-tx": {
+      "costScore0to50": 32.0,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 63.7
+    },
+    "beatrice-ne": {
+      "costScore0to50": 31.9,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 65.1
+    },
+    "beaumont-port-arthur-tx": {
+      "costScore0to50": 32.1,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 60.6
+    },
+    "beaver-dam-wi": {
+      "costScore0to50": 19.3,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 50.3
+    },
+    "beckley-wv": {
+      "costScore0to50": 44.2,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 75.1
+    },
+    "bedford-in": {
+      "costScore0to50": 35.3,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 66.8
+    },
+    "beeville-tx": {
+      "costScore0to50": 46.8,
+      "lifeScore0to50": 33.0,
+      "totalScore0to100": 79.8
+    },
+    "bellefontaine-oh": {
+      "costScore0to50": 27.2,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 56.1
+    },
+    "bellingham-wa": {
+      "costScore0to50": 2.2,
+      "lifeScore0to50": 24.0,
+      "totalScore0to100": 26.2
+    },
+    "bemidji-mn": {
+      "costScore0to50": 18.9,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 50.2
+    },
+    "bend-or": {
+      "costScore0to50": 1.6,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 34.7
+    },
+    "bennettsville-sc": {
+      "costScore0to50": 49.8,
+      "lifeScore0to50": 25.2,
+      "totalScore0to100": 75.0
+    },
+    "bennington-vt": {
+      "costScore0to50": 13.1,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 41.2
+    },
+    "berlin-nh": {
+      "costScore0to50": 31.1,
+      "lifeScore0to50": 34.5,
+      "totalScore0to100": 65.6
+    },
+    "big-rapids-mi": {
+      "costScore0to50": 32.8,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 63.5
+    },
+    "big-spring-tx": {
+      "costScore0to50": 39.9,
+      "lifeScore0to50": 35.6,
+      "totalScore0to100": 75.5
+    },
+    "big-stone-gap-va": {
+      "costScore0to50": 46.5,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 76.8
+    },
+    "billings-mt": {
+      "costScore0to50": 8.2,
+      "lifeScore0to50": 34.5,
+      "totalScore0to100": 42.7
+    },
+    "binghamton-ny": {
+      "costScore0to50": 38.0,
+      "lifeScore0to50": 25.6,
+      "totalScore0to100": 63.6
+    },
+    "birmingham-hoover-al": {
+      "costScore0to50": 17.3,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 45.5
+    },
+    "bismarck-nd": {
+      "costScore0to50": 8.8,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 42.0
+    },
+    "blackfoot-id": {
+      "costScore0to50": 15.0,
+      "lifeScore0to50": 35.5,
+      "totalScore0to100": 50.5
+    },
+    "blacksburg-christiansburg-va": {
+      "costScore0to50": 16.5,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 47.9
+    },
+    "bloomington-il": {
+      "costScore0to50": 21.4,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 49.3
+    },
+    "bloomington-in": {
+      "costScore0to50": 16.0,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 48.3
+    },
+    "bloomsburg-berwick-pa": {
+      "costScore0to50": 21.2,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 52.3
+    },
+    "bluefield-wv": {
+      "costScore0to50": 44.9,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 75.4
+    },
+    "bluffton-in": {
+      "costScore0to50": 30.0,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 63.1
+    },
+    "blytheville-ar": {
+      "costScore0to50": 46.0,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 76.5
+    },
+    "bogalusa-la": {
+      "costScore0to50": 39.8,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 68.0
+    },
+    "boise-city-id": {
+      "costScore0to50": 3.8,
+      "lifeScore0to50": 37.7,
+      "totalScore0to100": 41.5
+    },
+    "bonham-tx": {
+      "costScore0to50": 20.9,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 52.7
+    },
+    "boone-nc": {
+      "costScore0to50": 9.2,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 41.1
+    },
+    "borger-tx": {
+      "costScore0to50": 48.5,
+      "lifeScore0to50": 34.7,
+      "totalScore0to100": 83.2
+    },
+    "boston-cambridge-newton-ma": {
+      "costScore0to50": 1.2,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 29.3
+    },
+    "boulder-co": {
+      "costScore0to50": 1.1,
+      "lifeScore0to50": 34.6,
+      "totalScore0to100": 35.7
+    },
+    "bowling-green-ky": {
+      "costScore0to50": 18.7,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 49.5
+    },
+    "bozeman-mt": {
+      "costScore0to50": 1.5,
+      "lifeScore0to50": 36.2,
+      "totalScore0to100": 37.7
+    },
+    "bradford-pa": {
+      "costScore0to50": 48.4,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 77.4
+    },
+    "brainerd-mn": {
+      "costScore0to50": 13.0,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 42.9
+    },
+    "branson-mo": {
+      "costScore0to50": 25.4,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 55.6
+    },
+    "breckenridge-co": {
+      "costScore0to50": 0.5,
+      "lifeScore0to50": 33.8,
+      "totalScore0to100": 34.3
+    },
+    "bremerton-silverdale-port-orchard-wa": {
+      "costScore0to50": 2.3,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 28.3
+    },
+    "brenham-tx": {
+      "costScore0to50": 12.5,
+      "lifeScore0to50": 32.9,
+      "totalScore0to100": 45.4
+    },
+    "brevard-nc": {
+      "costScore0to50": 7.7,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 40.0
+    },
+    "bridgeport-stamford-norwalk-ct": {
+      "costScore0to50": 2.0,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 28.4
+    },
+    "brookhaven-ms": {
+      "costScore0to50": 41.6,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 71.3
+    },
+    "brookings-or": {
+      "costScore0to50": 5.3,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 34.7
+    },
+    "brookings-sd": {
+      "costScore0to50": 15.2,
+      "lifeScore0to50": 35.1,
+      "totalScore0to100": 50.3
+    },
+    "brownsville-tn": {
+      "costScore0to50": 44.6,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 77.2
+    },
+    "brownsville-harlingen-tx": {
+      "costScore0to50": 46.1,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 72.1
+    },
+    "brownwood-tx": {
+      "costScore0to50": 38.8,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 70.6
+    },
+    "brunswick-ga": {
+      "costScore0to50": 19.1,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 49.3
+    },
+    "bucyrus-galion-oh": {
+      "costScore0to50": 44.5,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 74.7
+    },
+    "buffalo-cheektowaga-ny": {
+      "costScore0to50": 21.6,
+      "lifeScore0to50": 24.8,
+      "totalScore0to100": 46.4
+    },
+    "burley-id": {
+      "costScore0to50": 17.7,
+      "lifeScore0to50": 34.8,
+      "totalScore0to100": 52.5
+    },
+    "burlington-ia": {
+      "costScore0to50": 41.2,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 73.0
+    },
+    "burlington-nc": {
+      "costScore0to50": 19.7,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 48.8
+    },
+    "burlington-south-burlington-vt": {
+      "costScore0to50": 5.3,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 37.0
+    },
+    "butte-silver-bow-mt": {
+      "costScore0to50": 20.4,
+      "lifeScore0to50": 34.3,
+      "totalScore0to100": 54.7
+    },
+    "cadillac-mi": {
+      "costScore0to50": 34.7,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 65.1
+    },
+    "calhoun-ga": {
+      "costScore0to50": 24.3,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 53.8
+    },
+    "california-lexington-park-md": {
+      "costScore0to50": 4.2,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 32.1
+    },
+    "cambridge-md": {
+      "costScore0to50": 15.6,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 43.5
+    },
+    "cambridge-oh": {
+      "costScore0to50": 35.7,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 64.7
+    },
+    "camden-ar": {
+      "costScore0to50": 49.0,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 79.3
+    },
+    "campbellsville-ky": {
+      "costScore0to50": 39.3,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 71.9
+    },
+    "ca-on-city-co": {
+      "costScore0to50": 10.8,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 42.2
+    },
+    "canton-massillon-oh": {
+      "costScore0to50": 29.1,
+      "lifeScore0to50": 27.3,
+      "totalScore0to100": 56.4
+    },
+    "cape-coral-fort-myers-fl": {
+      "costScore0to50": 8.5,
+      "lifeScore0to50": 26.5,
+      "totalScore0to100": 35.0
+    },
+    "cape-girardeau-mo": {
+      "costScore0to50": 23.6,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 55.8
+    },
+    "carbondale-marion-il": {
+      "costScore0to50": 39.5,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 69.3
+    },
+    "carlsbad-artesia-nm": {
+      "costScore0to50": 22.4,
+      "lifeScore0to50": 33.5,
+      "totalScore0to100": 55.9
+    },
+    "carroll-ia": {
+      "costScore0to50": 29.6,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 63.3
+    },
+    "carson-city-nv": {
+      "costScore0to50": 3.6,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 35.6
+    },
+    "casper-wy": {
+      "costScore0to50": 12.6,
+      "lifeScore0to50": 36.7,
+      "totalScore0to100": 49.3
+    },
+    "cedar-city-ut": {
+      "costScore0to50": 7.6,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 40.7
+    },
+    "cedar-rapids-ia": {
+      "costScore0to50": 22.7,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 54.0
+    },
+    "cedartown-ga": {
+      "costScore0to50": 33.7,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 64.3
+    },
+    "celina-oh": {
+      "costScore0to50": 21.1,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 50.8
+    },
+    "central-city-ky": {
+      "costScore0to50": 44.7,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 75.8
+    },
+    "centralia-il": {
+      "costScore0to50": 48.6,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 79.0
+    },
+    "centralia-wa": {
+      "costScore0to50": 7.2,
+      "lifeScore0to50": 26.5,
+      "totalScore0to100": 33.7
+    },
+    "chambersburg-waynesboro-pa": {
+      "costScore0to50": 16.4,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 44.8
+    },
+    "champaign-urbana-il": {
+      "costScore0to50": 22.1,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 50.9
+    },
+    "charleston-wv": {
+      "costScore0to50": 42.3,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 75.6
+    },
+    "charleston-mattoon-il": {
+      "costScore0to50": 45.0,
+      "lifeScore0to50": 28.3,
+      "totalScore0to100": 73.3
+    },
+    "charleston-north-charleston-sc": {
+      "costScore0to50": 6.8,
+      "lifeScore0to50": 28.0,
+      "totalScore0to100": 34.8
+    },
+    "charlotte-concord-gastonia-nc": {
+      "costScore0to50": 9.2,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 42.0
+    },
+    "charlottesville-va": {
+      "costScore0to50": 4.2,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 33.2
+    },
+    "chattanooga-tn": {
+      "costScore0to50": 17.0,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 47.9
+    },
+    "cheyenne-wy": {
+      "costScore0to50": 8.0,
+      "lifeScore0to50": 38.9,
+      "totalScore0to100": 46.9
+    },
+    "chicago-naperville-elgin-il": {
+      "costScore0to50": 8.9,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 42.2
+    },
+    "chico-ca": {
+      "costScore0to50": 4.4,
+      "lifeScore0to50": 25.8,
+      "totalScore0to100": 30.2
+    },
+    "chillicothe-oh": {
+      "costScore0to50": 32.6,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 62.5
+    },
+    "cincinnati-oh": {
+      "costScore0to50": 16.8,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 47.7
+    },
+    "clarksburg-wv": {
+      "costScore0to50": 35.8,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 67.5
+    },
+    "clarksdale-ms": {
+      "costScore0to50": 49.6,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 78.1
+    },
+    "clarksville-tn": {
+      "costScore0to50": 18.4,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 50.9
+    },
+    "clearlake-ca": {
+      "costScore0to50": 8.4,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 36.0
+    },
+    "cleveland-ms": {
+      "costScore0to50": 44.3,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 74.0
+    },
+    "cleveland-tn": {
+      "costScore0to50": 19.9,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 50.1
+    },
+    "cleveland-elyria-oh": {
+      "costScore0to50": 22.0,
+      "lifeScore0to50": 28.3,
+      "totalScore0to100": 50.3
+    },
+    "clewiston-fl": {
+      "costScore0to50": 32.7,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 64.5
+    },
+    "clinton-ia": {
+      "costScore0to50": 35.9,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 69.1
+    },
+    "clovis-nm": {
+      "costScore0to50": 33.8,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 66.0
+    },
+    "coamo-pr": {
+      "costScore0to50": 47.9,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 74.9
+    },
+    "coco-pr": {
+      "costScore0to50": 49.3,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 76.8
+    },
+    "coeur-d-alene-id": {
+      "costScore0to50": 3.3,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 35.2
+    },
+    "coffeyville-ks": {
+      "costScore0to50": 49.3,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 76.3
+    },
+    "coldwater-mi": {
+      "costScore0to50": 38.0,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 69.1
+    },
+    "college-station-bryan-tx": {
+      "costScore0to50": 13.0,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 44.4
+    },
+    "colorado-springs-co": {
+      "costScore0to50": 3.5,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 36.0
+    },
+    "columbia-mo": {
+      "costScore0to50": 15.8,
+      "lifeScore0to50": 33.0,
+      "totalScore0to100": 48.8
+    },
+    "columbia-sc": {
+      "costScore0to50": 21.2,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 49.7
+    },
+    "columbus-ga": {
+      "costScore0to50": 26.3,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 57.5
+    },
+    "columbus-in": {
+      "costScore0to50": 19.8,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 50.6
+    },
+    "columbus-ms": {
+      "costScore0to50": 31.9,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 60.1
+    },
+    "columbus-ne": {
+      "costScore0to50": 20.4,
+      "lifeScore0to50": 33.9,
+      "totalScore0to100": 54.3
+    },
+    "columbus-oh": {
+      "costScore0to50": 12.2,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 44.4
+    },
+    "concord-nh": {
+      "costScore0to50": 7.9,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 41.5
+    },
+    "connersville-in": {
+      "costScore0to50": 48.0,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 77.2
+    },
+    "cookeville-tn": {
+      "costScore0to50": 20.6,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 52.3
+    },
+    "coos-bay-or": {
+      "costScore0to50": 10.1,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 39.8
+    },
+    "cordele-ga": {
+      "costScore0to50": 46.7,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 78.6
+    },
+    "corinth-ms": {
+      "costScore0to50": 42.2,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 71.5
+    },
+    "cornelia-ga": {
+      "costScore0to50": 22.3,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 53.1
+    },
+    "corning-ny": {
+      "costScore0to50": 43.6,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 72.2
+    },
+    "corpus-christi-tx": {
+      "costScore0to50": 25.4,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 55.0
+    },
+    "corsicana-tx": {
+      "costScore0to50": 36.6,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 65.8
+    },
+    "cortland-ny": {
+      "costScore0to50": 34.9,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 61.6
+    },
+    "corvallis-or": {
+      "costScore0to50": 2.7,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 30.9
+    },
+    "coshocton-oh": {
+      "costScore0to50": 41.1,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 69.9
+    },
+    "craig-co": {
+      "costScore0to50": 12.6,
+      "lifeScore0to50": 33.9,
+      "totalScore0to100": 46.5
+    },
+    "crawfordsville-in": {
+      "costScore0to50": 31.6,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 64.4
+    },
+    "crescent-city-ca": {
+      "costScore0to50": 9.3,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 37.9
+    },
+    "crestview-fort-walton-beach-destin-fl": {
+      "costScore0to50": 7.4,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 39.8
+    },
+    "crossville-tn": {
+      "costScore0to50": 19.5,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 49.8
+    },
+    "cullman-al": {
+      "costScore0to50": 28.4,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 56.8
+    },
+    "cullowhee-nc": {
+      "costScore0to50": 15.2,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 47.6
+    },
+    "cumberland-md": {
+      "costScore0to50": 34.4,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 64.0
+    },
+    "dallas-fort-worth-arlington-tx": {
+      "costScore0to50": 7.7,
+      "lifeScore0to50": 37.0,
+      "totalScore0to100": 44.7
+    },
+    "dalton-ga": {
+      "costScore0to50": 27.1,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 56.0
+    },
+    "danville-il": {
+      "costScore0to50": 49.2,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 78.6
+    },
+    "danville-ky": {
+      "costScore0to50": 33.4,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 64.5
+    },
+    "danville-va": {
+      "costScore0to50": 41.2,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 69.3
+    },
+    "daphne-fairhope-foley-al": {
+      "costScore0to50": 10.6,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 38.2
+    },
+    "davenport-moline-rock-island-ia": {
+      "costScore0to50": 29.7,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 60.8
+    },
+    "dayton-tn": {
+      "costScore0to50": 31.7,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 64.4
+    },
+    "dayton-kettering-oh": {
+      "costScore0to50": 26.4,
+      "lifeScore0to50": 28.7,
+      "totalScore0to100": 55.1
+    },
+    "decatur-al": {
+      "costScore0to50": 28.1,
+      "lifeScore0to50": 25.6,
+      "totalScore0to100": 53.7
+    },
+    "decatur-il": {
+      "costScore0to50": 43.7,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 71.5
+    },
+    "decatur-in": {
+      "costScore0to50": 28.9,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 61.0
+    },
+    "defiance-oh": {
+      "costScore0to50": 35.1,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 66.4
+    },
+    "del-rio-tx": {
+      "costScore0to50": 38.6,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 69.8
+    },
+    "deltona-daytona-beach-ormond-beach-fl": {
+      "costScore0to50": 11.2,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 38.9
+    },
+    "deming-nm": {
+      "costScore0to50": 47.7,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 80.0
+    },
+    "denver-aurora-lakewood-co": {
+      "costScore0to50": 1.7,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 34.1
+    },
+    "deridder-la": {
+      "costScore0to50": 34.2,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 65.5
+    },
+    "des-moines-west-des-moines-ia": {
+      "costScore0to50": 14.3,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 45.6
+    },
+    "detroit-warren-dearborn-mi": {
+      "costScore0to50": 16.1,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 46.7
+    },
+    "dickinson-nd": {
+      "costScore0to50": 11.7,
+      "lifeScore0to50": 35.2,
+      "totalScore0to100": 46.9
+    },
+    "dixon-il": {
+      "costScore0to50": 35.2,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 65.0
+    },
+    "dodge-city-ks": {
+      "costScore0to50": 43.6,
+      "lifeScore0to50": 33.5,
+      "totalScore0to100": 77.1
+    },
+    "dothan-al": {
+      "costScore0to50": 32.3,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 61.2
+    },
+    "douglas-ga": {
+      "costScore0to50": 45.6,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 76.6
+    },
+    "dover-de": {
+      "costScore0to50": 10.2,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 42.1
+    },
+    "dublin-ga": {
+      "costScore0to50": 44.5,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 76.3
+    },
+    "dubois-pa": {
+      "costScore0to50": 44.2,
+      "lifeScore0to50": 27.3,
+      "totalScore0to100": 71.5
+    },
+    "dubuque-ia": {
+      "costScore0to50": 18.2,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 50.5
+    },
+    "duluth-mn": {
+      "costScore0to50": 20.8,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 51.0
+    },
+    "dumas-tx": {
+      "costScore0to50": 43.2,
+      "lifeScore0to50": 34.8,
+      "totalScore0to100": 78.0
+    },
+    "duncan-ok": {
+      "costScore0to50": 41.8,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 72.0
+    },
+    "durango-co": {
+      "costScore0to50": 1.9,
+      "lifeScore0to50": 33.0,
+      "totalScore0to100": 34.9
+    },
+    "durant-ok": {
+      "costScore0to50": 33.5,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 62.3
+    },
+    "durham-chapel-hill-nc": {
+      "costScore0to50": 7.0,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 38.3
+    },
+    "dyersburg-tn": {
+      "costScore0to50": 34.5,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 66.7
+    },
+    "eagle-pass-tx": {
+      "costScore0to50": 42.4,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 73.1
+    },
+    "easton-md": {
+      "costScore0to50": 3.9,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 32.1
+    },
+    "east-stroudsburg-pa": {
+      "costScore0to50": 16.7,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 44.6
+    },
+    "eau-claire-wi": {
+      "costScore0to50": 16.3,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 48.8
+    },
+    "edwards-co": {
+      "costScore0to50": 0.7,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 32.9
+    },
+    "effingham-il": {
+      "costScore0to50": 28.0,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 58.3
+    },
+    "el-campo-tx": {
+      "costScore0to50": 26.7,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 56.7
+    },
+    "el-centro-ca": {
+      "costScore0to50": 11.4,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 38.6
+    },
+    "el-dorado-ar": {
+      "costScore0to50": 45.7,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 74.8
+    },
+    "elizabeth-city-nc": {
+      "costScore0to50": 18.8,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 50.2
+    },
+    "elizabethtown-fort-knox-ky": {
+      "costScore0to50": 23.3,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 53.1
+    },
+    "elk-city-ok": {
+      "costScore0to50": 34.3,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 67.9
+    },
+    "elkhart-goshen-in": {
+      "costScore0to50": 23.8,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 54.4
+    },
+    "elkins-wv": {
+      "costScore0to50": 41.0,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 71.4
+    },
+    "elko-nv": {
+      "costScore0to50": 10.2,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 42.4
+    },
+    "ellensburg-wa": {
+      "costScore0to50": 2.9,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 32.5
+    },
+    "elmira-ny": {
+      "costScore0to50": 41.3,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 68.5
+    },
+    "el-paso-tx": {
+      "costScore0to50": 32.6,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 66.0
+    },
+    "emporia-ks": {
+      "costScore0to50": 40.2,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 71.8
+    },
+    "enid-ok": {
+      "costScore0to50": 37.0,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 69.3
+    },
+    "enterprise-al": {
+      "costScore0to50": 29.5,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 57.9
+    },
+    "erie-pa": {
+      "costScore0to50": 30.2,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 58.4
+    },
+    "escanaba-mi": {
+      "costScore0to50": 38.3,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 70.3
+    },
+    "espa-ola-nm": {
+      "costScore0to50": 17.8,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 47.9
+    },
+    "eufaula-al": {
+      "costScore0to50": 47.6,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 76.9
+    },
+    "eugene-springfield-or": {
+      "costScore0to50": 4.7,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 31.9
+    },
+    "eureka-arcata-ca": {
+      "costScore0to50": 3.7,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 31.9
+    },
+    "evanston-wy": {
+      "costScore0to50": 15.9,
+      "lifeScore0to50": 37.5,
+      "totalScore0to100": 53.4
+    },
+    "evansville-in": {
+      "costScore0to50": 25.8,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 58.5
+    },
+    "fairbanks-ak": {
+      "costScore0to50": 10.0,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 42.2
+    },
+    "fairfield-ia": {
+      "costScore0to50": 37.4,
+      "lifeScore0to50": 34.4,
+      "totalScore0to100": 71.8
+    },
+    "fairmont-mn": {
+      "costScore0to50": 35.0,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 65.4
+    },
+    "fairmont-wv": {
+      "costScore0to50": 35.1,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 64.3
+    },
+    "fallon-nv": {
+      "costScore0to50": 11.5,
+      "lifeScore0to50": 35.4,
+      "totalScore0to100": 46.9
+    },
+    "fargo-nd": {
+      "costScore0to50": 11.1,
+      "lifeScore0to50": 35.2,
+      "totalScore0to100": 46.3
+    },
+    "faribault-northfield-mn": {
+      "costScore0to50": 9.6,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 39.6
+    },
+    "farmington-mo": {
+      "costScore0to50": 37.3,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 70.9
+    },
+    "farmington-nm": {
+      "costScore0to50": 26.5,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 57.5
+    },
+    "fayetteville-nc": {
+      "costScore0to50": 25.2,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 55.0
+    },
+    "fayetteville-springdale-rogers-ar": {
+      "costScore0to50": 13.3,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 42.4
+    },
+    "fergus-falls-mn": {
+      "costScore0to50": 14.6,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 45.2
+    },
+    "fernley-nv": {
+      "costScore0to50": 6.9,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 38.9
+    },
+    "findlay-oh": {
+      "costScore0to50": 24.1,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 51.8
+    },
+    "fitzgerald-ga": {
+      "costScore0to50": 47.8,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 79.9
+    },
+    "flagstaff-az": {
+      "costScore0to50": 4.0,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 36.5
+    },
+    "flint-mi": {
+      "costScore0to50": 30.9,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 59.0
+    },
+    "florence-sc": {
+      "costScore0to50": 34.1,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 61.1
+    },
+    "florence-muscle-shoals-al": {
+      "costScore0to50": 29.0,
+      "lifeScore0to50": 27.4,
+      "totalScore0to100": 56.4
+    },
+    "fond-du-lac-wi": {
+      "costScore0to50": 20.3,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 52.6
+    },
+    "forest-city-nc": {
+      "costScore0to50": 31.0,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 60.8
+    },
+    "forrest-city-ar": {
+      "costScore0to50": 49.7,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 78.8
+    },
+    "fort-collins-co": {
+      "costScore0to50": 2.0,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 32.0
+    },
+    "fort-dodge-ia": {
+      "costScore0to50": 40.6,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 71.8
+    },
+    "fort-leonard-wood-mo": {
+      "costScore0to50": 24.5,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 56.7
+    },
+    "fort-madison-keokuk-ia": {
+      "costScore0to50": 45.0,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 76.0
+    },
+    "fort-morgan-co": {
+      "costScore0to50": 10.0,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 42.6
+    },
+    "fort-payne-al": {
+      "costScore0to50": 40.9,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 67.6
+    },
+    "fort-polk-south-la": {
+      "costScore0to50": 37.2,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 68.8
+    },
+    "fort-smith-ar": {
+      "costScore0to50": 35.4,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 64.2
+    },
+    "fort-wayne-in": {
+      "costScore0to50": 25.3,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 57.9
+    },
+    "frankfort-in": {
+      "costScore0to50": 38.1,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 70.2
+    },
+    "frankfort-ky": {
+      "costScore0to50": 22.2,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 51.2
+    },
+    "fredericksburg-tx": {
+      "costScore0to50": 3.4,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 35.9
+    },
+    "freeport-il": {
+      "costScore0to50": 43.4,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 72.0
+    },
+    "fremont-ne": {
+      "costScore0to50": 27.0,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 58.5
+    },
+    "fremont-oh": {
+      "costScore0to50": 36.6,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 66.1
+    },
+    "fresno-ca": {
+      "costScore0to50": 6.0,
+      "lifeScore0to50": 25.1,
+      "totalScore0to100": 31.1
+    },
+    "gadsden-al": {
+      "costScore0to50": 34.8,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 63.2
+    },
+    "gaffney-sc": {
+      "costScore0to50": 42.6,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 71.0
+    },
+    "gainesville-fl": {
+      "costScore0to50": 15.6,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 46.6
+    },
+    "gainesville-ga": {
+      "costScore0to50": 9.8,
+      "lifeScore0to50": 28.7,
+      "totalScore0to100": 38.5
+    },
+    "gainesville-tx": {
+      "costScore0to50": 18.6,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 51.8
+    },
+    "galesburg-il": {
+      "costScore0to50": 48.3,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 76.4
+    },
+    "gallup-nm": {
+      "costScore0to50": 49.9,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 81.3
+    },
+    "garden-city-ks": {
+      "costScore0to50": 23.7,
+      "lifeScore0to50": 34.0,
+      "totalScore0to100": 57.7
+    },
+    "gardnerville-ranchos-nv": {
+      "costScore0to50": 1.5,
+      "lifeScore0to50": 32.9,
+      "totalScore0to100": 34.4
+    },
+    "georgetown-sc": {
+      "costScore0to50": 14.5,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 41.7
+    },
+    "gettysburg-pa": {
+      "costScore0to50": 13.2,
+      "lifeScore0to50": 28.0,
+      "totalScore0to100": 41.2
+    },
+    "gillette-wy": {
+      "costScore0to50": 12.8,
+      "lifeScore0to50": 36.8,
+      "totalScore0to100": 49.6
+    },
+    "glasgow-ky": {
+      "costScore0to50": 36.1,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 66.5
+    },
+    "glens-falls-ny": {
+      "costScore0to50": 18.4,
+      "lifeScore0to50": 25.0,
+      "totalScore0to100": 43.4
+    },
+    "glenwood-springs-co": {
+      "costScore0to50": 2.1,
+      "lifeScore0to50": 33.5,
+      "totalScore0to100": 35.6
+    },
+    "gloversville-ny": {
+      "costScore0to50": 36.9,
+      "lifeScore0to50": 26.6,
+      "totalScore0to100": 63.5
+    },
+    "goldsboro-nc": {
+      "costScore0to50": 33.1,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 63.0
+    },
+    "granbury-tx": {
+      "costScore0to50": 12.4,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 43.7
+    },
+    "grand-forks-nd": {
+      "costScore0to50": 15.7,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 49.9
+    },
+    "grand-island-ne": {
+      "costScore0to50": 22.9,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 56.3
+    },
+    "grand-junction-co": {
+      "costScore0to50": 7.0,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 39.6
+    },
+    "grand-rapids-mn": {
+      "costScore0to50": 19.6,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 50.8
+    },
+    "grand-rapids-kentwood-mi": {
+      "costScore0to50": 13.6,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 44.1
+    },
+    "grants-nm": {
+      "costScore0to50": 47.4,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 79.2
+    },
+    "grants-pass-or": {
+      "costScore0to50": 5.2,
+      "lifeScore0to50": 27.1,
+      "totalScore0to100": 32.3
+    },
+    "great-bend-ks": {
+      "costScore0to50": 45.3,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 78.7
+    },
+    "great-falls-mt": {
+      "costScore0to50": 15.3,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 49.5
+    },
+    "greeley-co": {
+      "costScore0to50": 3.1,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 32.1
+    },
+    "green-bay-wi": {
+      "costScore0to50": 16.9,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 49.2
+    },
+    "greeneville-tn": {
+      "costScore0to50": 28.0,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 58.8
+    },
+    "greensboro-high-point-nc": {
+      "costScore0to50": 22.2,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 51.8
+    },
+    "greensburg-in": {
+      "costScore0to50": 25.5,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 58.8
+    },
+    "greenville-ms": {
+      "costScore0to50": 48.9,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 77.9
+    },
+    "greenville-nc": {
+      "costScore0to50": 24.4,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 53.3
+    },
+    "greenville-oh": {
+      "costScore0to50": 31.2,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 59.3
+    },
+    "greenville-anderson-sc": {
+      "costScore0to50": 16.7,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 48.2
+    },
+    "greenwood-ms": {
+      "costScore0to50": 48.3,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 76.8
+    },
+    "greenwood-sc": {
+      "costScore0to50": 36.2,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 63.7
+    },
+    "grenada-ms": {
+      "costScore0to50": 40.6,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 71.7
+    },
+    "guayama-pr": {
+      "costScore0to50": 48.5,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 74.9
+    },
+    "gulfport-biloxi-ms": {
+      "costScore0to50": 25.0,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 54.2
+    },
+    "guymon-ok": {
+      "costScore0to50": 35.7,
+      "lifeScore0to50": 34.5,
+      "totalScore0to100": 70.2
+    },
+    "hagerstown-martinsburg-md": {
+      "costScore0to50": 13.4,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 41.6
+    },
+    "hailey-id": {
+      "costScore0to50": 1.4,
+      "lifeScore0to50": 36.4,
+      "totalScore0to100": 37.8
+    },
+    "hammond-la": {
+      "costScore0to50": 20.8,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 51.3
+    },
+    "hanford-corcoran-ca": {
+      "costScore0to50": 9.4,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 37.2
+    },
+    "hannibal-mo": {
+      "costScore0to50": 34.6,
+      "lifeScore0to50": 33.5,
+      "totalScore0to100": 68.1
+    },
+    "harrisburg-carlisle-pa": {
+      "costScore0to50": 15.5,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 44.1
+    },
+    "harrison-ar": {
+      "costScore0to50": 30.8,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 60.3
+    },
+    "harrisonburg-va": {
+      "costScore0to50": 10.6,
+      "lifeScore0to50": 28.0,
+      "totalScore0to100": 38.6
+    },
+    "hartford-east-hartford-middletown-ct": {
+      "costScore0to50": 8.7,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 38.6
+    },
+    "hastings-ne": {
+      "costScore0to50": 28.1,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 61.2
+    },
+    "hattiesburg-ms": {
+      "costScore0to50": 30.2,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 59.5
+    },
+    "hays-ks": {
+      "costScore0to50": 19.5,
+      "lifeScore0to50": 34.0,
+      "totalScore0to100": 53.5
+    },
+    "heber-ut": {
+      "costScore0to50": 0.6,
+      "lifeScore0to50": 34.0,
+      "totalScore0to100": 34.6
+    },
+    "helena-mt": {
+      "costScore0to50": 6.2,
+      "lifeScore0to50": 35.7,
+      "totalScore0to100": 41.9
+    },
+    "helena-west-helena-ar": {
+      "costScore0to50": 49.9,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 79.3
+    },
+    "henderson-nc": {
+      "costScore0to50": 39.8,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 70.8
+    },
+    "hereford-tx": {
+      "costScore0to50": 46.6,
+      "lifeScore0to50": 35.6,
+      "totalScore0to100": 82.2
+    },
+    "hermiston-pendleton-or": {
+      "costScore0to50": 14.8,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 46.2
+    },
+    "hickory-lenoir-morganton-nc": {
+      "costScore0to50": 26.2,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 56.9
+    },
+    "hillsdale-mi": {
+      "costScore0to50": 30.6,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 61.2
+    },
+    "hilo-hi": {
+      "costScore0to50": 2.5,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 32.6
+    },
+    "hilton-head-island-bluffton-sc": {
+      "costScore0to50": 4.7,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 34.2
+    },
+    "hinesville-ga": {
+      "costScore0to50": 30.7,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 63.5
+    },
+    "hobbs-nm": {
+      "costScore0to50": 29.6,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 61.8
+    },
+    "holland-mi": {
+      "costScore0to50": 15.8,
+      "lifeScore0to50": 28.3,
+      "totalScore0to100": 44.1
+    },
+    "homosassa-springs-fl": {
+      "costScore0to50": 21.6,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 50.5
+    },
+    "hood-river-or": {
+      "costScore0to50": 1.9,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 32.8
+    },
+    "hope-ar": {
+      "costScore0to50": 48.8,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 78.3
+    },
+    "hot-springs-ar": {
+      "costScore0to50": 27.8,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 55.9
+    },
+    "houghton-mi": {
+      "costScore0to50": 40.2,
+      "lifeScore0to50": 33.8,
+      "totalScore0to100": 74.0
+    },
+    "houma-thibodaux-la": {
+      "costScore0to50": 25.1,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 56.1
+    },
+    "houston-the-woodlands-sugar-land-tx": {
+      "costScore0to50": 12.0,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 43.1
+    },
+    "hudson-ny": {
+      "costScore0to50": 9.1,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 35.1
+    },
+    "huntingdon-pa": {
+      "costScore0to50": 27.0,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 56.7
+    },
+    "huntington-in": {
+      "costScore0to50": 39.6,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 72.2
+    },
+    "huntington-ashland-wv": {
+      "costScore0to50": 36.5,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 65.7
+    },
+    "huntsville-al": {
+      "costScore0to50": 13.5,
+      "lifeScore0to50": 27.3,
+      "totalScore0to100": 40.8
+    },
+    "huntsville-tx": {
+      "costScore0to50": 22.7,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 53.6
+    },
+    "huron-sd": {
+      "costScore0to50": 34.9,
+      "lifeScore0to50": 36.2,
+      "totalScore0to100": 71.1
+    },
+    "hutchinson-ks": {
+      "costScore0to50": 43.9,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 75.2
+    },
+    "hutchinson-mn": {
+      "costScore0to50": 17.6,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 48.5
+    },
+    "idaho-falls-id": {
+      "costScore0to50": 9.0,
+      "lifeScore0to50": 35.2,
+      "totalScore0to100": 44.2
+    },
+    "indiana-pa": {
+      "costScore0to50": 37.7,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 64.7
+    },
+    "indianapolis-carmel-anderson-in": {
+      "costScore0to50": 16.2,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 50.4
+    },
+    "indianola-ms": {
+      "costScore0to50": 47.3,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 77.7
+    },
+    "iowa-city-ia": {
+      "costScore0to50": 10.7,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 43.2
+    },
+    "iron-mountain-mi": {
+      "costScore0to50": 40.8,
+      "lifeScore0to50": 34.3,
+      "totalScore0to100": 75.1
+    },
+    "ithaca-ny": {
+      "costScore0to50": 10.8,
+      "lifeScore0to50": 25.6,
+      "totalScore0to100": 36.4
+    },
+    "jackson-mi": {
+      "costScore0to50": 27.7,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 56.5
+    },
+    "jackson-ms": {
+      "costScore0to50": 24.8,
+      "lifeScore0to50": 34.5,
+      "totalScore0to100": 59.3
+    },
+    "jackson-oh": {
+      "costScore0to50": 41.8,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 71.3
+    },
+    "jackson-tn": {
+      "costScore0to50": 33.2,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 64.9
+    },
+    "jackson-wy": {
+      "costScore0to50": 0.2,
+      "lifeScore0to50": 36.9,
+      "totalScore0to100": 37.1
+    },
+    "jacksonville-fl": {
+      "costScore0to50": 9.4,
+      "lifeScore0to50": 34.5,
+      "totalScore0to100": 43.9
+    },
+    "jacksonville-il": {
+      "costScore0to50": 44.0,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 73.5
+    },
+    "jacksonville-nc": {
+      "costScore0to50": 20.0,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 50.9
+    },
+    "jacksonville-tx": {
+      "costScore0to50": 38.6,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 71.4
+    },
+    "jamestown-nd": {
+      "costScore0to50": 21.5,
+      "lifeScore0to50": 35.6,
+      "totalScore0to100": 57.1
+    },
+    "jamestown-dunkirk-fredonia-ny": {
+      "costScore0to50": 45.7,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 72.1
+    },
+    "janesville-beloit-wi": {
+      "costScore0to50": 20.9,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 51.9
+    },
+    "jasper-al": {
+      "costScore0to50": 42.8,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 69.5
+    },
+    "jasper-in": {
+      "costScore0to50": 26.4,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 59.7
+    },
+    "jayuya-pr": {
+      "costScore0to50": 47.4,
+      "lifeScore0to50": 25.4,
+      "totalScore0to100": 72.8
+    },
+    "jefferson-ga": {
+      "costScore0to50": 9.5,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 39.0
+    },
+    "jefferson-city-mo": {
+      "costScore0to50": 22.0,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 53.6
+    },
+    "jennings-la": {
+      "costScore0to50": 34.3,
+      "lifeScore0to50": 26.2,
+      "totalScore0to100": 60.5
+    },
+    "jesup-ga": {
+      "costScore0to50": 36.7,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 68.8
+    },
+    "johnson-city-tn": {
+      "costScore0to50": 23.4,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 55.8
+    },
+    "johnstown-pa": {
+      "costScore0to50": 45.6,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 73.1
+    },
+    "jonesboro-ar": {
+      "costScore0to50": 27.8,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 55.4
+    },
+    "joplin-mo": {
+      "costScore0to50": 33.3,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 64.1
+    },
+    "juneau-ak": {
+      "costScore0to50": 3.3,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 32.2
+    },
+    "kahului-wailuku-lahaina-hi": {
+      "costScore0to50": 0.3,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 32.0
+    },
+    "kalamazoo-portage-mi": {
+      "costScore0to50": 18.2,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 50.9
+    },
+    "kalispell-mt": {
+      "costScore0to50": 3.0,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 35.5
+    },
+    "kankakee-il": {
+      "costScore0to50": 24.7,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 52.6
+    },
+    "kansas-city-mo": {
+      "costScore0to50": 12.8,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 45.2
+    },
+    "kapaa-hi": {
+      "costScore0to50": 0.6,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 32.1
+    },
+    "kearney-ne": {
+      "costScore0to50": 17.3,
+      "lifeScore0to50": 34.3,
+      "totalScore0to100": 51.6
+    },
+    "keene-nh": {
+      "costScore0to50": 13.8,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 45.1
+    },
+    "kendallville-in": {
+      "costScore0to50": 27.4,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 58.7
+    },
+    "kennett-mo": {
+      "costScore0to50": 48.9,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 77.7
+    },
+    "kennewick-richland-wa": {
+      "costScore0to50": 6.4,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 35.9
+    },
+    "kerrville-tx": {
+      "costScore0to50": 11.1,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 42.5
+    },
+    "ketchikan-ak": {
+      "costScore0to50": 4.8,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 36.3
+    },
+    "key-west-fl": {
+      "costScore0to50": 1.0,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 35.2
+    },
+    "kill-devil-hills-nc": {
+      "costScore0to50": 3.7,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 35.9
+    },
+    "killeen-temple-tx": {
+      "costScore0to50": 21.5,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 53.8
+    },
+    "kingsport-bristol-tn": {
+      "costScore0to50": 27.9,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 60.7
+    },
+    "kingston-ny": {
+      "costScore0to50": 8.8,
+      "lifeScore0to50": 25.2,
+      "totalScore0to100": 34.0
+    },
+    "kingsville-tx": {
+      "costScore0to50": 41.5,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 75.2
+    },
+    "kinston-nc": {
+      "costScore0to50": 47.5,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 75.9
+    },
+    "kirksville-mo": {
+      "costScore0to50": 36.9,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 70.5
+    },
+    "klamath-falls-or": {
+      "costScore0to50": 14.6,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 43.7
+    },
+    "knoxville-tn": {
+      "costScore0to50": 14.9,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 46.7
+    },
+    "kokomo-in": {
+      "costScore0to50": 36.5,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 68.5
+    },
+    "laconia-nh": {
+      "costScore0to50": 8.0,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 40.4
+    },
+    "la-crosse-onalaska-wi": {
+      "costScore0to50": 15.9,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 46.6
+    },
+    "lafayette-la": {
+      "costScore0to50": 22.4,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 53.5
+    },
+    "lafayette-west-lafayette-in": {
+      "costScore0to50": 23.2,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 55.8
+    },
+    "la-grande-or": {
+      "costScore0to50": 13.1,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 43.9
+    },
+    "lagrange-ga": {
+      "costScore0to50": 35.0,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 65.5
+    },
+    "lake-charles-la": {
+      "costScore0to50": 20.5,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 51.2
+    },
+    "lake-city-fl": {
+      "costScore0to50": 28.5,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 61.0
+    },
+    "lake-havasu-city-kingman-az": {
+      "costScore0to50": 14.7,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 46.9
+    },
+    "lakeland-winter-haven-fl": {
+      "costScore0to50": 17.4,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 45.8
+    },
+    "lamesa-tx": {
+      "costScore0to50": 48.7,
+      "lifeScore0to50": 36.1,
+      "totalScore0to100": 84.8
+    },
+    "lancaster-pa": {
+      "costScore0to50": 10.9,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 38.5
+    },
+    "lansing-east-lansing-mi": {
+      "costScore0to50": 23.3,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 53.7
+    },
+    "laramie-wy": {
+      "costScore0to50": 8.3,
+      "lifeScore0to50": 36.4,
+      "totalScore0to100": 44.7
+    },
+    "laredo-tx": {
+      "costScore0to50": 30.1,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 60.3
+    },
+    "las-cruces-nm": {
+      "costScore0to50": 22.6,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 55.1
+    },
+    "las-vegas-nm": {
+      "costScore0to50": 37.6,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 69.0
+    },
+    "las-vegas-henderson-paradise-nv": {
+      "costScore0to50": 4.5,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 35.2
+    },
+    "laurel-ms": {
+      "costScore0to50": 44.4,
+      "lifeScore0to50": 28.7,
+      "totalScore0to100": 73.1
+    },
+    "laurinburg-nc": {
+      "costScore0to50": 47.9,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 78.7
+    },
+    "lawrence-ks": {
+      "costScore0to50": 11.2,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 41.2
+    },
+    "lawrenceburg-tn": {
+      "costScore0to50": 31.5,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 62.2
+    },
+    "lawton-ok": {
+      "costScore0to50": 36.4,
+      "lifeScore0to50": 32.9,
+      "totalScore0to100": 69.3
+    },
+    "lebanon-mo": {
+      "costScore0to50": 33.2,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 64.8
+    },
+    "lebanon-nh": {
+      "costScore0to50": 12.7,
+      "lifeScore0to50": 34.7,
+      "totalScore0to100": 47.4
+    },
+    "lebanon-pa": {
+      "costScore0to50": 18.0,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 47.1
+    },
+    "levelland-tx": {
+      "costScore0to50": 45.8,
+      "lifeScore0to50": 35.8,
+      "totalScore0to100": 81.6
+    },
+    "lewisburg-pa": {
+      "costScore0to50": 18.1,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 47.7
+    },
+    "lewisburg-tn": {
+      "costScore0to50": 17.1,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 49.7
+    },
+    "lewiston-id": {
+      "costScore0to50": 11.0,
+      "lifeScore0to50": 34.9,
+      "totalScore0to100": 45.9
+    },
+    "lewiston-auburn-me": {
+      "costScore0to50": 18.0,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 47.4
+    },
+    "lewistown-pa": {
+      "costScore0to50": 40.4,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 69.4
+    },
+    "lexington-ne": {
+      "costScore0to50": 37.1,
+      "lifeScore0to50": 34.4,
+      "totalScore0to100": 71.5
+    },
+    "lexington-fayette-ky": {
+      "costScore0to50": 14.1,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 45.5
+    },
+    "liberal-ks": {
+      "costScore0to50": 42.1,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 75.2
+    },
+    "lima-oh": {
+      "costScore0to50": 35.3,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 65.9
+    },
+    "lincoln-il": {
+      "costScore0to50": 44.3,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 74.2
+    },
+    "lincoln-ne": {
+      "costScore0to50": 14.0,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 45.9
+    },
+    "little-rock-north-little-rock-conway-ar": {
+      "costScore0to50": 23.0,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 53.1
+    },
+    "lock-haven-pa": {
+      "costScore0to50": 28.7,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 58.4
+    },
+    "logan-ut": {
+      "costScore0to50": 5.7,
+      "lifeScore0to50": 33.5,
+      "totalScore0to100": 39.2
+    },
+    "logansport-in": {
+      "costScore0to50": 45.9,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 79.5
+    },
+    "london-ky": {
+      "costScore0to50": 44.1,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 74.9
+    },
+    "longview-tx": {
+      "costScore0to50": 28.7,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 58.9
+    },
+    "longview-wa": {
+      "costScore0to50": 6.3,
+      "lifeScore0to50": 24.2,
+      "totalScore0to100": 30.5
+    },
+    "los-alamos-nm": {
+      "costScore0to50": 3.0,
+      "lifeScore0to50": 36.3,
+      "totalScore0to100": 39.3
+    },
+    "los-angeles-long-beach-anaheim-ca": {
+      "costScore0to50": 0.4,
+      "lifeScore0to50": 26.3,
+      "totalScore0to100": 26.7
+    },
+    "louisville-jefferson-county-ky": {
+      "costScore0to50": 16.4,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 46.1
+    },
+    "lubbock-tx": {
+      "costScore0to50": 24.1,
+      "lifeScore0to50": 35.1,
+      "totalScore0to100": 59.2
+    },
+    "ludington-mi": {
+      "costScore0to50": 23.9,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 56.0
+    },
+    "lufkin-tx": {
+      "costScore0to50": 38.5,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 71.3
+    },
+    "lumberton-nc": {
+      "costScore0to50": 49.5,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 75.5
+    },
+    "lynchburg-va": {
+      "costScore0to50": 18.3,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 46.7
+    },
+    "macomb-il": {
+      "costScore0to50": 47.7,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 78.2
+    },
+    "macon-bibb-county-ga": {
+      "costScore0to50": 30.3,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 61.2
+    },
+    "madera-ca": {
+      "costScore0to50": 6.0,
+      "lifeScore0to50": 26.8,
+      "totalScore0to100": 32.8
+    },
+    "madison-in": {
+      "costScore0to50": 27.3,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 61.0
+    },
+    "madison-wi": {
+      "costScore0to50": 6.7,
+      "lifeScore0to50": 35.1,
+      "totalScore0to100": 41.8
+    },
+    "madisonville-ky": {
+      "costScore0to50": 42.2,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 71.8
+    },
+    "magnolia-ar": {
+      "costScore0to50": 43.0,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 72.5
+    },
+    "malone-ny": {
+      "costScore0to50": 40.1,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 68.2
+    },
+    "malvern-ar": {
+      "costScore0to50": 43.8,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 72.3
+    },
+    "manchester-nashua-nh": {
+      "costScore0to50": 5.1,
+      "lifeScore0to50": 35.7,
+      "totalScore0to100": 40.8
+    },
+    "manhattan-ks": {
+      "costScore0to50": 18.1,
+      "lifeScore0to50": 34.4,
+      "totalScore0to100": 52.5
+    },
+    "manitowoc-wi": {
+      "costScore0to50": 30.1,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 61.7
+    },
+    "mankato-mn": {
+      "costScore0to50": 13.8,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 43.0
+    },
+    "mansfield-oh": {
+      "costScore0to50": 37.8,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 66.6
+    },
+    "marietta-oh": {
+      "costScore0to50": 29.1,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 58.9
+    },
+    "marinette-wi": {
+      "costScore0to50": 38.3,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 68.0
+    },
+    "marion-in": {
+      "costScore0to50": 46.2,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 79.0
+    },
+    "marion-nc": {
+      "costScore0to50": 32.7,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 64.0
+    },
+    "marion-oh": {
+      "costScore0to50": 39.1,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 66.8
+    },
+    "marquette-mi": {
+      "costScore0to50": 23.2,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 55.2
+    },
+    "marshall-mn": {
+      "costScore0to50": 24.5,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 56.0
+    },
+    "marshall-mo": {
+      "costScore0to50": 40.8,
+      "lifeScore0to50": 33.9,
+      "totalScore0to100": 74.7
+    },
+    "marshalltown-ia": {
+      "costScore0to50": 42.1,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 73.8
+    },
+    "martin-tn": {
+      "costScore0to50": 43.1,
+      "lifeScore0to50": 33.9,
+      "totalScore0to100": 77.0
+    },
+    "martinsville-va": {
+      "costScore0to50": 46.3,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 73.3
+    },
+    "maryville-mo": {
+      "costScore0to50": 31.3,
+      "lifeScore0to50": 34.6,
+      "totalScore0to100": 65.9
+    },
+    "mason-city-ia": {
+      "costScore0to50": 36.3,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 68.1
+    },
+    "mayag-ez-pr": {
+      "costScore0to50": 47.1,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 77.3
+    },
+    "mayfield-ky": {
+      "costScore0to50": 39.4,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 69.6
+    },
+    "maysville-ky": {
+      "costScore0to50": 31.4,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 64.0
+    },
+    "mcalester-ok": {
+      "costScore0to50": 39.2,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 70.4
+    },
+    "mcallen-edinburg-mission-tx": {
+      "costScore0to50": 45.4,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 72.1
+    },
+    "mccomb-ms": {
+      "costScore0to50": 44.7,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 75.0
+    },
+    "mcminnville-tn": {
+      "costScore0to50": 34.4,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 66.3
+    },
+    "mcpherson-ks": {
+      "costScore0to50": 23.9,
+      "lifeScore0to50": 34.1,
+      "totalScore0to100": 58.0
+    },
+    "meadville-pa": {
+      "costScore0to50": 39.1,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 67.6
+    },
+    "medford-or": {
+      "costScore0to50": 4.5,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 32.4
+    },
+    "memphis-tn": {
+      "costScore0to50": 18.5,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 44.9
+    },
+    "menomonie-wi": {
+      "costScore0to50": 17.9,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 49.3
+    },
+    "merced-ca": {
+      "costScore0to50": 5.9,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 32.6
+    },
+    "meridian-ms": {
+      "costScore0to50": 45.9,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 77.2
+    },
+    "mexico-mo": {
+      "costScore0to50": 45.4,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 75.0
+    },
+    "miami-ok": {
+      "costScore0to50": 46.5,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 77.2
+    },
+    "miami-fort-lauderdale-pompano-beach-fl": {
+      "costScore0to50": 4.4,
+      "lifeScore0to50": 26.3,
+      "totalScore0to100": 30.7
+    },
+    "michigan-city-la-porte-in": {
+      "costScore0to50": 28.3,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 59.5
+    },
+    "middlesborough-ky": {
+      "costScore0to50": 49.8,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 81.3
+    },
+    "midland-mi": {
+      "costScore0to50": 26.3,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 56.6
+    },
+    "midland-tx": {
+      "costScore0to50": 10.3,
+      "lifeScore0to50": 33.8,
+      "totalScore0to100": 44.1
+    },
+    "milledgeville-ga": {
+      "costScore0to50": 35.9,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 66.8
+    },
+    "milwaukee-waukesha-wi": {
+      "costScore0to50": 10.4,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 41.3
+    },
+    "minden-la": {
+      "costScore0to50": 47.8,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 77.2
+    },
+    "mineral-wells-tx": {
+      "costScore0to50": 33.5,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 67.2
+    },
+    "minneapolis-st-paul-bloomington-mn": {
+      "costScore0to50": 6.2,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 35.4
+    },
+    "minot-nd": {
+      "costScore0to50": 14.1,
+      "lifeScore0to50": 34.8,
+      "totalScore0to100": 48.9
+    },
+    "missoula-mt": {
+      "costScore0to50": 3.9,
+      "lifeScore0to50": 33.0,
+      "totalScore0to100": 36.9
+    },
+    "mitchell-sd": {
+      "costScore0to50": 24.6,
+      "lifeScore0to50": 35.9,
+      "totalScore0to100": 60.5
+    },
+    "moberly-mo": {
+      "costScore0to50": 40.4,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 74.1
+    },
+    "mobile-al": {
+      "costScore0to50": 29.3,
+      "lifeScore0to50": 26.8,
+      "totalScore0to100": 56.1
+    },
+    "modesto-ca": {
+      "costScore0to50": 3.5,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 30.5
+    },
+    "monroe-la": {
+      "costScore0to50": 31.0,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 61.8
+    },
+    "monroe-mi": {
+      "costScore0to50": 19.2,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 48.6
+    },
+    "montgomery-al": {
+      "costScore0to50": 26.6,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 55.9
+    },
+    "montrose-co": {
+      "costScore0to50": 6.1,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 37.0
+    },
+    "morehead-city-nc": {
+      "costScore0to50": 9.9,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 39.5
+    },
+    "morgan-city-la": {
+      "costScore0to50": 41.6,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 72.6
+    },
+    "morgantown-wv": {
+      "costScore0to50": 17.5,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 47.4
+    },
+    "morristown-tn": {
+      "costScore0to50": 26.7,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 57.7
+    },
+    "moscow-id": {
+      "costScore0to50": 7.1,
+      "lifeScore0to50": 34.4,
+      "totalScore0to100": 41.5
+    },
+    "moses-lake-wa": {
+      "costScore0to50": 12.9,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 44.1
+    },
+    "moultrie-ga": {
+      "costScore0to50": 45.2,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 76.6
+    },
+    "mountain-home-ar": {
+      "costScore0to50": 31.8,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 62.0
+    },
+    "mountain-home-id": {
+      "costScore0to50": 14.4,
+      "lifeScore0to50": 34.7,
+      "totalScore0to100": 49.1
+    },
+    "mount-airy-nc": {
+      "costScore0to50": 32.5,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 64.7
+    },
+    "mount-gay-shamrock-wv": {
+      "costScore0to50": 47.5,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 79.2
+    },
+    "mount-pleasant-mi": {
+      "costScore0to50": 30.5,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 60.3
+    },
+    "mount-pleasant-tx": {
+      "costScore0to50": 37.4,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 70.0
+    },
+    "mount-sterling-ky": {
+      "costScore0to50": 42.8,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 73.1
+    },
+    "mount-vernon-il": {
+      "costScore0to50": 44.8,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 74.9
+    },
+    "mount-vernon-oh": {
+      "costScore0to50": 19.8,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 47.3
+    },
+    "mount-vernon-anacortes-wa": {
+      "costScore0to50": 2.6,
+      "lifeScore0to50": 26.1,
+      "totalScore0to100": 28.7
+    },
+    "muncie-in": {
+      "costScore0to50": 43.7,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 73.1
+    },
+    "murray-ky": {
+      "costScore0to50": 26.9,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 57.3
+    },
+    "muscatine-ia": {
+      "costScore0to50": 30.5,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 62.8
+    },
+    "muskegon-mi": {
+      "costScore0to50": 29.5,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 58.6
+    },
+    "muskogee-ok": {
+      "costScore0to50": 41.0,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 70.9
+    },
+    "myrtle-beach-conway-north-myrtle-beach-sc": {
+      "costScore0to50": 12.5,
+      "lifeScore0to50": 26.8,
+      "totalScore0to100": 39.3
+    },
+    "nacogdoches-tx": {
+      "costScore0to50": 34.1,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 65.9
+    },
+    "napa-ca": {
+      "costScore0to50": 0.4,
+      "lifeScore0to50": 28.3,
+      "totalScore0to100": 28.7
+    },
+    "naples-marco-island-fl": {
+      "costScore0to50": 2.7,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 30.8
+    },
+    "nashville-davidson-murfreesboro-franklin-tn": {
+      "costScore0to50": 5.6,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 38.8
+    },
+    "natchez-ms": {
+      "costScore0to50": 48.1,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 79.0
+    },
+    "natchitoches-la": {
+      "costScore0to50": 31.8,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 61.0
+    },
+    "new-bern-nc": {
+      "costScore0to50": 22.5,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 51.8
+    },
+    "newberry-sc": {
+      "costScore0to50": 38.2,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 67.1
+    },
+    "new-castle-in": {
+      "costScore0to50": 42.5,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 74.1
+    },
+    "new-castle-pa": {
+      "costScore0to50": 40.7,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 68.4
+    },
+    "new-haven-milford-ct": {
+      "costScore0to50": 8.3,
+      "lifeScore0to50": 25.6,
+      "totalScore0to100": 33.9
+    },
+    "new-orleans-metairie-la": {
+      "costScore0to50": 13.3,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 43.6
+    },
+    "new-philadelphia-dover-oh": {
+      "costScore0to50": 29.2,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 57.7
+    },
+    "newport-or": {
+      "costScore0to50": 5.5,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 34.7
+    },
+    "newport-tn": {
+      "costScore0to50": 38.9,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 70.3
+    },
+    "new-ulm-mn": {
+      "costScore0to50": 28.6,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 59.9
+    },
+    "new-york-newark-jersey-city-ny": {
+      "costScore0to50": 1.3,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 30.1
+    },
+    "niles-mi": {
+      "costScore0to50": 20.7,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 49.9
+    },
+    "nogales-az": {
+      "costScore0to50": 20.1,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 52.5
+    },
+    "norfolk-ne": {
+      "costScore0to50": 23.8,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 57.4
+    },
+    "north-platte-ne": {
+      "costScore0to50": 27.6,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 61.0
+    },
+    "north-port-sarasota-bradenton-fl": {
+      "costScore0to50": 6.3,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 36.3
+    },
+    "north-vernon-in": {
+      "costScore0to50": 39.7,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 72.9
+    },
+    "north-wilkesboro-nc": {
+      "costScore0to50": 35.6,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 66.4
+    },
+    "norwalk-oh": {
+      "costScore0to50": 33.4,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 63.0
+    },
+    "norwich-new-london-ct": {
+      "costScore0to50": 8.6,
+      "lifeScore0to50": 25.8,
+      "totalScore0to100": 34.4
+    },
+    "oak-harbor-wa": {
+      "costScore0to50": 2.2,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 28.9
+    },
+    "ocala-fl": {
+      "costScore0to50": 20.6,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 48.3
+    },
+    "ocean-city-nj": {
+      "costScore0to50": 4.3,
+      "lifeScore0to50": 24.6,
+      "totalScore0to100": 28.9
+    },
+    "odessa-tx": {
+      "costScore0to50": 25.1,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 57.3
+    },
+    "ogden-clearfield-ut": {
+      "costScore0to50": 3.8,
+      "lifeScore0to50": 32.9,
+      "totalScore0to100": 36.7
+    },
+    "ogdensburg-massena-ny": {
+      "costScore0to50": 44.9,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 73.5
+    },
+    "oil-city-pa": {
+      "costScore0to50": 46.4,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 74.9
+    },
+    "okeechobee-fl": {
+      "costScore0to50": 30.8,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 63.1
+    },
+    "oklahoma-city-ok": {
+      "costScore0to50": 20.0,
+      "lifeScore0to50": 34.9,
+      "totalScore0to100": 54.9
+    },
+    "olean-ny": {
+      "costScore0to50": 47.0,
+      "lifeScore0to50": 24.2,
+      "totalScore0to100": 71.2
+    },
+    "olympia-lacey-tumwater-wa": {
+      "costScore0to50": 3.1,
+      "lifeScore0to50": 26.6,
+      "totalScore0to100": 29.7
+    },
+    "omaha-council-bluffs-ne": {
+      "costScore0to50": 15.1,
+      "lifeScore0to50": 35.8,
+      "totalScore0to100": 50.9
+    },
+    "oneonta-ny": {
+      "costScore0to50": 27.9,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 55.1
+    },
+    "ontario-or": {
+      "costScore0to50": 14.9,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 44.8
+    },
+    "opelousas-la": {
+      "costScore0to50": 34.8,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 63.0
+    },
+    "orangeburg-sc": {
+      "costScore0to50": 46.9,
+      "lifeScore0to50": 25.3,
+      "totalScore0to100": 72.2
+    },
+    "orlando-kissimmee-sanford-fl": {
+      "costScore0to50": 7.1,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 36.1
+    },
+    "oshkosh-neenah-wi": {
+      "costScore0to50": 21.7,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 53.4
+    },
+    "oskaloosa-ia": {
+      "costScore0to50": 39.3,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 72.6
+    },
+    "othello-wa": {
+      "costScore0to50": 17.2,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 48.4
+    },
+    "ottawa-il": {
+      "costScore0to50": 36.8,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 66.1
+    },
+    "ottawa-ks": {
+      "costScore0to50": 25.2,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 57.6
+    },
+    "ottumwa-ia": {
+      "costScore0to50": 46.9,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 78.6
+    },
+    "owatonna-mn": {
+      "costScore0to50": 17.2,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 46.7
+    },
+    "owensboro-ky": {
+      "costScore0to50": 28.8,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 57.8
+    },
+    "oxford-ms": {
+      "costScore0to50": 13.2,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 43.3
+    },
+    "oxnard-thousand-oaks-ventura-ca": {
+      "costScore0to50": 0.9,
+      "lifeScore0to50": 26.2,
+      "totalScore0to100": 27.1
+    },
+    "ozark-al": {
+      "costScore0to50": 42.9,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 70.7
+    },
+    "paducah-ky": {
+      "costScore0to50": 32.8,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 64.7
+    },
+    "pahrump-nv": {
+      "costScore0to50": 14.3,
+      "lifeScore0to50": 31.7,
+      "totalScore0to100": 46.0
+    },
+    "palatka-fl": {
+      "costScore0to50": 42.3,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 71.5
+    },
+    "palestine-tx": {
+      "costScore0to50": 32.2,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 63.4
+    },
+    "palm-bay-melbourne-titusville-fl": {
+      "costScore0to50": 9.7,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 38.5
+    },
+    "pampa-tx": {
+      "costScore0to50": 48.7,
+      "lifeScore0to50": 35.5,
+      "totalScore0to100": 84.2
+    },
+    "panama-city-fl": {
+      "costScore0to50": 12.7,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 42.9
+    },
+    "paragould-ar": {
+      "costScore0to50": 31.3,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 60.8
+    },
+    "paris-tn": {
+      "costScore0to50": 37.5,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 70.0
+    },
+    "paris-tx": {
+      "costScore0to50": 33.0,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 62.8
+    },
+    "parkersburg-vienna-wv": {
+      "costScore0to50": 38.7,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 67.3
+    },
+    "parsons-ks": {
+      "costScore0to50": 48.8,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 81.0
+    },
+    "payson-az": {
+      "costScore0to50": 16.3,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 48.9
+    },
+    "pearsall-tx": {
+      "costScore0to50": 48.1,
+      "lifeScore0to50": 34.3,
+      "totalScore0to100": 82.4
+    },
+    "pecos-tx": {
+      "costScore0to50": 46.3,
+      "lifeScore0to50": 36.9,
+      "totalScore0to100": 83.2
+    },
+    "pella-ia": {
+      "costScore0to50": 21.3,
+      "lifeScore0to50": 34.0,
+      "totalScore0to100": 55.3
+    },
+    "pensacola-ferry-pass-brent-fl": {
+      "costScore0to50": 14.8,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 45.8
+    },
+    "peoria-il": {
+      "costScore0to50": 33.8,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 62.2
+    },
+    "peru-in": {
+      "costScore0to50": 45.3,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 77.7
+    },
+    "philadelphia-camden-wilmington-pa": {
+      "costScore0to50": 7.2,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 37.2
+    },
+    "phoenix-mesa-chandler-az": {
+      "costScore0to50": 4.9,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 38.2
+    },
+    "picayune-ms": {
+      "costScore0to50": 27.5,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 57.4
+    },
+    "pierre-sd": {
+      "costScore0to50": 17.9,
+      "lifeScore0to50": 37.4,
+      "totalScore0to100": 55.3
+    },
+    "pine-bluff-ar": {
+      "costScore0to50": 46.7,
+      "lifeScore0to50": 26.3,
+      "totalScore0to100": 73.0
+    },
+    "pinehurst-southern-pines-nc": {
+      "costScore0to50": 9.1,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 38.0
+    },
+    "pittsburg-ks": {
+      "costScore0to50": 45.1,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 77.8
+    },
+    "pittsburgh-pa": {
+      "costScore0to50": 21.3,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 53.3
+    },
+    "pittsfield-ma": {
+      "costScore0to50": 10.5,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 38.6
+    },
+    "plainview-tx": {
+      "costScore0to50": 48.2,
+      "lifeScore0to50": 35.4,
+      "totalScore0to100": 83.6
+    },
+    "platteville-wi": {
+      "costScore0to50": 25.9,
+      "lifeScore0to50": 33.0,
+      "totalScore0to100": 58.9
+    },
+    "plattsburgh-ny": {
+      "costScore0to50": 28.6,
+      "lifeScore0to50": 25.9,
+      "totalScore0to100": 54.5
+    },
+    "plymouth-in": {
+      "costScore0to50": 26.5,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 60.1
+    },
+    "pocatello-id": {
+      "costScore0to50": 15.1,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 48.7
+    },
+    "point-pleasant-wv": {
+      "costScore0to50": 42.0,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 72.3
+    },
+    "ponca-city-ok": {
+      "costScore0to50": 45.5,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 77.3
+    },
+    "ponce-pr": {
+      "costScore0to50": 47.2,
+      "lifeScore0to50": 28.7,
+      "totalScore0to100": 75.9
+    },
+    "pontiac-il": {
+      "costScore0to50": 41.5,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 70.8
+    },
+    "poplar-bluff-mo": {
+      "costScore0to50": 42.4,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 74.5
+    },
+    "portales-nm": {
+      "costScore0to50": 41.4,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 74.8
+    },
+    "port-angeles-wa": {
+      "costScore0to50": 5.2,
+      "lifeScore0to50": 27.4,
+      "totalScore0to100": 32.6
+    },
+    "portland-south-portland-me": {
+      "costScore0to50": 5.5,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 37.0
+    },
+    "portland-vancouver-hillsboro-or": {
+      "costScore0to50": 2.1,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 29.7
+    },
+    "port-lavaca-tx": {
+      "costScore0to50": 41.3,
+      "lifeScore0to50": 33.4,
+      "totalScore0to100": 74.7
+    },
+    "port-st-lucie-fl": {
+      "costScore0to50": 8.2,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 36.8
+    },
+    "portsmouth-oh": {
+      "costScore0to50": 43.1,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 72.3
+    },
+    "pottsville-pa": {
+      "costScore0to50": 41.7,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 70.6
+    },
+    "poughkeepsie-newburgh-middletown-ny": {
+      "costScore0to50": 5.8,
+      "lifeScore0to50": 26.2,
+      "totalScore0to100": 32.0
+    },
+    "prescott-valley-prescott-az": {
+      "costScore0to50": 5.1,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 36.1
+    },
+    "price-ut": {
+      "costScore0to50": 24.9,
+      "lifeScore0to50": 35.5,
+      "totalScore0to100": 60.4
+    },
+    "prineville-or": {
+      "costScore0to50": 4.6,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 35.8
+    },
+    "providence-warwick-ri": {
+      "costScore0to50": 5.0,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 37.0
+    },
+    "provo-orem-ut": {
+      "costScore0to50": 2.8,
+      "lifeScore0to50": 33.1,
+      "totalScore0to100": 35.9
+    },
+    "pueblo-co": {
+      "costScore0to50": 13.9,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 43.8
+    },
+    "pullman-wa": {
+      "costScore0to50": 7.8,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 39.4
+    },
+    "punta-gorda-fl": {
+      "costScore0to50": 10.7,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 39.1
+    },
+    "quincy-il": {
+      "costScore0to50": 35.6,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 63.8
+    },
+    "racine-wi": {
+      "costScore0to50": 15.5,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 45.1
+    },
+    "raleigh-cary-nc": {
+      "costScore0to50": 5.4,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 36.0
+    },
+    "rapid-city-sd": {
+      "costScore0to50": 12.4,
+      "lifeScore0to50": 36.1,
+      "totalScore0to100": 48.5
+    },
+    "raymondville-tx": {
+      "costScore0to50": 50.0,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 77.8
+    },
+    "reading-pa": {
+      "costScore0to50": 15.7,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 43.2
+    },
+    "red-bluff-ca": {
+      "costScore0to50": 8.5,
+      "lifeScore0to50": 25.8,
+      "totalScore0to100": 34.3
+    },
+    "redding-ca": {
+      "costScore0to50": 6.6,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 33.6
+    },
+    "red-wing-mn": {
+      "costScore0to50": 11.8,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 42.0
+    },
+    "reno-nv": {
+      "costScore0to50": 2.5,
+      "lifeScore0to50": 32.0,
+      "totalScore0to100": 34.5
+    },
+    "rexburg-id": {
+      "costScore0to50": 8.4,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 40.7
+    },
+    "richmond-in": {
+      "costScore0to50": 43.9,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 76.1
+    },
+    "richmond-va": {
+      "costScore0to50": 7.6,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 40.4
+    },
+    "richmond-berea-ky": {
+      "costScore0to50": 23.1,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 54.2
+    },
+    "rio-grande-city-roma-tx": {
+      "costScore0to50": 49.4,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 78.3
+    },
+    "riverside-san-bernardino-ontario-ca": {
+      "costScore0to50": 2.6,
+      "lifeScore0to50": 25.5,
+      "totalScore0to100": 28.1
+    },
+    "riverton-wy": {
+      "costScore0to50": 14.2,
+      "lifeScore0to50": 34.4,
+      "totalScore0to100": 48.6
+    },
+    "roanoke-va": {
+      "costScore0to50": 16.6,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 47.4
+    },
+    "roanoke-rapids-nc": {
+      "costScore0to50": 48.2,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 77.0
+    },
+    "rochelle-il": {
+      "costScore0to50": 26.0,
+      "lifeScore0to50": 28.7,
+      "totalScore0to100": 54.7
+    },
+    "rochester-mn": {
+      "costScore0to50": 10.4,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 44.0
+    },
+    "rochester-ny": {
+      "costScore0to50": 25.3,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 54.7
+    },
+    "rockford-il": {
+      "costScore0to50": 32.9,
+      "lifeScore0to50": 26.9,
+      "totalScore0to100": 59.8
+    },
+    "rockingham-nc": {
+      "costScore0to50": 45.5,
+      "lifeScore0to50": 28.0,
+      "totalScore0to100": 73.5
+    },
+    "rockport-tx": {
+      "costScore0to50": 16.5,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 45.7
+    },
+    "rock-springs-wy": {
+      "costScore0to50": 13.6,
+      "lifeScore0to50": 36.3,
+      "totalScore0to100": 49.9
+    },
+    "rocky-mount-nc": {
+      "costScore0to50": 37.2,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 66.1
+    },
+    "rolla-mo": {
+      "costScore0to50": 25.6,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 58.4
+    },
+    "rome-ga": {
+      "costScore0to50": 25.7,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 55.3
+    },
+    "roseburg-or": {
+      "costScore0to50": 11.0,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 40.0
+    },
+    "roswell-nm": {
+      "costScore0to50": 39.7,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 71.5
+    },
+    "ruidoso-nm": {
+      "costScore0to50": 20.3,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 52.8
+    },
+    "russellville-ar": {
+      "costScore0to50": 36.2,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 66.2
+    },
+    "ruston-la": {
+      "costScore0to50": 23.1,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 53.7
+    },
+    "rutland-vt": {
+      "costScore0to50": 19.0,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 46.0
+    },
+    "sacramento-roseville-folsom-ca": {
+      "costScore0to50": 1.8,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 32.1
+    },
+    "safford-az": {
+      "costScore0to50": 24.4,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 58.6
+    },
+    "saginaw-mi": {
+      "costScore0to50": 40.5,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 70.3
+    },
+    "st-cloud-mn": {
+      "costScore0to50": 13.9,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 43.3
+    },
+    "st-george-ut": {
+      "costScore0to50": 2.9,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 32.8
+    },
+    "st-joseph-mo": {
+      "costScore0to50": 33.0,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 64.3
+    },
+    "st-louis-mo": {
+      "costScore0to50": 17.1,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 49.2
+    },
+    "st-marys-ga": {
+      "costScore0to50": 17.8,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 49.7
+    },
+    "st-marys-pa": {
+      "costScore0to50": 43.5,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 74.1
+    },
+    "salem-oh": {
+      "costScore0to50": 42.7,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 70.4
+    },
+    "salem-or": {
+      "costScore0to50": 4.9,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 32.1
+    },
+    "salina-ks": {
+      "costScore0to50": 29.9,
+      "lifeScore0to50": 33.8,
+      "totalScore0to100": 63.7
+    },
+    "salinas-ca": {
+      "costScore0to50": 1.1,
+      "lifeScore0to50": 25.8,
+      "totalScore0to100": 26.9
+    },
+    "salisbury-md": {
+      "costScore0to50": 8.7,
+      "lifeScore0to50": 26.6,
+      "totalScore0to100": 35.3
+    },
+    "salt-lake-city-ut": {
+      "costScore0to50": 2.8,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 37.0
+    },
+    "san-angelo-tx": {
+      "costScore0to50": 24.6,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 57.1
+    },
+    "san-antonio-new-braunfels-tx": {
+      "costScore0to50": 14.4,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 45.7
+    },
+    "san-diego-chula-vista-carlsbad-ca": {
+      "costScore0to50": 0.8,
+      "lifeScore0to50": 24.6,
+      "totalScore0to100": 25.4
+    },
+    "sandpoint-id": {
+      "costScore0to50": 4.1,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 35.6
+    },
+    "sandusky-oh": {
+      "costScore0to50": 26.9,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 54.1
+    },
+    "sanford-nc": {
+      "costScore0to50": 22.9,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 53.0
+    },
+    "san-francisco-oakland-berkeley-ca": {
+      "costScore0to50": 0.1,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 28.7
+    },
+    "san-germ-n-pr": {
+      "costScore0to50": 47.1,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 75.9
+    },
+    "san-jose-sunnyvale-santa-clara-ca": {
+      "costScore0to50": 0.0,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 27.9
+    },
+    "san-juan-bayam-n-caguas-pr": {
+      "costScore0to50": 39.4,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 69.5
+    },
+    "san-luis-obispo-paso-robles-ca": {
+      "costScore0to50": 0.7,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 28.6
+    },
+    "santa-cruz-watsonville-ca": {
+      "costScore0to50": 0.2,
+      "lifeScore0to50": 26.9,
+      "totalScore0to100": 27.1
+    },
+    "santa-fe-nm": {
+      "costScore0to50": 4.3,
+      "lifeScore0to50": 31.0,
+      "totalScore0to100": 35.3
+    },
+    "santa-isabel-pr": {
+      "costScore0to50": 47.2,
+      "lifeScore0to50": 27.7,
+      "totalScore0to100": 74.9
+    },
+    "santa-maria-santa-barbara-ca": {
+      "costScore0to50": 0.9,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 28.4
+    },
+    "santa-rosa-petaluma-ca": {
+      "costScore0to50": 0.5,
+      "lifeScore0to50": 26.2,
+      "totalScore0to100": 26.7
+    },
+    "sault-ste-marie-mi": {
+      "costScore0to50": 36.8,
+      "lifeScore0to50": 32.1,
+      "totalScore0to100": 68.9
+    },
+    "savannah-ga": {
+      "costScore0to50": 12.3,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 43.1
+    },
+    "sayre-pa": {
+      "costScore0to50": 26.8,
+      "lifeScore0to50": 29.9,
+      "totalScore0to100": 56.7
+    },
+    "scottsbluff-ne": {
+      "costScore0to50": 33.9,
+      "lifeScore0to50": 27.1,
+      "totalScore0to100": 61.0
+    },
+    "scottsboro-al": {
+      "costScore0to50": 41.9,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 67.9
+    },
+    "scottsburg-in": {
+      "costScore0to50": 38.9,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 70.1
+    },
+    "scranton-wilkes-barre-pa": {
+      "costScore0to50": 29.4,
+      "lifeScore0to50": 26.3,
+      "totalScore0to100": 55.7
+    },
+    "searcy-ar": {
+      "costScore0to50": 34.0,
+      "lifeScore0to50": 24.2,
+      "totalScore0to100": 58.2
+    },
+    "seattle-tacoma-bellevue-wa": {
+      "costScore0to50": 1.2,
+      "lifeScore0to50": 25.2,
+      "totalScore0to100": 26.4
+    },
+    "sebastian-vero-beach-fl": {
+      "costScore0to50": 9.0,
+      "lifeScore0to50": 25.9,
+      "totalScore0to100": 34.9
+    },
+    "sebring-avon-park-fl": {
+      "costScore0to50": 31.7,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 58.1
+    },
+    "sedalia-mo": {
+      "costScore0to50": 34.2,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 63.6
+    },
+    "selinsgrove-pa": {
+      "costScore0to50": 19.9,
+      "lifeScore0to50": 26.9,
+      "totalScore0to100": 46.8
+    },
+    "selma-al": {
+      "costScore0to50": 49.1,
+      "lifeScore0to50": 27.5,
+      "totalScore0to100": 76.6
+    },
+    "seneca-sc": {
+      "costScore0to50": 21.1,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 48.3
+    },
+    "seneca-falls-ny": {
+      "costScore0to50": 40.0,
+      "lifeScore0to50": 25.1,
+      "totalScore0to100": 65.1
+    },
+    "sevierville-tn": {
+      "costScore0to50": 13.7,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 43.4
+    },
+    "seymour-in": {
+      "costScore0to50": 29.9,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 61.7
+    },
+    "shawano-wi": {
+      "costScore0to50": 28.8,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 59.6
+    },
+    "shawnee-ok": {
+      "costScore0to50": 35.2,
+      "lifeScore0to50": 28.4,
+      "totalScore0to100": 63.6
+    },
+    "sheboygan-wi": {
+      "costScore0to50": 19.6,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 50.2
+    },
+    "shelby-nc": {
+      "costScore0to50": 32.0,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 61.4
+    },
+    "shelbyville-tn": {
+      "costScore0to50": 16.6,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 47.3
+    },
+    "shelton-wa": {
+      "costScore0to50": 5.9,
+      "lifeScore0to50": 26.0,
+      "totalScore0to100": 31.9
+    },
+    "sheridan-wy": {
+      "costScore0to50": 5.8,
+      "lifeScore0to50": 36.8,
+      "totalScore0to100": 42.6
+    },
+    "sherman-denison-tx": {
+      "costScore0to50": 18.6,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 50.5
+    },
+    "show-low-az": {
+      "costScore0to50": 28.4,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 60.9
+    },
+    "shreveport-bossier-city-la": {
+      "costScore0to50": 24.7,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 55.3
+    },
+    "sidney-oh": {
+      "costScore0to50": 25.5,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 54.7
+    },
+    "sierra-vista-douglas-az": {
+      "costScore0to50": 23.5,
+      "lifeScore0to50": 34.2,
+      "totalScore0to100": 57.7
+    },
+    "sikeston-mo": {
+      "costScore0to50": 39.9,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 71.4
+    },
+    "silver-city-nm": {
+      "costScore0to50": 32.4,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 65.2
+    },
+    "sioux-city-ia": {
+      "costScore0to50": 29.2,
+      "lifeScore0to50": 31.8,
+      "totalScore0to100": 61.0
+    },
+    "sioux-falls-sd": {
+      "costScore0to50": 11.5,
+      "lifeScore0to50": 38.7,
+      "totalScore0to100": 50.2
+    },
+    "snyder-tx": {
+      "costScore0to50": 46.1,
+      "lifeScore0to50": 36.1,
+      "totalScore0to100": 82.2
+    },
+    "somerset-ky": {
+      "costScore0to50": 37.9,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 66.9
+    },
+    "somerset-pa": {
+      "costScore0to50": 42.6,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 72.8
+    },
+    "sonora-ca": {
+      "costScore0to50": 4.1,
+      "lifeScore0to50": 26.7,
+      "totalScore0to100": 30.8
+    },
+    "south-bend-mishawaka-in": {
+      "costScore0to50": 27.2,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 58.4
+    },
+    "spartanburg-sc": {
+      "costScore0to50": 20.2,
+      "lifeScore0to50": 27.2,
+      "totalScore0to100": 47.4
+    },
+    "spearfish-sd": {
+      "costScore0to50": 10.3,
+      "lifeScore0to50": 36.7,
+      "totalScore0to100": 47.0
+    },
+    "spencer-ia": {
+      "costScore0to50": 33.7,
+      "lifeScore0to50": 34.1,
+      "totalScore0to100": 67.8
+    },
+    "spirit-lake-ia": {
+      "costScore0to50": 14.2,
+      "lifeScore0to50": 34.0,
+      "totalScore0to100": 48.2
+    },
+    "spokane-spokane-valley-wa": {
+      "costScore0to50": 6.6,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 37.8
+    },
+    "springfield-il": {
+      "costScore0to50": 29.4,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 57.3
+    },
+    "springfield-ma": {
+      "costScore0to50": 9.6,
+      "lifeScore0to50": 26.4,
+      "totalScore0to100": 36.0
+    },
+    "springfield-mo": {
+      "costScore0to50": 21.4,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 51.5
+    },
+    "springfield-oh": {
+      "costScore0to50": 35.8,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 64.6
+    },
+    "starkville-ms": {
+      "costScore0to50": 23.7,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 54.9
+    },
+    "state-college-pa": {
+      "costScore0to50": 8.6,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 37.4
+    },
+    "statesboro-ga": {
+      "costScore0to50": 26.2,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 56.0
+    },
+    "staunton-va": {
+      "costScore0to50": 12.2,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 41.6
+    },
+    "steamboat-springs-co": {
+      "costScore0to50": 1.0,
+      "lifeScore0to50": 33.7,
+      "totalScore0to100": 34.7
+    },
+    "stephenville-tx": {
+      "costScore0to50": 17.0,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 49.2
+    },
+    "sterling-co": {
+      "costScore0to50": 19.0,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 51.4
+    },
+    "sterling-il": {
+      "costScore0to50": 43.3,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 73.3
+    },
+    "stevens-point-wi": {
+      "costScore0to50": 17.5,
+      "lifeScore0to50": 32.9,
+      "totalScore0to100": 50.4
+    },
+    "stillwater-ok": {
+      "costScore0to50": 20.1,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 51.3
+    },
+    "stockton-ca": {
+      "costScore0to50": 2.4,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 29.4
+    },
+    "storm-lake-ia": {
+      "costScore0to50": 38.8,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 72.1
+    },
+    "sturgis-mi": {
+      "costScore0to50": 32.9,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 65.4
+    },
+    "sulphur-springs-tx": {
+      "costScore0to50": 26.1,
+      "lifeScore0to50": 31.4,
+      "totalScore0to100": 57.5
+    },
+    "summerville-ga": {
+      "costScore0to50": 49.5,
+      "lifeScore0to50": 27.6,
+      "totalScore0to100": 77.1
+    },
+    "sumter-sc": {
+      "costScore0to50": 36.1,
+      "lifeScore0to50": 28.3,
+      "totalScore0to100": 64.4
+    },
+    "sunbury-pa": {
+      "costScore0to50": 37.5,
+      "lifeScore0to50": 26.5,
+      "totalScore0to100": 64.0
+    },
+    "susanville-ca": {
+      "costScore0to50": 14.7,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 45.0
+    },
+    "sweetwater-tx": {
+      "costScore0to50": 49.1,
+      "lifeScore0to50": 34.4,
+      "totalScore0to100": 83.5
+    },
+    "syracuse-ny": {
+      "costScore0to50": 28.9,
+      "lifeScore0to50": 25.6,
+      "totalScore0to100": 54.5
+    },
+    "tahlequah-ok": {
+      "costScore0to50": 36.0,
+      "lifeScore0to50": 30.5,
+      "totalScore0to100": 66.5
+    },
+    "talladega-sylacauga-al": {
+      "costScore0to50": 40.1,
+      "lifeScore0to50": 28.7,
+      "totalScore0to100": 68.8
+    },
+    "tallahassee-fl": {
+      "costScore0to50": 15.0,
+      "lifeScore0to50": 31.1,
+      "totalScore0to100": 46.1
+    },
+    "tampa-st-petersburg-clearwater-fl": {
+      "costScore0to50": 10.1,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 40.3
+    },
+    "taos-nm": {
+      "costScore0to50": 6.9,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 39.3
+    },
+    "taylorville-il": {
+      "costScore0to50": 46.4,
+      "lifeScore0to50": 30.9,
+      "totalScore0to100": 77.3
+    },
+    "terre-haute-in": {
+      "costScore0to50": 42.9,
+      "lifeScore0to50": 33.8,
+      "totalScore0to100": 76.7
+    },
+    "texarkana-tx": {
+      "costScore0to50": 37.0,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 69.2
+    },
+    "the-dalles-or": {
+      "costScore0to50": 7.8,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 39.1
+    },
+    "the-villages-fl": {
+      "costScore0to50": 6.7,
+      "lifeScore0to50": 29.3,
+      "totalScore0to100": 36.0
+    },
+    "thomaston-ga": {
+      "costScore0to50": 39.0,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 71.3
+    },
+    "thomasville-ga": {
+      "costScore0to50": 24.3,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 54.7
+    },
+    "tiffin-oh": {
+      "costScore0to50": 41.4,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 72.1
+    },
+    "tifton-ga": {
+      "costScore0to50": 37.7,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 67.2
+    },
+    "toccoa-ga": {
+      "costScore0to50": 32.2,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 64.1
+    },
+    "toledo-oh": {
+      "costScore0to50": 30.4,
+      "lifeScore0to50": 28.5,
+      "totalScore0to100": 58.9
+    },
+    "topeka-ks": {
+      "costScore0to50": 29.7,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 61.0
+    },
+    "torrington-ct": {
+      "costScore0to50": 7.3,
+      "lifeScore0to50": 26.5,
+      "totalScore0to100": 33.8
+    },
+    "traverse-city-mi": {
+      "costScore0to50": 10.9,
+      "lifeScore0to50": 31.5,
+      "totalScore0to100": 42.4
+    },
+    "trenton-princeton-nj": {
+      "costScore0to50": 6.5,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 35.4
+    },
+    "troy-al": {
+      "costScore0to50": 36.0,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 65.5
+    },
+    "truckee-grass-valley-ca": {
+      "costScore0to50": 1.3,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 28.3
+    },
+    "tucson-az": {
+      "costScore0to50": 11.3,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 42.0
+    },
+    "tullahoma-manchester-tn": {
+      "costScore0to50": 19.4,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 51.3
+    },
+    "tulsa-ok": {
+      "costScore0to50": 22.3,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 54.7
+    },
+    "tupelo-ms": {
+      "costScore0to50": 35.5,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 65.8
+    },
+    "tuscaloosa-al": {
+      "costScore0to50": 19.2,
+      "lifeScore0to50": 29.1,
+      "totalScore0to100": 48.3
+    },
+    "twin-falls-id": {
+      "costScore0to50": 11.6,
+      "lifeScore0to50": 33.3,
+      "totalScore0to100": 44.9
+    },
+    "tyler-tx": {
+      "costScore0to50": 19.3,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 50.1
+    },
+    "ukiah-ca": {
+      "costScore0to50": 2.3,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 30.1
+    },
+    "union-sc": {
+      "costScore0to50": 48.6,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 78.7
+    },
+    "union-city-tn": {
+      "costScore0to50": 43.8,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 76.6
+    },
+    "urbana-oh": {
+      "costScore0to50": 27.7,
+      "lifeScore0to50": 29.8,
+      "totalScore0to100": 57.5
+    },
+    "urban-honolulu-hi": {
+      "costScore0to50": 0.3,
+      "lifeScore0to50": 33.9,
+      "totalScore0to100": 34.2
+    },
+    "utica-rome-ny": {
+      "costScore0to50": 33.3,
+      "lifeScore0to50": 25.0,
+      "totalScore0to100": 58.3
+    },
+    "uvalde-tx": {
+      "costScore0to50": 40.7,
+      "lifeScore0to50": 32.8,
+      "totalScore0to100": 73.5
+    },
+    "valdosta-ga": {
+      "costScore0to50": 27.6,
+      "lifeScore0to50": 31.6,
+      "totalScore0to100": 59.2
+    },
+    "vallejo-ca": {
+      "costScore0to50": 1.4,
+      "lifeScore0to50": 27.9,
+      "totalScore0to100": 29.3
+    },
+    "van-wert-oh": {
+      "costScore0to50": 40.9,
+      "lifeScore0to50": 31.3,
+      "totalScore0to100": 72.2
+    },
+    "vermillion-sd": {
+      "costScore0to50": 18.3,
+      "lifeScore0to50": 36.8,
+      "totalScore0to100": 55.1
+    },
+    "vernal-ut": {
+      "costScore0to50": 12.0,
+      "lifeScore0to50": 35.2,
+      "totalScore0to100": 47.2
+    },
+    "vernon-tx": {
+      "costScore0to50": 49.7,
+      "lifeScore0to50": 35.0,
+      "totalScore0to100": 84.7
+    },
+    "vicksburg-ms": {
+      "costScore0to50": 36.7,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 66.2
+    },
+    "victoria-tx": {
+      "costScore0to50": 24.0,
+      "lifeScore0to50": 31.9,
+      "totalScore0to100": 55.9
+    },
+    "vidalia-ga": {
+      "costScore0to50": 44.0,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 75.2
+    },
+    "vincennes-in": {
+      "costScore0to50": 43.3,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 75.8
+    },
+    "vineland-bridgeton-nj": {
+      "costScore0to50": 21.0,
+      "lifeScore0to50": 24.6,
+      "totalScore0to100": 45.6
+    },
+    "vineyard-haven-ma": {
+      "costScore0to50": 0.1,
+      "lifeScore0to50": 31.2,
+      "totalScore0to100": 31.3
+    },
+    "virginia-beach-norfolk-newport-news-va": {
+      "costScore0to50": 7.9,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 37.1
+    },
+    "visalia-ca": {
+      "costScore0to50": 9.5,
+      "lifeScore0to50": 25.7,
+      "totalScore0to100": 35.2
+    },
+    "wabash-in": {
+      "costScore0to50": 39.2,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 71.7
+    },
+    "waco-tx": {
+      "costScore0to50": 21.9,
+      "lifeScore0to50": 30.3,
+      "totalScore0to100": 52.2
+    },
+    "wahpeton-nd": {
+      "costScore0to50": 28.3,
+      "lifeScore0to50": 34.8,
+      "totalScore0to100": 63.1
+    },
+    "walla-walla-wa": {
+      "costScore0to50": 6.4,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 35.3
+    },
+    "wapakoneta-oh": {
+      "costScore0to50": 27.3,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 56.7
+    },
+    "warner-robins-ga": {
+      "costScore0to50": 22.8,
+      "lifeScore0to50": 30.4,
+      "totalScore0to100": 53.2
+    },
+    "warren-pa": {
+      "costScore0to50": 44.6,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 74.8
+    },
+    "warrensburg-mo": {
+      "costScore0to50": 18.7,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 50.9
+    },
+    "warsaw-in": {
+      "costScore0to50": 23.5,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 55.8
+    },
+    "washington-in": {
+      "costScore0to50": 25.6,
+      "lifeScore0to50": 32.6,
+      "totalScore0to100": 58.2
+    },
+    "washington-nc": {
+      "costScore0to50": 30.3,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 58.4
+    },
+    "washington-arlington-alexandria-dc": {
+      "costScore0to50": 1.8,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 31.0
+    },
+    "washington-court-house-oh": {
+      "costScore0to50": 33.6,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 63.7
+    },
+    "waterloo-cedar-falls-ia": {
+      "costScore0to50": 24.9,
+      "lifeScore0to50": 33.6,
+      "totalScore0to100": 58.5
+    },
+    "watertown-sd": {
+      "costScore0to50": 19.1,
+      "lifeScore0to50": 34.9,
+      "totalScore0to100": 54.0
+    },
+    "watertown-fort-atkinson-wi": {
+      "costScore0to50": 14.0,
+      "lifeScore0to50": 29.6,
+      "totalScore0to100": 43.6
+    },
+    "watertown-fort-drum-ny": {
+      "costScore0to50": 26.8,
+      "lifeScore0to50": 28.6,
+      "totalScore0to100": 55.4
+    },
+    "wauchula-fl": {
+      "costScore0to50": 44.1,
+      "lifeScore0to50": 33.2,
+      "totalScore0to100": 77.3
+    },
+    "wausau-weston-wi": {
+      "costScore0to50": 22.1,
+      "lifeScore0to50": 32.4,
+      "totalScore0to100": 54.5
+    },
+    "waycross-ga": {
+      "costScore0to50": 47.0,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 77.1
+    },
+    "weatherford-ok": {
+      "costScore0to50": 27.1,
+      "lifeScore0to50": 34.1,
+      "totalScore0to100": 61.2
+    },
+    "weirton-steubenville-wv": {
+      "costScore0to50": 45.1,
+      "lifeScore0to50": 28.8,
+      "totalScore0to100": 73.9
+    },
+    "wenatchee-wa": {
+      "costScore0to50": 3.4,
+      "lifeScore0to50": 29.7,
+      "totalScore0to100": 33.1
+    },
+    "west-plains-mo": {
+      "costScore0to50": 37.3,
+      "lifeScore0to50": 32.3,
+      "totalScore0to100": 69.6
+    },
+    "west-point-ms": {
+      "costScore0to50": 45.8,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 76.4
+    },
+    "wheeling-wv": {
+      "costScore0to50": 39.0,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 69.2
+    },
+    "whitewater-wi": {
+      "costScore0to50": 11.8,
+      "lifeScore0to50": 30.8,
+      "totalScore0to100": 42.6
+    },
+    "wichita-ks": {
+      "costScore0to50": 25.9,
+      "lifeScore0to50": 34.3,
+      "totalScore0to100": 60.2
+    },
+    "wichita-falls-tx": {
+      "costScore0to50": 40.3,
+      "lifeScore0to50": 35.1,
+      "totalScore0to100": 75.4
+    },
+    "williamsport-pa": {
+      "costScore0to50": 23.6,
+      "lifeScore0to50": 30.0,
+      "totalScore0to100": 53.6
+    },
+    "williston-nd": {
+      "costScore0to50": 11.6,
+      "lifeScore0to50": 36.3,
+      "totalScore0to100": 47.9
+    },
+    "willmar-mn": {
+      "costScore0to50": 17.6,
+      "lifeScore0to50": 30.7,
+      "totalScore0to100": 48.3
+    },
+    "wilmington-nc": {
+      "costScore0to50": 7.4,
+      "lifeScore0to50": 28.9,
+      "totalScore0to100": 36.3
+    },
+    "wilmington-oh": {
+      "costScore0to50": 26.1,
+      "lifeScore0to50": 29.2,
+      "totalScore0to100": 55.3
+    },
+    "wilson-nc": {
+      "costScore0to50": 32.5,
+      "lifeScore0to50": 29.4,
+      "totalScore0to100": 61.9
+    },
+    "winchester-va": {
+      "costScore0to50": 7.5,
+      "lifeScore0to50": 29.5,
+      "totalScore0to100": 37.0
+    },
+    "winfield-ks": {
+      "costScore0to50": 47.3,
+      "lifeScore0to50": 32.5,
+      "totalScore0to100": 79.8
+    },
+    "winnemucca-nv": {
+      "costScore0to50": 13.5,
+      "lifeScore0to50": 34.3,
+      "totalScore0to100": 47.8
+    },
+    "winona-mn": {
+      "costScore0to50": 18.9,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 47.9
+    },
+    "winston-salem-nc": {
+      "costScore0to50": 20.7,
+      "lifeScore0to50": 30.6,
+      "totalScore0to100": 51.3
+    },
+    "wisconsin-rapids-marshfield-wi": {
+      "costScore0to50": 31.4,
+      "lifeScore0to50": 32.9,
+      "totalScore0to100": 64.3
+    },
+    "woodward-ok": {
+      "costScore0to50": 32.4,
+      "lifeScore0to50": 34.7,
+      "totalScore0to100": 67.1
+    },
+    "wooster-oh": {
+      "costScore0to50": 21.9,
+      "lifeScore0to50": 27.8,
+      "totalScore0to100": 49.7
+    },
+    "worcester-ma": {
+      "costScore0to50": 5.4,
+      "lifeScore0to50": 32.7,
+      "totalScore0to100": 38.1
+    },
+    "worthington-mn": {
+      "costScore0to50": 30.0,
+      "lifeScore0to50": 30.2,
+      "totalScore0to100": 60.2
+    },
+    "yakima-wa": {
+      "costScore0to50": 11.7,
+      "lifeScore0to50": 26.5,
+      "totalScore0to100": 38.2
+    },
+    "yankton-sd": {
+      "costScore0to50": 21.8,
+      "lifeScore0to50": 36.2,
+      "totalScore0to100": 58.0
+    },
+    "yauco-pr": {
+      "costScore0to50": 49.0,
+      "lifeScore0to50": 29.0,
+      "totalScore0to100": 78.0
+    },
+    "york-hanover-pa": {
+      "costScore0to50": 16.8,
+      "lifeScore0to50": 28.2,
+      "totalScore0to100": 45.0
+    },
+    "youngstown-warren-boardman-oh": {
+      "costScore0to50": 40.5,
+      "lifeScore0to50": 28.1,
+      "totalScore0to100": 68.6
+    },
+    "yuba-city-ca": {
+      "costScore0to50": 4.6,
+      "lifeScore0to50": 26.8,
+      "totalScore0to100": 31.4
+    },
+    "yuma-az": {
+      "costScore0to50": 25.7,
+      "lifeScore0to50": 32.2,
+      "totalScore0to100": 57.9
+    },
+    "zanesville-oh": {
+      "costScore0to50": 31.6,
+      "lifeScore0to50": 27.0,
+      "totalScore0to100": 58.6
+    },
+    "zapata-tx": {
+      "costScore0to50": 49.6,
+      "lifeScore0to50": 30.1,
+      "totalScore0to100": 79.7
+    }
+  }
+}

@@ -1,0 +1,4706 @@
+{
+  "metadata": {
+    "source": "census_gazetteer_2021",
+    "downloaded_at": "2026-06-28T19:01:56.511656+00:00",
+    "source_url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2021_Gazetteer/2021_Gaz_cbsa_national.zip",
+    "cbsa_count": 939,
+    "note": "Uses 2021 Gazetteer (pre-2023 CBSA redefinition) to match 2022 ACS vintage definitions"
+  },
+  "coords": {
+    "10100": {
+      "lat": 45.519435,
+      "lng": -98.7007,
+      "name": "Aberdeen, SD Micro Area"
+    },
+    "10140": {
+      "lat": 47.113732,
+      "lng": -123.826735,
+      "name": "Aberdeen, WA Micro Area"
+    },
+    "10180": {
+      "lat": 32.452022,
+      "lng": -99.718743,
+      "name": "Abilene, TX Metro Area"
+    },
+    "10220": {
+      "lat": 34.721415,
+      "lng": -96.69178,
+      "name": "Ada, OK Micro Area"
+    },
+    "10300": {
+      "lat": 41.896022,
+      "lng": -84.074356,
+      "name": "Adrian, MI Micro Area"
+    },
+    "10380": {
+      "lat": 18.356965,
+      "lng": -67.007895,
+      "name": "Aguadilla-Isabela, PR Metro Area"
+    },
+    "10420": {
+      "lat": 41.146639,
+      "lng": -81.35011,
+      "name": "Akron, OH Metro Area"
+    },
+    "10460": {
+      "lat": 32.615599,
+      "lng": -105.751308,
+      "name": "Alamogordo, NM Micro Area"
+    },
+    "10500": {
+      "lat": 31.644686,
+      "lng": -84.110718,
+      "name": "Albany, GA Metro Area"
+    },
+    "10540": {
+      "lat": 44.488898,
+      "lng": -122.537208,
+      "name": "Albany-Lebanon, OR Metro Area"
+    },
+    "10580": {
+      "lat": 42.78792,
+      "lng": -73.942348,
+      "name": "Albany-Schenectady-Troy, NY Metro Area"
+    },
+    "10620": {
+      "lat": 35.310449,
+      "lng": -80.254374,
+      "name": "Albemarle, NC Micro Area"
+    },
+    "10660": {
+      "lat": 43.674202,
+      "lng": -93.350289,
+      "name": "Albert Lea, MN Micro Area"
+    },
+    "10700": {
+      "lat": 34.309564,
+      "lng": -86.321668,
+      "name": "Albertville, AL Micro Area"
+    },
+    "10740": {
+      "lat": 35.123496,
+      "lng": -106.458392,
+      "name": "Albuquerque, NM Metro Area"
+    },
+    "10760": {
+      "lat": 32.900486,
+      "lng": -86.002932,
+      "name": "Alexander City, AL Micro Area"
+    },
+    "10780": {
+      "lat": 31.325348,
+      "lng": -92.546803,
+      "name": "Alexandria, LA Metro Area"
+    },
+    "10820": {
+      "lat": 45.936835,
+      "lng": -95.462155,
+      "name": "Alexandria, MN Micro Area"
+    },
+    "10860": {
+      "lat": 27.697743,
+      "lng": -98.390881,
+      "name": "Alice, TX Micro Area"
+    },
+    "10900": {
+      "lat": 40.789339,
+      "lng": -75.398158,
+      "name": "Allentown-Bethlehem-Easton, PA-NJ Metro Area"
+    },
+    "10940": {
+      "lat": 43.292326,
+      "lng": -84.60469,
+      "name": "Alma, MI Micro Area"
+    },
+    "10980": {
+      "lat": 44.894954,
+      "lng": -83.426574,
+      "name": "Alpena, MI Micro Area"
+    },
+    "11020": {
+      "lat": 40.498683,
+      "lng": -78.309597,
+      "name": "Altoona, PA Metro Area"
+    },
+    "11060": {
+      "lat": 34.594006,
+      "lng": -99.412235,
+      "name": "Altus, OK Micro Area"
+    },
+    "11100": {
+      "lat": 35.247999,
+      "lng": -101.90867,
+      "name": "Amarillo, TX Metro Area"
+    },
+    "11140": {
+      "lat": 32.098355,
+      "lng": -84.224304,
+      "name": "Americus, GA Micro Area"
+    },
+    "11180": {
+      "lat": 42.036128,
+      "lng": -93.698008,
+      "name": "Ames, IA Metro Area"
+    },
+    "11220": {
+      "lat": 42.900891,
+      "lng": -74.435357,
+      "name": "Amsterdam, NY Micro Area"
+    },
+    "11260": {
+      "lat": 62.212784,
+      "lng": -149.678222,
+      "name": "Anchorage, AK Metro Area"
+    },
+    "11380": {
+      "lat": 32.312258,
+      "lng": -102.640206,
+      "name": "Andrews, TX Micro Area"
+    },
+    "11420": {
+      "lat": 41.643467,
+      "lng": -85.002405,
+      "name": "Angola, IN Micro Area"
+    },
+    "11460": {
+      "lat": 42.252217,
+      "lng": -83.843423,
+      "name": "Ann Arbor, MI Metro Area"
+    },
+    "11500": {
+      "lat": 33.770516,
+      "lng": -85.827909,
+      "name": "Anniston-Oxford, AL Metro Area"
+    },
+    "11540": {
+      "lat": 44.290603,
+      "lng": -88.372326,
+      "name": "Appleton, WI Metro Area"
+    },
+    "11580": {
+      "lat": 27.190581,
+      "lng": -81.806253,
+      "name": "Arcadia, FL Micro Area"
+    },
+    "11620": {
+      "lat": 34.125836,
+      "lng": -97.263905,
+      "name": "Ardmore, OK Micro Area"
+    },
+    "11640": {
+      "lat": 18.439224,
+      "lng": -66.759981,
+      "name": "Arecibo, PR Metro Area"
+    },
+    "11660": {
+      "lat": 34.053316,
+      "lng": -93.176208,
+      "name": "Arkadelphia, AR Micro Area"
+    },
+    "11700": {
+      "lat": 35.595669,
+      "lng": -82.681615,
+      "name": "Asheville, NC Metro Area"
+    },
+    "11740": {
+      "lat": 40.843273,
+      "lng": -82.270127,
+      "name": "Ashland, OH Micro Area"
+    },
+    "11780": {
+      "lat": 41.906637,
+      "lng": -80.745592,
+      "name": "Ashtabula, OH Micro Area"
+    },
+    "11820": {
+      "lat": 46.024509,
+      "lng": -123.705037,
+      "name": "Astoria, OR Micro Area"
+    },
+    "11860": {
+      "lat": 39.532544,
+      "lng": -95.313397,
+      "name": "Atchison, KS Micro Area"
+    },
+    "11900": {
+      "lat": 39.332755,
+      "lng": -82.045885,
+      "name": "Athens, OH Micro Area"
+    },
+    "11940": {
+      "lat": 35.424472,
+      "lng": -84.619949,
+      "name": "Athens, TN Micro Area"
+    },
+    "11980": {
+      "lat": 32.211633,
+      "lng": -95.853418,
+      "name": "Athens, TX Micro Area"
+    },
+    "12020": {
+      "lat": 33.943984,
+      "lng": -83.213897,
+      "name": "Athens-Clarke County, GA Metro Area"
+    },
+    "12060": {
+      "lat": 33.693728,
+      "lng": -84.399911,
+      "name": "Atlanta-Sandy Springs-Alpharetta, GA Metro Area"
+    },
+    "12100": {
+      "lat": 39.469355,
+      "lng": -74.633759,
+      "name": "Atlantic City-Hammonton, NJ Metro Area"
+    },
+    "12120": {
+      "lat": 31.122287,
+      "lng": -87.16841,
+      "name": "Atmore, AL Micro Area"
+    },
+    "12140": {
+      "lat": 41.39676,
+      "lng": -85.002697,
+      "name": "Auburn, IN Micro Area"
+    },
+    "12180": {
+      "lat": 43.008546,
+      "lng": -76.574587,
+      "name": "Auburn, NY Micro Area"
+    },
+    "12220": {
+      "lat": 32.604064,
+      "lng": -85.353048,
+      "name": "Auburn-Opelika, AL Metro Area"
+    },
+    "12260": {
+      "lat": 33.460371,
+      "lng": -81.982833,
+      "name": "Augusta-Richmond County, GA-SC Metro Area"
+    },
+    "12300": {
+      "lat": 44.417012,
+      "lng": -69.765764,
+      "name": "Augusta-Waterville, ME Micro Area"
+    },
+    "12380": {
+      "lat": 43.666249,
+      "lng": -92.759514,
+      "name": "Austin, MN Micro Area"
+    },
+    "12420": {
+      "lat": 30.249744,
+      "lng": -97.649842,
+      "name": "Austin-Round Rock-Georgetown, TX Metro Area"
+    },
+    "12460": {
+      "lat": 30.880643,
+      "lng": -84.58389,
+      "name": "Bainbridge, GA Micro Area"
+    },
+    "12540": {
+      "lat": 35.346629,
+      "lng": -118.729506,
+      "name": "Bakersfield, CA Metro Area"
+    },
+    "12580": {
+      "lat": 39.304361,
+      "lng": -76.549501,
+      "name": "Baltimore-Columbia-Towson, MD Metro Area"
+    },
+    "12620": {
+      "lat": 45.409284,
+      "lng": -68.666616,
+      "name": "Bangor, ME Metro Area"
+    },
+    "12660": {
+      "lat": 43.428001,
+      "lng": -89.943318,
+      "name": "Baraboo, WI Micro Area"
+    },
+    "12680": {
+      "lat": 37.80312,
+      "lng": -85.465931,
+      "name": "Bardstown, KY Micro Area"
+    },
+    "12700": {
+      "lat": 41.706123,
+      "lng": -70.164823,
+      "name": "Barnstable Town, MA Metro Area"
+    },
+    "12740": {
+      "lat": 44.274969,
+      "lng": -72.609444,
+      "name": "Barre, VT Micro Area"
+    },
+    "12780": {
+      "lat": 36.704403,
+      "lng": -95.906253,
+      "name": "Bartlesville, OK Micro Area"
+    },
+    "12860": {
+      "lat": 43.00091,
+      "lng": -78.192778,
+      "name": "Batavia, NY Micro Area"
+    },
+    "12900": {
+      "lat": 35.927671,
+      "lng": -91.515359,
+      "name": "Batesville, AR Micro Area"
+    },
+    "12940": {
+      "lat": 30.515242,
+      "lng": -91.126926,
+      "name": "Baton Rouge, LA Metro Area"
+    },
+    "12980": {
+      "lat": 42.24299,
+      "lng": -85.012385,
+      "name": "Battle Creek, MI Metro Area"
+    },
+    "13020": {
+      "lat": 43.699711,
+      "lng": -83.978701,
+      "name": "Bay City, MI Metro Area"
+    },
+    "13060": {
+      "lat": 28.77476,
+      "lng": -96.001532,
+      "name": "Bay City, TX Micro Area"
+    },
+    "13100": {
+      "lat": 40.255234,
+      "lng": -96.683453,
+      "name": "Beatrice, NE Micro Area"
+    },
+    "13140": {
+      "lat": 30.075928,
+      "lng": -94.202705,
+      "name": "Beaumont-Port Arthur, TX Metro Area"
+    },
+    "13180": {
+      "lat": 43.429628,
+      "lng": -88.701939,
+      "name": "Beaver Dam, WI Micro Area"
+    },
+    "13220": {
+      "lat": 37.905325,
+      "lng": -81.164436,
+      "name": "Beckley, WV Metro Area"
+    },
+    "13260": {
+      "lat": 38.839815,
+      "lng": -86.48782,
+      "name": "Bedford, IN Micro Area"
+    },
+    "13300": {
+      "lat": 28.416077,
+      "lng": -97.742586,
+      "name": "Beeville, TX Micro Area"
+    },
+    "13340": {
+      "lat": 40.387553,
+      "lng": -83.766343,
+      "name": "Bellefontaine, OH Micro Area"
+    },
+    "13380": {
+      "lat": 48.842653,
+      "lng": -121.836432,
+      "name": "Bellingham, WA Metro Area"
+    },
+    "13420": {
+      "lat": 47.879508,
+      "lng": -95.00505,
+      "name": "Bemidji, MN Micro Area"
+    },
+    "13460": {
+      "lat": 43.915118,
+      "lng": -121.225575,
+      "name": "Bend, OR Metro Area"
+    },
+    "13500": {
+      "lat": 34.60167,
+      "lng": -79.679435,
+      "name": "Bennettsville, SC Micro Area"
+    },
+    "13540": {
+      "lat": 43.035328,
+      "lng": -73.111496,
+      "name": "Bennington, VT Micro Area"
+    },
+    "13620": {
+      "lat": 44.652548,
+      "lng": -71.289431,
+      "name": "Berlin, NH Micro Area"
+    },
+    "13660": {
+      "lat": 43.635295,
+      "lng": -85.332751,
+      "name": "Big Rapids, MI Micro Area"
+    },
+    "13700": {
+      "lat": 32.30343,
+      "lng": -101.438721,
+      "name": "Big Spring, TX Micro Area"
+    },
+    "13720": {
+      "lat": 36.974561,
+      "lng": -82.62156,
+      "name": "Big Stone Gap, VA Micro Area"
+    },
+    "13740": {
+      "lat": 45.63714,
+      "lng": -108.832361,
+      "name": "Billings, MT Metro Area"
+    },
+    "13780": {
+      "lat": 42.163928,
+      "lng": -76.022943,
+      "name": "Binghamton, NY Metro Area"
+    },
+    "13820": {
+      "lat": 33.402599,
+      "lng": -86.729515,
+      "name": "Birmingham-Hoover, AL Metro Area"
+    },
+    "13900": {
+      "lat": 46.887031,
+      "lng": -100.979592,
+      "name": "Bismarck, ND Metro Area"
+    },
+    "13940": {
+      "lat": 43.216357,
+      "lng": -112.399206,
+      "name": "Blackfoot, ID Micro Area"
+    },
+    "13980": {
+      "lat": 37.120119,
+      "lng": -80.559147,
+      "name": "Blacksburg-Christiansburg, VA Metro Area"
+    },
+    "14010": {
+      "lat": 40.494559,
+      "lng": -88.844539,
+      "name": "Bloomington, IL Metro Area"
+    },
+    "14020": {
+      "lat": 39.241736,
+      "lng": -86.671754,
+      "name": "Bloomington, IN Metro Area"
+    },
+    "14100": {
+      "lat": 41.040404,
+      "lng": -76.461654,
+      "name": "Bloomsburg-Berwick, PA Metro Area"
+    },
+    "14140": {
+      "lat": 37.208488,
+      "lng": -81.33484,
+      "name": "Bluefield, WV-VA Micro Area"
+    },
+    "14160": {
+      "lat": 40.735273,
+      "lng": -85.212974,
+      "name": "Bluffton, IN Micro Area"
+    },
+    "14180": {
+      "lat": 35.766944,
+      "lng": -90.052207,
+      "name": "Blytheville, AR Micro Area"
+    },
+    "14220": {
+      "lat": 30.852144,
+      "lng": -90.046253,
+      "name": "Bogalusa, LA Micro Area"
+    },
+    "14260": {
+      "lat": 43.006648,
+      "lng": -116.141909,
+      "name": "Boise City, ID Metro Area"
+    },
+    "14300": {
+      "lat": 33.591161,
+      "lng": -96.104988,
+      "name": "Bonham, TX Micro Area"
+    },
+    "14380": {
+      "lat": 36.235368,
+      "lng": -81.709888,
+      "name": "Boone, NC Micro Area"
+    },
+    "14420": {
+      "lat": 35.837047,
+      "lng": -101.362746,
+      "name": "Borger, TX Micro Area"
+    },
+    "14460": {
+      "lat": 42.517606,
+      "lng": -71.021993,
+      "name": "Boston-Cambridge-Newton, MA-NH Metro Area"
+    },
+    "14500": {
+      "lat": 40.094963,
+      "lng": -105.397704,
+      "name": "Boulder, CO Metro Area"
+    },
+    "14540": {
+      "lat": 37.046804,
+      "lng": -86.397398,
+      "name": "Bowling Green, KY Metro Area"
+    },
+    "14580": {
+      "lat": 45.518054,
+      "lng": -111.163921,
+      "name": "Bozeman, MT Micro Area"
+    },
+    "14620": {
+      "lat": 41.81459,
+      "lng": -78.572463,
+      "name": "Bradford, PA Micro Area"
+    },
+    "14660": {
+      "lat": 46.767291,
+      "lng": -94.223862,
+      "name": "Brainerd, MN Micro Area"
+    },
+    "14700": {
+      "lat": 36.649827,
+      "lng": -93.042819,
+      "name": "Branson, MO Micro Area"
+    },
+    "14720": {
+      "lat": 39.621023,
+      "lng": -106.137555,
+      "name": "Breckenridge, CO Micro Area"
+    },
+    "14740": {
+      "lat": 47.639595,
+      "lng": -122.649634,
+      "name": "Bremerton-Silverdale-Port Orchard, WA Metro Area"
+    },
+    "14780": {
+      "lat": 30.215075,
+      "lng": -96.410272,
+      "name": "Brenham, TX Micro Area"
+    },
+    "14820": {
+      "lat": 35.210103,
+      "lng": -82.816666,
+      "name": "Brevard, NC Micro Area"
+    },
+    "14860": {
+      "lat": 41.227413,
+      "lng": -73.367061,
+      "name": "Bridgeport-Stamford-Norwalk, CT Metro Area"
+    },
+    "15020": {
+      "lat": 31.535216,
+      "lng": -90.453566,
+      "name": "Brookhaven, MS Micro Area"
+    },
+    "15060": {
+      "lat": 42.466439,
+      "lng": -124.210929,
+      "name": "Brookings, OR Micro Area"
+    },
+    "15100": {
+      "lat": 44.376675,
+      "lng": -96.797797,
+      "name": "Brookings, SD Micro Area"
+    },
+    "15140": {
+      "lat": 35.586678,
+      "lng": -89.282691,
+      "name": "Brownsville, TN Micro Area"
+    },
+    "15180": {
+      "lat": 26.102923,
+      "lng": -97.478958,
+      "name": "Brownsville-Harlingen, TX Metro Area"
+    },
+    "15220": {
+      "lat": 31.764137,
+      "lng": -98.998456,
+      "name": "Brownwood, TX Micro Area"
+    },
+    "15260": {
+      "lat": 31.301739,
+      "lng": -81.588909,
+      "name": "Brunswick, GA Metro Area"
+    },
+    "15340": {
+      "lat": 40.848524,
+      "lng": -82.924783,
+      "name": "Bucyrus-Galion, OH Micro Area"
+    },
+    "15380": {
+      "lat": 43.044371,
+      "lng": -78.777335,
+      "name": "Buffalo-Cheektowaga, NY Metro Area"
+    },
+    "15420": {
+      "lat": 42.369199,
+      "lng": -113.642424,
+      "name": "Burley, ID Micro Area"
+    },
+    "15460": {
+      "lat": 40.863823,
+      "lng": -91.069976,
+      "name": "Burlington, IA-IL Micro Area"
+    },
+    "15500": {
+      "lat": 36.043954,
+      "lng": -79.400573,
+      "name": "Burlington, NC Metro Area"
+    },
+    "15540": {
+      "lat": 44.689115,
+      "lng": -73.041175,
+      "name": "Burlington-South Burlington, VT Metro Area"
+    },
+    "15580": {
+      "lat": 45.896232,
+      "lng": -112.660071,
+      "name": "Butte-Silver Bow, MT Micro Area"
+    },
+    "15620": {
+      "lat": 44.328738,
+      "lng": -85.326429,
+      "name": "Cadillac, MI Micro Area"
+    },
+    "15660": {
+      "lat": 34.509667,
+      "lng": -84.873862,
+      "name": "Calhoun, GA Micro Area"
+    },
+    "15680": {
+      "lat": 38.223077,
+      "lng": -76.534487,
+      "name": "California-Lexington Park, MD Metro Area"
+    },
+    "15700": {
+      "lat": 38.429196,
+      "lng": -76.047433,
+      "name": "Cambridge, MD Micro Area"
+    },
+    "15740": {
+      "lat": 40.056665,
+      "lng": -81.497875,
+      "name": "Cambridge, OH Micro Area"
+    },
+    "15780": {
+      "lat": 33.567513,
+      "lng": -92.708217,
+      "name": "Camden, AR Micro Area"
+    },
+    "15820": {
+      "lat": 37.315476,
+      "lng": -85.442981,
+      "name": "Campbellsville, KY Micro Area"
+    },
+    "15860": {
+      "lat": 38.45517,
+      "lng": -105.424958,
+      "name": "Ca\u00f1on City, CO Micro Area"
+    },
+    "15940": {
+      "lat": 40.711051,
+      "lng": -81.261468,
+      "name": "Canton-Massillon, OH Metro Area"
+    },
+    "15980": {
+      "lat": 26.563273,
+      "lng": -81.984182,
+      "name": "Cape Coral-Fort Myers, FL Metro Area"
+    },
+    "16020": {
+      "lat": 37.325936,
+      "lng": -89.762639,
+      "name": "Cape Girardeau, MO-IL Metro Area"
+    },
+    "16060": {
+      "lat": 37.689742,
+      "lng": -89.105149,
+      "name": "Carbondale-Marion, IL Metro Area"
+    },
+    "16100": {
+      "lat": 32.457835,
+      "lng": -104.306434,
+      "name": "Carlsbad-Artesia, NM Micro Area"
+    },
+    "16140": {
+      "lat": 42.039502,
+      "lng": -94.86765,
+      "name": "Carroll, IA Micro Area"
+    },
+    "16180": {
+      "lat": 39.15306,
+      "lng": -119.747368,
+      "name": "Carson City, NV Metro Area"
+    },
+    "16220": {
+      "lat": 42.977645,
+      "lng": -106.768219,
+      "name": "Casper, WY Metro Area"
+    },
+    "16260": {
+      "lat": 37.909304,
+      "lng": -113.30674,
+      "name": "Cedar City, UT Micro Area"
+    },
+    "16300": {
+      "lat": 42.086289,
+      "lng": -91.631095,
+      "name": "Cedar Rapids, IA Metro Area"
+    },
+    "16340": {
+      "lat": 33.996015,
+      "lng": -85.188338,
+      "name": "Cedartown, GA Micro Area"
+    },
+    "16380": {
+      "lat": 40.535333,
+      "lng": -84.632059,
+      "name": "Celina, OH Micro Area"
+    },
+    "16420": {
+      "lat": 37.213816,
+      "lng": -87.134092,
+      "name": "Central City, KY Micro Area"
+    },
+    "16460": {
+      "lat": 38.648236,
+      "lng": -88.920362,
+      "name": "Centralia, IL Micro Area"
+    },
+    "16500": {
+      "lat": 46.580071,
+      "lng": -122.377444,
+      "name": "Centralia, WA Micro Area"
+    },
+    "16540": {
+      "lat": 39.926772,
+      "lng": -77.724521,
+      "name": "Chambersburg-Waynesboro, PA Metro Area"
+    },
+    "16580": {
+      "lat": 40.102988,
+      "lng": -88.318504,
+      "name": "Champaign-Urbana, IL Metro Area"
+    },
+    "16620": {
+      "lat": 38.355177,
+      "lng": -81.620341,
+      "name": "Charleston, WV Metro Area"
+    },
+    "16660": {
+      "lat": 39.423163,
+      "lng": -88.242212,
+      "name": "Charleston-Mattoon, IL Micro Area"
+    },
+    "16700": {
+      "lat": 33.01754,
+      "lng": -80.009947,
+      "name": "Charleston-North Charleston, SC Metro Area"
+    },
+    "16740": {
+      "lat": 35.166342,
+      "lng": -80.797285,
+      "name": "Charlotte-Concord-Gastonia, NC-SC Metro Area"
+    },
+    "16820": {
+      "lat": 37.949084,
+      "lng": -78.593206,
+      "name": "Charlottesville, VA Metro Area"
+    },
+    "16860": {
+      "lat": 35.049361,
+      "lng": -85.361158,
+      "name": "Chattanooga, TN-GA Metro Area"
+    },
+    "16940": {
+      "lat": 41.29283,
+      "lng": -104.660395,
+      "name": "Cheyenne, WY Metro Area"
+    },
+    "16980": {
+      "lat": 41.823521,
+      "lng": -87.828297,
+      "name": "Chicago-Naperville-Elgin, IL-IN-WI Metro Area"
+    },
+    "17020": {
+      "lat": 39.665336,
+      "lng": -121.603209,
+      "name": "Chico, CA Metro Area"
+    },
+    "17060": {
+      "lat": 39.323895,
+      "lng": -83.059538,
+      "name": "Chillicothe, OH Micro Area"
+    },
+    "17140": {
+      "lat": 39.100546,
+      "lng": -84.479533,
+      "name": "Cincinnati, OH-KY-IN Metro Area"
+    },
+    "17220": {
+      "lat": 39.28835,
+      "lng": -80.43153,
+      "name": "Clarksburg, WV Micro Area"
+    },
+    "17260": {
+      "lat": 34.230316,
+      "lng": -90.60401,
+      "name": "Clarksdale, MS Micro Area"
+    },
+    "17300": {
+      "lat": 36.69571,
+      "lng": -87.624307,
+      "name": "Clarksville, TN-KY Metro Area"
+    },
+    "17340": {
+      "lat": 39.094802,
+      "lng": -122.746757,
+      "name": "Clearlake, CA Micro Area"
+    },
+    "17380": {
+      "lat": 33.799139,
+      "lng": -90.88412,
+      "name": "Cleveland, MS Micro Area"
+    },
+    "17420": {
+      "lat": 35.138117,
+      "lng": -84.655079,
+      "name": "Cleveland, TN Metro Area"
+    },
+    "17460": {
+      "lat": 41.555037,
+      "lng": -81.604957,
+      "name": "Cleveland-Elyria, OH Metro Area"
+    },
+    "17500": {
+      "lat": 26.539967,
+      "lng": -81.152114,
+      "name": "Clewiston, FL Micro Area"
+    },
+    "17540": {
+      "lat": 41.898073,
+      "lng": -90.534243,
+      "name": "Clinton, IA Micro Area"
+    },
+    "17580": {
+      "lat": 34.572984,
+      "lng": -103.346055,
+      "name": "Clovis, NM Micro Area"
+    },
+    "17620": {
+      "lat": 18.1038,
+      "lng": -66.357586,
+      "name": "Coamo, PR Micro Area"
+    },
+    "17640": {
+      "lat": 17.971485,
+      "lng": -66.262252,
+      "name": "Coco, PR Micro Area"
+    },
+    "17660": {
+      "lat": 47.675957,
+      "lng": -116.695919,
+      "name": "Coeur d'Alene, ID Metro Area"
+    },
+    "17700": {
+      "lat": 37.189537,
+      "lng": -95.742403,
+      "name": "Coffeyville, KS Micro Area"
+    },
+    "17740": {
+      "lat": 41.918455,
+      "lng": -85.066885,
+      "name": "Coldwater, MI Micro Area"
+    },
+    "17780": {
+      "lat": 30.754392,
+      "lng": -96.488537,
+      "name": "College Station-Bryan, TX Metro Area"
+    },
+    "17820": {
+      "lat": 38.845507,
+      "lng": -104.638728,
+      "name": "Colorado Springs, CO Metro Area"
+    },
+    "17860": {
+      "lat": 38.986486,
+      "lng": -92.585189,
+      "name": "Columbia, MO Metro Area"
+    },
+    "17900": {
+      "lat": 34.077585,
+      "lng": -81.037845,
+      "name": "Columbia, SC Metro Area"
+    },
+    "17980": {
+      "lat": 32.419377,
+      "lng": -84.843709,
+      "name": "Columbus, GA-AL Metro Area"
+    },
+    "18020": {
+      "lat": 39.205843,
+      "lng": -85.897999,
+      "name": "Columbus, IN Metro Area"
+    },
+    "18060": {
+      "lat": 33.471424,
+      "lng": -88.439723,
+      "name": "Columbus, MS Micro Area"
+    },
+    "18100": {
+      "lat": 41.576866,
+      "lng": -97.513467,
+      "name": "Columbus, NE Micro Area"
+    },
+    "18140": {
+      "lat": 39.968562,
+      "lng": -82.835911,
+      "name": "Columbus, OH Metro Area"
+    },
+    "18180": {
+      "lat": 43.299579,
+      "lng": -71.680041,
+      "name": "Concord, NH Micro Area"
+    },
+    "18220": {
+      "lat": 39.639655,
+      "lng": -85.185032,
+      "name": "Connersville, IN Micro Area"
+    },
+    "18260": {
+      "lat": 36.277251,
+      "lng": -85.468501,
+      "name": "Cookeville, TN Micro Area"
+    },
+    "18300": {
+      "lat": 43.18591,
+      "lng": -124.094133,
+      "name": "Coos Bay, OR Micro Area"
+    },
+    "18380": {
+      "lat": 31.920268,
+      "lng": -83.75653,
+      "name": "Cordele, GA Micro Area"
+    },
+    "18420": {
+      "lat": 34.886569,
+      "lng": -88.581109,
+      "name": "Corinth, MS Micro Area"
+    },
+    "18460": {
+      "lat": 34.634392,
+      "lng": -83.525875,
+      "name": "Cornelia, GA Micro Area"
+    },
+    "18500": {
+      "lat": 42.266725,
+      "lng": -77.385525,
+      "name": "Corning, NY Micro Area"
+    },
+    "18580": {
+      "lat": 27.833597,
+      "lng": -97.508958,
+      "name": "Corpus Christi, TX Metro Area"
+    },
+    "18620": {
+      "lat": 32.048448,
+      "lng": -96.476909,
+      "name": "Corsicana, TX Micro Area"
+    },
+    "18660": {
+      "lat": 42.594039,
+      "lng": -76.07624,
+      "name": "Cortland, NY Micro Area"
+    },
+    "18700": {
+      "lat": 44.493882,
+      "lng": -123.424664,
+      "name": "Corvallis, OR Metro Area"
+    },
+    "18740": {
+      "lat": 40.29671,
+      "lng": -81.930109,
+      "name": "Coshocton, OH Micro Area"
+    },
+    "18780": {
+      "lat": 40.610864,
+      "lng": -108.217154,
+      "name": "Craig, CO Micro Area"
+    },
+    "18820": {
+      "lat": 40.040296,
+      "lng": -86.892715,
+      "name": "Crawfordsville, IN Micro Area"
+    },
+    "18860": {
+      "lat": 41.749903,
+      "lng": -123.980998,
+      "name": "Crescent City, CA Micro Area"
+    },
+    "18880": {
+      "lat": 30.594941,
+      "lng": -86.358164,
+      "name": "Crestview-Fort Walton Beach-Destin, FL Metro Area"
+    },
+    "18900": {
+      "lat": 35.952398,
+      "lng": -84.994761,
+      "name": "Crossville, TN Micro Area"
+    },
+    "18980": {
+      "lat": 34.131923,
+      "lng": -86.869267,
+      "name": "Cullman, AL Micro Area"
+    },
+    "19000": {
+      "lat": 35.389045,
+      "lng": -83.322832,
+      "name": "Cullowhee, NC Micro Area"
+    },
+    "19060": {
+      "lat": 39.532185,
+      "lng": -78.807082,
+      "name": "Cumberland, MD-WV Metro Area"
+    },
+    "19100": {
+      "lat": 32.849171,
+      "lng": -96.970489,
+      "name": "Dallas-Fort Worth-Arlington, TX Metro Area"
+    },
+    "19140": {
+      "lat": 34.796956,
+      "lng": -84.856279,
+      "name": "Dalton, GA Metro Area"
+    },
+    "19180": {
+      "lat": 40.186754,
+      "lng": -87.726778,
+      "name": "Danville, IL Metro Area"
+    },
+    "19220": {
+      "lat": 37.507848,
+      "lng": -84.735684,
+      "name": "Danville, KY Micro Area"
+    },
+    "19260": {
+      "lat": 36.811853,
+      "lng": -79.400122,
+      "name": "Danville, VA Micro Area"
+    },
+    "19300": {
+      "lat": 30.659218,
+      "lng": -87.746067,
+      "name": "Daphne-Fairhope-Foley, AL Metro Area"
+    },
+    "19340": {
+      "lat": 41.39168,
+      "lng": -90.460076,
+      "name": "Davenport-Moline-Rock Island, IA-IL Metro Area"
+    },
+    "19420": {
+      "lat": 35.60059,
+      "lng": -84.949548,
+      "name": "Dayton, TN Micro Area"
+    },
+    "19430": {
+      "lat": 39.829746,
+      "lng": -84.140992,
+      "name": "Dayton-Kettering, OH Metro Area"
+    },
+    "19460": {
+      "lat": 34.489361,
+      "lng": -87.097147,
+      "name": "Decatur, AL Metro Area"
+    },
+    "19500": {
+      "lat": 39.860237,
+      "lng": -88.961529,
+      "name": "Decatur, IL Metro Area"
+    },
+    "19540": {
+      "lat": 40.745733,
+      "lng": -84.93613,
+      "name": "Decatur, IN Micro Area"
+    },
+    "19580": {
+      "lat": 41.321679,
+      "lng": -84.486433,
+      "name": "Defiance, OH Micro Area"
+    },
+    "19620": {
+      "lat": 29.875285,
+      "lng": -101.143324,
+      "name": "Del Rio, TX Micro Area"
+    },
+    "19660": {
+      "lat": 29.1789,
+      "lng": -81.189023,
+      "name": "Deltona-Daytona Beach-Ormond Beach, FL Metro Area"
+    },
+    "19700": {
+      "lat": 32.184523,
+      "lng": -107.747191,
+      "name": "Deming, NM Micro Area"
+    },
+    "19740": {
+      "lat": 39.434789,
+      "lng": -104.901073,
+      "name": "Denver-Aurora-Lakewood, CO Metro Area"
+    },
+    "19760": {
+      "lat": 30.645018,
+      "lng": -93.340253,
+      "name": "DeRidder, LA Micro Area"
+    },
+    "19780": {
+      "lat": 41.57705,
+      "lng": -93.759712,
+      "name": "Des Moines-West Des Moines, IA Metro Area"
+    },
+    "19820": {
+      "lat": 42.721848,
+      "lng": -83.200846,
+      "name": "Detroit-Warren-Dearborn, MI Metro Area"
+    },
+    "19860": {
+      "lat": 46.912583,
+      "lng": -102.988487,
+      "name": "Dickinson, ND Micro Area"
+    },
+    "19940": {
+      "lat": 41.747447,
+      "lng": -89.299362,
+      "name": "Dixon, IL Micro Area"
+    },
+    "19980": {
+      "lat": 37.688416,
+      "lng": -99.884748,
+      "name": "Dodge City, KS Micro Area"
+    },
+    "20020": {
+      "lat": 31.245528,
+      "lng": -85.46919,
+      "name": "Dothan, AL Metro Area"
+    },
+    "20060": {
+      "lat": 31.459541,
+      "lng": -82.867327,
+      "name": "Douglas, GA Micro Area"
+    },
+    "20100": {
+      "lat": 39.097088,
+      "lng": -75.502982,
+      "name": "Dover, DE Metro Area"
+    },
+    "20140": {
+      "lat": 32.50894,
+      "lng": -82.810013,
+      "name": "Dublin, GA Micro Area"
+    },
+    "20180": {
+      "lat": 41.006862,
+      "lng": -78.477724,
+      "name": "DuBois, PA Micro Area"
+    },
+    "20220": {
+      "lat": 42.463481,
+      "lng": -90.878771,
+      "name": "Dubuque, IA Metro Area"
+    },
+    "20260": {
+      "lat": 47.347503,
+      "lng": -92.155335,
+      "name": "Duluth, MN-WI Metro Area"
+    },
+    "20300": {
+      "lat": 35.835676,
+      "lng": -101.890502,
+      "name": "Dumas, TX Micro Area"
+    },
+    "20340": {
+      "lat": 34.481361,
+      "lng": -97.855607,
+      "name": "Duncan, OK Micro Area"
+    },
+    "20420": {
+      "lat": 37.287367,
+      "lng": -107.839718,
+      "name": "Durango, CO Micro Area"
+    },
+    "20460": {
+      "lat": 33.964004,
+      "lng": -96.265135,
+      "name": "Durant, OK Micro Area"
+    },
+    "20500": {
+      "lat": 36.060589,
+      "lng": -78.989787,
+      "name": "Durham-Chapel Hill, NC Metro Area"
+    },
+    "20540": {
+      "lat": 36.054196,
+      "lng": -89.398306,
+      "name": "Dyersburg, TN Micro Area"
+    },
+    "20580": {
+      "lat": 28.729787,
+      "lng": -100.316678,
+      "name": "Eagle Pass, TX Micro Area"
+    },
+    "20660": {
+      "lat": 38.748349,
+      "lng": -76.178476,
+      "name": "Easton, MD Micro Area"
+    },
+    "20700": {
+      "lat": 41.05624,
+      "lng": -75.329065,
+      "name": "East Stroudsburg, PA Metro Area"
+    },
+    "20740": {
+      "lat": 44.938672,
+      "lng": -91.284322,
+      "name": "Eau Claire, WI Metro Area"
+    },
+    "20780": {
+      "lat": 39.626992,
+      "lng": -106.695169,
+      "name": "Edwards, CO Micro Area"
+    },
+    "20820": {
+      "lat": 39.047945,
+      "lng": -88.592849,
+      "name": "Effingham, IL Micro Area"
+    },
+    "20900": {
+      "lat": 29.27848,
+      "lng": -96.229674,
+      "name": "El Campo, TX Micro Area"
+    },
+    "20940": {
+      "lat": 33.040814,
+      "lng": -115.3554,
+      "name": "El Centro, CA Metro Area"
+    },
+    "20980": {
+      "lat": 33.168219,
+      "lng": -92.598145,
+      "name": "El Dorado, AR Micro Area"
+    },
+    "21020": {
+      "lat": 36.197118,
+      "lng": -76.34244,
+      "name": "Elizabeth City, NC Micro Area"
+    },
+    "21060": {
+      "lat": 37.73298,
+      "lng": -85.972171,
+      "name": "Elizabethtown-Fort Knox, KY Metro Area"
+    },
+    "21120": {
+      "lat": 35.270601,
+      "lng": -99.690057,
+      "name": "Elk City, OK Micro Area"
+    },
+    "21140": {
+      "lat": 41.600693,
+      "lng": -85.863986,
+      "name": "Elkhart-Goshen, IN Metro Area"
+    },
+    "21180": {
+      "lat": 38.781095,
+      "lng": -79.867788,
+      "name": "Elkins, WV Micro Area"
+    },
+    "21220": {
+      "lat": 40.906086,
+      "lng": -115.554577,
+      "name": "Elko, NV Micro Area"
+    },
+    "21260": {
+      "lat": 47.124441,
+      "lng": -120.676709,
+      "name": "Ellensburg, WA Micro Area"
+    },
+    "21300": {
+      "lat": 42.148697,
+      "lng": -76.752471,
+      "name": "Elmira, NY Metro Area"
+    },
+    "21340": {
+      "lat": 31.527394,
+      "lng": -105.521333,
+      "name": "El Paso, TX Metro Area"
+    },
+    "21380": {
+      "lat": 38.382134,
+      "lng": -96.359301,
+      "name": "Emporia, KS Micro Area"
+    },
+    "21420": {
+      "lat": 36.378132,
+      "lng": -97.788741,
+      "name": "Enid, OK Metro Area"
+    },
+    "21460": {
+      "lat": 31.402258,
+      "lng": -85.989602,
+      "name": "Enterprise, AL Micro Area"
+    },
+    "21500": {
+      "lat": 42.117952,
+      "lng": -80.096386,
+      "name": "Erie, PA Metro Area"
+    },
+    "21540": {
+      "lat": 45.805229,
+      "lng": -86.901938,
+      "name": "Escanaba, MI Micro Area"
+    },
+    "21580": {
+      "lat": 36.509669,
+      "lng": -106.693983,
+      "name": "Espa\u00f1ola, NM Micro Area"
+    },
+    "21640": {
+      "lat": 31.867281,
+      "lng": -85.335032,
+      "name": "Eufaula, AL-GA Micro Area"
+    },
+    "21660": {
+      "lat": 43.928334,
+      "lng": -122.897581,
+      "name": "Eugene-Springfield, OR Metro Area"
+    },
+    "21700": {
+      "lat": 40.706655,
+      "lng": -123.926176,
+      "name": "Eureka-Arcata, CA Micro Area"
+    },
+    "21740": {
+      "lat": 41.284726,
+      "lng": -110.558947,
+      "name": "Evanston, WY Micro Area"
+    },
+    "21780": {
+      "lat": 38.02007,
+      "lng": -87.586166,
+      "name": "Evansville, IN-KY Metro Area"
+    },
+    "21820": {
+      "lat": 64.676044,
+      "lng": -146.548159,
+      "name": "Fairbanks, AK Metro Area"
+    },
+    "21840": {
+      "lat": 41.006376,
+      "lng": -91.966628,
+      "name": "Fairfield, IA Micro Area"
+    },
+    "21860": {
+      "lat": 43.677173,
+      "lng": -94.547096,
+      "name": "Fairmont, MN Micro Area"
+    },
+    "21900": {
+      "lat": 39.505839,
+      "lng": -80.243402,
+      "name": "Fairmont, WV Micro Area"
+    },
+    "21980": {
+      "lat": 39.53771,
+      "lng": -118.264166,
+      "name": "Fallon, NV Micro Area"
+    },
+    "22020": {
+      "lat": 46.914859,
+      "lng": -96.960183,
+      "name": "Fargo, ND-MN Metro Area"
+    },
+    "22060": {
+      "lat": 44.350775,
+      "lng": -93.298513,
+      "name": "Faribault-Northfield, MN Micro Area"
+    },
+    "22100": {
+      "lat": 37.810707,
+      "lng": -90.473868,
+      "name": "Farmington, MO Micro Area"
+    },
+    "22140": {
+      "lat": 36.511624,
+      "lng": -108.324578,
+      "name": "Farmington, NM Metro Area"
+    },
+    "22180": {
+      "lat": 35.155981,
+      "lng": -78.931856,
+      "name": "Fayetteville, NC Metro Area"
+    },
+    "22220": {
+      "lat": 36.116394,
+      "lng": -94.079545,
+      "name": "Fayetteville-Springdale-Rogers, AR Metro Area"
+    },
+    "22260": {
+      "lat": 46.405727,
+      "lng": -95.714581,
+      "name": "Fergus Falls, MN Micro Area"
+    },
+    "22280": {
+      "lat": 39.022213,
+      "lng": -119.197425,
+      "name": "Fernley, NV Micro Area"
+    },
+    "22300": {
+      "lat": 41.000217,
+      "lng": -83.665947,
+      "name": "Findlay, OH Micro Area"
+    },
+    "22340": {
+      "lat": 31.740772,
+      "lng": -83.147197,
+      "name": "Fitzgerald, GA Micro Area"
+    },
+    "22380": {
+      "lat": 35.829692,
+      "lng": -111.773728,
+      "name": "Flagstaff, AZ Metro Area"
+    },
+    "22420": {
+      "lat": 43.021077,
+      "lng": -83.706372,
+      "name": "Flint, MI Metro Area"
+    },
+    "22500": {
+      "lat": 34.153574,
+      "lng": -79.806164,
+      "name": "Florence, SC Metro Area"
+    },
+    "22520": {
+      "lat": 34.799254,
+      "lng": -87.719388,
+      "name": "Florence-Muscle Shoals, AL Metro Area"
+    },
+    "22540": {
+      "lat": 43.754722,
+      "lng": -88.493284,
+      "name": "Fond du Lac, WI Metro Area"
+    },
+    "22580": {
+      "lat": 35.402747,
+      "lng": -81.919582,
+      "name": "Forest City, NC Micro Area"
+    },
+    "22620": {
+      "lat": 35.022838,
+      "lng": -90.751506,
+      "name": "Forrest City, AR Micro Area"
+    },
+    "22660": {
+      "lat": 40.658093,
+      "lng": -105.486764,
+      "name": "Fort Collins, CO Metro Area"
+    },
+    "22700": {
+      "lat": 42.433579,
+      "lng": -94.175831,
+      "name": "Fort Dodge, IA Micro Area"
+    },
+    "22780": {
+      "lat": 37.824835,
+      "lng": -92.207022,
+      "name": "Fort Leonard Wood, MO Micro Area"
+    },
+    "22800": {
+      "lat": 40.478345,
+      "lng": -91.409363,
+      "name": "Fort Madison-Keokuk, IA-IL-MO Micro Area"
+    },
+    "22820": {
+      "lat": 40.263159,
+      "lng": -103.81221,
+      "name": "Fort Morgan, CO Micro Area"
+    },
+    "22840": {
+      "lat": 34.460915,
+      "lng": -85.804021,
+      "name": "Fort Payne, AL Micro Area"
+    },
+    "22860": {
+      "lat": 31.102841,
+      "lng": -93.18833,
+      "name": "Fort Polk South, LA Micro Area"
+    },
+    "22900": {
+      "lat": 35.463119,
+      "lng": -94.299741,
+      "name": "Fort Smith, AR-OK Metro Area"
+    },
+    "23060": {
+      "lat": 41.113116,
+      "lng": -85.217705,
+      "name": "Fort Wayne, IN Metro Area"
+    },
+    "23140": {
+      "lat": 40.305944,
+      "lng": -86.477567,
+      "name": "Frankfort, IN Micro Area"
+    },
+    "23180": {
+      "lat": 38.121449,
+      "lng": -84.933167,
+      "name": "Frankfort, KY Micro Area"
+    },
+    "23240": {
+      "lat": 30.325093,
+      "lng": -98.94185,
+      "name": "Fredericksburg, TX Micro Area"
+    },
+    "23300": {
+      "lat": 42.349726,
+      "lng": -89.665994,
+      "name": "Freeport, IL Micro Area"
+    },
+    "23340": {
+      "lat": 41.577008,
+      "lng": -96.645852,
+      "name": "Fremont, NE Micro Area"
+    },
+    "23380": {
+      "lat": 41.355319,
+      "lng": -83.142776,
+      "name": "Fremont, OH Micro Area"
+    },
+    "23420": {
+      "lat": 36.761006,
+      "lng": -119.655019,
+      "name": "Fresno, CA Metro Area"
+    },
+    "23460": {
+      "lat": 34.047641,
+      "lng": -86.034263,
+      "name": "Gadsden, AL Metro Area"
+    },
+    "23500": {
+      "lat": 35.049796,
+      "lng": -81.607647,
+      "name": "Gaffney, SC Micro Area"
+    },
+    "23540": {
+      "lat": 29.453355,
+      "lng": -82.666257,
+      "name": "Gainesville, FL Metro Area"
+    },
+    "23580": {
+      "lat": 34.317569,
+      "lng": -83.8185,
+      "name": "Gainesville, GA Metro Area"
+    },
+    "23620": {
+      "lat": 33.639196,
+      "lng": -97.210343,
+      "name": "Gainesville, TX Micro Area"
+    },
+    "23660": {
+      "lat": 40.930945,
+      "lng": -90.213792,
+      "name": "Galesburg, IL Micro Area"
+    },
+    "23700": {
+      "lat": 35.584062,
+      "lng": -108.253294,
+      "name": "Gallup, NM Micro Area"
+    },
+    "23780": {
+      "lat": 38.025453,
+      "lng": -100.970695,
+      "name": "Garden City, KS Micro Area"
+    },
+    "23820": {
+      "lat": 38.905129,
+      "lng": -119.609019,
+      "name": "Gardnerville Ranchos, NV Micro Area"
+    },
+    "23860": {
+      "lat": 33.417531,
+      "lng": -79.296333,
+      "name": "Georgetown, SC Micro Area"
+    },
+    "23900": {
+      "lat": 39.869471,
+      "lng": -77.21773,
+      "name": "Gettysburg, PA Metro Area"
+    },
+    "23940": {
+      "lat": 44.2321,
+      "lng": -105.034342,
+      "name": "Gillette, WY Micro Area"
+    },
+    "23980": {
+      "lat": 36.967571,
+      "lng": -85.815497,
+      "name": "Glasgow, KY Micro Area"
+    },
+    "24020": {
+      "lat": 43.44045,
+      "lng": -73.636757,
+      "name": "Glens Falls, NY Metro Area"
+    },
+    "24060": {
+      "lat": 39.509542,
+      "lng": -107.667311,
+      "name": "Glenwood Springs, CO Micro Area"
+    },
+    "24100": {
+      "lat": 43.115609,
+      "lng": -74.423678,
+      "name": "Gloversville, NY Micro Area"
+    },
+    "24140": {
+      "lat": 35.35419,
+      "lng": -78.00867,
+      "name": "Goldsboro, NC Metro Area"
+    },
+    "24180": {
+      "lat": 32.430149,
+      "lng": -97.831677,
+      "name": "Granbury, TX Micro Area"
+    },
+    "24220": {
+      "lat": 47.835929,
+      "lng": -96.842681,
+      "name": "Grand Forks, ND-MN Metro Area"
+    },
+    "24260": {
+      "lat": 41.083926,
+      "lng": -98.374218,
+      "name": "Grand Island, NE Metro Area"
+    },
+    "24300": {
+      "lat": 39.019524,
+      "lng": -108.460571,
+      "name": "Grand Junction, CO Metro Area"
+    },
+    "24330": {
+      "lat": 47.490817,
+      "lng": -93.611102,
+      "name": "Grand Rapids, MN Micro Area"
+    },
+    "24340": {
+      "lat": 43.037598,
+      "lng": -85.778167,
+      "name": "Grand Rapids-Kentwood, MI Metro Area"
+    },
+    "24380": {
+      "lat": 34.928272,
+      "lng": -107.99268,
+      "name": "Grants, NM Micro Area"
+    },
+    "24420": {
+      "lat": 42.386983,
+      "lng": -123.57162,
+      "name": "Grants Pass, OR Metro Area"
+    },
+    "24460": {
+      "lat": 38.481239,
+      "lng": -98.767837,
+      "name": "Great Bend, KS Micro Area"
+    },
+    "24500": {
+      "lat": 47.316575,
+      "lng": -111.350262,
+      "name": "Great Falls, MT Metro Area"
+    },
+    "24540": {
+      "lat": 40.555961,
+      "lng": -104.383666,
+      "name": "Greeley, CO Metro Area"
+    },
+    "24580": {
+      "lat": 44.474024,
+      "lng": -87.99613,
+      "name": "Green Bay, WI Metro Area"
+    },
+    "24620": {
+      "lat": 36.179487,
+      "lng": -82.847523,
+      "name": "Greeneville, TN Micro Area"
+    },
+    "24660": {
+      "lat": 36.025204,
+      "lng": -79.792633,
+      "name": "Greensboro-High Point, NC Metro Area"
+    },
+    "24700": {
+      "lat": 39.30598,
+      "lng": -85.499831,
+      "name": "Greensburg, IN Micro Area"
+    },
+    "24740": {
+      "lat": 33.273174,
+      "lng": -90.944446,
+      "name": "Greenville, MS Micro Area"
+    },
+    "24780": {
+      "lat": 35.59249,
+      "lng": -77.372739,
+      "name": "Greenville, NC Metro Area"
+    },
+    "24820": {
+      "lat": 40.131467,
+      "lng": -84.621191,
+      "name": "Greenville, OH Micro Area"
+    },
+    "24860": {
+      "lat": 34.683709,
+      "lng": -82.413423,
+      "name": "Greenville-Anderson, SC Metro Area"
+    },
+    "24900": {
+      "lat": 33.491305,
+      "lng": -90.113633,
+      "name": "Greenwood, MS Micro Area"
+    },
+    "24940": {
+      "lat": 34.155796,
+      "lng": -82.127876,
+      "name": "Greenwood, SC Micro Area"
+    },
+    "24980": {
+      "lat": 33.770031,
+      "lng": -89.80274,
+      "name": "Grenada, MS Micro Area"
+    },
+    "25020": {
+      "lat": 17.979155,
+      "lng": -66.069473,
+      "name": "Guayama, PR Metro Area"
+    },
+    "25060": {
+      "lat": 30.480153,
+      "lng": -88.999297,
+      "name": "Gulfport-Biloxi, MS Metro Area"
+    },
+    "25100": {
+      "lat": 36.746317,
+      "lng": -101.483855,
+      "name": "Guymon, OK Micro Area"
+    },
+    "25180": {
+      "lat": 39.554433,
+      "lng": -77.984594,
+      "name": "Hagerstown-Martinsburg, MD-WV Metro Area"
+    },
+    "25200": {
+      "lat": 43.445822,
+      "lng": -114.183901,
+      "name": "Hailey, ID Micro Area"
+    },
+    "25220": {
+      "lat": 30.621348,
+      "lng": -90.40649,
+      "name": "Hammond, LA Metro Area"
+    },
+    "25260": {
+      "lat": 36.072478,
+      "lng": -119.81553,
+      "name": "Hanford-Corcoran, CA Metro Area"
+    },
+    "25300": {
+      "lat": 39.664115,
+      "lng": -91.579179,
+      "name": "Hannibal, MO Micro Area"
+    },
+    "25420": {
+      "lat": 40.335915,
+      "lng": -77.05049,
+      "name": "Harrisburg-Carlisle, PA Metro Area"
+    },
+    "25460": {
+      "lat": 36.087809,
+      "lng": -93.162053,
+      "name": "Harrison, AR Micro Area"
+    },
+    "25500": {
+      "lat": 38.507585,
+      "lng": -78.885321,
+      "name": "Harrisonburg, VA Metro Area"
+    },
+    "25540": {
+      "lat": 41.71865,
+      "lng": -72.573919,
+      "name": "Hartford-East Hartford-Middletown, CT Metro Area"
+    },
+    "25580": {
+      "lat": 40.520632,
+      "lng": -98.500044,
+      "name": "Hastings, NE Micro Area"
+    },
+    "25620": {
+      "lat": 31.273766,
+      "lng": -89.300634,
+      "name": "Hattiesburg, MS Metro Area"
+    },
+    "25700": {
+      "lat": 38.914597,
+      "lng": -99.317313,
+      "name": "Hays, KS Micro Area"
+    },
+    "25720": {
+      "lat": 40.699219,
+      "lng": -111.020425,
+      "name": "Heber, UT Micro Area"
+    },
+    "25740": {
+      "lat": 46.811354,
+      "lng": -112.284031,
+      "name": "Helena, MT Micro Area"
+    },
+    "25760": {
+      "lat": 34.423687,
+      "lng": -90.855593,
+      "name": "Helena-West Helena, AR Micro Area"
+    },
+    "25780": {
+      "lat": 36.365481,
+      "lng": -78.405434,
+      "name": "Henderson, NC Micro Area"
+    },
+    "25820": {
+      "lat": 34.940766,
+      "lng": -102.607564,
+      "name": "Hereford, TX Micro Area"
+    },
+    "25840": {
+      "lat": 45.544602,
+      "lng": -119.076191,
+      "name": "Hermiston-Pendleton, OR Micro Area"
+    },
+    "25860": {
+      "lat": 35.814286,
+      "lng": -81.456575,
+      "name": "Hickory-Lenoir-Morganton, NC Metro Area"
+    },
+    "25880": {
+      "lat": 41.927461,
+      "lng": -84.637479,
+      "name": "Hillsdale, MI Micro Area"
+    },
+    "25900": {
+      "lat": 19.597764,
+      "lng": -155.502443,
+      "name": "Hilo, HI Micro Area"
+    },
+    "25940": {
+      "lat": 32.386792,
+      "lng": -80.830877,
+      "name": "Hilton Head Island-Bluffton, SC Metro Area"
+    },
+    "25980": {
+      "lat": 31.778788,
+      "lng": -81.57648,
+      "name": "Hinesville, GA Metro Area"
+    },
+    "26020": {
+      "lat": 32.795687,
+      "lng": -103.413271,
+      "name": "Hobbs, NM Micro Area"
+    },
+    "26090": {
+      "lat": 42.421251,
+      "lng": -86.261403,
+      "name": "Holland, MI Micro Area"
+    },
+    "26140": {
+      "lat": 28.850292,
+      "lng": -82.595552,
+      "name": "Homosassa Springs, FL Metro Area"
+    },
+    "26220": {
+      "lat": 45.511775,
+      "lng": -121.655976,
+      "name": "Hood River, OR Micro Area"
+    },
+    "26260": {
+      "lat": 33.70084,
+      "lng": -93.499549,
+      "name": "Hope, AR Micro Area"
+    },
+    "26300": {
+      "lat": 34.578852,
+      "lng": -93.146932,
+      "name": "Hot Springs, AR Metro Area"
+    },
+    "26340": {
+      "lat": 47.367297,
+      "lng": -88.351332,
+      "name": "Houghton, MI Micro Area"
+    },
+    "26380": {
+      "lat": 29.33413,
+      "lng": -90.843674,
+      "name": "Houma-Thibodaux, LA Metro Area"
+    },
+    "26420": {
+      "lat": 29.749593,
+      "lng": -95.353642,
+      "name": "Houston-The Woodlands-Sugar Land, TX Metro Area"
+    },
+    "26460": {
+      "lat": 42.247696,
+      "lng": -73.626718,
+      "name": "Hudson, NY Micro Area"
+    },
+    "26500": {
+      "lat": 40.422311,
+      "lng": -77.968595,
+      "name": "Huntingdon, PA Micro Area"
+    },
+    "26540": {
+      "lat": 40.826394,
+      "lng": -85.478597,
+      "name": "Huntington, IN Micro Area"
+    },
+    "26580": {
+      "lat": 38.406577,
+      "lng": -82.542646,
+      "name": "Huntington-Ashland, WV-KY-OH Metro Area"
+    },
+    "26620": {
+      "lat": 34.783262,
+      "lng": -86.734871,
+      "name": "Huntsville, AL Metro Area"
+    },
+    "26660": {
+      "lat": 30.743163,
+      "lng": -95.569825,
+      "name": "Huntsville, TX Micro Area"
+    },
+    "26700": {
+      "lat": 44.311391,
+      "lng": -98.382386,
+      "name": "Huron, SD Micro Area"
+    },
+    "26740": {
+      "lat": 37.948185,
+      "lng": -98.078346,
+      "name": "Hutchinson, KS Micro Area"
+    },
+    "26780": {
+      "lat": 44.821657,
+      "lng": -94.272323,
+      "name": "Hutchinson, MN Micro Area"
+    },
+    "26820": {
+      "lat": 43.620423,
+      "lng": -112.420919,
+      "name": "Idaho Falls, ID Metro Area"
+    },
+    "26860": {
+      "lat": 40.651432,
+      "lng": -79.087545,
+      "name": "Indiana, PA Micro Area"
+    },
+    "26900": {
+      "lat": 39.74867,
+      "lng": -86.212382,
+      "name": "Indianapolis-Carmel-Anderson, IN Metro Area"
+    },
+    "26940": {
+      "lat": 33.605529,
+      "lng": -90.59509,
+      "name": "Indianola, MS Micro Area"
+    },
+    "26980": {
+      "lat": 41.517806,
+      "lng": -91.64793,
+      "name": "Iowa City, IA Metro Area"
+    },
+    "27020": {
+      "lat": 45.947705,
+      "lng": -88.08097,
+      "name": "Iron Mountain, MI-WI Micro Area"
+    },
+    "27060": {
+      "lat": 42.453006,
+      "lng": -76.473483,
+      "name": "Ithaca, NY Metro Area"
+    },
+    "27100": {
+      "lat": 42.248474,
+      "lng": -84.420868,
+      "name": "Jackson, MI Metro Area"
+    },
+    "27140": {
+      "lat": 32.42828,
+      "lng": -90.202388,
+      "name": "Jackson, MS Metro Area"
+    },
+    "27160": {
+      "lat": 39.013477,
+      "lng": -82.614142,
+      "name": "Jackson, OH Micro Area"
+    },
+    "27180": {
+      "lat": 35.753215,
+      "lng": -88.882692,
+      "name": "Jackson, TN Metro Area"
+    },
+    "27220": {
+      "lat": 44.048662,
+      "lng": -110.426087,
+      "name": "Jackson, WY-ID Micro Area"
+    },
+    "27260": {
+      "lat": 30.236594,
+      "lng": -81.754446,
+      "name": "Jacksonville, FL Metro Area"
+    },
+    "27300": {
+      "lat": 39.69395,
+      "lng": -90.285047,
+      "name": "Jacksonville, IL Micro Area"
+    },
+    "27340": {
+      "lat": 34.763109,
+      "lng": -77.499469,
+      "name": "Jacksonville, NC Metro Area"
+    },
+    "27380": {
+      "lat": 31.843881,
+      "lng": -95.156343,
+      "name": "Jacksonville, TX Micro Area"
+    },
+    "27420": {
+      "lat": 46.972223,
+      "lng": -98.956123,
+      "name": "Jamestown, ND Micro Area"
+    },
+    "27460": {
+      "lat": 42.304216,
+      "lng": -79.407595,
+      "name": "Jamestown-Dunkirk-Fredonia, NY Micro Area"
+    },
+    "27500": {
+      "lat": 42.66988,
+      "lng": -89.075284,
+      "name": "Janesville-Beloit, WI Metro Area"
+    },
+    "27530": {
+      "lat": 33.791558,
+      "lng": -87.301094,
+      "name": "Jasper, AL Micro Area"
+    },
+    "27540": {
+      "lat": 38.384156,
+      "lng": -87.035953,
+      "name": "Jasper, IN Micro Area"
+    },
+    "27580": {
+      "lat": 18.211152,
+      "lng": -66.58687,
+      "name": "Jayuya, PR Micro Area"
+    },
+    "27600": {
+      "lat": 34.130905,
+      "lng": -83.562557,
+      "name": "Jefferson, GA Micro Area"
+    },
+    "27620": {
+      "lat": 38.636885,
+      "lng": -92.088876,
+      "name": "Jefferson City, MO Metro Area"
+    },
+    "27660": {
+      "lat": 30.269529,
+      "lng": -92.816221,
+      "name": "Jennings, LA Micro Area"
+    },
+    "27700": {
+      "lat": 31.547845,
+      "lng": -81.912376,
+      "name": "Jesup, GA Micro Area"
+    },
+    "27740": {
+      "lat": 36.265822,
+      "lng": -82.332693,
+      "name": "Johnson City, TN Metro Area"
+    },
+    "27780": {
+      "lat": 40.510227,
+      "lng": -78.710477,
+      "name": "Johnstown, PA Metro Area"
+    },
+    "27860": {
+      "lat": 35.696978,
+      "lng": -90.650175,
+      "name": "Jonesboro, AR Metro Area"
+    },
+    "27900": {
+      "lat": 37.055546,
+      "lng": -94.339736,
+      "name": "Joplin, MO Metro Area"
+    },
+    "27940": {
+      "lat": 58.37291,
+      "lng": -134.178445,
+      "name": "Juneau, AK Micro Area"
+    },
+    "27980": {
+      "lat": 20.855931,
+      "lng": -156.60155,
+      "name": "Kahului-Wailuku-Lahaina, HI Metro Area"
+    },
+    "28020": {
+      "lat": 42.246266,
+      "lng": -85.532854,
+      "name": "Kalamazoo-Portage, MI Metro Area"
+    },
+    "28060": {
+      "lat": 48.295422,
+      "lng": -114.052059,
+      "name": "Kalispell, MT Micro Area"
+    },
+    "28100": {
+      "lat": 41.13951,
+      "lng": -87.861117,
+      "name": "Kankakee, IL Metro Area"
+    },
+    "28140": {
+      "lat": 38.931857,
+      "lng": -94.443841,
+      "name": "Kansas City, MO-KS Metro Area"
+    },
+    "28180": {
+      "lat": 22.012038,
+      "lng": -159.705965,
+      "name": "Kapaa, HI Micro Area"
+    },
+    "28260": {
+      "lat": 40.738595,
+      "lng": -99.031788,
+      "name": "Kearney, NE Micro Area"
+    },
+    "28300": {
+      "lat": 42.92546,
+      "lng": -72.248183,
+      "name": "Keene, NH Micro Area"
+    },
+    "28340": {
+      "lat": 41.404679,
+      "lng": -85.417271,
+      "name": "Kendallville, IN Micro Area"
+    },
+    "28380": {
+      "lat": 36.153025,
+      "lng": -90.062254,
+      "name": "Kennett, MO Micro Area"
+    },
+    "28420": {
+      "lat": 46.364155,
+      "lng": -119.254927,
+      "name": "Kennewick-Richland, WA Metro Area"
+    },
+    "28500": {
+      "lat": 30.059953,
+      "lng": -99.353339,
+      "name": "Kerrville, TX Micro Area"
+    },
+    "28540": {
+      "lat": 55.449938,
+      "lng": -131.106685,
+      "name": "Ketchikan, AK Micro Area"
+    },
+    "28580": {
+      "lat": 25.58612,
+      "lng": -81.022603,
+      "name": "Key West, FL Micro Area"
+    },
+    "28620": {
+      "lat": 35.606269,
+      "lng": -75.767536,
+      "name": "Kill Devil Hills, NC Micro Area"
+    },
+    "28660": {
+      "lat": 31.20273,
+      "lng": -97.789638,
+      "name": "Killeen-Temple, TX Metro Area"
+    },
+    "28700": {
+      "lat": 36.604161,
+      "lng": -82.440145,
+      "name": "Kingsport-Bristol, TN-VA Metro Area"
+    },
+    "28740": {
+      "lat": 41.947212,
+      "lng": -74.265458,
+      "name": "Kingston, NY Metro Area"
+    },
+    "28780": {
+      "lat": 27.113943,
+      "lng": -97.568508,
+      "name": "Kingsville, TX Micro Area"
+    },
+    "28820": {
+      "lat": 35.240066,
+      "lng": -77.635514,
+      "name": "Kinston, NC Micro Area"
+    },
+    "28860": {
+      "lat": 40.284489,
+      "lng": -92.565124,
+      "name": "Kirksville, MO Micro Area"
+    },
+    "28900": {
+      "lat": 42.683761,
+      "lng": -121.646168,
+      "name": "Klamath Falls, OR Micro Area"
+    },
+    "28940": {
+      "lat": 36.014791,
+      "lng": -84.206701,
+      "name": "Knoxville, TN Metro Area"
+    },
+    "29020": {
+      "lat": 40.483537,
+      "lng": -86.114118,
+      "name": "Kokomo, IN Metro Area"
+    },
+    "29060": {
+      "lat": 43.519109,
+      "lng": -71.425366,
+      "name": "Laconia, NH Micro Area"
+    },
+    "29100": {
+      "lat": 43.783246,
+      "lng": -91.318743,
+      "name": "La Crosse-Onalaska, WI-MN Metro Area"
+    },
+    "29180": {
+      "lat": 29.957773,
+      "lng": -92.04935,
+      "name": "Lafayette, LA Metro Area"
+    },
+    "29200": {
+      "lat": 40.482153,
+      "lng": -87.017112,
+      "name": "Lafayette-West Lafayette, IN Metro Area"
+    },
+    "29260": {
+      "lat": 45.304081,
+      "lng": -117.999149,
+      "name": "La Grande, OR Micro Area"
+    },
+    "29300": {
+      "lat": 32.970298,
+      "lng": -85.24416,
+      "name": "LaGrange, GA-AL Micro Area"
+    },
+    "29340": {
+      "lat": 29.978755,
+      "lng": -93.253243,
+      "name": "Lake Charles, LA Metro Area"
+    },
+    "29380": {
+      "lat": 30.221651,
+      "lng": -82.623371,
+      "name": "Lake City, FL Micro Area"
+    },
+    "29420": {
+      "lat": 35.717705,
+      "lng": -113.749689,
+      "name": "Lake Havasu City-Kingman, AZ Metro Area"
+    },
+    "29460": {
+      "lat": 27.953649,
+      "lng": -81.693534,
+      "name": "Lakeland-Winter Haven, FL Metro Area"
+    },
+    "29500": {
+      "lat": 32.742528,
+      "lng": -101.948771,
+      "name": "Lamesa, TX Micro Area"
+    },
+    "29540": {
+      "lat": 40.041992,
+      "lng": -76.250198,
+      "name": "Lancaster, PA Metro Area"
+    },
+    "29620": {
+      "lat": 42.771233,
+      "lng": -84.496029,
+      "name": "Lansing-East Lansing, MI Metro Area"
+    },
+    "29660": {
+      "lat": 41.665514,
+      "lng": -105.721883,
+      "name": "Laramie, WY Micro Area"
+    },
+    "29700": {
+      "lat": 27.760799,
+      "lng": -99.340752,
+      "name": "Laredo, TX Metro Area"
+    },
+    "29740": {
+      "lat": 32.349919,
+      "lng": -106.834968,
+      "name": "Las Cruces, NM Metro Area"
+    },
+    "29780": {
+      "lat": 35.644067,
+      "lng": -104.863027,
+      "name": "Las Vegas, NM Micro Area"
+    },
+    "29820": {
+      "lat": 36.21413,
+      "lng": -115.014398,
+      "name": "Las Vegas-Henderson-Paradise, NV Metro Area"
+    },
+    "29860": {
+      "lat": 31.825465,
+      "lng": -89.148054,
+      "name": "Laurel, MS Micro Area"
+    },
+    "29900": {
+      "lat": 34.840023,
+      "lng": -79.477337,
+      "name": "Laurinburg, NC Micro Area"
+    },
+    "29940": {
+      "lat": 38.896417,
+      "lng": -95.290947,
+      "name": "Lawrence, KS Metro Area"
+    },
+    "29980": {
+      "lat": 35.220476,
+      "lng": -87.396546,
+      "name": "Lawrenceburg, TN Micro Area"
+    },
+    "30020": {
+      "lat": 34.529113,
+      "lng": -98.430902,
+      "name": "Lawton, OK Metro Area"
+    },
+    "30060": {
+      "lat": 37.659698,
+      "lng": -92.594843,
+      "name": "Lebanon, MO Micro Area"
+    },
+    "30100": {
+      "lat": 43.785726,
+      "lng": -72.159142,
+      "name": "Lebanon, NH-VT Micro Area"
+    },
+    "30140": {
+      "lat": 40.371448,
+      "lng": -76.464819,
+      "name": "Lebanon, PA Metro Area"
+    },
+    "30220": {
+      "lat": 33.605932,
+      "lng": -102.343398,
+      "name": "Levelland, TX Micro Area"
+    },
+    "30260": {
+      "lat": 40.962179,
+      "lng": -77.055475,
+      "name": "Lewisburg, PA Micro Area"
+    },
+    "30280": {
+      "lat": 35.468343,
+      "lng": -86.765865,
+      "name": "Lewisburg, TN Micro Area"
+    },
+    "30300": {
+      "lat": 46.251696,
+      "lng": -116.925017,
+      "name": "Lewiston, ID-WA Metro Area"
+    },
+    "30340": {
+      "lat": 44.167681,
+      "lng": -70.207435,
+      "name": "Lewiston-Auburn, ME Metro Area"
+    },
+    "30380": {
+      "lat": 40.601615,
+      "lng": -77.651832,
+      "name": "Lewistown, PA Micro Area"
+    },
+    "30420": {
+      "lat": 40.756816,
+      "lng": -99.821978,
+      "name": "Lexington, NE Micro Area"
+    },
+    "30460": {
+      "lat": 38.102876,
+      "lng": -84.438545,
+      "name": "Lexington-Fayette, KY Metro Area"
+    },
+    "30580": {
+      "lat": 37.18096,
+      "lng": -100.855257,
+      "name": "Liberal, KS Micro Area"
+    },
+    "30620": {
+      "lat": 40.771627,
+      "lng": -84.106103,
+      "name": "Lima, OH Metro Area"
+    },
+    "30660": {
+      "lat": 40.129277,
+      "lng": -89.365309,
+      "name": "Lincoln, IL Micro Area"
+    },
+    "30700": {
+      "lat": 40.817429,
+      "lng": -96.868801,
+      "name": "Lincoln, NE Metro Area"
+    },
+    "30780": {
+      "lat": 34.755773,
+      "lng": -92.400589,
+      "name": "Little Rock-North Little Rock-Conway, AR Metro Area"
+    },
+    "30820": {
+      "lat": 41.239508,
+      "lng": -77.629009,
+      "name": "Lock Haven, PA Micro Area"
+    },
+    "30860": {
+      "lat": 41.88902,
+      "lng": -111.787438,
+      "name": "Logan, UT-ID Metro Area"
+    },
+    "30900": {
+      "lat": 40.753799,
+      "lng": -86.355168,
+      "name": "Logansport, IN Micro Area"
+    },
+    "30940": {
+      "lat": 36.985916,
+      "lng": -83.966066,
+      "name": "London, KY Micro Area"
+    },
+    "30980": {
+      "lat": 32.431646,
+      "lng": -94.684833,
+      "name": "Longview, TX Metro Area"
+    },
+    "31020": {
+      "lat": 46.196785,
+      "lng": -122.67846,
+      "name": "Longview, WA Metro Area"
+    },
+    "31060": {
+      "lat": 35.870047,
+      "lng": -106.307968,
+      "name": "Los Alamos, NM Micro Area"
+    },
+    "31080": {
+      "lat": 34.108703,
+      "lng": -118.182753,
+      "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area"
+    },
+    "31140": {
+      "lat": 38.305838,
+      "lng": -85.681645,
+      "name": "Louisville/Jefferson County, KY-IN Metro Area"
+    },
+    "31180": {
+      "lat": 33.470327,
+      "lng": -101.648825,
+      "name": "Lubbock, TX Metro Area"
+    },
+    "31220": {
+      "lat": 43.957196,
+      "lng": -86.442937,
+      "name": "Ludington, MI Micro Area"
+    },
+    "31260": {
+      "lat": 31.251896,
+      "lng": -94.611134,
+      "name": "Lufkin, TX Micro Area"
+    },
+    "31300": {
+      "lat": 34.63921,
+      "lng": -79.100881,
+      "name": "Lumberton, NC Micro Area"
+    },
+    "31340": {
+      "lat": 37.364926,
+      "lng": -79.216689,
+      "name": "Lynchburg, VA Metro Area"
+    },
+    "31380": {
+      "lat": 40.455808,
+      "lng": -90.678954,
+      "name": "Macomb, IL Micro Area"
+    },
+    "31420": {
+      "lat": 32.856216,
+      "lng": -83.714305,
+      "name": "Macon-Bibb County, GA Metro Area"
+    },
+    "31460": {
+      "lat": 37.209821,
+      "lng": -119.749802,
+      "name": "Madera, CA Metro Area"
+    },
+    "31500": {
+      "lat": 38.783604,
+      "lng": -85.44009,
+      "name": "Madison, IN Micro Area"
+    },
+    "31540": {
+      "lat": 43.083846,
+      "lng": -89.597745,
+      "name": "Madison, WI Metro Area"
+    },
+    "31580": {
+      "lat": 37.31107,
+      "lng": -87.542196,
+      "name": "Madisonville, KY Micro Area"
+    },
+    "31620": {
+      "lat": 33.223038,
+      "lng": -93.232843,
+      "name": "Magnolia, AR Micro Area"
+    },
+    "31660": {
+      "lat": 44.594376,
+      "lng": -74.31067,
+      "name": "Malone, NY Micro Area"
+    },
+    "31680": {
+      "lat": 34.315177,
+      "lng": -92.944147,
+      "name": "Malvern, AR Micro Area"
+    },
+    "31700": {
+      "lat": 42.911532,
+      "lng": -71.723055,
+      "name": "Manchester-Nashua, NH Metro Area"
+    },
+    "31740": {
+      "lat": 39.268424,
+      "lng": -96.562242,
+      "name": "Manhattan, KS Metro Area"
+    },
+    "31820": {
+      "lat": 44.156137,
+      "lng": -87.577352,
+      "name": "Manitowoc, WI Micro Area"
+    },
+    "31860": {
+      "lat": 44.15481,
+      "lng": -94.147801,
+      "name": "Mankato, MN Metro Area"
+    },
+    "31900": {
+      "lat": 40.774159,
+      "lng": -82.542781,
+      "name": "Mansfield, OH Metro Area"
+    },
+    "31930": {
+      "lat": 39.450676,
+      "lng": -81.490636,
+      "name": "Marietta, OH Micro Area"
+    },
+    "31940": {
+      "lat": 45.435279,
+      "lng": -87.769216,
+      "name": "Marinette, WI-MI Micro Area"
+    },
+    "31980": {
+      "lat": 40.515758,
+      "lng": -85.654946,
+      "name": "Marion, IN Micro Area"
+    },
+    "32000": {
+      "lat": 35.682271,
+      "lng": -82.048044,
+      "name": "Marion, NC Micro Area"
+    },
+    "32020": {
+      "lat": 40.588034,
+      "lng": -83.168803,
+      "name": "Marion, OH Micro Area"
+    },
+    "32100": {
+      "lat": 46.656596,
+      "lng": -87.584028,
+      "name": "Marquette, MI Micro Area"
+    },
+    "32140": {
+      "lat": 44.409195,
+      "lng": -95.847268,
+      "name": "Marshall, MN Micro Area"
+    },
+    "32180": {
+      "lat": 39.13584,
+      "lng": -93.204164,
+      "name": "Marshall, MO Micro Area"
+    },
+    "32260": {
+      "lat": 42.0417,
+      "lng": -92.981403,
+      "name": "Marshalltown, IA Micro Area"
+    },
+    "32280": {
+      "lat": 36.303596,
+      "lng": -88.721194,
+      "name": "Martin, TN Micro Area"
+    },
+    "32300": {
+      "lat": 36.682503,
+      "lng": -79.872564,
+      "name": "Martinsville, VA Micro Area"
+    },
+    "32340": {
+      "lat": 40.361136,
+      "lng": -94.883146,
+      "name": "Maryville, MO Micro Area"
+    },
+    "32380": {
+      "lat": 43.213732,
+      "lng": -93.274339,
+      "name": "Mason City, IA Micro Area"
+    },
+    "32420": {
+      "lat": 18.08385,
+      "lng": -67.886337,
+      "name": "Mayag\u00fcez, PR Metro Area"
+    },
+    "32460": {
+      "lat": 36.723344,
+      "lng": -88.649897,
+      "name": "Mayfield, KY Micro Area"
+    },
+    "32500": {
+      "lat": 38.594137,
+      "lng": -83.828125,
+      "name": "Maysville, KY Micro Area"
+    },
+    "32540": {
+      "lat": 34.92554,
+      "lng": -95.74813,
+      "name": "McAlester, OK Micro Area"
+    },
+    "32580": {
+      "lat": 26.396384,
+      "lng": -98.18099,
+      "name": "McAllen-Edinburg-Mission, TX Metro Area"
+    },
+    "32620": {
+      "lat": 31.177516,
+      "lng": -90.397725,
+      "name": "McComb, MS Micro Area"
+    },
+    "32660": {
+      "lat": 35.67825,
+      "lng": -85.777343,
+      "name": "McMinnville, TN Micro Area"
+    },
+    "32700": {
+      "lat": 38.395812,
+      "lng": -97.647489,
+      "name": "McPherson, KS Micro Area"
+    },
+    "32740": {
+      "lat": 41.687876,
+      "lng": -80.107795,
+      "name": "Meadville, PA Micro Area"
+    },
+    "32780": {
+      "lat": 42.411621,
+      "lng": -122.675611,
+      "name": "Medford, OR Metro Area"
+    },
+    "32820": {
+      "lat": 35.024419,
+      "lng": -89.871971,
+      "name": "Memphis, TN-MS-AR Metro Area"
+    },
+    "32860": {
+      "lat": 44.947751,
+      "lng": -91.897645,
+      "name": "Menomonie, WI Micro Area"
+    },
+    "32900": {
+      "lat": 37.194806,
+      "lng": -120.722802,
+      "name": "Merced, CA Metro Area"
+    },
+    "32940": {
+      "lat": 32.410674,
+      "lng": -88.661926,
+      "name": "Meridian, MS Micro Area"
+    },
+    "33020": {
+      "lat": 39.214481,
+      "lng": -91.843418,
+      "name": "Mexico, MO Micro Area"
+    },
+    "33060": {
+      "lat": 36.835764,
+      "lng": -94.802681,
+      "name": "Miami, OK Micro Area"
+    },
+    "33100": {
+      "lat": 26.101828,
+      "lng": -80.478755,
+      "name": "Miami-Fort Lauderdale-Pompano Beach, FL Metro Area"
+    },
+    "33140": {
+      "lat": 41.549013,
+      "lng": -86.744739,
+      "name": "Michigan City-La Porte, IN Metro Area"
+    },
+    "33180": {
+      "lat": 36.728928,
+      "lng": -83.680718,
+      "name": "Middlesborough, KY Micro Area"
+    },
+    "33220": {
+      "lat": 43.648203,
+      "lng": -84.379414,
+      "name": "Midland, MI Metro Area"
+    },
+    "33260": {
+      "lat": 32.092359,
+      "lng": -101.994539,
+      "name": "Midland, TX Metro Area"
+    },
+    "33300": {
+      "lat": 33.198527,
+      "lng": -83.091149,
+      "name": "Milledgeville, GA Micro Area"
+    },
+    "33340": {
+      "lat": 42.912643,
+      "lng": -87.862312,
+      "name": "Milwaukee-Waukesha, WI Metro Area"
+    },
+    "33380": {
+      "lat": 32.732152,
+      "lng": -93.339825,
+      "name": "Minden, LA Micro Area"
+    },
+    "33420": {
+      "lat": 32.752204,
+      "lng": -98.317967,
+      "name": "Mineral Wells, TX Micro Area"
+    },
+    "33460": {
+      "lat": 45.096664,
+      "lng": -93.275361,
+      "name": "Minneapolis-St. Paul-Bloomington, MN-WI Metro Area"
+    },
+    "33500": {
+      "lat": 48.320242,
+      "lng": -101.19801,
+      "name": "Minot, ND Micro Area"
+    },
+    "33540": {
+      "lat": 47.027263,
+      "lng": -113.892691,
+      "name": "Missoula, MT Metro Area"
+    },
+    "33580": {
+      "lat": 43.675038,
+      "lng": -97.966937,
+      "name": "Mitchell, SD Micro Area"
+    },
+    "33620": {
+      "lat": 39.439249,
+      "lng": -92.492959,
+      "name": "Moberly, MO Micro Area"
+    },
+    "33660": {
+      "lat": 30.971509,
+      "lng": -88.20787,
+      "name": "Mobile, AL Metro Area"
+    },
+    "33700": {
+      "lat": 37.562316,
+      "lng": -121.002831,
+      "name": "Modesto, CA Metro Area"
+    },
+    "33740": {
+      "lat": 32.734255,
+      "lng": -92.09955,
+      "name": "Monroe, LA Metro Area"
+    },
+    "33780": {
+      "lat": 41.916097,
+      "lng": -83.487106,
+      "name": "Monroe, MI Metro Area"
+    },
+    "33860": {
+      "lat": 32.365631,
+      "lng": -86.404585,
+      "name": "Montgomery, AL Metro Area"
+    },
+    "33940": {
+      "lat": 38.342548,
+      "lng": -108.162237,
+      "name": "Montrose, CO Micro Area"
+    },
+    "33980": {
+      "lat": 34.858343,
+      "lng": -76.53586,
+      "name": "Morehead City, NC Micro Area"
+    },
+    "34020": {
+      "lat": 29.629349,
+      "lng": -91.463804,
+      "name": "Morgan City, LA Micro Area"
+    },
+    "34060": {
+      "lat": 39.525155,
+      "lng": -79.801912,
+      "name": "Morgantown, WV Metro Area"
+    },
+    "34100": {
+      "lat": 36.168802,
+      "lng": -83.422614,
+      "name": "Morristown, TN Metro Area"
+    },
+    "34140": {
+      "lat": 46.81892,
+      "lng": -116.730974,
+      "name": "Moscow, ID Micro Area"
+    },
+    "34180": {
+      "lat": 47.213633,
+      "lng": -119.467788,
+      "name": "Moses Lake, WA Micro Area"
+    },
+    "34220": {
+      "lat": 31.189707,
+      "lng": -83.769773,
+      "name": "Moultrie, GA Micro Area"
+    },
+    "34260": {
+      "lat": 36.280268,
+      "lng": -92.329949,
+      "name": "Mountain Home, AR Micro Area"
+    },
+    "34300": {
+      "lat": 43.394698,
+      "lng": -115.471205,
+      "name": "Mountain Home, ID Micro Area"
+    },
+    "34340": {
+      "lat": 36.415416,
+      "lng": -80.686463,
+      "name": "Mount Airy, NC Micro Area"
+    },
+    "34350": {
+      "lat": 37.830591,
+      "lng": -81.940853,
+      "name": "Mount Gay-Shamrock, WV Micro Area"
+    },
+    "34380": {
+      "lat": 43.645233,
+      "lng": -84.839424,
+      "name": "Mount Pleasant, MI Micro Area"
+    },
+    "34420": {
+      "lat": 33.137799,
+      "lng": -94.971002,
+      "name": "Mount Pleasant, TX Micro Area"
+    },
+    "34460": {
+      "lat": 38.039616,
+      "lng": -83.747734,
+      "name": "Mount Sterling, KY Micro Area"
+    },
+    "34500": {
+      "lat": 38.30078,
+      "lng": -88.92421,
+      "name": "Mount Vernon, IL Micro Area"
+    },
+    "34540": {
+      "lat": 40.40362,
+      "lng": -82.422393,
+      "name": "Mount Vernon, OH Micro Area"
+    },
+    "34580": {
+      "lat": 48.493292,
+      "lng": -121.81577,
+      "name": "Mount Vernon-Anacortes, WA Metro Area"
+    },
+    "34620": {
+      "lat": 40.227543,
+      "lng": -85.399262,
+      "name": "Muncie, IN Metro Area"
+    },
+    "34660": {
+      "lat": 36.620978,
+      "lng": -88.274086,
+      "name": "Murray, KY Micro Area"
+    },
+    "34700": {
+      "lat": 41.483776,
+      "lng": -91.118699,
+      "name": "Muscatine, IA Micro Area"
+    },
+    "34740": {
+      "lat": 43.428739,
+      "lng": -86.420908,
+      "name": "Muskegon, MI Metro Area"
+    },
+    "34780": {
+      "lat": 35.617551,
+      "lng": -95.383911,
+      "name": "Muskogee, OK Micro Area"
+    },
+    "34820": {
+      "lat": 33.969095,
+      "lng": -78.612724,
+      "name": "Myrtle Beach-Conway-North Myrtle Beach, SC-NC Metro Area"
+    },
+    "34860": {
+      "lat": 31.62056,
+      "lng": -94.62025,
+      "name": "Nacogdoches, TX Micro Area"
+    },
+    "34900": {
+      "lat": 38.5071,
+      "lng": -122.325904,
+      "name": "Napa, CA Metro Area"
+    },
+    "34940": {
+      "lat": 26.118786,
+      "lng": -81.400955,
+      "name": "Naples-Marco Island, FL Metro Area"
+    },
+    "34980": {
+      "lat": 36.118182,
+      "lng": -86.64412,
+      "name": "Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area"
+    },
+    "35020": {
+      "lat": 31.481833,
+      "lng": -91.525331,
+      "name": "Natchez, MS-LA Micro Area"
+    },
+    "35060": {
+      "lat": 31.732509,
+      "lng": -93.082546,
+      "name": "Natchitoches, LA Micro Area"
+    },
+    "35100": {
+      "lat": 35.116829,
+      "lng": -77.08132,
+      "name": "New Bern, NC Metro Area"
+    },
+    "35140": {
+      "lat": 34.289881,
+      "lng": -81.599676,
+      "name": "Newberry, SC Micro Area"
+    },
+    "35220": {
+      "lat": 39.929591,
+      "lng": -85.397363,
+      "name": "New Castle, IN Micro Area"
+    },
+    "35260": {
+      "lat": 40.992735,
+      "lng": -80.334446,
+      "name": "New Castle, PA Micro Area"
+    },
+    "35300": {
+      "lat": 41.349718,
+      "lng": -72.900203,
+      "name": "New Haven-Milford, CT Metro Area"
+    },
+    "35380": {
+      "lat": 30.05342,
+      "lng": -89.934502,
+      "name": "New Orleans-Metairie, LA Metro Area"
+    },
+    "35420": {
+      "lat": 40.447439,
+      "lng": -81.471166,
+      "name": "New Philadelphia-Dover, OH Micro Area"
+    },
+    "35440": {
+      "lat": 44.641061,
+      "lng": -123.911212,
+      "name": "Newport, OR Micro Area"
+    },
+    "35460": {
+      "lat": 35.916198,
+      "lng": -83.119224,
+      "name": "Newport, TN Micro Area"
+    },
+    "35580": {
+      "lat": 44.246541,
+      "lng": -94.733647,
+      "name": "New Ulm, MN Micro Area"
+    },
+    "35620": {
+      "lat": 40.77493,
+      "lng": -73.873758,
+      "name": "New York-Newark-Jersey City, NY-NJ-PA Metro Area"
+    },
+    "35660": {
+      "lat": 41.791382,
+      "lng": -86.742543,
+      "name": "Niles, MI Metro Area"
+    },
+    "35700": {
+      "lat": 31.525733,
+      "lng": -110.845228,
+      "name": "Nogales, AZ Micro Area"
+    },
+    "35740": {
+      "lat": 42.04313,
+      "lng": -97.487952,
+      "name": "Norfolk, NE Micro Area"
+    },
+    "35820": {
+      "lat": 41.230781,
+      "lng": -100.783339,
+      "name": "North Platte, NE Micro Area"
+    },
+    "35840": {
+      "lat": 27.329055,
+      "lng": -82.414533,
+      "name": "North Port-Sarasota-Bradenton, FL Metro Area"
+    },
+    "35860": {
+      "lat": 38.996229,
+      "lng": -85.628103,
+      "name": "North Vernon, IN Micro Area"
+    },
+    "35900": {
+      "lat": 36.208883,
+      "lng": -81.166095,
+      "name": "North Wilkesboro, NC Micro Area"
+    },
+    "35940": {
+      "lat": 41.14508,
+      "lng": -82.594641,
+      "name": "Norwalk, OH Micro Area"
+    },
+    "35980": {
+      "lat": 41.472652,
+      "lng": -72.108634,
+      "name": "Norwich-New London, CT Metro Area"
+    },
+    "36020": {
+      "lat": 48.158554,
+      "lng": -122.670649,
+      "name": "Oak Harbor, WA Micro Area"
+    },
+    "36100": {
+      "lat": 29.202805,
+      "lng": -82.0431,
+      "name": "Ocala, FL Metro Area"
+    },
+    "36140": {
+      "lat": 39.085841,
+      "lng": -74.846354,
+      "name": "Ocean City, NJ Metro Area"
+    },
+    "36220": {
+      "lat": 31.865301,
+      "lng": -102.542507,
+      "name": "Odessa, TX Metro Area"
+    },
+    "36260": {
+      "lat": 41.622623,
+      "lng": -113.060252,
+      "name": "Ogden-Clearfield, UT Metro Area"
+    },
+    "36300": {
+      "lat": 44.488112,
+      "lng": -75.074311,
+      "name": "Ogdensburg-Massena, NY Micro Area"
+    },
+    "36340": {
+      "lat": 41.400714,
+      "lng": -79.765813,
+      "name": "Oil City, PA Micro Area"
+    },
+    "36380": {
+      "lat": 27.385592,
+      "lng": -80.887388,
+      "name": "Okeechobee, FL Micro Area"
+    },
+    "36420": {
+      "lat": 35.430968,
+      "lng": -97.506966,
+      "name": "Oklahoma City, OK Metro Area"
+    },
+    "36460": {
+      "lat": 42.239099,
+      "lng": -78.662332,
+      "name": "Olean, NY Micro Area"
+    },
+    "36500": {
+      "lat": 46.935822,
+      "lng": -122.830152,
+      "name": "Olympia-Lacey-Tumwater, WA Metro Area"
+    },
+    "36540": {
+      "lat": 41.290459,
+      "lng": -95.99997,
+      "name": "Omaha-Council Bluffs, NE-IA Metro Area"
+    },
+    "36580": {
+      "lat": 42.629776,
+      "lng": -75.028841,
+      "name": "Oneonta, NY Micro Area"
+    },
+    "36620": {
+      "lat": 43.225869,
+      "lng": -117.619933,
+      "name": "Ontario, OR-ID Micro Area"
+    },
+    "36660": {
+      "lat": 30.583441,
+      "lng": -91.989274,
+      "name": "Opelousas, LA Micro Area"
+    },
+    "36700": {
+      "lat": 33.436135,
+      "lng": -80.802913,
+      "name": "Orangeburg, SC Micro Area"
+    },
+    "36740": {
+      "lat": 28.434396,
+      "lng": -81.356084,
+      "name": "Orlando-Kissimmee-Sanford, FL Metro Area"
+    },
+    "36780": {
+      "lat": 44.085707,
+      "lng": -88.668149,
+      "name": "Oshkosh-Neenah, WI Metro Area"
+    },
+    "36820": {
+      "lat": 41.330797,
+      "lng": -92.636366,
+      "name": "Oskaloosa, IA Micro Area"
+    },
+    "36830": {
+      "lat": 47.011238,
+      "lng": -118.512861,
+      "name": "Othello, WA Micro Area"
+    },
+    "36837": {
+      "lat": 41.356488,
+      "lng": -89.173385,
+      "name": "Ottawa, IL Micro Area"
+    },
+    "36840": {
+      "lat": 38.558019,
+      "lng": -95.278962,
+      "name": "Ottawa, KS Micro Area"
+    },
+    "36900": {
+      "lat": 41.031275,
+      "lng": -92.409466,
+      "name": "Ottumwa, IA Micro Area"
+    },
+    "36940": {
+      "lat": 44.015261,
+      "lng": -93.220453,
+      "name": "Owatonna, MN Micro Area"
+    },
+    "36980": {
+      "lat": 37.693723,
+      "lng": -87.077058,
+      "name": "Owensboro, KY Metro Area"
+    },
+    "37060": {
+      "lat": 34.353078,
+      "lng": -89.485385,
+      "name": "Oxford, MS Micro Area"
+    },
+    "37100": {
+      "lat": 34.358748,
+      "lng": -119.133145,
+      "name": "Oxnard-Thousand Oaks-Ventura, CA Metro Area"
+    },
+    "37120": {
+      "lat": 31.430654,
+      "lng": -85.609476,
+      "name": "Ozark, AL Micro Area"
+    },
+    "37140": {
+      "lat": 37.134181,
+      "lng": -88.656668,
+      "name": "Paducah, KY-IL Micro Area"
+    },
+    "37220": {
+      "lat": 37.965864,
+      "lng": -116.459011,
+      "name": "Pahrump, NV Micro Area"
+    },
+    "37260": {
+      "lat": 29.593896,
+      "lng": -81.732039,
+      "name": "Palatka, FL Micro Area"
+    },
+    "37300": {
+      "lat": 31.841261,
+      "lng": -95.661727,
+      "name": "Palestine, TX Micro Area"
+    },
+    "37340": {
+      "lat": 28.298311,
+      "lng": -80.700333,
+      "name": "Palm Bay-Melbourne-Titusville, FL Metro Area"
+    },
+    "37420": {
+      "lat": 35.617393,
+      "lng": -100.810553,
+      "name": "Pampa, TX Micro Area"
+    },
+    "37460": {
+      "lat": 30.15914,
+      "lng": -85.534395,
+      "name": "Panama City, FL Metro Area"
+    },
+    "37500": {
+      "lat": 36.120607,
+      "lng": -90.566346,
+      "name": "Paragould, AR Micro Area"
+    },
+    "37540": {
+      "lat": 36.325295,
+      "lng": -88.300288,
+      "name": "Paris, TN Micro Area"
+    },
+    "37580": {
+      "lat": 33.667263,
+      "lng": -95.570348,
+      "name": "Paris, TX Micro Area"
+    },
+    "37620": {
+      "lat": 39.141531,
+      "lng": -81.460402,
+      "name": "Parkersburg-Vienna, WV Metro Area"
+    },
+    "37660": {
+      "lat": 37.191468,
+      "lng": -95.297473,
+      "name": "Parsons, KS Micro Area"
+    },
+    "37740": {
+      "lat": 33.789618,
+      "lng": -110.81187,
+      "name": "Payson, AZ Micro Area"
+    },
+    "37770": {
+      "lat": 28.869383,
+      "lng": -99.109005,
+      "name": "Pearsall, TX Micro Area"
+    },
+    "37780": {
+      "lat": 31.42675,
+      "lng": -103.666001,
+      "name": "Pecos, TX Micro Area"
+    },
+    "37800": {
+      "lat": 41.331433,
+      "lng": -93.093868,
+      "name": "Pella, IA Micro Area"
+    },
+    "37860": {
+      "lat": 30.608557,
+      "lng": -87.158547,
+      "name": "Pensacola-Ferry Pass-Brent, FL Metro Area"
+    },
+    "37900": {
+      "lat": 40.708887,
+      "lng": -89.697466,
+      "name": "Peoria, IL Metro Area"
+    },
+    "37940": {
+      "lat": 40.772883,
+      "lng": -86.044258,
+      "name": "Peru, IN Micro Area"
+    },
+    "37980": {
+      "lat": 39.894958,
+      "lng": -75.311982,
+      "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area"
+    },
+    "38060": {
+      "lat": 33.185765,
+      "lng": -112.067862,
+      "name": "Phoenix-Mesa-Chandler, AZ Metro Area"
+    },
+    "38100": {
+      "lat": 30.774793,
+      "lng": -89.586904,
+      "name": "Picayune, MS Micro Area"
+    },
+    "38180": {
+      "lat": 44.404897,
+      "lng": -100.484817,
+      "name": "Pierre, SD Micro Area"
+    },
+    "38220": {
+      "lat": 34.081204,
+      "lng": -91.945765,
+      "name": "Pine Bluff, AR Metro Area"
+    },
+    "38240": {
+      "lat": 35.308272,
+      "lng": -79.492725,
+      "name": "Pinehurst-Southern Pines, NC Micro Area"
+    },
+    "38260": {
+      "lat": 37.505821,
+      "lng": -94.853897,
+      "name": "Pittsburg, KS Micro Area"
+    },
+    "38300": {
+      "lat": 40.439525,
+      "lng": -79.836097,
+      "name": "Pittsburgh, PA Metro Area"
+    },
+    "38340": {
+      "lat": 42.371493,
+      "lng": -73.217928,
+      "name": "Pittsfield, MA Metro Area"
+    },
+    "38380": {
+      "lat": 34.068436,
+      "lng": -101.822888,
+      "name": "Plainview, TX Micro Area"
+    },
+    "38420": {
+      "lat": 42.870028,
+      "lng": -90.694229,
+      "name": "Platteville, WI Micro Area"
+    },
+    "38460": {
+      "lat": 44.752712,
+      "lng": -73.705643,
+      "name": "Plattsburgh, NY Micro Area"
+    },
+    "38500": {
+      "lat": 41.325003,
+      "lng": -86.269036,
+      "name": "Plymouth, IN Micro Area"
+    },
+    "38540": {
+      "lat": 42.689761,
+      "lng": -112.57753,
+      "name": "Pocatello, ID Metro Area"
+    },
+    "38580": {
+      "lat": 38.798396,
+      "lng": -82.180553,
+      "name": "Point Pleasant, WV-OH Micro Area"
+    },
+    "38620": {
+      "lat": 36.814885,
+      "lng": -97.143862,
+      "name": "Ponca City, OK Micro Area"
+    },
+    "38660": {
+      "lat": 18.042236,
+      "lng": -66.589081,
+      "name": "Ponce, PR Metro Area"
+    },
+    "38700": {
+      "lat": 40.894376,
+      "lng": -88.552852,
+      "name": "Pontiac, IL Micro Area"
+    },
+    "38740": {
+      "lat": 36.68765,
+      "lng": -90.62285,
+      "name": "Poplar Bluff, MO Micro Area"
+    },
+    "38780": {
+      "lat": 34.021207,
+      "lng": -103.483004,
+      "name": "Portales, NM Micro Area"
+    },
+    "38820": {
+      "lat": 48.110903,
+      "lng": -123.88986,
+      "name": "Port Angeles, WA Micro Area"
+    },
+    "38860": {
+      "lat": 43.651417,
+      "lng": -70.418375,
+      "name": "Portland-South Portland, ME Metro Area"
+    },
+    "38900": {
+      "lat": 45.600622,
+      "lng": -122.484378,
+      "name": "Portland-Vancouver-Hillsboro, OR-WA Metro Area"
+    },
+    "38920": {
+      "lat": 28.441719,
+      "lng": -96.579574,
+      "name": "Port Lavaca, TX Micro Area"
+    },
+    "38940": {
+      "lat": 27.228046,
+      "lng": -80.425388,
+      "name": "Port St. Lucie, FL Metro Area"
+    },
+    "39020": {
+      "lat": 38.814889,
+      "lng": -82.998675,
+      "name": "Portsmouth, OH Micro Area"
+    },
+    "39060": {
+      "lat": 40.703682,
+      "lng": -76.217788,
+      "name": "Pottsville, PA Micro Area"
+    },
+    "39100": {
+      "lat": 41.575274,
+      "lng": -74.033873,
+      "name": "Poughkeepsie-Newburgh-Middletown, NY Metro Area"
+    },
+    "39150": {
+      "lat": 34.631071,
+      "lng": -112.577225,
+      "name": "Prescott Valley-Prescott, AZ Metro Area"
+    },
+    "39220": {
+      "lat": 39.673284,
+      "lng": -110.588484,
+      "name": "Price, UT Micro Area"
+    },
+    "39260": {
+      "lat": 44.163054,
+      "lng": -120.371585,
+      "name": "Prineville, OR Micro Area"
+    },
+    "39300": {
+      "lat": 41.70684,
+      "lng": -71.286687,
+      "name": "Providence-Warwick, RI-MA Metro Area"
+    },
+    "39340": {
+      "lat": 39.872067,
+      "lng": -112.359059,
+      "name": "Provo-Orem, UT Metro Area"
+    },
+    "39380": {
+      "lat": 38.162765,
+      "lng": -104.484668,
+      "name": "Pueblo, CO Metro Area"
+    },
+    "39420": {
+      "lat": 46.905944,
+      "lng": -117.53539,
+      "name": "Pullman, WA Micro Area"
+    },
+    "39460": {
+      "lat": 26.906396,
+      "lng": -82.003657,
+      "name": "Punta Gorda, FL Metro Area"
+    },
+    "39500": {
+      "lat": 40.027165,
+      "lng": -91.389838,
+      "name": "Quincy, IL-MO Micro Area"
+    },
+    "39540": {
+      "lat": 42.780392,
+      "lng": -87.771599,
+      "name": "Racine, WI Metro Area"
+    },
+    "39580": {
+      "lat": 35.756746,
+      "lng": -78.460441,
+      "name": "Raleigh-Cary, NC Metro Area"
+    },
+    "39660": {
+      "lat": 44.314673,
+      "lng": -102.785719,
+      "name": "Rapid City, SD Metro Area"
+    },
+    "39700": {
+      "lat": 26.481861,
+      "lng": -97.594731,
+      "name": "Raymondville, TX Micro Area"
+    },
+    "39740": {
+      "lat": 40.413957,
+      "lng": -75.92686,
+      "name": "Reading, PA Metro Area"
+    },
+    "39780": {
+      "lat": 40.126157,
+      "lng": -122.232274,
+      "name": "Red Bluff, CA Micro Area"
+    },
+    "39820": {
+      "lat": 40.760514,
+      "lng": -122.043556,
+      "name": "Redding, CA Metro Area"
+    },
+    "39860": {
+      "lat": 44.406178,
+      "lng": -92.716,
+      "name": "Red Wing, MN Micro Area"
+    },
+    "39900": {
+      "lat": 40.500795,
+      "lng": -119.731161,
+      "name": "Reno, NV Metro Area"
+    },
+    "39940": {
+      "lat": 44.142753,
+      "lng": -111.508107,
+      "name": "Rexburg, ID Micro Area"
+    },
+    "39980": {
+      "lat": 39.863091,
+      "lng": -85.006735,
+      "name": "Richmond, IN Micro Area"
+    },
+    "40060": {
+      "lat": 37.411324,
+      "lng": -77.441816,
+      "name": "Richmond, VA Metro Area"
+    },
+    "40080": {
+      "lat": 37.717206,
+      "lng": -84.168436,
+      "name": "Richmond-Berea, KY Micro Area"
+    },
+    "40100": {
+      "lat": 26.530903,
+      "lng": -98.740235,
+      "name": "Rio Grande City-Roma, TX Micro Area"
+    },
+    "40140": {
+      "lat": 34.538476,
+      "lng": -116.134541,
+      "name": "Riverside-San Bernardino-Ontario, CA Metro Area"
+    },
+    "40180": {
+      "lat": 43.054831,
+      "lng": -108.608935,
+      "name": "Riverton, WY Micro Area"
+    },
+    "40220": {
+      "lat": 37.286226,
+      "lng": -79.946935,
+      "name": "Roanoke, VA Metro Area"
+    },
+    "40260": {
+      "lat": 36.320576,
+      "lng": -77.542757,
+      "name": "Roanoke Rapids, NC Micro Area"
+    },
+    "40300": {
+      "lat": 42.041884,
+      "lng": -89.320176,
+      "name": "Rochelle, IL Micro Area"
+    },
+    "40340": {
+      "lat": 43.94981,
+      "lng": -92.33066,
+      "name": "Rochester, MN Metro Area"
+    },
+    "40380": {
+      "lat": 43.148038,
+      "lng": -77.523257,
+      "name": "Rochester, NY Metro Area"
+    },
+    "40420": {
+      "lat": 42.331183,
+      "lng": -89.042914,
+      "name": "Rockford, IL Metro Area"
+    },
+    "40460": {
+      "lat": 35.004636,
+      "lng": -79.755695,
+      "name": "Rockingham, NC Micro Area"
+    },
+    "40530": {
+      "lat": 28.122621,
+      "lng": -96.967501,
+      "name": "Rockport, TX Micro Area"
+    },
+    "40540": {
+      "lat": 41.660328,
+      "lng": -108.875677,
+      "name": "Rock Springs, WY Micro Area"
+    },
+    "40580": {
+      "lat": 35.941045,
+      "lng": -77.798549,
+      "name": "Rocky Mount, NC Metro Area"
+    },
+    "40620": {
+      "lat": 37.866326,
+      "lng": -91.790349,
+      "name": "Rolla, MO Micro Area"
+    },
+    "40660": {
+      "lat": 34.263692,
+      "lng": -85.213685,
+      "name": "Rome, GA Metro Area"
+    },
+    "40700": {
+      "lat": 43.286328,
+      "lng": -123.154476,
+      "name": "Roseburg, OR Micro Area"
+    },
+    "40740": {
+      "lat": 33.361604,
+      "lng": -104.469837,
+      "name": "Roswell, NM Micro Area"
+    },
+    "40760": {
+      "lat": 33.740841,
+      "lng": -105.449805,
+      "name": "Ruidoso, NM Micro Area"
+    },
+    "40780": {
+      "lat": 35.199586,
+      "lng": -93.252763,
+      "name": "Russellville, AR Micro Area"
+    },
+    "40820": {
+      "lat": 32.601823,
+      "lng": -92.662303,
+      "name": "Ruston, LA Micro Area"
+    },
+    "40860": {
+      "lat": 43.612399,
+      "lng": -73.060304,
+      "name": "Rutland, VT Micro Area"
+    },
+    "40900": {
+      "lat": 38.790272,
+      "lng": -121.005643,
+      "name": "Sacramento-Roseville-Folsom, CA Metro Area"
+    },
+    "40940": {
+      "lat": 32.931828,
+      "lng": -109.87831,
+      "name": "Safford, AZ Micro Area"
+    },
+    "40980": {
+      "lat": 43.328267,
+      "lng": -84.05541,
+      "name": "Saginaw, MI Metro Area"
+    },
+    "41060": {
+      "lat": 45.593031,
+      "lng": -94.488363,
+      "name": "St. Cloud, MN Metro Area"
+    },
+    "41100": {
+      "lat": 37.262531,
+      "lng": -113.4878,
+      "name": "St. George, UT Metro Area"
+    },
+    "41140": {
+      "lat": 39.834843,
+      "lng": -94.783754,
+      "name": "St. Joseph, MO-KS Metro Area"
+    },
+    "41180": {
+      "lat": 38.740211,
+      "lng": -90.345825,
+      "name": "St. Louis, MO-IL Metro Area"
+    },
+    "41220": {
+      "lat": 30.913358,
+      "lng": -81.642019,
+      "name": "St. Marys, GA Micro Area"
+    },
+    "41260": {
+      "lat": 41.427332,
+      "lng": -78.653937,
+      "name": "St. Marys, PA Micro Area"
+    },
+    "41400": {
+      "lat": 40.770073,
+      "lng": -80.778455,
+      "name": "Salem, OH Micro Area"
+    },
+    "41420": {
+      "lat": 44.903385,
+      "lng": -122.901757,
+      "name": "Salem, OR Metro Area"
+    },
+    "41460": {
+      "lat": 38.96457,
+      "lng": -97.663387,
+      "name": "Salina, KS Micro Area"
+    },
+    "41500": {
+      "lat": 36.240104,
+      "lng": -121.315578,
+      "name": "Salinas, CA Metro Area"
+    },
+    "41540": {
+      "lat": 38.399521,
+      "lng": -75.478262,
+      "name": "Salisbury, MD-DE Metro Area"
+    },
+    "41620": {
+      "lat": 40.572887,
+      "lng": -112.953253,
+      "name": "Salt Lake City, UT Metro Area"
+    },
+    "41660": {
+      "lat": 31.479839,
+      "lng": -100.77459,
+      "name": "San Angelo, TX Metro Area"
+    },
+    "41700": {
+      "lat": 29.43306,
+      "lng": -98.606973,
+      "name": "San Antonio-New Braunfels, TX Metro Area"
+    },
+    "41740": {
+      "lat": 33.023604,
+      "lng": -116.776117,
+      "name": "San Diego-Chula Vista-Carlsbad, CA Metro Area"
+    },
+    "41760": {
+      "lat": 48.316796,
+      "lng": -116.612362,
+      "name": "Sandpoint, ID Micro Area"
+    },
+    "41780": {
+      "lat": 41.394143,
+      "lng": -82.586835,
+      "name": "Sandusky, OH Micro Area"
+    },
+    "41820": {
+      "lat": 35.476336,
+      "lng": -79.172117,
+      "name": "Sanford, NC Micro Area"
+    },
+    "41860": {
+      "lat": 37.773718,
+      "lng": -122.274432,
+      "name": "San Francisco-Oakland-Berkeley, CA Metro Area"
+    },
+    "41900": {
+      "lat": 18.033069,
+      "lng": -67.103961,
+      "name": "San Germ\u00e1n, PR Metro Area"
+    },
+    "41940": {
+      "lat": 36.908472,
+      "lng": -121.371372,
+      "name": "San Jose-Sunnyvale-Santa Clara, CA Metro Area"
+    },
+    "41980": {
+      "lat": 18.294453,
+      "lng": -66.036844,
+      "name": "San Juan-Bayam\u00f3n-Caguas, PR Metro Area"
+    },
+    "42020": {
+      "lat": 35.388189,
+      "lng": -120.448897,
+      "name": "San Luis Obispo-Paso Robles, CA Metro Area"
+    },
+    "42100": {
+      "lat": 37.012347,
+      "lng": -122.007789,
+      "name": "Santa Cruz-Watsonville, CA Metro Area"
+    },
+    "42140": {
+      "lat": 35.514531,
+      "lng": -105.963972,
+      "name": "Santa Fe, NM Metro Area"
+    },
+    "42180": {
+      "lat": 17.952922,
+      "lng": -66.387588,
+      "name": "Santa Isabel, PR Micro Area"
+    },
+    "42200": {
+      "lat": 34.536677,
+      "lng": -120.038364,
+      "name": "Santa Maria-Santa Barbara, CA Metro Area"
+    },
+    "42220": {
+      "lat": 38.525182,
+      "lng": -122.92611,
+      "name": "Santa Rosa-Petaluma, CA Metro Area"
+    },
+    "42300": {
+      "lat": 46.321819,
+      "lng": -84.52063,
+      "name": "Sault Ste. Marie, MI Micro Area"
+    },
+    "42340": {
+      "lat": 32.109153,
+      "lng": -81.273107,
+      "name": "Savannah, GA Metro Area"
+    },
+    "42380": {
+      "lat": 41.791504,
+      "lng": -76.502123,
+      "name": "Sayre, PA Micro Area"
+    },
+    "42420": {
+      "lat": 42.163326,
+      "lng": -103.734473,
+      "name": "Scottsbluff, NE Micro Area"
+    },
+    "42460": {
+      "lat": 34.764114,
+      "lng": -85.980056,
+      "name": "Scottsboro, AL Micro Area"
+    },
+    "42500": {
+      "lat": 38.679431,
+      "lng": -85.751898,
+      "name": "Scottsburg, IN Micro Area"
+    },
+    "42540": {
+      "lat": 41.322881,
+      "lng": -75.898188,
+      "name": "Scranton--Wilkes-Barre, PA Metro Area"
+    },
+    "42620": {
+      "lat": 35.255118,
+      "lng": -91.753034,
+      "name": "Searcy, AR Micro Area"
+    },
+    "42660": {
+      "lat": 47.490552,
+      "lng": -121.833977,
+      "name": "Seattle-Tacoma-Bellevue, WA Metro Area"
+    },
+    "42680": {
+      "lat": 27.700528,
+      "lng": -80.574789,
+      "name": "Sebastian-Vero Beach, FL Metro Area"
+    },
+    "42700": {
+      "lat": 27.34108,
+      "lng": -81.342353,
+      "name": "Sebring-Avon Park, FL Metro Area"
+    },
+    "42740": {
+      "lat": 38.727367,
+      "lng": -93.285207,
+      "name": "Sedalia, MO Micro Area"
+    },
+    "42780": {
+      "lat": 40.755407,
+      "lng": -77.072929,
+      "name": "Selinsgrove, PA Micro Area"
+    },
+    "42820": {
+      "lat": 32.333526,
+      "lng": -87.11436,
+      "name": "Selma, AL Micro Area"
+    },
+    "42860": {
+      "lat": 34.748766,
+      "lng": -83.06154,
+      "name": "Seneca, SC Micro Area"
+    },
+    "42900": {
+      "lat": 42.782294,
+      "lng": -76.827088,
+      "name": "Seneca Falls, NY Micro Area"
+    },
+    "42940": {
+      "lat": 35.787822,
+      "lng": -83.5249,
+      "name": "Sevierville, TN Micro Area"
+    },
+    "42980": {
+      "lat": 38.911957,
+      "lng": -86.042516,
+      "name": "Seymour, IN Micro Area"
+    },
+    "43020": {
+      "lat": 44.851643,
+      "lng": -88.745543,
+      "name": "Shawano, WI Micro Area"
+    },
+    "43060": {
+      "lat": 35.211391,
+      "lng": -96.957004,
+      "name": "Shawnee, OK Micro Area"
+    },
+    "43100": {
+      "lat": 43.741232,
+      "lng": -87.731516,
+      "name": "Sheboygan, WI Metro Area"
+    },
+    "43140": {
+      "lat": 35.33463,
+      "lng": -81.557114,
+      "name": "Shelby, NC Micro Area"
+    },
+    "43180": {
+      "lat": 35.51366,
+      "lng": -86.458294,
+      "name": "Shelbyville, TN Micro Area"
+    },
+    "43220": {
+      "lat": 47.350832,
+      "lng": -123.173103,
+      "name": "Shelton, WA Micro Area"
+    },
+    "43260": {
+      "lat": 44.781369,
+      "lng": -106.881211,
+      "name": "Sheridan, WY Micro Area"
+    },
+    "43300": {
+      "lat": 33.624524,
+      "lng": -96.675693,
+      "name": "Sherman-Denison, TX Metro Area"
+    },
+    "43320": {
+      "lat": 35.390785,
+      "lng": -110.321025,
+      "name": "Show Low, AZ Micro Area"
+    },
+    "43340": {
+      "lat": 32.437682,
+      "lng": -93.744884,
+      "name": "Shreveport-Bossier City, LA Metro Area"
+    },
+    "43380": {
+      "lat": 40.33668,
+      "lng": -84.204142,
+      "name": "Sidney, OH Micro Area"
+    },
+    "43420": {
+      "lat": 31.840129,
+      "lng": -109.775163,
+      "name": "Sierra Vista-Douglas, AZ Metro Area"
+    },
+    "43460": {
+      "lat": 37.047793,
+      "lng": -89.568098,
+      "name": "Sikeston, MO Micro Area"
+    },
+    "43500": {
+      "lat": 32.732087,
+      "lng": -108.381504,
+      "name": "Silver City, NM Micro Area"
+    },
+    "43580": {
+      "lat": 42.512942,
+      "lng": -96.438949,
+      "name": "Sioux City, IA-NE-SD Metro Area"
+    },
+    "43620": {
+      "lat": 43.49542,
+      "lng": -96.995339,
+      "name": "Sioux Falls, SD Metro Area"
+    },
+    "43660": {
+      "lat": 32.744353,
+      "lng": -100.913346,
+      "name": "Snyder, TX Micro Area"
+    },
+    "43700": {
+      "lat": 37.107452,
+      "lng": -84.576969,
+      "name": "Somerset, KY Micro Area"
+    },
+    "43740": {
+      "lat": 39.981297,
+      "lng": -79.028486,
+      "name": "Somerset, PA Micro Area"
+    },
+    "43760": {
+      "lat": 38.021434,
+      "lng": -119.964733,
+      "name": "Sonora, CA Micro Area"
+    },
+    "43780": {
+      "lat": 41.774981,
+      "lng": -86.123014,
+      "name": "South Bend-Mishawaka, IN-MI Metro Area"
+    },
+    "43900": {
+      "lat": 34.932014,
+      "lng": -81.991624,
+      "name": "Spartanburg, SC Metro Area"
+    },
+    "43940": {
+      "lat": 44.348514,
+      "lng": -103.806362,
+      "name": "Spearfish, SD Micro Area"
+    },
+    "43980": {
+      "lat": 43.081224,
+      "lng": -95.149875,
+      "name": "Spencer, IA Micro Area"
+    },
+    "44020": {
+      "lat": 43.389611,
+      "lng": -95.196057,
+      "name": "Spirit Lake, IA Micro Area"
+    },
+    "44060": {
+      "lat": 48.091618,
+      "lng": -117.663472,
+      "name": "Spokane-Spokane Valley, WA Metro Area"
+    },
+    "44100": {
+      "lat": 39.828611,
+      "lng": -89.696084,
+      "name": "Springfield, IL Metro Area"
+    },
+    "44140": {
+      "lat": 42.364833,
+      "lng": -72.619406,
+      "name": "Springfield, MA Metro Area"
+    },
+    "44180": {
+      "lat": 37.36087,
+      "lng": -93.180262,
+      "name": "Springfield, MO Metro Area"
+    },
+    "44220": {
+      "lat": 39.917032,
+      "lng": -83.783676,
+      "name": "Springfield, OH Metro Area"
+    },
+    "44260": {
+      "lat": 33.514617,
+      "lng": -89.077508,
+      "name": "Starkville, MS Micro Area"
+    },
+    "44300": {
+      "lat": 40.909128,
+      "lng": -77.847877,
+      "name": "State College, PA Metro Area"
+    },
+    "44340": {
+      "lat": 32.394481,
+      "lng": -81.741618,
+      "name": "Statesboro, GA Micro Area"
+    },
+    "44420": {
+      "lat": 38.160958,
+      "lng": -79.127632,
+      "name": "Staunton, VA Metro Area"
+    },
+    "44460": {
+      "lat": 40.483664,
+      "lng": -106.987702,
+      "name": "Steamboat Springs, CO Micro Area"
+    },
+    "44500": {
+      "lat": 32.236669,
+      "lng": -98.220545,
+      "name": "Stephenville, TX Micro Area"
+    },
+    "44540": {
+      "lat": 40.728091,
+      "lng": -103.090464,
+      "name": "Sterling, CO Micro Area"
+    },
+    "44580": {
+      "lat": 41.750673,
+      "lng": -89.911005,
+      "name": "Sterling, IL Micro Area"
+    },
+    "44620": {
+      "lat": 44.476246,
+      "lng": -89.49807,
+      "name": "Stevens Point, WI Micro Area"
+    },
+    "44660": {
+      "lat": 36.079225,
+      "lng": -96.975255,
+      "name": "Stillwater, OK Micro Area"
+    },
+    "44700": {
+      "lat": 37.934982,
+      "lng": -121.272244,
+      "name": "Stockton, CA Metro Area"
+    },
+    "44740": {
+      "lat": 42.741522,
+      "lng": -95.141432,
+      "name": "Storm Lake, IA Micro Area"
+    },
+    "44780": {
+      "lat": 41.911488,
+      "lng": -85.52287,
+      "name": "Sturgis, MI Micro Area"
+    },
+    "44860": {
+      "lat": 33.148967,
+      "lng": -95.565434,
+      "name": "Sulphur Springs, TX Micro Area"
+    },
+    "44900": {
+      "lat": 34.474178,
+      "lng": -85.345289,
+      "name": "Summerville, GA Micro Area"
+    },
+    "44940": {
+      "lat": 33.792654,
+      "lng": -80.294055,
+      "name": "Sumter, SC Metro Area"
+    },
+    "44980": {
+      "lat": 40.851524,
+      "lng": -76.709877,
+      "name": "Sunbury, PA Micro Area"
+    },
+    "45000": {
+      "lat": 40.715287,
+      "lng": -120.621223,
+      "name": "Susanville, CA Micro Area"
+    },
+    "45020": {
+      "lat": 32.312338,
+      "lng": -100.418108,
+      "name": "Sweetwater, TX Micro Area"
+    },
+    "45060": {
+      "lat": 43.006516,
+      "lng": -76.196134,
+      "name": "Syracuse, NY Metro Area"
+    },
+    "45140": {
+      "lat": 35.904367,
+      "lng": -94.996796,
+      "name": "Tahlequah, OK Micro Area"
+    },
+    "45180": {
+      "lat": 33.369314,
+      "lng": -86.17593,
+      "name": "Talladega-Sylacauga, AL Micro Area"
+    },
+    "45220": {
+      "lat": 30.346366,
+      "lng": -84.267001,
+      "name": "Tallahassee, FL Metro Area"
+    },
+    "45300": {
+      "lat": 28.120541,
+      "lng": -82.525188,
+      "name": "Tampa-St. Petersburg-Clearwater, FL Metro Area"
+    },
+    "45340": {
+      "lat": 36.577183,
+      "lng": -105.638878,
+      "name": "Taos, NM Micro Area"
+    },
+    "45380": {
+      "lat": 39.545524,
+      "lng": -89.279593,
+      "name": "Taylorville, IL Micro Area"
+    },
+    "45460": {
+      "lat": 39.478393,
+      "lng": -87.311131,
+      "name": "Terre Haute, IN Metro Area"
+    },
+    "45500": {
+      "lat": 33.478373,
+      "lng": -94.207162,
+      "name": "Texarkana, TX-AR Metro Area"
+    },
+    "45520": {
+      "lat": 45.164536,
+      "lng": -121.165069,
+      "name": "The Dalles, OR Micro Area"
+    },
+    "45540": {
+      "lat": 28.715444,
+      "lng": -82.069952,
+      "name": "The Villages, FL Metro Area"
+    },
+    "45580": {
+      "lat": 32.881837,
+      "lng": -84.292283,
+      "name": "Thomaston, GA Micro Area"
+    },
+    "45620": {
+      "lat": 30.864619,
+      "lng": -83.919815,
+      "name": "Thomasville, GA Micro Area"
+    },
+    "45660": {
+      "lat": 41.119992,
+      "lng": -83.127547,
+      "name": "Tiffin, OH Micro Area"
+    },
+    "45700": {
+      "lat": 31.457003,
+      "lng": -83.525931,
+      "name": "Tifton, GA Micro Area"
+    },
+    "45740": {
+      "lat": 34.553582,
+      "lng": -83.290588,
+      "name": "Toccoa, GA Micro Area"
+    },
+    "45780": {
+      "lat": 41.555313,
+      "lng": -83.517088,
+      "name": "Toledo, OH Metro Area"
+    },
+    "45820": {
+      "lat": 39.041389,
+      "lng": -95.802639,
+      "name": "Topeka, KS Metro Area"
+    },
+    "45860": {
+      "lat": 41.791883,
+      "lng": -73.235404,
+      "name": "Torrington, CT Micro Area"
+    },
+    "45900": {
+      "lat": 44.952324,
+      "lng": -85.90832,
+      "name": "Traverse City, MI Micro Area"
+    },
+    "45940": {
+      "lat": 40.282503,
+      "lng": -74.703724,
+      "name": "Trenton-Princeton, NJ Metro Area"
+    },
+    "45980": {
+      "lat": 31.798653,
+      "lng": -85.941608,
+      "name": "Troy, AL Micro Area"
+    },
+    "46020": {
+      "lat": 39.297508,
+      "lng": -120.771343,
+      "name": "Truckee-Grass Valley, CA Micro Area"
+    },
+    "46060": {
+      "lat": 32.128038,
+      "lng": -111.783657,
+      "name": "Tucson, AZ Metro Area"
+    },
+    "46100": {
+      "lat": 35.303085,
+      "lng": -86.111905,
+      "name": "Tullahoma-Manchester, TN Micro Area"
+    },
+    "46140": {
+      "lat": 36.254442,
+      "lng": -96.177298,
+      "name": "Tulsa, OK Metro Area"
+    },
+    "46180": {
+      "lat": 34.340033,
+      "lng": -88.651184,
+      "name": "Tupelo, MS Micro Area"
+    },
+    "46220": {
+      "lat": 33.097877,
+      "lng": -87.799147,
+      "name": "Tuscaloosa, AL Metro Area"
+    },
+    "46300": {
+      "lat": 42.440397,
+      "lng": -114.568729,
+      "name": "Twin Falls, ID Metro Area"
+    },
+    "46340": {
+      "lat": 32.375105,
+      "lng": -95.268939,
+      "name": "Tyler, TX Metro Area"
+    },
+    "46380": {
+      "lat": 39.432388,
+      "lng": -123.442881,
+      "name": "Ukiah, CA Micro Area"
+    },
+    "46420": {
+      "lat": 34.690397,
+      "lng": -81.615896,
+      "name": "Union, SC Micro Area"
+    },
+    "46460": {
+      "lat": 36.361892,
+      "lng": -89.148078,
+      "name": "Union City, TN Micro Area"
+    },
+    "46500": {
+      "lat": 40.132775,
+      "lng": -83.767604,
+      "name": "Urbana, OH Micro Area"
+    },
+    "46520": {
+      "lat": 21.461365,
+      "lng": -158.201974,
+      "name": "Urban Honolulu, HI Metro Area"
+    },
+    "46540": {
+      "lat": 43.33228,
+      "lng": -75.173189,
+      "name": "Utica-Rome, NY Metro Area"
+    },
+    "46620": {
+      "lat": 29.350308,
+      "lng": -99.768427,
+      "name": "Uvalde, TX Micro Area"
+    },
+    "46660": {
+      "lat": 30.827158,
+      "lng": -83.243555,
+      "name": "Valdosta, GA Metro Area"
+    },
+    "46700": {
+      "lat": 38.267226,
+      "lng": -121.939594,
+      "name": "Vallejo, CA Metro Area"
+    },
+    "46780": {
+      "lat": 40.85552,
+      "lng": -84.585775,
+      "name": "Van Wert, OH Micro Area"
+    },
+    "46820": {
+      "lat": 42.91615,
+      "lng": -96.980468,
+      "name": "Vermillion, SD Micro Area"
+    },
+    "46860": {
+      "lat": 40.125887,
+      "lng": -109.517748,
+      "name": "Vernal, UT Micro Area"
+    },
+    "46900": {
+      "lat": 34.08492,
+      "lng": -99.24244,
+      "name": "Vernon, TX Micro Area"
+    },
+    "46980": {
+      "lat": 32.356095,
+      "lng": -90.852384,
+      "name": "Vicksburg, MS Micro Area"
+    },
+    "47020": {
+      "lat": 28.731455,
+      "lng": -97.196993,
+      "name": "Victoria, TX Metro Area"
+    },
+    "47080": {
+      "lat": 32.154218,
+      "lng": -82.411379,
+      "name": "Vidalia, GA Micro Area"
+    },
+    "47180": {
+      "lat": 38.688381,
+      "lng": -87.420358,
+      "name": "Vincennes, IN Micro Area"
+    },
+    "47220": {
+      "lat": 39.328434,
+      "lng": -75.121628,
+      "name": "Vineland-Bridgeton, NJ Metro Area"
+    },
+    "47240": {
+      "lat": 41.38097,
+      "lng": -70.701499,
+      "name": "Vineyard Haven, MA Micro Area"
+    },
+    "47260": {
+      "lat": 36.804408,
+      "lng": -76.449526,
+      "name": "Virginia Beach-Norfolk-Newport News, VA-NC Metro Area"
+    },
+    "47300": {
+      "lat": 36.228834,
+      "lng": -118.781055,
+      "name": "Visalia, CA Metro Area"
+    },
+    "47340": {
+      "lat": 40.843747,
+      "lng": -85.795192,
+      "name": "Wabash, IN Micro Area"
+    },
+    "47380": {
+      "lat": 31.427226,
+      "lng": -97.093473,
+      "name": "Waco, TX Metro Area"
+    },
+    "47420": {
+      "lat": 46.29395,
+      "lng": -96.790701,
+      "name": "Wahpeton, ND-MN Micro Area"
+    },
+    "47460": {
+      "lat": 46.254606,
+      "lng": -118.48037,
+      "name": "Walla Walla, WA Metro Area"
+    },
+    "47540": {
+      "lat": 40.561309,
+      "lng": -84.224018,
+      "name": "Wapakoneta, OH Micro Area"
+    },
+    "47580": {
+      "lat": 32.492806,
+      "lng": -83.711084,
+      "name": "Warner Robins, GA Metro Area"
+    },
+    "47620": {
+      "lat": 41.834298,
+      "lng": -79.298182,
+      "name": "Warren, PA Micro Area"
+    },
+    "47660": {
+      "lat": 38.741528,
+      "lng": -93.811863,
+      "name": "Warrensburg, MO Micro Area"
+    },
+    "47700": {
+      "lat": 41.244293,
+      "lng": -85.861575,
+      "name": "Warsaw, IN Micro Area"
+    },
+    "47780": {
+      "lat": 38.69609,
+      "lng": -87.076943,
+      "name": "Washington, IN Micro Area"
+    },
+    "47820": {
+      "lat": 35.482313,
+      "lng": -76.842014,
+      "name": "Washington, NC Micro Area"
+    },
+    "47900": {
+      "lat": 38.798205,
+      "lng": -77.486882,
+      "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area"
+    },
+    "47920": {
+      "lat": 39.555246,
+      "lng": -83.461893,
+      "name": "Washington Court House, OH Micro Area"
+    },
+    "47940": {
+      "lat": 42.536796,
+      "lng": -92.471608,
+      "name": "Waterloo-Cedar Falls, IA Metro Area"
+    },
+    "47980": {
+      "lat": 44.852409,
+      "lng": -97.177099,
+      "name": "Watertown, SD Micro Area"
+    },
+    "48020": {
+      "lat": 43.013804,
+      "lng": -88.773985,
+      "name": "Watertown-Fort Atkinson, WI Micro Area"
+    },
+    "48060": {
+      "lat": 43.996389,
+      "lng": -76.052968,
+      "name": "Watertown-Fort Drum, NY Metro Area"
+    },
+    "48100": {
+      "lat": 27.492846,
+      "lng": -81.82158,
+      "name": "Wauchula, FL Micro Area"
+    },
+    "48140": {
+      "lat": 45.05398,
+      "lng": -89.757905,
+      "name": "Wausau-Weston, WI Metro Area"
+    },
+    "48180": {
+      "lat": 31.133114,
+      "lng": -82.36865,
+      "name": "Waycross, GA Micro Area"
+    },
+    "48220": {
+      "lat": 35.645601,
+      "lng": -98.997386,
+      "name": "Weatherford, OK Micro Area"
+    },
+    "48260": {
+      "lat": 40.388914,
+      "lng": -80.701966,
+      "name": "Weirton-Steubenville, WV-OH Metro Area"
+    },
+    "48300": {
+      "lat": 47.76611,
+      "lng": -120.270197,
+      "name": "Wenatchee, WA Metro Area"
+    },
+    "48460": {
+      "lat": 36.774369,
+      "lng": -91.887368,
+      "name": "West Plains, MO Micro Area"
+    },
+    "48500": {
+      "lat": 33.65967,
+      "lng": -88.782468,
+      "name": "West Point, MS Micro Area"
+    },
+    "48540": {
+      "lat": 39.977687,
+      "lng": -80.854826,
+      "name": "Wheeling, WV-OH Metro Area"
+    },
+    "48580": {
+      "lat": 42.66811,
+      "lng": -88.541731,
+      "name": "Whitewater, WI Micro Area"
+    },
+    "48620": {
+      "lat": 37.637896,
+      "lng": -97.246287,
+      "name": "Wichita, KS Metro Area"
+    },
+    "48660": {
+      "lat": 33.776144,
+      "lng": -98.501907,
+      "name": "Wichita Falls, TX Metro Area"
+    },
+    "48700": {
+      "lat": 41.343882,
+      "lng": -77.055262,
+      "name": "Williamsport, PA Metro Area"
+    },
+    "48780": {
+      "lat": 48.355765,
+      "lng": -103.501333,
+      "name": "Williston, ND Micro Area"
+    },
+    "48820": {
+      "lat": 45.152714,
+      "lng": -95.004981,
+      "name": "Willmar, MN Micro Area"
+    },
+    "48900": {
+      "lat": 34.426033,
+      "lng": -77.889634,
+      "name": "Wilmington, NC Metro Area"
+    },
+    "48940": {
+      "lat": 39.416681,
+      "lng": -83.804583,
+      "name": "Wilmington, OH Micro Area"
+    },
+    "48980": {
+      "lat": 35.700357,
+      "lng": -77.921598,
+      "name": "Wilson, NC Micro Area"
+    },
+    "49020": {
+      "lat": 39.272974,
+      "lng": -78.471828,
+      "name": "Winchester, VA-WV Metro Area"
+    },
+    "49060": {
+      "lat": 37.234507,
+      "lng": -96.837247,
+      "name": "Winfield, KS Micro Area"
+    },
+    "49080": {
+      "lat": 41.407914,
+      "lng": -118.127591,
+      "name": "Winnemucca, NV Micro Area"
+    },
+    "49100": {
+      "lat": 43.981353,
+      "lng": -91.777044,
+      "name": "Winona, MN Micro Area"
+    },
+    "49180": {
+      "lat": 36.078852,
+      "lng": -80.345064,
+      "name": "Winston-Salem, NC Metro Area"
+    },
+    "49220": {
+      "lat": 44.461413,
+      "lng": -90.038825,
+      "name": "Wisconsin Rapids-Marshfield, WI Micro Area"
+    },
+    "49260": {
+      "lat": 36.331293,
+      "lng": -99.500686,
+      "name": "Woodward, OK Micro Area"
+    },
+    "49300": {
+      "lat": 40.829661,
+      "lng": -81.887194,
+      "name": "Wooster, OH Micro Area"
+    },
+    "49340": {
+      "lat": 42.217311,
+      "lng": -71.925535,
+      "name": "Worcester, MA-CT Metro Area"
+    },
+    "49380": {
+      "lat": 43.677686,
+      "lng": -95.763132,
+      "name": "Worthington, MN Micro Area"
+    },
+    "49420": {
+      "lat": 46.456558,
+      "lng": -120.740145,
+      "name": "Yakima, WA Metro Area"
+    },
+    "49460": {
+      "lat": 43.006603,
+      "lng": -97.388361,
+      "name": "Yankton, SD Micro Area"
+    },
+    "49500": {
+      "lat": 18.006724,
+      "lng": -66.831733,
+      "name": "Yauco, PR Metro Area"
+    },
+    "49620": {
+      "lat": 39.921751,
+      "lng": -76.728889,
+      "name": "York-Hanover, PA Metro Area"
+    },
+    "49660": {
+      "lat": 41.23646,
+      "lng": -80.561784,
+      "name": "Youngstown-Warren-Boardman, OH-PA Metro Area"
+    },
+    "49700": {
+      "lat": 39.160969,
+      "lng": -121.511833,
+      "name": "Yuba City, CA Metro Area"
+    },
+    "49740": {
+      "lat": 32.773942,
+      "lng": -113.910905,
+      "name": "Yuma, AZ Metro Area"
+    },
+    "49780": {
+      "lat": 39.966046,
+      "lng": -81.943506,
+      "name": "Zanesville, OH Micro Area"
+    },
+    "49820": {
+      "lat": 26.996981,
+      "lng": -99.182603,
+      "name": "Zapata, TX Micro Area"
+    }
+  }
+}

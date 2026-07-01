@@ -1,0 +1,1232 @@
+{
+  "schema_version": "us-reloc-2026.v1",
+  "constants": {
+    "current_mortgage_rate_pct": 3.5,
+    "current_monthly_piti": 2450,
+    "denver_home_value": 650000,
+    "denver_net_equity_low": 35000,
+    "denver_net_equity_high": 295000,
+    "tyler_gross_income": 100000,
+    "wife_gross_income": 50000,
+    "household_gross": 150000
+  },
+  "killed_by_gates": {
+    "Shape_3a_Spokane": [
+      "fiscal rank 45 (bottom quartile)"
+    ],
+    "Shape_3b_Columbus": [
+      "fiscal rank 39 (bottom quartile)"
+    ],
+    "Shape_3b_Cincinnati": [
+      "fiscal rank 39 (bottom quartile)"
+    ]
+  },
+  "surviving_candidates": [
+    "Shape_0_Denver",
+    "Shape_0_Boulder",
+    "Shape_0_ColoradoSprings",
+    "Shape_3a_Boise",
+    "Shape_3b_Nashville",
+    "Shape_3b_Indianapolis",
+    "Shape_3b_Pittsburgh",
+    "Shape_3b_KansasCity",
+    "Shape_3b_StLouis",
+    "Shape_3b_Louisville",
+    "Shape_3b_Memphis",
+    "Shape_3c_Dallas",
+    "Shape_3c_Houston",
+    "Shape_3c_Austin",
+    "Shape_3c_SanAntonio"
+  ],
+  "results_8_corner": {
+    "Shape_0_Denver": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": 10328.248431117587,
+        "delta_vs_denver_monthly": 860.6873692597989,
+        "total_annual": 65324.37088009718,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 538221
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": 11920.085165811463,
+        "delta_vs_denver_monthly": 993.3404304842885,
+        "total_annual": 66916.20761479106,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 538221
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": 10328.248431117587,
+        "delta_vs_denver_monthly": 860.6873692597989,
+        "total_annual": 51608.37088009718,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 538221
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": 11920.085165811463,
+        "delta_vs_denver_monthly": 993.3404304842885,
+        "total_annual": 53200.207614791056,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 538221
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -9433.329187743031,
+        "delta_vs_denver_monthly": -786.1107656452526,
+        "total_annual": 45562.79326123656,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 278221
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -7841.492453049148,
+        "delta_vs_denver_monthly": -653.4577044207623,
+        "total_annual": 47154.629995930445,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 278221
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -9433.329187743031,
+        "delta_vs_denver_monthly": -786.1107656452526,
+        "total_annual": 31846.793261236562,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 278221
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -7841.492453049148,
+        "delta_vs_denver_monthly": -653.4577044207623,
+        "total_annual": 33438.629995930445,
+        "golden_handcuff_annual": 0,
+        "new_home_price": 573221,
+        "new_loan_principal": 278221
+      }
+    },
+    "Shape_0_Boulder": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": 23594.560314575872,
+        "delta_vs_denver_monthly": 1966.2133595479893,
+        "total_annual": 78590.68276355547,
+        "golden_handcuff_annual": 23268.70868192282,
+        "new_home_price": 727954,
+        "new_loan_principal": 692954
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": 25186.397049269748,
+        "delta_vs_denver_monthly": 2098.866420772479,
+        "total_annual": 80182.51949824934,
+        "golden_handcuff_annual": 23268.70868192282,
+        "new_home_price": 727954,
+        "new_loan_principal": 692954
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": 23594.560314575872,
+        "delta_vs_denver_monthly": 1966.2133595479893,
+        "total_annual": 64215.88276355546,
+        "golden_handcuff_annual": 23268.70868192282,
+        "new_home_price": 727954,
+        "new_loan_principal": 692954
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": 25186.397049269748,
+        "delta_vs_denver_monthly": 2098.866420772479,
+        "total_annual": 65807.71949824934,
+        "golden_handcuff_annual": 23268.70868192282,
+        "new_home_price": 727954,
+        "new_loan_principal": 692954
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": 3832.9826957152763,
+        "delta_vs_denver_monthly": 319.4152246429397,
+        "total_annual": 58829.10514469487,
+        "golden_handcuff_annual": 3507.1310630622174,
+        "new_home_price": 727954,
+        "new_loan_principal": 432954
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": 5424.819430409152,
+        "delta_vs_denver_monthly": 452.0682858674293,
+        "total_annual": 60420.941879388745,
+        "golden_handcuff_annual": 3507.1310630622174,
+        "new_home_price": 727954,
+        "new_loan_principal": 432954
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": 3832.9826957152763,
+        "delta_vs_denver_monthly": 319.4152246429397,
+        "total_annual": 44454.30514469487,
+        "golden_handcuff_annual": 3507.1310630622174,
+        "new_home_price": 727954,
+        "new_loan_principal": 432954
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": 5424.819430409152,
+        "delta_vs_denver_monthly": 452.0682858674293,
+        "total_annual": 46046.14187938874,
+        "golden_handcuff_annual": 3507.1310630622174,
+        "new_home_price": 727954,
+        "new_loan_principal": 432954
+      }
+    },
+    "Shape_0_ColoradoSprings": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": 697.9440497485775,
+        "delta_vs_denver_monthly": 58.162004145714796,
+        "total_annual": 55694.06649872817,
+        "golden_handcuff_annual": 2697.3624170955154,
+        "new_home_price": 457300,
+        "new_loan_principal": 422300
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": 2289.7807844424533,
+        "delta_vs_denver_monthly": 190.81506537020445,
+        "total_annual": 57285.90323342205,
+        "golden_handcuff_annual": 2697.3624170955154,
+        "new_home_price": 457300,
+        "new_loan_principal": 422300
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": 697.9440497485775,
+        "delta_vs_denver_monthly": 58.162004145714796,
+        "total_annual": 42194.06649872817,
+        "golden_handcuff_annual": 2697.3624170955154,
+        "new_home_price": 457300,
+        "new_loan_principal": 422300
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": 2289.7807844424533,
+        "delta_vs_denver_monthly": 190.81506537020445,
+        "total_annual": 43785.90323342205,
+        "golden_handcuff_annual": 2697.3624170955154,
+        "new_home_price": 457300,
+        "new_loan_principal": 422300
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -19063.633569112026,
+        "delta_vs_denver_monthly": -1588.6361307593354,
+        "total_annual": 35932.48887986757,
+        "golden_handcuff_annual": -17064.215201765088,
+        "new_home_price": 457300,
+        "new_loan_principal": 162300
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -17471.79683441815,
+        "delta_vs_denver_monthly": -1455.9830695348458,
+        "total_annual": 37524.32561456144,
+        "golden_handcuff_annual": -17064.215201765088,
+        "new_home_price": 457300,
+        "new_loan_principal": 162300
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -19063.633569112026,
+        "delta_vs_denver_monthly": -1588.6361307593354,
+        "total_annual": 22432.488879867567,
+        "golden_handcuff_annual": -17064.215201765088,
+        "new_home_price": 457300,
+        "new_loan_principal": 162300
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -17471.79683441815,
+        "delta_vs_denver_monthly": -1455.9830695348458,
+        "total_annual": 24024.325614561443,
+        "golden_handcuff_annual": -17064.215201765088,
+        "new_home_price": 457300,
+        "new_loan_principal": 162300
+      }
+    },
+    "Shape_3a_Boise": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -4310.362808806931,
+        "delta_vs_denver_monthly": -359.1969007339109,
+        "total_annual": 50685.75964017266,
+        "golden_handcuff_annual": 5660.686987111432,
+        "new_home_price": 496288,
+        "new_loan_principal": 461288
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -3275.66893125591,
+        "delta_vs_denver_monthly": -272.9724109379925,
+        "total_annual": 51720.45351772368,
+        "golden_handcuff_annual": 5660.686987111432,
+        "new_home_price": 496288,
+        "new_loan_principal": 461288
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -4310.362808806931,
+        "delta_vs_denver_monthly": -359.1969007339109,
+        "total_annual": 43114.95964017266,
+        "golden_handcuff_annual": 5660.686987111432,
+        "new_home_price": 496288,
+        "new_loan_principal": 461288
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -3275.66893125591,
+        "delta_vs_denver_monthly": -272.9724109379925,
+        "total_annual": 44149.65351772368,
+        "golden_handcuff_annual": 5660.686987111432,
+        "new_home_price": 496288,
+        "new_loan_principal": 461288
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -24071.94042766755,
+        "delta_vs_denver_monthly": -2005.9950356389625,
+        "total_annual": 30924.182021312045,
+        "golden_handcuff_annual": -14100.890631749178,
+        "new_home_price": 496288,
+        "new_loan_principal": 201288
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -23037.246550116528,
+        "delta_vs_denver_monthly": -1919.770545843044,
+        "total_annual": 31958.875898863065,
+        "golden_handcuff_annual": -14100.890631749178,
+        "new_home_price": 496288,
+        "new_loan_principal": 201288
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -24071.94042766755,
+        "delta_vs_denver_monthly": -2005.9950356389625,
+        "total_annual": 23353.382021312045,
+        "golden_handcuff_annual": -14100.890631749178,
+        "new_home_price": 496288,
+        "new_loan_principal": 201288
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -23037.246550116528,
+        "delta_vs_denver_monthly": -1919.770545843044,
+        "total_annual": 24388.075898863066,
+        "golden_handcuff_annual": -14100.890631749178,
+        "new_home_price": 496288,
+        "new_loan_principal": 201288
+      }
+    },
+    "Shape_3b_Nashville": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -9853.7785748245,
+        "delta_vs_denver_monthly": -821.1482145687083,
+        "total_annual": 45142.34387415509,
+        "golden_handcuff_annual": 2595.36227415509,
+        "new_home_price": 455958,
+        "new_loan_principal": 420958
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -9853.7785748245,
+        "delta_vs_denver_monthly": -821.1482145687083,
+        "total_annual": 45142.34387415509,
+        "golden_handcuff_annual": 2595.36227415509,
+        "new_home_price": 455958,
+        "new_loan_principal": 420958
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -9853.7785748245,
+        "delta_vs_denver_monthly": -821.1482145687083,
+        "total_annual": 37063.94387415509,
+        "golden_handcuff_annual": 2595.36227415509,
+        "new_home_price": 455958,
+        "new_loan_principal": 420958
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -9853.7785748245,
+        "delta_vs_denver_monthly": -821.1482145687083,
+        "total_annual": 37063.94387415509,
+        "golden_handcuff_annual": 2595.36227415509,
+        "new_home_price": 455958,
+        "new_loan_principal": 420958
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -29615.35619368511,
+        "delta_vs_denver_monthly": -2467.9463494737593,
+        "total_annual": 25380.766255294482,
+        "golden_handcuff_annual": -17166.215344705517,
+        "new_home_price": 455958,
+        "new_loan_principal": 160958
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -29615.35619368511,
+        "delta_vs_denver_monthly": -2467.9463494737593,
+        "total_annual": 25380.766255294482,
+        "golden_handcuff_annual": -17166.215344705517,
+        "new_home_price": 455958,
+        "new_loan_principal": 160958
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -29615.35619368511,
+        "delta_vs_denver_monthly": -2467.9463494737593,
+        "total_annual": 17302.36625529448,
+        "golden_handcuff_annual": -17166.215344705517,
+        "new_home_price": 455958,
+        "new_loan_principal": 160958
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -29615.35619368511,
+        "delta_vs_denver_monthly": -2467.9463494737593,
+        "total_annual": 17302.36625529448,
+        "golden_handcuff_annual": -17166.215344705517,
+        "new_home_price": 455958,
+        "new_loan_principal": 160958
+      }
+    },
+    "Shape_3b_Indianapolis": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -16090.849764156541,
+        "delta_vs_denver_monthly": -1340.904147013045,
+        "total_annual": 38905.27268482305,
+        "golden_handcuff_annual": -9568.420792727968,
+        "new_home_price": 295921,
+        "new_loan_principal": 260921
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -14578.604866197355,
+        "delta_vs_denver_monthly": -1214.8837388497795,
+        "total_annual": 40417.51758278224,
+        "golden_handcuff_annual": -9568.420792727968,
+        "new_home_price": 295921,
+        "new_loan_principal": 260921
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -16090.849764156541,
+        "delta_vs_denver_monthly": -1340.904147013045,
+        "total_annual": 29239.272684823052,
+        "golden_handcuff_annual": -9568.420792727968,
+        "new_home_price": 295921,
+        "new_loan_principal": 260921
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -14578.604866197355,
+        "delta_vs_denver_monthly": -1214.8837388497795,
+        "total_annual": 30751.51758278224,
+        "golden_handcuff_annual": -9568.420792727968,
+        "new_home_price": 295921,
+        "new_loan_principal": 260921
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -35852.427383017144,
+        "delta_vs_denver_monthly": -2987.702281918095,
+        "total_annual": 19143.695065962445,
+        "golden_handcuff_annual": -29329.998411588575,
+        "new_home_price": 295921,
+        "new_loan_principal": 921
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -34340.182485057965,
+        "delta_vs_denver_monthly": -2861.6818737548306,
+        "total_annual": 20655.939963921628,
+        "golden_handcuff_annual": -29329.998411588575,
+        "new_home_price": 295921,
+        "new_loan_principal": 921
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -35852.427383017144,
+        "delta_vs_denver_monthly": -2987.702281918095,
+        "total_annual": 9477.695065962445,
+        "golden_handcuff_annual": -29329.998411588575,
+        "new_home_price": 295921,
+        "new_loan_principal": 921
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -34340.182485057965,
+        "delta_vs_denver_monthly": -2861.6818737548306,
+        "total_annual": 10989.939963921628,
+        "golden_handcuff_annual": -29329.998411588575,
+        "new_home_price": 295921,
+        "new_loan_principal": 921
+      }
+    },
+    "Shape_3b_Pittsburgh": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -15660.911855924598,
+        "delta_vs_denver_monthly": -1305.0759879937166,
+        "total_annual": 39335.210593054995,
+        "golden_handcuff_annual": -14475.752557965412,
+        "new_home_price": 231356,
+        "new_loan_principal": 196356
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -12716.013896740922,
+        "delta_vs_denver_monthly": -1059.66782472841,
+        "total_annual": 42280.10855223867,
+        "golden_handcuff_annual": -14475.752557965412,
+        "new_home_price": 231356,
+        "new_loan_principal": 196356
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -15660.911855924598,
+        "delta_vs_denver_monthly": -1305.0759879937166,
+        "total_annual": 29118.410593054992,
+        "golden_handcuff_annual": -14475.752557965412,
+        "new_home_price": 231356,
+        "new_loan_principal": 196356
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -12716.013896740922,
+        "delta_vs_denver_monthly": -1059.66782472841,
+        "total_annual": 32063.30855223867,
+        "golden_handcuff_annual": -14475.752557965412,
+        "new_home_price": 231356,
+        "new_loan_principal": 196356
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -30585.159297959184,
+        "delta_vs_denver_monthly": -2548.763274829932,
+        "total_annual": 24410.96315102041,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 231356,
+        "new_loan_principal": 0
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -27640.261338775512,
+        "delta_vs_denver_monthly": -2303.355111564626,
+        "total_annual": 27355.86111020408,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 231356,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -30585.159297959184,
+        "delta_vs_denver_monthly": -2548.763274829932,
+        "total_annual": 14194.163151020408,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 231356,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -27640.261338775512,
+        "delta_vs_denver_monthly": -2303.355111564626,
+        "total_annual": 17139.06111020408,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 231356,
+        "new_loan_principal": 0
+      }
+    },
+    "Shape_3b_KansasCity": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -15091.650471370747,
+        "delta_vs_denver_monthly": -1257.6375392808957,
+        "total_annual": 39904.471977608846,
+        "golden_handcuff_annual": -7005.496187697274,
+        "new_home_price": 329641,
+        "new_loan_principal": 294641
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -13818.181083615644,
+        "delta_vs_denver_monthly": -1151.5150903013036,
+        "total_annual": 41177.94136536395,
+        "golden_handcuff_annual": -7005.496187697274,
+        "new_home_price": 329641,
+        "new_loan_principal": 294641
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -15091.650471370747,
+        "delta_vs_denver_monthly": -1257.6375392808957,
+        "total_annual": 31653.271977608845,
+        "golden_handcuff_annual": -7005.496187697274,
+        "new_home_price": 329641,
+        "new_loan_principal": 294641
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -13818.181083615644,
+        "delta_vs_denver_monthly": -1151.5150903013036,
+        "total_annual": 32926.74136536395,
+        "golden_handcuff_annual": -7005.496187697274,
+        "new_home_price": 329641,
+        "new_loan_principal": 294641
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -34853.22809023135,
+        "delta_vs_denver_monthly": -2904.435674185946,
+        "total_annual": 20142.89435874824,
+        "golden_handcuff_annual": -26767.073806557884,
+        "new_home_price": 329641,
+        "new_loan_principal": 34641
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -33579.758702476254,
+        "delta_vs_denver_monthly": -2798.3132252063547,
+        "total_annual": 21416.36374650334,
+        "golden_handcuff_annual": -26767.073806557884,
+        "new_home_price": 329641,
+        "new_loan_principal": 34641
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -34853.22809023135,
+        "delta_vs_denver_monthly": -2904.435674185946,
+        "total_annual": 11891.694358748238,
+        "golden_handcuff_annual": -26767.073806557884,
+        "new_home_price": 329641,
+        "new_loan_principal": 34641
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -33579.758702476254,
+        "delta_vs_denver_monthly": -2798.3132252063547,
+        "total_annual": 13165.163746503338,
+        "golden_handcuff_annual": -26767.073806557884,
+        "new_home_price": 329641,
+        "new_loan_principal": 34641
+      }
+    },
+    "Shape_3b_StLouis": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -17747.549324847445,
+        "delta_vs_denver_monthly": -1478.962443737287,
+        "total_annual": 37248.57312413215,
+        "golden_handcuff_annual": -11015.804341173975,
+        "new_home_price": 276878,
+        "new_loan_principal": 241878
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -16474.07993709234,
+        "delta_vs_denver_monthly": -1372.8399947576952,
+        "total_annual": 38522.04251188725,
+        "golden_handcuff_annual": -11015.804341173975,
+        "new_home_price": 276878,
+        "new_loan_principal": 241878
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -17747.549324847445,
+        "delta_vs_denver_monthly": -1478.962443737287,
+        "total_annual": 27355.773124132145,
+        "golden_handcuff_annual": -11015.804341173975,
+        "new_home_price": 276878,
+        "new_loan_principal": 241878
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -16474.07993709234,
+        "delta_vs_denver_monthly": -1372.8399947576952,
+        "total_annual": 28629.24251188725,
+        "golden_handcuff_annual": -11015.804341173975,
+        "new_home_price": 276878,
+        "new_loan_principal": 241878
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -36131.744983673474,
+        "delta_vs_denver_monthly": -3010.978748639456,
+        "total_annual": 18864.377465306123,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 276878,
+        "new_loan_principal": 0
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -34858.27559591837,
+        "delta_vs_denver_monthly": -2904.8562996598644,
+        "total_annual": 20137.846853061223,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 276878,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -36131.744983673474,
+        "delta_vs_denver_monthly": -3010.978748639456,
+        "total_annual": 8971.577465306122,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 276878,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -34858.27559591837,
+        "delta_vs_denver_monthly": -2904.8562996598644,
+        "total_annual": 10245.046853061222,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 276878,
+        "new_loan_principal": 0
+      }
+    },
+    "Shape_3b_Louisville": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -18132.822537616543,
+        "delta_vs_denver_monthly": -1511.0685448013785,
+        "total_annual": 36863.29991136305,
+        "golden_handcuff_annual": -10532.861786596131,
+        "new_home_price": 283232,
+        "new_loan_principal": 248232
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -16222.618455983888,
+        "delta_vs_denver_monthly": -1351.8848713319906,
+        "total_annual": 38773.503992995706,
+        "golden_handcuff_annual": -10532.861786596131,
+        "new_home_price": 283232,
+        "new_loan_principal": 248232
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -18132.822537616543,
+        "delta_vs_denver_monthly": -1511.0685448013785,
+        "total_annual": 29044.09991136305,
+        "golden_handcuff_annual": -10532.861786596131,
+        "new_home_price": 283232,
+        "new_loan_principal": 248232
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -16222.618455983888,
+        "delta_vs_denver_monthly": -1351.8848713319906,
+        "total_annual": 30954.303992995705,
+        "golden_handcuff_annual": -10532.861786596131,
+        "new_home_price": 283232,
+        "new_loan_principal": 248232
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -36999.96075102041,
+        "delta_vs_denver_monthly": -3083.330062585034,
+        "total_annual": 17996.161697959185,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 283232,
+        "new_loan_principal": 0
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -35089.75666938776,
+        "delta_vs_denver_monthly": -2924.146389115647,
+        "total_annual": 19906.365779591837,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 283232,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -36999.96075102041,
+        "delta_vs_denver_monthly": -3083.330062585034,
+        "total_annual": 10176.961697959185,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 283232,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -35089.75666938776,
+        "delta_vs_denver_monthly": -2924.146389115647,
+        "total_annual": 12087.165779591836,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 283232,
+        "new_loan_principal": 0
+      }
+    },
+    "Shape_3b_Memphis": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -27343.83989331356,
+        "delta_vs_denver_monthly": -2278.653324442797,
+        "total_annual": 27652.282555666032,
+        "golden_handcuff_annual": -13269.30824433397,
+        "new_home_price": 247229,
+        "new_loan_principal": 212229
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -27343.83989331356,
+        "delta_vs_denver_monthly": -2278.653324442797,
+        "total_annual": 27652.282555666032,
+        "golden_handcuff_annual": -13269.30824433397,
+        "new_home_price": 247229,
+        "new_loan_principal": 212229
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -27343.83989331356,
+        "delta_vs_denver_monthly": -2278.653324442797,
+        "total_annual": 20059.88255566603,
+        "golden_handcuff_annual": -13269.30824433397,
+        "new_home_price": 247229,
+        "new_loan_principal": 212229
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -27343.83989331356,
+        "delta_vs_denver_monthly": -2278.653324442797,
+        "total_annual": 20059.88255566603,
+        "golden_handcuff_annual": -13269.30824433397,
+        "new_home_price": 247229,
+        "new_loan_principal": 212229
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -43474.531648979595,
+        "delta_vs_denver_monthly": -3622.877637414966,
+        "total_annual": 11521.5908,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 247229,
+        "new_loan_principal": 0
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -43474.531648979595,
+        "delta_vs_denver_monthly": -3622.877637414966,
+        "total_annual": 11521.5908,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 247229,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -43474.531648979595,
+        "delta_vs_denver_monthly": -3622.877637414966,
+        "total_annual": 3929.1907999999994,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 247229,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -43474.531648979595,
+        "delta_vs_denver_monthly": -3622.877637414966,
+        "total_annual": 3929.1907999999994,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 247229,
+        "new_loan_principal": 0
+      }
+    },
+    "Shape_3c_Dallas": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -12628.039025044272,
+        "delta_vs_denver_monthly": -1052.336585420356,
+        "total_annual": 42368.08342393532,
+        "golden_handcuff_annual": -4179.438576064676,
+        "new_home_price": 366823,
+        "new_loan_principal": 331823
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -12628.039025044272,
+        "delta_vs_denver_monthly": -1052.336585420356,
+        "total_annual": 42368.08342393532,
+        "golden_handcuff_annual": -4179.438576064676,
+        "new_home_price": 366823,
+        "new_loan_principal": 331823
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -12628.039025044272,
+        "delta_vs_denver_monthly": -1052.336585420356,
+        "total_annual": 33987.28342393532,
+        "golden_handcuff_annual": -4179.438576064676,
+        "new_home_price": 366823,
+        "new_loan_principal": 331823
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -12628.039025044272,
+        "delta_vs_denver_monthly": -1052.336585420356,
+        "total_annual": 33987.28342393532,
+        "golden_handcuff_annual": -4179.438576064676,
+        "new_home_price": 366823,
+        "new_loan_principal": 331823
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -32389.616643904883,
+        "delta_vs_denver_monthly": -2699.1347203254068,
+        "total_annual": 22606.50580507471,
+        "golden_handcuff_annual": -23941.016194925287,
+        "new_home_price": 366823,
+        "new_loan_principal": 71823
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -32389.616643904883,
+        "delta_vs_denver_monthly": -2699.1347203254068,
+        "total_annual": 22606.50580507471,
+        "golden_handcuff_annual": -23941.016194925287,
+        "new_home_price": 366823,
+        "new_loan_principal": 71823
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -32389.616643904883,
+        "delta_vs_denver_monthly": -2699.1347203254068,
+        "total_annual": 14225.70580507471,
+        "golden_handcuff_annual": -23941.016194925287,
+        "new_home_price": 366823,
+        "new_loan_principal": 71823
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -32389.616643904883,
+        "delta_vs_denver_monthly": -2699.1347203254068,
+        "total_annual": 14225.70580507471,
+        "golden_handcuff_annual": -23941.016194925287,
+        "new_home_price": 366823,
+        "new_loan_principal": 71823
+      }
+    },
+    "Shape_3c_Houston": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -18122.924092439913,
+        "delta_vs_denver_monthly": -1510.2436743699927,
+        "total_annual": 36873.19835653968,
+        "golden_handcuff_annual": -8627.08564346032,
+        "new_home_price": 308306,
+        "new_loan_principal": 273306
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -18122.924092439913,
+        "delta_vs_denver_monthly": -1510.2436743699927,
+        "total_annual": 36873.19835653968,
+        "golden_handcuff_annual": -8627.08564346032,
+        "new_home_price": 308306,
+        "new_loan_principal": 273306
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -18122.924092439913,
+        "delta_vs_denver_monthly": -1510.2436743699927,
+        "total_annual": 28697.598356539682,
+        "golden_handcuff_annual": -8627.08564346032,
+        "new_home_price": 308306,
+        "new_loan_principal": 273306
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -18122.924092439913,
+        "delta_vs_denver_monthly": -1510.2436743699927,
+        "total_annual": 28697.598356539682,
+        "golden_handcuff_annual": -8627.08564346032,
+        "new_home_price": 308306,
+        "new_loan_principal": 273306
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -37884.501711300516,
+        "delta_vs_denver_monthly": -3157.041809275043,
+        "total_annual": 17111.620737679073,
+        "golden_handcuff_annual": -28388.663262320926,
+        "new_home_price": 308306,
+        "new_loan_principal": 13306
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -37884.501711300516,
+        "delta_vs_denver_monthly": -3157.041809275043,
+        "total_annual": 17111.620737679073,
+        "golden_handcuff_annual": -28388.663262320926,
+        "new_home_price": 308306,
+        "new_loan_principal": 13306
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -37884.501711300516,
+        "delta_vs_denver_monthly": -3157.041809275043,
+        "total_annual": 8936.020737679073,
+        "golden_handcuff_annual": -28388.663262320926,
+        "new_home_price": 308306,
+        "new_loan_principal": 13306
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -37884.501711300516,
+        "delta_vs_denver_monthly": -3157.041809275043,
+        "total_annual": 8936.020737679073,
+        "golden_handcuff_annual": -28388.663262320926,
+        "new_home_price": 308306,
+        "new_loan_principal": 13306
+      }
+    },
+    "Shape_3c_Austin": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -7170.574637885358,
+        "delta_vs_denver_monthly": -597.5478864904466,
+        "total_annual": 47825.547811094235,
+        "golden_handcuff_annual": 510.21181109423924,
+        "new_home_price": 428524,
+        "new_loan_principal": 393524
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -7170.574637885358,
+        "delta_vs_denver_monthly": -597.5478864904466,
+        "total_annual": 47825.547811094235,
+        "golden_handcuff_annual": 510.21181109423924,
+        "new_home_price": 428524,
+        "new_loan_principal": 393524
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -7170.574637885358,
+        "delta_vs_denver_monthly": -597.5478864904466,
+        "total_annual": 38721.14781109423,
+        "golden_handcuff_annual": 510.21181109423924,
+        "new_home_price": 428524,
+        "new_loan_principal": 393524
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -7170.574637885358,
+        "delta_vs_denver_monthly": -597.5478864904466,
+        "total_annual": 38721.14781109423,
+        "golden_handcuff_annual": 510.21181109423924,
+        "new_home_price": 428524,
+        "new_loan_principal": 393524
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -26932.15225674596,
+        "delta_vs_denver_monthly": -2244.346021395497,
+        "total_annual": 28063.97019223363,
+        "golden_handcuff_annual": -19251.36580776637,
+        "new_home_price": 428524,
+        "new_loan_principal": 133524
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -26932.15225674596,
+        "delta_vs_denver_monthly": -2244.346021395497,
+        "total_annual": 28063.97019223363,
+        "golden_handcuff_annual": -19251.36580776637,
+        "new_home_price": 428524,
+        "new_loan_principal": 133524
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -26932.15225674596,
+        "delta_vs_denver_monthly": -2244.346021395497,
+        "total_annual": 18959.57019223363,
+        "golden_handcuff_annual": -19251.36580776637,
+        "new_home_price": 428524,
+        "new_loan_principal": 133524
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -26932.15225674596,
+        "delta_vs_denver_monthly": -2244.346021395497,
+        "total_annual": 18959.57019223363,
+        "golden_handcuff_annual": -19251.36580776637,
+        "new_home_price": 428524,
+        "new_loan_principal": 133524
+      }
+    },
+    "Shape_3c_SanAntonio": {
+      "low_eq+both+lowTax": {
+        "delta_vs_denver_annual": -21759.904044465547,
+        "delta_vs_denver_monthly": -1813.3253370387956,
+        "total_annual": 33236.218404514046,
+        "golden_handcuff_annual": -10755.939595485957,
+        "new_home_price": 280297,
+        "new_loan_principal": 245297
+      },
+      "low_eq+both+highTax": {
+        "delta_vs_denver_annual": -21759.904044465547,
+        "delta_vs_denver_monthly": -1813.3253370387956,
+        "total_annual": 33236.218404514046,
+        "golden_handcuff_annual": -10755.939595485957,
+        "new_home_price": 280297,
+        "new_loan_principal": 245297
+      },
+      "low_eq+one+lowTax": {
+        "delta_vs_denver_annual": -21759.904044465547,
+        "delta_vs_denver_monthly": -1813.3253370387956,
+        "total_annual": 25255.018404514045,
+        "golden_handcuff_annual": -10755.939595485957,
+        "new_home_price": 280297,
+        "new_loan_principal": 245297
+      },
+      "low_eq+one+highTax": {
+        "delta_vs_denver_annual": -21759.904044465547,
+        "delta_vs_denver_monthly": -1813.3253370387956,
+        "total_annual": 25255.018404514045,
+        "golden_handcuff_annual": -10755.939595485957,
+        "new_home_price": 280297,
+        "new_loan_principal": 245297
+      },
+      "high_eq+both+lowTax": {
+        "delta_vs_denver_annual": -40403.96444897959,
+        "delta_vs_denver_monthly": -3366.9970374149657,
+        "total_annual": 14592.158,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 280297,
+        "new_loan_principal": 0
+      },
+      "high_eq+both+highTax": {
+        "delta_vs_denver_annual": -40403.96444897959,
+        "delta_vs_denver_monthly": -3366.9970374149657,
+        "total_annual": 14592.158,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 280297,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+lowTax": {
+        "delta_vs_denver_annual": -40403.96444897959,
+        "delta_vs_denver_monthly": -3366.9970374149657,
+        "total_annual": 6610.958,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 280297,
+        "new_loan_principal": 0
+      },
+      "high_eq+one+highTax": {
+        "delta_vs_denver_annual": -40403.96444897959,
+        "delta_vs_denver_monthly": -3366.9970374149657,
+        "total_annual": 6610.958,
+        "golden_handcuff_annual": -29400.0,
+        "new_home_price": 280297,
+        "new_loan_principal": 0
+      }
+    }
+  },
+  "mean_scores": {
+    "Shape_0_Denver": {
+      "mean_delta_vs_denver_annual": 1243.3779890342175,
+      "mean_delta_vs_denver_monthly": 103.61483241951812,
+      "normalized_score": 34.87138830507254,
+      "min_delta": -9433.329187743031,
+      "max_delta": 11920.085165811463,
+      "stdev_delta": 9912.793427891222
+    },
+    "Shape_0_Boulder": {
+      "mean_delta_vs_denver_annual": 14509.689872492512,
+      "mean_delta_vs_denver_monthly": 1209.1408227077093,
+      "normalized_score": 15.549902075602802,
+      "min_delta": 3832.9826957152763,
+      "max_delta": 25186.397049269748,
+      "stdev_delta": 9912.793427891213
+    },
+    "Shape_0_ColoradoSprings": {
+      "mean_delta_vs_denver_annual": -8386.926392334786,
+      "mean_delta_vs_denver_monthly": -698.9105326945655,
+      "normalized_score": 48.897275463826574,
+      "min_delta": -19063.633569112026,
+      "max_delta": 2289.7807844424533,
+      "stdev_delta": 9912.793427891216
+    },
+    "Shape_3a_Boise": {
+      "mean_delta_vs_denver_annual": -13673.80467946173,
+      "mean_delta_vs_denver_monthly": -1139.4837232884774,
+      "normalized_score": 56.59725620594803,
+      "min_delta": -24071.94042766755,
+      "max_delta": -3275.66893125591,
+      "stdev_delta": 9894.323390289182
+    },
+    "Shape_3b_Nashville": {
+      "mean_delta_vs_denver_annual": -19734.567384254806,
+      "mean_delta_vs_denver_monthly": -1644.5472820212337,
+      "normalized_score": 65.4243472746239,
+      "min_delta": -29615.35619368511,
+      "max_delta": -9853.7785748245,
+      "stdev_delta": 9880.788809430305
+    },
+    "Shape_3b_Indianapolis": {
+      "mean_delta_vs_denver_annual": -25215.516124607253,
+      "mean_delta_vs_denver_monthly": -2101.2930103839376,
+      "normalized_score": 73.40697850939803,
+      "min_delta": -35852.427383017144,
+      "max_delta": -14578.604866197355,
+      "stdev_delta": 9909.677525248439
+    },
+    "Shape_3b_Pittsburgh": {
+      "mean_delta_vs_denver_annual": -21650.586597350055,
+      "mean_delta_vs_denver_monthly": -1804.2155497791712,
+      "normalized_score": 68.21489970294272,
+      "min_delta": -30585.159297959184,
+      "max_delta": -12716.013896740922,
+      "stdev_delta": 7606.010545961005
+    },
+    "Shape_3b_KansasCity": {
+      "mean_delta_vs_denver_annual": -24335.7045869235,
+      "mean_delta_vs_denver_monthly": -2027.975382243625,
+      "normalized_score": 72.12559249501663,
+      "min_delta": -34853.22809023135,
+      "max_delta": -13818.181083615644,
+      "stdev_delta": 9901.283682783282
+    },
+    "Shape_3b_StLouis": {
+      "mean_delta_vs_denver_annual": -26302.912460382908,
+      "mean_delta_vs_denver_monthly": -2191.909371698576,
+      "normalized_score": 74.99069774592996,
+      "min_delta": -36131.744983673474,
+      "max_delta": -16474.07993709234,
+      "stdev_delta": 9214.124677682996
+    },
+    "Shape_3b_Louisville": {
+      "mean_delta_vs_denver_annual": -26611.289603502148,
+      "mean_delta_vs_denver_monthly": -2217.6074669585123,
+      "normalized_score": 75.43982820333245,
+      "min_delta": -36999.96075102041,
+      "max_delta": -16222.618455983888,
+      "stdev_delta": 9481.79550503451
+    },
+    "Shape_3b_Memphis": {
+      "mean_delta_vs_denver_annual": -35409.18577114658,
+      "mean_delta_vs_denver_monthly": -2950.7654809288815,
+      "normalized_score": 88.25336908377899,
+      "min_delta": -43474.531648979595,
+      "max_delta": -27343.83989331356,
+      "stdev_delta": 8065.345877833017
+    },
+    "Shape_3c_Dallas": {
+      "mean_delta_vs_denver_annual": -22508.827834474578,
+      "mean_delta_vs_denver_monthly": -1875.7356528728815,
+      "normalized_score": 69.46487003307955,
+      "min_delta": -32389.616643904883,
+      "max_delta": -12628.039025044272,
+      "stdev_delta": 9880.788809430305
+    },
+    "Shape_3c_Houston": {
+      "mean_delta_vs_denver_annual": -28003.712901870214,
+      "mean_delta_vs_denver_monthly": -2333.642741822518,
+      "normalized_score": 77.46779858585886,
+      "min_delta": -37884.501711300516,
+      "max_delta": -18122.924092439913,
+      "stdev_delta": 9880.788809430302
+    },
+    "Shape_3c_Austin": {
+      "mean_delta_vs_denver_annual": -17051.36344731566,
+      "mean_delta_vs_denver_monthly": -1420.9469539429717,
+      "normalized_score": 61.51644217078926,
+      "min_delta": -26932.15225674596,
+      "max_delta": -7170.574637885358,
+      "stdev_delta": 9880.788809430302
+    },
+    "Shape_3c_SanAntonio": {
+      "mean_delta_vs_denver_annual": -31081.93424672257,
+      "mean_delta_vs_denver_monthly": -2590.161187226881,
+      "normalized_score": 81.95101983440983,
+      "min_delta": -40403.96444897959,
+      "max_delta": -21759.904044465547,
+      "stdev_delta": 9322.030202257021
+    }
+  },
+  "ranked": [
+    [
+      "Shape_3b_Memphis",
+      88.25336908377899,
+      -35409.18577114658
+    ],
+    [
+      "Shape_3c_SanAntonio",
+      81.95101983440983,
+      -31081.93424672257
+    ],
+    [
+      "Shape_3c_Houston",
+      77.46779858585886,
+      -28003.712901870214
+    ],
+    [
+      "Shape_3b_Louisville",
+      75.43982820333245,
+      -26611.289603502148
+    ],
+    [
+      "Shape_3b_StLouis",
+      74.99069774592996,
+      -26302.912460382908
+    ],
+    [
+      "Shape_3b_Indianapolis",
+      73.40697850939803,
+      -25215.516124607253
+    ],
+    [
+      "Shape_3b_KansasCity",
+      72.12559249501663,
+      -24335.7045869235
+    ],
+    [
+      "Shape_3c_Dallas",
+      69.46487003307955,
+      -22508.827834474578
+    ],
+    [
+      "Shape_3b_Pittsburgh",
+      68.21489970294272,
+      -21650.586597350055
+    ],
+    [
+      "Shape_3b_Nashville",
+      65.4243472746239,
+      -19734.567384254806
+    ],
+    [
+      "Shape_3c_Austin",
+      61.51644217078926,
+      -17051.36344731566
+    ],
+    [
+      "Shape_3a_Boise",
+      56.59725620594803,
+      -13673.80467946173
+    ],
+    [
+      "Shape_0_ColoradoSprings",
+      48.897275463826574,
+      -8386.926392334786
+    ],
+    [
+      "Shape_0_Denver",
+      34.87138830507254,
+      1243.3779890342175
+    ],
+    [
+      "Shape_0_Boulder",
+      15.549902075602802,
+      14509.689872492512
+    ]
+  ]
+}

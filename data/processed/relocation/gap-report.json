@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-07-01T17:03:49Z",
+  "cbsa_count": 939,
+  "fields_per_location": 35,
+  "locations_with_gaps": 139,
+  "total_gaps": 161,
+  "total_fields": 32865,
+  "field_fill_rate_pct": 99.5,
+  "gaps_by_field": {
+    "amenities.*": 63,
+    "climate.daysMaxGt90FAnnual": 42,
+    "climate.daysMinLt32FAnnual": 36,
+    "climate.*RiskScore": 12,
+    "cost.propertyTaxRate": 8
+  }
+}

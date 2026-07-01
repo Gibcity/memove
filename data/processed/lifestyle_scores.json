@@ -1,0 +1,623 @@
+{
+  "source": {
+    "name": "Phase C lifestyle scoring",
+    "method": "Hybrid: absolute for sunshine/temp; min-max across 24 survivors for youth/winter/food; constant for walkability",
+    "weights": {
+      "sunshine": 28.985507246376812,
+      "youth": 14.492753623188406,
+      "winter": 2.898550724637681,
+      "food": 2.898550724637681,
+      "walk": 0.7246376811594203
+    },
+    "caveats": [
+      "Sunny-day proxy is 365-precip_days; overstates Great Lakes (lake-effect cloudy-but-dry).",
+      "Winter sports uses coarse state\u2192nearest-resort distance, not real drive-time.",
+      "Food uses restaurant count as a proxy for diversity, not actual cuisine breadth.",
+      "Walkability held constant (0.72% of lifestyle half, incapable of changing ranking)."
+    ],
+    "pulled_at": "2026-06-19T02:00:00Z"
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "scores": {
+    "Appleton": {
+      "metro": "Appleton",
+      "shape_id": "Shape_3b_Appleton",
+      "state": "WI",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.35,
+          "raw_count_trails": 1333
+        },
+        "winter_sports": {
+          "score": 6.32,
+          "raw_miles_to_ski": 200
+        },
+        "food_diversity": {
+          "score": 0.82,
+          "raw_restaurants": 331
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 2.94
+    },
+    "Austin": {
+      "metro": "Austin",
+      "shape_id": "Shape_3c_Austin",
+      "state": "TX",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 2.27,
+          "raw_count_trails": 5401
+        },
+        "winter_sports": {
+          "score": 0.0,
+          "raw_miles_to_ski": 500
+        },
+        "food_diversity": {
+          "score": 5.37,
+          "raw_restaurants": 1584
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 5.21
+    },
+    "Boise City": {
+      "metro": "Boise City",
+      "shape_id": "Shape_3a_Boise",
+      "state": "ID",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 2.68,
+          "raw_count_trails": 6260
+        },
+        "winter_sports": {
+          "score": 10.0,
+          "raw_miles_to_ski": 25
+        },
+        "food_diversity": {
+          "score": 1.36,
+          "raw_restaurants": 479
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 7.54
+    },
+    "Boulder": {
+      "metro": "Boulder",
+      "shape_id": "Shape_0_Boulder",
+      "state": "CO",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": null,
+          "raw_count_trails": null
+        },
+        "winter_sports": {
+          "score": 9.89,
+          "raw_miles_to_ski": 30
+        },
+        "food_diversity": {
+          "score": null,
+          "raw_restaurants": null
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 3.23
+    },
+    "Bozeman": {
+      "metro": "Bozeman",
+      "shape_id": "Shape_3a_Bozeman",
+      "state": "MT",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.12,
+          "raw_count_trails": 846
+        },
+        "winter_sports": {
+          "score": 9.89,
+          "raw_miles_to_ski": 30
+        },
+        "food_diversity": {
+          "score": 0.0,
+          "raw_restaurants": 105
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 3.4
+    },
+    "Cincinnati": {
+      "metro": "Cincinnati",
+      "shape_id": "Shape_3b_Cincinnati",
+      "state": "OH",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.78,
+          "raw_count_trails": 2258
+        },
+        "winter_sports": {
+          "score": 5.89,
+          "raw_miles_to_ski": 220
+        },
+        "food_diversity": {
+          "score": 4.63,
+          "raw_restaurants": 1381
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 4.54
+    },
+    "Colorado Springs": {
+      "metro": "Colorado Springs",
+      "shape_id": "Shape_0_ColoradoSprings",
+      "state": "CO",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 2.78,
+          "raw_count_trails": 6478
+        },
+        "winter_sports": {
+          "score": 9.89,
+          "raw_miles_to_ski": 30
+        },
+        "food_diversity": {
+          "score": 1.94,
+          "raw_restaurants": 639
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 7.82
+    },
+    "Columbus": {
+      "metro": "Columbus",
+      "shape_id": "Shape_3b_Columbus",
+      "state": "OH",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 1.22,
+          "raw_count_trails": 3184
+        },
+        "winter_sports": {
+          "score": 5.89,
+          "raw_miles_to_ski": 220
+        },
+        "food_diversity": {
+          "score": 4.21,
+          "raw_restaurants": 1265
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 5.06
+    },
+    "Dallas": {
+      "metro": "Dallas",
+      "shape_id": "Shape_3c_Dallas",
+      "state": "TX",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 2.98,
+          "raw_count_trails": 6905
+        },
+        "winter_sports": {
+          "score": 0.0,
+          "raw_miles_to_ski": 500
+        },
+        "food_diversity": {
+          "score": 10.0,
+          "raw_restaurants": 2858
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 7.58
+    },
+    "Denver": {
+      "metro": "Denver",
+      "shape_id": "Shape_0_Denver",
+      "state": "CO",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 10.0,
+          "raw_count_trails": 21739
+        },
+        "winter_sports": {
+          "score": 9.89,
+          "raw_miles_to_ski": 30
+        },
+        "food_diversity": {
+          "score": 9.7,
+          "raw_restaurants": 2775
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 20.53
+    },
+    "Grand Rapids": {
+      "metro": "Grand Rapids",
+      "shape_id": "Shape_3b_GrandRapids",
+      "state": "MI",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 1.54,
+          "raw_count_trails": 3861
+        },
+        "winter_sports": {
+          "score": 8.42,
+          "raw_miles_to_ski": 100
+        },
+        "food_diversity": {
+          "score": 1.27,
+          "raw_restaurants": 454
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 5.4
+    },
+    "Indianapolis": {
+      "metro": "Indianapolis",
+      "shape_id": "Shape_3b_Indianapolis",
+      "state": "IN",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.51,
+          "raw_count_trails": 1675
+        },
+        "winter_sports": {
+          "score": 5.47,
+          "raw_miles_to_ski": 240
+        },
+        "food_diversity": {
+          "score": 3.41,
+          "raw_restaurants": 1044
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 3.68
+    },
+    "Kalamazoo": {
+      "metro": "Kalamazoo",
+      "shape_id": "Shape_3b_Kalamazoo",
+      "state": "MI",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.19,
+          "raw_count_trails": 997
+        },
+        "winter_sports": {
+          "score": 8.42,
+          "raw_miles_to_ski": 100
+        },
+        "food_diversity": {
+          "score": 0.42,
+          "raw_restaurants": 220
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 3.2
+    },
+    "Kansas City": {
+      "metro": "Kansas City",
+      "shape_id": "Shape_3b_KansasCity",
+      "state": "MO",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 1.04,
+          "raw_count_trails": 2791
+        },
+        "winter_sports": {
+          "score": 5.26,
+          "raw_miles_to_ski": 250
+        },
+        "food_diversity": {
+          "score": 4.51,
+          "raw_restaurants": 1346
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 4.7
+    },
+    "Louisville": {
+      "metro": "Louisville",
+      "shape_id": "Shape_3b_Louisville",
+      "state": "KY",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.22,
+          "raw_count_trails": 1057
+        },
+        "winter_sports": {
+          "score": 6.74,
+          "raw_miles_to_ski": 180
+        },
+        "food_diversity": {
+          "score": 2.23,
+          "raw_restaurants": 718
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 3.28
+    },
+    "Madison": {
+      "metro": "Madison",
+      "shape_id": "Shape_3b_Madison",
+      "state": "WI",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 1.34,
+          "raw_count_trails": 3425
+        },
+        "winter_sports": {
+          "score": 6.32,
+          "raw_miles_to_ski": 200
+        },
+        "food_diversity": {
+          "score": 1.72,
+          "raw_restaurants": 578
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 4.63
+    },
+    "Memphis": {
+      "metro": "Memphis",
+      "shape_id": "Shape_3b_Memphis",
+      "state": "TN",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.24,
+          "raw_count_trails": 1100
+        },
+        "winter_sports": {
+          "score": 6.32,
+          "raw_miles_to_ski": 200
+        },
+        "food_diversity": {
+          "score": 1.19,
+          "raw_restaurants": 433
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 2.89
+    },
+    "Minneapolis": {
+      "metro": "Minneapolis",
+      "shape_id": "Shape_3b_Minneapolis",
+      "state": "MN",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 3.42,
+          "raw_count_trails": 7838
+        },
+        "winter_sports": {
+          "score": 6.32,
+          "raw_miles_to_ski": 200
+        },
+        "food_diversity": {
+          "score": 6.79,
+          "raw_restaurants": 1973
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 9.12
+    },
+    "Nashville": {
+      "metro": "Nashville",
+      "shape_id": "Shape_3b_Nashville",
+      "state": "TN",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.23,
+          "raw_count_trails": 1094
+        },
+        "winter_sports": {
+          "score": 6.32,
+          "raw_miles_to_ski": 200
+        },
+        "food_diversity": {
+          "score": 2.72,
+          "raw_restaurants": 853
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 3.32
+    },
+    "Pittsburgh": {
+      "metro": "Pittsburgh",
+      "shape_id": "Shape_3b_Pittsburgh",
+      "state": "PA",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 2.36,
+          "raw_count_trails": 5600
+        },
+        "winter_sports": {
+          "score": 8.84,
+          "raw_miles_to_ski": 80
+        },
+        "food_diversity": {
+          "score": 5.07,
+          "raw_restaurants": 1502
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 7.81
+    },
+    "Rochester": {
+      "metro": "Rochester",
+      "shape_id": "Shape_3b_Rochester",
+      "state": "MN",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.0,
+          "raw_count_trails": 602
+        },
+        "winter_sports": {
+          "score": 6.32,
+          "raw_miles_to_ski": 200
+        },
+        "food_diversity": {
+          "score": 0.25,
+          "raw_restaurants": 174
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 2.27
+    },
+    "San Antonio": {
+      "metro": "San Antonio",
+      "shape_id": "Shape_3c_SanAntonio",
+      "state": "TX",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.48,
+          "raw_count_trails": 1613
+        },
+        "winter_sports": {
+          "score": 0.0,
+          "raw_miles_to_ski": 500
+        },
+        "food_diversity": {
+          "score": 3.22,
+          "raw_restaurants": 991
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 1.99
+    },
+    "Spokane": {
+      "metro": "Spokane",
+      "shape_id": "Shape_3a_Spokane",
+      "state": "WA",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.6,
+          "raw_count_trails": 1870
+        },
+        "winter_sports": {
+          "score": 8.63,
+          "raw_miles_to_ski": 90
+        },
+        "food_diversity": {
+          "score": 1.08,
+          "raw_restaurants": 402
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 4.05
+    },
+    "St. Louis": {
+      "metro": "St. Louis",
+      "shape_id": "Shape_3b_StLouis",
+      "state": "MO",
+      "axes": {
+        "sunshine": null,
+        "youth_sports": {
+          "score": 0.65,
+          "raw_count_trails": 1977
+        },
+        "winter_sports": {
+          "score": 5.26,
+          "raw_miles_to_ski": 250
+        },
+        "food_diversity": {
+          "score": 4.17,
+          "raw_restaurants": 1252
+        },
+        "walkability": {
+          "score": 5.0,
+          "note": "Walkability held constant \u2014 0.72% of lifestyle half, arithmetically incapable of changing ranking"
+        }
+      },
+      "lifestyle_half_score": 4.04
+    }
+  }
+}

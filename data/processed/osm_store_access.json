@@ -1,0 +1,4178 @@
+{
+  "source": {
+    "name": "OpenStreetMap Overpass API \u2014 chain store proximity",
+    "url": "https://overpass-api.de/api/interpreter",
+    "pulled_at": "2026-06-18T21:00:00Z",
+    "retrieval_method": "curl via urllib (POST to Overpass)",
+    "search_radius_km": 35,
+    "notes": "30km/19mi is a generous straight-line proxy for a 30-minute drive. Real drive-time isochrone would need OSRM. Aldi/Trader Joe's name matching is loose; verify before trusting."
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "metros": {
+    "Memphis": {
+      "center": [
+        35.1495,
+        -90.049
+      ],
+      "brands": {
+        "Costco": {
+          "count": 2,
+          "closest_km": 23.47,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 35.1919709,
+              "lon": -89.7960241,
+              "distance_km": 23.47,
+              "addr": "2431, North Germantown Parkway, Cordova"
+            },
+            {
+              "name": "Costco",
+              "lat": 35.0457617,
+              "lon": -89.797628,
+              "distance_km": 25.61,
+              "addr": "3775, Hacks Cross Road, Memphis"
+            }
+          ]
+        },
+        "Target": {
+          "count": 7,
+          "closest_km": 13.87,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 35.1134618,
+              "lon": -89.9029842,
+              "distance_km": 13.87,
+              "addr": "601, Colonial Road, Memphis"
+            },
+            {
+              "name": "Target",
+              "lat": 35.1008938,
+              "lon": -89.8635878,
+              "distance_km": 17.71,
+              "addr": "5959, Poplar Avenue, Memphis"
+            },
+            {
+              "name": "Target",
+              "lat": 34.9661756,
+              "lon": -90.005126,
+              "distance_km": 20.77,
+              "addr": "7255, Interstate Drive, Horn Lake"
+            },
+            {
+              "name": "Target",
+              "lat": 35.2037697,
+              "lon": -89.7971849,
+              "distance_km": 23.67,
+              "addr": "7989, Highway 64, Memphis"
+            },
+            {
+              "name": "Target",
+              "lat": 34.9654223,
+              "lon": -89.8980653,
+              "distance_km": 24.65,
+              "addr": "5150, Goodman Road, Olive Branch"
+            },
+            {
+              "name": "Target",
+              "lat": 35.0647698,
+              "lon": -89.755404,
+              "distance_km": 28.32,
+              "addr": "9235, Poplar Avenue, Germantown"
+            },
+            {
+              "name": "Target",
+              "lat": 35.0501047,
+              "lon": -89.6909497,
+              "distance_km": 34.4,
+              "addr": "325, New Byhalia Road, Collierville"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 12,
+          "closest_km": 12.58,
+          "stores": [
+            {
+              "name": "Aldi",
+              "lat": 35.0381618,
+              "lon": -90.0242349,
+              "distance_km": 12.58,
+              "addr": "4056, Elvis Presley Boulevard, Memphis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.1494829,
+              "lon": -89.9035394,
+              "distance_km": 13.23,
+              "addr": "4720, Summer Avenue, Memphis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 35.2114731,
+              "lon": -89.9175488,
+              "distance_km": 13.79,
+              "addr": "3176, Austin Peay Highway, Memphis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.073099,
+              "lon": -89.906278,
+              "distance_km": 15.51,
+              "addr": "2765, South Perkins Road, Memphis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.2037428,
+              "lon": -89.8416243,
+              "distance_km": 19.79,
+              "addr": "2867, Kirby-Whitten Parkway, Bartlett"
+            },
+            {
+              "name": "ALDI",
+              "lat": 34.9619158,
+              "lon": -90.0618115,
+              "distance_km": 20.89,
+              "addr": "4065, Goodman Road West, Horn Lake"
+            },
+            {
+              "name": "Aldi",
+              "lat": 34.963449,
+              "lon": -89.9967827,
+              "distance_km": 21.23,
+              "addr": "7051, Sleepy Hollow Drive, Southaven"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.1693554,
+              "lon": -89.7920523,
+              "distance_km": 23.46,
+              "addr": "1610, North Germantown Parkway, Cordova"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.0511602,
+              "lon": -89.8121516,
+              "distance_km": 24.16,
+              "addr": "7520, Winchester Road, Memphis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 34.9629915,
+              "lon": -89.8727027,
+              "distance_km": 26.22,
+              "addr": "6626, Goodman Road, Olive Branch"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 1,
+          "closest_km": 23.46,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 35.0909747,
+              "lon": -89.8011646,
+              "distance_km": 23.46,
+              "addr": "2130, Exeter Road, Germantown"
+            }
+          ]
+        }
+      }
+    },
+    "Nashville": {
+      "center": [
+        36.1627,
+        -86.7816
+      ],
+      "brands": {
+        "Costco": {
+          "count": 4,
+          "closest_km": 9.73,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 36.1395822,
+              "lon": -86.886082,
+              "distance_km": 9.73,
+              "addr": "6670, Charlotte Pike, Nashville"
+            },
+            {
+              "name": "Costco",
+              "lat": 35.9634328,
+              "lon": -86.8174083,
+              "distance_km": 22.39,
+              "addr": "98, Seaboard Lane, Brentwood"
+            },
+            {
+              "name": "Costco",
+              "lat": 36.3288151,
+              "lon": -86.625043,
+              "distance_km": 23.2,
+              "addr": "1101, Forest Retreat Road, Hendersonville"
+            },
+            {
+              "name": "Costco",
+              "lat": 36.1819997,
+              "lon": -86.4633861,
+              "distance_km": 28.64,
+              "addr": "Mt. Juliet"
+            }
+          ]
+        },
+        "Target": {
+          "count": 10,
+          "closest_km": 7.41,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 36.1311981,
+              "lon": -86.8542895,
+              "distance_km": 7.41,
+              "addr": "26, White Bridge Pike, Nashville"
+            },
+            {
+              "name": "Target",
+              "lat": 36.1350222,
+              "lon": -86.8920854,
+              "distance_km": 10.39,
+              "addr": "6814, Charlotte Pike, Nashville"
+            },
+            {
+              "name": "Target",
+              "lat": 36.182618,
+              "lon": -86.6371249,
+              "distance_km": 13.16,
+              "addr": "3171, Lebanon Pike, Nashville"
+            },
+            {
+              "name": "Target",
+              "lat": 36.0430895,
+              "lon": -86.7785722,
+              "distance_km": 13.3,
+              "addr": "780, Old Hickory Boulevard, Brentwood"
+            },
+            {
+              "name": "Target",
+              "lat": 36.3045981,
+              "lon": -86.6941103,
+              "distance_km": 17.62,
+              "addr": "2050, Gallatin Road North, Madison"
+            },
+            {
+              "name": "Target",
+              "lat": 35.9661655,
+              "lon": -86.812754,
+              "distance_km": 22.03,
+              "addr": "1701, Galleria Boulevard, Franklin"
+            },
+            {
+              "name": "Target",
+              "lat": 36.3348974,
+              "lon": -86.6256681,
+              "distance_km": 23.71,
+              "addr": "1004, Andrews Run, Hendersonville"
+            },
+            {
+              "name": "Target",
+              "lat": 36.1690534,
+              "lon": -86.5079104,
+              "distance_km": 24.58,
+              "addr": "401, South Mount Juliet Road, Mount Juliet"
+            },
+            {
+              "name": "Target",
+              "lat": 35.9798139,
+              "lon": -86.5712761,
+              "distance_km": 27.76,
+              "addr": "803, Industrial Boulevard, Smyrna"
+            },
+            {
+              "name": "Target",
+              "lat": 35.8926876,
+              "lon": -86.8812909,
+              "distance_km": 31.33,
+              "addr": "3064, Columbia Avenue, Franklin"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 13,
+          "closest_km": 3.83,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 36.1833398,
+              "lon": -86.7474131,
+              "distance_km": 3.83,
+              "addr": "615, Gallatin Avenue, Nashville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 36.1449459,
+              "lon": -86.8740183,
+              "distance_km": 8.53,
+              "addr": "405, American Road, Nashville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 36.0902955,
+              "lon": -86.7323311,
+              "distance_km": 9.19,
+              "addr": "3758, Nolensville Pike, Nashville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 36.2616055,
+              "lon": -86.7114622,
+              "distance_km": 12.67,
+              "addr": "135, South Gallatin Pike, Madison"
+            },
+            {
+              "name": "ALDI",
+              "lat": 36.0881524,
+              "lon": -86.6508554,
+              "distance_km": 14.37,
+              "addr": "1911, Ransom Place, Nashville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 36.0749951,
+              "lon": -86.9176196,
+              "distance_km": 15.63,
+              "addr": "7035, Highway 70 South, Nashville"
+            },
+            {
+              "name": "Aldi",
+              "lat": 36.2142985,
+              "lon": -86.5917729,
+              "distance_km": 17.98,
+              "addr": "4751, Lebanon Pike, Hermitage"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.9962431,
+              "lon": -86.6863077,
+              "distance_km": 20.39,
+              "addr": "7117, Southpoint Parkway, Brentwood"
+            },
+            {
+              "name": "ALDI",
+              "lat": 35.966054,
+              "lon": -86.8148988,
+              "distance_km": 22.07,
+              "addr": "1701, Mallory Lane, Brentwood"
+            },
+            {
+              "name": "Aldi",
+              "lat": 36.3216451,
+              "lon": -86.6016286,
+              "distance_km": 23.93,
+              "addr": "218, Indian Lake Boulevard, Hendersonville"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 3,
+          "closest_km": 7.09,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 36.1051798,
+              "lon": -86.8156551,
+              "distance_km": 7.09,
+              "addr": "3909, Hillsboro Pike, Nashville"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 36.1308,
+              "lon": -86.852243,
+              "distance_km": 7.27,
+              "addr": "90, White Bridge Road, Nashville"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 35.9493405,
+              "lon": -86.8218142,
+              "distance_km": 24.0,
+              "addr": "545, Cool Springs Boulevard, Franklin"
+            }
+          ]
+        }
+      }
+    },
+    "Louisville": {
+      "center": [
+        38.2527,
+        -85.7585
+      ],
+      "brands": {
+        "Costco": {
+          "count": 2,
+          "closest_km": 9.54,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 38.2033244,
+              "lon": -85.6691563,
+              "distance_km": 9.54,
+              "addr": "3408, Bardstown Road, Louisville"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.3168075,
+              "lon": -85.5729847,
+              "distance_km": 17.69,
+              "addr": "5020, Norton Healthcare Boulevard, Louisville"
+            }
+          ]
+        },
+        "Target": {
+          "count": 8,
+          "closest_km": 8.37,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 38.3278145,
+              "lon": -85.7650411,
+              "distance_km": 8.37,
+              "addr": "1125, Veterans Parkway, Clarksville"
+            },
+            {
+              "name": "Target",
+              "lat": 38.3049472,
+              "lon": -85.8418191,
+              "distance_km": 9.31,
+              "addr": "2209, State Street, New Albany"
+            },
+            {
+              "name": "Target",
+              "lat": 38.198341,
+              "lon": -85.6712102,
+              "distance_km": 9.73,
+              "addr": "3600, Mall Road, West Buechel"
+            },
+            {
+              "name": "Target",
+              "lat": 38.2581215,
+              "lon": -85.6426694,
+              "distance_km": 10.13,
+              "addr": "4174, Westport Road, Louisville"
+            },
+            {
+              "name": "Target",
+              "lat": 38.1461264,
+              "lon": -85.6731098,
+              "distance_km": 14.0,
+              "addr": "7311, Jefferson Boulevard, Louisville"
+            },
+            {
+              "name": "Target",
+              "lat": 38.2152157,
+              "lon": -85.5951839,
+              "distance_km": 14.86,
+              "addr": "4640, Taylorsville Road, Jeffersontown"
+            },
+            {
+              "name": "Target",
+              "lat": 38.2972793,
+              "lon": -85.5577214,
+              "distance_km": 18.21,
+              "addr": "4101, Towne Center Drive, Louisville"
+            },
+            {
+              "name": "Target",
+              "lat": 38.2465347,
+              "lon": -85.5148242,
+              "distance_km": 21.29,
+              "addr": "12975, Shelbyville Road, Louisville"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 8,
+          "closest_km": 6.87,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 38.19488,
+              "lon": -85.7309305,
+              "distance_km": 6.87,
+              "addr": "3442, Preston Highway, Louisville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.3270462,
+              "lon": -85.7129226,
+              "distance_km": 9.17,
+              "addr": ""
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.324388,
+              "lon": -85.8186003,
+              "distance_km": 9.54,
+              "addr": "3118, Grant Line Road, New Albany"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.1670544,
+              "lon": -85.8282316,
+              "distance_km": 11.31,
+              "addr": "5109, Dixie Highway, Louisville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.1875354,
+              "lon": -85.6367091,
+              "distance_km": 12.87,
+              "addr": "4301, Bardstown Road, Louisville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.1397453,
+              "lon": -85.6654678,
+              "distance_km": 14.96,
+              "addr": "4901, Outer Loop, Louisville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.2357945,
+              "lon": -85.5757619,
+              "distance_km": 16.07,
+              "addr": "825, South Hurstbourne Parkway, Louisville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.295282,
+              "lon": -85.554041,
+              "distance_km": 18.47,
+              "addr": "10620, Westport Road, Louisville"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 11.09,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 38.2501053,
+              "lon": -85.6315119,
+              "distance_km": 11.09,
+              "addr": "4400, Shelbyville Road, Louisville"
+            },
+            {
+              "name": "Trader Joe's Wine Store",
+              "lat": 38.2500516,
+              "lon": -85.6312402,
+              "distance_km": 11.12,
+              "addr": "4600, Shelbyville Road, Louisville"
+            }
+          ]
+        }
+      }
+    },
+    "St. Louis": {
+      "center": [
+        38.627,
+        -90.1994
+      ],
+      "brands": {
+        "Costco": {
+          "count": 7,
+          "closest_km": 14.6,
+          "stores": [
+            {
+              "name": "Costco Business Center",
+              "lat": 38.7048783,
+              "lon": -90.3347474,
+              "distance_km": 14.6,
+              "addr": "8421, Saint John Industrial Lane, Saint Louis"
+            },
+            {
+              "name": "Costco Optical",
+              "lat": 38.6766064,
+              "lon": -90.3588722,
+              "distance_km": 14.91,
+              "addr": "8685, Olive Boulevard, Saint Louis"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.6764648,
+              "lon": -90.359105,
+              "distance_km": 14.92,
+              "addr": "8685, Olive Boulevard, Saint Louis"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 38.6761556,
+              "lon": -90.3594091,
+              "distance_km": 14.93,
+              "addr": "8685, Olive Boulevard, Saint Louis"
+            },
+            {
+              "name": "Costco Hearing Aid Center",
+              "lat": 38.6765967,
+              "lon": -90.3594003,
+              "distance_km": 14.95,
+              "addr": "8685, Olive Boulevard, Saint Louis"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.5088007,
+              "lon": -90.3383126,
+              "distance_km": 17.85,
+              "addr": "4200, Rusty Road, Saint Louis"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.5977336,
+              "lon": -90.5074915,
+              "distance_km": 26.97,
+              "addr": "301, Highlands Boulevard Drive, Manchester"
+            }
+          ]
+        },
+        "Target": {
+          "count": 17,
+          "closest_km": 3.16,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 38.627237,
+              "lon": -90.2357231,
+              "distance_km": 3.16,
+              "addr": "900, South Grand Boulevard, Saint Louis"
+            },
+            {
+              "name": "Target",
+              "lat": 38.5927032,
+              "lon": -90.2956558,
+              "distance_km": 9.19,
+              "addr": "4255, Hampton Avenue, Saint Louis"
+            },
+            {
+              "name": "Target",
+              "lat": 38.6278974,
+              "lon": -90.3435371,
+              "distance_km": 12.52,
+              "addr": "25, Brentwood Promenade Court, Brentwood"
+            },
+            {
+              "name": "Target",
+              "lat": 38.6762504,
+              "lon": -90.3576358,
+              "distance_km": 14.79,
+              "addr": "8645, Olive Boulevard"
+            },
+            {
+              "name": "Target",
+              "lat": 38.5062312,
+              "lon": -90.3397543,
+              "distance_km": 18.14,
+              "addr": "4250, Rusty Road, Saint Louis"
+            },
+            {
+              "name": "Target",
+              "lat": 38.5261097,
+              "lon": -90.0318683,
+              "distance_km": 18.38,
+              "addr": "5601, Belleville Crossing Street, Belleville"
+            },
+            {
+              "name": "Target",
+              "lat": 38.565076,
+              "lon": -90.4041915,
+              "distance_km": 19.08,
+              "addr": "1042, South Kirkwood Road, Kirkwood"
+            },
+            {
+              "name": "Target",
+              "lat": 38.5725444,
+              "lon": -89.9873625,
+              "distance_km": 19.4,
+              "addr": "4701, North Illinois Street, Fairview Heights"
+            },
+            {
+              "name": "Target",
+              "lat": 38.8057806,
+              "lon": -90.3102348,
+              "distance_km": 22.08,
+              "addr": "2341, North Highway 67, Florissant"
+            },
+            {
+              "name": "Target",
+              "lat": 38.7537815,
+              "lon": -90.425554,
+              "distance_km": 24.17,
+              "addr": "12275, Saint Charles Rock Road, Bridgeton"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 34,
+          "closest_km": 4.09,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 38.6608196,
+              "lon": -90.2180149,
+              "distance_km": 4.09,
+              "addr": "3616, Natural Bridge, Saint Louis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 38.5931852,
+              "lon": -90.2508861,
+              "distance_km": 5.84,
+              "addr": "3865, Gravois Avenue, St. Louis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 38.6522315,
+              "lon": -90.2619301,
+              "distance_km": 6.11,
+              "addr": "702, North Kingshighway Boulevard, Saint Louis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.5601321,
+              "lon": -90.1714679,
+              "distance_km": 7.82,
+              "addr": "1233, Camp Jackson Road, Cahokia"
+            },
+            {
+              "name": "Aldi",
+              "lat": 38.5729439,
+              "lon": -90.2826126,
+              "distance_km": 9.4,
+              "addr": "6601, Gravois Avenue, Saint Louis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.613548,
+              "lon": -90.327491,
+              "distance_km": 11.23,
+              "addr": "7725, Manchester Road, Maplewood"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.5813498,
+              "lon": -90.3250333,
+              "distance_km": 12.04,
+              "addr": ""
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.5348902,
+              "lon": -90.2871574,
+              "distance_km": 12.77,
+              "addr": "1033, Lemay Ferry, Saint Louis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 38.7278665,
+              "lon": -90.2723138,
+              "distance_km": 12.88,
+              "addr": "8445, Lucas And Hunt Road, Jennings"
+            },
+            {
+              "name": "Aldi",
+              "lat": 38.6730532,
+              "lon": -90.3369196,
+              "distance_km": 12.99,
+              "addr": "7701, Olive Boulevard, University City"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 4,
+          "closest_km": 12.32,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 38.627406,
+              "lon": -90.3412685,
+              "distance_km": 12.32,
+              "addr": "48, Brentwood Promenade Court, Brentwood"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 38.671909,
+              "lon": -90.4364479,
+              "distance_km": 21.18,
+              "addr": "11505, Olive Boulevard, Creve Coeur"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 38.6010824,
+              "lon": -90.4671313,
+              "distance_km": 23.44,
+              "addr": "13343, Manchester Road"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 38.6447854,
+              "lon": -90.5666593,
+              "distance_km": 31.96,
+              "addr": "1679, Clarkson Road, Chesterfield"
+            }
+          ]
+        }
+      }
+    },
+    "Kansas City": {
+      "center": [
+        39.0997,
+        -94.5786
+      ],
+      "brands": {
+        "Costco": {
+          "count": 7,
+          "closest_km": 3.54,
+          "stores": [
+            {
+              "name": "Costco Tire Center",
+              "lat": 39.067885,
+              "lon": -94.5812068,
+              "distance_km": 3.54,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 39.0676302,
+              "lon": -94.5805763,
+              "distance_km": 3.57,
+              "addr": "241, East Linwood Boulevard, Kansas City"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.2550144,
+              "lon": -94.5984725,
+              "distance_km": 17.35,
+              "addr": "1600, Northwest 88th Street, Kansas City"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.0366884,
+              "lon": -94.3575947,
+              "distance_km": 20.33,
+              "addr": "19040, E Valley View Parkway, Independence"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.9589135,
+              "lon": -94.7336349,
+              "distance_km": 20.6,
+              "addr": "9350, Marshall Drive, Lenexa"
+            },
+            {
+              "name": "Costco Gasoline",
+              "lat": 38.907947,
+              "lon": -94.6717743,
+              "distance_km": 22.79,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 38.9064412,
+              "lon": -94.6705352,
+              "distance_km": 22.91,
+              "addr": "12221, Blue Valley Parkway, Overland Park"
+            }
+          ]
+        },
+        "Target": {
+          "count": 18,
+          "closest_km": 9.2,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 39.1743,
+              "lon": -94.5324767,
+              "distance_km": 9.2,
+              "addr": "4375, Chouteau Trafficway Trail, Kansas City"
+            },
+            {
+              "name": "Target",
+              "lat": 39.0179381,
+              "lon": -94.6646572,
+              "distance_km": 11.74,
+              "addr": "6100, Broadmoor Street, Mission"
+            },
+            {
+              "name": "Target",
+              "lat": 38.9722175,
+              "lon": -94.6073083,
+              "distance_km": 14.39,
+              "addr": "8509, State Line Road, Kansas City"
+            },
+            {
+              "name": "Target",
+              "lat": 39.2488005,
+              "lon": -94.5958702,
+              "distance_km": 16.65,
+              "addr": "8420, North Madison Avenue, Kansas City"
+            },
+            {
+              "name": "Target",
+              "lat": 39.2575185,
+              "lon": -94.6553765,
+              "distance_km": 18.75,
+              "addr": "9040, Northwest Skyview Avenue, Kansas City"
+            },
+            {
+              "name": "Target",
+              "lat": 39.0511995,
+              "lon": -94.3695453,
+              "distance_km": 18.83,
+              "addr": "17810, East 39th Street South, Independence"
+            },
+            {
+              "name": "Target",
+              "lat": 39.0106662,
+              "lon": -94.7679944,
+              "distance_km": 19.12,
+              "addr": "15700, Shawnee Mission Parkway, Shawnee"
+            },
+            {
+              "name": "Target",
+              "lat": 39.2478555,
+              "lon": -94.4638352,
+              "distance_km": 19.22,
+              "addr": "9220, Northeast Barry Road, Kansas City"
+            },
+            {
+              "name": "Target",
+              "lat": 38.950658,
+              "lon": -94.7196409,
+              "distance_km": 20.57,
+              "addr": "11501, West 97th Street, Overland Park"
+            },
+            {
+              "name": "Target",
+              "lat": 39.1276913,
+              "lon": -94.8313457,
+              "distance_km": 22.03,
+              "addr": "10900, Stadium Parkway, Kansas City"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 27,
+          "closest_km": 1.43,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 39.1043486,
+              "lon": -94.5631111,
+              "distance_km": 1.43,
+              "addr": "721, The Paseo, Kansas City"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.0562983,
+              "lon": -94.5542204,
+              "distance_km": 5.26,
+              "addr": "3830, Prospect Avenue, Kansas City"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.1054183,
+              "lon": -94.5078177,
+              "distance_km": 6.14,
+              "addr": "6300, Independence Avenue, Kansas City"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.0405238,
+              "lon": -94.6389511,
+              "distance_km": 8.39,
+              "addr": "4801, Roe Lane, Roeland Park"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.1841851,
+              "lon": -94.5743427,
+              "distance_km": 9.4,
+              "addr": ""
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.1158755,
+              "lon": -94.6898588,
+              "distance_km": 9.77,
+              "addr": "4805, State Avenue, Kansas City"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.0103214,
+              "lon": -94.5736928,
+              "distance_km": 9.95,
+              "addr": "6415, Troost, Kansas City"
+            },
+            {
+              "name": "Aldi",
+              "lat": 38.9914214,
+              "lon": -94.592621,
+              "distance_km": 12.1,
+              "addr": "7511, Wornall Road, Kansas City"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.2322762,
+              "lon": -94.5776111,
+              "distance_km": 14.74,
+              "addr": "7604, North Oak Trafficway, Gladstone"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.0772747,
+              "lon": -94.3881165,
+              "distance_km": 16.63,
+              "addr": "16007, East 23rd Street, Independence"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 14.48,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 38.9712607,
+              "lon": -94.6062882,
+              "distance_km": 14.48,
+              "addr": "8600, Ward Parkway, Kansas City"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 38.9124389,
+              "lon": -94.6359163,
+              "distance_km": 21.4,
+              "addr": "4201, West 119th Street, Leawood"
+            }
+          ]
+        }
+      }
+    },
+    "Indianapolis": {
+      "center": [
+        39.7684,
+        -86.1581
+      ],
+      "brands": {
+        "Costco": {
+          "count": 6,
+          "closest_km": 15.58,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 39.638577,
+              "lon": -86.0895716,
+              "distance_km": 15.58,
+              "addr": "4628, East County Line Road, Indianapolis"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.9173543,
+              "lon": -86.2279686,
+              "distance_km": 17.6,
+              "addr": "9010, Michigan Road, Indianapolis"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.7663067,
+              "lon": -86.3657716,
+              "distance_km": 17.75,
+              "addr": "8816, Drive Charles Nelson Drive, Avon"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.9142003,
+              "lon": -86.0616389,
+              "distance_km": 18.18,
+              "addr": "6110, East 86th Street, Indianapolis"
+            },
+            {
+              "name": "Costco",
+              "lat": 40.0037064,
+              "lon": -86.0025736,
+              "distance_km": 29.34,
+              "addr": "14775, N Pointe Boulevard, Noblesville"
+            },
+            {
+              "name": "Costco",
+              "lat": 40.0038919,
+              "lon": -86.002628,
+              "distance_km": 29.35,
+              "addr": "14775, N Pointe Boulevard, Noblesville"
+            }
+          ]
+        },
+        "Target": {
+          "count": 11,
+          "closest_km": 11.35,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 39.8661651,
+              "lon": -86.1199467,
+              "distance_km": 11.35,
+              "addr": "6101, North Keystone Avenue, Indianapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 39.8212707,
+              "lon": -86.2793422,
+              "distance_km": 11.91,
+              "addr": "6925, West 38th Street, Indianapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 39.6683106,
+              "lon": -86.0845809,
+              "distance_km": 12.78,
+              "addr": "4850, East Southport Road, Indianapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7770385,
+              "lon": -85.9858205,
+              "distance_km": 14.75,
+              "addr": "10202, East Washington Street, Indianapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7603819,
+              "lon": -86.3423294,
+              "distance_km": 15.77,
+              "addr": "10209, East US Highway 36, Avon"
+            },
+            {
+              "name": "Target",
+              "lat": 39.9154164,
+              "lon": -86.1391499,
+              "distance_km": 16.43,
+              "addr": "1300, East 86th Street, Indianapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7162458,
+              "lon": -86.3552667,
+              "distance_km": 17.83,
+              "addr": "2673, East Main Street, Plainfield"
+            },
+            {
+              "name": "Target",
+              "lat": 39.6033202,
+              "lon": -86.1570066,
+              "distance_km": 18.36,
+              "addr": "895, South State Road 135, Greenwood"
+            },
+            {
+              "name": "Target",
+              "lat": 39.9366053,
+              "lon": -86.2320637,
+              "distance_km": 19.74,
+              "addr": "10401, North Michigan Road, Carmel"
+            },
+            {
+              "name": "Target",
+              "lat": 39.9597182,
+              "lon": -86.0098525,
+              "distance_km": 24.75,
+              "addr": "11750, Commercial Drive, Fishers"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 20,
+          "closest_km": 5.08,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 39.7231991,
+              "lon": -86.1495723,
+              "distance_km": 5.08,
+              "addr": "2955, Madison Avenue, Indianapolis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.7589013,
+              "lon": -86.2279051,
+              "distance_km": 6.06,
+              "addr": "3859, West Washington Street, Indianapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.7707676,
+              "lon": -86.0520694,
+              "distance_km": 9.07,
+              "addr": "6691, East Washington Street, Indianapolis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.8486794,
+              "lon": -86.1210632,
+              "distance_km": 9.47,
+              "addr": "5235, North Keystone Avenue, Indianapolis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.8018712,
+              "lon": -86.2727098,
+              "distance_km": 10.48,
+              "addr": "2502, Founders Square Drive, Speedway"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.6677299,
+              "lon": -86.0805302,
+              "distance_km": 13.01,
+              "addr": "6835, South Emerson Avenue, Indianapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.7730163,
+              "lon": -85.9908055,
+              "distance_km": 14.31,
+              "addr": "9989, East Washington Street, Indianapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.9140956,
+              "lon": -86.135663,
+              "distance_km": 16.31,
+              "addr": "1440, East 86th Street, Indianapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.9072381,
+              "lon": -86.2220443,
+              "distance_km": 16.38,
+              "addr": "8404, Michigan Road, Indianapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.9039171,
+              "lon": -86.0825349,
+              "distance_km": 16.39,
+              "addr": "5151, East 82nd Street, Indianapolis"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 16.63,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 39.9037659,
+              "lon": -86.0751612,
+              "distance_km": 16.63,
+              "addr": "5473, East 82nd Street, Indianapolis"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 39.912493,
+              "lon": -86.212464,
+              "distance_km": 16.68,
+              "addr": "2902, West 86th Street, Indianapolis"
+            }
+          ]
+        }
+      }
+    },
+    "Columbus": {
+      "center": [
+        39.9612,
+        -82.9988
+      ],
+      "brands": {
+        "Costco": {
+          "count": 4,
+          "closest_km": 12.98,
+          "stores": [
+            {
+              "name": "Costco Tire Center",
+              "lat": 40.0534886,
+              "lon": -82.9054608,
+              "distance_km": 12.98,
+              "addr": "3888, Stelzer Rd, Columbus"
+            },
+            {
+              "name": "Costco",
+              "lat": 40.0534654,
+              "lon": -82.9047264,
+              "distance_km": 13.02,
+              "addr": "3888, Stelzer Avenue, Columbus"
+            },
+            {
+              "name": "Costco",
+              "lat": 40.1509212,
+              "lon": -82.9774554,
+              "distance_km": 21.17,
+              "addr": "1500, Gemini Place, Columbus"
+            },
+            {
+              "name": "Costco",
+              "lat": 40.1105091,
+              "lon": -83.189798,
+              "distance_km": 23.24,
+              "addr": "7300, State Route 161 East, Plain City"
+            }
+          ]
+        },
+        "Target": {
+          "count": 14,
+          "closest_km": 4.38,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 39.9938288,
+              "lon": -83.0275625,
+              "distance_km": 4.38,
+              "addr": "1717, Olentangy River Road, Columbus"
+            },
+            {
+              "name": "Target",
+              "lat": 40.0009866,
+              "lon": -83.0080147,
+              "distance_km": 4.49,
+              "addr": "1892, North High Street, Columbus"
+            },
+            {
+              "name": "Target",
+              "lat": 39.9708716,
+              "lon": -82.8952705,
+              "distance_km": 8.89,
+              "addr": "3955, East Broad Street, Whitehall"
+            },
+            {
+              "name": "Target",
+              "lat": 39.8768802,
+              "lon": -83.0366936,
+              "distance_km": 9.92,
+              "addr": "4144, Buckeye Parkway, Grove City"
+            },
+            {
+              "name": "Target",
+              "lat": 40.0649574,
+              "lon": -83.0212667,
+              "distance_km": 11.69,
+              "addr": "55, Graceland Boulevard, Columbus"
+            },
+            {
+              "name": "Target",
+              "lat": 40.0566728,
+              "lon": -82.9213558,
+              "distance_km": 12.5,
+              "addr": "4199, Morse Crossing, Columbus"
+            },
+            {
+              "name": "Target",
+              "lat": 39.9912013,
+              "lon": -83.1488284,
+              "distance_km": 13.21,
+              "addr": "1970, Hilliard-Rome Road, Hilliard"
+            },
+            {
+              "name": "Target",
+              "lat": 40.0384022,
+              "lon": -83.1239098,
+              "distance_km": 13.68,
+              "addr": "4211, Trueman Boulevard, Hilliard"
+            },
+            {
+              "name": "Target",
+              "lat": 40.0897941,
+              "lon": -83.0893233,
+              "distance_km": 16.24,
+              "addr": "6000, Sawmill Road, Dublin"
+            },
+            {
+              "name": "Target",
+              "lat": 39.933999,
+              "lon": -82.793308,
+              "distance_km": 17.78,
+              "addr": "2437, Taylor Park, Reynoldsburg"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 24,
+          "closest_km": 3.48,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 39.9454742,
+              "lon": -83.0341001,
+              "distance_km": 3.48,
+              "addr": "1331, West Mound Street, Columbus"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.987783,
+              "lon": -83.0297387,
+              "distance_km": 3.96,
+              "addr": ""
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.0127144,
+              "lon": -82.9954754,
+              "distance_km": 5.74,
+              "addr": "2395, Silver Drive, Columbus"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.8871917,
+              "lon": -82.9966159,
+              "distance_km": 8.23,
+              "addr": "3600, South High Street, Columbus"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.0236471,
+              "lon": -83.057822,
+              "distance_km": 8.57,
+              "addr": "3280, Tremont Road, Upper Arlington"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.9554331,
+              "lon": -82.896373,
+              "distance_km": 8.75,
+              "addr": "3831, East Main Street, Whitehall"
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.8802264,
+              "lon": -83.0566015,
+              "distance_km": 10.26,
+              "addr": ""
+            },
+            {
+              "name": "ALDI",
+              "lat": 39.8799865,
+              "lon": -83.0674427,
+              "distance_km": 10.76,
+              "addr": "2398, Stringtown Road, Grove City"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.0609453,
+              "lon": -82.9577447,
+              "distance_km": 11.63,
+              "addr": "2296, Morse Road, Columbus"
+            },
+            {
+              "name": "Aldi",
+              "lat": 39.8942254,
+              "lon": -82.8835554,
+              "distance_km": 12.33,
+              "addr": "3945, South Hamilton Road, Groveport"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 11.97,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 40.0493338,
+              "lon": -82.9180248,
+              "distance_km": 11.97,
+              "addr": "3888, Townsfair Way, Columbus"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 40.0965062,
+              "lon": -83.0928799,
+              "distance_km": 17.04,
+              "addr": "6355, Sawmill Road, Dublin"
+            }
+          ]
+        }
+      }
+    },
+    "Cincinnati": {
+      "center": [
+        39.1031,
+        -84.512
+      ],
+      "brands": {
+        "Costco": {
+          "error": "HTTP Error 504: Gateway Timeout",
+          "count": 0,
+          "stores": [],
+          "closest_km": null
+        },
+        "Target": {
+          "error": "HTTP Error 504: Gateway Timeout",
+          "count": 0,
+          "stores": [],
+          "closest_km": null
+        },
+        "Aldi": {
+          "error": "HTTP Error 504: Gateway Timeout",
+          "count": 0,
+          "stores": [],
+          "closest_km": null
+        },
+        "Trader Joes": {
+          "error": "HTTP Error 504: Gateway Timeout",
+          "count": 0,
+          "stores": [],
+          "closest_km": null
+        }
+      }
+    },
+    "Pittsburgh": {
+      "center": [
+        40.4406,
+        -79.9959
+      ],
+      "brands": {
+        "Costco": {
+          "count": 5,
+          "closest_km": 7.53,
+          "stores": [
+            {
+              "name": "Costco Hearing Aid Center",
+              "lat": 40.4026861,
+              "lon": -79.9221473,
+              "distance_km": 7.53,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 40.402695,
+              "lon": -79.9217759,
+              "distance_km": 7.56,
+              "addr": "501, Waterfront Drive West, Homestead"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 40.4030346,
+              "lon": -79.9212622,
+              "distance_km": 7.57,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 40.4594524,
+              "lon": -80.1650765,
+              "distance_km": 14.47,
+              "addr": "202, Costco Drive, Pittsburgh"
+            },
+            {
+              "name": "Costco",
+              "lat": 40.6916495,
+              "lon": -80.1075567,
+              "distance_km": 29.47,
+              "addr": "1050, Cranberry Square Drive, Cranberry Township"
+            }
+          ]
+        },
+        "Target": {
+          "count": 15,
+          "closest_km": 0.24,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 40.4398759,
+              "lon": -79.9985603,
+              "distance_km": 0.24,
+              "addr": "482, Smithfield Street, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.4608951,
+              "lon": -79.921332,
+              "distance_km": 6.7,
+              "addr": "6231, Penn Avenue, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.4105044,
+              "lon": -79.9100267,
+              "distance_km": 8.0,
+              "addr": "360, Waterfront Drive East, Homestead"
+            },
+            {
+              "name": "Target",
+              "lat": 40.5261936,
+              "lon": -80.0080687,
+              "distance_km": 9.57,
+              "addr": "4801, McKnight Road, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.3481734,
+              "lon": -79.9539202,
+              "distance_km": 10.87,
+              "addr": "1717, Lebanon Church Road, West Mifflin"
+            },
+            {
+              "name": "Target",
+              "lat": 40.3438586,
+              "lon": -80.0572723,
+              "distance_km": 11.95,
+              "addr": "201, South Hills Village, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.5356953,
+              "lon": -80.068556,
+              "distance_km": 12.23,
+              "addr": "288, Mount Nebo Pointe Road, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.446309,
+              "lon": -80.1835696,
+              "distance_km": 15.89,
+              "addr": "600, Chauvet Drive, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.5848673,
+              "lon": -80.0406699,
+              "distance_km": 16.48,
+              "addr": "105, Blazier Drive, Pittsburgh"
+            },
+            {
+              "name": "Target",
+              "lat": 40.53838,
+              "lon": -79.836539,
+              "distance_km": 17.32,
+              "addr": "2661, Freeport Road, Pittsburgh"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 36,
+          "closest_km": 2.84,
+          "stores": [
+            {
+              "name": "Aldi",
+              "lat": 40.4269203,
+              "lon": -79.9675214,
+              "distance_km": 2.84,
+              "addr": "2628, East Carson Street, Pittsburgh"
+            },
+            {
+              "name": "Aldi",
+              "lat": 40.4058773,
+              "lon": -80.0357912,
+              "distance_km": 5.13,
+              "addr": "2515, Banksville Road, Pittsburgh"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.4641884,
+              "lon": -79.93934,
+              "distance_km": 5.46,
+              "addr": "5200, Penn Avenue, Pittsburgh"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.4582008,
+              "lon": -79.9348865,
+              "distance_km": 5.52,
+              "addr": "5631, Baum Boulevard, Pittsburgh"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.4655729,
+              "lon": -80.055767,
+              "distance_km": 5.78,
+              "addr": "114, Mckees Rocks Plaza, McKees Rocks"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.4833944,
+              "lon": -79.9484499,
+              "distance_km": 6.23,
+              "addr": "450, 56th Street, Pittsburgh"
+            },
+            {
+              "name": "Aldi",
+              "lat": 40.383779,
+              "lon": -80.0141845,
+              "distance_km": 6.51,
+              "addr": "3089, Sussex Avenue, Pittsburgh"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.4071627,
+              "lon": -79.9124012,
+              "distance_km": 7.99,
+              "addr": "127, East 7th Avenue, Homestead"
+            },
+            {
+              "name": "Aldi",
+              "lat": 40.3976297,
+              "lon": -80.0855701,
+              "distance_km": 8.97,
+              "addr": "1160, Washington Avenue, Carnegie"
+            },
+            {
+              "name": "ALDI",
+              "lat": 40.5114293,
+              "lon": -79.9447171,
+              "distance_km": 8.99,
+              "addr": "880, Butler Street, Pittsburgh"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 3,
+          "closest_km": 6.81,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 40.4592061,
+              "lon": -79.9192545,
+              "distance_km": 6.81,
+              "addr": "6343, Penn Avenue, Pittsburgh"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 40.3515402,
+              "lon": -80.0517007,
+              "distance_km": 10.97,
+              "addr": "1630, Washington Road, Pittsburgh"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 40.5704614,
+              "lon": -80.0222573,
+              "distance_km": 14.61,
+              "addr": "9020, Covenant Avenue, Pittsburgh"
+            }
+          ]
+        }
+      }
+    },
+    "Dallas": {
+      "center": [
+        32.7767,
+        -96.797
+      ],
+      "brands": {
+        "Costco": {
+          "count": 15,
+          "closest_km": 10.67,
+          "stores": [
+            {
+              "name": "Costco Business Center",
+              "lat": 32.8685865,
+              "lon": -96.7642695,
+              "distance_km": 10.67,
+              "addr": "8282, Park Lane, Dallas"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 32.9189634,
+              "lon": -96.7683996,
+              "distance_km": 16.04,
+              "addr": "8055, Churchill Way, Dallas"
+            },
+            {
+              "name": "Costco",
+              "lat": 32.6215048,
+              "lon": -96.9095396,
+              "distance_km": 20.22,
+              "addr": "250, West Highway 67, Duncanville"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 32.621045,
+              "lon": -96.9094886,
+              "distance_km": 20.26,
+              "addr": "250, West Highway 67, Duncanville"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 33.023771,
+              "lon": -96.8310731,
+              "distance_km": 27.66,
+              "addr": "1701, Dallas Parkway, Plano"
+            },
+            {
+              "name": "Costco",
+              "lat": 33.0243113,
+              "lon": -96.8311131,
+              "distance_km": 27.72,
+              "addr": "1701, Dallas Parkway, Plano"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 32.7699755,
+              "lon": -96.4856377,
+              "distance_km": 29.12,
+              "addr": "150, FM 460, Forney"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 32.9979285,
+              "lon": -96.964387,
+              "distance_km": 29.14,
+              "addr": "851, East State Highway 121, Lewisville"
+            },
+            {
+              "name": "Costco",
+              "lat": 32.99844,
+              "lon": -96.9640596,
+              "distance_km": 29.18,
+              "addr": "851, East State Highway 121, Lewisville"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 33.0443957,
+              "lon": -96.6990879,
+              "distance_km": 31.14,
+              "addr": "3800, Central Expressway, Plano"
+            }
+          ]
+        },
+        "Target": {
+          "count": 29,
+          "closest_km": 3.05,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 32.803779,
+              "lon": -96.7915452,
+              "distance_km": 3.05,
+              "addr": "2417, North Haskell Avenue, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.722274,
+              "lon": -96.8328902,
+              "distance_km": 6.92,
+              "addr": ""
+            },
+            {
+              "name": "Target",
+              "lat": 32.8645677,
+              "lon": -96.8067804,
+              "distance_km": 9.81,
+              "addr": "8335, Westchester Drive, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.8567425,
+              "lon": -96.7524515,
+              "distance_km": 9.83,
+              "addr": "6464, East Northwest Highway, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.86233,
+              "lon": -96.8538512,
+              "distance_km": 10.9,
+              "addr": "9440, Marsh Lane, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.8657634,
+              "lon": -96.7457562,
+              "distance_km": 11.0,
+              "addr": "6419, Skillman Street, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.6500872,
+              "lon": -96.8623593,
+              "distance_km": 15.35,
+              "addr": "39739, Lyndon B Johnson Freeway, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.9282727,
+              "lon": -96.8135537,
+              "distance_km": 16.92,
+              "addr": "13131, Montfort Drive, Dallas"
+            },
+            {
+              "name": "Target",
+              "lat": 32.8139708,
+              "lon": -96.6212771,
+              "distance_km": 16.94,
+              "addr": "1629, North Town East Boulevard, Mesquite"
+            },
+            {
+              "name": "Target",
+              "lat": 32.8396609,
+              "lon": -96.9905902,
+              "distance_km": 19.4,
+              "addr": "3333, West Airport Freeway, Irving"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 32,
+          "closest_km": 2.81,
+          "stores": [
+            {
+              "name": "Aldi",
+              "lat": 32.7943603,
+              "lon": -96.7754471,
+              "distance_km": 2.81,
+              "addr": "4120, Gaston Avenue, Dallas"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.759381,
+              "lon": -96.8636682,
+              "distance_km": 6.52,
+              "addr": "2505, Fort Worth Avenue, Dallas"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.7190795,
+              "lon": -96.858104,
+              "distance_km": 8.59,
+              "addr": "2440, West Illinois Avenue, Dallas"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.8560118,
+              "lon": -96.7497186,
+              "distance_km": 9.86,
+              "addr": "5828, Abrams Road, Dallas"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.7617704,
+              "lon": -96.681217,
+              "distance_km": 10.95,
+              "addr": "2926, South Buckner Boulevard, Dallas"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.8115846,
+              "lon": -96.9355354,
+              "distance_km": 13.52,
+              "addr": "912, East Irving Boulevard, Irving"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.6491176,
+              "lon": -96.8587746,
+              "distance_km": 15.32,
+              "addr": "8034, Chrysalis Drive, Dallas"
+            },
+            {
+              "name": "Aldi",
+              "lat": 32.8133414,
+              "lon": -96.6366724,
+              "distance_km": 15.53,
+              "addr": "3635, Gus Thomasson Road, Mesquite"
+            },
+            {
+              "name": "ALDI",
+              "lat": 32.9085745,
+              "lon": -96.8703644,
+              "distance_km": 16.19,
+              "addr": "3128, Forest Lane, Dallas"
+            },
+            {
+              "name": "Aldi",
+              "lat": 32.8647983,
+              "lon": -96.6519508,
+              "distance_km": 16.72,
+              "addr": "1601, Nortwest Highway, Garland"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 7,
+          "closest_km": 4.91,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 32.8148824,
+              "lon": -96.7705469,
+              "distance_km": 4.91,
+              "addr": "2001, Greenville Avenue, Dallas"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 32.8219483,
+              "lon": -96.7898919,
+              "distance_km": 5.08,
+              "addr": "4525, Cole Avenue, Dallas"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 32.8506192,
+              "lon": -96.8182348,
+              "distance_km": 8.46,
+              "addr": "5550, West Lovers Lane, Dallas"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 32.8805643,
+              "lon": -96.7723268,
+              "distance_km": 11.78,
+              "addr": "7939, Walnut Hill Lane, Dallas"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 32.9508112,
+              "lon": -96.8021324,
+              "distance_km": 19.37,
+              "addr": "14856, Preston Road, Dallas"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 32.9685154,
+              "lon": -96.9922646,
+              "distance_km": 28.06,
+              "addr": "120, South Denton Tap Road, Coppell"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 33.0293549,
+              "lon": -96.7928208,
+              "distance_km": 28.1,
+              "addr": "2400, Preston Road, Plano"
+            }
+          ]
+        }
+      }
+    },
+    "Houston": {
+      "center": [
+        29.7604,
+        -95.3698
+      ],
+      "brands": {
+        "Costco": {
+          "count": 13,
+          "closest_km": 7.31,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 29.7341731,
+              "lon": -95.4392623,
+              "distance_km": 7.31,
+              "addr": "3836, Richmond Avenue, Houston"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 29.73402,
+              "lon": -95.4396735,
+              "distance_km": 7.36,
+              "addr": ""
+            },
+            {
+              "name": "Costco Gasoline",
+              "lat": 29.7883825,
+              "lon": -95.5283647,
+              "distance_km": 15.62,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 29.7879423,
+              "lon": -95.5302103,
+              "distance_km": 15.78,
+              "addr": "1150, Bunker Hill Road, Houston"
+            },
+            {
+              "name": "Costco",
+              "lat": 29.5444331,
+              "lon": -95.3909678,
+              "distance_km": 24.1,
+              "addr": "3500, Business Center Drive, Pearland"
+            },
+            {
+              "name": "Costco Hearing Aid Center",
+              "lat": 29.5440473,
+              "lon": -95.3913976,
+              "distance_km": 24.15,
+              "addr": ""
+            },
+            {
+              "name": "Costco Optical",
+              "lat": 29.5439173,
+              "lon": -95.3913366,
+              "distance_km": 24.16,
+              "addr": ""
+            },
+            {
+              "name": "Costco Business Center",
+              "lat": 29.6374336,
+              "lon": -95.5763411,
+              "distance_km": 24.19,
+              "addr": "12717, Network Drive, Stafford"
+            },
+            {
+              "name": "Costco",
+              "lat": 29.9546344,
+              "lon": -95.5481174,
+              "distance_km": 27.61,
+              "addr": "12405, North Gessner Drive, Houston"
+            },
+            {
+              "name": "Costco",
+              "lat": 30.022293,
+              "lon": -95.2670231,
+              "distance_km": 30.76,
+              "addr": "21802, Townsen Boulevard, Humble"
+            }
+          ]
+        },
+        "Target": {
+          "count": 25,
+          "closest_km": 2.16,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 29.7743548,
+              "lon": -95.3853979,
+              "distance_km": 2.16,
+              "addr": "2580, Shearn Street, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.7411161,
+              "lon": -95.4094765,
+              "distance_km": 4.39,
+              "addr": "2075, Westheimer Road, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.7446076,
+              "lon": -95.4531142,
+              "distance_km": 8.23,
+              "addr": "4323, San Felipe Street, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.6928168,
+              "lon": -95.419061,
+              "distance_km": 8.89,
+              "addr": "8500, Main Street, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.6870672,
+              "lon": -95.4621252,
+              "distance_km": 12.08,
+              "addr": "300, Meyerland Plaza Mall, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.7346086,
+              "lon": -95.5177456,
+              "distance_km": 14.57,
+              "addr": "8605, Westheimer Road, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.8493796,
+              "lon": -95.5020617,
+              "distance_km": 16.15,
+              "addr": "13250, Northwest Freeway, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.782725,
+              "lon": -95.5415089,
+              "distance_km": 16.76,
+              "addr": "984, Gessner Road, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.7350204,
+              "lon": -95.5678172,
+              "distance_km": 19.32,
+              "addr": "10801, Westheimer Road, Houston"
+            },
+            {
+              "name": "Target",
+              "lat": 29.6026242,
+              "lon": -95.264021,
+              "distance_km": 20.3,
+              "addr": "8503, South Sam Houston Parkway East, Houston"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 27,
+          "closest_km": 6.6,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 29.7013507,
+              "lon": -95.3633552,
+              "distance_km": 6.6,
+              "addr": "3618, Old Spanish Trail, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.8229583,
+              "lon": -95.4097761,
+              "distance_km": 7.95,
+              "addr": "3938, North Shepherd Drive, Houston"
+            },
+            {
+              "name": "Aldi",
+              "lat": 29.6894581,
+              "lon": -95.5015677,
+              "distance_km": 14.97,
+              "addr": "6751, Bissonnet Street, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.736257,
+              "lon": -95.5335557,
+              "distance_km": 16.04,
+              "addr": "9525, Westheimer Road, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.9144902,
+              "lon": -95.4096325,
+              "distance_km": 17.56,
+              "addr": "161, West Road, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.8180432,
+              "lon": -95.5447357,
+              "distance_km": 18.06,
+              "addr": "2550, Gessner Road, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.6267406,
+              "lon": -95.2370641,
+              "distance_km": 19.63,
+              "addr": "10064, Almeda-Genoa Road, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.9161057,
+              "lon": -95.4857646,
+              "distance_km": 20.61,
+              "addr": "13340, Tomball Parkway, Houston"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.6496433,
+              "lon": -95.179767,
+              "distance_km": 22.1,
+              "addr": "4140, Fairmont Parkway, Pasadena"
+            },
+            {
+              "name": "ALDI",
+              "lat": 29.5550285,
+              "lon": -95.3988174,
+              "distance_km": 23.01,
+              "addr": "11510, West Broadway Street, Pearland"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 4,
+          "closest_km": 4.64,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 29.7392004,
+              "lon": -95.4111693,
+              "distance_km": 4.64,
+              "addr": "2922, South Shepherd Drive, Houston"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 29.7527615,
+              "lon": -95.5016738,
+              "distance_km": 12.76,
+              "addr": "1440, South Voss Road, Houston"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 29.7353787,
+              "lon": -95.5824008,
+              "distance_km": 20.71,
+              "addr": "11683, Westheimer Road, Houston"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 29.5839358,
+              "lon": -95.6501194,
+              "distance_km": 33.44,
+              "addr": "13550, University Boulevard"
+            }
+          ]
+        }
+      }
+    },
+    "San Antonio": {
+      "center": [
+        29.4241,
+        -98.4936
+      ],
+      "brands": {
+        "Costco": {
+          "count": 7,
+          "closest_km": 19.72,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 29.5765553,
+              "lon": -98.5977956,
+              "distance_km": 19.72,
+              "addr": "5611, UTSA Boulevard, San Antonio"
+            },
+            {
+              "name": "Costco Liquor",
+              "lat": 29.6116455,
+              "lon": -98.4752066,
+              "distance_km": 20.93,
+              "addr": "1201, North Loop 1604 East, San Antonio"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 29.6120182,
+              "lon": -98.4747658,
+              "distance_km": 20.97,
+              "addr": "North Loop 1604 East"
+            },
+            {
+              "name": "Costco",
+              "lat": 29.6121741,
+              "lon": -98.4755244,
+              "distance_km": 20.99,
+              "addr": "1201, North Loop 1604 East, San Antonio"
+            },
+            {
+              "name": "Costco Optical",
+              "lat": 29.6124997,
+              "lon": -98.4750756,
+              "distance_km": 21.03,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 29.431916,
+              "lon": -98.7151896,
+              "distance_km": 21.48,
+              "addr": "191, West Loop 1604 South, San Antonio"
+            },
+            {
+              "name": "Costco",
+              "lat": 29.575918,
+              "lon": -98.3179855,
+              "distance_km": 23.95,
+              "addr": "15330, Ih-35 North, Selma"
+            }
+          ]
+        },
+        "Target": {
+          "count": 13,
+          "closest_km": 8.53,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 29.4893531,
+              "lon": -98.4471948,
+              "distance_km": 8.53,
+              "addr": "1223, Austin Highway, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.3555179,
+              "lon": -98.543019,
+              "distance_km": 9.0,
+              "addr": "2810, Southwest Military Drive, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.4942911,
+              "lon": -98.5508066,
+              "distance_km": 9.57,
+              "addr": "4522, Fredericksburg Road, Balcones Heights"
+            },
+            {
+              "name": "Target",
+              "lat": 29.3540558,
+              "lon": -98.4360547,
+              "distance_km": 9.58,
+              "addr": "3227, Southeast Military Drive, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.5166047,
+              "lon": -98.5050605,
+              "distance_km": 10.35,
+              "addr": "746, Northwest Loop 410, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.4390799,
+              "lon": -98.649636,
+              "distance_km": 15.2,
+              "addr": "8223, State Highway 151, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.5646282,
+              "lon": -98.4797718,
+              "distance_km": 15.68,
+              "addr": "13700, San Pedro Avenue, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.6118868,
+              "lon": -98.5107449,
+              "distance_km": 20.95,
+              "addr": "18255, Blanco Road, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.5475853,
+              "lon": -98.6632633,
+              "distance_km": 21.41,
+              "addr": "11311, Bandera Road, San Antonio"
+            },
+            {
+              "name": "Target",
+              "lat": 29.4931535,
+              "lon": -98.7102043,
+              "distance_km": 22.33,
+              "addr": "5355, West Loop 1604 North, San Antonio"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 8.21,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 29.496725,
+              "lon": -98.4780424,
+              "distance_km": 8.21,
+              "addr": "350, East Basse Road, San Antonio"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 29.6093079,
+              "lon": -98.4989999,
+              "distance_km": 20.6,
+              "addr": "403, North Loop 1604 West, San Antonio"
+            }
+          ]
+        }
+      }
+    },
+    "Austin": {
+      "center": [
+        30.2672,
+        -97.7431
+      ],
+      "brands": {
+        "Costco": {
+          "count": 9,
+          "closest_km": 10.94,
+          "stores": [
+            {
+              "name": "Costco Tire Center",
+              "lat": 30.2192612,
+              "lon": -97.8425366,
+              "distance_km": 10.94,
+              "addr": "4301, W William Cannon Drive, Austin"
+            },
+            {
+              "name": "Costco",
+              "lat": 30.2188036,
+              "lon": -97.8430196,
+              "distance_km": 11.0,
+              "addr": "4301, W William Cannon Drive, Austin"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 30.3963288,
+              "lon": -97.7442369,
+              "distance_km": 14.36,
+              "addr": "10401, Research Boulevard, Austin"
+            },
+            {
+              "name": "Costco",
+              "lat": 30.3966875,
+              "lon": -97.7432927,
+              "distance_km": 14.4,
+              "addr": ""
+            },
+            {
+              "name": "Costco Liquor Sales",
+              "lat": 30.3967196,
+              "lon": -97.7443806,
+              "distance_km": 14.4,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 30.3967765,
+              "lon": -97.7436035,
+              "distance_km": 14.41,
+              "addr": "10401, Research Boulevard, Austin"
+            },
+            {
+              "name": "Costco",
+              "lat": 30.4698963,
+              "lon": -97.5915455,
+              "distance_km": 26.82,
+              "addr": "1901, Kelly Lane, Pflugerville"
+            },
+            {
+              "name": "Costco",
+              "lat": 30.0314442,
+              "lon": -97.8510266,
+              "distance_km": 28.19,
+              "addr": "19086, South Interstate 35 Frontage Rd, Kyle"
+            },
+            {
+              "name": "Costco",
+              "lat": 30.5276589,
+              "lon": -97.8196325,
+              "distance_km": 29.88,
+              "addr": "4601, 183A Toll Road, Cedar Park"
+            }
+          ]
+        },
+        "Target": {
+          "count": 16,
+          "closest_km": 0.95,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 30.2642299,
+              "lon": -97.7338316,
+              "distance_km": 0.95,
+              "addr": "901, East 5th Street, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.2834154,
+              "lon": -97.7417398,
+              "distance_km": 1.81,
+              "addr": "2025, Guadalupe Street"
+            },
+            {
+              "name": "Target",
+              "lat": 30.2835691,
+              "lon": -97.741555,
+              "distance_km": 1.83,
+              "addr": "2025, Guadalupe Street, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.2333515,
+              "lon": -97.7915395,
+              "distance_km": 5.98,
+              "addr": "2300, West Ben White Boulevard, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.316378,
+              "lon": -97.706103,
+              "distance_km": 6.52,
+              "addr": "5621, North Interstate Highway 35 Service Road, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.2341097,
+              "lon": -97.8287735,
+              "distance_km": 9.01,
+              "addr": "5300, South MoPac Expressway, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.36277,
+              "lon": -97.7154231,
+              "distance_km": 10.95,
+              "addr": "8601, Research Boulevard, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.1629805,
+              "lon": -97.7940107,
+              "distance_km": 12.58,
+              "addr": "9500, Interstate 35 Frontage Road, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.3928171,
+              "lon": -97.7439441,
+              "distance_km": 13.97,
+              "addr": "10107, Research Boulevard, Austin"
+            },
+            {
+              "name": "Target",
+              "lat": 30.4027893,
+              "lon": -97.8502675,
+              "distance_km": 18.25,
+              "addr": "11220, Ranch Road 2222, Austin"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 1,
+          "closest_km": 24.26,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 30.4498527,
+              "lon": -97.6048366,
+              "distance_km": 24.26,
+              "addr": "1415, FM 685 Road, Pflugerville"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 3,
+          "closest_km": 0.92,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 30.2676959,
+              "lon": -97.7526645,
+              "distance_km": 0.92,
+              "addr": "211, Walter Seaholm Drive, Austin"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 30.2701127,
+              "lon": -97.7898707,
+              "distance_km": 4.5,
+              "addr": "2805, Bee Caves Road, Austin"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 30.395413,
+              "lon": -97.75191,
+              "distance_km": 14.28,
+              "addr": "9722, Great Hills Trail, Austin"
+            }
+          ]
+        }
+      }
+    },
+    "Denver": {
+      "center": [
+        39.7392,
+        -104.9903
+      ],
+      "brands": {
+        "Costco": {
+          "count": 19,
+          "closest_km": 3.98,
+          "stores": [
+            {
+              "name": "Costco Business Center",
+              "lat": 39.7084176,
+              "lon": -105.0140752,
+              "distance_km": 3.98,
+              "addr": "400, South Zuni Street, Denver"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.7901112,
+              "lon": -105.0824514,
+              "distance_km": 9.7,
+              "addr": "5195, Wadsworth Boulevard, Arvada"
+            },
+            {
+              "name": "HB Liquors at Costco",
+              "lat": 39.6450683,
+              "lon": -105.006302,
+              "distance_km": 10.56,
+              "addr": "4000, River Point Parkway"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.6446301,
+              "lon": -105.0060832,
+              "distance_km": 10.6,
+              "addr": "4000, River Point Parkway, Sheridan"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.6906534,
+              "lon": -104.8686512,
+              "distance_km": 11.72,
+              "addr": "1471, South Havana Street, Aurora"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.6368722,
+              "lon": -105.0865432,
+              "distance_km": 14.05,
+              "addr": "7900, West Quincy Avenue, Littleton"
+            },
+            {
+              "name": "Costco",
+              "lat": 39.8617929,
+              "lon": -105.0666388,
+              "distance_km": 15.11,
+              "addr": "6400, West 92nd Avenue, Westminster"
+            },
+            {
+              "name": "Costco Hearing Aid Center",
+              "lat": 39.780654,
+              "lon": -104.7975681,
+              "distance_km": 17.11,
+              "addr": ""
+            },
+            {
+              "name": "Costco Optical",
+              "lat": 39.7807498,
+              "lon": -104.7974854,
+              "distance_km": 17.12,
+              "addr": ""
+            },
+            {
+              "name": "Costco Deli",
+              "lat": 39.7799337,
+              "lon": -104.7971073,
+              "distance_km": 17.12,
+              "addr": ""
+            }
+          ]
+        },
+        "Target": {
+          "count": 29,
+          "closest_km": 0.67,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 39.7451309,
+              "lon": -104.9918274,
+              "distance_km": 0.67,
+              "addr": "1600, California Street, Denver"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7085541,
+              "lon": -104.9371408,
+              "distance_km": 5.68,
+              "addr": "4301, East Virginia Avenue, Glendale"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7462948,
+              "lon": -105.0560573,
+              "distance_km": 5.68,
+              "addr": "1985, Sheridan Boulevard, Edgewater"
+            },
+            {
+              "name": "Target",
+              "lat": 39.71807,
+              "lon": -104.9043908,
+              "distance_km": 7.71,
+              "addr": "93, Quebec Street, Denver"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7077666,
+              "lon": -105.0789642,
+              "distance_km": 8.35,
+              "addr": "460, South Vance Street, Lakewood"
+            },
+            {
+              "name": "Target",
+              "lat": 39.6708425,
+              "lon": -104.93904,
+              "distance_km": 8.78,
+              "addr": "2490, South Colorado Boulevard, Denver"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7834219,
+              "lon": -104.8955186,
+              "distance_km": 9.48,
+              "addr": "7930, Northfield Boulevard, Denver"
+            },
+            {
+              "name": "Target",
+              "lat": 39.6500633,
+              "lon": -105.005546,
+              "distance_km": 10.0,
+              "addr": "3650, River Point Parkway, Sheridan"
+            },
+            {
+              "name": "Target",
+              "lat": 39.7882336,
+              "lon": -105.1130342,
+              "distance_km": 11.82,
+              "addr": "5071, Kipling Street, Wheat Ridge"
+            },
+            {
+              "name": "Target",
+              "lat": 39.6548604,
+              "lon": -104.900654,
+              "distance_km": 12.12,
+              "addr": "7777, East Hampden Avenue, Denver"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 6,
+          "closest_km": 1.51,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 39.7268789,
+              "lon": -104.9827395,
+              "distance_km": 1.51,
+              "addr": "661, Logan Street, Denver"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 39.7288374,
+              "lon": -104.9402799,
+              "distance_km": 4.43,
+              "addr": "790, Colorado Boulevard, Denver"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 39.6091225,
+              "lon": -104.9573575,
+              "distance_km": 14.74,
+              "addr": "5910, South University Boulevard, Greenwood Village"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 39.866635,
+              "lon": -105.0511327,
+              "distance_km": 15.09,
+              "addr": "9350, Sheridan Boulevard, Westminster"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 39.6116591,
+              "lon": -105.089239,
+              "distance_km": 16.52,
+              "addr": "8055, West Bowles Avenue, Littleton"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 39.5565619,
+              "lon": -104.7779847,
+              "distance_km": 27.26,
+              "addr": "18374, Cottonwood Drive, Parker"
+            }
+          ]
+        }
+      }
+    },
+    "Colorado Springs": {
+      "center": [
+        38.8339,
+        -104.8214
+      ],
+      "brands": {
+        "Costco": {
+          "count": 6,
+          "closest_km": 7.85,
+          "stores": [
+            {
+              "name": "Costco Tire Center",
+              "lat": 38.9045325,
+              "lon": -104.8221003,
+              "distance_km": 7.85,
+              "addr": "North Nevada Avenue, Colorado Springs"
+            },
+            {
+              "name": "Costco Hearing Aid Center",
+              "lat": 38.904985,
+              "lon": -104.8226335,
+              "distance_km": 7.91,
+              "addr": "North Nevada Avenue, Colorado Springs"
+            },
+            {
+              "name": "Costco Optical",
+              "lat": 38.905133,
+              "lon": -104.8217304,
+              "distance_km": 7.92,
+              "addr": "North Nevada Avenue, Colorado Springs"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.9051682,
+              "lon": -104.8221805,
+              "distance_km": 7.92,
+              "addr": "5050, North Nevada Avenue, Colorado Springs"
+            },
+            {
+              "name": "Costco",
+              "lat": 38.8927132,
+              "lon": -104.7182309,
+              "distance_km": 11.07,
+              "addr": "5885, Barnes Road, Colorado Springs"
+            },
+            {
+              "name": "Costco Tire Center",
+              "lat": 38.892618,
+              "lon": -104.7174206,
+              "distance_km": 11.12,
+              "addr": "5885, Barnes Road, Colorado Springs"
+            }
+          ]
+        },
+        "Target": {
+          "count": 4,
+          "closest_km": 4.92,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 38.7923798,
+              "lon": -104.8016955,
+              "distance_km": 4.92,
+              "addr": "1630, East Cheyenne Mountain Boulevard, Colorado Springs"
+            },
+            {
+              "name": "Target",
+              "lat": 38.9049463,
+              "lon": -104.7807251,
+              "distance_km": 8.65,
+              "addr": "5240, North Academy Boulevard, Colorado Springs"
+            },
+            {
+              "name": "Target",
+              "lat": 38.8886862,
+              "lon": -104.7181465,
+              "distance_km": 10.82,
+              "addr": "3810, Bloomington Street, Colorado Springs"
+            },
+            {
+              "name": "Target",
+              "lat": 38.9735035,
+              "lon": -104.7465652,
+              "distance_km": 16.82,
+              "addr": "9670, Prominent Point, Colorado Springs"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 8.16,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 38.907249,
+              "lon": -104.8172801,
+              "distance_km": 8.16,
+              "addr": "5342, North Nevada Avenue, Colorado Springs"
+            },
+            {
+              "name": "Trader Joe's Beer, Wine, Liquor",
+              "lat": 38.9073806,
+              "lon": -104.8176629,
+              "distance_km": 8.18,
+              "addr": ""
+            }
+          ]
+        }
+      }
+    },
+    "Boise City": {
+      "center": [
+        43.615,
+        -116.2023
+      ],
+      "brands": {
+        "Costco": {
+          "count": 4,
+          "closest_km": 6.78,
+          "stores": [
+            {
+              "name": "Costco Tire Center",
+              "lat": 43.5852244,
+              "lon": -116.2757347,
+              "distance_km": 6.78,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 43.5850903,
+              "lon": -116.2766794,
+              "distance_km": 6.85,
+              "addr": "2051, South Cole Road, Boise"
+            },
+            {
+              "name": "Costco",
+              "lat": 43.6606524,
+              "lon": -116.4368774,
+              "distance_km": 19.55,
+              "addr": "3403, West Chinden Boulevard, Meridian"
+            },
+            {
+              "name": "Costco",
+              "lat": 43.6152422,
+              "lon": -116.5893726,
+              "distance_km": 31.16,
+              "addr": "16700, North Market Place Boulevard, Nampa"
+            }
+          ]
+        },
+        "Target": {
+          "count": 3,
+          "closest_km": 6.79,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 43.6102305,
+              "lon": -116.2863958,
+              "distance_km": 6.79,
+              "addr": "633, North Milwaukee Street, Boise"
+            },
+            {
+              "name": "Target",
+              "lat": 43.6612462,
+              "lon": -116.3516939,
+              "distance_km": 13.08,
+              "addr": "6280, North Eagle Road, Boise"
+            },
+            {
+              "name": "Target",
+              "lat": 43.6096509,
+              "lon": -116.5888884,
+              "distance_km": 31.13,
+              "addr": "16300, North Marketplace Boulevard, Nampa"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 0.24,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 43.6130789,
+              "lon": -116.2037839,
+              "distance_km": 0.24,
+              "addr": "300, South Capitol Boulevard, Boise"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 43.6319782,
+              "lon": -116.3519102,
+              "distance_km": 12.19,
+              "addr": "2986, North Eagle Road, Meridian"
+            }
+          ]
+        }
+      }
+    },
+    "Spokane": {
+      "center": [
+        47.6588,
+        -117.426
+      ],
+      "brands": {
+        "Costco": {
+          "count": 2,
+          "closest_km": 6.91,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 47.6586056,
+              "lon": -117.3336714,
+              "distance_km": 6.91,
+              "addr": "5601, East Sprague Avenue, Spokane"
+            },
+            {
+              "name": "Costco",
+              "lat": 47.7674,
+              "lon": -117.3827955,
+              "distance_km": 12.5,
+              "addr": "12020, North Newport Highway, Spokane"
+            }
+          ]
+        },
+        "Target": {
+          "count": 3,
+          "closest_km": 7.18,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 47.6092349,
+              "lon": -117.3646888,
+              "distance_km": 7.18,
+              "addr": "4915, South Regal Street, Spokane"
+            },
+            {
+              "name": "Target",
+              "lat": 47.7474912,
+              "lon": -117.4001397,
+              "distance_km": 10.05,
+              "addr": "9770, North Newport Highway, Spokane"
+            },
+            {
+              "name": "Target",
+              "lat": 47.656316,
+              "lon": -117.2206345,
+              "distance_km": 15.38,
+              "addr": "13724, East Sprague Avenue, Spokane"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 2,
+          "closest_km": 5.55,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 47.6289581,
+              "lon": -117.3666631,
+              "distance_km": 5.55,
+              "addr": "2975, East 29th Avenue, Spokane"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 47.7088598,
+              "lon": -117.4096014,
+              "distance_km": 5.7,
+              "addr": "5520, North Division Street, Spokane"
+            }
+          ]
+        }
+      }
+    },
+    "Bend": {
+      "center": [
+        44.0582,
+        -121.3153
+      ],
+      "brands": {
+        "Costco": {
+          "count": 1,
+          "closest_km": 5.42,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 44.1064004,
+              "lon": -121.3052183,
+              "distance_km": 5.42,
+              "addr": ""
+            }
+          ]
+        },
+        "Target": {
+          "count": 1,
+          "closest_km": 5.24,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 44.1041989,
+              "lon": -121.3010126,
+              "distance_km": 5.24,
+              "addr": "63435, North Highway 97, Bend"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 1,
+          "closest_km": 4.63,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 44.0988312,
+              "lon": -121.3026839,
+              "distance_km": 4.63,
+              "addr": "63455, North Highway 97, Bend"
+            }
+          ]
+        }
+      }
+    },
+    "Bozeman": {
+      "center": [
+        45.677,
+        -111.0429
+      ],
+      "brands": {
+        "Costco": {
+          "count": 1,
+          "closest_km": 4.6,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 45.7135166,
+              "lon": -111.070831,
+              "distance_km": 4.6,
+              "addr": "2505, Catron Street, Bozeman"
+            }
+          ]
+        },
+        "Target": {
+          "count": 1,
+          "closest_km": 4.39,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 45.7111073,
+              "lon": -111.0712895,
+              "distance_km": 4.39,
+              "addr": "2550, Catron street, Bozeman"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        },
+        "Trader Joes": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        }
+      }
+    },
+    "Grand Rapids": {
+      "center": [
+        42.9634,
+        -85.6681
+      ],
+      "brands": {
+        "Costco": {
+          "count": 2,
+          "closest_km": 11.75,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 42.9102533,
+              "lon": -85.543356,
+              "distance_km": 11.75,
+              "addr": "5100, 28th Street Southeast, Grand Rapids"
+            },
+            {
+              "name": "Costco",
+              "lat": 42.8765706,
+              "lon": -85.7641395,
+              "distance_km": 12.42,
+              "addr": "4901, Wilson Avenue Southwest, Wyoming"
+            }
+          ]
+        },
+        "Target": {
+          "count": 5,
+          "closest_km": 6.73,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 43.022288,
+              "lon": -85.686963,
+              "distance_km": 6.73,
+              "addr": "3248, Alpine Avenue Northwest, Grand Rapids"
+            },
+            {
+              "name": "Target",
+              "lat": 42.8816709,
+              "lon": -85.7407999,
+              "distance_km": 10.85,
+              "addr": "3130, 44th Street Southwest, Grandville"
+            },
+            {
+              "name": "Target",
+              "lat": 42.8648554,
+              "lon": -85.6864661,
+              "distance_km": 11.06,
+              "addr": "5455, Clyde Park Avenue Southwest, Wyoming"
+            },
+            {
+              "name": "Target",
+              "lat": 42.9078133,
+              "lon": -85.5413167,
+              "distance_km": 12.03,
+              "addr": "5120, 28th Street Southeast, Grand Rapids"
+            },
+            {
+              "name": "Target",
+              "lat": 42.8464124,
+              "lon": -85.6159631,
+              "distance_km": 13.68,
+              "addr": "1925, Marketplace Drive Southeast, Caledonia"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 12,
+          "closest_km": 5.82,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 42.9124938,
+              "lon": -85.6847642,
+              "distance_km": 5.82,
+              "addr": "2840, Clyde Park Avenue Southwest, Wyoming"
+            },
+            {
+              "name": "Aldi",
+              "lat": 42.9121014,
+              "lon": -85.6144381,
+              "distance_km": 7.18,
+              "addr": "2120, 28th Street Southeast, Grand Rapids"
+            },
+            {
+              "name": "Aldi",
+              "lat": 42.9997833,
+              "lon": -85.5932544,
+              "distance_km": 7.31,
+              "addr": "3101, Knapp Street Northeast, Grand Rapids"
+            },
+            {
+              "name": "Aldi",
+              "lat": 43.0383222,
+              "lon": -85.6909791,
+              "distance_km": 8.54,
+              "addr": "4101, Alpine Avenue Northwest, Comstock Park"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.9674799,
+              "lon": -85.7756327,
+              "distance_km": 8.76,
+              "addr": "146, Wilson Avenue Northwest, Grand Rapids"
+            },
+            {
+              "name": "Aldi",
+              "lat": 42.8663879,
+              "lon": -85.6712244,
+              "distance_km": 10.79,
+              "addr": "289, 54th Street Southwest, Wyoming"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.8822123,
+              "lon": -85.745021,
+              "distance_km": 10.99,
+              "addr": "3269, Century Center Street Southwest, Grandville"
+            },
+            {
+              "name": "Aldi",
+              "lat": 42.9029053,
+              "lon": -85.7887745,
+              "distance_km": 11.91,
+              "addr": "302, Chicago Drive, Jenison"
+            },
+            {
+              "name": "Aldi",
+              "lat": 42.9111,
+              "lon": -85.5399345,
+              "distance_km": 11.94,
+              "addr": "5114, 28th Street Southeast, Grand Rapids"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.8462392,
+              "lon": -85.6169247,
+              "distance_km": 13.68,
+              "addr": "1849, Marketplace Drive Southeast, Caledonia"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 1,
+          "closest_km": 9.39,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 42.9120134,
+              "lon": -85.5766257,
+              "distance_km": 9.39,
+              "addr": "3684, 28th Street Southeast, Kentwood"
+            }
+          ]
+        }
+      }
+    },
+    "Rochester": {
+      "center": [
+        44.0121,
+        -92.4802
+      ],
+      "brands": {
+        "Costco": {
+          "count": 1,
+          "closest_km": 4.9,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 44.0472687,
+              "lon": -92.5170589,
+              "distance_km": 4.9,
+              "addr": "2020, Commerce Drive Northwest, Rochester"
+            }
+          ]
+        },
+        "Target": {
+          "count": 2,
+          "closest_km": 5.96,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 44.0629738,
+              "lon": -92.5036042,
+              "distance_km": 5.96,
+              "addr": "3827, Marketplace Drive Northwest, Rochester"
+            },
+            {
+              "name": "Target",
+              "lat": 43.954245,
+              "lon": -92.4654706,
+              "distance_km": 6.54,
+              "addr": "4611, Maine Avenue Southeast, Rochester"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 2,
+          "closest_km": 1.31,
+          "stores": [
+            {
+              "name": "Aldi",
+              "lat": 44.0058884,
+              "lon": -92.4663126,
+              "distance_km": 1.31,
+              "addr": "1201, South Broadway, Rochester"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.0472704,
+              "lon": -92.5195434,
+              "distance_km": 5.02,
+              "addr": "2215, Commerce Drive, Rochester"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 1,
+          "closest_km": 1.28,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 44.000604,
+              "lon": -92.481162,
+              "distance_km": 1.28,
+              "addr": "1200, 16th Street Southwest, Rochester"
+            }
+          ]
+        }
+      }
+    },
+    "Minneapolis": {
+      "center": [
+        44.9778,
+        -93.265
+      ],
+      "brands": {
+        "Costco": {
+          "count": 11,
+          "closest_km": 4.63,
+          "stores": [
+            {
+              "name": "Costco Business Center",
+              "lat": 45.0007381,
+              "lon": -93.2158184,
+              "distance_km": 4.63,
+              "addr": "3311, Northeast Broadway Street, Minneapolis"
+            },
+            {
+              "name": "Costco",
+              "lat": 44.9667998,
+              "lon": -93.3541593,
+              "distance_km": 7.12,
+              "addr": "5801, 16th Street West, Saint Louis Park"
+            },
+            {
+              "name": "Costco",
+              "lat": 44.8601276,
+              "lon": -93.1403393,
+              "distance_km": 16.36,
+              "addr": "995, Blue Gentian Road, Eagan"
+            },
+            {
+              "name": "Costco",
+              "lat": 45.0933329,
+              "lon": -93.4238683,
+              "distance_km": 17.91,
+              "addr": "11330, Fountains Drive North, Maple Grove"
+            },
+            {
+              "name": "Costco",
+              "lat": 45.0296323,
+              "lon": -93.0393772,
+              "distance_km": 18.65,
+              "addr": "1431, Beam Avenue, Maplewood"
+            },
+            {
+              "name": "Costco",
+              "lat": 44.8598993,
+              "lon": -93.4355333,
+              "distance_km": 18.77,
+              "addr": "12011, Technology Drive, Eden Prairie"
+            },
+            {
+              "name": "Costco",
+              "lat": 45.1439853,
+              "lon": -93.38226,
+              "distance_km": 20.65,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 44.9395739,
+              "lon": -92.9633056,
+              "distance_km": 24.12,
+              "addr": "7070, Tamarack Road, Woodbury"
+            },
+            {
+              "name": "Costco",
+              "lat": 45.1987178,
+              "lon": -93.3479757,
+              "distance_km": 25.41,
+              "addr": "12547, Riverdale Boulevard, Coon Rapids"
+            },
+            {
+              "name": "Costco",
+              "lat": 44.7490873,
+              "lon": -93.2940659,
+              "distance_km": 25.53,
+              "addr": "14050, Burnhaven Drive, Burnsville"
+            }
+          ]
+        },
+        "Target": {
+          "count": 48,
+          "closest_km": 0.82,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 44.974879,
+              "lon": -93.274534,
+              "distance_km": 0.82,
+              "addr": "900, Nicollet Mall, Minneapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 44.9816802,
+              "lon": -93.2350859,
+              "distance_km": 2.39,
+              "addr": "1329, Southeast 5th Street, Minneapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 44.9494136,
+              "lon": -93.2370712,
+              "distance_km": 3.85,
+              "addr": "2500, East Lake Street, Minneapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 45.0047945,
+              "lon": -93.229945,
+              "distance_km": 4.08,
+              "addr": "1650, New Brighton Boulevard, Minneapolis"
+            },
+            {
+              "name": "Target",
+              "lat": 44.9372898,
+              "lon": -93.3468489,
+              "distance_km": 7.86,
+              "addr": "3601, MN-100, Saint Louis Park"
+            },
+            {
+              "name": "Target",
+              "lat": 45.0080834,
+              "lon": -93.1643816,
+              "distance_km": 8.6,
+              "addr": "1515, County Road B West, Roseville"
+            },
+            {
+              "name": "Target",
+              "lat": 44.9175569,
+              "lon": -93.1882577,
+              "distance_km": 9.02,
+              "addr": "2080, Ford Parkway, Saint Paul"
+            },
+            {
+              "name": "Target",
+              "lat": 45.0661148,
+              "lon": -93.2517269,
+              "distance_km": 9.88,
+              "addr": "755, 53rd Avenue Northeast, Fridley"
+            },
+            {
+              "name": "Target",
+              "lat": 44.8856378,
+              "lon": -93.2483654,
+              "distance_km": 10.33,
+              "addr": "6445, Richfield Parkway, Richfield"
+            },
+            {
+              "name": "Target",
+              "lat": 44.9360662,
+              "lon": -93.3932648,
+              "distance_km": 11.11,
+              "addr": "8900, Minnesota State Highway 7, Saint Louis Park"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 41,
+          "closest_km": 1.88,
+          "stores": [
+            {
+              "name": "Aldi",
+              "lat": 44.9623451,
+              "lon": -93.2552973,
+              "distance_km": 1.88,
+              "addr": "1311, East Franklin Avenue, Minneapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 44.9553572,
+              "lon": -93.2877861,
+              "distance_km": 3.07,
+              "addr": "2601, Lyndale Avenue South, Minneapolis"
+            },
+            {
+              "name": "Aldi",
+              "lat": 44.949506,
+              "lon": -93.2329747,
+              "distance_km": 4.03,
+              "addr": "2929, 27th Avenue South, Minneapolis"
+            },
+            {
+              "name": "ALDI",
+              "lat": 45.0227149,
+              "lon": -93.1852495,
+              "distance_km": 8.02,
+              "addr": "2005, Twin Lakes Parkway, Roseville"
+            },
+            {
+              "name": "Aldi",
+              "lat": 45.059792,
+              "lon": -93.246235,
+              "distance_km": 9.24,
+              "addr": "5025, Central Avenue Northeast, Columbia Heights"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.9926087,
+              "lon": -93.1491923,
+              "distance_km": 9.26,
+              "addr": "1161, Larpenteur Avenue West, Roseville"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.9554364,
+              "lon": -93.1486108,
+              "distance_km": 9.49,
+              "addr": "1134, University Avenue West, Saint Paul"
+            },
+            {
+              "name": "Aldi",
+              "lat": 44.8887365,
+              "lon": -93.3094613,
+              "distance_km": 10.5,
+              "addr": "6310, Penn Avenue South, Richfield"
+            },
+            {
+              "name": "Aldi",
+              "lat": 44.9377014,
+              "lon": -93.3925504,
+              "distance_km": 10.98,
+              "addr": "8950, Minnesota State Highway 7, Saint Louis Park"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.9022804,
+              "lon": -93.1707161,
+              "distance_km": 11.21,
+              "addr": "2481, 7th Street West, Saint Paul"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 10,
+          "closest_km": 0.58,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 44.9770639,
+              "lon": -93.2577228,
+              "distance_km": 0.58,
+              "addr": "721, Washington Avenue South, Minneapolis"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 44.9344763,
+              "lon": -93.33746,
+              "distance_km": 7.46,
+              "addr": "4500, Excelsior Boulevard, Saint Louis Park"
+            },
+            {
+              "name": "Trader Joe's (Liquor)",
+              "lat": 44.9345114,
+              "lon": -93.3373723,
+              "distance_km": 7.46,
+              "addr": ""
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 44.9266632,
+              "lon": -93.1459198,
+              "distance_km": 10.96,
+              "addr": "484, Lexington Parkway South, Saint Paul"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 44.9736423,
+              "lon": -93.4227459,
+              "distance_km": 12.42,
+              "addr": "11220, Wayzata Boulevard, Minnetonka"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 45.0579482,
+              "lon": -93.1446428,
+              "distance_km": 13.0,
+              "addr": "1041, Red Fox Road, Shoreview"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 44.8592018,
+              "lon": -93.332432,
+              "distance_km": 14.22,
+              "addr": "4270, 78th Street West, Bloomington"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 45.0920661,
+              "lon": -93.4341287,
+              "distance_km": 18.39,
+              "addr": "12105, Elm Creek Boulevard North, Maple Grove"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 44.7906085,
+              "lon": -93.210318,
+              "distance_km": 21.26,
+              "addr": "2065, Cliff Road, Eagan"
+            },
+            {
+              "name": "Trader Joe's",
+              "lat": 44.9458118,
+              "lon": -92.9225211,
+              "distance_km": 27.18,
+              "addr": "8960, Hudson Road, Woodbury"
+            }
+          ]
+        }
+      }
+    },
+    "Appleton": {
+      "center": [
+        44.2619,
+        -88.4154
+      ],
+      "brands": {
+        "Costco": {
+          "count": 2,
+          "closest_km": 5.87,
+          "stores": [
+            {
+              "name": "Costco Tire Center",
+              "lat": 44.2700048,
+              "lon": -88.4882685,
+              "distance_km": 5.87,
+              "addr": ""
+            },
+            {
+              "name": "Costco",
+              "lat": 44.2699868,
+              "lon": -88.4891015,
+              "distance_km": 5.94,
+              "addr": "5401, Integrity Way, Grand Chute"
+            }
+          ]
+        },
+        "Target": {
+          "count": 3,
+          "closest_km": 4.33,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 44.2693626,
+              "lon": -88.4688078,
+              "distance_km": 4.33,
+              "addr": "4301, West Wisconsin Avenue, Appleton"
+            },
+            {
+              "name": "Target",
+              "lat": 44.2463446,
+              "lon": -88.3571918,
+              "distance_km": 4.95,
+              "addr": "1800, South Kensington Drive, Appleton"
+            },
+            {
+              "name": "Target",
+              "lat": 43.9988554,
+              "lon": -88.578126,
+              "distance_km": 32.0,
+              "addr": "1900, South Koeller Street, Oshkosh"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 6,
+          "closest_km": 1.34,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 44.2623859,
+              "lon": -88.4322751,
+              "distance_km": 1.34,
+              "addr": "116, North Linwood Avenue, Appleton"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.2856425,
+              "lon": -88.414937,
+              "distance_km": 2.64,
+              "addr": "2702, North Richmond Street, Appleton"
+            },
+            {
+              "name": "Aldi",
+              "lat": 44.2405086,
+              "lon": -88.3593446,
+              "distance_km": 5.06,
+              "addr": "2310, South Kensington Drive, Appleton"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.174231,
+              "lon": -88.4861071,
+              "distance_km": 11.26,
+              "addr": "927, South Green Bay Road, Neenah"
+            },
+            {
+              "name": "ALDI",
+              "lat": 43.996918,
+              "lon": -88.5798002,
+              "distance_km": 32.25,
+              "addr": "1995, South Koeller Street, Oshkosh"
+            },
+            {
+              "name": "ALDI",
+              "lat": 44.4529026,
+              "lon": -88.0876606,
+              "distance_km": 33.62,
+              "addr": "1100, Main Avenue, De Pere"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 0,
+          "closest_km": null,
+          "stores": []
+        }
+      }
+    },
+    "Madison": {
+      "center": [
+        43.0731,
+        -89.4012
+      ],
+      "brands": {
+        "Costco": {
+          "count": 3,
+          "closest_km": 10.32,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 43.0995846,
+              "lon": -89.5229796,
+              "distance_km": 10.32,
+              "addr": "2150, Deming Way, Middleton"
+            },
+            {
+              "name": "Costco",
+              "lat": 42.9714891,
+              "lon": -89.5083753,
+              "distance_km": 14.27,
+              "addr": "1001, Batker Court, Verona"
+            },
+            {
+              "name": "Costco",
+              "lat": 43.1682086,
+              "lon": -89.2737984,
+              "distance_km": 14.79,
+              "addr": "2850, Hoepker Road, Sun Prairie"
+            }
+          ]
+        },
+        "Target": {
+          "count": 6,
+          "closest_km": 0.48,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 43.075135,
+              "lon": -89.3960441,
+              "distance_km": 0.48,
+              "addr": "610, State Street, Madison"
+            },
+            {
+              "name": "Target",
+              "lat": 43.0746867,
+              "lon": -89.4544509,
+              "distance_km": 4.33,
+              "addr": "750, Hilldale Way, Madison"
+            },
+            {
+              "name": "Target",
+              "lat": 43.1189078,
+              "lon": -89.3066195,
+              "distance_km": 9.22,
+              "addr": "4301, Lien Road, Madison"
+            },
+            {
+              "name": "Target",
+              "lat": 43.0132596,
+              "lon": -89.4823566,
+              "distance_km": 9.37,
+              "addr": "6321, Fitchrona Road, Fitchburg"
+            },
+            {
+              "name": "Target",
+              "lat": 43.0624048,
+              "lon": -89.5245796,
+              "distance_km": 10.09,
+              "addr": "201, Junction Road, Madison"
+            },
+            {
+              "name": "Target",
+              "lat": 43.1710671,
+              "lon": -89.2680391,
+              "distance_km": 15.34,
+              "addr": "660, South Grand Avenue, Sun Prairie"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 5,
+          "closest_km": 8.62,
+          "stores": [
+            {
+              "name": "ALDI",
+              "lat": 43.1200342,
+              "lon": -89.3166579,
+              "distance_km": 8.62,
+              "addr": "3925, Lien Road, Madison"
+            },
+            {
+              "name": "Aldi",
+              "lat": 43.0151464,
+              "lon": -89.4786218,
+              "distance_km": 9.01,
+              "addr": "6261, McKee Road, Fitchburg"
+            },
+            {
+              "name": "Aldi",
+              "lat": 43.0562901,
+              "lon": -89.5262235,
+              "distance_km": 10.33,
+              "addr": "8222, Watts Road, Madison"
+            },
+            {
+              "name": "ALDI",
+              "lat": 43.1680824,
+              "lon": -89.26561,
+              "distance_km": 15.25,
+              "addr": "750, Bunny Trail, Sun Prairie"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.9218418,
+              "lon": -89.2523537,
+              "distance_km": 20.72,
+              "addr": "1399, US Highway 51, Stoughton"
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 1,
+          "closest_km": 1.6,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 43.0649298,
+              "lon": -89.4174475,
+              "distance_km": 1.6,
+              "addr": "1810, Monroe Street, Madison"
+            }
+          ]
+        }
+      }
+    },
+    "Kalamazoo": {
+      "center": [
+        42.2917,
+        -85.5872
+      ],
+      "brands": {
+        "Costco": {
+          "count": 1,
+          "closest_km": 5.62,
+          "stores": [
+            {
+              "name": "Costco",
+              "lat": 42.2726425,
+              "lon": -85.6504087,
+              "distance_km": 5.62,
+              "addr": "5100, Century Avenue, Kalamazoo"
+            }
+          ]
+        },
+        "Target": {
+          "count": 2,
+          "closest_km": 5.66,
+          "stores": [
+            {
+              "name": "Target",
+              "lat": 42.2985002,
+              "lon": -85.6553763,
+              "distance_km": 5.66,
+              "addr": "5350, West Main Street, Kalamazoo"
+            },
+            {
+              "name": "Target",
+              "lat": 42.217985,
+              "lon": -85.5883992,
+              "distance_km": 8.2,
+              "addr": "6839, South Westnedge Avenue, Portage"
+            }
+          ]
+        },
+        "Aldi": {
+          "count": 7,
+          "closest_km": 5.18,
+          "stores": [
+            {
+              "name": "Aldi",
+              "lat": 42.3168427,
+              "lon": -85.534189,
+              "distance_km": 5.18,
+              "addr": "3720, Gull Road, Kalamazoo"
+            },
+            {
+              "name": "Aldi",
+              "lat": 42.2441293,
+              "lon": -85.5913987,
+              "distance_km": 5.3,
+              "addr": "5070, South Westnedge Avenue, Portage"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.2955365,
+              "lon": -85.6542882,
+              "distance_km": 5.53,
+              "addr": "5317, West Main Street, Kalamazoo"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.226128,
+              "lon": -85.5869789,
+              "distance_km": 7.29,
+              "addr": "6291, South Westnedge Avenue, Portage"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.4505954,
+              "lon": -85.6727902,
+              "distance_km": 19.02,
+              "addr": "1323, M-89, Plainwell"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.2988207,
+              "lon": -85.2153187,
+              "distance_km": 30.6,
+              "addr": "870, West Columbia Avenue, Battle Creek"
+            },
+            {
+              "name": "ALDI",
+              "lat": 42.26248,
+              "lon": -85.1787123,
+              "distance_km": 33.76,
+              "addr": ""
+            }
+          ]
+        },
+        "Trader Joes": {
+          "count": 1,
+          "closest_km": 5.71,
+          "stores": [
+            {
+              "name": "Trader Joe's",
+              "lat": 42.2700671,
+              "lon": -85.6501359,
+              "distance_km": 5.71,
+              "addr": "5099, Century Avenue, Kalamazoo"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

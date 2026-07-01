@@ -13,7 +13,7 @@ import { loadLocations } from './locations.loader';
 
 const OCCUPATION_PATH = path.resolve(
   __dirname,
-  '../../../../sources/processed/cbsa_occupation.json',
+  '../../../../../data/processed/cbsa_occupation.json',
 );
 
 let _cbsaData: Map<string, CbsaCareer> | null = null;
@@ -166,7 +166,7 @@ function loadCbsaData(): Map<string, CbsaCareer> {
 let _nameToCbsa: Map<string, string> | null = null;
 function nameToCbsaIndex(): Map<string, string> {
   if (_nameToCbsa === null) {
-    const acsPath = path.resolve(__dirname, '../../../../sources/processed/census_acs_cbsa.json');
+    const acsPath = path.resolve(__dirname, '../../../../../data/processed/census_acs_cbsa.json');
     const acs = JSON.parse(fs.readFileSync(acsPath, 'utf-8')) as {
       cbsas: { cbsa_code: string; name: string }[];
     };

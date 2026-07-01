@@ -1,0 +1,152 @@
+{
+  "schema_version": "us-reloc-2026.v1",
+  "top_3": [
+    "Shape_3b_Memphis",
+    "Shape_3c_SanAntonio",
+    "Shape_3c_Houston"
+  ],
+  "tornado": {
+    "Shape_3b_Memphis": {
+      "baseline_mean_delta": -35409.18577114658,
+      "inputs": [
+        {
+          "name": "interest_rate",
+          "swing_per_20pct": 1091.4913140186763,
+          "delta_low": -34348.66640971083,
+          "delta_high": -36531.64903774818
+        },
+        {
+          "name": "childcare_cost",
+          "swing_per_20pct": 927.9599999999991,
+          "delta_low": -36337.14577114658,
+          "delta_high": -34481.22577114658
+        },
+        {
+          "name": "denver_home_value",
+          "swing_per_20pct": 650.0,
+          "delta_low": -36059.18577114658,
+          "delta_high": -34759.18577114658
+        },
+        {
+          "name": "denver_net_equity",
+          "swing_per_20pct": 532.0424743539406,
+          "delta_low": -34877.14329679264,
+          "delta_high": -35941.22824550052
+        },
+        {
+          "name": "annual_insurance",
+          "swing_per_20pct": 360.0,
+          "delta_low": -35769.18577114658,
+          "delta_high": -35049.18577114658
+        },
+        {
+          "name": "new_home_price",
+          "swing_per_20pct": 257.11815999999817,
+          "delta_low": -35152.06761114658,
+          "delta_high": -35666.303931146576
+        },
+        {
+          "name": "household_income",
+          "swing_per_20pct": 0.0,
+          "delta_low": -35409.18577114658,
+          "delta_high": -35409.18577114658
+        }
+      ]
+    },
+    "Shape_3c_SanAntonio": {
+      "baseline_mean_delta": -31081.93424672257,
+      "inputs": [
+        {
+          "name": "interest_rate",
+          "swing_per_20pct": 1261.5596589289817,
+          "delta_low": -29856.17236779884,
+          "delta_high": -32379.291685656804
+        },
+        {
+          "name": "childcare_cost",
+          "swing_per_20pct": 975.4799999999996,
+          "delta_low": -32057.41424672257,
+          "delta_high": -30106.45424672257
+        },
+        {
+          "name": "new_home_price",
+          "swing_per_20pct": 784.8316000000013,
+          "delta_low": -30297.102646722567,
+          "delta_high": -31866.76584672257
+        },
+        {
+          "name": "denver_home_value",
+          "swing_per_20pct": 650.0,
+          "delta_low": -31731.93424672257,
+          "delta_high": -30431.93424672257
+        },
+        {
+          "name": "denver_net_equity",
+          "swing_per_20pct": 532.0424743539406,
+          "delta_low": -30549.891772368628,
+          "delta_high": -31613.97672107651
+        },
+        {
+          "name": "annual_insurance",
+          "swing_per_20pct": 360.0,
+          "delta_low": -31441.93424672257,
+          "delta_high": -30721.93424672257
+        },
+        {
+          "name": "household_income",
+          "swing_per_20pct": 0.0,
+          "delta_low": -31081.93424672257,
+          "delta_high": -31081.93424672257
+        }
+      ]
+    },
+    "Shape_3c_Houston": {
+      "baseline_mean_delta": -28003.712901870214,
+      "inputs": [
+        {
+          "name": "interest_rate",
+          "swing_per_20pct": 1474.042230296147,
+          "delta_low": -26571.497817127685,
+          "delta_high": -29519.58227771998
+        },
+        {
+          "name": "childcare_cost",
+          "swing_per_20pct": 999.2400000000016,
+          "delta_low": -29002.952901870216,
+          "delta_high": -27004.472901870213
+        },
+        {
+          "name": "new_home_price",
+          "swing_per_20pct": 863.2567999999992,
+          "delta_low": -27140.456101870215,
+          "delta_high": -28866.969701870214
+        },
+        {
+          "name": "denver_home_value",
+          "swing_per_20pct": 650.0,
+          "delta_low": -28653.712901870214,
+          "delta_high": -27353.712901870214
+        },
+        {
+          "name": "annual_insurance",
+          "swing_per_20pct": 540.0,
+          "delta_low": -28543.712901870214,
+          "delta_high": -27463.712901870214
+        },
+        {
+          "name": "denver_net_equity",
+          "swing_per_20pct": 532.0424743539406,
+          "delta_low": -27471.670427516274,
+          "delta_high": -28535.755376224155
+        },
+        {
+          "name": "household_income",
+          "swing_per_20pct": 0.0,
+          "delta_low": -28003.712901870214,
+          "delta_high": -28003.712901870214
+        }
+      ]
+    }
+  },
+  "notes": "Sweep \u00b120% on each input. Swing = |d_high - d_low| / 2. Inputs that flip ranking are flagged."
+}

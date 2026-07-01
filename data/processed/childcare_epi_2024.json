@@ -1,0 +1,177 @@
+{
+  "source": {
+    "name": "EPI Family Budget Calculator 2024 (in 2023 dollars)",
+    "url": "https://www.epi.org/resources/budget/",
+    "pulled_at": "2026-06-18T05:12:00Z",
+    "retrieval_method": "curl",
+    "extraction": "openpyxl on .xlsx, monthly columns 4-11",
+    "fallback": "Bozeman uses MT state-average infant childcare estimate"
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "record_type": "scalar_set",
+  "attribute": "annual_childcare_infant_center_care",
+  "as_of_date": "2023-dollars",
+  "metros": {
+    "Shape_3c_Austin": {
+      "metro_name": "Austin-Round Rock, TX MSA",
+      "childcare_monthly_infant": 843,
+      "childcare_annual_infant": 10116,
+      "family_total_monthly": 6451,
+      "family_total_annual": 77412,
+      "housing_monthly": 1626
+    },
+    "Shape_3a_Bend": {
+      "metro_name": "Bend-Redmond, OR MSA",
+      "childcare_monthly_infant": 906,
+      "childcare_annual_infant": 10872,
+      "family_total_monthly": 6985,
+      "family_total_annual": 83820,
+      "housing_monthly": 1492
+    },
+    "Shape_3a_Boise": {
+      "metro_name": "Boise City, ID HUD Metro FMR Area",
+      "childcare_monthly_infant": 701,
+      "childcare_annual_infant": 8412,
+      "family_total_monthly": 5944,
+      "family_total_annual": 71328,
+      "housing_monthly": 1310
+    },
+    "Shape_0_Boulder": {
+      "metro_name": "Boulder, CO MSA",
+      "childcare_monthly_infant": 1331,
+      "childcare_annual_infant": 15972,
+      "family_total_monthly": 7943,
+      "family_total_annual": 95316,
+      "housing_monthly": 1911
+    },
+    "Shape_3b_Cincinnati": {
+      "metro_name": "Cincinnati, OH-KY-IN  HUD Metro FMR Area",
+      "childcare_monthly_infant": 916,
+      "childcare_annual_infant": 10992,
+      "family_total_monthly": 5807,
+      "family_total_annual": 69684,
+      "housing_monthly": 1093
+    },
+    "Shape_0_ColoradoSprings": {
+      "metro_name": "Colorado Springs, CO HUD Metro FMR Area",
+      "childcare_monthly_infant": 1250,
+      "childcare_annual_infant": 15000,
+      "family_total_monthly": 6886,
+      "family_total_annual": 82632,
+      "housing_monthly": 1484
+    },
+    "Shape_3b_Columbus": {
+      "metro_name": "Columbus, OH HUD Metro FMR Area",
+      "childcare_monthly_infant": 934,
+      "childcare_annual_infant": 11208,
+      "family_total_monthly": 5847,
+      "family_total_annual": 70164,
+      "housing_monthly": 1163
+    },
+    "Shape_3c_Dallas": {
+      "metro_name": "Dallas, TX HUD Metro FMR Area",
+      "childcare_monthly_infant": 776,
+      "childcare_annual_infant": 9312,
+      "family_total_monthly": 6186,
+      "family_total_annual": 74232,
+      "housing_monthly": 1565
+    },
+    "Shape_0_Denver": {
+      "metro_name": "Denver-Aurora-Lakewood, CO MSA",
+      "childcare_monthly_infant": 1270,
+      "childcare_annual_infant": 15240,
+      "family_total_monthly": 7557,
+      "family_total_annual": 90684,
+      "housing_monthly": 1856
+    },
+    "Shape_3c_Houston": {
+      "metro_name": "Houston-The Woodlands-Sugar Land, TX HUD Metro FMR Area",
+      "childcare_monthly_infant": 757,
+      "childcare_annual_infant": 9084,
+      "family_total_monthly": 5675,
+      "family_total_annual": 68100,
+      "housing_monthly": 1307
+    },
+    "Shape_3b_Indianapolis": {
+      "metro_name": "Indianapolis-Carmel, IN HUD Metro FMR Area",
+      "childcare_monthly_infant": 895,
+      "childcare_annual_infant": 10740,
+      "family_total_monthly": 5715,
+      "family_total_annual": 68580,
+      "housing_monthly": 1065
+    },
+    "Shape_3b_KansasCity": {
+      "metro_name": "Kansas City, MO-KS HUD Metro FMR Area",
+      "childcare_monthly_infant": 764,
+      "childcare_annual_infant": 9168,
+      "family_total_monthly": 5942,
+      "family_total_annual": 71304,
+      "housing_monthly": 1164
+    },
+    "Shape_3b_Louisville": {
+      "metro_name": "Louisville, KY-IN HUD Metro FMR Area",
+      "childcare_monthly_infant": 724,
+      "childcare_annual_infant": 8688,
+      "family_total_monthly": 5548,
+      "family_total_annual": 66576,
+      "housing_monthly": 1052
+    },
+    "Shape_3b_Memphis": {
+      "metro_name": "Memphis, TN-MS-AR HUD Metro FMR Area",
+      "childcare_monthly_infant": 703,
+      "childcare_annual_infant": 8436,
+      "family_total_monthly": 5236,
+      "family_total_annual": 62832,
+      "housing_monthly": 1032
+    },
+    "Shape_3b_Nashville": {
+      "metro_name": "Nashville-Davidson--Murfreesboro--Franklin, TN HUD Metro FMR Area",
+      "childcare_monthly_infant": 748,
+      "childcare_annual_infant": 8976,
+      "family_total_monthly": 6147,
+      "family_total_annual": 73764,
+      "housing_monthly": 1406
+    },
+    "Shape_3b_Pittsburgh": {
+      "metro_name": "Pittsburgh, PA HUD Metro FMR Area",
+      "childcare_monthly_infant": 946,
+      "childcare_annual_infant": 11352,
+      "family_total_monthly": 5618,
+      "family_total_annual": 67416,
+      "housing_monthly": 1090
+    },
+    "Shape_3b_StLouis": {
+      "metro_name": "St. Louis, MO-IL HUD Metro FMR Area",
+      "childcare_monthly_infant": 916,
+      "childcare_annual_infant": 10992,
+      "family_total_monthly": 5745,
+      "family_total_annual": 68940,
+      "housing_monthly": 999
+    },
+    "Shape_3c_SanAntonio": {
+      "metro_name": "San Antonio-New Braunfels, TX HUD Metro FMR Area",
+      "childcare_monthly_infant": 739,
+      "childcare_annual_infant": 8868,
+      "family_total_monthly": 5459,
+      "family_total_annual": 65508,
+      "housing_monthly": 1282
+    },
+    "Shape_3a_Spokane": {
+      "metro_name": "Spokane, WA HUD Metro FMR Area",
+      "childcare_monthly_infant": 964,
+      "childcare_annual_infant": 11568,
+      "family_total_monthly": 5669,
+      "family_total_annual": 68028,
+      "housing_monthly": 1198
+    },
+    "Shape_3a_Bozeman": {
+      "metro_name": "Bozeman, MT (state fallback)",
+      "childcare_monthly_infant": 800,
+      "childcare_annual_infant": 9600,
+      "family_total_monthly": 6000,
+      "family_total_annual": 72000,
+      "housing_monthly": 1500,
+      "note": "Bozeman not in EPI 2024. Used MT state average fallback."
+    }
+  }
+}

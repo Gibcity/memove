@@ -1,0 +1,6511 @@
+{
+  "metadata": {
+    "source": "harvard_opportunity_atlas",
+    "source_url": "https://opportunityinsights.org/wp-content/uploads/2018/10/tract_outcomes_simple.csv",
+    "citation": "Chetty, Friedman, Hendren, Jones, Porter (2018). The Opportunity Atlas: Mapping the Childhood Roots of Social Mobility.",
+    "pulled_at": "2026-06-29T00:07:02.031831+00:00",
+    "geography": "All U.S. Core-Based Statistical Areas (metropolitan + micropolitan)",
+    "aggregation_method": "Population-weighted average of tract-level kfr_pooled_pooled_p25, weighted by pooled_pooled_count (number of children in tract cohort). Tracts mapped to counties via first 5 digits of tract FIPS code, counties mapped to CBSAs via 2020 Census delineation crosswalk.",
+    "key_metric": {
+      "field": "upwardMobilityScore",
+      "definition": "Mean household income rank in adulthood for children born to families at the 25th income percentile. Higher = better upward mobility. Theoretical range 1-100, typical range 35-55.",
+      "column": "kfr_pooled_pooled_p25"
+    },
+    "weight_field": "pooled_pooled_count",
+    "cbsas_total": 939,
+    "cbsas_with_mobility": 927,
+    "cbsas_missing": 12,
+    "tract_rows_processed": 66651
+  },
+  "mobility": {
+    "33860": {
+      "upwardMobilityScore": 33.59,
+      "tractCount": 96,
+      "totalKids": 52664,
+      "name": "Montgomery, AL",
+      "percentile": 2
+    },
+    "19300": {
+      "upwardMobilityScore": 38.78,
+      "tractCount": 31,
+      "totalKids": 16087,
+      "name": "Daphne-Fairhope-Foley, AL",
+      "percentile": 31
+    },
+    "21640": {
+      "upwardMobilityScore": 34.53,
+      "tractCount": 10,
+      "totalKids": 5492,
+      "name": "Eufaula, AL-GA",
+      "percentile": 5
+    },
+    "13820": {
+      "upwardMobilityScore": 35.63,
+      "tractCount": 245,
+      "totalKids": 121109,
+      "name": "Birmingham-Hoover, AL",
+      "percentile": 9
+    },
+    "11500": {
+      "upwardMobilityScore": 36.03,
+      "tractCount": 28,
+      "totalKids": 15054,
+      "name": "Anniston-Oxford, AL",
+      "percentile": 11
+    },
+    "29300": {
+      "upwardMobilityScore": 33.77,
+      "tractCount": 23,
+      "totalKids": 15623,
+      "name": "LaGrange, GA-AL",
+      "percentile": 3
+    },
+    "21460": {
+      "upwardMobilityScore": 38.63,
+      "tractCount": 14,
+      "totalKids": 5825,
+      "name": "Enterprise, AL",
+      "percentile": 30
+    },
+    "22520": {
+      "upwardMobilityScore": 38.73,
+      "tractCount": 36,
+      "totalKids": 16945,
+      "name": "Florence-Muscle Shoals, AL",
+      "percentile": 31
+    },
+    "10760": {
+      "upwardMobilityScore": 36.1,
+      "tractCount": 13,
+      "totalKids": 8370,
+      "name": "Alexander City, AL",
+      "percentile": 12
+    },
+    "18980": {
+      "upwardMobilityScore": 40.46,
+      "tractCount": 18,
+      "totalKids": 10690,
+      "name": "Cullman, AL",
+      "percentile": 44
+    },
+    "37120": {
+      "upwardMobilityScore": 38.2,
+      "tractCount": 14,
+      "totalKids": 7245,
+      "name": "Ozark, AL",
+      "percentile": 26
+    },
+    "42820": {
+      "upwardMobilityScore": 33.15,
+      "tractCount": 15,
+      "totalKids": 9833,
+      "name": "Selma, AL",
+      "percentile": 2
+    },
+    "22840": {
+      "upwardMobilityScore": 39.8,
+      "tractCount": 14,
+      "totalKids": 10005,
+      "name": "Fort Payne, AL",
+      "percentile": 39
+    },
+    "12120": {
+      "upwardMobilityScore": 37.11,
+      "tractCount": 9,
+      "totalKids": 6114,
+      "name": "Atmore, AL",
+      "percentile": 18
+    },
+    "23460": {
+      "upwardMobilityScore": 36.21,
+      "tractCount": 30,
+      "totalKids": 14958,
+      "name": "Gadsden, AL",
+      "percentile": 13
+    },
+    "20020": {
+      "upwardMobilityScore": 36.58,
+      "tractCount": 34,
+      "totalKids": 19163,
+      "name": "Dothan, AL",
+      "percentile": 15
+    },
+    "46220": {
+      "upwardMobilityScore": 35.67,
+      "tractCount": 61,
+      "totalKids": 30036,
+      "name": "Tuscaloosa, AL",
+      "percentile": 9
+    },
+    "42460": {
+      "upwardMobilityScore": 39.58,
+      "tractCount": 11,
+      "totalKids": 7183,
+      "name": "Scottsboro, AL",
+      "percentile": 37
+    },
+    "19460": {
+      "upwardMobilityScore": 37.5,
+      "tractCount": 36,
+      "totalKids": 16888,
+      "name": "Decatur, AL",
+      "percentile": 21
+    },
+    "12220": {
+      "upwardMobilityScore": 36.07,
+      "tractCount": 26,
+      "totalKids": 13064,
+      "name": "Auburn-Opelika, AL",
+      "percentile": 12
+    },
+    "26620": {
+      "upwardMobilityScore": 35.98,
+      "tractCount": 89,
+      "totalKids": 36929,
+      "name": "Huntsville, AL",
+      "percentile": 11
+    },
+    "10700": {
+      "upwardMobilityScore": 38.74,
+      "tractCount": 18,
+      "totalKids": 11781,
+      "name": "Albertville, AL",
+      "percentile": 31
+    },
+    "33660": {
+      "upwardMobilityScore": 35.86,
+      "tractCount": 118,
+      "totalKids": 69190,
+      "name": "Mobile, AL",
+      "percentile": 10
+    },
+    "45980": {
+      "upwardMobilityScore": 36.81,
+      "tractCount": 8,
+      "totalKids": 5078,
+      "name": "Troy, AL",
+      "percentile": 16
+    },
+    "17980": {
+      "upwardMobilityScore": 33.47,
+      "tractCount": 81,
+      "totalKids": 49338,
+      "name": "Columbus, GA-AL",
+      "percentile": 2
+    },
+    "45180": {
+      "upwardMobilityScore": 35.63,
+      "tractCount": 22,
+      "totalKids": 12672,
+      "name": "Talladega-Sylacauga, AL",
+      "percentile": 9
+    },
+    "27530": {
+      "upwardMobilityScore": 37.68,
+      "tractCount": 18,
+      "totalKids": 9413,
+      "name": "Jasper, AL",
+      "percentile": 22
+    },
+    "11260": {
+      "upwardMobilityScore": 38.94,
+      "tractCount": 79,
+      "totalKids": 35938,
+      "name": "Anchorage, AK",
+      "percentile": 32
+    },
+    "21820": {
+      "upwardMobilityScore": 39.78,
+      "tractCount": 19,
+      "totalKids": 9217,
+      "name": "Fairbanks, AK",
+      "percentile": 39
+    },
+    "27940": {
+      "upwardMobilityScore": 37.17,
+      "tractCount": 6,
+      "totalKids": 2204,
+      "name": "Juneau, AK",
+      "percentile": 18
+    },
+    "28540": {
+      "upwardMobilityScore": 40.51,
+      "tractCount": 4,
+      "totalKids": 1183,
+      "name": "Ketchikan, AK",
+      "percentile": 45
+    },
+    "43420": {
+      "upwardMobilityScore": 41.28,
+      "tractCount": 32,
+      "totalKids": 18280,
+      "name": "Sierra Vista-Douglas, AZ",
+      "percentile": 53
+    },
+    "22380": {
+      "upwardMobilityScore": 38.31,
+      "tractCount": 28,
+      "totalKids": 18070,
+      "name": "Flagstaff, AZ",
+      "percentile": 27
+    },
+    "37740": {
+      "upwardMobilityScore": 36.51,
+      "tractCount": 16,
+      "totalKids": 7408,
+      "name": "Payson, AZ",
+      "percentile": 15
+    },
+    "40940": {
+      "upwardMobilityScore": 38.25,
+      "tractCount": 9,
+      "totalKids": 5272,
+      "name": "Safford, AZ",
+      "percentile": 27
+    },
+    "38060": {
+      "upwardMobilityScore": 38.97,
+      "tractCount": 965,
+      "totalKids": 422220,
+      "name": "Phoenix-Mesa-Chandler, AZ",
+      "percentile": 32
+    },
+    "29420": {
+      "upwardMobilityScore": 39.01,
+      "tractCount": 43,
+      "totalKids": 22866,
+      "name": "Lake Havasu City-Kingman, AZ",
+      "percentile": 33
+    },
+    "43320": {
+      "upwardMobilityScore": 33.97,
+      "tractCount": 31,
+      "totalKids": 21483,
+      "name": "Show Low, AZ",
+      "percentile": 3
+    },
+    "46060": {
+      "upwardMobilityScore": 37.75,
+      "tractCount": 240,
+      "totalKids": 111862,
+      "name": "Tucson, AZ",
+      "percentile": 23
+    },
+    "35700": {
+      "upwardMobilityScore": 39.09,
+      "tractCount": 10,
+      "totalKids": 9725,
+      "name": "Nogales, AZ",
+      "percentile": 33
+    },
+    "39150": {
+      "upwardMobilityScore": 42.81,
+      "tractCount": 42,
+      "totalKids": 18403,
+      "name": "Prescott Valley-Prescott, AZ",
+      "percentile": 67
+    },
+    "49740": {
+      "upwardMobilityScore": 38.3,
+      "tractCount": 52,
+      "totalKids": 31820,
+      "name": "Yuma, AZ",
+      "percentile": 27
+    },
+    "34260": {
+      "upwardMobilityScore": 41.32,
+      "tractCount": 9,
+      "totalKids": 4376,
+      "name": "Mountain Home, AR",
+      "percentile": 53
+    },
+    "22220": {
+      "upwardMobilityScore": 42.01,
+      "tractCount": 85,
+      "totalKids": 44873,
+      "name": "Fayetteville-Springdale-Rogers, AR",
+      "percentile": 59
+    },
+    "25460": {
+      "upwardMobilityScore": 42.24,
+      "tractCount": 9,
+      "totalKids": 6323,
+      "name": "Harrison, AR",
+      "percentile": 61
+    },
+    "15780": {
+      "upwardMobilityScore": 37.9,
+      "tractCount": 8,
+      "totalKids": 5799,
+      "name": "Camden, AR",
+      "percentile": 24
+    },
+    "11660": {
+      "upwardMobilityScore": 39.8,
+      "tractCount": 5,
+      "totalKids": 3256,
+      "name": "Arkadelphia, AR",
+      "percentile": 39
+    },
+    "38220": {
+      "upwardMobilityScore": 34.52,
+      "tractCount": 29,
+      "totalKids": 17898,
+      "name": "Pine Bluff, AR",
+      "percentile": 5
+    },
+    "31620": {
+      "upwardMobilityScore": 36.01,
+      "tractCount": 5,
+      "totalKids": 3521,
+      "name": "Magnolia, AR",
+      "percentile": 11
+    },
+    "27860": {
+      "upwardMobilityScore": 38.35,
+      "tractCount": 24,
+      "totalKids": 15439,
+      "name": "Jonesboro, AR",
+      "percentile": 27
+    },
+    "22900": {
+      "upwardMobilityScore": 39.25,
+      "tractCount": 49,
+      "totalKids": 35721,
+      "name": "Fort Smith, AR-OK",
+      "percentile": 35
+    },
+    "32820": {
+      "upwardMobilityScore": 32.3,
+      "tractCount": 307,
+      "totalKids": 195956,
+      "name": "Memphis, TN-MS-AR",
+      "percentile": 1
+    },
+    "30780": {
+      "upwardMobilityScore": 36.64,
+      "tractCount": 163,
+      "totalKids": 79016,
+      "name": "Little Rock-North Little Rock-Conway, AR",
+      "percentile": 15
+    },
+    "26300": {
+      "upwardMobilityScore": 37.74,
+      "tractCount": 20,
+      "totalKids": 11380,
+      "name": "Hot Springs, AR",
+      "percentile": 23
+    },
+    "37500": {
+      "upwardMobilityScore": 39.51,
+      "tractCount": 9,
+      "totalKids": 5779,
+      "name": "Paragould, AR",
+      "percentile": 37
+    },
+    "26260": {
+      "upwardMobilityScore": 36.44,
+      "tractCount": 8,
+      "totalKids": 6080,
+      "name": "Hope, AR",
+      "percentile": 14
+    },
+    "31680": {
+      "upwardMobilityScore": 38.12,
+      "tractCount": 7,
+      "totalKids": 4603,
+      "name": "Malvern, AR",
+      "percentile": 26
+    },
+    "12900": {
+      "upwardMobilityScore": 41.05,
+      "tractCount": 12,
+      "totalKids": 7620,
+      "name": "Batesville, AR",
+      "percentile": 51
+    },
+    "45500": {
+      "upwardMobilityScore": 37.66,
+      "tractCount": 33,
+      "totalKids": 20986,
+      "name": "Texarkana, TX-AR",
+      "percentile": 22
+    },
+    "14180": {
+      "upwardMobilityScore": 34.35,
+      "tractCount": 12,
+      "totalKids": 10681,
+      "name": "Blytheville, AR",
+      "percentile": 4
+    },
+    "25760": {
+      "upwardMobilityScore": 32.55,
+      "tractCount": 6,
+      "totalKids": 6562,
+      "name": "Helena-West Helena, AR",
+      "percentile": 1
+    },
+    "40780": {
+      "upwardMobilityScore": 40.2,
+      "tractCount": 17,
+      "totalKids": 11621,
+      "name": "Russellville, AR",
+      "percentile": 42
+    },
+    "22620": {
+      "upwardMobilityScore": 34.41,
+      "tractCount": 6,
+      "totalKids": 6093,
+      "name": "Forrest City, AR",
+      "percentile": 4
+    },
+    "20980": {
+      "upwardMobilityScore": 35.73,
+      "tractCount": 10,
+      "totalKids": 6603,
+      "name": "El Dorado, AR",
+      "percentile": 9
+    },
+    "42620": {
+      "upwardMobilityScore": 42.31,
+      "tractCount": 13,
+      "totalKids": 9382,
+      "name": "Searcy, AR",
+      "percentile": 62
+    },
+    "41860": {
+      "upwardMobilityScore": 45.29,
+      "tractCount": 965,
+      "totalKids": 362244,
+      "name": "San Francisco-Oakland-Berkeley, CA",
+      "percentile": 83
+    },
+    "17020": {
+      "upwardMobilityScore": 41.42,
+      "tractCount": 51,
+      "totalKids": 25878,
+      "name": "Chico, CA",
+      "percentile": 54
+    },
+    "18860": {
+      "upwardMobilityScore": 38.68,
+      "tractCount": 7,
+      "totalKids": 3563,
+      "name": "Crescent City, CA",
+      "percentile": 30
+    },
+    "40900": {
+      "upwardMobilityScore": 42.5,
+      "tractCount": 474,
+      "totalKids": 217781,
+      "name": "Sacramento-Roseville-Folsom, CA",
+      "percentile": 65
+    },
+    "23420": {
+      "upwardMobilityScore": 38.49,
+      "tractCount": 197,
+      "totalKids": 169470,
+      "name": "Fresno, CA",
+      "percentile": 29
+    },
+    "21700": {
+      "upwardMobilityScore": 39.71,
+      "tractCount": 30,
+      "totalKids": 14842,
+      "name": "Eureka-Arcata, CA",
+      "percentile": 38
+    },
+    "20940": {
+      "upwardMobilityScore": 37.33,
+      "tractCount": 31,
+      "totalKids": 32509,
+      "name": "El Centro, CA",
+      "percentile": 19
+    },
+    "12540": {
+      "upwardMobilityScore": 42.2,
+      "tractCount": 147,
+      "totalKids": 125699,
+      "name": "Bakersfield, CA",
+      "percentile": 61
+    },
+    "25260": {
+      "upwardMobilityScore": 39.6,
+      "tractCount": 25,
+      "totalKids": 23365,
+      "name": "Hanford-Corcoran, CA",
+      "percentile": 37
+    },
+    "17340": {
+      "upwardMobilityScore": 40.66,
+      "tractCount": 15,
+      "totalKids": 7479,
+      "name": "Clearlake, CA",
+      "percentile": 45
+    },
+    "45000": {
+      "upwardMobilityScore": 43.54,
+      "tractCount": 9,
+      "totalKids": 2869,
+      "name": "Susanville, CA",
+      "percentile": 73
+    },
+    "31080": {
+      "upwardMobilityScore": 42.81,
+      "tractCount": 2889,
+      "totalKids": 2046348,
+      "name": "Los Angeles-Long Beach-Anaheim, CA",
+      "percentile": 67
+    },
+    "31460": {
+      "upwardMobilityScore": 39.12,
+      "tractCount": 23,
+      "totalKids": 23960,
+      "name": "Madera, CA",
+      "percentile": 34
+    },
+    "46380": {
+      "upwardMobilityScore": 39.83,
+      "tractCount": 20,
+      "totalKids": 11654,
+      "name": "Ukiah, CA",
+      "percentile": 40
+    },
+    "32900": {
+      "upwardMobilityScore": 40.48,
+      "tractCount": 49,
+      "totalKids": 47132,
+      "name": "Merced, CA",
+      "percentile": 44
+    },
+    "41500": {
+      "upwardMobilityScore": 40.69,
+      "tractCount": 90,
+      "totalKids": 65830,
+      "name": "Salinas, CA",
+      "percentile": 46
+    },
+    "34900": {
+      "upwardMobilityScore": 43.49,
+      "tractCount": 39,
+      "totalKids": 11614,
+      "name": "Napa, CA",
+      "percentile": 72
+    },
+    "46020": {
+      "upwardMobilityScore": 45.15,
+      "tractCount": 20,
+      "totalKids": 8234,
+      "name": "Truckee-Grass Valley, CA",
+      "percentile": 82
+    },
+    "40140": {
+      "upwardMobilityScore": 40.72,
+      "tractCount": 808,
+      "totalKids": 543589,
+      "name": "Riverside-San Bernardino-Ontario, CA",
+      "percentile": 46
+    },
+    "41940": {
+      "upwardMobilityScore": 47.06,
+      "tractCount": 382,
+      "totalKids": 153509,
+      "name": "San Jose-Sunnyvale-Santa Clara, CA",
+      "percentile": 89
+    },
+    "41740": {
+      "upwardMobilityScore": 42.1,
+      "tractCount": 624,
+      "totalKids": 373871,
+      "name": "San Diego-Chula Vista-Carlsbad, CA",
+      "percentile": 60
+    },
+    "44700": {
+      "upwardMobilityScore": 40.79,
+      "tractCount": 139,
+      "totalKids": 90150,
+      "name": "Stockton, CA",
+      "percentile": 47
+    },
+    "42020": {
+      "upwardMobilityScore": 44.79,
+      "tractCount": 50,
+      "totalKids": 22201,
+      "name": "San Luis Obispo-Paso Robles, CA",
+      "percentile": 81
+    },
+    "42200": {
+      "upwardMobilityScore": 42.63,
+      "tractCount": 87,
+      "totalKids": 50992,
+      "name": "Santa Maria-Santa Barbara, CA",
+      "percentile": 66
+    },
+    "42100": {
+      "upwardMobilityScore": 41.45,
+      "tractCount": 52,
+      "totalKids": 27990,
+      "name": "Santa Cruz-Watsonville, CA",
+      "percentile": 54
+    },
+    "39820": {
+      "upwardMobilityScore": 42.4,
+      "tractCount": 48,
+      "totalKids": 21403,
+      "name": "Redding, CA",
+      "percentile": 63
+    },
+    "46700": {
+      "upwardMobilityScore": 42.31,
+      "tractCount": 94,
+      "totalKids": 41329,
+      "name": "Vallejo, CA",
+      "percentile": 62
+    },
+    "42220": {
+      "upwardMobilityScore": 44.28,
+      "tractCount": 99,
+      "totalKids": 41133,
+      "name": "Santa Rosa-Petaluma, CA",
+      "percentile": 78
+    },
+    "33700": {
+      "upwardMobilityScore": 41.36,
+      "tractCount": 94,
+      "totalKids": 74958,
+      "name": "Modesto, CA",
+      "percentile": 54
+    },
+    "49700": {
+      "upwardMobilityScore": 41.99,
+      "tractCount": 35,
+      "totalKids": 25230,
+      "name": "Yuba City, CA",
+      "percentile": 59
+    },
+    "39780": {
+      "upwardMobilityScore": 41.35,
+      "tractCount": 11,
+      "totalKids": 9290,
+      "name": "Red Bluff, CA",
+      "percentile": 53
+    },
+    "47300": {
+      "upwardMobilityScore": 40.26,
+      "tractCount": 77,
+      "totalKids": 84824,
+      "name": "Visalia, CA",
+      "percentile": 43
+    },
+    "43760": {
+      "upwardMobilityScore": 44.79,
+      "tractCount": 10,
+      "totalKids": 4836,
+      "name": "Sonora, CA",
+      "percentile": 81
+    },
+    "37100": {
+      "upwardMobilityScore": 42.69,
+      "tractCount": 172,
+      "totalKids": 90874,
+      "name": "Oxnard-Thousand Oaks-Ventura, CA",
+      "percentile": 66
+    },
+    "19740": {
+      "upwardMobilityScore": 41.62,
+      "tractCount": 610,
+      "totalKids": 213533,
+      "name": "Denver-Aurora-Lakewood, CO",
+      "percentile": 55
+    },
+    "14500": {
+      "upwardMobilityScore": 44.68,
+      "tractCount": 68,
+      "totalKids": 17178,
+      "name": "Boulder, CO",
+      "percentile": 80
+    },
+    "20780": {
+      "upwardMobilityScore": 41.97,
+      "tractCount": 13,
+      "totalKids": 3226,
+      "name": "Edwards, CO",
+      "percentile": 58
+    },
+    "17820": {
+      "upwardMobilityScore": 41.09,
+      "tractCount": 134,
+      "totalKids": 58804,
+      "name": "Colorado Springs, CO",
+      "percentile": 51
+    },
+    "15860": {
+      "upwardMobilityScore": 43.0,
+      "tractCount": 11,
+      "totalKids": 4624,
+      "name": "Ca\u00f1on City, CO",
+      "percentile": 69
+    },
+    "24060": {
+      "upwardMobilityScore": 46.46,
+      "tractCount": 15,
+      "totalKids": 5571,
+      "name": "Glenwood Springs, CO",
+      "percentile": 87
+    },
+    "20420": {
+      "upwardMobilityScore": 49.17,
+      "tractCount": 10,
+      "totalKids": 4206,
+      "name": "Durango, CO",
+      "percentile": 94
+    },
+    "22660": {
+      "upwardMobilityScore": 45.77,
+      "tractCount": 72,
+      "totalKids": 18418,
+      "name": "Fort Collins, CO",
+      "percentile": 85
+    },
+    "44540": {
+      "upwardMobilityScore": 48.38,
+      "tractCount": 6,
+      "totalKids": 2684,
+      "name": "Sterling, CO",
+      "percentile": 93
+    },
+    "24300": {
+      "upwardMobilityScore": 45.31,
+      "tractCount": 29,
+      "totalKids": 14099,
+      "name": "Grand Junction, CO",
+      "percentile": 83
+    },
+    "18780": {
+      "upwardMobilityScore": 46.5,
+      "tractCount": 4,
+      "totalKids": 1120,
+      "name": "Craig, CO",
+      "percentile": 87
+    },
+    "33940": {
+      "upwardMobilityScore": 44.76,
+      "tractCount": 11,
+      "totalKids": 5143,
+      "name": "Montrose, CO",
+      "percentile": 80
+    },
+    "22820": {
+      "upwardMobilityScore": 45.95,
+      "tractCount": 8,
+      "totalKids": 4770,
+      "name": "Fort Morgan, CO",
+      "percentile": 85
+    },
+    "39380": {
+      "upwardMobilityScore": 38.2,
+      "tractCount": 52,
+      "totalKids": 20214,
+      "name": "Pueblo, CO",
+      "percentile": 26
+    },
+    "44460": {
+      "upwardMobilityScore": 50.36,
+      "tractCount": 8,
+      "totalKids": 1193,
+      "name": "Steamboat Springs, CO",
+      "percentile": 96
+    },
+    "14720": {
+      "upwardMobilityScore": 50.57,
+      "tractCount": 5,
+      "totalKids": 833,
+      "name": "Breckenridge, CO",
+      "percentile": 96
+    },
+    "24540": {
+      "upwardMobilityScore": 43.07,
+      "tractCount": 74,
+      "totalKids": 24371,
+      "name": "Greeley, CO",
+      "percentile": 70
+    },
+    "14860": {
+      "upwardMobilityScore": 42.71,
+      "tractCount": 210,
+      "totalKids": 67110,
+      "name": "Bridgeport-Stamford-Norwalk, CT",
+      "percentile": 66
+    },
+    "25540": {
+      "upwardMobilityScore": 40.72,
+      "tractCount": 285,
+      "totalKids": 88381,
+      "name": "Hartford-East Hartford-Middletown, CT",
+      "percentile": 46
+    },
+    "45860": {
+      "upwardMobilityScore": 44.2,
+      "tractCount": 51,
+      "totalKids": 10507,
+      "name": "Torrington, CT",
+      "percentile": 77
+    },
+    "35300": {
+      "upwardMobilityScore": 40.02,
+      "tractCount": 189,
+      "totalKids": 71988,
+      "name": "New Haven-Milford, CT",
+      "percentile": 41
+    },
+    "35980": {
+      "upwardMobilityScore": 40.84,
+      "tractCount": 65,
+      "totalKids": 19698,
+      "name": "Norwich-New London, CT",
+      "percentile": 48
+    },
+    "49340": {
+      "upwardMobilityScore": 42.81,
+      "tractCount": 195,
+      "totalKids": 72944,
+      "name": "Worcester, MA-CT",
+      "percentile": 68
+    },
+    "20100": {
+      "upwardMobilityScore": 38.21,
+      "tractCount": 32,
+      "totalKids": 16949,
+      "name": "Dover, DE",
+      "percentile": 26
+    },
+    "37980": {
+      "upwardMobilityScore": 39.09,
+      "tractCount": 1457,
+      "totalKids": 573582,
+      "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+      "percentile": 34
+    },
+    "41540": {
+      "upwardMobilityScore": 38.24,
+      "tractCount": 94,
+      "totalKids": 37505,
+      "name": "Salisbury, MD-DE",
+      "percentile": 26
+    },
+    "47900": {
+      "upwardMobilityScore": 42.82,
+      "tractCount": 1346,
+      "totalKids": 460479,
+      "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+      "percentile": 68
+    },
+    "23540": {
+      "upwardMobilityScore": 36.77,
+      "tractCount": 70,
+      "totalKids": 30569,
+      "name": "Gainesville, FL",
+      "percentile": 16
+    },
+    "27260": {
+      "upwardMobilityScore": 35.85,
+      "tractCount": 258,
+      "totalKids": 144057,
+      "name": "Jacksonville, FL",
+      "percentile": 10
+    },
+    "37460": {
+      "upwardMobilityScore": 37.94,
+      "tractCount": 43,
+      "totalKids": 20496,
+      "name": "Panama City, FL",
+      "percentile": 25
+    },
+    "37340": {
+      "upwardMobilityScore": 38.63,
+      "tractCount": 111,
+      "totalKids": 48969,
+      "name": "Palm Bay-Melbourne-Titusville, FL",
+      "percentile": 30
+    },
+    "33100": {
+      "upwardMobilityScore": 40.05,
+      "tractCount": 1183,
+      "totalKids": 721028,
+      "name": "Miami-Fort Lauderdale-Pompano Beach, FL",
+      "percentile": 41
+    },
+    "39460": {
+      "upwardMobilityScore": 41.17,
+      "tractCount": 38,
+      "totalKids": 12282,
+      "name": "Punta Gorda, FL",
+      "percentile": 52
+    },
+    "26140": {
+      "upwardMobilityScore": 39.55,
+      "tractCount": 27,
+      "totalKids": 11674,
+      "name": "Homosassa Springs, FL",
+      "percentile": 37
+    },
+    "34940": {
+      "upwardMobilityScore": 40.09,
+      "tractCount": 73,
+      "totalKids": 28779,
+      "name": "Naples-Marco Island, FL",
+      "percentile": 41
+    },
+    "29380": {
+      "upwardMobilityScore": 35.75,
+      "tractCount": 12,
+      "totalKids": 9076,
+      "name": "Lake City, FL",
+      "percentile": 10
+    },
+    "11580": {
+      "upwardMobilityScore": 35.99,
+      "tractCount": 9,
+      "totalKids": 5127,
+      "name": "Arcadia, FL",
+      "percentile": 11
+    },
+    "37860": {
+      "upwardMobilityScore": 37.42,
+      "tractCount": 96,
+      "totalKids": 55327,
+      "name": "Pensacola-Ferry Pass-Brent, FL",
+      "percentile": 20
+    },
+    "19660": {
+      "upwardMobilityScore": 38.31,
+      "tractCount": 133,
+      "totalKids": 56278,
+      "name": "Deltona-Daytona Beach-Ormond Beach, FL",
+      "percentile": 27
+    },
+    "45220": {
+      "upwardMobilityScore": 34.84,
+      "tractCount": 83,
+      "totalKids": 38508,
+      "name": "Tallahassee, FL",
+      "percentile": 5
+    },
+    "48100": {
+      "upwardMobilityScore": 39.62,
+      "tractCount": 6,
+      "totalKids": 5025,
+      "name": "Wauchula, FL",
+      "percentile": 38
+    },
+    "17500": {
+      "upwardMobilityScore": 35.65,
+      "tractCount": 6,
+      "totalKids": 7688,
+      "name": "Clewiston, FL",
+      "percentile": 9
+    },
+    "45300": {
+      "upwardMobilityScore": 37.52,
+      "tractCount": 728,
+      "totalKids": 285758,
+      "name": "Tampa-St. Petersburg-Clearwater, FL",
+      "percentile": 22
+    },
+    "42700": {
+      "upwardMobilityScore": 37.93,
+      "tractCount": 24,
+      "totalKids": 10906,
+      "name": "Sebring-Avon Park, FL",
+      "percentile": 24
+    },
+    "42680": {
+      "upwardMobilityScore": 37.86,
+      "tractCount": 29,
+      "totalKids": 11777,
+      "name": "Sebastian-Vero Beach, FL",
+      "percentile": 24
+    },
+    "36740": {
+      "upwardMobilityScore": 38.45,
+      "tractCount": 389,
+      "totalKids": 222881,
+      "name": "Orlando-Kissimmee-Sanford, FL",
+      "percentile": 28
+    },
+    "15980": {
+      "upwardMobilityScore": 38.26,
+      "tractCount": 159,
+      "totalKids": 47809,
+      "name": "Cape Coral-Fort Myers, FL",
+      "percentile": 27
+    },
+    "35840": {
+      "upwardMobilityScore": 37.85,
+      "tractCount": 172,
+      "totalKids": 56582,
+      "name": "North Port-Sarasota-Bradenton, FL",
+      "percentile": 24
+    },
+    "36100": {
+      "upwardMobilityScore": 36.95,
+      "tractCount": 61,
+      "totalKids": 35453,
+      "name": "Ocala, FL",
+      "percentile": 17
+    },
+    "38940": {
+      "upwardMobilityScore": 37.85,
+      "tractCount": 77,
+      "totalKids": 37350,
+      "name": "Port St. Lucie, FL",
+      "percentile": 24
+    },
+    "28580": {
+      "upwardMobilityScore": 42.31,
+      "tractCount": 28,
+      "totalKids": 7269,
+      "name": "Key West, FL",
+      "percentile": 62
+    },
+    "18880": {
+      "upwardMobilityScore": 39.33,
+      "tractCount": 52,
+      "totalKids": 26280,
+      "name": "Crestview-Fort Walton Beach-Destin, FL",
+      "percentile": 35
+    },
+    "36380": {
+      "upwardMobilityScore": 36.34,
+      "tractCount": 11,
+      "totalKids": 6303,
+      "name": "Okeechobee, FL",
+      "percentile": 14
+    },
+    "29460": {
+      "upwardMobilityScore": 36.42,
+      "tractCount": 153,
+      "totalKids": 70078,
+      "name": "Lakeland-Winter Haven, FL",
+      "percentile": 14
+    },
+    "37260": {
+      "upwardMobilityScore": 35.76,
+      "tractCount": 16,
+      "totalKids": 11434,
+      "name": "Palatka, FL",
+      "percentile": 10
+    },
+    "45540": {
+      "upwardMobilityScore": 37.32,
+      "tractCount": 17,
+      "totalKids": 5303,
+      "name": "The Villages, FL",
+      "percentile": 19
+    },
+    "20060": {
+      "upwardMobilityScore": 37.14,
+      "tractCount": 12,
+      "totalKids": 8690,
+      "name": "Douglas, GA",
+      "percentile": 18
+    },
+    "33300": {
+      "upwardMobilityScore": 32.32,
+      "tractCount": 11,
+      "totalKids": 7826,
+      "name": "Milledgeville, GA",
+      "percentile": 1
+    },
+    "12060": {
+      "upwardMobilityScore": 35.96,
+      "tractCount": 945,
+      "totalKids": 528640,
+      "name": "Atlanta-Sandy Springs-Alpharetta, GA",
+      "percentile": 11
+    },
+    "22340": {
+      "upwardMobilityScore": 36.11,
+      "tractCount": 5,
+      "totalKids": 3303,
+      "name": "Fitzgerald, GA",
+      "percentile": 12
+    },
+    "31420": {
+      "upwardMobilityScore": 32.89,
+      "tractCount": 60,
+      "totalKids": 33701,
+      "name": "Macon-Bibb County, GA",
+      "percentile": 2
+    },
+    "15260": {
+      "upwardMobilityScore": 35.16,
+      "tractCount": 21,
+      "totalKids": 14304,
+      "name": "Brunswick, GA",
+      "percentile": 6
+    },
+    "46660": {
+      "upwardMobilityScore": 35.43,
+      "tractCount": 34,
+      "totalKids": 20345,
+      "name": "Valdosta, GA",
+      "percentile": 7
+    },
+    "42340": {
+      "upwardMobilityScore": 34.81,
+      "tractCount": 85,
+      "totalKids": 40878,
+      "name": "Savannah, GA",
+      "percentile": 5
+    },
+    "44340": {
+      "upwardMobilityScore": 35.78,
+      "tractCount": 12,
+      "totalKids": 7213,
+      "name": "Statesboro, GA",
+      "percentile": 10
+    },
+    "12260": {
+      "upwardMobilityScore": 35.21,
+      "tractCount": 118,
+      "totalKids": 71730,
+      "name": "Augusta-Richmond County, GA-SC",
+      "percentile": 6
+    },
+    "41220": {
+      "upwardMobilityScore": 38.55,
+      "tractCount": 10,
+      "totalKids": 5865,
+      "name": "St. Marys, GA",
+      "percentile": 29
+    },
+    "16860": {
+      "upwardMobilityScore": 36.08,
+      "tractCount": 117,
+      "totalKids": 57573,
+      "name": "Chattanooga, TN-GA",
+      "percentile": 12
+    },
+    "44900": {
+      "upwardMobilityScore": 36.68,
+      "tractCount": 6,
+      "totalKids": 3755,
+      "name": "Summerville, GA",
+      "percentile": 16
+    },
+    "12020": {
+      "upwardMobilityScore": 35.44,
+      "tractCount": 45,
+      "totalKids": 18137,
+      "name": "Athens-Clarke County, GA",
+      "percentile": 7
+    },
+    "34220": {
+      "upwardMobilityScore": 35.61,
+      "tractCount": 10,
+      "totalKids": 7390,
+      "name": "Moultrie, GA",
+      "percentile": 8
+    },
+    "18380": {
+      "upwardMobilityScore": 32.71,
+      "tractCount": 6,
+      "totalKids": 4358,
+      "name": "Cordele, GA",
+      "percentile": 1
+    },
+    "12460": {
+      "upwardMobilityScore": 35.59,
+      "tractCount": 7,
+      "totalKids": 5779,
+      "name": "Bainbridge, GA",
+      "percentile": 8
+    },
+    "10500": {
+      "upwardMobilityScore": 32.55,
+      "tractCount": 41,
+      "totalKids": 27173,
+      "name": "Albany, GA",
+      "percentile": 1
+    },
+    "40660": {
+      "upwardMobilityScore": 35.37,
+      "tractCount": 20,
+      "totalKids": 11547,
+      "name": "Rome, GA",
+      "percentile": 7
+    },
+    "15660": {
+      "upwardMobilityScore": 37.44,
+      "tractCount": 9,
+      "totalKids": 6201,
+      "name": "Calhoun, GA",
+      "percentile": 21
+    },
+    "18460": {
+      "upwardMobilityScore": 39.09,
+      "tractCount": 8,
+      "totalKids": 4563,
+      "name": "Cornelia, GA",
+      "percentile": 34
+    },
+    "23580": {
+      "upwardMobilityScore": 37.39,
+      "tractCount": 36,
+      "totalKids": 19264,
+      "name": "Gainesville, GA",
+      "percentile": 20
+    },
+    "47580": {
+      "upwardMobilityScore": 36.33,
+      "tractCount": 29,
+      "totalKids": 16758,
+      "name": "Warner Robins, GA",
+      "percentile": 14
+    },
+    "27600": {
+      "upwardMobilityScore": 37.74,
+      "tractCount": 11,
+      "totalKids": 5833,
+      "name": "Jefferson, GA",
+      "percentile": 23
+    },
+    "20140": {
+      "upwardMobilityScore": 35.34,
+      "tractCount": 18,
+      "totalKids": 10634,
+      "name": "Dublin, GA",
+      "percentile": 7
+    },
+    "25980": {
+      "upwardMobilityScore": 36.72,
+      "tractCount": 16,
+      "totalKids": 15362,
+      "name": "Hinesville, GA",
+      "percentile": 16
+    },
+    "47080": {
+      "upwardMobilityScore": 35.81,
+      "tractCount": 9,
+      "totalKids": 6174,
+      "name": "Vidalia, GA",
+      "percentile": 10
+    },
+    "19140": {
+      "upwardMobilityScore": 35.44,
+      "tractCount": 26,
+      "totalKids": 19942,
+      "name": "Dalton, GA",
+      "percentile": 8
+    },
+    "48180": {
+      "upwardMobilityScore": 36.59,
+      "tractCount": 13,
+      "totalKids": 8359,
+      "name": "Waycross, GA",
+      "percentile": 15
+    },
+    "16340": {
+      "upwardMobilityScore": 35.71,
+      "tractCount": 7,
+      "totalKids": 6103,
+      "name": "Cedartown, GA",
+      "percentile": 9
+    },
+    "11140": {
+      "upwardMobilityScore": 33.79,
+      "tractCount": 10,
+      "totalKids": 6526,
+      "name": "Americus, GA",
+      "percentile": 3
+    },
+    "45740": {
+      "upwardMobilityScore": 38.0,
+      "tractCount": 5,
+      "totalKids": 3514,
+      "name": "Toccoa, GA",
+      "percentile": 25
+    },
+    "45620": {
+      "upwardMobilityScore": 35.48,
+      "tractCount": 11,
+      "totalKids": 7297,
+      "name": "Thomasville, GA",
+      "percentile": 8
+    },
+    "45700": {
+      "upwardMobilityScore": 33.32,
+      "tractCount": 9,
+      "totalKids": 6632,
+      "name": "Tifton, GA",
+      "percentile": 2
+    },
+    "45580": {
+      "upwardMobilityScore": 34.32,
+      "tractCount": 7,
+      "totalKids": 4279,
+      "name": "Thomaston, GA",
+      "percentile": 3
+    },
+    "27700": {
+      "upwardMobilityScore": 36.44,
+      "tractCount": 6,
+      "totalKids": 3927,
+      "name": "Jesup, GA",
+      "percentile": 14
+    },
+    "25900": {
+      "upwardMobilityScore": 41.25,
+      "tractCount": 33,
+      "totalKids": 20136,
+      "name": "Hilo, HI",
+      "percentile": 53
+    },
+    "46520": {
+      "upwardMobilityScore": 45.05,
+      "tractCount": 232,
+      "totalKids": 83600,
+      "name": "Urban Honolulu, HI",
+      "percentile": 82
+    },
+    "28180": {
+      "upwardMobilityScore": 43.25,
+      "tractCount": 13,
+      "totalKids": 7209,
+      "name": "Kapaa, HI",
+      "percentile": 71
+    },
+    "27980": {
+      "upwardMobilityScore": 43.35,
+      "tractCount": 34,
+      "totalKids": 13884,
+      "name": "Kahului-Wailuku-Lahaina, HI",
+      "percentile": 72
+    },
+    "14260": {
+      "upwardMobilityScore": 42.46,
+      "tractCount": 95,
+      "totalKids": 55933,
+      "name": "Boise City, ID",
+      "percentile": 64
+    },
+    "38540": {
+      "upwardMobilityScore": 43.01,
+      "tractCount": 24,
+      "totalKids": 9447,
+      "name": "Pocatello, ID",
+      "percentile": 69
+    },
+    "13940": {
+      "upwardMobilityScore": 45.55,
+      "tractCount": 8,
+      "totalKids": 6666,
+      "name": "Blackfoot, ID",
+      "percentile": 84
+    },
+    "25200": {
+      "upwardMobilityScore": 45.04,
+      "tractCount": 5,
+      "totalKids": 1684,
+      "name": "Hailey, ID",
+      "percentile": 82
+    },
+    "41760": {
+      "upwardMobilityScore": 45.94,
+      "tractCount": 9,
+      "totalKids": 5171,
+      "name": "Sandpoint, ID",
+      "percentile": 85
+    },
+    "26820": {
+      "upwardMobilityScore": 46.1,
+      "tractCount": 26,
+      "totalKids": 12869,
+      "name": "Idaho Falls, ID",
+      "percentile": 86
+    },
+    "15420": {
+      "upwardMobilityScore": 46.54,
+      "tractCount": 11,
+      "totalKids": 7608,
+      "name": "Burley, ID",
+      "percentile": 87
+    },
+    "34300": {
+      "upwardMobilityScore": 43.42,
+      "tractCount": 5,
+      "totalKids": 4461,
+      "name": "Mountain Home, ID",
+      "percentile": 72
+    },
+    "30860": {
+      "upwardMobilityScore": 49.77,
+      "tractCount": 27,
+      "totalKids": 11989,
+      "name": "Logan, UT-ID",
+      "percentile": 95
+    },
+    "39940": {
+      "upwardMobilityScore": 49.65,
+      "tractCount": 9,
+      "totalKids": 5167,
+      "name": "Rexburg, ID",
+      "percentile": 94
+    },
+    "46300": {
+      "upwardMobilityScore": 44.63,
+      "tractCount": 19,
+      "totalKids": 12524,
+      "name": "Twin Falls, ID",
+      "percentile": 80
+    },
+    "17660": {
+      "upwardMobilityScore": 45.07,
+      "tractCount": 25,
+      "totalKids": 13638,
+      "name": "Coeur d'Alene, ID",
+      "percentile": 82
+    },
+    "34140": {
+      "upwardMobilityScore": 47.84,
+      "tractCount": 7,
+      "totalKids": 2594,
+      "name": "Moscow, ID",
+      "percentile": 91
+    },
+    "30300": {
+      "upwardMobilityScore": 42.4,
+      "tractCount": 16,
+      "totalKids": 5712,
+      "name": "Lewiston, ID-WA",
+      "percentile": 63
+    },
+    "36620": {
+      "upwardMobilityScore": 42.09,
+      "tractCount": 11,
+      "totalKids": 8865,
+      "name": "Ontario, OR-ID",
+      "percentile": 60
+    },
+    "27220": {
+      "upwardMobilityScore": 53.34,
+      "tractCount": 5,
+      "totalKids": 1818,
+      "name": "Jackson, WY-ID",
+      "percentile": 99
+    },
+    "39500": {
+      "upwardMobilityScore": 44.46,
+      "tractCount": 22,
+      "totalKids": 8543,
+      "name": "Quincy, IL-MO",
+      "percentile": 79
+    },
+    "16020": {
+      "upwardMobilityScore": 39.13,
+      "tractCount": 23,
+      "totalKids": 10164,
+      "name": "Cape Girardeau, MO-IL",
+      "percentile": 34
+    },
+    "41180": {
+      "upwardMobilityScore": 37.77,
+      "tractCount": 614,
+      "totalKids": 267412,
+      "name": "St. Louis, MO-IL",
+      "percentile": 23
+    },
+    "40420": {
+      "upwardMobilityScore": 37.32,
+      "tractCount": 83,
+      "totalKids": 32151,
+      "name": "Rockford, IL",
+      "percentile": 19
+    },
+    "36837": {
+      "upwardMobilityScore": 43.89,
+      "tractCount": 40,
+      "totalKids": 12884,
+      "name": "Ottawa, IL",
+      "percentile": 75
+    },
+    "16580": {
+      "upwardMobilityScore": 40.98,
+      "tractCount": 45,
+      "totalKids": 15728,
+      "name": "Champaign-Urbana, IL",
+      "percentile": 50
+    },
+    "45380": {
+      "upwardMobilityScore": 43.51,
+      "tractCount": 10,
+      "totalKids": 3582,
+      "name": "Taylorville, IL",
+      "percentile": 73
+    },
+    "16660": {
+      "upwardMobilityScore": 41.7,
+      "tractCount": 15,
+      "totalKids": 5661,
+      "name": "Charleston-Mattoon, IL",
+      "percentile": 56
+    },
+    "16980": {
+      "upwardMobilityScore": 38.73,
+      "tractCount": 2201,
+      "totalKids": 1028070,
+      "name": "Chicago-Naperville-Elgin, IL-IN-WI",
+      "percentile": 31
+    },
+    "20820": {
+      "upwardMobilityScore": 47.27,
+      "tractCount": 8,
+      "totalKids": 3483,
+      "name": "Effingham, IL",
+      "percentile": 90
+    },
+    "37900": {
+      "upwardMobilityScore": 39.0,
+      "tractCount": 106,
+      "totalKids": 35715,
+      "name": "Peoria, IL",
+      "percentile": 33
+    },
+    "22800": {
+      "upwardMobilityScore": 45.81,
+      "tractCount": 21,
+      "totalKids": 7089,
+      "name": "Fort Madison-Keokuk, IA-IL-MO",
+      "percentile": 85
+    },
+    "15460": {
+      "upwardMobilityScore": 43.2,
+      "tractCount": 14,
+      "totalKids": 4718,
+      "name": "Burlington, IA-IL",
+      "percentile": 70
+    },
+    "19340": {
+      "upwardMobilityScore": 42.02,
+      "tractCount": 104,
+      "totalKids": 34485,
+      "name": "Davenport-Moline-Rock Island, IA-IL",
+      "percentile": 59
+    },
+    "16060": {
+      "upwardMobilityScore": 40.77,
+      "tractCount": 32,
+      "totalKids": 13566,
+      "name": "Carbondale-Marion, IL",
+      "percentile": 47
+    },
+    "34500": {
+      "upwardMobilityScore": 39.56,
+      "tractCount": 11,
+      "totalKids": 4596,
+      "name": "Mount Vernon, IL",
+      "percentile": 37
+    },
+    "28100": {
+      "upwardMobilityScore": 38.55,
+      "tractCount": 29,
+      "totalKids": 11858,
+      "name": "Kankakee, IL",
+      "percentile": 29
+    },
+    "23660": {
+      "upwardMobilityScore": 39.73,
+      "tractCount": 16,
+      "totalKids": 5361,
+      "name": "Galesburg, IL",
+      "percentile": 38
+    },
+    "19940": {
+      "upwardMobilityScore": 45.61,
+      "tractCount": 9,
+      "totalKids": 2956,
+      "name": "Dixon, IL",
+      "percentile": 84
+    },
+    "38700": {
+      "upwardMobilityScore": 43.92,
+      "tractCount": 10,
+      "totalKids": 3109,
+      "name": "Pontiac, IL",
+      "percentile": 75
+    },
+    "30660": {
+      "upwardMobilityScore": 43.56,
+      "tractCount": 8,
+      "totalKids": 2489,
+      "name": "Lincoln, IL",
+      "percentile": 73
+    },
+    "31380": {
+      "upwardMobilityScore": 46.08,
+      "tractCount": 9,
+      "totalKids": 2626,
+      "name": "Macomb, IL",
+      "percentile": 86
+    },
+    "14010": {
+      "upwardMobilityScore": 42.22,
+      "tractCount": 40,
+      "totalKids": 9578,
+      "name": "Bloomington, IL",
+      "percentile": 61
+    },
+    "19500": {
+      "upwardMobilityScore": 36.63,
+      "tractCount": 34,
+      "totalKids": 12160,
+      "name": "Decatur, IL",
+      "percentile": 15
+    },
+    "16460": {
+      "upwardMobilityScore": 39.69,
+      "tractCount": 12,
+      "totalKids": 5103,
+      "name": "Centralia, IL",
+      "percentile": 38
+    },
+    "37140": {
+      "upwardMobilityScore": 38.4,
+      "tractCount": 26,
+      "totalKids": 10520,
+      "name": "Paducah, KY-IL",
+      "percentile": 28
+    },
+    "44100": {
+      "upwardMobilityScore": 38.4,
+      "tractCount": 56,
+      "totalKids": 18578,
+      "name": "Springfield, IL",
+      "percentile": 28
+    },
+    "27300": {
+      "upwardMobilityScore": 41.44,
+      "tractCount": 12,
+      "totalKids": 4178,
+      "name": "Jacksonville, IL",
+      "percentile": 54
+    },
+    "40300": {
+      "upwardMobilityScore": 43.78,
+      "tractCount": 11,
+      "totalKids": 4327,
+      "name": "Rochelle, IL",
+      "percentile": 74
+    },
+    "23300": {
+      "upwardMobilityScore": 40.83,
+      "tractCount": 13,
+      "totalKids": 4377,
+      "name": "Freeport, IL",
+      "percentile": 48
+    },
+    "19180": {
+      "upwardMobilityScore": 38.65,
+      "tractCount": 24,
+      "totalKids": 9890,
+      "name": "Danville, IL",
+      "percentile": 30
+    },
+    "44580": {
+      "upwardMobilityScore": 42.62,
+      "tractCount": 18,
+      "totalKids": 5795,
+      "name": "Sterling, IL",
+      "percentile": 66
+    },
+    "19540": {
+      "upwardMobilityScore": 43.77,
+      "tractCount": 7,
+      "totalKids": 3932,
+      "name": "Decatur, IN",
+      "percentile": 74
+    },
+    "23060": {
+      "upwardMobilityScore": 38.64,
+      "tractCount": 102,
+      "totalKids": 35750,
+      "name": "Fort Wayne, IN",
+      "percentile": 30
+    },
+    "18020": {
+      "upwardMobilityScore": 37.98,
+      "tractCount": 15,
+      "totalKids": 6551,
+      "name": "Columbus, IN",
+      "percentile": 25
+    },
+    "29200": {
+      "upwardMobilityScore": 43.0,
+      "tractCount": 47,
+      "totalKids": 13957,
+      "name": "Lafayette-West Lafayette, IN",
+      "percentile": 69
+    },
+    "26900": {
+      "upwardMobilityScore": 36.25,
+      "tractCount": 396,
+      "totalKids": 167980,
+      "name": "Indianapolis-Carmel-Anderson, IN",
+      "percentile": 13
+    },
+    "30900": {
+      "upwardMobilityScore": 40.02,
+      "tractCount": 11,
+      "totalKids": 4480,
+      "name": "Logansport, IN",
+      "percentile": 41
+    },
+    "31140": {
+      "upwardMobilityScore": 37.09,
+      "tractCount": 297,
+      "totalKids": 119109,
+      "name": "Louisville/Jefferson County, KY-IN",
+      "percentile": 18
+    },
+    "45460": {
+      "upwardMobilityScore": 39.84,
+      "tractCount": 48,
+      "totalKids": 20375,
+      "name": "Terre Haute, IN",
+      "percentile": 40
+    },
+    "23140": {
+      "upwardMobilityScore": 40.23,
+      "tractCount": 8,
+      "totalKids": 3494,
+      "name": "Frankfort, IN",
+      "percentile": 42
+    },
+    "47780": {
+      "upwardMobilityScore": 46.72,
+      "tractCount": 7,
+      "totalKids": 4650,
+      "name": "Washington, IN",
+      "percentile": 88
+    },
+    "17140": {
+      "upwardMobilityScore": 36.99,
+      "tractCount": 498,
+      "totalKids": 207496,
+      "name": "Cincinnati, OH-KY-IN",
+      "percentile": 17
+    },
+    "24700": {
+      "upwardMobilityScore": 42.03,
+      "tractCount": 6,
+      "totalKids": 2564,
+      "name": "Greensburg, IN",
+      "percentile": 59
+    },
+    "12140": {
+      "upwardMobilityScore": 41.1,
+      "tractCount": 9,
+      "totalKids": 3396,
+      "name": "Auburn, IN",
+      "percentile": 51
+    },
+    "34620": {
+      "upwardMobilityScore": 35.61,
+      "tractCount": 30,
+      "totalKids": 11285,
+      "name": "Muncie, IN",
+      "percentile": 9
+    },
+    "27540": {
+      "upwardMobilityScore": 47.51,
+      "tractCount": 11,
+      "totalKids": 4631,
+      "name": "Jasper, IN",
+      "percentile": 90
+    },
+    "21140": {
+      "upwardMobilityScore": 41.18,
+      "tractCount": 36,
+      "totalKids": 21866,
+      "name": "Elkhart-Goshen, IN",
+      "percentile": 52
+    },
+    "18220": {
+      "upwardMobilityScore": 36.08,
+      "tractCount": 7,
+      "totalKids": 2626,
+      "name": "Connersville, IN",
+      "percentile": 12
+    },
+    "31980": {
+      "upwardMobilityScore": 35.99,
+      "tractCount": 16,
+      "totalKids": 7738,
+      "name": "Marion, IN",
+      "percentile": 11
+    },
+    "35220": {
+      "upwardMobilityScore": 37.66,
+      "tractCount": 13,
+      "totalKids": 4814,
+      "name": "New Castle, IN",
+      "percentile": 22
+    },
+    "29020": {
+      "upwardMobilityScore": 37.13,
+      "tractCount": 20,
+      "totalKids": 7172,
+      "name": "Kokomo, IN",
+      "percentile": 18
+    },
+    "26540": {
+      "upwardMobilityScore": 38.7,
+      "tractCount": 9,
+      "totalKids": 3476,
+      "name": "Huntington, IN",
+      "percentile": 30
+    },
+    "42980": {
+      "upwardMobilityScore": 41.01,
+      "tractCount": 10,
+      "totalKids": 4293,
+      "name": "Seymour, IN",
+      "percentile": 50
+    },
+    "31500": {
+      "upwardMobilityScore": 41.28,
+      "tractCount": 7,
+      "totalKids": 3685,
+      "name": "Madison, IN",
+      "percentile": 53
+    },
+    "35860": {
+      "upwardMobilityScore": 39.13,
+      "tractCount": 6,
+      "totalKids": 3896,
+      "name": "North Vernon, IN",
+      "percentile": 34
+    },
+    "47180": {
+      "upwardMobilityScore": 43.3,
+      "tractCount": 10,
+      "totalKids": 4178,
+      "name": "Vincennes, IN",
+      "percentile": 71
+    },
+    "47700": {
+      "upwardMobilityScore": 43.13,
+      "tractCount": 19,
+      "totalKids": 7062,
+      "name": "Warsaw, IN",
+      "percentile": 70
+    },
+    "33140": {
+      "upwardMobilityScore": 38.56,
+      "tractCount": 28,
+      "totalKids": 10219,
+      "name": "Michigan City-La Porte, IN",
+      "percentile": 29
+    },
+    "13260": {
+      "upwardMobilityScore": 37.78,
+      "tractCount": 10,
+      "totalKids": 4752,
+      "name": "Bedford, IN",
+      "percentile": 23
+    },
+    "38500": {
+      "upwardMobilityScore": 42.48,
+      "tractCount": 12,
+      "totalKids": 4983,
+      "name": "Plymouth, IN",
+      "percentile": 64
+    },
+    "37940": {
+      "upwardMobilityScore": 40.39,
+      "tractCount": 10,
+      "totalKids": 3729,
+      "name": "Peru, IN",
+      "percentile": 43
+    },
+    "14020": {
+      "upwardMobilityScore": 38.82,
+      "tractCount": 34,
+      "totalKids": 11364,
+      "name": "Bloomington, IN",
+      "percentile": 32
+    },
+    "18820": {
+      "upwardMobilityScore": 41.95,
+      "tractCount": 9,
+      "totalKids": 3621,
+      "name": "Crawfordsville, IN",
+      "percentile": 58
+    },
+    "28340": {
+      "upwardMobilityScore": 42.59,
+      "tractCount": 10,
+      "totalKids": 4961,
+      "name": "Kendallville, IN",
+      "percentile": 66
+    },
+    "21780": {
+      "upwardMobilityScore": 39.05,
+      "tractCount": 77,
+      "totalKids": 27823,
+      "name": "Evansville, IN-KY",
+      "percentile": 33
+    },
+    "43780": {
+      "upwardMobilityScore": 38.09,
+      "tractCount": 86,
+      "totalKids": 35015,
+      "name": "South Bend-Mishawaka, IN-MI",
+      "percentile": 25
+    },
+    "42500": {
+      "upwardMobilityScore": 36.64,
+      "tractCount": 5,
+      "totalKids": 3301,
+      "name": "Scottsburg, IN",
+      "percentile": 15
+    },
+    "11420": {
+      "upwardMobilityScore": 42.02,
+      "tractCount": 9,
+      "totalKids": 3290,
+      "name": "Angola, IN",
+      "percentile": 59
+    },
+    "47340": {
+      "upwardMobilityScore": 39.09,
+      "tractCount": 8,
+      "totalKids": 3039,
+      "name": "Wabash, IN",
+      "percentile": 34
+    },
+    "39980": {
+      "upwardMobilityScore": 36.38,
+      "tractCount": 17,
+      "totalKids": 8496,
+      "name": "Richmond, IN",
+      "percentile": 14
+    },
+    "14160": {
+      "upwardMobilityScore": 43.86,
+      "tractCount": 7,
+      "totalKids": 2470,
+      "name": "Bluffton, IN",
+      "percentile": 75
+    },
+    "16300": {
+      "upwardMobilityScore": 46.0,
+      "tractCount": 57,
+      "totalKids": 18051,
+      "name": "Cedar Rapids, IA",
+      "percentile": 86
+    },
+    "47940": {
+      "upwardMobilityScore": 44.44,
+      "tractCount": 50,
+      "totalKids": 14165,
+      "name": "Waterloo-Cedar Falls, IA",
+      "percentile": 79
+    },
+    "11180": {
+      "upwardMobilityScore": 49.42,
+      "tractCount": 25,
+      "totalKids": 5997,
+      "name": "Ames, IA",
+      "percentile": 94
+    },
+    "44740": {
+      "upwardMobilityScore": 48.61,
+      "tractCount": 6,
+      "totalKids": 2515,
+      "name": "Storm Lake, IA",
+      "percentile": 93
+    },
+    "16140": {
+      "upwardMobilityScore": 59.07,
+      "tractCount": 6,
+      "totalKids": 2395,
+      "name": "Carroll, IA",
+      "percentile": 100
+    },
+    "32380": {
+      "upwardMobilityScore": 47.36,
+      "tractCount": 14,
+      "totalKids": 5265,
+      "name": "Mason City, IA",
+      "percentile": 90
+    },
+    "43980": {
+      "upwardMobilityScore": 51.27,
+      "tractCount": 4,
+      "totalKids": 1705,
+      "name": "Spencer, IA",
+      "percentile": 97
+    },
+    "17540": {
+      "upwardMobilityScore": 46.18,
+      "tractCount": 12,
+      "totalKids": 4813,
+      "name": "Clinton, IA",
+      "percentile": 87
+    },
+    "19780": {
+      "upwardMobilityScore": 43.96,
+      "tractCount": 139,
+      "totalKids": 45293,
+      "name": "Des Moines-West Des Moines, IA",
+      "percentile": 75
+    },
+    "44020": {
+      "upwardMobilityScore": 50.12,
+      "tractCount": 5,
+      "totalKids": 1415,
+      "name": "Spirit Lake, IA",
+      "percentile": 95
+    },
+    "20220": {
+      "upwardMobilityScore": 50.93,
+      "tractCount": 26,
+      "totalKids": 7417,
+      "name": "Dubuque, IA",
+      "percentile": 97
+    },
+    "36540": {
+      "upwardMobilityScore": 41.92,
+      "tractCount": 255,
+      "totalKids": 76736,
+      "name": "Omaha-Council Bluffs, NE-IA",
+      "percentile": 57
+    },
+    "21840": {
+      "upwardMobilityScore": 47.96,
+      "tractCount": 4,
+      "totalKids": 1852,
+      "name": "Fairfield, IA",
+      "percentile": 92
+    },
+    "26980": {
+      "upwardMobilityScore": 47.76,
+      "tractCount": 28,
+      "totalKids": 8195,
+      "name": "Iowa City, IA",
+      "percentile": 91
+    },
+    "36820": {
+      "upwardMobilityScore": 50.68,
+      "tractCount": 7,
+      "totalKids": 2541,
+      "name": "Oskaloosa, IA",
+      "percentile": 97
+    },
+    "37800": {
+      "upwardMobilityScore": 48.01,
+      "tractCount": 8,
+      "totalKids": 2525,
+      "name": "Pella, IA",
+      "percentile": 92
+    },
+    "32260": {
+      "upwardMobilityScore": 43.21,
+      "tractCount": 10,
+      "totalKids": 3954,
+      "name": "Marshalltown, IA",
+      "percentile": 70
+    },
+    "34700": {
+      "upwardMobilityScore": 43.19,
+      "tractCount": 10,
+      "totalKids": 3873,
+      "name": "Muscatine, IA",
+      "percentile": 70
+    },
+    "36900": {
+      "upwardMobilityScore": 42.35,
+      "tractCount": 11,
+      "totalKids": 4199,
+      "name": "Ottumwa, IA",
+      "percentile": 63
+    },
+    "22700": {
+      "upwardMobilityScore": 45.18,
+      "tractCount": 12,
+      "totalKids": 4022,
+      "name": "Fort Dodge, IA",
+      "percentile": 83
+    },
+    "43580": {
+      "upwardMobilityScore": 43.72,
+      "tractCount": 34,
+      "totalKids": 17911,
+      "name": "Sioux City, IA-NE-SD",
+      "percentile": 74
+    },
+    "11860": {
+      "upwardMobilityScore": 42.81,
+      "tractCount": 4,
+      "totalKids": 2008,
+      "name": "Atchison, KS",
+      "percentile": 68
+    },
+    "24460": {
+      "upwardMobilityScore": 47.28,
+      "tractCount": 8,
+      "totalKids": 3584,
+      "name": "Great Bend, KS",
+      "percentile": 90
+    },
+    "48620": {
+      "upwardMobilityScore": 40.1,
+      "tractCount": 149,
+      "totalKids": 59911,
+      "name": "Wichita, KS",
+      "percentile": 42
+    },
+    "21380": {
+      "upwardMobilityScore": 43.85,
+      "tractCount": 9,
+      "totalKids": 5028,
+      "name": "Emporia, KS",
+      "percentile": 75
+    },
+    "49060": {
+      "upwardMobilityScore": 42.8,
+      "tractCount": 11,
+      "totalKids": 4125,
+      "name": "Winfield, KS",
+      "percentile": 67
+    },
+    "38260": {
+      "upwardMobilityScore": 43.11,
+      "tractCount": 11,
+      "totalKids": 4611,
+      "name": "Pittsburg, KS",
+      "percentile": 70
+    },
+    "41140": {
+      "upwardMobilityScore": 40.69,
+      "tractCount": 34,
+      "totalKids": 14338,
+      "name": "St. Joseph, MO-KS",
+      "percentile": 46
+    },
+    "29940": {
+      "upwardMobilityScore": 42.91,
+      "tractCount": 22,
+      "totalKids": 7149,
+      "name": "Lawrence, KS",
+      "percentile": 69
+    },
+    "25700": {
+      "upwardMobilityScore": 51.88,
+      "tractCount": 6,
+      "totalKids": 2387,
+      "name": "Hays, KS",
+      "percentile": 98
+    },
+    "23780": {
+      "upwardMobilityScore": 41.53,
+      "tractCount": 13,
+      "totalKids": 8512,
+      "name": "Garden City, KS",
+      "percentile": 55
+    },
+    "19980": {
+      "upwardMobilityScore": 41.05,
+      "tractCount": 7,
+      "totalKids": 5550,
+      "name": "Dodge City, KS",
+      "percentile": 51
+    },
+    "36840": {
+      "upwardMobilityScore": 42.42,
+      "tractCount": 5,
+      "totalKids": 2874,
+      "name": "Ottawa, KS",
+      "percentile": 63
+    },
+    "31740": {
+      "upwardMobilityScore": 41.56,
+      "tractCount": 25,
+      "totalKids": 11308,
+      "name": "Manhattan, KS",
+      "percentile": 55
+    },
+    "45820": {
+      "upwardMobilityScore": 40.67,
+      "tractCount": 57,
+      "totalKids": 24381,
+      "name": "Topeka, KS",
+      "percentile": 46
+    },
+    "28140": {
+      "upwardMobilityScore": 39.78,
+      "tractCount": 515,
+      "totalKids": 184560,
+      "name": "Kansas City, MO-KS",
+      "percentile": 39
+    },
+    "37660": {
+      "upwardMobilityScore": 44.21,
+      "tractCount": 8,
+      "totalKids": 3137,
+      "name": "Parsons, KS",
+      "percentile": 77
+    },
+    "32700": {
+      "upwardMobilityScore": 48.44,
+      "tractCount": 7,
+      "totalKids": 2552,
+      "name": "McPherson, KS",
+      "percentile": 93
+    },
+    "17700": {
+      "upwardMobilityScore": 41.87,
+      "tractCount": 13,
+      "totalKids": 4924,
+      "name": "Coffeyville, KS",
+      "percentile": 57
+    },
+    "41460": {
+      "upwardMobilityScore": 42.75,
+      "tractCount": 14,
+      "totalKids": 6600,
+      "name": "Salina, KS",
+      "percentile": 67
+    },
+    "26740": {
+      "upwardMobilityScore": 42.3,
+      "tractCount": 17,
+      "totalKids": 7326,
+      "name": "Hutchinson, KS",
+      "percentile": 62
+    },
+    "30580": {
+      "upwardMobilityScore": 42.25,
+      "tractCount": 5,
+      "totalKids": 4297,
+      "name": "Liberal, KS",
+      "percentile": 61
+    },
+    "14540": {
+      "upwardMobilityScore": 39.11,
+      "tractCount": 38,
+      "totalKids": 17025,
+      "name": "Bowling Green, KY",
+      "percentile": 34
+    },
+    "23180": {
+      "upwardMobilityScore": 37.51,
+      "tractCount": 16,
+      "totalKids": 6726,
+      "name": "Frankfort, KY",
+      "percentile": 21
+    },
+    "23980": {
+      "upwardMobilityScore": 41.2,
+      "tractCount": 13,
+      "totalKids": 6821,
+      "name": "Glasgow, KY",
+      "percentile": 52
+    },
+    "34460": {
+      "upwardMobilityScore": 37.77,
+      "tractCount": 11,
+      "totalKids": 6310,
+      "name": "Mount Sterling, KY",
+      "percentile": 23
+    },
+    "33180": {
+      "upwardMobilityScore": 37.39,
+      "tractCount": 9,
+      "totalKids": 5332,
+      "name": "Middlesborough, KY",
+      "percentile": 20
+    },
+    "30460": {
+      "upwardMobilityScore": 36.05,
+      "tractCount": 128,
+      "totalKids": 40424,
+      "name": "Lexington-Fayette, KY",
+      "percentile": 11
+    },
+    "26580": {
+      "upwardMobilityScore": 38.76,
+      "tractCount": 95,
+      "totalKids": 42392,
+      "name": "Huntington-Ashland, WV-KY-OH",
+      "percentile": 31
+    },
+    "19220": {
+      "upwardMobilityScore": 37.31,
+      "tractCount": 13,
+      "totalKids": 6924,
+      "name": "Danville, KY",
+      "percentile": 19
+    },
+    "34660": {
+      "upwardMobilityScore": 40.81,
+      "tractCount": 9,
+      "totalKids": 3144,
+      "name": "Murray, KY",
+      "percentile": 48
+    },
+    "17300": {
+      "upwardMobilityScore": 37.82,
+      "tractCount": 61,
+      "totalKids": 35924,
+      "name": "Clarksville, TN-KY",
+      "percentile": 24
+    },
+    "30940": {
+      "upwardMobilityScore": 37.34,
+      "tractCount": 35,
+      "totalKids": 25176,
+      "name": "London, KY",
+      "percentile": 20
+    },
+    "36980": {
+      "upwardMobilityScore": 41.7,
+      "tractCount": 29,
+      "totalKids": 12248,
+      "name": "Owensboro, KY",
+      "percentile": 56
+    },
+    "40080": {
+      "upwardMobilityScore": 37.06,
+      "tractCount": 23,
+      "totalKids": 10309,
+      "name": "Richmond-Berea, KY",
+      "percentile": 17
+    },
+    "32460": {
+      "upwardMobilityScore": 40.81,
+      "tractCount": 9,
+      "totalKids": 4628,
+      "name": "Mayfield, KY",
+      "percentile": 48
+    },
+    "15820": {
+      "upwardMobilityScore": 41.5,
+      "tractCount": 9,
+      "totalKids": 5076,
+      "name": "Campbellsville, KY",
+      "percentile": 55
+    },
+    "21060": {
+      "upwardMobilityScore": 40.36,
+      "tractCount": 32,
+      "totalKids": 18736,
+      "name": "Elizabethtown-Fort Knox, KY",
+      "percentile": 43
+    },
+    "31580": {
+      "upwardMobilityScore": 41.17,
+      "tractCount": 12,
+      "totalKids": 5546,
+      "name": "Madisonville, KY",
+      "percentile": 52
+    },
+    "32500": {
+      "upwardMobilityScore": 39.0,
+      "tractCount": 5,
+      "totalKids": 2011,
+      "name": "Maysville, KY",
+      "percentile": 33
+    },
+    "16420": {
+      "upwardMobilityScore": 43.46,
+      "tractCount": 9,
+      "totalKids": 3972,
+      "name": "Central City, KY",
+      "percentile": 72
+    },
+    "12680": {
+      "upwardMobilityScore": 41.02,
+      "tractCount": 9,
+      "totalKids": 4650,
+      "name": "Bardstown, KY",
+      "percentile": 50
+    },
+    "43700": {
+      "upwardMobilityScore": 37.49,
+      "tractCount": 14,
+      "totalKids": 8317,
+      "name": "Somerset, KY",
+      "percentile": 21
+    },
+    "29180": {
+      "upwardMobilityScore": 41.97,
+      "tractCount": 92,
+      "totalKids": 66412,
+      "name": "Lafayette, LA",
+      "percentile": 58
+    },
+    "12940": {
+      "upwardMobilityScore": 38.48,
+      "tractCount": 155,
+      "totalKids": 100802,
+      "name": "Baton Rouge, LA",
+      "percentile": 29
+    },
+    "19760": {
+      "upwardMobilityScore": 44.65,
+      "tractCount": 7,
+      "totalKids": 4559,
+      "name": "DeRidder, LA",
+      "percentile": 80
+    },
+    "43340": {
+      "upwardMobilityScore": 36.02,
+      "tractCount": 92,
+      "totalKids": 61061,
+      "name": "Shreveport-Bossier City, LA",
+      "percentile": 11
+    },
+    "29340": {
+      "upwardMobilityScore": 40.9,
+      "tractCount": 44,
+      "totalKids": 25473,
+      "name": "Lake Charles, LA",
+      "percentile": 49
+    },
+    "35020": {
+      "upwardMobilityScore": 37.95,
+      "tractCount": 14,
+      "totalKids": 10126,
+      "name": "Natchez, MS-LA",
+      "percentile": 25
+    },
+    "10780": {
+      "upwardMobilityScore": 38.88,
+      "tractCount": 37,
+      "totalKids": 24161,
+      "name": "Alexandria, LA",
+      "percentile": 32
+    },
+    "35380": {
+      "upwardMobilityScore": 36.96,
+      "tractCount": 394,
+      "totalKids": 208335,
+      "name": "New Orleans-Metairie, LA",
+      "percentile": 17
+    },
+    "27660": {
+      "upwardMobilityScore": 43.31,
+      "tractCount": 7,
+      "totalKids": 5366,
+      "name": "Jennings, LA",
+      "percentile": 72
+    },
+    "26380": {
+      "upwardMobilityScore": 44.27,
+      "tractCount": 44,
+      "totalKids": 28997,
+      "name": "Houma-Thibodaux, LA",
+      "percentile": 78
+    },
+    "40820": {
+      "upwardMobilityScore": 38.45,
+      "tractCount": 10,
+      "totalKids": 5403,
+      "name": "Ruston, LA",
+      "percentile": 29
+    },
+    "33740": {
+      "upwardMobilityScore": 35.73,
+      "tractCount": 53,
+      "totalKids": 34668,
+      "name": "Monroe, LA",
+      "percentile": 10
+    },
+    "35060": {
+      "upwardMobilityScore": 38.17,
+      "tractCount": 9,
+      "totalKids": 6675,
+      "name": "Natchitoches, LA",
+      "percentile": 26
+    },
+    "36660": {
+      "upwardMobilityScore": 42.27,
+      "tractCount": 19,
+      "totalKids": 16852,
+      "name": "Opelousas, LA",
+      "percentile": 62
+    },
+    "34020": {
+      "upwardMobilityScore": 39.94,
+      "tractCount": 16,
+      "totalKids": 9588,
+      "name": "Morgan City, LA",
+      "percentile": 40
+    },
+    "25220": {
+      "upwardMobilityScore": 39.2,
+      "tractCount": 20,
+      "totalKids": 17283,
+      "name": "Hammond, LA",
+      "percentile": 35
+    },
+    "22860": {
+      "upwardMobilityScore": 41.51,
+      "tractCount": 11,
+      "totalKids": 9164,
+      "name": "Fort Polk South, LA",
+      "percentile": 55
+    },
+    "14220": {
+      "upwardMobilityScore": 36.32,
+      "tractCount": 11,
+      "totalKids": 8353,
+      "name": "Bogalusa, LA",
+      "percentile": 13
+    },
+    "33380": {
+      "upwardMobilityScore": 38.41,
+      "tractCount": 11,
+      "totalKids": 6996,
+      "name": "Minden, LA",
+      "percentile": 28
+    },
+    "30340": {
+      "upwardMobilityScore": 40.76,
+      "tractCount": 28,
+      "totalKids": 11336,
+      "name": "Lewiston-Auburn, ME",
+      "percentile": 47
+    },
+    "38860": {
+      "upwardMobilityScore": 42.8,
+      "tractCount": 114,
+      "totalKids": 41632,
+      "name": "Portland-South Portland, ME",
+      "percentile": 67
+    },
+    "12300": {
+      "upwardMobilityScore": 42.02,
+      "tractCount": 31,
+      "totalKids": 12579,
+      "name": "Augusta-Waterville, ME",
+      "percentile": 59
+    },
+    "12620": {
+      "upwardMobilityScore": 40.42,
+      "tractCount": 46,
+      "totalKids": 15524,
+      "name": "Bangor, ME",
+      "percentile": 44
+    },
+    "19060": {
+      "upwardMobilityScore": 41.67,
+      "tractCount": 30,
+      "totalKids": 11277,
+      "name": "Cumberland, MD-WV",
+      "percentile": 56
+    },
+    "12580": {
+      "upwardMobilityScore": 37.36,
+      "tractCount": 671,
+      "totalKids": 265069,
+      "name": "Baltimore-Columbia-Towson, MD",
+      "percentile": 20
+    },
+    "15700": {
+      "upwardMobilityScore": 37.53,
+      "tractCount": 9,
+      "totalKids": 4266,
+      "name": "Cambridge, MD",
+      "percentile": 22
+    },
+    "15680": {
+      "upwardMobilityScore": 42.45,
+      "tractCount": 17,
+      "totalKids": 7885,
+      "name": "California-Lexington Park, MD",
+      "percentile": 64
+    },
+    "20660": {
+      "upwardMobilityScore": 41.38,
+      "tractCount": 10,
+      "totalKids": 2965,
+      "name": "Easton, MD",
+      "percentile": 54
+    },
+    "25180": {
+      "upwardMobilityScore": 39.66,
+      "tractCount": 49,
+      "totalKids": 23653,
+      "name": "Hagerstown-Martinsburg, MD-WV",
+      "percentile": 38
+    },
+    "12700": {
+      "upwardMobilityScore": 45.0,
+      "tractCount": 56,
+      "totalKids": 16256,
+      "name": "Barnstable Town, MA",
+      "percentile": 82
+    },
+    "38340": {
+      "upwardMobilityScore": 40.93,
+      "tractCount": 39,
+      "totalKids": 11442,
+      "name": "Pittsfield, MA",
+      "percentile": 49
+    },
+    "39300": {
+      "upwardMobilityScore": 41.97,
+      "tractCount": 365,
+      "totalKids": 152328,
+      "name": "Providence-Warwick, RI-MA",
+      "percentile": 58
+    },
+    "47240": {
+      "upwardMobilityScore": 46.11,
+      "tractCount": 4,
+      "totalKids": 1108,
+      "name": "Vineyard Haven, MA",
+      "percentile": 86
+    },
+    "14460": {
+      "upwardMobilityScore": 44.88,
+      "tractCount": 986,
+      "totalKids": 339064,
+      "name": "Boston-Cambridge-Newton, MA-NH",
+      "percentile": 81
+    },
+    "44140": {
+      "upwardMobilityScore": 40.06,
+      "tractCount": 152,
+      "totalKids": 68926,
+      "name": "Springfield, MA",
+      "percentile": 41
+    },
+    "26090": {
+      "upwardMobilityScore": 40.89,
+      "tractCount": 24,
+      "totalKids": 10433,
+      "name": "Holland, MI",
+      "percentile": 49
+    },
+    "10980": {
+      "upwardMobilityScore": 41.79,
+      "tractCount": 9,
+      "totalKids": 3377,
+      "name": "Alpena, MI",
+      "percentile": 57
+    },
+    "13020": {
+      "upwardMobilityScore": 40.73,
+      "tractCount": 26,
+      "totalKids": 9859,
+      "name": "Bay City, MI",
+      "percentile": 46
+    },
+    "45900": {
+      "upwardMobilityScore": 42.0,
+      "tractCount": 32,
+      "totalKids": 13563,
+      "name": "Traverse City, MI",
+      "percentile": 59
+    },
+    "35660": {
+      "upwardMobilityScore": 36.18,
+      "tractCount": 48,
+      "totalKids": 20385,
+      "name": "Niles, MI",
+      "percentile": 12
+    },
+    "17740": {
+      "upwardMobilityScore": 40.75,
+      "tractCount": 12,
+      "totalKids": 5422,
+      "name": "Coldwater, MI",
+      "percentile": 47
+    },
+    "12980": {
+      "upwardMobilityScore": 35.81,
+      "tractCount": 39,
+      "totalKids": 16757,
+      "name": "Battle Creek, MI",
+      "percentile": 10
+    },
+    "42300": {
+      "upwardMobilityScore": 40.87,
+      "tractCount": 11,
+      "totalKids": 3964,
+      "name": "Sault Ste. Marie, MI",
+      "percentile": 48
+    },
+    "29620": {
+      "upwardMobilityScore": 39.55,
+      "tractCount": 138,
+      "totalKids": 43367,
+      "name": "Lansing-East Lansing, MI",
+      "percentile": 37
+    },
+    "21540": {
+      "upwardMobilityScore": 44.53,
+      "tractCount": 11,
+      "totalKids": 3934,
+      "name": "Escanaba, MI",
+      "percentile": 79
+    },
+    "27020": {
+      "upwardMobilityScore": 43.5,
+      "tractCount": 9,
+      "totalKids": 3009,
+      "name": "Iron Mountain, MI-WI",
+      "percentile": 73
+    },
+    "22420": {
+      "upwardMobilityScore": 34.29,
+      "tractCount": 129,
+      "totalKids": 47639,
+      "name": "Flint, MI",
+      "percentile": 3
+    },
+    "10940": {
+      "upwardMobilityScore": 41.08,
+      "tractCount": 9,
+      "totalKids": 4136,
+      "name": "Alma, MI",
+      "percentile": 51
+    },
+    "25880": {
+      "upwardMobilityScore": 41.46,
+      "tractCount": 12,
+      "totalKids": 5530,
+      "name": "Hillsdale, MI",
+      "percentile": 55
+    },
+    "26340": {
+      "upwardMobilityScore": 46.84,
+      "tractCount": 11,
+      "totalKids": 3609,
+      "name": "Houghton, MI",
+      "percentile": 88
+    },
+    "24340": {
+      "upwardMobilityScore": 39.25,
+      "tractCount": 206,
+      "totalKids": 88063,
+      "name": "Grand Rapids-Kentwood, MI",
+      "percentile": 35
+    },
+    "34380": {
+      "upwardMobilityScore": 41.36,
+      "tractCount": 15,
+      "totalKids": 5369,
+      "name": "Mount Pleasant, MI",
+      "percentile": 54
+    },
+    "27100": {
+      "upwardMobilityScore": 37.75,
+      "tractCount": 37,
+      "totalKids": 16305,
+      "name": "Jackson, MI",
+      "percentile": 23
+    },
+    "28020": {
+      "upwardMobilityScore": 37.11,
+      "tractCount": 57,
+      "totalKids": 20507,
+      "name": "Kalamazoo-Portage, MI",
+      "percentile": 18
+    },
+    "19820": {
+      "upwardMobilityScore": 36.17,
+      "tractCount": 1281,
+      "totalKids": 450812,
+      "name": "Detroit-Warren-Dearborn, MI",
+      "percentile": 12
+    },
+    "10300": {
+      "upwardMobilityScore": 41.32,
+      "tractCount": 23,
+      "totalKids": 8534,
+      "name": "Adrian, MI",
+      "percentile": 53
+    },
+    "32100": {
+      "upwardMobilityScore": 43.16,
+      "tractCount": 23,
+      "totalKids": 4609,
+      "name": "Marquette, MI",
+      "percentile": 70
+    },
+    "31220": {
+      "upwardMobilityScore": 40.99,
+      "tractCount": 8,
+      "totalKids": 3234,
+      "name": "Ludington, MI",
+      "percentile": 50
+    },
+    "13660": {
+      "upwardMobilityScore": 39.85,
+      "tractCount": 10,
+      "totalKids": 4157,
+      "name": "Big Rapids, MI",
+      "percentile": 40
+    },
+    "31940": {
+      "upwardMobilityScore": 46.02,
+      "tractCount": 19,
+      "totalKids": 6970,
+      "name": "Marinette, WI-MI",
+      "percentile": 86
+    },
+    "33220": {
+      "upwardMobilityScore": 40.56,
+      "tractCount": 19,
+      "totalKids": 6924,
+      "name": "Midland, MI",
+      "percentile": 45
+    },
+    "15620": {
+      "upwardMobilityScore": 39.96,
+      "tractCount": 12,
+      "totalKids": 6359,
+      "name": "Cadillac, MI",
+      "percentile": 40
+    },
+    "33780": {
+      "upwardMobilityScore": 41.69,
+      "tractCount": 38,
+      "totalKids": 10660,
+      "name": "Monroe, MI",
+      "percentile": 56
+    },
+    "34740": {
+      "upwardMobilityScore": 34.86,
+      "tractCount": 42,
+      "totalKids": 21767,
+      "name": "Muskegon, MI",
+      "percentile": 6
+    },
+    "40980": {
+      "upwardMobilityScore": 35.74,
+      "tractCount": 56,
+      "totalKids": 23566,
+      "name": "Saginaw, MI",
+      "percentile": 10
+    },
+    "44780": {
+      "upwardMobilityScore": 39.32,
+      "tractCount": 17,
+      "totalKids": 7769,
+      "name": "Sturgis, MI",
+      "percentile": 35
+    },
+    "11460": {
+      "upwardMobilityScore": 40.09,
+      "tractCount": 95,
+      "totalKids": 18977,
+      "name": "Ann Arbor, MI",
+      "percentile": 41
+    },
+    "33460": {
+      "upwardMobilityScore": 44.07,
+      "tractCount": 782,
+      "totalKids": 229184,
+      "name": "Minneapolis-St. Paul-Bloomington, MN-WI",
+      "percentile": 76
+    },
+    "13420": {
+      "upwardMobilityScore": 39.35,
+      "tractCount": 10,
+      "totalKids": 6230,
+      "name": "Bemidji, MN",
+      "percentile": 36
+    },
+    "41060": {
+      "upwardMobilityScore": 52.58,
+      "tractCount": 38,
+      "totalKids": 14743,
+      "name": "St. Cloud, MN",
+      "percentile": 98
+    },
+    "31860": {
+      "upwardMobilityScore": 50.67,
+      "tractCount": 23,
+      "totalKids": 6165,
+      "name": "Mankato, MN",
+      "percentile": 97
+    },
+    "35580": {
+      "upwardMobilityScore": 54.65,
+      "tractCount": 8,
+      "totalKids": 2450,
+      "name": "New Ulm, MN",
+      "percentile": 100
+    },
+    "20260": {
+      "upwardMobilityScore": 44.41,
+      "tractCount": 88,
+      "totalKids": 24352,
+      "name": "Duluth, MN-WI",
+      "percentile": 78
+    },
+    "14660": {
+      "upwardMobilityScore": 44.91,
+      "tractCount": 26,
+      "totalKids": 9461,
+      "name": "Brainerd, MN",
+      "percentile": 81
+    },
+    "22020": {
+      "upwardMobilityScore": 50.17,
+      "tractCount": 46,
+      "totalKids": 13441,
+      "name": "Fargo, ND-MN",
+      "percentile": 95
+    },
+    "40340": {
+      "upwardMobilityScore": 50.3,
+      "tractCount": 50,
+      "totalKids": 14597,
+      "name": "Rochester, MN",
+      "percentile": 96
+    },
+    "10820": {
+      "upwardMobilityScore": 53.18,
+      "tractCount": 9,
+      "totalKids": 3078,
+      "name": "Alexandria, MN",
+      "percentile": 99
+    },
+    "10660": {
+      "upwardMobilityScore": 48.91,
+      "tractCount": 10,
+      "totalKids": 3513,
+      "name": "Albert Lea, MN",
+      "percentile": 94
+    },
+    "39860": {
+      "upwardMobilityScore": 50.35,
+      "tractCount": 10,
+      "totalKids": 3154,
+      "name": "Red Wing, MN",
+      "percentile": 96
+    },
+    "29100": {
+      "upwardMobilityScore": 46.83,
+      "tractCount": 30,
+      "totalKids": 10300,
+      "name": "La Crosse-Onalaska, WI-MN",
+      "percentile": 88
+    },
+    "24330": {
+      "upwardMobilityScore": 47.46,
+      "tractCount": 11,
+      "totalKids": 4235,
+      "name": "Grand Rapids, MN",
+      "percentile": 90
+    },
+    "48820": {
+      "upwardMobilityScore": 49.67,
+      "tractCount": 12,
+      "totalKids": 4309,
+      "name": "Willmar, MN",
+      "percentile": 94
+    },
+    "32140": {
+      "upwardMobilityScore": 50.47,
+      "tractCount": 7,
+      "totalKids": 2386,
+      "name": "Marshall, MN",
+      "percentile": 96
+    },
+    "26780": {
+      "upwardMobilityScore": 50.41,
+      "tractCount": 7,
+      "totalKids": 2983,
+      "name": "Hutchinson, MN",
+      "percentile": 96
+    },
+    "21860": {
+      "upwardMobilityScore": 50.67,
+      "tractCount": 6,
+      "totalKids": 2376,
+      "name": "Fairmont, MN",
+      "percentile": 97
+    },
+    "12380": {
+      "upwardMobilityScore": 46.77,
+      "tractCount": 11,
+      "totalKids": 3850,
+      "name": "Austin, MN",
+      "percentile": 88
+    },
+    "49380": {
+      "upwardMobilityScore": 51.67,
+      "tractCount": 6,
+      "totalKids": 2693,
+      "name": "Worthington, MN",
+      "percentile": 98
+    },
+    "22260": {
+      "upwardMobilityScore": 51.26,
+      "tractCount": 17,
+      "totalKids": 6658,
+      "name": "Fergus Falls, MN",
+      "percentile": 97
+    },
+    "24220": {
+      "upwardMobilityScore": 49.43,
+      "tractCount": 28,
+      "totalKids": 9097,
+      "name": "Grand Forks, ND-MN",
+      "percentile": 94
+    },
+    "22060": {
+      "upwardMobilityScore": 47.29,
+      "tractCount": 13,
+      "totalKids": 4184,
+      "name": "Faribault-Northfield, MN",
+      "percentile": 90
+    },
+    "36940": {
+      "upwardMobilityScore": 47.95,
+      "tractCount": 8,
+      "totalKids": 2582,
+      "name": "Owatonna, MN",
+      "percentile": 92
+    },
+    "47420": {
+      "upwardMobilityScore": 52.77,
+      "tractCount": 8,
+      "totalKids": 2230,
+      "name": "Wahpeton, ND-MN",
+      "percentile": 99
+    },
+    "49100": {
+      "upwardMobilityScore": 50.67,
+      "tractCount": 10,
+      "totalKids": 4158,
+      "name": "Winona, MN",
+      "percentile": 97
+    },
+    "18420": {
+      "upwardMobilityScore": 36.82,
+      "tractCount": 7,
+      "totalKids": 4771,
+      "name": "Corinth, MS",
+      "percentile": 17
+    },
+    "17380": {
+      "upwardMobilityScore": 33.44,
+      "tractCount": 8,
+      "totalKids": 9438,
+      "name": "Cleveland, MS",
+      "percentile": 2
+    },
+    "24900": {
+      "upwardMobilityScore": 32.4,
+      "tractCount": 10,
+      "totalKids": 10874,
+      "name": "Greenwood, MS",
+      "percentile": 1
+    },
+    "32940": {
+      "upwardMobilityScore": 35.18,
+      "tractCount": 24,
+      "totalKids": 18164,
+      "name": "Meridian, MS",
+      "percentile": 6
+    },
+    "48500": {
+      "upwardMobilityScore": 32.71,
+      "tractCount": 5,
+      "totalKids": 4330,
+      "name": "West Point, MS",
+      "percentile": 2
+    },
+    "17260": {
+      "upwardMobilityScore": 31.41,
+      "tractCount": 7,
+      "totalKids": 7944,
+      "name": "Clarksdale, MS",
+      "percentile": 0
+    },
+    "27140": {
+      "upwardMobilityScore": 34.85,
+      "tractCount": 132,
+      "totalKids": 92440,
+      "name": "Jackson, MS",
+      "percentile": 5
+    },
+    "25620": {
+      "upwardMobilityScore": 38.08,
+      "tractCount": 32,
+      "totalKids": 24189,
+      "name": "Hattiesburg, MS",
+      "percentile": 25
+    },
+    "24980": {
+      "upwardMobilityScore": 34.4,
+      "tractCount": 5,
+      "totalKids": 4020,
+      "name": "Grenada, MS",
+      "percentile": 4
+    },
+    "25060": {
+      "upwardMobilityScore": 37.44,
+      "tractCount": 82,
+      "totalKids": 57309,
+      "name": "Gulfport-Biloxi, MS",
+      "percentile": 21
+    },
+    "46180": {
+      "upwardMobilityScore": 36.45,
+      "tractCount": 34,
+      "totalKids": 22392,
+      "name": "Tupelo, MS",
+      "percentile": 14
+    },
+    "29860": {
+      "upwardMobilityScore": 37.6,
+      "tractCount": 17,
+      "totalKids": 14764,
+      "name": "Laurel, MS",
+      "percentile": 22
+    },
+    "37060": {
+      "upwardMobilityScore": 37.33,
+      "tractCount": 10,
+      "totalKids": 4067,
+      "name": "Oxford, MS",
+      "percentile": 19
+    },
+    "15020": {
+      "upwardMobilityScore": 39.48,
+      "tractCount": 6,
+      "totalKids": 5572,
+      "name": "Brookhaven, MS",
+      "percentile": 36
+    },
+    "18060": {
+      "upwardMobilityScore": 34.17,
+      "tractCount": 14,
+      "totalKids": 10898,
+      "name": "Columbus, MS",
+      "percentile": 3
+    },
+    "44260": {
+      "upwardMobilityScore": 36.23,
+      "tractCount": 11,
+      "totalKids": 7402,
+      "name": "Starkville, MS",
+      "percentile": 13
+    },
+    "38100": {
+      "upwardMobilityScore": 39.57,
+      "tractCount": 9,
+      "totalKids": 7836,
+      "name": "Picayune, MS",
+      "percentile": 37
+    },
+    "32620": {
+      "upwardMobilityScore": 36.56,
+      "tractCount": 8,
+      "totalKids": 8029,
+      "name": "McComb, MS",
+      "percentile": 15
+    },
+    "26940": {
+      "upwardMobilityScore": 31.61,
+      "tractCount": 7,
+      "totalKids": 7886,
+      "name": "Indianola, MS",
+      "percentile": 0
+    },
+    "46980": {
+      "upwardMobilityScore": 34.57,
+      "tractCount": 12,
+      "totalKids": 8412,
+      "name": "Vicksburg, MS",
+      "percentile": 5
+    },
+    "24740": {
+      "upwardMobilityScore": 31.51,
+      "tractCount": 19,
+      "totalKids": 14980,
+      "name": "Greenville, MS",
+      "percentile": 0
+    },
+    "28860": {
+      "upwardMobilityScore": 44.82,
+      "tractCount": 8,
+      "totalKids": 3005,
+      "name": "Kirksville, MO",
+      "percentile": 81
+    },
+    "33020": {
+      "upwardMobilityScore": 40.45,
+      "tractCount": 7,
+      "totalKids": 3112,
+      "name": "Mexico, MO",
+      "percentile": 44
+    },
+    "17860": {
+      "upwardMobilityScore": 41.1,
+      "tractCount": 37,
+      "totalKids": 15881,
+      "name": "Columbia, MO",
+      "percentile": 51
+    },
+    "38740": {
+      "upwardMobilityScore": 37.7,
+      "tractCount": 14,
+      "totalKids": 8931,
+      "name": "Poplar Bluff, MO",
+      "percentile": 22
+    },
+    "27620": {
+      "upwardMobilityScore": 42.8,
+      "tractCount": 31,
+      "totalKids": 13609,
+      "name": "Jefferson City, MO",
+      "percentile": 67
+    },
+    "44180": {
+      "upwardMobilityScore": 40.7,
+      "tractCount": 91,
+      "totalKids": 46494,
+      "name": "Springfield, MO",
+      "percentile": 46
+    },
+    "28380": {
+      "upwardMobilityScore": 37.47,
+      "tractCount": 10,
+      "totalKids": 5837,
+      "name": "Kennett, MO",
+      "percentile": 21
+    },
+    "48460": {
+      "upwardMobilityScore": 42.32,
+      "tractCount": 8,
+      "totalKids": 6496,
+      "name": "West Plains, MO",
+      "percentile": 62
+    },
+    "27900": {
+      "upwardMobilityScore": 40.77,
+      "tractCount": 34,
+      "totalKids": 23077,
+      "name": "Joplin, MO",
+      "percentile": 47
+    },
+    "47660": {
+      "upwardMobilityScore": 42.06,
+      "tractCount": 9,
+      "totalKids": 5458,
+      "name": "Warrensburg, MO",
+      "percentile": 60
+    },
+    "30060": {
+      "upwardMobilityScore": 40.06,
+      "tractCount": 6,
+      "totalKids": 5682,
+      "name": "Lebanon, MO",
+      "percentile": 41
+    },
+    "25300": {
+      "upwardMobilityScore": 41.92,
+      "tractCount": 11,
+      "totalKids": 4707,
+      "name": "Hannibal, MO",
+      "percentile": 57
+    },
+    "32340": {
+      "upwardMobilityScore": 50.48,
+      "tractCount": 5,
+      "totalKids": 1981,
+      "name": "Maryville, MO",
+      "percentile": 96
+    },
+    "42740": {
+      "upwardMobilityScore": 41.48,
+      "tractCount": 11,
+      "totalKids": 5663,
+      "name": "Sedalia, MO",
+      "percentile": 55
+    },
+    "40620": {
+      "upwardMobilityScore": 40.66,
+      "tractCount": 10,
+      "totalKids": 5066,
+      "name": "Rolla, MO",
+      "percentile": 45
+    },
+    "22780": {
+      "upwardMobilityScore": 38.45,
+      "tractCount": 9,
+      "totalKids": 6702,
+      "name": "Fort Leonard Wood, MO",
+      "percentile": 29
+    },
+    "33620": {
+      "upwardMobilityScore": 38.16,
+      "tractCount": 6,
+      "totalKids": 3249,
+      "name": "Moberly, MO",
+      "percentile": 26
+    },
+    "22100": {
+      "upwardMobilityScore": 38.32,
+      "tractCount": 11,
+      "totalKids": 7290,
+      "name": "Farmington, MO",
+      "percentile": 27
+    },
+    "32180": {
+      "upwardMobilityScore": 39.91,
+      "tractCount": 8,
+      "totalKids": 3495,
+      "name": "Marshall, MO",
+      "percentile": 40
+    },
+    "43460": {
+      "upwardMobilityScore": 39.03,
+      "tractCount": 10,
+      "totalKids": 6106,
+      "name": "Sikeston, MO",
+      "percentile": 33
+    },
+    "14700": {
+      "upwardMobilityScore": 41.43,
+      "tractCount": 10,
+      "totalKids": 5633,
+      "name": "Branson, MO",
+      "percentile": 54
+    },
+    "13740": {
+      "upwardMobilityScore": 46.9,
+      "tractCount": 40,
+      "totalKids": 16554,
+      "name": "Billings, MT",
+      "percentile": 89
+    },
+    "24500": {
+      "upwardMobilityScore": 44.43,
+      "tractCount": 22,
+      "totalKids": 10583,
+      "name": "Great Falls, MT",
+      "percentile": 79
+    },
+    "28060": {
+      "upwardMobilityScore": 45.92,
+      "tractCount": 19,
+      "totalKids": 9560,
+      "name": "Kalispell, MT",
+      "percentile": 85
+    },
+    "14580": {
+      "upwardMobilityScore": 47.86,
+      "tractCount": 22,
+      "totalKids": 6685,
+      "name": "Bozeman, MT",
+      "percentile": 92
+    },
+    "25740": {
+      "upwardMobilityScore": 45.56,
+      "tractCount": 17,
+      "totalKids": 7021,
+      "name": "Helena, MT",
+      "percentile": 84
+    },
+    "33540": {
+      "upwardMobilityScore": 44.01,
+      "tractCount": 20,
+      "totalKids": 9474,
+      "name": "Missoula, MT",
+      "percentile": 76
+    },
+    "15580": {
+      "upwardMobilityScore": 46.01,
+      "tractCount": 8,
+      "totalKids": 3790,
+      "name": "Butte-Silver Bow, MT",
+      "percentile": 86
+    },
+    "25580": {
+      "upwardMobilityScore": 47.93,
+      "tractCount": 9,
+      "totalKids": 3070,
+      "name": "Hastings, NE",
+      "percentile": 92
+    },
+    "42420": {
+      "upwardMobilityScore": 46.89,
+      "tractCount": 13,
+      "totalKids": 5621,
+      "name": "Scottsbluff, NE",
+      "percentile": 89
+    },
+    "28260": {
+      "upwardMobilityScore": 50.58,
+      "tractCount": 13,
+      "totalKids": 5109,
+      "name": "Kearney, NE",
+      "percentile": 96
+    },
+    "30420": {
+      "upwardMobilityScore": 45.25,
+      "tractCount": 8,
+      "totalKids": 4398,
+      "name": "Lexington, NE",
+      "percentile": 83
+    },
+    "23340": {
+      "upwardMobilityScore": 49.77,
+      "tractCount": 9,
+      "totalKids": 3632,
+      "name": "Fremont, NE",
+      "percentile": 95
+    },
+    "13100": {
+      "upwardMobilityScore": 49.81,
+      "tractCount": 7,
+      "totalKids": 2489,
+      "name": "Beatrice, NE",
+      "percentile": 95
+    },
+    "24260": {
+      "upwardMobilityScore": 47.69,
+      "tractCount": 19,
+      "totalKids": 8948,
+      "name": "Grand Island, NE",
+      "percentile": 91
+    },
+    "30700": {
+      "upwardMobilityScore": 44.26,
+      "tractCount": 74,
+      "totalKids": 21351,
+      "name": "Lincoln, NE",
+      "percentile": 78
+    },
+    "35820": {
+      "upwardMobilityScore": 48.62,
+      "tractCount": 10,
+      "totalKids": 3615,
+      "name": "North Platte, NE",
+      "percentile": 93
+    },
+    "35740": {
+      "upwardMobilityScore": 51.31,
+      "tractCount": 13,
+      "totalKids": 6052,
+      "name": "Norfolk, NE",
+      "percentile": 98
+    },
+    "18100": {
+      "upwardMobilityScore": 53.21,
+      "tractCount": 7,
+      "totalKids": 3468,
+      "name": "Columbus, NE",
+      "percentile": 99
+    },
+    "21980": {
+      "upwardMobilityScore": 41.03,
+      "tractCount": 7,
+      "totalKids": 3124,
+      "name": "Fallon, NV",
+      "percentile": 50
+    },
+    "29820": {
+      "upwardMobilityScore": 38.24,
+      "tractCount": 480,
+      "totalKids": 186834,
+      "name": "Las Vegas-Henderson-Paradise, NV",
+      "percentile": 26
+    },
+    "23820": {
+      "upwardMobilityScore": 45.92,
+      "tractCount": 16,
+      "totalKids": 3885,
+      "name": "Gardnerville Ranchos, NV",
+      "percentile": 85
+    },
+    "21220": {
+      "upwardMobilityScore": 45.6,
+      "tractCount": 15,
+      "totalKids": 5403,
+      "name": "Elko, NV",
+      "percentile": 84
+    },
+    "49080": {
+      "upwardMobilityScore": 44.58,
+      "tractCount": 4,
+      "totalKids": 1670,
+      "name": "Winnemucca, NV",
+      "percentile": 79
+    },
+    "22280": {
+      "upwardMobilityScore": 40.61,
+      "tractCount": 10,
+      "totalKids": 4562,
+      "name": "Fernley, NV",
+      "percentile": 45
+    },
+    "37220": {
+      "upwardMobilityScore": 42.04,
+      "tractCount": 9,
+      "totalKids": 4091,
+      "name": "Pahrump, NV",
+      "percentile": 59
+    },
+    "39900": {
+      "upwardMobilityScore": 40.23,
+      "tractCount": 108,
+      "totalKids": 39611,
+      "name": "Reno, NV",
+      "percentile": 42
+    },
+    "16180": {
+      "upwardMobilityScore": 40.68,
+      "tractCount": 13,
+      "totalKids": 5407,
+      "name": "Carson City, NV",
+      "percentile": 46
+    },
+    "29060": {
+      "upwardMobilityScore": 42.38,
+      "tractCount": 15,
+      "totalKids": 5235,
+      "name": "Laconia, NH",
+      "percentile": 63
+    },
+    "28300": {
+      "upwardMobilityScore": 42.82,
+      "tractCount": 16,
+      "totalKids": 6095,
+      "name": "Keene, NH",
+      "percentile": 68
+    },
+    "13620": {
+      "upwardMobilityScore": 42.15,
+      "tractCount": 11,
+      "totalKids": 3427,
+      "name": "Berlin, NH",
+      "percentile": 60
+    },
+    "30100": {
+      "upwardMobilityScore": 43.29,
+      "tractCount": 57,
+      "totalKids": 20026,
+      "name": "Lebanon, NH-VT",
+      "percentile": 71
+    },
+    "31700": {
+      "upwardMobilityScore": 43.46,
+      "tractCount": 85,
+      "totalKids": 29046,
+      "name": "Manchester-Nashua, NH",
+      "percentile": 72
+    },
+    "18180": {
+      "upwardMobilityScore": 42.77,
+      "tractCount": 36,
+      "totalKids": 11210,
+      "name": "Concord, NH",
+      "percentile": 67
+    },
+    "12100": {
+      "upwardMobilityScore": 37.19,
+      "tractCount": 68,
+      "totalKids": 32094,
+      "name": "Atlantic City-Hammonton, NJ",
+      "percentile": 19
+    },
+    "35620": {
+      "upwardMobilityScore": 43.19,
+      "tractCount": 4443,
+      "totalKids": 2221405,
+      "name": "New York-Newark-Jersey City, NY-NJ-PA",
+      "percentile": 70
+    },
+    "36140": {
+      "upwardMobilityScore": 42.78,
+      "tractCount": 32,
+      "totalKids": 9415,
+      "name": "Ocean City, NJ",
+      "percentile": 67
+    },
+    "47220": {
+      "upwardMobilityScore": 36.63,
+      "tractCount": 31,
+      "totalKids": 19523,
+      "name": "Vineland-Bridgeton, NJ",
+      "percentile": 15
+    },
+    "45940": {
+      "upwardMobilityScore": 38.09,
+      "tractCount": 76,
+      "totalKids": 30389,
+      "name": "Trenton-Princeton, NJ",
+      "percentile": 26
+    },
+    "10900": {
+      "upwardMobilityScore": 43.05,
+      "tractCount": 179,
+      "totalKids": 61388,
+      "name": "Allentown-Bethlehem-Easton, PA-NJ",
+      "percentile": 69
+    },
+    "10740": {
+      "upwardMobilityScore": 38.41,
+      "tractCount": 202,
+      "totalKids": 103634,
+      "name": "Albuquerque, NM",
+      "percentile": 28
+    },
+    "40740": {
+      "upwardMobilityScore": 40.13,
+      "tractCount": 16,
+      "totalKids": 12491,
+      "name": "Roswell, NM",
+      "percentile": 42
+    },
+    "24380": {
+      "upwardMobilityScore": 35.23,
+      "tractCount": 7,
+      "totalKids": 5530,
+      "name": "Grants, NM",
+      "percentile": 7
+    },
+    "17580": {
+      "upwardMobilityScore": 41.21,
+      "tractCount": 12,
+      "totalKids": 8966,
+      "name": "Clovis, NM",
+      "percentile": 52
+    },
+    "29740": {
+      "upwardMobilityScore": 40.24,
+      "tractCount": 41,
+      "totalKids": 35377,
+      "name": "Las Cruces, NM",
+      "percentile": 42
+    },
+    "16100": {
+      "upwardMobilityScore": 46.83,
+      "tractCount": 12,
+      "totalKids": 8517,
+      "name": "Carlsbad-Artesia, NM",
+      "percentile": 88
+    },
+    "43500": {
+      "upwardMobilityScore": 41.28,
+      "tractCount": 8,
+      "totalKids": 4712,
+      "name": "Silver City, NM",
+      "percentile": 53
+    },
+    "26020": {
+      "upwardMobilityScore": 46.82,
+      "tractCount": 18,
+      "totalKids": 10534,
+      "name": "Hobbs, NM",
+      "percentile": 88
+    },
+    "40760": {
+      "upwardMobilityScore": 41.94,
+      "tractCount": 5,
+      "totalKids": 3108,
+      "name": "Ruidoso, NM",
+      "percentile": 58
+    },
+    "31060": {
+      "upwardMobilityScore": 47.84,
+      "tractCount": 4,
+      "totalKids": 541,
+      "name": "Los Alamos, NM",
+      "percentile": 91
+    },
+    "19700": {
+      "upwardMobilityScore": 38.94,
+      "tractCount": 6,
+      "totalKids": 6077,
+      "name": "Deming, NM",
+      "percentile": 32
+    },
+    "23700": {
+      "upwardMobilityScore": 33.24,
+      "tractCount": 17,
+      "totalKids": 19692,
+      "name": "Gallup, NM",
+      "percentile": 2
+    },
+    "29780": {
+      "upwardMobilityScore": 39.79,
+      "tractCount": 8,
+      "totalKids": 7545,
+      "name": "Las Vegas, NM",
+      "percentile": 39
+    },
+    "10460": {
+      "upwardMobilityScore": 39.29,
+      "tractCount": 16,
+      "totalKids": 12050,
+      "name": "Alamogordo, NM",
+      "percentile": 35
+    },
+    "21580": {
+      "upwardMobilityScore": 37.07,
+      "tractCount": 9,
+      "totalKids": 7945,
+      "name": "Espa\u00f1ola, NM",
+      "percentile": 18
+    },
+    "38780": {
+      "upwardMobilityScore": 42.87,
+      "tractCount": 5,
+      "totalKids": 3574,
+      "name": "Portales, NM",
+      "percentile": 69
+    },
+    "22140": {
+      "upwardMobilityScore": 40.29,
+      "tractCount": 33,
+      "totalKids": 19750,
+      "name": "Farmington, NM",
+      "percentile": 43
+    },
+    "42140": {
+      "upwardMobilityScore": 40.1,
+      "tractCount": 49,
+      "totalKids": 16630,
+      "name": "Santa Fe, NM",
+      "percentile": 42
+    },
+    "45340": {
+      "upwardMobilityScore": 40.98,
+      "tractCount": 6,
+      "totalKids": 5550,
+      "name": "Taos, NM",
+      "percentile": 50
+    },
+    "10580": {
+      "upwardMobilityScore": 42.45,
+      "tractCount": 215,
+      "totalKids": 68457,
+      "name": "Albany-Schenectady-Troy, NY",
+      "percentile": 64
+    },
+    "13780": {
+      "upwardMobilityScore": 41.42,
+      "tractCount": 65,
+      "totalKids": 24889,
+      "name": "Binghamton, NY",
+      "percentile": 54
+    },
+    "36460": {
+      "upwardMobilityScore": 42.82,
+      "tractCount": 20,
+      "totalKids": 10895,
+      "name": "Olean, NY",
+      "percentile": 68
+    },
+    "12180": {
+      "upwardMobilityScore": 41.65,
+      "tractCount": 19,
+      "totalKids": 8824,
+      "name": "Auburn, NY",
+      "percentile": 56
+    },
+    "27460": {
+      "upwardMobilityScore": 41.35,
+      "tractCount": 35,
+      "totalKids": 16189,
+      "name": "Jamestown-Dunkirk-Fredonia, NY",
+      "percentile": 53
+    },
+    "21300": {
+      "upwardMobilityScore": 39.34,
+      "tractCount": 21,
+      "totalKids": 9938,
+      "name": "Elmira, NY",
+      "percentile": 36
+    },
+    "38460": {
+      "upwardMobilityScore": 42.25,
+      "tractCount": 18,
+      "totalKids": 7553,
+      "name": "Plattsburgh, NY",
+      "percentile": 61
+    },
+    "26460": {
+      "upwardMobilityScore": 42.34,
+      "tractCount": 21,
+      "totalKids": 6078,
+      "name": "Hudson, NY",
+      "percentile": 63
+    },
+    "18660": {
+      "upwardMobilityScore": 42.38,
+      "tractCount": 12,
+      "totalKids": 5422,
+      "name": "Cortland, NY",
+      "percentile": 63
+    },
+    "39100": {
+      "upwardMobilityScore": 41.66,
+      "tractCount": 155,
+      "totalKids": 55372,
+      "name": "Poughkeepsie-Newburgh-Middletown, NY",
+      "percentile": 56
+    },
+    "15380": {
+      "upwardMobilityScore": 40.34,
+      "tractCount": 290,
+      "totalKids": 108724,
+      "name": "Buffalo-Cheektowaga, NY",
+      "percentile": 43
+    },
+    "31660": {
+      "upwardMobilityScore": 40.74,
+      "tractCount": 14,
+      "totalKids": 6162,
+      "name": "Malone, NY",
+      "percentile": 47
+    },
+    "24100": {
+      "upwardMobilityScore": 40.74,
+      "tractCount": 15,
+      "totalKids": 6792,
+      "name": "Gloversville, NY",
+      "percentile": 47
+    },
+    "12860": {
+      "upwardMobilityScore": 43.27,
+      "tractCount": 15,
+      "totalKids": 5475,
+      "name": "Batavia, NY",
+      "percentile": 71
+    },
+    "46540": {
+      "upwardMobilityScore": 42.19,
+      "tractCount": 87,
+      "totalKids": 32765,
+      "name": "Utica-Rome, NY",
+      "percentile": 61
+    },
+    "48060": {
+      "upwardMobilityScore": 41.12,
+      "tractCount": 24,
+      "totalKids": 14493,
+      "name": "Watertown-Fort Drum, NY",
+      "percentile": 51
+    },
+    "40380": {
+      "upwardMobilityScore": 39.02,
+      "tractCount": 264,
+      "totalKids": 100641,
+      "name": "Rochester, NY",
+      "percentile": 33
+    },
+    "45060": {
+      "upwardMobilityScore": 39.5,
+      "tractCount": 184,
+      "totalKids": 65937,
+      "name": "Syracuse, NY",
+      "percentile": 36
+    },
+    "11220": {
+      "upwardMobilityScore": 42.31,
+      "tractCount": 16,
+      "totalKids": 6031,
+      "name": "Amsterdam, NY",
+      "percentile": 62
+    },
+    "36580": {
+      "upwardMobilityScore": 44.37,
+      "tractCount": 16,
+      "totalKids": 6843,
+      "name": "Oneonta, NY",
+      "percentile": 78
+    },
+    "36300": {
+      "upwardMobilityScore": 43.15,
+      "tractCount": 25,
+      "totalKids": 12901,
+      "name": "Ogdensburg-Massena, NY",
+      "percentile": 70
+    },
+    "42900": {
+      "upwardMobilityScore": 43.93,
+      "tractCount": 10,
+      "totalKids": 3557,
+      "name": "Seneca Falls, NY",
+      "percentile": 75
+    },
+    "18500": {
+      "upwardMobilityScore": 43.39,
+      "tractCount": 30,
+      "totalKids": 11916,
+      "name": "Corning, NY",
+      "percentile": 72
+    },
+    "27060": {
+      "upwardMobilityScore": 42.37,
+      "tractCount": 21,
+      "totalKids": 6800,
+      "name": "Ithaca, NY",
+      "percentile": 63
+    },
+    "28740": {
+      "upwardMobilityScore": 43.28,
+      "tractCount": 47,
+      "totalKids": 15622,
+      "name": "Kingston, NY",
+      "percentile": 71
+    },
+    "24020": {
+      "upwardMobilityScore": 43.0,
+      "tractCount": 36,
+      "totalKids": 13177,
+      "name": "Glens Falls, NY",
+      "percentile": 69
+    },
+    "15500": {
+      "upwardMobilityScore": 35.66,
+      "tractCount": 36,
+      "totalKids": 15266,
+      "name": "Burlington, NC",
+      "percentile": 9
+    },
+    "25860": {
+      "upwardMobilityScore": 35.54,
+      "tractCount": 73,
+      "totalKids": 41276,
+      "name": "Hickory-Lenoir-Morganton, NC",
+      "percentile": 8
+    },
+    "16740": {
+      "upwardMobilityScore": 35.41,
+      "tractCount": 540,
+      "totalKids": 204535,
+      "name": "Charlotte-Concord-Gastonia, NC-SC",
+      "percentile": 7
+    },
+    "47820": {
+      "upwardMobilityScore": 36.84,
+      "tractCount": 11,
+      "totalKids": 5827,
+      "name": "Washington, NC",
+      "percentile": 17
+    },
+    "34820": {
+      "upwardMobilityScore": 36.28,
+      "tractCount": 101,
+      "totalKids": 33448,
+      "name": "Myrtle Beach-Conway-North Myrtle Beach, SC-NC",
+      "percentile": 13
+    },
+    "11700": {
+      "upwardMobilityScore": 38.42,
+      "tractCount": 103,
+      "totalKids": 38203,
+      "name": "Asheville, NC",
+      "percentile": 28
+    },
+    "47260": {
+      "upwardMobilityScore": 37.3,
+      "tractCount": 419,
+      "totalKids": 209780,
+      "name": "Virginia Beach-Norfolk-Newport News, VA-NC",
+      "percentile": 19
+    },
+    "33980": {
+      "upwardMobilityScore": 39.15,
+      "tractCount": 35,
+      "totalKids": 5921,
+      "name": "Morehead City, NC",
+      "percentile": 34
+    },
+    "20500": {
+      "upwardMobilityScore": 34.42,
+      "tractCount": 116,
+      "totalKids": 49901,
+      "name": "Durham-Chapel Hill, NC",
+      "percentile": 4
+    },
+    "43140": {
+      "upwardMobilityScore": 33.97,
+      "tractCount": 22,
+      "totalKids": 12766,
+      "name": "Shelby, NC",
+      "percentile": 3
+    },
+    "35100": {
+      "upwardMobilityScore": 37.1,
+      "tractCount": 28,
+      "totalKids": 14478,
+      "name": "New Bern, NC",
+      "percentile": 18
+    },
+    "22180": {
+      "upwardMobilityScore": 35.03,
+      "tractCount": 99,
+      "totalKids": 67247,
+      "name": "Fayetteville, NC",
+      "percentile": 6
+    },
+    "28620": {
+      "upwardMobilityScore": 41.2,
+      "tractCount": 9,
+      "totalKids": 3201,
+      "name": "Kill Devil Hills, NC",
+      "percentile": 52
+    },
+    "49180": {
+      "upwardMobilityScore": 35.1,
+      "tractCount": 150,
+      "totalKids": 62687,
+      "name": "Winston-Salem, NC",
+      "percentile": 6
+    },
+    "40580": {
+      "upwardMobilityScore": 34.53,
+      "tractCount": 32,
+      "totalKids": 21661,
+      "name": "Rocky Mount, NC",
+      "percentile": 5
+    },
+    "39580": {
+      "upwardMobilityScore": 38.73,
+      "tractCount": 221,
+      "totalKids": 73397,
+      "name": "Raleigh-Cary, NC",
+      "percentile": 31
+    },
+    "24660": {
+      "upwardMobilityScore": 34.8,
+      "tractCount": 167,
+      "totalKids": 74185,
+      "name": "Greensboro-High Point, NC",
+      "percentile": 5
+    },
+    "40260": {
+      "upwardMobilityScore": 34.41,
+      "tractCount": 17,
+      "totalKids": 14458,
+      "name": "Roanoke Rapids, NC",
+      "percentile": 4
+    },
+    "19000": {
+      "upwardMobilityScore": 39.75,
+      "tractCount": 13,
+      "totalKids": 5960,
+      "name": "Cullowhee, NC",
+      "percentile": 38
+    },
+    "41820": {
+      "upwardMobilityScore": 35.03,
+      "tractCount": 13,
+      "totalKids": 6521,
+      "name": "Sanford, NC",
+      "percentile": 6
+    },
+    "28820": {
+      "upwardMobilityScore": 34.36,
+      "tractCount": 15,
+      "totalKids": 9779,
+      "name": "Kinston, NC",
+      "percentile": 4
+    },
+    "32000": {
+      "upwardMobilityScore": 36.23,
+      "tractCount": 10,
+      "totalKids": 5332,
+      "name": "Marion, NC",
+      "percentile": 13
+    },
+    "38240": {
+      "upwardMobilityScore": 37.16,
+      "tractCount": 18,
+      "totalKids": 8206,
+      "name": "Pinehurst-Southern Pines, NC",
+      "percentile": 18
+    },
+    "48900": {
+      "upwardMobilityScore": 35.63,
+      "tractCount": 57,
+      "totalKids": 20125,
+      "name": "Wilmington, NC",
+      "percentile": 9
+    },
+    "27340": {
+      "upwardMobilityScore": 37.78,
+      "tractCount": 30,
+      "totalKids": 22740,
+      "name": "Jacksonville, NC",
+      "percentile": 23
+    },
+    "21020": {
+      "upwardMobilityScore": 36.88,
+      "tractCount": 13,
+      "totalKids": 6835,
+      "name": "Elizabeth City, NC",
+      "percentile": 17
+    },
+    "24780": {
+      "upwardMobilityScore": 34.38,
+      "tractCount": 32,
+      "totalKids": 16496,
+      "name": "Greenville, NC",
+      "percentile": 4
+    },
+    "40460": {
+      "upwardMobilityScore": 34.34,
+      "tractCount": 11,
+      "totalKids": 7793,
+      "name": "Rockingham, NC",
+      "percentile": 3
+    },
+    "31300": {
+      "upwardMobilityScore": 31.85,
+      "tractCount": 31,
+      "totalKids": 26038,
+      "name": "Lumberton, NC",
+      "percentile": 0
+    },
+    "22580": {
+      "upwardMobilityScore": 35.38,
+      "tractCount": 13,
+      "totalKids": 8213,
+      "name": "Forest City, NC",
+      "percentile": 7
+    },
+    "29900": {
+      "upwardMobilityScore": 30.97,
+      "tractCount": 7,
+      "totalKids": 6422,
+      "name": "Laurinburg, NC",
+      "percentile": 0
+    },
+    "10620": {
+      "upwardMobilityScore": 38.55,
+      "tractCount": 13,
+      "totalKids": 6605,
+      "name": "Albemarle, NC",
+      "percentile": 29
+    },
+    "34340": {
+      "upwardMobilityScore": 38.4,
+      "tractCount": 22,
+      "totalKids": 8978,
+      "name": "Mount Airy, NC",
+      "percentile": 28
+    },
+    "14820": {
+      "upwardMobilityScore": 37.34,
+      "tractCount": 7,
+      "totalKids": 2727,
+      "name": "Brevard, NC",
+      "percentile": 20
+    },
+    "25780": {
+      "upwardMobilityScore": 32.17,
+      "tractCount": 10,
+      "totalKids": 8170,
+      "name": "Henderson, NC",
+      "percentile": 1
+    },
+    "14380": {
+      "upwardMobilityScore": 41.6,
+      "tractCount": 13,
+      "totalKids": 3221,
+      "name": "Boone, NC",
+      "percentile": 55
+    },
+    "24140": {
+      "upwardMobilityScore": 36.41,
+      "tractCount": 26,
+      "totalKids": 16933,
+      "name": "Goldsboro, NC",
+      "percentile": 14
+    },
+    "35900": {
+      "upwardMobilityScore": 38.33,
+      "tractCount": 14,
+      "totalKids": 8184,
+      "name": "North Wilkesboro, NC",
+      "percentile": 27
+    },
+    "48980": {
+      "upwardMobilityScore": 33.35,
+      "tractCount": 19,
+      "totalKids": 11322,
+      "name": "Wilson, NC",
+      "percentile": 2
+    },
+    "19860": {
+      "upwardMobilityScore": 63.3,
+      "tractCount": 9,
+      "totalKids": 2771,
+      "name": "Dickinson, ND",
+      "percentile": 100
+    },
+    "13900": {
+      "upwardMobilityScore": 54.19,
+      "tractCount": 25,
+      "totalKids": 8020,
+      "name": "Bismarck, ND",
+      "percentile": 99
+    },
+    "33500": {
+      "upwardMobilityScore": 52.25,
+      "tractCount": 16,
+      "totalKids": 7666,
+      "name": "Minot, ND",
+      "percentile": 98
+    },
+    "27420": {
+      "upwardMobilityScore": 51.23,
+      "tractCount": 6,
+      "totalKids": 1973,
+      "name": "Jamestown, ND",
+      "percentile": 97
+    },
+    "48780": {
+      "upwardMobilityScore": 59.6,
+      "tractCount": 7,
+      "totalKids": 2290,
+      "name": "Williston, ND",
+      "percentile": 100
+    },
+    "30620": {
+      "upwardMobilityScore": 38.05,
+      "tractCount": 33,
+      "totalKids": 12323,
+      "name": "Lima, OH",
+      "percentile": 25
+    },
+    "11740": {
+      "upwardMobilityScore": 42.17,
+      "tractCount": 11,
+      "totalKids": 6045,
+      "name": "Ashland, OH",
+      "percentile": 60
+    },
+    "11780": {
+      "upwardMobilityScore": 39.47,
+      "tractCount": 25,
+      "totalKids": 13991,
+      "name": "Ashtabula, OH",
+      "percentile": 36
+    },
+    "11900": {
+      "upwardMobilityScore": 37.4,
+      "tractCount": 14,
+      "totalKids": 6102,
+      "name": "Athens, OH",
+      "percentile": 20
+    },
+    "47540": {
+      "upwardMobilityScore": 46.55,
+      "tractCount": 11,
+      "totalKids": 4428,
+      "name": "Wapakoneta, OH",
+      "percentile": 88
+    },
+    "48540": {
+      "upwardMobilityScore": 44.22,
+      "tractCount": 47,
+      "totalKids": 16080,
+      "name": "Wheeling, WV-OH",
+      "percentile": 77
+    },
+    "15940": {
+      "upwardMobilityScore": 38.99,
+      "tractCount": 93,
+      "totalKids": 43358,
+      "name": "Canton-Massillon, OH",
+      "percentile": 33
+    },
+    "46500": {
+      "upwardMobilityScore": 40.44,
+      "tractCount": 10,
+      "totalKids": 4095,
+      "name": "Urbana, OH",
+      "percentile": 44
+    },
+    "44220": {
+      "upwardMobilityScore": 35.3,
+      "tractCount": 44,
+      "totalKids": 16927,
+      "name": "Springfield, OH",
+      "percentile": 7
+    },
+    "48940": {
+      "upwardMobilityScore": 38.41,
+      "tractCount": 9,
+      "totalKids": 5038,
+      "name": "Wilmington, OH",
+      "percentile": 28
+    },
+    "41400": {
+      "upwardMobilityScore": 40.83,
+      "tractCount": 24,
+      "totalKids": 14094,
+      "name": "Salem, OH",
+      "percentile": 48
+    },
+    "18740": {
+      "upwardMobilityScore": 40.91,
+      "tractCount": 10,
+      "totalKids": 5136,
+      "name": "Coshocton, OH",
+      "percentile": 49
+    },
+    "15340": {
+      "upwardMobilityScore": 39.77,
+      "tractCount": 13,
+      "totalKids": 5978,
+      "name": "Bucyrus-Galion, OH",
+      "percentile": 39
+    },
+    "17460": {
+      "upwardMobilityScore": 36.7,
+      "tractCount": 631,
+      "totalKids": 236562,
+      "name": "Cleveland-Elyria, OH",
+      "percentile": 16
+    },
+    "24820": {
+      "upwardMobilityScore": 44.78,
+      "tractCount": 12,
+      "totalKids": 6641,
+      "name": "Greenville, OH",
+      "percentile": 80
+    },
+    "19580": {
+      "upwardMobilityScore": 42.79,
+      "tractCount": 9,
+      "totalKids": 3280,
+      "name": "Defiance, OH",
+      "percentile": 67
+    },
+    "18140": {
+      "upwardMobilityScore": 37.24,
+      "tractCount": 430,
+      "totalKids": 183234,
+      "name": "Columbus, OH",
+      "percentile": 19
+    },
+    "41780": {
+      "upwardMobilityScore": 39.61,
+      "tractCount": 18,
+      "totalKids": 7456,
+      "name": "Sandusky, OH",
+      "percentile": 38
+    },
+    "47920": {
+      "upwardMobilityScore": 36.19,
+      "tractCount": 7,
+      "totalKids": 4154,
+      "name": "Washington Court House, OH",
+      "percentile": 13
+    },
+    "45780": {
+      "upwardMobilityScore": 38.08,
+      "tractCount": 176,
+      "totalKids": 69334,
+      "name": "Toledo, OH",
+      "percentile": 25
+    },
+    "38580": {
+      "upwardMobilityScore": 38.79,
+      "tractCount": 13,
+      "totalKids": 7514,
+      "name": "Point Pleasant, WV-OH",
+      "percentile": 31
+    },
+    "19430": {
+      "upwardMobilityScore": 36.29,
+      "tractCount": 208,
+      "totalKids": 83250,
+      "name": "Dayton-Kettering, OH",
+      "percentile": 13
+    },
+    "15740": {
+      "upwardMobilityScore": 41.02,
+      "tractCount": 10,
+      "totalKids": 6152,
+      "name": "Cambridge, OH",
+      "percentile": 50
+    },
+    "22300": {
+      "upwardMobilityScore": 42.07,
+      "tractCount": 13,
+      "totalKids": 6275,
+      "name": "Findlay, OH",
+      "percentile": 60
+    },
+    "35940": {
+      "upwardMobilityScore": 41.77,
+      "tractCount": 13,
+      "totalKids": 7208,
+      "name": "Norwalk, OH",
+      "percentile": 56
+    },
+    "27160": {
+      "upwardMobilityScore": 37.9,
+      "tractCount": 7,
+      "totalKids": 5253,
+      "name": "Jackson, OH",
+      "percentile": 24
+    },
+    "48260": {
+      "upwardMobilityScore": 39.91,
+      "tractCount": 37,
+      "totalKids": 11989,
+      "name": "Weirton-Steubenville, WV-OH",
+      "percentile": 40
+    },
+    "34540": {
+      "upwardMobilityScore": 42.64,
+      "tractCount": 12,
+      "totalKids": 6562,
+      "name": "Mount Vernon, OH",
+      "percentile": 66
+    },
+    "13340": {
+      "upwardMobilityScore": 40.47,
+      "tractCount": 11,
+      "totalKids": 4952,
+      "name": "Bellefontaine, OH",
+      "percentile": 44
+    },
+    "49660": {
+      "upwardMobilityScore": 39.17,
+      "tractCount": 155,
+      "totalKids": 67739,
+      "name": "Youngstown-Warren-Boardman, OH-PA",
+      "percentile": 35
+    },
+    "32020": {
+      "upwardMobilityScore": 36.99,
+      "tractCount": 17,
+      "totalKids": 8225,
+      "name": "Marion, OH",
+      "percentile": 17
+    },
+    "16380": {
+      "upwardMobilityScore": 52.15,
+      "tractCount": 9,
+      "totalKids": 4682,
+      "name": "Celina, OH",
+      "percentile": 98
+    },
+    "49780": {
+      "upwardMobilityScore": 38.91,
+      "tractCount": 19,
+      "totalKids": 11802,
+      "name": "Zanesville, OH",
+      "percentile": 32
+    },
+    "10420": {
+      "upwardMobilityScore": 38.4,
+      "tractCount": 170,
+      "totalKids": 72591,
+      "name": "Akron, OH",
+      "percentile": 28
+    },
+    "31900": {
+      "upwardMobilityScore": 37.84,
+      "tractCount": 30,
+      "totalKids": 14965,
+      "name": "Mansfield, OH",
+      "percentile": 24
+    },
+    "17060": {
+      "upwardMobilityScore": 36.07,
+      "tractCount": 17,
+      "totalKids": 8576,
+      "name": "Chillicothe, OH",
+      "percentile": 12
+    },
+    "23380": {
+      "upwardMobilityScore": 40.62,
+      "tractCount": 15,
+      "totalKids": 6762,
+      "name": "Fremont, OH",
+      "percentile": 45
+    },
+    "39020": {
+      "upwardMobilityScore": 37.51,
+      "tractCount": 20,
+      "totalKids": 11323,
+      "name": "Portsmouth, OH",
+      "percentile": 21
+    },
+    "45660": {
+      "upwardMobilityScore": 42.82,
+      "tractCount": 14,
+      "totalKids": 6857,
+      "name": "Tiffin, OH",
+      "percentile": 68
+    },
+    "43380": {
+      "upwardMobilityScore": 41.96,
+      "tractCount": 10,
+      "totalKids": 5447,
+      "name": "Sidney, OH",
+      "percentile": 58
+    },
+    "35420": {
+      "upwardMobilityScore": 43.66,
+      "tractCount": 21,
+      "totalKids": 11600,
+      "name": "New Philadelphia-Dover, OH",
+      "percentile": 74
+    },
+    "46780": {
+      "upwardMobilityScore": 42.78,
+      "tractCount": 9,
+      "totalKids": 3236,
+      "name": "Van Wert, OH",
+      "percentile": 67
+    },
+    "31930": {
+      "upwardMobilityScore": 42.15,
+      "tractCount": 16,
+      "totalKids": 7079,
+      "name": "Marietta, OH",
+      "percentile": 60
+    },
+    "49300": {
+      "upwardMobilityScore": 43.49,
+      "tractCount": 32,
+      "totalKids": 12907,
+      "name": "Wooster, OH",
+      "percentile": 73
+    },
+    "21120": {
+      "upwardMobilityScore": 48.62,
+      "tractCount": 4,
+      "totalKids": 3030,
+      "name": "Elk City, OK",
+      "percentile": 93
+    },
+    "20460": {
+      "upwardMobilityScore": 41.24,
+      "tractCount": 11,
+      "totalKids": 6174,
+      "name": "Durant, OK",
+      "percentile": 52
+    },
+    "36420": {
+      "upwardMobilityScore": 40.88,
+      "tractCount": 357,
+      "totalKids": 145979,
+      "name": "Oklahoma City, OK",
+      "percentile": 48
+    },
+    "11620": {
+      "upwardMobilityScore": 41.89,
+      "tractCount": 14,
+      "totalKids": 8261,
+      "name": "Ardmore, OK",
+      "percentile": 57
+    },
+    "45140": {
+      "upwardMobilityScore": 39.41,
+      "tractCount": 9,
+      "totalKids": 7320,
+      "name": "Tahlequah, OK",
+      "percentile": 36
+    },
+    "30020": {
+      "upwardMobilityScore": 40.26,
+      "tractCount": 33,
+      "totalKids": 19844,
+      "name": "Lawton, OK",
+      "percentile": 43
+    },
+    "46140": {
+      "upwardMobilityScore": 40.21,
+      "tractCount": 272,
+      "totalKids": 114547,
+      "name": "Tulsa, OK",
+      "percentile": 42
+    },
+    "48220": {
+      "upwardMobilityScore": 47.4,
+      "tractCount": 5,
+      "totalKids": 3741,
+      "name": "Weatherford, OK",
+      "percentile": 90
+    },
+    "49260": {
+      "upwardMobilityScore": 49.5,
+      "tractCount": 7,
+      "totalKids": 3118,
+      "name": "Woodward, OK",
+      "percentile": 94
+    },
+    "21420": {
+      "upwardMobilityScore": 43.7,
+      "tractCount": 12,
+      "totalKids": 8192,
+      "name": "Enid, OK",
+      "percentile": 74
+    },
+    "11060": {
+      "upwardMobilityScore": 42.6,
+      "tractCount": 8,
+      "totalKids": 4666,
+      "name": "Altus, OK",
+      "percentile": 66
+    },
+    "38620": {
+      "upwardMobilityScore": 41.92,
+      "tractCount": 11,
+      "totalKids": 6629,
+      "name": "Ponca City, OK",
+      "percentile": 58
+    },
+    "34780": {
+      "upwardMobilityScore": 38.57,
+      "tractCount": 16,
+      "totalKids": 10763,
+      "name": "Muskogee, OK",
+      "percentile": 29
+    },
+    "33060": {
+      "upwardMobilityScore": 41.0,
+      "tractCount": 9,
+      "totalKids": 5810,
+      "name": "Miami, OK",
+      "percentile": 50
+    },
+    "44660": {
+      "upwardMobilityScore": 44.48,
+      "tractCount": 17,
+      "totalKids": 6711,
+      "name": "Stillwater, OK",
+      "percentile": 79
+    },
+    "32540": {
+      "upwardMobilityScore": 41.82,
+      "tractCount": 13,
+      "totalKids": 6506,
+      "name": "McAlester, OK",
+      "percentile": 57
+    },
+    "10220": {
+      "upwardMobilityScore": 42.56,
+      "tractCount": 10,
+      "totalKids": 5472,
+      "name": "Ada, OK",
+      "percentile": 65
+    },
+    "43060": {
+      "upwardMobilityScore": 39.78,
+      "tractCount": 16,
+      "totalKids": 10117,
+      "name": "Shawnee, OK",
+      "percentile": 39
+    },
+    "20340": {
+      "upwardMobilityScore": 44.49,
+      "tractCount": 11,
+      "totalKids": 6043,
+      "name": "Duncan, OK",
+      "percentile": 79
+    },
+    "25100": {
+      "upwardMobilityScore": 47.97,
+      "tractCount": 5,
+      "totalKids": 3213,
+      "name": "Guymon, OK",
+      "percentile": 92
+    },
+    "12780": {
+      "upwardMobilityScore": 41.93,
+      "tractCount": 13,
+      "totalKids": 5630,
+      "name": "Bartlesville, OK",
+      "percentile": 58
+    },
+    "18700": {
+      "upwardMobilityScore": 44.16,
+      "tractCount": 18,
+      "totalKids": 4909,
+      "name": "Corvallis, OR",
+      "percentile": 77
+    },
+    "38900": {
+      "upwardMobilityScore": 41.97,
+      "tractCount": 489,
+      "totalKids": 183352,
+      "name": "Portland-Vancouver-Hillsboro, OR-WA",
+      "percentile": 58
+    },
+    "11820": {
+      "upwardMobilityScore": 42.73,
+      "tractCount": 11,
+      "totalKids": 4033,
+      "name": "Astoria, OR",
+      "percentile": 66
+    },
+    "18300": {
+      "upwardMobilityScore": 40.42,
+      "tractCount": 13,
+      "totalKids": 7375,
+      "name": "Coos Bay, OR",
+      "percentile": 44
+    },
+    "39260": {
+      "upwardMobilityScore": 41.23,
+      "tractCount": 4,
+      "totalKids": 2469,
+      "name": "Prineville, OR",
+      "percentile": 52
+    },
+    "15060": {
+      "upwardMobilityScore": 42.24,
+      "tractCount": 5,
+      "totalKids": 2048,
+      "name": "Brookings, OR",
+      "percentile": 61
+    },
+    "13460": {
+      "upwardMobilityScore": 42.82,
+      "tractCount": 24,
+      "totalKids": 12428,
+      "name": "Bend, OR",
+      "percentile": 68
+    },
+    "40700": {
+      "upwardMobilityScore": 40.72,
+      "tractCount": 22,
+      "totalKids": 12628,
+      "name": "Roseburg, OR",
+      "percentile": 46
+    },
+    "26220": {
+      "upwardMobilityScore": 44.19,
+      "tractCount": 4,
+      "totalKids": 3147,
+      "name": "Hood River, OR",
+      "percentile": 77
+    },
+    "32780": {
+      "upwardMobilityScore": 40.78,
+      "tractCount": 41,
+      "totalKids": 22840,
+      "name": "Medford, OR",
+      "percentile": 47
+    },
+    "24420": {
+      "upwardMobilityScore": 41.36,
+      "tractCount": 16,
+      "totalKids": 10817,
+      "name": "Grants Pass, OR",
+      "percentile": 54
+    },
+    "28900": {
+      "upwardMobilityScore": 41.88,
+      "tractCount": 20,
+      "totalKids": 8689,
+      "name": "Klamath Falls, OR",
+      "percentile": 57
+    },
+    "21660": {
+      "upwardMobilityScore": 40.56,
+      "tractCount": 86,
+      "totalKids": 33309,
+      "name": "Eugene-Springfield, OR",
+      "percentile": 45
+    },
+    "35440": {
+      "upwardMobilityScore": 40.43,
+      "tractCount": 17,
+      "totalKids": 5037,
+      "name": "Newport, OR",
+      "percentile": 44
+    },
+    "10540": {
+      "upwardMobilityScore": 40.15,
+      "tractCount": 21,
+      "totalKids": 12415,
+      "name": "Albany-Lebanon, OR",
+      "percentile": 42
+    },
+    "41420": {
+      "upwardMobilityScore": 39.71,
+      "tractCount": 70,
+      "totalKids": 44295,
+      "name": "Salem, OR",
+      "percentile": 38
+    },
+    "25840": {
+      "upwardMobilityScore": 42.61,
+      "tractCount": 17,
+      "totalKids": 11073,
+      "name": "Hermiston-Pendleton, OR",
+      "percentile": 66
+    },
+    "29260": {
+      "upwardMobilityScore": 44.81,
+      "tractCount": 8,
+      "totalKids": 2572,
+      "name": "La Grande, OR",
+      "percentile": 81
+    },
+    "45520": {
+      "upwardMobilityScore": 42.42,
+      "tractCount": 8,
+      "totalKids": 3029,
+      "name": "The Dalles, OR",
+      "percentile": 64
+    },
+    "23900": {
+      "upwardMobilityScore": 45.48,
+      "tractCount": 23,
+      "totalKids": 8435,
+      "name": "Gettysburg, PA",
+      "percentile": 84
+    },
+    "38300": {
+      "upwardMobilityScore": 43.21,
+      "tractCount": 696,
+      "totalKids": 211648,
+      "name": "Pittsburgh, PA",
+      "percentile": 71
+    },
+    "39740": {
+      "upwardMobilityScore": 41.6,
+      "tractCount": 90,
+      "totalKids": 34845,
+      "name": "Reading, PA",
+      "percentile": 55
+    },
+    "11020": {
+      "upwardMobilityScore": 42.51,
+      "tractCount": 34,
+      "totalKids": 13988,
+      "name": "Altoona, PA",
+      "percentile": 65
+    },
+    "42380": {
+      "upwardMobilityScore": 46.59,
+      "tractCount": 14,
+      "totalKids": 8172,
+      "name": "Sayre, PA",
+      "percentile": 88
+    },
+    "27780": {
+      "upwardMobilityScore": 45.4,
+      "tractCount": 42,
+      "totalKids": 15778,
+      "name": "Johnstown, PA",
+      "percentile": 83
+    },
+    "44300": {
+      "upwardMobilityScore": 45.13,
+      "tractCount": 29,
+      "totalKids": 8333,
+      "name": "State College, PA",
+      "percentile": 82
+    },
+    "20180": {
+      "upwardMobilityScore": 44.81,
+      "tractCount": 20,
+      "totalKids": 10012,
+      "name": "DuBois, PA",
+      "percentile": 81
+    },
+    "30820": {
+      "upwardMobilityScore": 43.75,
+      "tractCount": 9,
+      "totalKids": 4243,
+      "name": "Lock Haven, PA",
+      "percentile": 74
+    },
+    "14100": {
+      "upwardMobilityScore": 44.25,
+      "tractCount": 19,
+      "totalKids": 7980,
+      "name": "Bloomsburg-Berwick, PA",
+      "percentile": 78
+    },
+    "32740": {
+      "upwardMobilityScore": 44.06,
+      "tractCount": 23,
+      "totalKids": 11091,
+      "name": "Meadville, PA",
+      "percentile": 76
+    },
+    "25420": {
+      "upwardMobilityScore": 40.79,
+      "tractCount": 122,
+      "totalKids": 42837,
+      "name": "Harrisburg-Carlisle, PA",
+      "percentile": 47
+    },
+    "41260": {
+      "upwardMobilityScore": 45.11,
+      "tractCount": 9,
+      "totalKids": 2861,
+      "name": "St. Marys, PA",
+      "percentile": 82
+    },
+    "21500": {
+      "upwardMobilityScore": 39.6,
+      "tractCount": 70,
+      "totalKids": 30342,
+      "name": "Erie, PA",
+      "percentile": 37
+    },
+    "16540": {
+      "upwardMobilityScore": 44.16,
+      "tractCount": 27,
+      "totalKids": 12652,
+      "name": "Chambersburg-Waynesboro, PA",
+      "percentile": 77
+    },
+    "26500": {
+      "upwardMobilityScore": 45.42,
+      "tractCount": 12,
+      "totalKids": 4962,
+      "name": "Huntingdon, PA",
+      "percentile": 83
+    },
+    "26860": {
+      "upwardMobilityScore": 48.69,
+      "tractCount": 22,
+      "totalKids": 8969,
+      "name": "Indiana, PA",
+      "percentile": 94
+    },
+    "42540": {
+      "upwardMobilityScore": 44.61,
+      "tractCount": 169,
+      "totalKids": 52116,
+      "name": "Scranton--Wilkes-Barre, PA",
+      "percentile": 80
+    },
+    "29540": {
+      "upwardMobilityScore": 44.03,
+      "tractCount": 98,
+      "totalKids": 44422,
+      "name": "Lancaster, PA",
+      "percentile": 76
+    },
+    "35260": {
+      "upwardMobilityScore": 43.3,
+      "tractCount": 28,
+      "totalKids": 10581,
+      "name": "New Castle, PA",
+      "percentile": 71
+    },
+    "30140": {
+      "upwardMobilityScore": 44.27,
+      "tractCount": 31,
+      "totalKids": 11008,
+      "name": "Lebanon, PA",
+      "percentile": 78
+    },
+    "48700": {
+      "upwardMobilityScore": 43.44,
+      "tractCount": 29,
+      "totalKids": 13181,
+      "name": "Williamsport, PA",
+      "percentile": 72
+    },
+    "14620": {
+      "upwardMobilityScore": 44.01,
+      "tractCount": 12,
+      "totalKids": 5311,
+      "name": "Bradford, PA",
+      "percentile": 76
+    },
+    "30380": {
+      "upwardMobilityScore": 42.58,
+      "tractCount": 12,
+      "totalKids": 6144,
+      "name": "Lewistown, PA",
+      "percentile": 65
+    },
+    "20700": {
+      "upwardMobilityScore": 43.6,
+      "tractCount": 33,
+      "totalKids": 14230,
+      "name": "East Stroudsburg, PA",
+      "percentile": 73
+    },
+    "44980": {
+      "upwardMobilityScore": 45.85,
+      "tractCount": 24,
+      "totalKids": 10312,
+      "name": "Sunbury, PA",
+      "percentile": 85
+    },
+    "39060": {
+      "upwardMobilityScore": 45.44,
+      "tractCount": 40,
+      "totalKids": 14442,
+      "name": "Pottsville, PA",
+      "percentile": 83
+    },
+    "42780": {
+      "upwardMobilityScore": 44.0,
+      "tractCount": 8,
+      "totalKids": 4532,
+      "name": "Selinsgrove, PA",
+      "percentile": 76
+    },
+    "43740": {
+      "upwardMobilityScore": 45.43,
+      "tractCount": 21,
+      "totalKids": 9449,
+      "name": "Somerset, PA",
+      "percentile": 83
+    },
+    "30260": {
+      "upwardMobilityScore": 47.42,
+      "tractCount": 8,
+      "totalKids": 2972,
+      "name": "Lewisburg, PA",
+      "percentile": 90
+    },
+    "36340": {
+      "upwardMobilityScore": 41.81,
+      "tractCount": 16,
+      "totalKids": 6717,
+      "name": "Oil City, PA",
+      "percentile": 57
+    },
+    "47620": {
+      "upwardMobilityScore": 42.58,
+      "tractCount": 13,
+      "totalKids": 4698,
+      "name": "Warren, PA",
+      "percentile": 65
+    },
+    "49620": {
+      "upwardMobilityScore": 41.14,
+      "tractCount": 90,
+      "totalKids": 32380,
+      "name": "York-Hanover, PA",
+      "percentile": 52
+    },
+    "24860": {
+      "upwardMobilityScore": 36.05,
+      "tractCount": 194,
+      "totalKids": 84146,
+      "name": "Greenville-Anderson, SC",
+      "percentile": 12
+    },
+    "25940": {
+      "upwardMobilityScore": 36.23,
+      "tractCount": 42,
+      "totalKids": 18833,
+      "name": "Hilton Head Island-Bluffton, SC",
+      "percentile": 13
+    },
+    "16700": {
+      "upwardMobilityScore": 37.03,
+      "tractCount": 154,
+      "totalKids": 75231,
+      "name": "Charleston-North Charleston, SC",
+      "percentile": 17
+    },
+    "17900": {
+      "upwardMobilityScore": 35.37,
+      "tractCount": 187,
+      "totalKids": 81366,
+      "name": "Columbia, SC",
+      "percentile": 7
+    },
+    "23500": {
+      "upwardMobilityScore": 33.46,
+      "tractCount": 13,
+      "totalKids": 7720,
+      "name": "Gaffney, SC",
+      "percentile": 2
+    },
+    "44940": {
+      "upwardMobilityScore": 35.58,
+      "tractCount": 34,
+      "totalKids": 25281,
+      "name": "Sumter, SC",
+      "percentile": 8
+    },
+    "22500": {
+      "upwardMobilityScore": 34.51,
+      "tractCount": 48,
+      "totalKids": 31172,
+      "name": "Florence, SC",
+      "percentile": 4
+    },
+    "23860": {
+      "upwardMobilityScore": 35.05,
+      "tractCount": 14,
+      "totalKids": 8280,
+      "name": "Georgetown, SC",
+      "percentile": 6
+    },
+    "24940": {
+      "upwardMobilityScore": 34.31,
+      "tractCount": 14,
+      "totalKids": 9592,
+      "name": "Greenwood, SC",
+      "percentile": 3
+    },
+    "13500": {
+      "upwardMobilityScore": 32.66,
+      "tractCount": 7,
+      "totalKids": 5977,
+      "name": "Bennettsville, SC",
+      "percentile": 1
+    },
+    "35140": {
+      "upwardMobilityScore": 36.68,
+      "tractCount": 8,
+      "totalKids": 5061,
+      "name": "Newberry, SC",
+      "percentile": 16
+    },
+    "42860": {
+      "upwardMobilityScore": 37.69,
+      "tractCount": 15,
+      "totalKids": 7793,
+      "name": "Seneca, SC",
+      "percentile": 22
+    },
+    "36700": {
+      "upwardMobilityScore": 34.83,
+      "tractCount": 20,
+      "totalKids": 16502,
+      "name": "Orangeburg, SC",
+      "percentile": 5
+    },
+    "43900": {
+      "upwardMobilityScore": 35.18,
+      "tractCount": 69,
+      "totalKids": 31649,
+      "name": "Spartanburg, SC",
+      "percentile": 6
+    },
+    "46420": {
+      "upwardMobilityScore": 34.37,
+      "tractCount": 9,
+      "totalKids": 4628,
+      "name": "Union, SC",
+      "percentile": 4
+    },
+    "26700": {
+      "upwardMobilityScore": 51.27,
+      "tractCount": 7,
+      "totalKids": 2286,
+      "name": "Huron, SD",
+      "percentile": 98
+    },
+    "15100": {
+      "upwardMobilityScore": 53.37,
+      "tractCount": 6,
+      "totalKids": 1991,
+      "name": "Brookings, SD",
+      "percentile": 99
+    },
+    "10100": {
+      "upwardMobilityScore": 53.35,
+      "tractCount": 10,
+      "totalKids": 3703,
+      "name": "Aberdeen, SD",
+      "percentile": 99
+    },
+    "46820": {
+      "upwardMobilityScore": 49.6,
+      "tractCount": 3,
+      "totalKids": 1034,
+      "name": "Vermillion, SD",
+      "percentile": 94
+    },
+    "47980": {
+      "upwardMobilityScore": 50.85,
+      "tractCount": 9,
+      "totalKids": 3881,
+      "name": "Watertown, SD",
+      "percentile": 97
+    },
+    "33580": {
+      "upwardMobilityScore": 51.75,
+      "tractCount": 5,
+      "totalKids": 2683,
+      "name": "Mitchell, SD",
+      "percentile": 98
+    },
+    "38180": {
+      "upwardMobilityScore": 46.18,
+      "tractCount": 5,
+      "totalKids": 1983,
+      "name": "Pierre, SD",
+      "percentile": 87
+    },
+    "43940": {
+      "upwardMobilityScore": 50.29,
+      "tractCount": 5,
+      "totalKids": 2062,
+      "name": "Spearfish, SD",
+      "percentile": 95
+    },
+    "43620": {
+      "upwardMobilityScore": 47.61,
+      "tractCount": 57,
+      "totalKids": 18253,
+      "name": "Sioux Falls, SD",
+      "percentile": 91
+    },
+    "39660": {
+      "upwardMobilityScore": 43.74,
+      "tractCount": 28,
+      "totalKids": 14455,
+      "name": "Rapid City, SD",
+      "percentile": 74
+    },
+    "49460": {
+      "upwardMobilityScore": 50.2,
+      "tractCount": 5,
+      "totalKids": 2319,
+      "name": "Yankton, SD",
+      "percentile": 95
+    },
+    "28940": {
+      "upwardMobilityScore": 36.4,
+      "tractCount": 193,
+      "totalKids": 79243,
+      "name": "Knoxville, TN",
+      "percentile": 14
+    },
+    "43180": {
+      "upwardMobilityScore": 38.66,
+      "tractCount": 9,
+      "totalKids": 5280,
+      "name": "Shelbyville, TN",
+      "percentile": 30
+    },
+    "17420": {
+      "upwardMobilityScore": 37.4,
+      "tractCount": 24,
+      "totalKids": 12979,
+      "name": "Cleveland, TN",
+      "percentile": 20
+    },
+    "34980": {
+      "upwardMobilityScore": 37.7,
+      "tractCount": 370,
+      "totalKids": 148211,
+      "name": "Nashville-Davidson--Murfreesboro--Franklin, TN",
+      "percentile": 23
+    },
+    "27740": {
+      "upwardMobilityScore": 35.85,
+      "tractCount": 43,
+      "totalKids": 20767,
+      "name": "Johnson City, TN",
+      "percentile": 10
+    },
+    "27180": {
+      "upwardMobilityScore": 35.44,
+      "tractCount": 48,
+      "totalKids": 23380,
+      "name": "Jackson, TN",
+      "percentile": 8
+    },
+    "35460": {
+      "upwardMobilityScore": 35.02,
+      "tractCount": 8,
+      "totalKids": 5417,
+      "name": "Newport, TN",
+      "percentile": 6
+    },
+    "46100": {
+      "upwardMobilityScore": 39.76,
+      "tractCount": 22,
+      "totalKids": 11301,
+      "name": "Tullahoma-Manchester, TN",
+      "percentile": 38
+    },
+    "18900": {
+      "upwardMobilityScore": 39.08,
+      "tractCount": 14,
+      "totalKids": 6406,
+      "name": "Crossville, TN",
+      "percentile": 33
+    },
+    "20540": {
+      "upwardMobilityScore": 36.32,
+      "tractCount": 8,
+      "totalKids": 5398,
+      "name": "Dyersburg, TN",
+      "percentile": 13
+    },
+    "34100": {
+      "upwardMobilityScore": 36.74,
+      "tractCount": 26,
+      "totalKids": 16658,
+      "name": "Morristown, TN",
+      "percentile": 16
+    },
+    "24620": {
+      "upwardMobilityScore": 35.99,
+      "tractCount": 15,
+      "totalKids": 8673,
+      "name": "Greeneville, TN",
+      "percentile": 11
+    },
+    "28700": {
+      "upwardMobilityScore": 36.75,
+      "tractCount": 75,
+      "totalKids": 33308,
+      "name": "Kingsport-Bristol, TN-VA",
+      "percentile": 16
+    },
+    "15140": {
+      "upwardMobilityScore": 32.05,
+      "tractCount": 6,
+      "totalKids": 3883,
+      "name": "Brownsville, TN",
+      "percentile": 1
+    },
+    "37540": {
+      "upwardMobilityScore": 37.49,
+      "tractCount": 9,
+      "totalKids": 4240,
+      "name": "Paris, TN",
+      "percentile": 21
+    },
+    "18260": {
+      "upwardMobilityScore": 39.11,
+      "tractCount": 26,
+      "totalKids": 12171,
+      "name": "Cookeville, TN",
+      "percentile": 34
+    },
+    "29980": {
+      "upwardMobilityScore": 38.49,
+      "tractCount": 11,
+      "totalKids": 5954,
+      "name": "Lawrenceburg, TN",
+      "percentile": 29
+    },
+    "11940": {
+      "upwardMobilityScore": 37.9,
+      "tractCount": 10,
+      "totalKids": 6245,
+      "name": "Athens, TN",
+      "percentile": 24
+    },
+    "30280": {
+      "upwardMobilityScore": 38.0,
+      "tractCount": 6,
+      "totalKids": 3031,
+      "name": "Lewisburg, TN",
+      "percentile": 25
+    },
+    "46460": {
+      "upwardMobilityScore": 37.6,
+      "tractCount": 10,
+      "totalKids": 3734,
+      "name": "Union City, TN",
+      "percentile": 22
+    },
+    "19420": {
+      "upwardMobilityScore": 37.18,
+      "tractCount": 6,
+      "totalKids": 3915,
+      "name": "Dayton, TN",
+      "percentile": 19
+    },
+    "42940": {
+      "upwardMobilityScore": 36.55,
+      "tractCount": 17,
+      "totalKids": 9801,
+      "name": "Sevierville, TN",
+      "percentile": 15
+    },
+    "32660": {
+      "upwardMobilityScore": 37.46,
+      "tractCount": 9,
+      "totalKids": 5204,
+      "name": "McMinnville, TN",
+      "percentile": 21
+    },
+    "32280": {
+      "upwardMobilityScore": 38.06,
+      "tractCount": 10,
+      "totalKids": 3785,
+      "name": "Martin, TN",
+      "percentile": 25
+    },
+    "37300": {
+      "upwardMobilityScore": 40.85,
+      "tractCount": 10,
+      "totalKids": 6828,
+      "name": "Palestine, TX",
+      "percentile": 48
+    },
+    "11380": {
+      "upwardMobilityScore": 54.54,
+      "tractCount": 4,
+      "totalKids": 2460,
+      "name": "Andrews, TX",
+      "percentile": 100
+    },
+    "31260": {
+      "upwardMobilityScore": 40.39,
+      "tractCount": 17,
+      "totalKids": 13475,
+      "name": "Lufkin, TX",
+      "percentile": 44
+    },
+    "40530": {
+      "upwardMobilityScore": 44.24,
+      "tractCount": 5,
+      "totalKids": 3453,
+      "name": "Rockport, TX",
+      "percentile": 77
+    },
+    "48660": {
+      "upwardMobilityScore": 41.67,
+      "tractCount": 42,
+      "totalKids": 20264,
+      "name": "Wichita Falls, TX",
+      "percentile": 56
+    },
+    "11100": {
+      "upwardMobilityScore": 40.93,
+      "tractCount": 66,
+      "totalKids": 33556,
+      "name": "Amarillo, TX",
+      "percentile": 49
+    },
+    "41700": {
+      "upwardMobilityScore": 40.31,
+      "tractCount": 450,
+      "totalKids": 289237,
+      "name": "San Antonio-New Braunfels, TX",
+      "percentile": 43
+    },
+    "26420": {
+      "upwardMobilityScore": 42.14,
+      "tractCount": 1061,
+      "totalKids": 722737,
+      "name": "Houston-The Woodlands-Sugar Land, TX",
+      "percentile": 60
+    },
+    "12420": {
+      "upwardMobilityScore": 40.09,
+      "tractCount": 345,
+      "totalKids": 145419,
+      "name": "Austin-Round Rock-Georgetown, TX",
+      "percentile": 41
+    },
+    "13300": {
+      "upwardMobilityScore": 43.86,
+      "tractCount": 7,
+      "totalKids": 5055,
+      "name": "Beeville, TX",
+      "percentile": 75
+    },
+    "28660": {
+      "upwardMobilityScore": 38.97,
+      "tractCount": 83,
+      "totalKids": 52905,
+      "name": "Killeen-Temple, TX",
+      "percentile": 32
+    },
+    "17780": {
+      "upwardMobilityScore": 40.97,
+      "tractCount": 50,
+      "totalKids": 22923,
+      "name": "College Station-Bryan, TX",
+      "percentile": 49
+    },
+    "15220": {
+      "upwardMobilityScore": 42.44,
+      "tractCount": 12,
+      "totalKids": 5808,
+      "name": "Brownwood, TX",
+      "percentile": 64
+    },
+    "38920": {
+      "upwardMobilityScore": 44.78,
+      "tractCount": 5,
+      "totalKids": 3047,
+      "name": "Port Lavaca, TX",
+      "percentile": 80
+    },
+    "10180": {
+      "upwardMobilityScore": 42.86,
+      "tractCount": 43,
+      "totalKids": 24648,
+      "name": "Abilene, TX",
+      "percentile": 68
+    },
+    "15180": {
+      "upwardMobilityScore": 42.51,
+      "tractCount": 84,
+      "totalKids": 90840,
+      "name": "Brownsville-Harlingen, TX",
+      "percentile": 65
+    },
+    "34420": {
+      "upwardMobilityScore": 38.66,
+      "tractCount": 11,
+      "totalKids": 7263,
+      "name": "Mount Pleasant, TX",
+      "percentile": 30
+    },
+    "27380": {
+      "upwardMobilityScore": 40.0,
+      "tractCount": 12,
+      "totalKids": 8437,
+      "name": "Jacksonville, TX",
+      "percentile": 40
+    },
+    "19100": {
+      "upwardMobilityScore": 39.42,
+      "tractCount": 1301,
+      "totalKids": 719763,
+      "name": "Dallas-Fort Worth-Arlington, TX",
+      "percentile": 36
+    },
+    "23620": {
+      "upwardMobilityScore": 45.48,
+      "tractCount": 8,
+      "totalKids": 5404,
+      "name": "Gainesville, TX",
+      "percentile": 84
+    },
+    "31180": {
+      "upwardMobilityScore": 39.51,
+      "tractCount": 73,
+      "totalKids": 40218,
+      "name": "Lubbock, TX",
+      "percentile": 37
+    },
+    "29500": {
+      "upwardMobilityScore": 45.54,
+      "tractCount": 4,
+      "totalKids": 2812,
+      "name": "Lamesa, TX",
+      "percentile": 84
+    },
+    "25820": {
+      "upwardMobilityScore": 42.39,
+      "tractCount": 4,
+      "totalKids": 4678,
+      "name": "Hereford, TX",
+      "percentile": 63
+    },
+    "10860": {
+      "upwardMobilityScore": 45.74,
+      "tractCount": 10,
+      "totalKids": 11660,
+      "name": "Alice, TX",
+      "percentile": 85
+    },
+    "36220": {
+      "upwardMobilityScore": 48.45,
+      "tractCount": 28,
+      "totalKids": 23674,
+      "name": "Odessa, TX",
+      "percentile": 93
+    },
+    "21340": {
+      "upwardMobilityScore": 42.21,
+      "tractCount": 161,
+      "totalKids": 162008,
+      "name": "El Paso, TX",
+      "percentile": 61
+    },
+    "44500": {
+      "upwardMobilityScore": 45.29,
+      "tractCount": 8,
+      "totalKids": 4871,
+      "name": "Stephenville, TX",
+      "percentile": 83
+    },
+    "47380": {
+      "upwardMobilityScore": 37.49,
+      "tractCount": 56,
+      "totalKids": 38019,
+      "name": "Waco, TX",
+      "percentile": 21
+    },
+    "14300": {
+      "upwardMobilityScore": 40.56,
+      "tractCount": 9,
+      "totalKids": 4035,
+      "name": "Bonham, TX",
+      "percentile": 45
+    },
+    "37770": {
+      "upwardMobilityScore": 43.25,
+      "tractCount": 3,
+      "totalKids": 3829,
+      "name": "Pearsall, TX",
+      "percentile": 71
+    },
+    "23240": {
+      "upwardMobilityScore": 46.91,
+      "tractCount": 5,
+      "totalKids": 2511,
+      "name": "Fredericksburg, TX",
+      "percentile": 89
+    },
+    "47020": {
+      "upwardMobilityScore": 43.24,
+      "tractCount": 24,
+      "totalKids": 13366,
+      "name": "Victoria, TX",
+      "percentile": 71
+    },
+    "37420": {
+      "upwardMobilityScore": 46.93,
+      "tractCount": 8,
+      "totalKids": 2921,
+      "name": "Pampa, TX",
+      "percentile": 89
+    },
+    "43300": {
+      "upwardMobilityScore": 40.63,
+      "tractCount": 26,
+      "totalKids": 13555,
+      "name": "Sherman-Denison, TX",
+      "percentile": 45
+    },
+    "30980": {
+      "upwardMobilityScore": 40.95,
+      "tractCount": 58,
+      "totalKids": 38733,
+      "name": "Longview, TX",
+      "percentile": 49
+    },
+    "38380": {
+      "upwardMobilityScore": 40.95,
+      "tractCount": 9,
+      "totalKids": 8073,
+      "name": "Plainview, TX",
+      "percentile": 49
+    },
+    "13140": {
+      "upwardMobilityScore": 41.09,
+      "tractCount": 100,
+      "totalKids": 51436,
+      "name": "Beaumont-Port Arthur, TX",
+      "percentile": 51
+    },
+    "11980": {
+      "upwardMobilityScore": 41.2,
+      "tractCount": 17,
+      "totalKids": 11048,
+      "name": "Athens, TX",
+      "percentile": 52
+    },
+    "32580": {
+      "upwardMobilityScore": 43.3,
+      "tractCount": 111,
+      "totalKids": 169258,
+      "name": "McAllen-Edinburg-Mission, TX",
+      "percentile": 72
+    },
+    "30220": {
+      "upwardMobilityScore": 44.41,
+      "tractCount": 7,
+      "totalKids": 3968,
+      "name": "Levelland, TX",
+      "percentile": 78
+    },
+    "24180": {
+      "upwardMobilityScore": 43.55,
+      "tractCount": 10,
+      "totalKids": 4303,
+      "name": "Granbury, TX",
+      "percentile": 73
+    },
+    "44860": {
+      "upwardMobilityScore": 43.49,
+      "tractCount": 9,
+      "totalKids": 5136,
+      "name": "Sulphur Springs, TX",
+      "percentile": 73
+    },
+    "13700": {
+      "upwardMobilityScore": 44.91,
+      "tractCount": 10,
+      "totalKids": 5046,
+      "name": "Big Spring, TX",
+      "percentile": 81
+    },
+    "14420": {
+      "upwardMobilityScore": 47.53,
+      "tractCount": 7,
+      "totalKids": 2834,
+      "name": "Borger, TX",
+      "percentile": 90
+    },
+    "41660": {
+      "upwardMobilityScore": 42.07,
+      "tractCount": 26,
+      "totalKids": 16311,
+      "name": "San Angelo, TX",
+      "percentile": 60
+    },
+    "28780": {
+      "upwardMobilityScore": 44.25,
+      "tractCount": 6,
+      "totalKids": 5352,
+      "name": "Kingsville, TX",
+      "percentile": 78
+    },
+    "28500": {
+      "upwardMobilityScore": 41.76,
+      "tractCount": 10,
+      "totalKids": 6284,
+      "name": "Kerrville, TX",
+      "percentile": 56
+    },
+    "37580": {
+      "upwardMobilityScore": 39.26,
+      "tractCount": 12,
+      "totalKids": 7770,
+      "name": "Paris, TX",
+      "percentile": 35
+    },
+    "33260": {
+      "upwardMobilityScore": 48.63,
+      "tractCount": 28,
+      "totalKids": 18894,
+      "name": "Midland, TX",
+      "percentile": 93
+    },
+    "13060": {
+      "upwardMobilityScore": 44.78,
+      "tractCount": 10,
+      "totalKids": 6377,
+      "name": "Bay City, TX",
+      "percentile": 81
+    },
+    "20580": {
+      "upwardMobilityScore": 45.82,
+      "tractCount": 9,
+      "totalKids": 15735,
+      "name": "Eagle Pass, TX",
+      "percentile": 85
+    },
+    "20300": {
+      "upwardMobilityScore": 44.67,
+      "tractCount": 4,
+      "totalKids": 3666,
+      "name": "Dumas, TX",
+      "percentile": 80
+    },
+    "34860": {
+      "upwardMobilityScore": 39.59,
+      "tractCount": 13,
+      "totalKids": 8897,
+      "name": "Nacogdoches, TX",
+      "percentile": 37
+    },
+    "18620": {
+      "upwardMobilityScore": 39.48,
+      "tractCount": 10,
+      "totalKids": 8060,
+      "name": "Corsicana, TX",
+      "percentile": 36
+    },
+    "45020": {
+      "upwardMobilityScore": 42.96,
+      "tractCount": 5,
+      "totalKids": 2943,
+      "name": "Sweetwater, TX",
+      "percentile": 69
+    },
+    "18580": {
+      "upwardMobilityScore": 42.42,
+      "tractCount": 95,
+      "totalKids": 66214,
+      "name": "Corpus Christi, TX",
+      "percentile": 64
+    },
+    "33420": {
+      "upwardMobilityScore": 41.88,
+      "tractCount": 9,
+      "totalKids": 4608,
+      "name": "Mineral Wells, TX",
+      "percentile": 57
+    },
+    "37780": {
+      "upwardMobilityScore": 49.21,
+      "tractCount": 5,
+      "totalKids": 3145,
+      "name": "Pecos, TX",
+      "percentile": 94
+    },
+    "43660": {
+      "upwardMobilityScore": 46.19,
+      "tractCount": 4,
+      "totalKids": 2345,
+      "name": "Snyder, TX",
+      "percentile": 87
+    },
+    "46340": {
+      "upwardMobilityScore": 39.98,
+      "tractCount": 40,
+      "totalKids": 25599,
+      "name": "Tyler, TX",
+      "percentile": 40
+    },
+    "40100": {
+      "upwardMobilityScore": 46.13,
+      "tractCount": 15,
+      "totalKids": 18078,
+      "name": "Rio Grande City-Roma, TX",
+      "percentile": 86
+    },
+    "46620": {
+      "upwardMobilityScore": 42.48,
+      "tractCount": 5,
+      "totalKids": 6026,
+      "name": "Uvalde, TX",
+      "percentile": 64
+    },
+    "19620": {
+      "upwardMobilityScore": 45.49,
+      "tractCount": 9,
+      "totalKids": 10651,
+      "name": "Del Rio, TX",
+      "percentile": 84
+    },
+    "26660": {
+      "upwardMobilityScore": 40.34,
+      "tractCount": 10,
+      "totalKids": 6604,
+      "name": "Huntsville, TX",
+      "percentile": 43
+    },
+    "14780": {
+      "upwardMobilityScore": 42.48,
+      "tractCount": 6,
+      "totalKids": 3678,
+      "name": "Brenham, TX",
+      "percentile": 64
+    },
+    "29700": {
+      "upwardMobilityScore": 41.68,
+      "tractCount": 60,
+      "totalKids": 57288,
+      "name": "Laredo, TX",
+      "percentile": 56
+    },
+    "20900": {
+      "upwardMobilityScore": 41.03,
+      "tractCount": 11,
+      "totalKids": 7095,
+      "name": "El Campo, TX",
+      "percentile": 50
+    },
+    "46900": {
+      "upwardMobilityScore": 39.8,
+      "tractCount": 4,
+      "totalKids": 2597,
+      "name": "Vernon, TX",
+      "percentile": 39
+    },
+    "39700": {
+      "upwardMobilityScore": 42.18,
+      "tractCount": 5,
+      "totalKids": 5454,
+      "name": "Raymondville, TX",
+      "percentile": 61
+    },
+    "49820": {
+      "upwardMobilityScore": 48.43,
+      "tractCount": 3,
+      "totalKids": 3318,
+      "name": "Zapata, TX",
+      "percentile": 93
+    },
+    "36260": {
+      "upwardMobilityScore": 45.35,
+      "tractCount": 117,
+      "totalKids": 47693,
+      "name": "Ogden-Clearfield, UT",
+      "percentile": 83
+    },
+    "39220": {
+      "upwardMobilityScore": 44.6,
+      "tractCount": 5,
+      "totalKids": 1968,
+      "name": "Price, UT",
+      "percentile": 79
+    },
+    "16260": {
+      "upwardMobilityScore": 45.95,
+      "tractCount": 8,
+      "totalKids": 4806,
+      "name": "Cedar City, UT",
+      "percentile": 86
+    },
+    "39340": {
+      "upwardMobilityScore": 48.23,
+      "tractCount": 128,
+      "totalKids": 40370,
+      "name": "Provo-Orem, UT",
+      "percentile": 92
+    },
+    "41620": {
+      "upwardMobilityScore": 44.98,
+      "tractCount": 220,
+      "totalKids": 103216,
+      "name": "Salt Lake City, UT",
+      "percentile": 82
+    },
+    "25720": {
+      "upwardMobilityScore": 54.32,
+      "tractCount": 16,
+      "totalKids": 3706,
+      "name": "Heber, UT",
+      "percentile": 99
+    },
+    "46860": {
+      "upwardMobilityScore": 51.3,
+      "tractCount": 6,
+      "totalKids": 3996,
+      "name": "Vernal, UT",
+      "percentile": 98
+    },
+    "41100": {
+      "upwardMobilityScore": 46.47,
+      "tractCount": 21,
+      "totalKids": 12403,
+      "name": "St. George, UT",
+      "percentile": 87
+    },
+    "13540": {
+      "upwardMobilityScore": 43.84,
+      "tractCount": 12,
+      "totalKids": 3642,
+      "name": "Bennington, VT",
+      "percentile": 75
+    },
+    "15540": {
+      "upwardMobilityScore": 43.73,
+      "tractCount": 46,
+      "totalKids": 16126,
+      "name": "Burlington-South Burlington, VT",
+      "percentile": 74
+    },
+    "40860": {
+      "upwardMobilityScore": 44.6,
+      "tractCount": 20,
+      "totalKids": 6436,
+      "name": "Rutland, VT",
+      "percentile": 79
+    },
+    "12740": {
+      "upwardMobilityScore": 47.1,
+      "tractCount": 19,
+      "totalKids": 5278,
+      "name": "Barre, VT",
+      "percentile": 90
+    },
+    "16820": {
+      "upwardMobilityScore": 39.32,
+      "tractCount": 43,
+      "totalKids": 15518,
+      "name": "Charlottesville, VA",
+      "percentile": 35
+    },
+    "40060": {
+      "upwardMobilityScore": 36.73,
+      "tractCount": 285,
+      "totalKids": 109727,
+      "name": "Richmond, VA",
+      "percentile": 16
+    },
+    "31340": {
+      "upwardMobilityScore": 38.75,
+      "tractCount": 59,
+      "totalKids": 23151,
+      "name": "Lynchburg, VA",
+      "percentile": 31
+    },
+    "44420": {
+      "upwardMobilityScore": 40.48,
+      "tractCount": 24,
+      "totalKids": 11078,
+      "name": "Staunton, VA",
+      "percentile": 44
+    },
+    "14140": {
+      "upwardMobilityScore": 40.06,
+      "tractCount": 29,
+      "totalKids": 12878,
+      "name": "Bluefield, WV-VA",
+      "percentile": 41
+    },
+    "40220": {
+      "upwardMobilityScore": 37.39,
+      "tractCount": 65,
+      "totalKids": 29445,
+      "name": "Roanoke, VA",
+      "percentile": 20
+    },
+    "49020": {
+      "upwardMobilityScore": 40.86,
+      "tractCount": 24,
+      "totalKids": 11440,
+      "name": "Winchester, VA-WV",
+      "percentile": 48
+    },
+    "13980": {
+      "upwardMobilityScore": 38.31,
+      "tractCount": 30,
+      "totalKids": 11671,
+      "name": "Blacksburg-Christiansburg, VA",
+      "percentile": 27
+    },
+    "32300": {
+      "upwardMobilityScore": 35.48,
+      "tractCount": 19,
+      "totalKids": 9688,
+      "name": "Martinsville, VA",
+      "percentile": 8
+    },
+    "19260": {
+      "upwardMobilityScore": 35.59,
+      "tractCount": 31,
+      "totalKids": 14412,
+      "name": "Danville, VA",
+      "percentile": 8
+    },
+    "25500": {
+      "upwardMobilityScore": 42.0,
+      "tractCount": 29,
+      "totalKids": 9901,
+      "name": "Harrisonburg, VA",
+      "percentile": 59
+    },
+    "13720": {
+      "upwardMobilityScore": 38.6,
+      "tractCount": 12,
+      "totalKids": 5173,
+      "name": "Big Stone Gap, VA",
+      "percentile": 30
+    },
+    "36830": {
+      "upwardMobilityScore": 45.72,
+      "tractCount": 5,
+      "totalKids": 3243,
+      "name": "Othello, WA",
+      "percentile": 84
+    },
+    "28420": {
+      "upwardMobilityScore": 42.86,
+      "tractCount": 48,
+      "totalKids": 23148,
+      "name": "Kennewick-Richland, WA",
+      "percentile": 68
+    },
+    "48300": {
+      "upwardMobilityScore": 43.78,
+      "tractCount": 22,
+      "totalKids": 12614,
+      "name": "Wenatchee, WA",
+      "percentile": 75
+    },
+    "38820": {
+      "upwardMobilityScore": 41.03,
+      "tractCount": 21,
+      "totalKids": 6193,
+      "name": "Port Angeles, WA",
+      "percentile": 51
+    },
+    "31020": {
+      "upwardMobilityScore": 38.99,
+      "tractCount": 24,
+      "totalKids": 9874,
+      "name": "Longview, WA",
+      "percentile": 33
+    },
+    "34180": {
+      "upwardMobilityScore": 42.87,
+      "tractCount": 16,
+      "totalKids": 11426,
+      "name": "Moses Lake, WA",
+      "percentile": 69
+    },
+    "10140": {
+      "upwardMobilityScore": 41.34,
+      "tractCount": 16,
+      "totalKids": 8504,
+      "name": "Aberdeen, WA",
+      "percentile": 53
+    },
+    "36020": {
+      "upwardMobilityScore": 44.11,
+      "tractCount": 21,
+      "totalKids": 7156,
+      "name": "Oak Harbor, WA",
+      "percentile": 76
+    },
+    "42660": {
+      "upwardMobilityScore": 44.11,
+      "tractCount": 718,
+      "totalKids": 249087,
+      "name": "Seattle-Tacoma-Bellevue, WA",
+      "percentile": 76
+    },
+    "14740": {
+      "upwardMobilityScore": 42.31,
+      "tractCount": 53,
+      "totalKids": 20584,
+      "name": "Bremerton-Silverdale-Port Orchard, WA",
+      "percentile": 62
+    },
+    "21260": {
+      "upwardMobilityScore": 49.7,
+      "tractCount": 8,
+      "totalKids": 2703,
+      "name": "Ellensburg, WA",
+      "percentile": 95
+    },
+    "16500": {
+      "upwardMobilityScore": 42.25,
+      "tractCount": 20,
+      "totalKids": 8275,
+      "name": "Centralia, WA",
+      "percentile": 62
+    },
+    "43220": {
+      "upwardMobilityScore": 39.34,
+      "tractCount": 14,
+      "totalKids": 5437,
+      "name": "Shelton, WA",
+      "percentile": 36
+    },
+    "34580": {
+      "upwardMobilityScore": 43.69,
+      "tractCount": 29,
+      "totalKids": 11230,
+      "name": "Mount Vernon-Anacortes, WA",
+      "percentile": 74
+    },
+    "44060": {
+      "upwardMobilityScore": 42.49,
+      "tractCount": 117,
+      "totalKids": 53974,
+      "name": "Spokane-Spokane Valley, WA",
+      "percentile": 65
+    },
+    "36500": {
+      "upwardMobilityScore": 42.52,
+      "tractCount": 49,
+      "totalKids": 18268,
+      "name": "Olympia-Lacey-Tumwater, WA",
+      "percentile": 65
+    },
+    "47460": {
+      "upwardMobilityScore": 42.08,
+      "tractCount": 11,
+      "totalKids": 6087,
+      "name": "Walla Walla, WA",
+      "percentile": 60
+    },
+    "13380": {
+      "upwardMobilityScore": 44.17,
+      "tractCount": 34,
+      "totalKids": 16255,
+      "name": "Bellingham, WA",
+      "percentile": 77
+    },
+    "39420": {
+      "upwardMobilityScore": 48.07,
+      "tractCount": 9,
+      "totalKids": 2745,
+      "name": "Pullman, WA",
+      "percentile": 92
+    },
+    "49420": {
+      "upwardMobilityScore": 40.33,
+      "tractCount": 45,
+      "totalKids": 42563,
+      "name": "Yakima, WA",
+      "percentile": 43
+    },
+    "16620": {
+      "upwardMobilityScore": 38.97,
+      "tractCount": 75,
+      "totalKids": 30511,
+      "name": "Charleston, WV",
+      "percentile": 32
+    },
+    "17220": {
+      "upwardMobilityScore": 42.33,
+      "tractCount": 28,
+      "totalKids": 11569,
+      "name": "Clarksburg, WV",
+      "percentile": 63
+    },
+    "13220": {
+      "upwardMobilityScore": 40.85,
+      "tractCount": 29,
+      "totalKids": 14016,
+      "name": "Beckley, WV",
+      "percentile": 48
+    },
+    "34350": {
+      "upwardMobilityScore": 38.83,
+      "tractCount": 9,
+      "totalKids": 4545,
+      "name": "Mount Gay-Shamrock, WV",
+      "percentile": 32
+    },
+    "21900": {
+      "upwardMobilityScore": 43.21,
+      "tractCount": 18,
+      "totalKids": 5643,
+      "name": "Fairmont, WV",
+      "percentile": 71
+    },
+    "34060": {
+      "upwardMobilityScore": 43.84,
+      "tractCount": 31,
+      "totalKids": 10361,
+      "name": "Morgantown, WV",
+      "percentile": 75
+    },
+    "21180": {
+      "upwardMobilityScore": 40.96,
+      "tractCount": 7,
+      "totalKids": 3857,
+      "name": "Elkins, WV",
+      "percentile": 49
+    },
+    "37620": {
+      "upwardMobilityScore": 39.85,
+      "tractCount": 28,
+      "totalKids": 9876,
+      "name": "Parkersburg-Vienna, WV",
+      "percentile": 40
+    },
+    "24580": {
+      "upwardMobilityScore": 45.04,
+      "tractCount": 67,
+      "totalKids": 22158,
+      "name": "Green Bay, WI",
+      "percentile": 82
+    },
+    "11540": {
+      "upwardMobilityScore": 46.96,
+      "tractCount": 51,
+      "totalKids": 12219,
+      "name": "Appleton, WI",
+      "percentile": 89
+    },
+    "20740": {
+      "upwardMobilityScore": 46.4,
+      "tractCount": 31,
+      "totalKids": 13808,
+      "name": "Eau Claire, WI",
+      "percentile": 87
+    },
+    "31540": {
+      "upwardMobilityScore": 44.18,
+      "tractCount": 129,
+      "totalKids": 34641,
+      "name": "Madison, WI",
+      "percentile": 77
+    },
+    "13180": {
+      "upwardMobilityScore": 46.43,
+      "tractCount": 20,
+      "totalKids": 5954,
+      "name": "Beaver Dam, WI",
+      "percentile": 87
+    },
+    "32860": {
+      "upwardMobilityScore": 47.71,
+      "tractCount": 8,
+      "totalKids": 3730,
+      "name": "Menomonie, WI",
+      "percentile": 91
+    },
+    "22540": {
+      "upwardMobilityScore": 46.15,
+      "tractCount": 20,
+      "totalKids": 6879,
+      "name": "Fond du Lac, WI",
+      "percentile": 86
+    },
+    "38420": {
+      "upwardMobilityScore": 51.79,
+      "tractCount": 12,
+      "totalKids": 5202,
+      "name": "Platteville, WI",
+      "percentile": 98
+    },
+    "48020": {
+      "upwardMobilityScore": 46.59,
+      "tractCount": 20,
+      "totalKids": 5292,
+      "name": "Watertown-Fort Atkinson, WI",
+      "percentile": 88
+    },
+    "48140": {
+      "upwardMobilityScore": 46.9,
+      "tractCount": 37,
+      "totalKids": 13533,
+      "name": "Wausau-Weston, WI",
+      "percentile": 89
+    },
+    "31820": {
+      "upwardMobilityScore": 47.0,
+      "tractCount": 19,
+      "totalKids": 5935,
+      "name": "Manitowoc, WI",
+      "percentile": 89
+    },
+    "43020": {
+      "upwardMobilityScore": 42.57,
+      "tractCount": 13,
+      "totalKids": 5589,
+      "name": "Shawano, WI",
+      "percentile": 65
+    },
+    "33340": {
+      "upwardMobilityScore": 36.84,
+      "tractCount": 428,
+      "totalKids": 148975,
+      "name": "Milwaukee-Waukesha, WI",
+      "percentile": 17
+    },
+    "44620": {
+      "upwardMobilityScore": 47.64,
+      "tractCount": 14,
+      "totalKids": 4992,
+      "name": "Stevens Point, WI",
+      "percentile": 91
+    },
+    "39540": {
+      "upwardMobilityScore": 38.71,
+      "tractCount": 43,
+      "totalKids": 16590,
+      "name": "Racine, WI",
+      "percentile": 31
+    },
+    "27500": {
+      "upwardMobilityScore": 39.82,
+      "tractCount": 38,
+      "totalKids": 13887,
+      "name": "Janesville-Beloit, WI",
+      "percentile": 39
+    },
+    "12660": {
+      "upwardMobilityScore": 44.59,
+      "tractCount": 13,
+      "totalKids": 5317,
+      "name": "Baraboo, WI",
+      "percentile": 79
+    },
+    "43100": {
+      "upwardMobilityScore": 46.4,
+      "tractCount": 26,
+      "totalKids": 7694,
+      "name": "Sheboygan, WI",
+      "percentile": 87
+    },
+    "48580": {
+      "upwardMobilityScore": 44.62,
+      "tractCount": 22,
+      "totalKids": 7100,
+      "name": "Whitewater, WI",
+      "percentile": 80
+    },
+    "36780": {
+      "upwardMobilityScore": 43.63,
+      "tractCount": 41,
+      "totalKids": 10280,
+      "name": "Oshkosh-Neenah, WI",
+      "percentile": 73
+    },
+    "49220": {
+      "upwardMobilityScore": 47.76,
+      "tractCount": 17,
+      "totalKids": 5701,
+      "name": "Wisconsin Rapids-Marshfield, WI",
+      "percentile": 91
+    },
+    "29660": {
+      "upwardMobilityScore": 47.89,
+      "tractCount": 10,
+      "totalKids": 2439,
+      "name": "Laramie, WY",
+      "percentile": 92
+    },
+    "23940": {
+      "upwardMobilityScore": 53.44,
+      "tractCount": 11,
+      "totalKids": 4404,
+      "name": "Gillette, WY",
+      "percentile": 99
+    },
+    "40180": {
+      "upwardMobilityScore": 46.9,
+      "tractCount": 10,
+      "totalKids": 5234,
+      "name": "Riverton, WY",
+      "percentile": 89
+    },
+    "16940": {
+      "upwardMobilityScore": 44.04,
+      "tractCount": 20,
+      "totalKids": 8836,
+      "name": "Cheyenne, WY",
+      "percentile": 76
+    },
+    "16220": {
+      "upwardMobilityScore": 47.55,
+      "tractCount": 18,
+      "totalKids": 7039,
+      "name": "Casper, WY",
+      "percentile": 91
+    },
+    "43260": {
+      "upwardMobilityScore": 50.12,
+      "tractCount": 6,
+      "totalKids": 2424,
+      "name": "Sheridan, WY",
+      "percentile": 95
+    },
+    "40540": {
+      "upwardMobilityScore": 48.55,
+      "tractCount": 12,
+      "totalKids": 2565,
+      "name": "Rock Springs, WY",
+      "percentile": 93
+    },
+    "21740": {
+      "upwardMobilityScore": 50.29,
+      "tractCount": 3,
+      "totalKids": 2018,
+      "name": "Evanston, WY",
+      "percentile": 96
+    }
+  }
+}

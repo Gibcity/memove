@@ -1,0 +1,413 @@
+{
+  "source": {
+    "name": "OpenStreetMap Overpass \u2014 parks, trails, water, restaurants",
+    "url": "https://overpass-api.de/api/interpreter",
+    "pulled_at": "2026-06-19T01:30:00Z",
+    "retrieval_method": "curl POST to Overpass",
+    "search_radius_km": 35,
+    "notes": "Combined query for all nature/food features per metro. Same proxy as retail (35km straight-line)."
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "metros": {
+    "Memphis": {
+      "center": [
+        0,
+        0
+      ],
+      "counts": {
+        "park": 325,
+        "dog_park": 9,
+        "trail": 1100,
+        "water_lake": 2524,
+        "water_river": 58,
+        "restaurant": 433
+      },
+      "hiking_water_pass": true,
+      "total_elements": 4449
+    },
+    "Nashville": {
+      "center": [
+        36.1627,
+        -86.7816
+      ],
+      "counts": {
+        "park": 415,
+        "dog_park": 96,
+        "trail": 1094,
+        "water_lake": 2353,
+        "water_river": 821,
+        "restaurant": 853
+      },
+      "hiking_water_pass": true,
+      "total_elements": 5632
+    },
+    "Louisville": {
+      "center": [
+        38.2527,
+        -85.7585
+      ],
+      "counts": {
+        "park": 343,
+        "dog_park": 19,
+        "trail": 1057,
+        "water_lake": 1767,
+        "water_river": 1965,
+        "restaurant": 718
+      },
+      "hiking_water_pass": true,
+      "total_elements": 5869
+    },
+    "St. Louis": {
+      "center": [
+        0,
+        0
+      ],
+      "counts": {
+        "park": 817,
+        "dog_park": 45,
+        "trail": 1977,
+        "water_lake": 3549,
+        "water_river": 127,
+        "restaurant": 1252
+      },
+      "hiking_water_pass": true,
+      "total_elements": 7767
+    },
+    "Kansas City": {
+      "center": [
+        39.0997,
+        -94.5786
+      ],
+      "counts": {
+        "park": 1130,
+        "dog_park": 57,
+        "trail": 2791,
+        "water_lake": 5289,
+        "water_river": 4255,
+        "restaurant": 1346
+      },
+      "hiking_water_pass": true,
+      "total_elements": 14868
+    },
+    "Indianapolis": {
+      "center": [
+        39.7684,
+        -86.1581
+      ],
+      "counts": {
+        "park": 792,
+        "dog_park": 45,
+        "trail": 1675,
+        "water_lake": 7474,
+        "water_river": 2137,
+        "restaurant": 1044
+      },
+      "hiking_water_pass": true,
+      "total_elements": 13167
+    },
+    "Columbus": {
+      "center": [
+        39.9612,
+        -82.9988
+      ],
+      "counts": {
+        "park": 887,
+        "dog_park": 55,
+        "trail": 3184,
+        "water_lake": 4745,
+        "water_river": 2764,
+        "restaurant": 1265
+      },
+      "hiking_water_pass": true,
+      "total_elements": 12909
+    },
+    "Cincinnati": {
+      "center": [
+        39.1031,
+        -84.512
+      ],
+      "counts": {
+        "park": 776,
+        "dog_park": 47,
+        "trail": 2258,
+        "water_lake": 9209,
+        "water_river": 7527,
+        "restaurant": 1381
+      },
+      "hiking_water_pass": true,
+      "total_elements": 21198
+    },
+    "Pittsburgh": {
+      "center": [
+        40.4406,
+        -79.9959
+      ],
+      "counts": {
+        "park": 802,
+        "dog_park": 64,
+        "trail": 5600,
+        "water_lake": 2392,
+        "water_river": 7749,
+        "restaurant": 1502
+      },
+      "hiking_water_pass": true,
+      "total_elements": 18110
+    },
+    "Dallas": {
+      "center": [
+        32.7767,
+        -96.797
+      ],
+      "counts": {
+        "park": 1431,
+        "dog_park": 130,
+        "trail": 6905,
+        "water_lake": 2690,
+        "water_river": 4329,
+        "restaurant": 2858
+      },
+      "hiking_water_pass": true,
+      "total_elements": 18343
+    },
+    "Houston": {
+      "center": [
+        29.7604,
+        -95.3698
+      ],
+      "counts": {
+        "park": 1632,
+        "dog_park": 84,
+        "trail": 3551,
+        "water_lake": 3462,
+        "water_river": 2763,
+        "restaurant": 2310
+      },
+      "hiking_water_pass": true,
+      "total_elements": 13802
+    },
+    "San Antonio": {
+      "center": [
+        29.4241,
+        -98.4936
+      ],
+      "counts": {
+        "park": 689,
+        "dog_park": 48,
+        "trail": 1613,
+        "water_lake": 1680,
+        "water_river": 4136,
+        "restaurant": 991
+      },
+      "hiking_water_pass": true,
+      "total_elements": 9157
+    },
+    "Austin": {
+      "center": [
+        30.2672,
+        -97.7431
+      ],
+      "counts": {
+        "park": 1034,
+        "dog_park": 145,
+        "trail": 5401,
+        "water_lake": 9208,
+        "water_river": 8798,
+        "restaurant": 1584
+      },
+      "hiking_water_pass": true,
+      "total_elements": 26170
+    },
+    "Denver": {
+      "center": [
+        39.7392,
+        -104.9903
+      ],
+      "counts": {
+        "park": 2392,
+        "dog_park": 183,
+        "trail": 21739,
+        "water_lake": 4183,
+        "water_river": 5587,
+        "restaurant": 2775
+      },
+      "hiking_water_pass": true,
+      "total_elements": 36859
+    },
+    "Colorado Springs": {
+      "center": [
+        38.8339,
+        -104.8214
+      ],
+      "counts": {
+        "park": 452,
+        "dog_park": 37,
+        "trail": 6478,
+        "water_lake": 1158,
+        "water_river": 2668,
+        "restaurant": 639
+      },
+      "hiking_water_pass": true,
+      "total_elements": 11432
+    },
+    "Boise City": {
+      "center": [
+        43.615,
+        -116.2023
+      ],
+      "counts": {
+        "park": 702,
+        "dog_park": 27,
+        "trail": 6260,
+        "water_lake": 975,
+        "water_river": 4638,
+        "restaurant": 479
+      },
+      "hiking_water_pass": true,
+      "total_elements": 13081
+    },
+    "Spokane": {
+      "center": [
+        47.6588,
+        -117.426
+      ],
+      "counts": {
+        "park": 312,
+        "dog_park": 14,
+        "trail": 1870,
+        "water_lake": 1050,
+        "water_river": 1405,
+        "restaurant": 402
+      },
+      "hiking_water_pass": true,
+      "total_elements": 5053
+    },
+    "Bend": {
+      "center": [
+        44.0582,
+        -121.3153
+      ],
+      "counts": {
+        "park": 128,
+        "dog_park": 13,
+        "trail": 2511,
+        "water_lake": 603,
+        "water_river": 363,
+        "restaurant": 205
+      },
+      "hiking_water_pass": true,
+      "total_elements": 3825
+    },
+    "Bozeman": {
+      "center": [
+        45.677,
+        -111.0429
+      ],
+      "counts": {
+        "park": 274,
+        "dog_park": 9,
+        "trail": 846,
+        "water_lake": 480,
+        "water_river": 2941,
+        "restaurant": 105
+      },
+      "hiking_water_pass": true,
+      "total_elements": 4655
+    },
+    "Grand Rapids": {
+      "center": [
+        42.9634,
+        -85.6681
+      ],
+      "counts": {
+        "park": 434,
+        "dog_park": 24,
+        "trail": 3861,
+        "water_lake": 2656,
+        "water_river": 3224,
+        "restaurant": 454
+      },
+      "hiking_water_pass": true,
+      "total_elements": 10653
+    },
+    "Rochester": {
+      "center": [
+        44.0121,
+        -92.4802
+      ],
+      "counts": {
+        "park": 283,
+        "dog_park": 5,
+        "trail": 602,
+        "water_lake": 2461,
+        "water_river": 6081,
+        "restaurant": 174
+      },
+      "hiking_water_pass": true,
+      "total_elements": 9606
+    },
+    "Minneapolis": {
+      "center": [
+        44.9778,
+        -93.265
+      ],
+      "counts": {
+        "park": 2459,
+        "dog_park": 96,
+        "trail": 7838,
+        "water_lake": 14212,
+        "water_river": 5639,
+        "restaurant": 1973
+      },
+      "hiking_water_pass": true,
+      "total_elements": 32217
+    },
+    "Appleton": {
+      "center": [
+        44.2619,
+        -88.4154
+      ],
+      "counts": {
+        "park": 402,
+        "dog_park": 5,
+        "trail": 1333,
+        "water_lake": 2607,
+        "water_river": 2382,
+        "restaurant": 331
+      },
+      "hiking_water_pass": true,
+      "total_elements": 7060
+    },
+    "Madison": {
+      "center": [
+        43.0731,
+        -89.4012
+      ],
+      "counts": {
+        "park": 1094,
+        "dog_park": 35,
+        "trail": 3425,
+        "water_lake": 2416,
+        "water_river": 2039,
+        "restaurant": 578
+      },
+      "hiking_water_pass": true,
+      "total_elements": 9587
+    },
+    "Kalamazoo": {
+      "center": [
+        42.2917,
+        -85.5872
+      ],
+      "counts": {
+        "park": 235,
+        "dog_park": 13,
+        "trail": 997,
+        "water_lake": 1798,
+        "water_river": 164,
+        "restaurant": 220
+      },
+      "hiking_water_pass": true,
+      "total_elements": 3427
+    }
+  }
+}

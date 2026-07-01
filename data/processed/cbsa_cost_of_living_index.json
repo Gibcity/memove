@@ -1,0 +1,3773 @@
+{
+  "metadata": {
+    "source": "census_acs_derived_proxy",
+    "methodology": "Where BEA RPP (Regional Price Parities) rpp_all_items is available, that value is used as the authoritative costOfLivingIndex. For all other CBSAs, a composite proxy index is derived from Census ACS 5-year (2022) data: index = 0.4*sqrt(home_value_ratio)*100 + 0.3*rent_ratio*100 + 0.3*income_offset*100. The square-root transform on home values compensates for the sub-linear relationship between home prices and overall cost of living. Ratios are CBSA \u00f7 national median. National medians are computed from all 939 CBSAs.",
+    "generated_at": "2026-06-28T19:21:00.377834+00:00",
+    "cbsa_count": 939,
+    "bea_rpp_covered": 59,
+    "census_proxy_covered": 880,
+    "national_medians": {
+      "median_home_value": 175800,
+      "median_gross_rent": 897,
+      "median_household_income": 61953
+    }
+  },
+  "indices": {
+    "10100": {
+      "costOfLivingIndex": 93.6,
+      "method": "census_proxy"
+    },
+    "10140": {
+      "costOfLivingIndex": 110.7,
+      "method": "census_proxy"
+    },
+    "10180": {
+      "costOfLivingIndex": 103.1,
+      "method": "census_proxy"
+    },
+    "10220": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "10300": {
+      "costOfLivingIndex": 98.4,
+      "method": "census_proxy"
+    },
+    "10380": {
+      "costOfLivingIndex": 143.0,
+      "method": "census_proxy"
+    },
+    "10420": {
+      "costOfLivingIndex": 100.4,
+      "method": "census_proxy"
+    },
+    "10460": {
+      "costOfLivingIndex": 101.6,
+      "method": "census_proxy"
+    },
+    "10500": {
+      "costOfLivingIndex": 101.1,
+      "method": "census_proxy"
+    },
+    "10540": {
+      "costOfLivingIndex": 119.5,
+      "method": "census_proxy"
+    },
+    "10580": {
+      "costOfLivingIndex": 109.9,
+      "method": "census_proxy"
+    },
+    "10620": {
+      "costOfLivingIndex": 99.6,
+      "method": "census_proxy"
+    },
+    "10660": {
+      "costOfLivingIndex": 92.7,
+      "method": "census_proxy"
+    },
+    "10700": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "10740": {
+      "costOfLivingIndex": 95.5,
+      "method": "bea_rpp"
+    },
+    "10760": {
+      "costOfLivingIndex": 91.8,
+      "method": "census_proxy"
+    },
+    "10780": {
+      "costOfLivingIndex": 103.1,
+      "method": "census_proxy"
+    },
+    "10820": {
+      "costOfLivingIndex": 104.3,
+      "method": "census_proxy"
+    },
+    "10860": {
+      "costOfLivingIndex": 96.6,
+      "method": "census_proxy"
+    },
+    "10900": {
+      "costOfLivingIndex": 113.8,
+      "method": "census_proxy"
+    },
+    "10940": {
+      "costOfLivingIndex": 91.3,
+      "method": "census_proxy"
+    },
+    "10980": {
+      "costOfLivingIndex": 93.3,
+      "method": "census_proxy"
+    },
+    "11020": {
+      "costOfLivingIndex": 96.2,
+      "method": "census_proxy"
+    },
+    "11060": {
+      "costOfLivingIndex": 91.0,
+      "method": "census_proxy"
+    },
+    "11100": {
+      "costOfLivingIndex": 102.9,
+      "method": "census_proxy"
+    },
+    "11140": {
+      "costOfLivingIndex": 108.7,
+      "method": "census_proxy"
+    },
+    "11180": {
+      "costOfLivingIndex": 104.4,
+      "method": "census_proxy"
+    },
+    "11220": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "11260": {
+      "costOfLivingIndex": 105.4,
+      "method": "bea_rpp"
+    },
+    "11380": {
+      "costOfLivingIndex": 106.9,
+      "method": "census_proxy"
+    },
+    "11420": {
+      "costOfLivingIndex": 98.3,
+      "method": "census_proxy"
+    },
+    "11460": {
+      "costOfLivingIndex": 122.0,
+      "method": "census_proxy"
+    },
+    "11500": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "11540": {
+      "costOfLivingIndex": 92.4,
+      "method": "bea_rpp"
+    },
+    "11580": {
+      "costOfLivingIndex": 105.7,
+      "method": "census_proxy"
+    },
+    "11620": {
+      "costOfLivingIndex": 99.0,
+      "method": "census_proxy"
+    },
+    "11640": {
+      "costOfLivingIndex": 131.4,
+      "method": "census_proxy"
+    },
+    "11660": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "11700": {
+      "costOfLivingIndex": 118.1,
+      "method": "census_proxy"
+    },
+    "11740": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "11780": {
+      "costOfLivingIndex": 97.3,
+      "method": "census_proxy"
+    },
+    "11820": {
+      "costOfLivingIndex": 124.9,
+      "method": "census_proxy"
+    },
+    "11860": {
+      "costOfLivingIndex": 92.9,
+      "method": "census_proxy"
+    },
+    "11900": {
+      "costOfLivingIndex": 106.8,
+      "method": "census_proxy"
+    },
+    "11940": {
+      "costOfLivingIndex": 98.6,
+      "method": "census_proxy"
+    },
+    "11980": {
+      "costOfLivingIndex": 101.2,
+      "method": "census_proxy"
+    },
+    "12020": {
+      "costOfLivingIndex": 113.7,
+      "method": "census_proxy"
+    },
+    "12060": {
+      "costOfLivingIndex": 100.1,
+      "method": "bea_rpp"
+    },
+    "12100": {
+      "costOfLivingIndex": 115.9,
+      "method": "census_proxy"
+    },
+    "12120": {
+      "costOfLivingIndex": 100.5,
+      "method": "census_proxy"
+    },
+    "12140": {
+      "costOfLivingIndex": 91.4,
+      "method": "census_proxy"
+    },
+    "12180": {
+      "costOfLivingIndex": 96.5,
+      "method": "census_proxy"
+    },
+    "12220": {
+      "costOfLivingIndex": 108.4,
+      "method": "census_proxy"
+    },
+    "12260": {
+      "costOfLivingIndex": 104.7,
+      "method": "census_proxy"
+    },
+    "12300": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "12380": {
+      "costOfLivingIndex": 93.0,
+      "method": "census_proxy"
+    },
+    "12420": {
+      "costOfLivingIndex": 98.1,
+      "method": "bea_rpp"
+    },
+    "12460": {
+      "costOfLivingIndex": 101.6,
+      "method": "census_proxy"
+    },
+    "12540": {
+      "costOfLivingIndex": 118.7,
+      "method": "census_proxy"
+    },
+    "12580": {
+      "costOfLivingIndex": 104.5,
+      "method": "bea_rpp"
+    },
+    "12620": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "12660": {
+      "costOfLivingIndex": 101.6,
+      "method": "census_proxy"
+    },
+    "12680": {
+      "costOfLivingIndex": 101.7,
+      "method": "census_proxy"
+    },
+    "12700": {
+      "costOfLivingIndex": 140.7,
+      "method": "census_proxy"
+    },
+    "12740": {
+      "costOfLivingIndex": 110.4,
+      "method": "census_proxy"
+    },
+    "12780": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "12860": {
+      "costOfLivingIndex": 93.0,
+      "method": "census_proxy"
+    },
+    "12900": {
+      "costOfLivingIndex": 93.3,
+      "method": "census_proxy"
+    },
+    "12940": {
+      "costOfLivingIndex": 108.3,
+      "method": "census_proxy"
+    },
+    "12980": {
+      "costOfLivingIndex": 97.5,
+      "method": "census_proxy"
+    },
+    "13020": {
+      "costOfLivingIndex": 92.1,
+      "method": "census_proxy"
+    },
+    "13060": {
+      "costOfLivingIndex": 102.6,
+      "method": "census_proxy"
+    },
+    "13100": {
+      "costOfLivingIndex": 92.8,
+      "method": "census_proxy"
+    },
+    "13140": {
+      "costOfLivingIndex": 100.5,
+      "method": "census_proxy"
+    },
+    "13180": {
+      "costOfLivingIndex": 99.7,
+      "method": "census_proxy"
+    },
+    "13220": {
+      "costOfLivingIndex": 97.5,
+      "method": "census_proxy"
+    },
+    "13260": {
+      "costOfLivingIndex": 91.4,
+      "method": "census_proxy"
+    },
+    "13300": {
+      "costOfLivingIndex": 101.1,
+      "method": "census_proxy"
+    },
+    "13340": {
+      "costOfLivingIndex": 92.8,
+      "method": "census_proxy"
+    },
+    "13380": {
+      "costOfLivingIndex": 135.5,
+      "method": "census_proxy"
+    },
+    "13420": {
+      "costOfLivingIndex": 104.2,
+      "method": "census_proxy"
+    },
+    "13460": {
+      "costOfLivingIndex": 103.6,
+      "method": "bea_rpp"
+    },
+    "13500": {
+      "costOfLivingIndex": 103.6,
+      "method": "census_proxy"
+    },
+    "13540": {
+      "costOfLivingIndex": 106.7,
+      "method": "census_proxy"
+    },
+    "13620": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "13660": {
+      "costOfLivingIndex": 99.9,
+      "method": "census_proxy"
+    },
+    "13700": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "13720": {
+      "costOfLivingIndex": 94.4,
+      "method": "census_proxy"
+    },
+    "13740": {
+      "costOfLivingIndex": 112.2,
+      "method": "census_proxy"
+    },
+    "13780": {
+      "costOfLivingIndex": 95.6,
+      "method": "census_proxy"
+    },
+    "13820": {
+      "costOfLivingIndex": 91.6,
+      "method": "bea_rpp"
+    },
+    "13900": {
+      "costOfLivingIndex": 106.5,
+      "method": "census_proxy"
+    },
+    "13940": {
+      "costOfLivingIndex": 98.9,
+      "method": "census_proxy"
+    },
+    "13980": {
+      "costOfLivingIndex": 109.6,
+      "method": "census_proxy"
+    },
+    "14010": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "14020": {
+      "costOfLivingIndex": 112.6,
+      "method": "census_proxy"
+    },
+    "14100": {
+      "costOfLivingIndex": 101.8,
+      "method": "census_proxy"
+    },
+    "14140": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "14160": {
+      "costOfLivingIndex": 92.5,
+      "method": "census_proxy"
+    },
+    "14180": {
+      "costOfLivingIndex": 93.9,
+      "method": "census_proxy"
+    },
+    "14220": {
+      "costOfLivingIndex": 103.7,
+      "method": "census_proxy"
+    },
+    "14260": {
+      "costOfLivingIndex": 98.4,
+      "method": "bea_rpp"
+    },
+    "14300": {
+      "costOfLivingIndex": 102.9,
+      "method": "census_proxy"
+    },
+    "14380": {
+      "costOfLivingIndex": 123.6,
+      "method": "census_proxy"
+    },
+    "14420": {
+      "costOfLivingIndex": 89.0,
+      "method": "census_proxy"
+    },
+    "14460": {
+      "costOfLivingIndex": 150.5,
+      "method": "census_proxy"
+    },
+    "14500": {
+      "costOfLivingIndex": 105.2,
+      "method": "bea_rpp"
+    },
+    "14540": {
+      "costOfLivingIndex": 104.3,
+      "method": "census_proxy"
+    },
+    "14580": {
+      "costOfLivingIndex": 102.5,
+      "method": "bea_rpp"
+    },
+    "14620": {
+      "costOfLivingIndex": 87.1,
+      "method": "census_proxy"
+    },
+    "14660": {
+      "costOfLivingIndex": 105.3,
+      "method": "census_proxy"
+    },
+    "14700": {
+      "costOfLivingIndex": 103.2,
+      "method": "census_proxy"
+    },
+    "14720": {
+      "costOfLivingIndex": 162.1,
+      "method": "census_proxy"
+    },
+    "14740": {
+      "costOfLivingIndex": 139.4,
+      "method": "census_proxy"
+    },
+    "14780": {
+      "costOfLivingIndex": 108.4,
+      "method": "census_proxy"
+    },
+    "14820": {
+      "costOfLivingIndex": 110.9,
+      "method": "census_proxy"
+    },
+    "14860": {
+      "costOfLivingIndex": 142.7,
+      "method": "census_proxy"
+    },
+    "15020": {
+      "costOfLivingIndex": 97.2,
+      "method": "census_proxy"
+    },
+    "15060": {
+      "costOfLivingIndex": 122.6,
+      "method": "census_proxy"
+    },
+    "15100": {
+      "costOfLivingIndex": 103.5,
+      "method": "census_proxy"
+    },
+    "15140": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "15180": {
+      "costOfLivingIndex": 99.4,
+      "method": "census_proxy"
+    },
+    "15220": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "15260": {
+      "costOfLivingIndex": 106.0,
+      "method": "census_proxy"
+    },
+    "15340": {
+      "costOfLivingIndex": 93.0,
+      "method": "census_proxy"
+    },
+    "15380": {
+      "costOfLivingIndex": 101.1,
+      "method": "census_proxy"
+    },
+    "15420": {
+      "costOfLivingIndex": 102.6,
+      "method": "census_proxy"
+    },
+    "15460": {
+      "costOfLivingIndex": 94.9,
+      "method": "census_proxy"
+    },
+    "15500": {
+      "costOfLivingIndex": 105.0,
+      "method": "census_proxy"
+    },
+    "15540": {
+      "costOfLivingIndex": 100.9,
+      "method": "bea_rpp"
+    },
+    "15580": {
+      "costOfLivingIndex": 101.7,
+      "method": "census_proxy"
+    },
+    "15620": {
+      "costOfLivingIndex": 96.2,
+      "method": "census_proxy"
+    },
+    "15660": {
+      "costOfLivingIndex": 100.4,
+      "method": "census_proxy"
+    },
+    "15680": {
+      "costOfLivingIndex": 128.3,
+      "method": "census_proxy"
+    },
+    "15700": {
+      "costOfLivingIndex": 110.1,
+      "method": "census_proxy"
+    },
+    "15740": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "15780": {
+      "costOfLivingIndex": 90.4,
+      "method": "census_proxy"
+    },
+    "15820": {
+      "costOfLivingIndex": 91.0,
+      "method": "census_proxy"
+    },
+    "15860": {
+      "costOfLivingIndex": 114.2,
+      "method": "census_proxy"
+    },
+    "15940": {
+      "costOfLivingIndex": 96.2,
+      "method": "census_proxy"
+    },
+    "15980": {
+      "costOfLivingIndex": 127.3,
+      "method": "census_proxy"
+    },
+    "16020": {
+      "costOfLivingIndex": 98.6,
+      "method": "census_proxy"
+    },
+    "16060": {
+      "costOfLivingIndex": 95.6,
+      "method": "census_proxy"
+    },
+    "16100": {
+      "costOfLivingIndex": 102.0,
+      "method": "census_proxy"
+    },
+    "16140": {
+      "costOfLivingIndex": 89.0,
+      "method": "census_proxy"
+    },
+    "16180": {
+      "costOfLivingIndex": 124.9,
+      "method": "census_proxy"
+    },
+    "16220": {
+      "costOfLivingIndex": 106.0,
+      "method": "census_proxy"
+    },
+    "16260": {
+      "costOfLivingIndex": 113.0,
+      "method": "census_proxy"
+    },
+    "16300": {
+      "costOfLivingIndex": 94.7,
+      "method": "census_proxy"
+    },
+    "16340": {
+      "costOfLivingIndex": 100.1,
+      "method": "census_proxy"
+    },
+    "16380": {
+      "costOfLivingIndex": 92.3,
+      "method": "census_proxy"
+    },
+    "16420": {
+      "costOfLivingIndex": 91.0,
+      "method": "census_proxy"
+    },
+    "16460": {
+      "costOfLivingIndex": 85.6,
+      "method": "census_proxy"
+    },
+    "16500": {
+      "costOfLivingIndex": 114.4,
+      "method": "census_proxy"
+    },
+    "16540": {
+      "costOfLivingIndex": 104.9,
+      "method": "census_proxy"
+    },
+    "16580": {
+      "costOfLivingIndex": 104.0,
+      "method": "census_proxy"
+    },
+    "16620": {
+      "costOfLivingIndex": 88.7,
+      "method": "bea_rpp"
+    },
+    "16660": {
+      "costOfLivingIndex": 90.8,
+      "method": "census_proxy"
+    },
+    "16700": {
+      "costOfLivingIndex": 124.6,
+      "method": "census_proxy"
+    },
+    "16740": {
+      "costOfLivingIndex": 97.3,
+      "method": "bea_rpp"
+    },
+    "16820": {
+      "costOfLivingIndex": 128.4,
+      "method": "census_proxy"
+    },
+    "16860": {
+      "costOfLivingIndex": 106.6,
+      "method": "census_proxy"
+    },
+    "16940": {
+      "costOfLivingIndex": 96.5,
+      "method": "bea_rpp"
+    },
+    "16980": {
+      "costOfLivingIndex": 103.6,
+      "method": "bea_rpp"
+    },
+    "17020": {
+      "costOfLivingIndex": 129.1,
+      "method": "census_proxy"
+    },
+    "17060": {
+      "costOfLivingIndex": 97.1,
+      "method": "census_proxy"
+    },
+    "17140": {
+      "costOfLivingIndex": 95.4,
+      "method": "bea_rpp"
+    },
+    "17220": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "17260": {
+      "costOfLivingIndex": 102.8,
+      "method": "census_proxy"
+    },
+    "17300": {
+      "costOfLivingIndex": 109.0,
+      "method": "census_proxy"
+    },
+    "17340": {
+      "costOfLivingIndex": 124.9,
+      "method": "census_proxy"
+    },
+    "17380": {
+      "costOfLivingIndex": 105.3,
+      "method": "census_proxy"
+    },
+    "17420": {
+      "costOfLivingIndex": 103.3,
+      "method": "census_proxy"
+    },
+    "17460": {
+      "costOfLivingIndex": 101.5,
+      "method": "census_proxy"
+    },
+    "17500": {
+      "costOfLivingIndex": 104.9,
+      "method": "census_proxy"
+    },
+    "17540": {
+      "costOfLivingIndex": 93.3,
+      "method": "census_proxy"
+    },
+    "17580": {
+      "costOfLivingIndex": 102.6,
+      "method": "census_proxy"
+    },
+    "17620": {
+      "costOfLivingIndex": 137.1,
+      "method": "census_proxy"
+    },
+    "17640": {
+      "costOfLivingIndex": 137.5,
+      "method": "census_proxy"
+    },
+    "17660": {
+      "costOfLivingIndex": 127.4,
+      "method": "census_proxy"
+    },
+    "17700": {
+      "costOfLivingIndex": 89.7,
+      "method": "census_proxy"
+    },
+    "17740": {
+      "costOfLivingIndex": 96.5,
+      "method": "census_proxy"
+    },
+    "17780": {
+      "costOfLivingIndex": 115.8,
+      "method": "census_proxy"
+    },
+    "17820": {
+      "costOfLivingIndex": 100.7,
+      "method": "bea_rpp"
+    },
+    "17860": {
+      "costOfLivingIndex": 106.3,
+      "method": "census_proxy"
+    },
+    "17900": {
+      "costOfLivingIndex": 107.8,
+      "method": "census_proxy"
+    },
+    "17980": {
+      "costOfLivingIndex": 106.4,
+      "method": "census_proxy"
+    },
+    "18020": {
+      "costOfLivingIndex": 102.1,
+      "method": "census_proxy"
+    },
+    "18060": {
+      "costOfLivingIndex": 102.4,
+      "method": "census_proxy"
+    },
+    "18100": {
+      "costOfLivingIndex": 98.0,
+      "method": "census_proxy"
+    },
+    "18140": {
+      "costOfLivingIndex": 95.5,
+      "method": "bea_rpp"
+    },
+    "18180": {
+      "costOfLivingIndex": 113.1,
+      "method": "census_proxy"
+    },
+    "18220": {
+      "costOfLivingIndex": 91.1,
+      "method": "census_proxy"
+    },
+    "18260": {
+      "costOfLivingIndex": 105.4,
+      "method": "census_proxy"
+    },
+    "18300": {
+      "costOfLivingIndex": 114.3,
+      "method": "census_proxy"
+    },
+    "18380": {
+      "costOfLivingIndex": 94.9,
+      "method": "census_proxy"
+    },
+    "18420": {
+      "costOfLivingIndex": 96.2,
+      "method": "census_proxy"
+    },
+    "18460": {
+      "costOfLivingIndex": 100.6,
+      "method": "census_proxy"
+    },
+    "18500": {
+      "costOfLivingIndex": 90.7,
+      "method": "census_proxy"
+    },
+    "18580": {
+      "costOfLivingIndex": 108.5,
+      "method": "census_proxy"
+    },
+    "18620": {
+      "costOfLivingIndex": 101.7,
+      "method": "census_proxy"
+    },
+    "18660": {
+      "costOfLivingIndex": 94.9,
+      "method": "census_proxy"
+    },
+    "18700": {
+      "costOfLivingIndex": 132.9,
+      "method": "census_proxy"
+    },
+    "18740": {
+      "costOfLivingIndex": 93.1,
+      "method": "census_proxy"
+    },
+    "18780": {
+      "costOfLivingIndex": 109.1,
+      "method": "census_proxy"
+    },
+    "18820": {
+      "costOfLivingIndex": 93.6,
+      "method": "census_proxy"
+    },
+    "18860": {
+      "costOfLivingIndex": 119.4,
+      "method": "census_proxy"
+    },
+    "18880": {
+      "costOfLivingIndex": 123.9,
+      "method": "census_proxy"
+    },
+    "18900": {
+      "costOfLivingIndex": 102.1,
+      "method": "census_proxy"
+    },
+    "18980": {
+      "costOfLivingIndex": 99.2,
+      "method": "census_proxy"
+    },
+    "19000": {
+      "costOfLivingIndex": 107.8,
+      "method": "census_proxy"
+    },
+    "19060": {
+      "costOfLivingIndex": 93.8,
+      "method": "census_proxy"
+    },
+    "19100": {
+      "costOfLivingIndex": 103.1,
+      "method": "bea_rpp"
+    },
+    "19140": {
+      "costOfLivingIndex": 98.0,
+      "method": "census_proxy"
+    },
+    "19180": {
+      "costOfLivingIndex": 89.7,
+      "method": "census_proxy"
+    },
+    "19220": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "19260": {
+      "costOfLivingIndex": 100.4,
+      "method": "census_proxy"
+    },
+    "19300": {
+      "costOfLivingIndex": 114.2,
+      "method": "census_proxy"
+    },
+    "19340": {
+      "costOfLivingIndex": 94.8,
+      "method": "census_proxy"
+    },
+    "19420": {
+      "costOfLivingIndex": 97.2,
+      "method": "census_proxy"
+    },
+    "19430": {
+      "costOfLivingIndex": 98.6,
+      "method": "census_proxy"
+    },
+    "19460": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "19500": {
+      "costOfLivingIndex": 90.1,
+      "method": "census_proxy"
+    },
+    "19540": {
+      "costOfLivingIndex": 94.3,
+      "method": "census_proxy"
+    },
+    "19580": {
+      "costOfLivingIndex": 90.5,
+      "method": "census_proxy"
+    },
+    "19620": {
+      "costOfLivingIndex": 98.5,
+      "method": "census_proxy"
+    },
+    "19660": {
+      "costOfLivingIndex": 121.4,
+      "method": "census_proxy"
+    },
+    "19700": {
+      "costOfLivingIndex": 98.0,
+      "method": "census_proxy"
+    },
+    "19740": {
+      "costOfLivingIndex": 105.8,
+      "method": "bea_rpp"
+    },
+    "19760": {
+      "costOfLivingIndex": 93.1,
+      "method": "census_proxy"
+    },
+    "19780": {
+      "costOfLivingIndex": 91.7,
+      "method": "bea_rpp"
+    },
+    "19820": {
+      "costOfLivingIndex": 108.0,
+      "method": "census_proxy"
+    },
+    "19860": {
+      "costOfLivingIndex": 104.8,
+      "method": "census_proxy"
+    },
+    "19940": {
+      "costOfLivingIndex": 92.3,
+      "method": "census_proxy"
+    },
+    "19980": {
+      "costOfLivingIndex": 92.3,
+      "method": "census_proxy"
+    },
+    "20020": {
+      "costOfLivingIndex": 99.3,
+      "method": "census_proxy"
+    },
+    "20060": {
+      "costOfLivingIndex": 93.5,
+      "method": "census_proxy"
+    },
+    "20100": {
+      "costOfLivingIndex": 97.5,
+      "method": "bea_rpp"
+    },
+    "20140": {
+      "costOfLivingIndex": 95.9,
+      "method": "census_proxy"
+    },
+    "20180": {
+      "costOfLivingIndex": 90.1,
+      "method": "census_proxy"
+    },
+    "20220": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "20260": {
+      "costOfLivingIndex": 99.9,
+      "method": "census_proxy"
+    },
+    "20300": {
+      "costOfLivingIndex": 94.3,
+      "method": "census_proxy"
+    },
+    "20340": {
+      "costOfLivingIndex": 94.4,
+      "method": "census_proxy"
+    },
+    "20420": {
+      "costOfLivingIndex": 134.9,
+      "method": "census_proxy"
+    },
+    "20460": {
+      "costOfLivingIndex": 100.7,
+      "method": "census_proxy"
+    },
+    "20500": {
+      "costOfLivingIndex": 119.4,
+      "method": "census_proxy"
+    },
+    "20540": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "20580": {
+      "costOfLivingIndex": 97.4,
+      "method": "census_proxy"
+    },
+    "20660": {
+      "costOfLivingIndex": 122.0,
+      "method": "census_proxy"
+    },
+    "20700": {
+      "costOfLivingIndex": 111.7,
+      "method": "census_proxy"
+    },
+    "20740": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "20780": {
+      "costOfLivingIndex": 162.7,
+      "method": "census_proxy"
+    },
+    "20820": {
+      "costOfLivingIndex": 87.6,
+      "method": "census_proxy"
+    },
+    "20900": {
+      "costOfLivingIndex": 100.4,
+      "method": "census_proxy"
+    },
+    "20940": {
+      "costOfLivingIndex": 114.9,
+      "method": "census_proxy"
+    },
+    "20980": {
+      "costOfLivingIndex": 95.1,
+      "method": "census_proxy"
+    },
+    "21020": {
+      "costOfLivingIndex": 108.4,
+      "method": "census_proxy"
+    },
+    "21060": {
+      "costOfLivingIndex": 100.1,
+      "method": "census_proxy"
+    },
+    "21120": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "21140": {
+      "costOfLivingIndex": 101.3,
+      "method": "census_proxy"
+    },
+    "21180": {
+      "costOfLivingIndex": 96.2,
+      "method": "census_proxy"
+    },
+    "21220": {
+      "costOfLivingIndex": 106.9,
+      "method": "census_proxy"
+    },
+    "21260": {
+      "costOfLivingIndex": 128.0,
+      "method": "census_proxy"
+    },
+    "21300": {
+      "costOfLivingIndex": 97.6,
+      "method": "census_proxy"
+    },
+    "21340": {
+      "costOfLivingIndex": 103.6,
+      "method": "census_proxy"
+    },
+    "21380": {
+      "costOfLivingIndex": 93.2,
+      "method": "census_proxy"
+    },
+    "21420": {
+      "costOfLivingIndex": 93.9,
+      "method": "census_proxy"
+    },
+    "21460": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "21500": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "21540": {
+      "costOfLivingIndex": 92.0,
+      "method": "census_proxy"
+    },
+    "21580": {
+      "costOfLivingIndex": 103.3,
+      "method": "census_proxy"
+    },
+    "21640": {
+      "costOfLivingIndex": 98.5,
+      "method": "census_proxy"
+    },
+    "21660": {
+      "costOfLivingIndex": 126.5,
+      "method": "census_proxy"
+    },
+    "21700": {
+      "costOfLivingIndex": 131.2,
+      "method": "census_proxy"
+    },
+    "21740": {
+      "costOfLivingIndex": 95.4,
+      "method": "census_proxy"
+    },
+    "21780": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "21820": {
+      "costOfLivingIndex": 118.4,
+      "method": "census_proxy"
+    },
+    "21840": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "21860": {
+      "costOfLivingIndex": 92.5,
+      "method": "census_proxy"
+    },
+    "21900": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "21980": {
+      "costOfLivingIndex": 113.0,
+      "method": "census_proxy"
+    },
+    "22020": {
+      "costOfLivingIndex": 90.9,
+      "method": "bea_rpp"
+    },
+    "22060": {
+      "costOfLivingIndex": 108.4,
+      "method": "census_proxy"
+    },
+    "22100": {
+      "costOfLivingIndex": 95.9,
+      "method": "census_proxy"
+    },
+    "22140": {
+      "costOfLivingIndex": 105.9,
+      "method": "census_proxy"
+    },
+    "22180": {
+      "costOfLivingIndex": 108.6,
+      "method": "census_proxy"
+    },
+    "22220": {
+      "costOfLivingIndex": 106.1,
+      "method": "census_proxy"
+    },
+    "22260": {
+      "costOfLivingIndex": 99.2,
+      "method": "census_proxy"
+    },
+    "22280": {
+      "costOfLivingIndex": 120.0,
+      "method": "census_proxy"
+    },
+    "22300": {
+      "costOfLivingIndex": 97.5,
+      "method": "census_proxy"
+    },
+    "22340": {
+      "costOfLivingIndex": 101.1,
+      "method": "census_proxy"
+    },
+    "22380": {
+      "costOfLivingIndex": 131.6,
+      "method": "census_proxy"
+    },
+    "22420": {
+      "costOfLivingIndex": 99.6,
+      "method": "census_proxy"
+    },
+    "22500": {
+      "costOfLivingIndex": 100.8,
+      "method": "census_proxy"
+    },
+    "22520": {
+      "costOfLivingIndex": 98.1,
+      "method": "census_proxy"
+    },
+    "22540": {
+      "costOfLivingIndex": 98.5,
+      "method": "census_proxy"
+    },
+    "22580": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "22620": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "22660": {
+      "costOfLivingIndex": 141.0,
+      "method": "census_proxy"
+    },
+    "22700": {
+      "costOfLivingIndex": 87.9,
+      "method": "census_proxy"
+    },
+    "22780": {
+      "costOfLivingIndex": 104.4,
+      "method": "census_proxy"
+    },
+    "22800": {
+      "costOfLivingIndex": 89.1,
+      "method": "census_proxy"
+    },
+    "22820": {
+      "costOfLivingIndex": 111.3,
+      "method": "census_proxy"
+    },
+    "22840": {
+      "costOfLivingIndex": 95.9,
+      "method": "census_proxy"
+    },
+    "22860": {
+      "costOfLivingIndex": 102.9,
+      "method": "census_proxy"
+    },
+    "22900": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "23060": {
+      "costOfLivingIndex": 98.6,
+      "method": "census_proxy"
+    },
+    "23140": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "23180": {
+      "costOfLivingIndex": 99.7,
+      "method": "census_proxy"
+    },
+    "23240": {
+      "costOfLivingIndex": 129.4,
+      "method": "census_proxy"
+    },
+    "23300": {
+      "costOfLivingIndex": 90.9,
+      "method": "census_proxy"
+    },
+    "23340": {
+      "costOfLivingIndex": 96.8,
+      "method": "census_proxy"
+    },
+    "23380": {
+      "costOfLivingIndex": 91.8,
+      "method": "census_proxy"
+    },
+    "23420": {
+      "costOfLivingIndex": 123.3,
+      "method": "census_proxy"
+    },
+    "23460": {
+      "costOfLivingIndex": 98.4,
+      "method": "census_proxy"
+    },
+    "23500": {
+      "costOfLivingIndex": 100.9,
+      "method": "census_proxy"
+    },
+    "23540": {
+      "costOfLivingIndex": 116.9,
+      "method": "census_proxy"
+    },
+    "23580": {
+      "costOfLivingIndex": 114.8,
+      "method": "census_proxy"
+    },
+    "23620": {
+      "costOfLivingIndex": 107.0,
+      "method": "census_proxy"
+    },
+    "23660": {
+      "costOfLivingIndex": 89.9,
+      "method": "census_proxy"
+    },
+    "23700": {
+      "costOfLivingIndex": 94.4,
+      "method": "census_proxy"
+    },
+    "23780": {
+      "costOfLivingIndex": 100.2,
+      "method": "census_proxy"
+    },
+    "23820": {
+      "costOfLivingIndex": 137.0,
+      "method": "census_proxy"
+    },
+    "23860": {
+      "costOfLivingIndex": 112.3,
+      "method": "census_proxy"
+    },
+    "23900": {
+      "costOfLivingIndex": 106.0,
+      "method": "census_proxy"
+    },
+    "23940": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "23980": {
+      "costOfLivingIndex": 99.4,
+      "method": "census_proxy"
+    },
+    "24020": {
+      "costOfLivingIndex": 103.6,
+      "method": "census_proxy"
+    },
+    "24060": {
+      "costOfLivingIndex": 138.5,
+      "method": "census_proxy"
+    },
+    "24100": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "24140": {
+      "costOfLivingIndex": 101.5,
+      "method": "census_proxy"
+    },
+    "24180": {
+      "costOfLivingIndex": 112.8,
+      "method": "census_proxy"
+    },
+    "24220": {
+      "costOfLivingIndex": 104.2,
+      "method": "census_proxy"
+    },
+    "24260": {
+      "costOfLivingIndex": 99.6,
+      "method": "census_proxy"
+    },
+    "24300": {
+      "costOfLivingIndex": 117.1,
+      "method": "census_proxy"
+    },
+    "24330": {
+      "costOfLivingIndex": 101.5,
+      "method": "census_proxy"
+    },
+    "24340": {
+      "costOfLivingIndex": 95.5,
+      "method": "bea_rpp"
+    },
+    "24380": {
+      "costOfLivingIndex": 92.9,
+      "method": "census_proxy"
+    },
+    "24420": {
+      "costOfLivingIndex": 126.4,
+      "method": "census_proxy"
+    },
+    "24460": {
+      "costOfLivingIndex": 90.8,
+      "method": "census_proxy"
+    },
+    "24500": {
+      "costOfLivingIndex": 104.8,
+      "method": "census_proxy"
+    },
+    "24540": {
+      "costOfLivingIndex": 127.3,
+      "method": "census_proxy"
+    },
+    "24580": {
+      "costOfLivingIndex": 100.7,
+      "method": "census_proxy"
+    },
+    "24620": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "24660": {
+      "costOfLivingIndex": 105.6,
+      "method": "census_proxy"
+    },
+    "24700": {
+      "costOfLivingIndex": 93.1,
+      "method": "census_proxy"
+    },
+    "24740": {
+      "costOfLivingIndex": 102.8,
+      "method": "census_proxy"
+    },
+    "24780": {
+      "costOfLivingIndex": 104.6,
+      "method": "census_proxy"
+    },
+    "24820": {
+      "costOfLivingIndex": 93.2,
+      "method": "census_proxy"
+    },
+    "24860": {
+      "costOfLivingIndex": 93.3,
+      "method": "bea_rpp"
+    },
+    "24900": {
+      "costOfLivingIndex": 104.6,
+      "method": "census_proxy"
+    },
+    "24940": {
+      "costOfLivingIndex": 103.7,
+      "method": "census_proxy"
+    },
+    "24980": {
+      "costOfLivingIndex": 100.9,
+      "method": "census_proxy"
+    },
+    "25020": {
+      "costOfLivingIndex": 141.2,
+      "method": "census_proxy"
+    },
+    "25060": {
+      "costOfLivingIndex": 105.7,
+      "method": "census_proxy"
+    },
+    "25100": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "25180": {
+      "costOfLivingIndex": 108.5,
+      "method": "census_proxy"
+    },
+    "25200": {
+      "costOfLivingIndex": 133.7,
+      "method": "census_proxy"
+    },
+    "25220": {
+      "costOfLivingIndex": 106.7,
+      "method": "census_proxy"
+    },
+    "25260": {
+      "costOfLivingIndex": 117.9,
+      "method": "census_proxy"
+    },
+    "25300": {
+      "costOfLivingIndex": 92.0,
+      "method": "census_proxy"
+    },
+    "25420": {
+      "costOfLivingIndex": 106.5,
+      "method": "census_proxy"
+    },
+    "25460": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "25500": {
+      "costOfLivingIndex": 112.7,
+      "method": "census_proxy"
+    },
+    "25540": {
+      "costOfLivingIndex": 102.7,
+      "method": "bea_rpp"
+    },
+    "25580": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "25620": {
+      "costOfLivingIndex": 103.3,
+      "method": "census_proxy"
+    },
+    "25700": {
+      "costOfLivingIndex": 102.6,
+      "method": "census_proxy"
+    },
+    "25720": {
+      "costOfLivingIndex": 156.3,
+      "method": "census_proxy"
+    },
+    "25740": {
+      "costOfLivingIndex": 114.4,
+      "method": "census_proxy"
+    },
+    "25760": {
+      "costOfLivingIndex": 99.6,
+      "method": "census_proxy"
+    },
+    "25780": {
+      "costOfLivingIndex": 101.0,
+      "method": "census_proxy"
+    },
+    "25820": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "25840": {
+      "costOfLivingIndex": 103.5,
+      "method": "census_proxy"
+    },
+    "25860": {
+      "costOfLivingIndex": 98.4,
+      "method": "census_proxy"
+    },
+    "25880": {
+      "costOfLivingIndex": 95.1,
+      "method": "census_proxy"
+    },
+    "25900": {
+      "costOfLivingIndex": 134.6,
+      "method": "census_proxy"
+    },
+    "25940": {
+      "costOfLivingIndex": 128.4,
+      "method": "census_proxy"
+    },
+    "25980": {
+      "costOfLivingIndex": 109.9,
+      "method": "census_proxy"
+    },
+    "26020": {
+      "costOfLivingIndex": 101.1,
+      "method": "census_proxy"
+    },
+    "26090": {
+      "costOfLivingIndex": 103.4,
+      "method": "census_proxy"
+    },
+    "26140": {
+      "costOfLivingIndex": 110.5,
+      "method": "census_proxy"
+    },
+    "26220": {
+      "costOfLivingIndex": 133.0,
+      "method": "census_proxy"
+    },
+    "26260": {
+      "costOfLivingIndex": 96.6,
+      "method": "census_proxy"
+    },
+    "26300": {
+      "costOfLivingIndex": 103.7,
+      "method": "census_proxy"
+    },
+    "26340": {
+      "costOfLivingIndex": 94.6,
+      "method": "census_proxy"
+    },
+    "26380": {
+      "costOfLivingIndex": 100.7,
+      "method": "census_proxy"
+    },
+    "26420": {
+      "costOfLivingIndex": 115.4,
+      "method": "census_proxy"
+    },
+    "26460": {
+      "costOfLivingIndex": 110.8,
+      "method": "census_proxy"
+    },
+    "26500": {
+      "costOfLivingIndex": 94.9,
+      "method": "census_proxy"
+    },
+    "26540": {
+      "costOfLivingIndex": 92.8,
+      "method": "census_proxy"
+    },
+    "26580": {
+      "costOfLivingIndex": 97.4,
+      "method": "census_proxy"
+    },
+    "26620": {
+      "costOfLivingIndex": 104.4,
+      "method": "census_proxy"
+    },
+    "26660": {
+      "costOfLivingIndex": 113.3,
+      "method": "census_proxy"
+    },
+    "26700": {
+      "costOfLivingIndex": 92.4,
+      "method": "census_proxy"
+    },
+    "26740": {
+      "costOfLivingIndex": 93.0,
+      "method": "census_proxy"
+    },
+    "26780": {
+      "costOfLivingIndex": 97.3,
+      "method": "census_proxy"
+    },
+    "26820": {
+      "costOfLivingIndex": 108.6,
+      "method": "census_proxy"
+    },
+    "26860": {
+      "costOfLivingIndex": 94.1,
+      "method": "census_proxy"
+    },
+    "26900": {
+      "costOfLivingIndex": 95.7,
+      "method": "bea_rpp"
+    },
+    "26940": {
+      "costOfLivingIndex": 102.2,
+      "method": "census_proxy"
+    },
+    "26980": {
+      "costOfLivingIndex": 110.1,
+      "method": "census_proxy"
+    },
+    "27020": {
+      "costOfLivingIndex": 88.9,
+      "method": "census_proxy"
+    },
+    "27060": {
+      "costOfLivingIndex": 119.7,
+      "method": "census_proxy"
+    },
+    "27100": {
+      "costOfLivingIndex": 99.4,
+      "method": "census_proxy"
+    },
+    "27140": {
+      "costOfLivingIndex": 89.0,
+      "method": "bea_rpp"
+    },
+    "27160": {
+      "costOfLivingIndex": 91.8,
+      "method": "census_proxy"
+    },
+    "27180": {
+      "costOfLivingIndex": 100.7,
+      "method": "census_proxy"
+    },
+    "27220": {
+      "costOfLivingIndex": 148.4,
+      "method": "census_proxy"
+    },
+    "27260": {
+      "costOfLivingIndex": 99.5,
+      "method": "bea_rpp"
+    },
+    "27300": {
+      "costOfLivingIndex": 85.8,
+      "method": "census_proxy"
+    },
+    "27340": {
+      "costOfLivingIndex": 111.2,
+      "method": "census_proxy"
+    },
+    "27380": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "27420": {
+      "costOfLivingIndex": 98.1,
+      "method": "census_proxy"
+    },
+    "27460": {
+      "costOfLivingIndex": 91.2,
+      "method": "census_proxy"
+    },
+    "27500": {
+      "costOfLivingIndex": 101.0,
+      "method": "census_proxy"
+    },
+    "27530": {
+      "costOfLivingIndex": 92.0,
+      "method": "census_proxy"
+    },
+    "27540": {
+      "costOfLivingIndex": 92.3,
+      "method": "census_proxy"
+    },
+    "27580": {
+      "costOfLivingIndex": 146.4,
+      "method": "census_proxy"
+    },
+    "27600": {
+      "costOfLivingIndex": 106.9,
+      "method": "census_proxy"
+    },
+    "27620": {
+      "costOfLivingIndex": 94.0,
+      "method": "census_proxy"
+    },
+    "27660": {
+      "costOfLivingIndex": 98.7,
+      "method": "census_proxy"
+    },
+    "27700": {
+      "costOfLivingIndex": 100.2,
+      "method": "census_proxy"
+    },
+    "27740": {
+      "costOfLivingIndex": 103.4,
+      "method": "census_proxy"
+    },
+    "27780": {
+      "costOfLivingIndex": 89.5,
+      "method": "census_proxy"
+    },
+    "27860": {
+      "costOfLivingIndex": 102.7,
+      "method": "census_proxy"
+    },
+    "27900": {
+      "costOfLivingIndex": 98.3,
+      "method": "census_proxy"
+    },
+    "27940": {
+      "costOfLivingIndex": 129.1,
+      "method": "census_proxy"
+    },
+    "27980": {
+      "costOfLivingIndex": 165.2,
+      "method": "census_proxy"
+    },
+    "28020": {
+      "costOfLivingIndex": 94.8,
+      "method": "bea_rpp"
+    },
+    "28060": {
+      "costOfLivingIndex": 123.1,
+      "method": "census_proxy"
+    },
+    "28100": {
+      "costOfLivingIndex": 102.8,
+      "method": "census_proxy"
+    },
+    "28140": {
+      "costOfLivingIndex": 92.5,
+      "method": "bea_rpp"
+    },
+    "28180": {
+      "costOfLivingIndex": 159.5,
+      "method": "census_proxy"
+    },
+    "28260": {
+      "costOfLivingIndex": 99.9,
+      "method": "census_proxy"
+    },
+    "28300": {
+      "costOfLivingIndex": 109.0,
+      "method": "census_proxy"
+    },
+    "28340": {
+      "costOfLivingIndex": 91.4,
+      "method": "census_proxy"
+    },
+    "28380": {
+      "costOfLivingIndex": 91.6,
+      "method": "census_proxy"
+    },
+    "28420": {
+      "costOfLivingIndex": 116.1,
+      "method": "census_proxy"
+    },
+    "28500": {
+      "costOfLivingIndex": 111.6,
+      "method": "census_proxy"
+    },
+    "28540": {
+      "costOfLivingIndex": 122.4,
+      "method": "census_proxy"
+    },
+    "28580": {
+      "costOfLivingIndex": 167.0,
+      "method": "census_proxy"
+    },
+    "28620": {
+      "costOfLivingIndex": 124.7,
+      "method": "census_proxy"
+    },
+    "28660": {
+      "costOfLivingIndex": 107.3,
+      "method": "census_proxy"
+    },
+    "28700": {
+      "costOfLivingIndex": 99.6,
+      "method": "census_proxy"
+    },
+    "28740": {
+      "costOfLivingIndex": 117.8,
+      "method": "census_proxy"
+    },
+    "28780": {
+      "costOfLivingIndex": 102.3,
+      "method": "census_proxy"
+    },
+    "28820": {
+      "costOfLivingIndex": 100.1,
+      "method": "census_proxy"
+    },
+    "28860": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "28900": {
+      "costOfLivingIndex": 109.5,
+      "method": "census_proxy"
+    },
+    "28940": {
+      "costOfLivingIndex": 107.5,
+      "method": "census_proxy"
+    },
+    "29020": {
+      "costOfLivingIndex": 94.7,
+      "method": "census_proxy"
+    },
+    "29060": {
+      "costOfLivingIndex": 113.5,
+      "method": "census_proxy"
+    },
+    "29100": {
+      "costOfLivingIndex": 104.8,
+      "method": "census_proxy"
+    },
+    "29180": {
+      "costOfLivingIndex": 104.0,
+      "method": "census_proxy"
+    },
+    "29200": {
+      "costOfLivingIndex": 107.0,
+      "method": "census_proxy"
+    },
+    "29260": {
+      "costOfLivingIndex": 108.2,
+      "method": "census_proxy"
+    },
+    "29300": {
+      "costOfLivingIndex": 103.0,
+      "method": "census_proxy"
+    },
+    "29340": {
+      "costOfLivingIndex": 105.2,
+      "method": "census_proxy"
+    },
+    "29380": {
+      "costOfLivingIndex": 103.8,
+      "method": "census_proxy"
+    },
+    "29420": {
+      "costOfLivingIndex": 113.4,
+      "method": "census_proxy"
+    },
+    "29460": {
+      "costOfLivingIndex": 114.7,
+      "method": "census_proxy"
+    },
+    "29500": {
+      "costOfLivingIndex": 97.4,
+      "method": "census_proxy"
+    },
+    "29540": {
+      "costOfLivingIndex": 112.6,
+      "method": "census_proxy"
+    },
+    "29620": {
+      "costOfLivingIndex": 101.8,
+      "method": "census_proxy"
+    },
+    "29660": {
+      "costOfLivingIndex": 115.8,
+      "method": "census_proxy"
+    },
+    "29700": {
+      "costOfLivingIndex": 101.5,
+      "method": "census_proxy"
+    },
+    "29740": {
+      "costOfLivingIndex": 106.3,
+      "method": "census_proxy"
+    },
+    "29780": {
+      "costOfLivingIndex": 103.9,
+      "method": "census_proxy"
+    },
+    "29820": {
+      "costOfLivingIndex": 100.2,
+      "method": "bea_rpp"
+    },
+    "29860": {
+      "costOfLivingIndex": 97.3,
+      "method": "census_proxy"
+    },
+    "29900": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "29940": {
+      "costOfLivingIndex": 111.5,
+      "method": "census_proxy"
+    },
+    "29980": {
+      "costOfLivingIndex": 98.1,
+      "method": "census_proxy"
+    },
+    "30020": {
+      "costOfLivingIndex": 98.6,
+      "method": "census_proxy"
+    },
+    "30060": {
+      "costOfLivingIndex": 101.4,
+      "method": "census_proxy"
+    },
+    "30100": {
+      "costOfLivingIndex": 110.2,
+      "method": "census_proxy"
+    },
+    "30140": {
+      "costOfLivingIndex": 103.7,
+      "method": "census_proxy"
+    },
+    "30220": {
+      "costOfLivingIndex": 92.2,
+      "method": "census_proxy"
+    },
+    "30260": {
+      "costOfLivingIndex": 102.4,
+      "method": "census_proxy"
+    },
+    "30280": {
+      "costOfLivingIndex": 102.7,
+      "method": "census_proxy"
+    },
+    "30300": {
+      "costOfLivingIndex": 108.0,
+      "method": "census_proxy"
+    },
+    "30340": {
+      "costOfLivingIndex": 103.4,
+      "method": "census_proxy"
+    },
+    "30380": {
+      "costOfLivingIndex": 92.1,
+      "method": "census_proxy"
+    },
+    "30420": {
+      "costOfLivingIndex": 91.8,
+      "method": "census_proxy"
+    },
+    "30460": {
+      "costOfLivingIndex": 108.4,
+      "method": "census_proxy"
+    },
+    "30580": {
+      "costOfLivingIndex": 94.1,
+      "method": "census_proxy"
+    },
+    "30620": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "30660": {
+      "costOfLivingIndex": 88.0,
+      "method": "census_proxy"
+    },
+    "30700": {
+      "costOfLivingIndex": 106.0,
+      "method": "census_proxy"
+    },
+    "30780": {
+      "costOfLivingIndex": 89.4,
+      "method": "bea_rpp"
+    },
+    "30820": {
+      "costOfLivingIndex": 98.4,
+      "method": "census_proxy"
+    },
+    "30860": {
+      "costOfLivingIndex": 115.6,
+      "method": "census_proxy"
+    },
+    "30900": {
+      "costOfLivingIndex": 90.0,
+      "method": "census_proxy"
+    },
+    "30940": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "30980": {
+      "costOfLivingIndex": 100.9,
+      "method": "census_proxy"
+    },
+    "31020": {
+      "costOfLivingIndex": 117.7,
+      "method": "census_proxy"
+    },
+    "31060": {
+      "costOfLivingIndex": 116.3,
+      "method": "census_proxy"
+    },
+    "31080": {
+      "costOfLivingIndex": 168.0,
+      "method": "census_proxy"
+    },
+    "31140": {
+      "costOfLivingIndex": 93.1,
+      "method": "bea_rpp"
+    },
+    "31180": {
+      "costOfLivingIndex": 106.9,
+      "method": "census_proxy"
+    },
+    "31220": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "31260": {
+      "costOfLivingIndex": 101.0,
+      "method": "census_proxy"
+    },
+    "31300": {
+      "costOfLivingIndex": 100.2,
+      "method": "census_proxy"
+    },
+    "31340": {
+      "costOfLivingIndex": 103.3,
+      "method": "census_proxy"
+    },
+    "31380": {
+      "costOfLivingIndex": 91.2,
+      "method": "census_proxy"
+    },
+    "31420": {
+      "costOfLivingIndex": 103.8,
+      "method": "census_proxy"
+    },
+    "31460": {
+      "costOfLivingIndex": 120.6,
+      "method": "census_proxy"
+    },
+    "31500": {
+      "costOfLivingIndex": 98.0,
+      "method": "census_proxy"
+    },
+    "31540": {
+      "costOfLivingIndex": 97.3,
+      "method": "bea_rpp"
+    },
+    "31580": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "31620": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "31660": {
+      "costOfLivingIndex": 91.8,
+      "method": "census_proxy"
+    },
+    "31680": {
+      "costOfLivingIndex": 93.8,
+      "method": "census_proxy"
+    },
+    "31700": {
+      "costOfLivingIndex": 105.7,
+      "method": "bea_rpp"
+    },
+    "31740": {
+      "costOfLivingIndex": 109.4,
+      "method": "census_proxy"
+    },
+    "31820": {
+      "costOfLivingIndex": 91.2,
+      "method": "census_proxy"
+    },
+    "31860": {
+      "costOfLivingIndex": 104.7,
+      "method": "census_proxy"
+    },
+    "31900": {
+      "costOfLivingIndex": 94.3,
+      "method": "census_proxy"
+    },
+    "31930": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "31940": {
+      "costOfLivingIndex": 91.4,
+      "method": "census_proxy"
+    },
+    "31980": {
+      "costOfLivingIndex": 92.5,
+      "method": "census_proxy"
+    },
+    "32000": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "32020": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "32100": {
+      "costOfLivingIndex": 100.6,
+      "method": "census_proxy"
+    },
+    "32140": {
+      "costOfLivingIndex": 91.2,
+      "method": "census_proxy"
+    },
+    "32180": {
+      "costOfLivingIndex": 91.9,
+      "method": "census_proxy"
+    },
+    "32260": {
+      "costOfLivingIndex": 87.9,
+      "method": "census_proxy"
+    },
+    "32280": {
+      "costOfLivingIndex": 96.6,
+      "method": "census_proxy"
+    },
+    "32300": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "32340": {
+      "costOfLivingIndex": 97.0,
+      "method": "census_proxy"
+    },
+    "32380": {
+      "costOfLivingIndex": 92.2,
+      "method": "census_proxy"
+    },
+    "32420": {
+      "costOfLivingIndex": 151.1,
+      "method": "census_proxy"
+    },
+    "32460": {
+      "costOfLivingIndex": 92.6,
+      "method": "census_proxy"
+    },
+    "32500": {
+      "costOfLivingIndex": 99.4,
+      "method": "census_proxy"
+    },
+    "32540": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "32580": {
+      "costOfLivingIndex": 98.9,
+      "method": "census_proxy"
+    },
+    "32620": {
+      "costOfLivingIndex": 106.6,
+      "method": "census_proxy"
+    },
+    "32660": {
+      "costOfLivingIndex": 96.6,
+      "method": "census_proxy"
+    },
+    "32700": {
+      "costOfLivingIndex": 95.8,
+      "method": "census_proxy"
+    },
+    "32740": {
+      "costOfLivingIndex": 92.5,
+      "method": "census_proxy"
+    },
+    "32780": {
+      "costOfLivingIndex": 125.8,
+      "method": "census_proxy"
+    },
+    "32820": {
+      "costOfLivingIndex": 92.2,
+      "method": "bea_rpp"
+    },
+    "32860": {
+      "costOfLivingIndex": 101.0,
+      "method": "census_proxy"
+    },
+    "32900": {
+      "costOfLivingIndex": 124.6,
+      "method": "census_proxy"
+    },
+    "32940": {
+      "costOfLivingIndex": 100.8,
+      "method": "census_proxy"
+    },
+    "33020": {
+      "costOfLivingIndex": 91.5,
+      "method": "census_proxy"
+    },
+    "33060": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "33100": {
+      "costOfLivingIndex": 140.3,
+      "method": "census_proxy"
+    },
+    "33140": {
+      "costOfLivingIndex": 95.5,
+      "method": "census_proxy"
+    },
+    "33180": {
+      "costOfLivingIndex": 102.0,
+      "method": "census_proxy"
+    },
+    "33220": {
+      "costOfLivingIndex": 95.9,
+      "method": "census_proxy"
+    },
+    "33260": {
+      "costOfLivingIndex": 116.1,
+      "method": "census_proxy"
+    },
+    "33300": {
+      "costOfLivingIndex": 99.2,
+      "method": "census_proxy"
+    },
+    "33340": {
+      "costOfLivingIndex": 110.0,
+      "method": "census_proxy"
+    },
+    "33380": {
+      "costOfLivingIndex": 109.0,
+      "method": "census_proxy"
+    },
+    "33420": {
+      "costOfLivingIndex": 97.8,
+      "method": "census_proxy"
+    },
+    "33460": {
+      "costOfLivingIndex": 104.8,
+      "method": "bea_rpp"
+    },
+    "33500": {
+      "costOfLivingIndex": 103.8,
+      "method": "census_proxy"
+    },
+    "33540": {
+      "costOfLivingIndex": 122.5,
+      "method": "census_proxy"
+    },
+    "33580": {
+      "costOfLivingIndex": 98.3,
+      "method": "census_proxy"
+    },
+    "33620": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "33660": {
+      "costOfLivingIndex": 104.7,
+      "method": "census_proxy"
+    },
+    "33700": {
+      "costOfLivingIndex": 132.6,
+      "method": "census_proxy"
+    },
+    "33740": {
+      "costOfLivingIndex": 105.9,
+      "method": "census_proxy"
+    },
+    "33780": {
+      "costOfLivingIndex": 101.8,
+      "method": "census_proxy"
+    },
+    "33860": {
+      "costOfLivingIndex": 104.4,
+      "method": "census_proxy"
+    },
+    "33940": {
+      "costOfLivingIndex": 120.4,
+      "method": "census_proxy"
+    },
+    "33980": {
+      "costOfLivingIndex": 111.7,
+      "method": "census_proxy"
+    },
+    "34020": {
+      "costOfLivingIndex": 101.1,
+      "method": "census_proxy"
+    },
+    "34060": {
+      "costOfLivingIndex": 105.5,
+      "method": "census_proxy"
+    },
+    "34100": {
+      "costOfLivingIndex": 101.3,
+      "method": "census_proxy"
+    },
+    "34140": {
+      "costOfLivingIndex": 112.0,
+      "method": "census_proxy"
+    },
+    "34180": {
+      "costOfLivingIndex": 107.9,
+      "method": "census_proxy"
+    },
+    "34220": {
+      "costOfLivingIndex": 96.5,
+      "method": "census_proxy"
+    },
+    "34260": {
+      "costOfLivingIndex": 103.9,
+      "method": "census_proxy"
+    },
+    "34300": {
+      "costOfLivingIndex": 114.5,
+      "method": "census_proxy"
+    },
+    "34340": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "34350": {
+      "costOfLivingIndex": 99.0,
+      "method": "census_proxy"
+    },
+    "34380": {
+      "costOfLivingIndex": 101.5,
+      "method": "census_proxy"
+    },
+    "34420": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "34460": {
+      "costOfLivingIndex": 92.7,
+      "method": "census_proxy"
+    },
+    "34500": {
+      "costOfLivingIndex": 92.2,
+      "method": "census_proxy"
+    },
+    "34540": {
+      "costOfLivingIndex": 97.8,
+      "method": "census_proxy"
+    },
+    "34580": {
+      "costOfLivingIndex": 131.4,
+      "method": "census_proxy"
+    },
+    "34620": {
+      "costOfLivingIndex": 96.1,
+      "method": "census_proxy"
+    },
+    "34660": {
+      "costOfLivingIndex": 103.5,
+      "method": "census_proxy"
+    },
+    "34700": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "34740": {
+      "costOfLivingIndex": 99.3,
+      "method": "census_proxy"
+    },
+    "34780": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "34820": {
+      "costOfLivingIndex": 114.9,
+      "method": "census_proxy"
+    },
+    "34860": {
+      "costOfLivingIndex": 102.2,
+      "method": "census_proxy"
+    },
+    "34900": {
+      "costOfLivingIndex": 170.7,
+      "method": "census_proxy"
+    },
+    "34940": {
+      "costOfLivingIndex": 139.7,
+      "method": "census_proxy"
+    },
+    "34980": {
+      "costOfLivingIndex": 96.3,
+      "method": "bea_rpp"
+    },
+    "35020": {
+      "costOfLivingIndex": 103.2,
+      "method": "census_proxy"
+    },
+    "35060": {
+      "costOfLivingIndex": 108.9,
+      "method": "census_proxy"
+    },
+    "35100": {
+      "costOfLivingIndex": 106.5,
+      "method": "census_proxy"
+    },
+    "35140": {
+      "costOfLivingIndex": 97.0,
+      "method": "census_proxy"
+    },
+    "35220": {
+      "costOfLivingIndex": 92.3,
+      "method": "census_proxy"
+    },
+    "35260": {
+      "costOfLivingIndex": 93.0,
+      "method": "census_proxy"
+    },
+    "35300": {
+      "costOfLivingIndex": 119.1,
+      "method": "census_proxy"
+    },
+    "35380": {
+      "costOfLivingIndex": 115.1,
+      "method": "census_proxy"
+    },
+    "35420": {
+      "costOfLivingIndex": 96.8,
+      "method": "census_proxy"
+    },
+    "35440": {
+      "costOfLivingIndex": 123.6,
+      "method": "census_proxy"
+    },
+    "35460": {
+      "costOfLivingIndex": 102.0,
+      "method": "census_proxy"
+    },
+    "35580": {
+      "costOfLivingIndex": 94.1,
+      "method": "census_proxy"
+    },
+    "35620": {
+      "costOfLivingIndex": 148.1,
+      "method": "census_proxy"
+    },
+    "35660": {
+      "costOfLivingIndex": 102.4,
+      "method": "census_proxy"
+    },
+    "35700": {
+      "costOfLivingIndex": 102.9,
+      "method": "census_proxy"
+    },
+    "35740": {
+      "costOfLivingIndex": 96.8,
+      "method": "census_proxy"
+    },
+    "35820": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "35840": {
+      "costOfLivingIndex": 130.1,
+      "method": "census_proxy"
+    },
+    "35860": {
+      "costOfLivingIndex": 91.8,
+      "method": "census_proxy"
+    },
+    "35900": {
+      "costOfLivingIndex": 98.1,
+      "method": "census_proxy"
+    },
+    "35940": {
+      "costOfLivingIndex": 93.0,
+      "method": "census_proxy"
+    },
+    "35980": {
+      "costOfLivingIndex": 116.1,
+      "method": "census_proxy"
+    },
+    "36020": {
+      "costOfLivingIndex": 139.3,
+      "method": "census_proxy"
+    },
+    "36100": {
+      "costOfLivingIndex": 112.3,
+      "method": "census_proxy"
+    },
+    "36140": {
+      "costOfLivingIndex": 123.3,
+      "method": "census_proxy"
+    },
+    "36220": {
+      "costOfLivingIndex": 107.5,
+      "method": "census_proxy"
+    },
+    "36260": {
+      "costOfLivingIndex": 121.5,
+      "method": "census_proxy"
+    },
+    "36300": {
+      "costOfLivingIndex": 90.5,
+      "method": "census_proxy"
+    },
+    "36340": {
+      "costOfLivingIndex": 87.5,
+      "method": "census_proxy"
+    },
+    "36380": {
+      "costOfLivingIndex": 107.0,
+      "method": "census_proxy"
+    },
+    "36420": {
+      "costOfLivingIndex": 90.4,
+      "method": "bea_rpp"
+    },
+    "36460": {
+      "costOfLivingIndex": 88.5,
+      "method": "census_proxy"
+    },
+    "36500": {
+      "costOfLivingIndex": 132.3,
+      "method": "census_proxy"
+    },
+    "36540": {
+      "costOfLivingIndex": 91.9,
+      "method": "bea_rpp"
+    },
+    "36580": {
+      "costOfLivingIndex": 98.2,
+      "method": "census_proxy"
+    },
+    "36620": {
+      "costOfLivingIndex": 105.8,
+      "method": "census_proxy"
+    },
+    "36660": {
+      "costOfLivingIndex": 103.3,
+      "method": "census_proxy"
+    },
+    "36700": {
+      "costOfLivingIndex": 102.1,
+      "method": "census_proxy"
+    },
+    "36740": {
+      "costOfLivingIndex": 130.1,
+      "method": "census_proxy"
+    },
+    "36780": {
+      "costOfLivingIndex": 97.6,
+      "method": "census_proxy"
+    },
+    "36820": {
+      "costOfLivingIndex": 89.4,
+      "method": "census_proxy"
+    },
+    "36830": {
+      "costOfLivingIndex": 104.0,
+      "method": "census_proxy"
+    },
+    "36837": {
+      "costOfLivingIndex": 92.2,
+      "method": "census_proxy"
+    },
+    "36840": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "36900": {
+      "costOfLivingIndex": 94.5,
+      "method": "census_proxy"
+    },
+    "36940": {
+      "costOfLivingIndex": 98.3,
+      "method": "census_proxy"
+    },
+    "36980": {
+      "costOfLivingIndex": 96.8,
+      "method": "census_proxy"
+    },
+    "37060": {
+      "costOfLivingIndex": 114.6,
+      "method": "census_proxy"
+    },
+    "37100": {
+      "costOfLivingIndex": 170.7,
+      "method": "census_proxy"
+    },
+    "37120": {
+      "costOfLivingIndex": 96.5,
+      "method": "census_proxy"
+    },
+    "37140": {
+      "costOfLivingIndex": 97.4,
+      "method": "census_proxy"
+    },
+    "37220": {
+      "costOfLivingIndex": 114.5,
+      "method": "census_proxy"
+    },
+    "37260": {
+      "costOfLivingIndex": 103.5,
+      "method": "census_proxy"
+    },
+    "37300": {
+      "costOfLivingIndex": 102.4,
+      "method": "census_proxy"
+    },
+    "37340": {
+      "costOfLivingIndex": 120.7,
+      "method": "census_proxy"
+    },
+    "37420": {
+      "costOfLivingIndex": 91.5,
+      "method": "census_proxy"
+    },
+    "37460": {
+      "costOfLivingIndex": 119.4,
+      "method": "census_proxy"
+    },
+    "37500": {
+      "costOfLivingIndex": 98.7,
+      "method": "census_proxy"
+    },
+    "37540": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "37580": {
+      "costOfLivingIndex": 97.5,
+      "method": "census_proxy"
+    },
+    "37620": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "37660": {
+      "costOfLivingIndex": 86.6,
+      "method": "census_proxy"
+    },
+    "37740": {
+      "costOfLivingIndex": 111.0,
+      "method": "census_proxy"
+    },
+    "37770": {
+      "costOfLivingIndex": 89.7,
+      "method": "census_proxy"
+    },
+    "37780": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "37800": {
+      "costOfLivingIndex": 95.1,
+      "method": "census_proxy"
+    },
+    "37860": {
+      "costOfLivingIndex": 113.1,
+      "method": "census_proxy"
+    },
+    "37900": {
+      "costOfLivingIndex": 94.0,
+      "method": "census_proxy"
+    },
+    "37940": {
+      "costOfLivingIndex": 89.2,
+      "method": "census_proxy"
+    },
+    "37980": {
+      "costOfLivingIndex": 119.5,
+      "method": "census_proxy"
+    },
+    "38060": {
+      "costOfLivingIndex": 128.4,
+      "method": "census_proxy"
+    },
+    "38100": {
+      "costOfLivingIndex": 103.7,
+      "method": "census_proxy"
+    },
+    "38180": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "38220": {
+      "costOfLivingIndex": 97.2,
+      "method": "census_proxy"
+    },
+    "38240": {
+      "costOfLivingIndex": 110.9,
+      "method": "census_proxy"
+    },
+    "38260": {
+      "costOfLivingIndex": 97.0,
+      "method": "census_proxy"
+    },
+    "38300": {
+      "costOfLivingIndex": 94.7,
+      "method": "bea_rpp"
+    },
+    "38340": {
+      "costOfLivingIndex": 109.4,
+      "method": "census_proxy"
+    },
+    "38380": {
+      "costOfLivingIndex": 91.7,
+      "method": "census_proxy"
+    },
+    "38420": {
+      "costOfLivingIndex": 95.6,
+      "method": "census_proxy"
+    },
+    "38460": {
+      "costOfLivingIndex": 98.0,
+      "method": "census_proxy"
+    },
+    "38500": {
+      "costOfLivingIndex": 97.1,
+      "method": "census_proxy"
+    },
+    "38540": {
+      "costOfLivingIndex": 103.6,
+      "method": "census_proxy"
+    },
+    "38580": {
+      "costOfLivingIndex": 93.4,
+      "method": "census_proxy"
+    },
+    "38620": {
+      "costOfLivingIndex": 92.7,
+      "method": "census_proxy"
+    },
+    "38660": {
+      "costOfLivingIndex": 140.6,
+      "method": "census_proxy"
+    },
+    "38700": {
+      "costOfLivingIndex": 89.4,
+      "method": "census_proxy"
+    },
+    "38740": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "38780": {
+      "costOfLivingIndex": 96.0,
+      "method": "census_proxy"
+    },
+    "38820": {
+      "costOfLivingIndex": 121.4,
+      "method": "census_proxy"
+    },
+    "38860": {
+      "costOfLivingIndex": 101.9,
+      "method": "bea_rpp"
+    },
+    "38900": {
+      "costOfLivingIndex": 139.7,
+      "method": "census_proxy"
+    },
+    "38920": {
+      "costOfLivingIndex": 96.4,
+      "method": "census_proxy"
+    },
+    "38940": {
+      "costOfLivingIndex": 124.1,
+      "method": "census_proxy"
+    },
+    "39020": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "39060": {
+      "costOfLivingIndex": 90.1,
+      "method": "census_proxy"
+    },
+    "39100": {
+      "costOfLivingIndex": 124.8,
+      "method": "census_proxy"
+    },
+    "39150": {
+      "costOfLivingIndex": 124.3,
+      "method": "census_proxy"
+    },
+    "39220": {
+      "costOfLivingIndex": 100.9,
+      "method": "census_proxy"
+    },
+    "39260": {
+      "costOfLivingIndex": 120.4,
+      "method": "census_proxy"
+    },
+    "39300": {
+      "costOfLivingIndex": 101.8,
+      "method": "bea_rpp"
+    },
+    "39340": {
+      "costOfLivingIndex": 128.0,
+      "method": "census_proxy"
+    },
+    "39380": {
+      "costOfLivingIndex": 110.2,
+      "method": "census_proxy"
+    },
+    "39420": {
+      "costOfLivingIndex": 121.9,
+      "method": "census_proxy"
+    },
+    "39460": {
+      "costOfLivingIndex": 119.4,
+      "method": "census_proxy"
+    },
+    "39500": {
+      "costOfLivingIndex": 91.6,
+      "method": "census_proxy"
+    },
+    "39540": {
+      "costOfLivingIndex": 103.9,
+      "method": "census_proxy"
+    },
+    "39580": {
+      "costOfLivingIndex": 122.2,
+      "method": "census_proxy"
+    },
+    "39660": {
+      "costOfLivingIndex": 108.7,
+      "method": "census_proxy"
+    },
+    "39700": {
+      "costOfLivingIndex": 91.3,
+      "method": "census_proxy"
+    },
+    "39740": {
+      "costOfLivingIndex": 106.3,
+      "method": "census_proxy"
+    },
+    "39780": {
+      "costOfLivingIndex": 120.3,
+      "method": "census_proxy"
+    },
+    "39820": {
+      "costOfLivingIndex": 123.0,
+      "method": "census_proxy"
+    },
+    "39860": {
+      "costOfLivingIndex": 101.8,
+      "method": "census_proxy"
+    },
+    "39900": {
+      "costOfLivingIndex": 134.2,
+      "method": "census_proxy"
+    },
+    "39940": {
+      "costOfLivingIndex": 114.6,
+      "method": "census_proxy"
+    },
+    "39980": {
+      "costOfLivingIndex": 93.4,
+      "method": "census_proxy"
+    },
+    "40060": {
+      "costOfLivingIndex": 97.9,
+      "method": "bea_rpp"
+    },
+    "40080": {
+      "costOfLivingIndex": 100.5,
+      "method": "census_proxy"
+    },
+    "40100": {
+      "costOfLivingIndex": 102.4,
+      "method": "census_proxy"
+    },
+    "40140": {
+      "costOfLivingIndex": 142.1,
+      "method": "census_proxy"
+    },
+    "40180": {
+      "costOfLivingIndex": 104.8,
+      "method": "census_proxy"
+    },
+    "40220": {
+      "costOfLivingIndex": 104.9,
+      "method": "census_proxy"
+    },
+    "40260": {
+      "costOfLivingIndex": 98.7,
+      "method": "census_proxy"
+    },
+    "40300": {
+      "costOfLivingIndex": 92.3,
+      "method": "census_proxy"
+    },
+    "40340": {
+      "costOfLivingIndex": 90.8,
+      "method": "bea_rpp"
+    },
+    "40380": {
+      "costOfLivingIndex": 97.0,
+      "method": "bea_rpp"
+    },
+    "40420": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "40460": {
+      "costOfLivingIndex": 99.9,
+      "method": "census_proxy"
+    },
+    "40530": {
+      "costOfLivingIndex": 112.8,
+      "method": "census_proxy"
+    },
+    "40540": {
+      "costOfLivingIndex": 100.2,
+      "method": "census_proxy"
+    },
+    "40580": {
+      "costOfLivingIndex": 99.1,
+      "method": "census_proxy"
+    },
+    "40620": {
+      "costOfLivingIndex": 100.5,
+      "method": "census_proxy"
+    },
+    "40660": {
+      "costOfLivingIndex": 101.7,
+      "method": "census_proxy"
+    },
+    "40700": {
+      "costOfLivingIndex": 113.8,
+      "method": "census_proxy"
+    },
+    "40740": {
+      "costOfLivingIndex": 100.7,
+      "method": "census_proxy"
+    },
+    "40760": {
+      "costOfLivingIndex": 108.8,
+      "method": "census_proxy"
+    },
+    "40780": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "40820": {
+      "costOfLivingIndex": 118.5,
+      "method": "census_proxy"
+    },
+    "40860": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "40900": {
+      "costOfLivingIndex": 106.7,
+      "method": "bea_rpp"
+    },
+    "40940": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "40980": {
+      "costOfLivingIndex": 96.7,
+      "method": "census_proxy"
+    },
+    "41060": {
+      "costOfLivingIndex": 104.2,
+      "method": "census_proxy"
+    },
+    "41100": {
+      "costOfLivingIndex": 131.6,
+      "method": "census_proxy"
+    },
+    "41140": {
+      "costOfLivingIndex": 96.0,
+      "method": "census_proxy"
+    },
+    "41180": {
+      "costOfLivingIndex": 95.1,
+      "method": "bea_rpp"
+    },
+    "41220": {
+      "costOfLivingIndex": 109.4,
+      "method": "census_proxy"
+    },
+    "41260": {
+      "costOfLivingIndex": 87.1,
+      "method": "census_proxy"
+    },
+    "41400": {
+      "costOfLivingIndex": 90.4,
+      "method": "census_proxy"
+    },
+    "41420": {
+      "costOfLivingIndex": 123.9,
+      "method": "census_proxy"
+    },
+    "41460": {
+      "costOfLivingIndex": 97.6,
+      "method": "census_proxy"
+    },
+    "41500": {
+      "costOfLivingIndex": 161.9,
+      "method": "census_proxy"
+    },
+    "41540": {
+      "costOfLivingIndex": 115.4,
+      "method": "census_proxy"
+    },
+    "41620": {
+      "costOfLivingIndex": 100.9,
+      "method": "bea_rpp"
+    },
+    "41660": {
+      "costOfLivingIndex": 102.2,
+      "method": "census_proxy"
+    },
+    "41700": {
+      "costOfLivingIndex": 94.7,
+      "method": "bea_rpp"
+    },
+    "41740": {
+      "costOfLivingIndex": 167.7,
+      "method": "census_proxy"
+    },
+    "41760": {
+      "costOfLivingIndex": 122.0,
+      "method": "census_proxy"
+    },
+    "41780": {
+      "costOfLivingIndex": 97.3,
+      "method": "census_proxy"
+    },
+    "41820": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "41860": {
+      "costOfLivingIndex": 191.3,
+      "method": "census_proxy"
+    },
+    "41900": {
+      "costOfLivingIndex": 141.3,
+      "method": "census_proxy"
+    },
+    "41940": {
+      "costOfLivingIndex": 210.5,
+      "method": "census_proxy"
+    },
+    "41980": {
+      "costOfLivingIndex": 124.0,
+      "method": "census_proxy"
+    },
+    "42020": {
+      "costOfLivingIndex": 162.1,
+      "method": "census_proxy"
+    },
+    "42100": {
+      "costOfLivingIndex": 180.9,
+      "method": "census_proxy"
+    },
+    "42140": {
+      "costOfLivingIndex": 126.6,
+      "method": "census_proxy"
+    },
+    "42180": {
+      "costOfLivingIndex": 129.5,
+      "method": "census_proxy"
+    },
+    "42200": {
+      "costOfLivingIndex": 166.5,
+      "method": "census_proxy"
+    },
+    "42220": {
+      "costOfLivingIndex": 169.1,
+      "method": "census_proxy"
+    },
+    "42300": {
+      "costOfLivingIndex": 94.0,
+      "method": "census_proxy"
+    },
+    "42340": {
+      "costOfLivingIndex": 116.3,
+      "method": "census_proxy"
+    },
+    "42380": {
+      "costOfLivingIndex": 97.5,
+      "method": "census_proxy"
+    },
+    "42420": {
+      "costOfLivingIndex": 97.4,
+      "method": "census_proxy"
+    },
+    "42460": {
+      "costOfLivingIndex": 97.2,
+      "method": "census_proxy"
+    },
+    "42500": {
+      "costOfLivingIndex": 100.2,
+      "method": "census_proxy"
+    },
+    "42540": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "42620": {
+      "costOfLivingIndex": 99.9,
+      "method": "census_proxy"
+    },
+    "42660": {
+      "costOfLivingIndex": 154.8,
+      "method": "census_proxy"
+    },
+    "42680": {
+      "costOfLivingIndex": 118.0,
+      "method": "census_proxy"
+    },
+    "42700": {
+      "costOfLivingIndex": 103.0,
+      "method": "census_proxy"
+    },
+    "42740": {
+      "costOfLivingIndex": 97.3,
+      "method": "census_proxy"
+    },
+    "42780": {
+      "costOfLivingIndex": 99.0,
+      "method": "census_proxy"
+    },
+    "42820": {
+      "costOfLivingIndex": 103.1,
+      "method": "census_proxy"
+    },
+    "42860": {
+      "costOfLivingIndex": 103.2,
+      "method": "census_proxy"
+    },
+    "42900": {
+      "costOfLivingIndex": 92.8,
+      "method": "census_proxy"
+    },
+    "42940": {
+      "costOfLivingIndex": 110.0,
+      "method": "census_proxy"
+    },
+    "42980": {
+      "costOfLivingIndex": 96.9,
+      "method": "census_proxy"
+    },
+    "43020": {
+      "costOfLivingIndex": 91.5,
+      "method": "census_proxy"
+    },
+    "43060": {
+      "costOfLivingIndex": 96.8,
+      "method": "census_proxy"
+    },
+    "43100": {
+      "costOfLivingIndex": 98.4,
+      "method": "census_proxy"
+    },
+    "43140": {
+      "costOfLivingIndex": 100.8,
+      "method": "census_proxy"
+    },
+    "43180": {
+      "costOfLivingIndex": 104.7,
+      "method": "census_proxy"
+    },
+    "43220": {
+      "costOfLivingIndex": 118.7,
+      "method": "census_proxy"
+    },
+    "43260": {
+      "costOfLivingIndex": 113.5,
+      "method": "census_proxy"
+    },
+    "43300": {
+      "costOfLivingIndex": 108.0,
+      "method": "census_proxy"
+    },
+    "43320": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "43340": {
+      "costOfLivingIndex": 107.1,
+      "method": "census_proxy"
+    },
+    "43380": {
+      "costOfLivingIndex": 94.0,
+      "method": "census_proxy"
+    },
+    "43420": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "43460": {
+      "costOfLivingIndex": 95.5,
+      "method": "census_proxy"
+    },
+    "43500": {
+      "costOfLivingIndex": 105.6,
+      "method": "census_proxy"
+    },
+    "43580": {
+      "costOfLivingIndex": 96.4,
+      "method": "census_proxy"
+    },
+    "43620": {
+      "costOfLivingIndex": 90.6,
+      "method": "bea_rpp"
+    },
+    "43660": {
+      "costOfLivingIndex": 97.4,
+      "method": "census_proxy"
+    },
+    "43700": {
+      "costOfLivingIndex": 100.9,
+      "method": "census_proxy"
+    },
+    "43740": {
+      "costOfLivingIndex": 89.6,
+      "method": "census_proxy"
+    },
+    "43760": {
+      "costOfLivingIndex": 122.8,
+      "method": "census_proxy"
+    },
+    "43780": {
+      "costOfLivingIndex": 100.9,
+      "method": "census_proxy"
+    },
+    "43900": {
+      "costOfLivingIndex": 104.3,
+      "method": "census_proxy"
+    },
+    "43940": {
+      "costOfLivingIndex": 108.6,
+      "method": "census_proxy"
+    },
+    "43980": {
+      "costOfLivingIndex": 92.4,
+      "method": "census_proxy"
+    },
+    "44020": {
+      "costOfLivingIndex": 102.2,
+      "method": "census_proxy"
+    },
+    "44060": {
+      "costOfLivingIndex": 100.3,
+      "method": "bea_rpp"
+    },
+    "44100": {
+      "costOfLivingIndex": 95.0,
+      "method": "census_proxy"
+    },
+    "44140": {
+      "costOfLivingIndex": 113.3,
+      "method": "census_proxy"
+    },
+    "44180": {
+      "costOfLivingIndex": 103.1,
+      "method": "census_proxy"
+    },
+    "44220": {
+      "costOfLivingIndex": 95.3,
+      "method": "census_proxy"
+    },
+    "44260": {
+      "costOfLivingIndex": 110.5,
+      "method": "census_proxy"
+    },
+    "44300": {
+      "costOfLivingIndex": 115.3,
+      "method": "census_proxy"
+    },
+    "44340": {
+      "costOfLivingIndex": 105.4,
+      "method": "census_proxy"
+    },
+    "44420": {
+      "costOfLivingIndex": 107.8,
+      "method": "census_proxy"
+    },
+    "44460": {
+      "costOfLivingIndex": 156.4,
+      "method": "census_proxy"
+    },
+    "44500": {
+      "costOfLivingIndex": 111.6,
+      "method": "census_proxy"
+    },
+    "44540": {
+      "costOfLivingIndex": 105.4,
+      "method": "census_proxy"
+    },
+    "44580": {
+      "costOfLivingIndex": 89.2,
+      "method": "census_proxy"
+    },
+    "44620": {
+      "costOfLivingIndex": 99.6,
+      "method": "census_proxy"
+    },
+    "44660": {
+      "costOfLivingIndex": 112.1,
+      "method": "census_proxy"
+    },
+    "44700": {
+      "costOfLivingIndex": 138.9,
+      "method": "census_proxy"
+    },
+    "44740": {
+      "costOfLivingIndex": 91.2,
+      "method": "census_proxy"
+    },
+    "44780": {
+      "costOfLivingIndex": 94.3,
+      "method": "census_proxy"
+    },
+    "44860": {
+      "costOfLivingIndex": 100.8,
+      "method": "census_proxy"
+    },
+    "44900": {
+      "costOfLivingIndex": 95.9,
+      "method": "census_proxy"
+    },
+    "44940": {
+      "costOfLivingIndex": 102.4,
+      "method": "census_proxy"
+    },
+    "44980": {
+      "costOfLivingIndex": 94.2,
+      "method": "census_proxy"
+    },
+    "45000": {
+      "costOfLivingIndex": 112.0,
+      "method": "census_proxy"
+    },
+    "45020": {
+      "costOfLivingIndex": 95.1,
+      "method": "census_proxy"
+    },
+    "45060": {
+      "costOfLivingIndex": 97.9,
+      "method": "census_proxy"
+    },
+    "45140": {
+      "costOfLivingIndex": 97.6,
+      "method": "census_proxy"
+    },
+    "45180": {
+      "costOfLivingIndex": 95.2,
+      "method": "census_proxy"
+    },
+    "45220": {
+      "costOfLivingIndex": 114.6,
+      "method": "census_proxy"
+    },
+    "45300": {
+      "costOfLivingIndex": 123.6,
+      "method": "census_proxy"
+    },
+    "45340": {
+      "costOfLivingIndex": 120.0,
+      "method": "census_proxy"
+    },
+    "45380": {
+      "costOfLivingIndex": 87.7,
+      "method": "census_proxy"
+    },
+    "45460": {
+      "costOfLivingIndex": 94.3,
+      "method": "census_proxy"
+    },
+    "45500": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "45520": {
+      "costOfLivingIndex": 113.3,
+      "method": "census_proxy"
+    },
+    "45540": {
+      "costOfLivingIndex": 120.5,
+      "method": "census_proxy"
+    },
+    "45580": {
+      "costOfLivingIndex": 99.4,
+      "method": "census_proxy"
+    },
+    "45620": {
+      "costOfLivingIndex": 106.1,
+      "method": "census_proxy"
+    },
+    "45660": {
+      "costOfLivingIndex": 90.3,
+      "method": "census_proxy"
+    },
+    "45700": {
+      "costOfLivingIndex": 96.6,
+      "method": "census_proxy"
+    },
+    "45740": {
+      "costOfLivingIndex": 99.3,
+      "method": "census_proxy"
+    },
+    "45780": {
+      "costOfLivingIndex": 97.7,
+      "method": "census_proxy"
+    },
+    "45820": {
+      "costOfLivingIndex": 97.5,
+      "method": "census_proxy"
+    },
+    "45860": {
+      "costOfLivingIndex": 113.1,
+      "method": "census_proxy"
+    },
+    "45900": {
+      "costOfLivingIndex": 110.9,
+      "method": "census_proxy"
+    },
+    "45940": {
+      "costOfLivingIndex": 103.2,
+      "method": "bea_rpp"
+    },
+    "45980": {
+      "costOfLivingIndex": 105.0,
+      "method": "census_proxy"
+    },
+    "46020": {
+      "costOfLivingIndex": 144.5,
+      "method": "census_proxy"
+    },
+    "46060": {
+      "costOfLivingIndex": 113.2,
+      "method": "census_proxy"
+    },
+    "46100": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "46140": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "46180": {
+      "costOfLivingIndex": 95.5,
+      "method": "census_proxy"
+    },
+    "46220": {
+      "costOfLivingIndex": 106.4,
+      "method": "census_proxy"
+    },
+    "46300": {
+      "costOfLivingIndex": 108.8,
+      "method": "census_proxy"
+    },
+    "46340": {
+      "costOfLivingIndex": 107.5,
+      "method": "census_proxy"
+    },
+    "46380": {
+      "costOfLivingIndex": 136.7,
+      "method": "census_proxy"
+    },
+    "46420": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "46460": {
+      "costOfLivingIndex": 94.2,
+      "method": "census_proxy"
+    },
+    "46500": {
+      "costOfLivingIndex": 94.0,
+      "method": "census_proxy"
+    },
+    "46520": {
+      "costOfLivingIndex": 111.0,
+      "method": "bea_rpp"
+    },
+    "46540": {
+      "costOfLivingIndex": 94.0,
+      "method": "census_proxy"
+    },
+    "46620": {
+      "costOfLivingIndex": 102.1,
+      "method": "census_proxy"
+    },
+    "46660": {
+      "costOfLivingIndex": 106.5,
+      "method": "census_proxy"
+    },
+    "46700": {
+      "costOfLivingIndex": 156.1,
+      "method": "census_proxy"
+    },
+    "46780": {
+      "costOfLivingIndex": 88.7,
+      "method": "census_proxy"
+    },
+    "46820": {
+      "costOfLivingIndex": 102.2,
+      "method": "census_proxy"
+    },
+    "46860": {
+      "costOfLivingIndex": 102.0,
+      "method": "census_proxy"
+    },
+    "46900": {
+      "costOfLivingIndex": 90.6,
+      "method": "census_proxy"
+    },
+    "46980": {
+      "costOfLivingIndex": 99.5,
+      "method": "census_proxy"
+    },
+    "47020": {
+      "costOfLivingIndex": 104.8,
+      "method": "census_proxy"
+    },
+    "47080": {
+      "costOfLivingIndex": 94.4,
+      "method": "census_proxy"
+    },
+    "47180": {
+      "costOfLivingIndex": 90.2,
+      "method": "census_proxy"
+    },
+    "47220": {
+      "costOfLivingIndex": 111.9,
+      "method": "census_proxy"
+    },
+    "47240": {
+      "costOfLivingIndex": 170.0,
+      "method": "census_proxy"
+    },
+    "47260": {
+      "costOfLivingIndex": 120.9,
+      "method": "census_proxy"
+    },
+    "47300": {
+      "costOfLivingIndex": 117.4,
+      "method": "census_proxy"
+    },
+    "47340": {
+      "costOfLivingIndex": 87.7,
+      "method": "census_proxy"
+    },
+    "47380": {
+      "costOfLivingIndex": 107.8,
+      "method": "census_proxy"
+    },
+    "47420": {
+      "costOfLivingIndex": 90.3,
+      "method": "census_proxy"
+    },
+    "47460": {
+      "costOfLivingIndex": 117.7,
+      "method": "census_proxy"
+    },
+    "47540": {
+      "costOfLivingIndex": 91.1,
+      "method": "census_proxy"
+    },
+    "47580": {
+      "costOfLivingIndex": 101.8,
+      "method": "census_proxy"
+    },
+    "47620": {
+      "costOfLivingIndex": 89.0,
+      "method": "census_proxy"
+    },
+    "47660": {
+      "costOfLivingIndex": 103.6,
+      "method": "census_proxy"
+    },
+    "47700": {
+      "costOfLivingIndex": 98.7,
+      "method": "census_proxy"
+    },
+    "47780": {
+      "costOfLivingIndex": 96.2,
+      "method": "census_proxy"
+    },
+    "47820": {
+      "costOfLivingIndex": 99.2,
+      "method": "census_proxy"
+    },
+    "47900": {
+      "costOfLivingIndex": 108.9,
+      "method": "bea_rpp"
+    },
+    "47920": {
+      "costOfLivingIndex": 95.7,
+      "method": "census_proxy"
+    },
+    "47940": {
+      "costOfLivingIndex": 98.5,
+      "method": "census_proxy"
+    },
+    "47980": {
+      "costOfLivingIndex": 98.8,
+      "method": "census_proxy"
+    },
+    "48020": {
+      "costOfLivingIndex": 103.5,
+      "method": "census_proxy"
+    },
+    "48060": {
+      "costOfLivingIndex": 107.1,
+      "method": "census_proxy"
+    },
+    "48100": {
+      "costOfLivingIndex": 104.7,
+      "method": "census_proxy"
+    },
+    "48140": {
+      "costOfLivingIndex": 96.8,
+      "method": "census_proxy"
+    },
+    "48180": {
+      "costOfLivingIndex": 94.3,
+      "method": "census_proxy"
+    },
+    "48220": {
+      "costOfLivingIndex": 95.3,
+      "method": "census_proxy"
+    },
+    "48260": {
+      "costOfLivingIndex": 90.6,
+      "method": "census_proxy"
+    },
+    "48300": {
+      "costOfLivingIndex": 123.4,
+      "method": "census_proxy"
+    },
+    "48460": {
+      "costOfLivingIndex": 98.9,
+      "method": "census_proxy"
+    },
+    "48500": {
+      "costOfLivingIndex": 105.9,
+      "method": "census_proxy"
+    },
+    "48540": {
+      "costOfLivingIndex": 93.6,
+      "method": "census_proxy"
+    },
+    "48580": {
+      "costOfLivingIndex": 107.4,
+      "method": "census_proxy"
+    },
+    "48620": {
+      "costOfLivingIndex": 88.9,
+      "method": "bea_rpp"
+    },
+    "48660": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "48700": {
+      "costOfLivingIndex": 99.7,
+      "method": "census_proxy"
+    },
+    "48780": {
+      "costOfLivingIndex": 106.4,
+      "method": "census_proxy"
+    },
+    "48820": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "48900": {
+      "costOfLivingIndex": 120.7,
+      "method": "census_proxy"
+    },
+    "48940": {
+      "costOfLivingIndex": 96.6,
+      "method": "census_proxy"
+    },
+    "48980": {
+      "costOfLivingIndex": 103.2,
+      "method": "census_proxy"
+    },
+    "49020": {
+      "costOfLivingIndex": 117.4,
+      "method": "census_proxy"
+    },
+    "49060": {
+      "costOfLivingIndex": 90.1,
+      "method": "census_proxy"
+    },
+    "49080": {
+      "costOfLivingIndex": 102.5,
+      "method": "census_proxy"
+    },
+    "49100": {
+      "costOfLivingIndex": 98.0,
+      "method": "census_proxy"
+    },
+    "49180": {
+      "costOfLivingIndex": 103.4,
+      "method": "census_proxy"
+    },
+    "49220": {
+      "costOfLivingIndex": 94.9,
+      "method": "census_proxy"
+    },
+    "49260": {
+      "costOfLivingIndex": 95.8,
+      "method": "census_proxy"
+    },
+    "49300": {
+      "costOfLivingIndex": 95.6,
+      "method": "census_proxy"
+    },
+    "49340": {
+      "costOfLivingIndex": 102.5,
+      "method": "bea_rpp"
+    },
+    "49380": {
+      "costOfLivingIndex": 96.3,
+      "method": "census_proxy"
+    },
+    "49420": {
+      "costOfLivingIndex": 110.6,
+      "method": "census_proxy"
+    },
+    "49460": {
+      "costOfLivingIndex": 94.2,
+      "method": "census_proxy"
+    },
+    "49500": {
+      "costOfLivingIndex": 140.3,
+      "method": "census_proxy"
+    },
+    "49620": {
+      "costOfLivingIndex": 104.9,
+      "method": "census_proxy"
+    },
+    "49660": {
+      "costOfLivingIndex": 93.7,
+      "method": "census_proxy"
+    },
+    "49700": {
+      "costOfLivingIndex": 124.9,
+      "method": "census_proxy"
+    },
+    "49740": {
+      "costOfLivingIndex": 104.4,
+      "method": "census_proxy"
+    },
+    "49780": {
+      "costOfLivingIndex": 96.4,
+      "method": "census_proxy"
+    },
+    "49820": {
+      "costOfLivingIndex": 99.4,
+      "method": "census_proxy"
+    }
+  }
+}

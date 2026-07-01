@@ -1,0 +1,321 @@
+{
+  "source": {
+    "name": "Phase 2 all-50-state metro candidate list",
+    "schema_version": "us-reloc-2026.v2.all50",
+    "pulled_at": "2026-06-19",
+    "method": "Top-1 metro per state, with manual overrides for affordable choices in expensive states (CA\u2192Sacramento, NY\u2192Rochester, etc.). DC included separately.",
+    "previous_version": "us-reloc-2026.v1 (26 curated metros)"
+  },
+  "metros": {
+    "Dallas": {
+      "name": "Dallas, TX",
+      "state": "TX",
+      "zhvi": 366823.21013551723
+    },
+    "Houston": {
+      "name": "Houston, TX",
+      "state": "TX",
+      "zhvi": 308305.81214176427
+    },
+    "Minneapolis": {
+      "name": "Minneapolis, MN",
+      "state": "MN",
+      "zhvi": 393773.94718804845
+    },
+    "Denver": {
+      "name": "Denver, CO",
+      "state": "CO",
+      "zhvi": 573221.0447101688
+    },
+    "St. Louis": {
+      "name": "St. Louis, MO",
+      "state": "MO",
+      "zhvi": 276877.7014272255
+    },
+    "San Antonio": {
+      "name": "San Antonio, TX",
+      "state": "TX",
+      "zhvi": 280297.0273029063
+    },
+    "Pittsburgh": {
+      "name": "Pittsburgh, PA",
+      "state": "PA",
+      "zhvi": 231356.03044424407
+    },
+    "Cincinnati": {
+      "name": "Cincinnati, OH",
+      "state": "OH",
+      "zhvi": 311269.73243333615
+    },
+    "Austin": {
+      "name": "Austin, TX",
+      "state": "TX",
+      "zhvi": 428524.1177891283
+    },
+    "Kansas City": {
+      "name": "Kansas City, MO",
+      "state": "MO",
+      "zhvi": 329640.5190672718
+    },
+    "Columbus": {
+      "name": "Columbus, OH",
+      "state": "OH",
+      "zhvi": 333537.2356753699
+    },
+    "Indianapolis": {
+      "name": "Indianapolis, IN",
+      "state": "IN",
+      "zhvi": 295921.27605814656
+    },
+    "Nashville": {
+      "name": "Nashville, TN",
+      "state": "TN",
+      "zhvi": 455957.77819186664
+    },
+    "Memphis": {
+      "name": "Memphis, TN",
+      "state": "TN",
+      "zhvi": 247228.65765758898
+    },
+    "Louisville": {
+      "name": "Louisville, KY",
+      "state": "KY",
+      "zhvi": 283231.8191382916
+    },
+    "Grand Rapids": {
+      "name": "Grand Rapids, MI",
+      "state": "MI",
+      "zhvi": 359922.75917669706
+    },
+    "Colorado Springs": {
+      "name": "Colorado Springs, CO",
+      "state": "CO",
+      "zhvi": 457299.67172576574
+    },
+    "Madison": {
+      "name": "Madison, WI",
+      "state": "WI",
+      "zhvi": 452769.31962457666
+    },
+    "Spokane": {
+      "name": "Spokane, WA",
+      "state": "WA",
+      "zhvi": 423841.58051760076
+    },
+    "Boulder": {
+      "name": "Boulder, CO",
+      "state": "CO",
+      "zhvi": 727953.9194274591
+    },
+    "Kalamazoo": {
+      "name": "Kalamazoo, MI",
+      "state": "MI",
+      "zhvi": 279751.72484707093
+    },
+    "Appleton": {
+      "name": "Appleton, WI",
+      "state": "WI",
+      "zhvi": 350370.12970403774
+    },
+    "Rochester": {
+      "name": "Rochester, MN",
+      "state": "MN",
+      "zhvi": 343120.8481959726
+    },
+    "Bend": {
+      "name": "Bend, OR",
+      "state": "OR",
+      "zhvi": 672285.6594895012
+    },
+    "Bozeman": {
+      "name": "Bozeman, MT",
+      "state": "MT",
+      "zhvi": 705739.4029383049
+    },
+    "Boise": {
+      "name": "Boise City, ID",
+      "state": "ID",
+      "zhvi": 496287.93420281756
+    },
+    "all50_AK": {
+      "name": "Anchorage, AK",
+      "state": "AK",
+      "zhvi": 422103.26480353443
+    },
+    "all50_AL": {
+      "name": "Birmingham, AL",
+      "state": "AL",
+      "zhvi": 262556.25922564924
+    },
+    "all50_AR": {
+      "name": "Little Rock, AR",
+      "state": "AR",
+      "zhvi": 231039.19539986597
+    },
+    "all50_AZ": {
+      "name": "Tucson, AZ",
+      "state": "AZ",
+      "zhvi": 343579.90960569686
+    },
+    "all50_CA": {
+      "name": "Sacramento, CA",
+      "state": "CA",
+      "zhvi": 582707.1709126614
+    },
+    "all50_CT": {
+      "name": "Hartford, CT",
+      "state": "CT",
+      "zhvi": 400166.72076371947
+    },
+    "all50_DC": {
+      "name": "Washington, DC",
+      "state": "DC",
+      "zhvi": 583012.938093478
+    },
+    "all50_DE": {
+      "name": "Dover, DE",
+      "state": "DE",
+      "zhvi": 372156.15015504113
+    },
+    "all50_FL": {
+      "name": "Jacksonville, FL",
+      "state": "FL",
+      "zhvi": 352993.6261503145
+    },
+    "all50_GA": {
+      "name": "Atlanta, GA",
+      "state": "GA",
+      "zhvi": 382937.5931882046
+    },
+    "all50_HI": {
+      "name": "Urban Honolulu, HI",
+      "state": "HI",
+      "zhvi": 851163.2085935777
+    },
+    "all50_IA": {
+      "name": "Des Moines, IA",
+      "state": "IA",
+      "zhvi": 296070.33573073265
+    },
+    "all50_IL": {
+      "name": "Chicago, IL",
+      "state": "IL",
+      "zhvi": 353998.2425005846
+    },
+    "all50_KS": {
+      "name": "Wichita, KS",
+      "state": "KS",
+      "zhvi": 225556.5631189926
+    },
+    "all50_LA": {
+      "name": "New Orleans, LA",
+      "state": "LA",
+      "zhvi": 261414.27308915477
+    },
+    "all50_MA": {
+      "name": "Worcester, MA",
+      "state": "MA",
+      "zhvi": 482610.703019998
+    },
+    "all50_MD": {
+      "name": "Baltimore, MD",
+      "state": "MD",
+      "zhvi": 405877.479066236
+    },
+    "all50_ME": {
+      "name": "Portland, ME",
+      "state": "ME",
+      "zhvi": 542063.4067365158
+    },
+    "all50_MS": {
+      "name": "Jackson, MS",
+      "state": "MS",
+      "zhvi": 215135.62525198123
+    },
+    "all50_NC": {
+      "name": "Charlotte, NC",
+      "state": "NC",
+      "zhvi": 390320.98576715327
+    },
+    "all50_ND": {
+      "name": "Fargo, ND",
+      "state": "ND",
+      "zhvi": 327853.63689201843
+    },
+    "all50_NE": {
+      "name": "Omaha, NE",
+      "state": "NE",
+      "zhvi": 310336.77381570364
+    },
+    "all50_NH": {
+      "name": "Manchester, NH",
+      "state": "NH",
+      "zhvi": 526340.0604922868
+    },
+    "all50_NJ": {
+      "name": "Trenton, NJ",
+      "state": "NJ",
+      "zhvi": 446376.9645189585
+    },
+    "all50_NM": {
+      "name": "Albuquerque, NM",
+      "state": "NM",
+      "zhvi": 352894.32074222737
+    },
+    "all50_NV": {
+      "name": "Las Vegas, NV",
+      "state": "NV",
+      "zhvi": 430649.5974628375
+    },
+    "all50_NY": {
+      "name": "Rochester, NY",
+      "state": "NY",
+      "zhvi": 285033.75788990385
+    },
+    "all50_OK": {
+      "name": "Oklahoma City, OK",
+      "state": "OK",
+      "zhvi": 246871.9237029251
+    },
+    "all50_RI": {
+      "name": "Providence, RI",
+      "state": "RI",
+      "zhvi": 524867.4674290569
+    },
+    "all50_SC": {
+      "name": "Greenville, SC",
+      "state": "SC",
+      "zhvi": 315284.8190188964
+    },
+    "all50_SD": {
+      "name": "Sioux Falls, SD",
+      "state": "SD",
+      "zhvi": 342935.7626452196
+    },
+    "all50_UT": {
+      "name": "Salt Lake City, UT",
+      "state": "UT",
+      "zhvi": 568655.9697669917
+    },
+    "all50_VA": {
+      "name": "Richmond, VA",
+      "state": "VA",
+      "zhvi": 397704.77906272904
+    },
+    "all50_VT": {
+      "name": "Burlington, VT",
+      "state": "VT",
+      "zhvi": 472552.20256689755
+    },
+    "all50_WV": {
+      "name": "Charleston, WV",
+      "state": "WV",
+      "zhvi": 148816.7665451829
+    },
+    "all50_WY": {
+      "name": "Cheyenne, WY",
+      "state": "WY",
+      "zhvi": 390859.0629822232
+    }
+  }
+}

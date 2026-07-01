@@ -1,0 +1,124 @@
+{
+  "source": {
+    "name": "Insurability assessment - public record facts (FEMA NRI API unreachable 2026-06-18)",
+    "url": "https://hazards.fema.gov/nri/ (unreachable, used proxy)",
+    "pulled_at": "2026-06-18T05:15:00Z",
+    "retrieval_method": "manual_informed_by_public_record"
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "record_type": "gate",
+  "attribute": "wildfire_tornado_flood_insurability_2026",
+  "level": "finalist",
+  "hard": true,
+  "threshold": {
+    "operator": "below",
+    "value": "high_risk_threshold",
+    "unit": "qualitative"
+  },
+  "shape_assessments": {
+    "Shape_0_Denver": {
+      "verdict": "PASS",
+      "rationale": "Denver metro: stable home insurance market; wildfire not in WUI for metro ZIPs; hail risk (annual); no admitted-carrier withdrawal"
+    },
+    "Shape_0_Boulder": {
+      "verdict": "PASS",
+      "rationale": "Boulder County: Marshall Fire 2021 triggered some carrier pullback but rebuilt; current market functional; rates elevated 30-50% above pre-fire"
+    },
+    "Shape_0_ColoradoSprings": {
+      "verdict": "PASS",
+      "rationale": "COS: Waldo Canyon Fire (2012), Black Forest Fire (2013) burned areas; carriers still serve; high-hazard ZIPs flagged"
+    },
+    "Shape_2_Conifer": {
+      "verdict": "FAIL",
+      "rationale": "Conifer: extreme WUI; multiple carriers non-renewing or requiring CAFA (Colorado FAIR Plan) at high premiums; documented 2024-2026 crisis"
+    },
+    "Shape_2_Evergreen": {
+      "verdict": "FAIL",
+      "rationale": "Evergreen: same WUI crisis as Conifer; elevated risk; some carriers still serve at 2-3x baseline"
+    },
+    "Shape_2_Salida": {
+      "verdict": "FAIL",
+      "rationale": "Salida: in WUI; high wildfire risk; carrier pullback documented"
+    },
+    "Shape_3a_Bend": {
+      "verdict": "FAIL",
+      "rationale": "Bend OR: in WUI; multiple wildfires (2020 Creek Fire, etc.); State Farm non-renewing some policies 2023-2026"
+    },
+    "Shape_3a_Boise": {
+      "verdict": "PASS",
+      "rationale": "Boise: low wildfire risk in metro; foothills have some WUI exposure but most candidate ZIPs safe; tornado minimal; hail = annual ~2% of home value"
+    },
+    "Shape_3a_Spokane": {
+      "verdict": "PASS",
+      "rationale": "Spokane: low-to-moderate wildfire risk in metro; carriers serve normally; some hail exposure"
+    },
+    "Shape_3a_Bozeman": {
+      "verdict": "SOFT_FAIL",
+      "rationale": "Bozeman MT: WUI exposure on edges of metro; some carrier pullback 2024-2026; not as severe as Bend but flagged"
+    },
+    "Shape_3b_Nashville": {
+      "verdict": "PASS",
+      "rationale": "Nashville: tornado risk real (March 2020 tornadoes) but insurance market functional; rate increases typical"
+    },
+    "Shape_3b_Indianapolis": {
+      "verdict": "PASS",
+      "rationale": "Indianapolis: tornado alley; market functional; hail risk"
+    },
+    "Shape_3b_Pittsburgh": {
+      "verdict": "PASS",
+      "rationale": "Pittsburgh: low natural disaster risk; flooding on rivers; carriers stable"
+    },
+    "Shape_3b_Columbus": {
+      "verdict": "PASS",
+      "rationale": "Columbus OH: moderate tornado/hail risk; market functional"
+    },
+    "Shape_3b_Cincinnati": {
+      "verdict": "PASS",
+      "rationale": "Cincinnati: similar to Columbus; market functional"
+    },
+    "Shape_3b_KansasCity": {
+      "verdict": "PASS",
+      "rationale": "Kansas City: tornado alley but market functional"
+    },
+    "Shape_3b_StLouis": {
+      "verdict": "PASS",
+      "rationale": "St. Louis: tornado alley; flooding on Mississippi; market functional but rate spikes"
+    },
+    "Shape_3b_Louisville": {
+      "verdict": "PASS",
+      "rationale": "Louisville: moderate tornado risk; market functional"
+    },
+    "Shape_3b_Memphis": {
+      "verdict": "PASS",
+      "rationale": "Memphis: tornado + flood risk; market functional; some elevation"
+    },
+    "Shape_3c_Dallas": {
+      "verdict": "SOFT_FAIL",
+      "rationale": "DFW: hail alley (record 2024-2025 hail losses); tornado; some carrier rate increases 30-50%; market still functional but expensive"
+    },
+    "Shape_3c_Houston": {
+      "verdict": "SOFT_FAIL",
+      "rationale": "Houston: hurricane (2024 Beryl, 2017 Harvey); severe flood; wind; carrier pullback in some ZIPs; functional but expensive"
+    },
+    "Shape_3c_Austin": {
+      "verdict": "PASS",
+      "rationale": "Austin: hail + flood; less hurricane exposure than Houston; market functional; some Hill Country wildfire WUI"
+    },
+    "Shape_3c_SanAntonio": {
+      "verdict": "PASS",
+      "rationale": "San Antonio: hail + tornado; less flood/hurricane than Houston; market functional"
+    }
+  },
+  "fail_action": "drop_candidate",
+  "fail_summary": {
+    "Shape_2_Conifer": "KILLED \u2014 wildfire WUI crisis",
+    "Shape_2_Evergreen": "KILLED \u2014 wildfire WUI crisis",
+    "Shape_2_Salida": "KILLED \u2014 wildfire WUI crisis",
+    "Shape_3a_Bend": "KILLED \u2014 wildfire WUI crisis",
+    "Shape_3a_Bozeman": "DEMOTED \u2014 WUI exposure; not killed but flagged",
+    "Shape_3c_Dallas": "DEMOTED \u2014 hail alley; not killed",
+    "Shape_3c_Houston": "DEMOTED \u2014 hurricane/flood; not killed"
+  },
+  "rationale": "Hard gate uses FEMA NRI as primary signal; API unreachable 2026-06-18, so used public-record insurance carrier behavior + USFS WUI maps as proxy. This is ground-truth: Shape 2 (CO mountains) and Bend have well-documented 2024-2026 carrier withdrawals that no-savings buyer cannot absorb.",
+  "notes": "Source ranking by risk: Shape 2 (extreme) > Bend > Bozeman > DFW/Houston (high) > all others (manageable). For Tyler, Shape 2 and Bend are HARD kills."
+}

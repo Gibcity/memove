@@ -1,0 +1,4710 @@
+{
+  "metadata": {
+    "pulled_at": "2026-06-30T02:14:55.252545+00:00",
+    "source": "census_proxy",
+    "cbsa_count": 939,
+    "fcc_endpoints_tried": [
+      "https://broadbandmap.fcc.gov/nation-map/api/v2/summary",
+      "https://broadbandmap.fcc.gov/nation-map/api/v1/summary",
+      "https://broadbandmap.fcc.gov/api/v2/summary"
+    ],
+    "proxy_formula": "medianDownloadMbps = max(25, 250 * pct_wired_broadband / 100). Derived from Census ACS B28002 pctHouseholdsWith100MbpsPlus. NOT a measurement; documented proxy when FCC API unreachable."
+  },
+  "speeds": {
+    "10100": {
+      "medianDownloadMbps": 173.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.44
+    },
+    "10140": {
+      "medianDownloadMbps": 177.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.15
+    },
+    "10180": {
+      "medianDownloadMbps": 169.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.89
+    },
+    "10220": {
+      "medianDownloadMbps": 149.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.69
+    },
+    "10300": {
+      "medianDownloadMbps": 161.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.63
+    },
+    "10380": {
+      "medianDownloadMbps": 84.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 33.94
+    },
+    "10420": {
+      "medianDownloadMbps": 194.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.97
+    },
+    "10460": {
+      "medianDownloadMbps": 164.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.59
+    },
+    "10500": {
+      "medianDownloadMbps": 142.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.84
+    },
+    "10540": {
+      "medianDownloadMbps": 177.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.03
+    },
+    "10580": {
+      "medianDownloadMbps": 196.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.74
+    },
+    "10620": {
+      "medianDownloadMbps": 170.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.27
+    },
+    "10660": {
+      "medianDownloadMbps": 157.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.97
+    },
+    "10700": {
+      "medianDownloadMbps": 169.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.72
+    },
+    "10740": {
+      "medianDownloadMbps": 176.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.46
+    },
+    "10760": {
+      "medianDownloadMbps": 133.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.44
+    },
+    "10780": {
+      "medianDownloadMbps": 145.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.23
+    },
+    "10820": {
+      "medianDownloadMbps": 173.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.26
+    },
+    "10860": {
+      "medianDownloadMbps": 127.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.08
+    },
+    "10900": {
+      "medianDownloadMbps": 189.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.81
+    },
+    "10940": {
+      "medianDownloadMbps": 143.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.28
+    },
+    "10980": {
+      "medianDownloadMbps": 153.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.21
+    },
+    "11020": {
+      "medianDownloadMbps": 174.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.76
+    },
+    "11060": {
+      "medianDownloadMbps": 156.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.4
+    },
+    "11100": {
+      "medianDownloadMbps": 176.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.46
+    },
+    "11140": {
+      "medianDownloadMbps": 120.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 48.14
+    },
+    "11180": {
+      "medianDownloadMbps": 167.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.08
+    },
+    "11220": {
+      "medianDownloadMbps": 172.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.08
+    },
+    "11260": {
+      "medianDownloadMbps": 190.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.16
+    },
+    "11380": {
+      "medianDownloadMbps": 166.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.41
+    },
+    "11420": {
+      "medianDownloadMbps": 139.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.94
+    },
+    "11460": {
+      "medianDownloadMbps": 204.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.84
+    },
+    "11500": {
+      "medianDownloadMbps": 152.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.15
+    },
+    "11540": {
+      "medianDownloadMbps": 186.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.77
+    },
+    "11580": {
+      "medianDownloadMbps": 123.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.35
+    },
+    "11620": {
+      "medianDownloadMbps": 123.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.41
+    },
+    "11640": {
+      "medianDownloadMbps": 108.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 43.27
+    },
+    "11660": {
+      "medianDownloadMbps": 147.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.18
+    },
+    "11700": {
+      "medianDownloadMbps": 173.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.26
+    },
+    "11740": {
+      "medianDownloadMbps": 161.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.68
+    },
+    "11780": {
+      "medianDownloadMbps": 168.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.42
+    },
+    "11820": {
+      "medianDownloadMbps": 183.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.22
+    },
+    "11860": {
+      "medianDownloadMbps": 140.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.99
+    },
+    "11900": {
+      "medianDownloadMbps": 149.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.83
+    },
+    "11940": {
+      "medianDownloadMbps": 128.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.24
+    },
+    "11980": {
+      "medianDownloadMbps": 136.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.45
+    },
+    "12020": {
+      "medianDownloadMbps": 188.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.38
+    },
+    "12060": {
+      "medianDownloadMbps": 198.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.32
+    },
+    "12100": {
+      "medianDownloadMbps": 192.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.03
+    },
+    "12120": {
+      "medianDownloadMbps": 69.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 27.88
+    },
+    "12140": {
+      "medianDownloadMbps": 139.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.67
+    },
+    "12180": {
+      "medianDownloadMbps": 168.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.45
+    },
+    "12220": {
+      "medianDownloadMbps": 181.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.57
+    },
+    "12260": {
+      "medianDownloadMbps": 167.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.85
+    },
+    "12300": {
+      "medianDownloadMbps": 193.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.35
+    },
+    "12380": {
+      "medianDownloadMbps": 168.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.57
+    },
+    "12420": {
+      "medianDownloadMbps": 201.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.55
+    },
+    "12460": {
+      "medianDownloadMbps": 88.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 35.47
+    },
+    "12540": {
+      "medianDownloadMbps": 167.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.95
+    },
+    "12580": {
+      "medianDownloadMbps": 193.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.38
+    },
+    "12620": {
+      "medianDownloadMbps": 184.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.89
+    },
+    "12660": {
+      "medianDownloadMbps": 173.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.51
+    },
+    "12680": {
+      "medianDownloadMbps": 167.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.81
+    },
+    "12700": {
+      "medianDownloadMbps": 209.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 83.69
+    },
+    "12740": {
+      "medianDownloadMbps": 178.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.43
+    },
+    "12780": {
+      "medianDownloadMbps": 148.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.55
+    },
+    "12860": {
+      "medianDownloadMbps": 183.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.24
+    },
+    "12900": {
+      "medianDownloadMbps": 113.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.45
+    },
+    "12940": {
+      "medianDownloadMbps": 179.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.82
+    },
+    "12980": {
+      "medianDownloadMbps": 157.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.95
+    },
+    "13020": {
+      "medianDownloadMbps": 171.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.59
+    },
+    "13060": {
+      "medianDownloadMbps": 111.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 44.76
+    },
+    "13100": {
+      "medianDownloadMbps": 158.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.22
+    },
+    "13140": {
+      "medianDownloadMbps": 161.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.42
+    },
+    "13180": {
+      "medianDownloadMbps": 162.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.03
+    },
+    "13220": {
+      "medianDownloadMbps": 146.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.67
+    },
+    "13260": {
+      "medianDownloadMbps": 142.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.93
+    },
+    "13300": {
+      "medianDownloadMbps": 127.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.99
+    },
+    "13340": {
+      "medianDownloadMbps": 167.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.05
+    },
+    "13380": {
+      "medianDownloadMbps": 193.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.31
+    },
+    "13420": {
+      "medianDownloadMbps": 187.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.0
+    },
+    "13460": {
+      "medianDownloadMbps": 194.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.74
+    },
+    "13500": {
+      "medianDownloadMbps": 82.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 32.81
+    },
+    "13540": {
+      "medianDownloadMbps": 172.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.82
+    },
+    "13620": {
+      "medianDownloadMbps": 173.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.2
+    },
+    "13660": {
+      "medianDownloadMbps": 131.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.67
+    },
+    "13700": {
+      "medianDownloadMbps": 147.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.96
+    },
+    "13720": {
+      "medianDownloadMbps": 148.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.23
+    },
+    "13740": {
+      "medianDownloadMbps": 177.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.96
+    },
+    "13780": {
+      "medianDownloadMbps": 188.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.37
+    },
+    "13820": {
+      "medianDownloadMbps": 175.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.23
+    },
+    "13900": {
+      "medianDownloadMbps": 192.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.04
+    },
+    "13940": {
+      "medianDownloadMbps": 146.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.71
+    },
+    "13980": {
+      "medianDownloadMbps": 168.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.43
+    },
+    "14010": {
+      "medianDownloadMbps": 181.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.44
+    },
+    "14020": {
+      "medianDownloadMbps": 185.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.26
+    },
+    "14100": {
+      "medianDownloadMbps": 164.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.85
+    },
+    "14140": {
+      "medianDownloadMbps": 159.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.72
+    },
+    "14160": {
+      "medianDownloadMbps": 145.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.18
+    },
+    "14180": {
+      "medianDownloadMbps": 140.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.13
+    },
+    "14220": {
+      "medianDownloadMbps": 93.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 37.36
+    },
+    "14260": {
+      "medianDownloadMbps": 193.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.42
+    },
+    "14300": {
+      "medianDownloadMbps": 123.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.4
+    },
+    "14380": {
+      "medianDownloadMbps": 192.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.81
+    },
+    "14420": {
+      "medianDownloadMbps": 146.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.72
+    },
+    "14460": {
+      "medianDownloadMbps": 206.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.66
+    },
+    "14500": {
+      "medianDownloadMbps": 209.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 83.83
+    },
+    "14540": {
+      "medianDownloadMbps": 170.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.99
+    },
+    "14580": {
+      "medianDownloadMbps": 183.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.57
+    },
+    "14620": {
+      "medianDownloadMbps": 170.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.02
+    },
+    "14660": {
+      "medianDownloadMbps": 166.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.52
+    },
+    "14700": {
+      "medianDownloadMbps": 154.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.82
+    },
+    "14720": {
+      "medianDownloadMbps": 204.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.85
+    },
+    "14740": {
+      "medianDownloadMbps": 209.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 83.69
+    },
+    "14780": {
+      "medianDownloadMbps": 112.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.05
+    },
+    "14820": {
+      "medianDownloadMbps": 180.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.33
+    },
+    "14860": {
+      "medianDownloadMbps": 204.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.76
+    },
+    "15020": {
+      "medianDownloadMbps": 116.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 46.6
+    },
+    "15060": {
+      "medianDownloadMbps": 175.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.99
+    },
+    "15100": {
+      "medianDownloadMbps": 183.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.18
+    },
+    "15140": {
+      "medianDownloadMbps": 113.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.53
+    },
+    "15180": {
+      "medianDownloadMbps": 113.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.47
+    },
+    "15220": {
+      "medianDownloadMbps": 127.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.86
+    },
+    "15260": {
+      "medianDownloadMbps": 168.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.55
+    },
+    "15340": {
+      "medianDownloadMbps": 162.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.14
+    },
+    "15380": {
+      "medianDownloadMbps": 186.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.63
+    },
+    "15420": {
+      "medianDownloadMbps": 143.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.54
+    },
+    "15460": {
+      "medianDownloadMbps": 160.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.04
+    },
+    "15500": {
+      "medianDownloadMbps": 183.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.41
+    },
+    "15540": {
+      "medianDownloadMbps": 198.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.49
+    },
+    "15580": {
+      "medianDownloadMbps": 143.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.25
+    },
+    "15620": {
+      "medianDownloadMbps": 130.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.07
+    },
+    "15660": {
+      "medianDownloadMbps": 141.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.41
+    },
+    "15680": {
+      "medianDownloadMbps": 197.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.17
+    },
+    "15700": {
+      "medianDownloadMbps": 144.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.95
+    },
+    "15740": {
+      "medianDownloadMbps": 145.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.33
+    },
+    "15780": {
+      "medianDownloadMbps": 140.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.11
+    },
+    "15820": {
+      "medianDownloadMbps": 162.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.03
+    },
+    "15860": {
+      "medianDownloadMbps": 162.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.11
+    },
+    "15940": {
+      "medianDownloadMbps": 175.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.15
+    },
+    "15980": {
+      "medianDownloadMbps": 190.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.18
+    },
+    "16020": {
+      "medianDownloadMbps": 148.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.51
+    },
+    "16060": {
+      "medianDownloadMbps": 135.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.06
+    },
+    "16100": {
+      "medianDownloadMbps": 148.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.3
+    },
+    "16140": {
+      "medianDownloadMbps": 162.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.04
+    },
+    "16180": {
+      "medianDownloadMbps": 185.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.19
+    },
+    "16220": {
+      "medianDownloadMbps": 189.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.78
+    },
+    "16260": {
+      "medianDownloadMbps": 167.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.08
+    },
+    "16300": {
+      "medianDownloadMbps": 189.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.66
+    },
+    "16340": {
+      "medianDownloadMbps": 153.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.22
+    },
+    "16380": {
+      "medianDownloadMbps": 186.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.76
+    },
+    "16420": {
+      "medianDownloadMbps": 142.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.79
+    },
+    "16460": {
+      "medianDownloadMbps": 143.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.38
+    },
+    "16500": {
+      "medianDownloadMbps": 157.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.94
+    },
+    "16540": {
+      "medianDownloadMbps": 184.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.89
+    },
+    "16580": {
+      "medianDownloadMbps": 177.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.07
+    },
+    "16620": {
+      "medianDownloadMbps": 171.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.53
+    },
+    "16660": {
+      "medianDownloadMbps": 159.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.85
+    },
+    "16700": {
+      "medianDownloadMbps": 179.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.73
+    },
+    "16740": {
+      "medianDownloadMbps": 196.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.39
+    },
+    "16820": {
+      "medianDownloadMbps": 170.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.27
+    },
+    "16860": {
+      "medianDownloadMbps": 186.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.76
+    },
+    "16940": {
+      "medianDownloadMbps": 189.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.75
+    },
+    "16980": {
+      "medianDownloadMbps": 191.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.66
+    },
+    "17020": {
+      "medianDownloadMbps": 176.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.56
+    },
+    "17060": {
+      "medianDownloadMbps": 174.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.64
+    },
+    "17140": {
+      "medianDownloadMbps": 194.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.92
+    },
+    "17220": {
+      "medianDownloadMbps": 161.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.73
+    },
+    "17260": {
+      "medianDownloadMbps": 69.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 27.67
+    },
+    "17300": {
+      "medianDownloadMbps": 175.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.25
+    },
+    "17340": {
+      "medianDownloadMbps": 150.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.29
+    },
+    "17380": {
+      "medianDownloadMbps": 129.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.75
+    },
+    "17420": {
+      "medianDownloadMbps": 166.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.69
+    },
+    "17460": {
+      "medianDownloadMbps": 185.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.98
+    },
+    "17500": {
+      "medianDownloadMbps": 140.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.19
+    },
+    "17540": {
+      "medianDownloadMbps": 167.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.07
+    },
+    "17580": {
+      "medianDownloadMbps": 166.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.58
+    },
+    "17620": {
+      "medianDownloadMbps": 123.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.25
+    },
+    "17640": {
+      "medianDownloadMbps": 129.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.61
+    },
+    "17660": {
+      "medianDownloadMbps": 176.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.45
+    },
+    "17700": {
+      "medianDownloadMbps": 136.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.41
+    },
+    "17740": {
+      "medianDownloadMbps": 154.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.8
+    },
+    "17780": {
+      "medianDownloadMbps": 164.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.68
+    },
+    "17820": {
+      "medianDownloadMbps": 203.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.19
+    },
+    "17860": {
+      "medianDownloadMbps": 192.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.96
+    },
+    "17900": {
+      "medianDownloadMbps": 184.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.77
+    },
+    "17980": {
+      "medianDownloadMbps": 159.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.73
+    },
+    "18020": {
+      "medianDownloadMbps": 178.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.39
+    },
+    "18060": {
+      "medianDownloadMbps": 143.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.47
+    },
+    "18100": {
+      "medianDownloadMbps": 171.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.67
+    },
+    "18140": {
+      "medianDownloadMbps": 199.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.64
+    },
+    "18180": {
+      "medianDownloadMbps": 205.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.12
+    },
+    "18220": {
+      "medianDownloadMbps": 147.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.89
+    },
+    "18260": {
+      "medianDownloadMbps": 177.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.08
+    },
+    "18300": {
+      "medianDownloadMbps": 169.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.75
+    },
+    "18380": {
+      "medianDownloadMbps": 132.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.16
+    },
+    "18420": {
+      "medianDownloadMbps": 127.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.13
+    },
+    "18460": {
+      "medianDownloadMbps": 169.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.76
+    },
+    "18500": {
+      "medianDownloadMbps": 171.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.69
+    },
+    "18580": {
+      "medianDownloadMbps": 175.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.13
+    },
+    "18620": {
+      "medianDownloadMbps": 119.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.74
+    },
+    "18660": {
+      "medianDownloadMbps": 179.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.7
+    },
+    "18700": {
+      "medianDownloadMbps": 202.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.1
+    },
+    "18740": {
+      "medianDownloadMbps": 139.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.97
+    },
+    "18780": {
+      "medianDownloadMbps": 144.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.91
+    },
+    "18820": {
+      "medianDownloadMbps": 159.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.81
+    },
+    "18860": {
+      "medianDownloadMbps": 179.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.71
+    },
+    "18880": {
+      "medianDownloadMbps": 194.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.68
+    },
+    "18900": {
+      "medianDownloadMbps": 166.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.6
+    },
+    "18980": {
+      "medianDownloadMbps": 142.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.91
+    },
+    "19000": {
+      "medianDownloadMbps": 127.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.98
+    },
+    "19060": {
+      "medianDownloadMbps": 169.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.64
+    },
+    "19100": {
+      "medianDownloadMbps": 189.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.82
+    },
+    "19140": {
+      "medianDownloadMbps": 147.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.02
+    },
+    "19180": {
+      "medianDownloadMbps": 137.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.86
+    },
+    "19220": {
+      "medianDownloadMbps": 134.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.72
+    },
+    "19260": {
+      "medianDownloadMbps": 103.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 41.22
+    },
+    "19300": {
+      "medianDownloadMbps": 166.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.7
+    },
+    "19340": {
+      "medianDownloadMbps": 176.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.78
+    },
+    "19420": {
+      "medianDownloadMbps": 147.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.87
+    },
+    "19430": {
+      "medianDownloadMbps": 188.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.3
+    },
+    "19460": {
+      "medianDownloadMbps": 142.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.88
+    },
+    "19500": {
+      "medianDownloadMbps": 152.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.82
+    },
+    "19540": {
+      "medianDownloadMbps": 135.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.26
+    },
+    "19580": {
+      "medianDownloadMbps": 179.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.76
+    },
+    "19620": {
+      "medianDownloadMbps": 140.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.35
+    },
+    "19660": {
+      "medianDownloadMbps": 160.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.25
+    },
+    "19700": {
+      "medianDownloadMbps": 105.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 42.03
+    },
+    "19740": {
+      "medianDownloadMbps": 205.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.03
+    },
+    "19760": {
+      "medianDownloadMbps": 119.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.93
+    },
+    "19780": {
+      "medianDownloadMbps": 183.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.31
+    },
+    "19820": {
+      "medianDownloadMbps": 187.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.97
+    },
+    "19860": {
+      "medianDownloadMbps": 179.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.66
+    },
+    "19940": {
+      "medianDownloadMbps": 156.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.77
+    },
+    "19980": {
+      "medianDownloadMbps": 154.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.71
+    },
+    "20020": {
+      "medianDownloadMbps": 143.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.39
+    },
+    "20060": {
+      "medianDownloadMbps": 151.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.59
+    },
+    "20100": {
+      "medianDownloadMbps": 179.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.7
+    },
+    "20140": {
+      "medianDownloadMbps": 132.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.85
+    },
+    "20180": {
+      "medianDownloadMbps": 156.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.67
+    },
+    "20220": {
+      "medianDownloadMbps": 174.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.93
+    },
+    "20260": {
+      "medianDownloadMbps": 161.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.74
+    },
+    "20300": {
+      "medianDownloadMbps": 138.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.24
+    },
+    "20340": {
+      "medianDownloadMbps": 129.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.8
+    },
+    "20420": {
+      "medianDownloadMbps": 157.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.84
+    },
+    "20460": {
+      "medianDownloadMbps": 115.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 46.02
+    },
+    "20500": {
+      "medianDownloadMbps": 193.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.49
+    },
+    "20540": {
+      "medianDownloadMbps": 144.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.76
+    },
+    "20580": {
+      "medianDownloadMbps": 145.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.25
+    },
+    "20660": {
+      "medianDownloadMbps": 177.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.87
+    },
+    "20700": {
+      "medianDownloadMbps": 198.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.44
+    },
+    "20740": {
+      "medianDownloadMbps": 180.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.32
+    },
+    "20780": {
+      "medianDownloadMbps": 191.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.45
+    },
+    "20820": {
+      "medianDownloadMbps": 177.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.79
+    },
+    "20900": {
+      "medianDownloadMbps": 101.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 40.69
+    },
+    "20940": {
+      "medianDownloadMbps": 168.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.33
+    },
+    "20980": {
+      "medianDownloadMbps": 126.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.56
+    },
+    "21020": {
+      "medianDownloadMbps": 169.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.85
+    },
+    "21060": {
+      "medianDownloadMbps": 180.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.17
+    },
+    "21120": {
+      "medianDownloadMbps": 138.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.53
+    },
+    "21140": {
+      "medianDownloadMbps": 170.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.03
+    },
+    "21180": {
+      "medianDownloadMbps": 153.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.52
+    },
+    "21220": {
+      "medianDownloadMbps": 149.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.73
+    },
+    "21260": {
+      "medianDownloadMbps": 178.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.58
+    },
+    "21300": {
+      "medianDownloadMbps": 176.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.78
+    },
+    "21340": {
+      "medianDownloadMbps": 170.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.3
+    },
+    "21380": {
+      "medianDownloadMbps": 148.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.24
+    },
+    "21420": {
+      "medianDownloadMbps": 161.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.48
+    },
+    "21460": {
+      "medianDownloadMbps": 162.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.95
+    },
+    "21500": {
+      "medianDownloadMbps": 177.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.13
+    },
+    "21540": {
+      "medianDownloadMbps": 153.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.55
+    },
+    "21580": {
+      "medianDownloadMbps": 103.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 41.43
+    },
+    "21640": {
+      "medianDownloadMbps": 98.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 39.22
+    },
+    "21660": {
+      "medianDownloadMbps": 189.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.83
+    },
+    "21700": {
+      "medianDownloadMbps": 174.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.73
+    },
+    "21740": {
+      "medianDownloadMbps": 169.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.82
+    },
+    "21780": {
+      "medianDownloadMbps": 174.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.82
+    },
+    "21820": {
+      "medianDownloadMbps": 166.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.76
+    },
+    "21840": {
+      "medianDownloadMbps": 160.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.08
+    },
+    "21860": {
+      "medianDownloadMbps": 158.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.54
+    },
+    "21900": {
+      "medianDownloadMbps": 181.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.51
+    },
+    "21980": {
+      "medianDownloadMbps": 193.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.56
+    },
+    "22020": {
+      "medianDownloadMbps": 185.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.17
+    },
+    "22060": {
+      "medianDownloadMbps": 179.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.6
+    },
+    "22100": {
+      "medianDownloadMbps": 153.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.34
+    },
+    "22140": {
+      "medianDownloadMbps": 128.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.24
+    },
+    "22180": {
+      "medianDownloadMbps": 186.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.43
+    },
+    "22220": {
+      "medianDownloadMbps": 179.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.97
+    },
+    "22260": {
+      "medianDownloadMbps": 163.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.18
+    },
+    "22280": {
+      "medianDownloadMbps": 165.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.31
+    },
+    "22300": {
+      "medianDownloadMbps": 186.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.71
+    },
+    "22340": {
+      "medianDownloadMbps": 124.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.79
+    },
+    "22380": {
+      "medianDownloadMbps": 159.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.94
+    },
+    "22420": {
+      "medianDownloadMbps": 182.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.91
+    },
+    "22500": {
+      "medianDownloadMbps": 134.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.89
+    },
+    "22520": {
+      "medianDownloadMbps": 136.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.51
+    },
+    "22540": {
+      "medianDownloadMbps": 165.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.23
+    },
+    "22580": {
+      "medianDownloadMbps": 132.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.92
+    },
+    "22620": {
+      "medianDownloadMbps": 113.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.35
+    },
+    "22660": {
+      "medianDownloadMbps": 201.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.55
+    },
+    "22700": {
+      "medianDownloadMbps": 150.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.32
+    },
+    "22780": {
+      "medianDownloadMbps": 165.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.27
+    },
+    "22800": {
+      "medianDownloadMbps": 147.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.02
+    },
+    "22820": {
+      "medianDownloadMbps": 160.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.22
+    },
+    "22840": {
+      "medianDownloadMbps": 145.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.0
+    },
+    "22860": {
+      "medianDownloadMbps": 134.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.94
+    },
+    "22900": {
+      "medianDownloadMbps": 153.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.33
+    },
+    "23060": {
+      "medianDownloadMbps": 182.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.93
+    },
+    "23140": {
+      "medianDownloadMbps": 120.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 48.02
+    },
+    "23180": {
+      "medianDownloadMbps": 151.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.65
+    },
+    "23240": {
+      "medianDownloadMbps": 138.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.28
+    },
+    "23300": {
+      "medianDownloadMbps": 162.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.88
+    },
+    "23340": {
+      "medianDownloadMbps": 170.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.05
+    },
+    "23380": {
+      "medianDownloadMbps": 161.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.54
+    },
+    "23420": {
+      "medianDownloadMbps": 170.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.26
+    },
+    "23460": {
+      "medianDownloadMbps": 149.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.7
+    },
+    "23500": {
+      "medianDownloadMbps": 136.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.58
+    },
+    "23540": {
+      "medianDownloadMbps": 175.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.22
+    },
+    "23580": {
+      "medianDownloadMbps": 187.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.79
+    },
+    "23620": {
+      "medianDownloadMbps": 137.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.81
+    },
+    "23660": {
+      "medianDownloadMbps": 148.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.56
+    },
+    "23700": {
+      "medianDownloadMbps": 73.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 29.55
+    },
+    "23780": {
+      "medianDownloadMbps": 162.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.98
+    },
+    "23820": {
+      "medianDownloadMbps": 203.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.51
+    },
+    "23860": {
+      "medianDownloadMbps": 167.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.15
+    },
+    "23900": {
+      "medianDownloadMbps": 183.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.23
+    },
+    "23940": {
+      "medianDownloadMbps": 154.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.75
+    },
+    "23980": {
+      "medianDownloadMbps": 177.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.8
+    },
+    "24020": {
+      "medianDownloadMbps": 176.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.51
+    },
+    "24060": {
+      "medianDownloadMbps": 175.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.12
+    },
+    "24100": {
+      "medianDownloadMbps": 189.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.73
+    },
+    "24140": {
+      "medianDownloadMbps": 174.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.82
+    },
+    "24180": {
+      "medianDownloadMbps": 166.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.75
+    },
+    "24220": {
+      "medianDownloadMbps": 179.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.81
+    },
+    "24260": {
+      "medianDownloadMbps": 157.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.06
+    },
+    "24300": {
+      "medianDownloadMbps": 186.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.76
+    },
+    "24330": {
+      "medianDownloadMbps": 170.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.22
+    },
+    "24340": {
+      "medianDownloadMbps": 184.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.79
+    },
+    "24380": {
+      "medianDownloadMbps": 96.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 38.61
+    },
+    "24420": {
+      "medianDownloadMbps": 164.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.66
+    },
+    "24460": {
+      "medianDownloadMbps": 165.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.32
+    },
+    "24500": {
+      "medianDownloadMbps": 176.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.69
+    },
+    "24540": {
+      "medianDownloadMbps": 187.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.13
+    },
+    "24580": {
+      "medianDownloadMbps": 181.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.44
+    },
+    "24620": {
+      "medianDownloadMbps": 143.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.22
+    },
+    "24660": {
+      "medianDownloadMbps": 183.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.29
+    },
+    "24700": {
+      "medianDownloadMbps": 145.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.16
+    },
+    "24740": {
+      "medianDownloadMbps": 91.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 36.63
+    },
+    "24780": {
+      "medianDownloadMbps": 156.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.68
+    },
+    "24820": {
+      "medianDownloadMbps": 154.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.69
+    },
+    "24860": {
+      "medianDownloadMbps": 179.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.75
+    },
+    "24900": {
+      "medianDownloadMbps": 89.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 35.73
+    },
+    "24940": {
+      "medianDownloadMbps": 157.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.85
+    },
+    "24980": {
+      "medianDownloadMbps": 128.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.49
+    },
+    "25020": {
+      "medianDownloadMbps": 92.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 36.81
+    },
+    "25060": {
+      "medianDownloadMbps": 164.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.93
+    },
+    "25100": {
+      "medianDownloadMbps": 168.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.31
+    },
+    "25180": {
+      "medianDownloadMbps": 180.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.06
+    },
+    "25200": {
+      "medianDownloadMbps": 199.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.84
+    },
+    "25220": {
+      "medianDownloadMbps": 165.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.31
+    },
+    "25260": {
+      "medianDownloadMbps": 179.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.67
+    },
+    "25300": {
+      "medianDownloadMbps": 180.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.29
+    },
+    "25420": {
+      "medianDownloadMbps": 191.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.44
+    },
+    "25460": {
+      "medianDownloadMbps": 147.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.07
+    },
+    "25500": {
+      "medianDownloadMbps": 157.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.07
+    },
+    "25540": {
+      "medianDownloadMbps": 195.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.99
+    },
+    "25580": {
+      "medianDownloadMbps": 176.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.73
+    },
+    "25620": {
+      "medianDownloadMbps": 134.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.88
+    },
+    "25700": {
+      "medianDownloadMbps": 196.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.65
+    },
+    "25720": {
+      "medianDownloadMbps": 192.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.86
+    },
+    "25740": {
+      "medianDownloadMbps": 172.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.79
+    },
+    "25760": {
+      "medianDownloadMbps": 118.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.31
+    },
+    "25780": {
+      "medianDownloadMbps": 158.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.33
+    },
+    "25820": {
+      "medianDownloadMbps": 134.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.64
+    },
+    "25840": {
+      "medianDownloadMbps": 160.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.23
+    },
+    "25860": {
+      "medianDownloadMbps": 168.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.48
+    },
+    "25880": {
+      "medianDownloadMbps": 140.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.23
+    },
+    "25900": {
+      "medianDownloadMbps": 176.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.6
+    },
+    "25940": {
+      "medianDownloadMbps": 194.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.63
+    },
+    "25980": {
+      "medianDownloadMbps": 187.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.07
+    },
+    "26020": {
+      "medianDownloadMbps": 160.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.1
+    },
+    "26090": {
+      "medianDownloadMbps": 124.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.8
+    },
+    "26140": {
+      "medianDownloadMbps": 183.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.24
+    },
+    "26220": {
+      "medianDownloadMbps": 184.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.82
+    },
+    "26260": {
+      "medianDownloadMbps": 92.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 36.88
+    },
+    "26300": {
+      "medianDownloadMbps": 152.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.1
+    },
+    "26340": {
+      "medianDownloadMbps": 162.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.02
+    },
+    "26380": {
+      "medianDownloadMbps": 172.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.06
+    },
+    "26420": {
+      "medianDownloadMbps": 187.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.0
+    },
+    "26460": {
+      "medianDownloadMbps": 179.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.79
+    },
+    "26500": {
+      "medianDownloadMbps": 165.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.13
+    },
+    "26540": {
+      "medianDownloadMbps": 150.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.01
+    },
+    "26580": {
+      "medianDownloadMbps": 166.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.66
+    },
+    "26620": {
+      "medianDownloadMbps": 192.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.84
+    },
+    "26660": {
+      "medianDownloadMbps": 169.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.83
+    },
+    "26700": {
+      "medianDownloadMbps": 154.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.65
+    },
+    "26740": {
+      "medianDownloadMbps": 160.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.22
+    },
+    "26780": {
+      "medianDownloadMbps": 164.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.84
+    },
+    "26820": {
+      "medianDownloadMbps": 186.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.76
+    },
+    "26860": {
+      "medianDownloadMbps": 145.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.05
+    },
+    "26900": {
+      "medianDownloadMbps": 186.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.58
+    },
+    "26940": {
+      "medianDownloadMbps": 81.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 32.73
+    },
+    "26980": {
+      "medianDownloadMbps": 193.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.51
+    },
+    "27020": {
+      "medianDownloadMbps": 168.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.53
+    },
+    "27060": {
+      "medianDownloadMbps": 190.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.08
+    },
+    "27100": {
+      "medianDownloadMbps": 164.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.88
+    },
+    "27140": {
+      "medianDownloadMbps": 162.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.87
+    },
+    "27160": {
+      "medianDownloadMbps": 144.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.62
+    },
+    "27180": {
+      "medianDownloadMbps": 165.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.24
+    },
+    "27220": {
+      "medianDownloadMbps": 190.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.09
+    },
+    "27260": {
+      "medianDownloadMbps": 185.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.99
+    },
+    "27300": {
+      "medianDownloadMbps": 144.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.68
+    },
+    "27340": {
+      "medianDownloadMbps": 198.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.57
+    },
+    "27380": {
+      "medianDownloadMbps": 116.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 46.49
+    },
+    "27420": {
+      "medianDownloadMbps": 177.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.0
+    },
+    "27460": {
+      "medianDownloadMbps": 173.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.4
+    },
+    "27500": {
+      "medianDownloadMbps": 174.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.85
+    },
+    "27530": {
+      "medianDownloadMbps": 129.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.78
+    },
+    "27540": {
+      "medianDownloadMbps": 140.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.28
+    },
+    "27580": {
+      "medianDownloadMbps": 59.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 23.84
+    },
+    "27600": {
+      "medianDownloadMbps": 183.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.35
+    },
+    "27620": {
+      "medianDownloadMbps": 165.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.02
+    },
+    "27660": {
+      "medianDownloadMbps": 125.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.09
+    },
+    "27700": {
+      "medianDownloadMbps": 139.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.81
+    },
+    "27740": {
+      "medianDownloadMbps": 173.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.53
+    },
+    "27780": {
+      "medianDownloadMbps": 165.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.98
+    },
+    "27860": {
+      "medianDownloadMbps": 159.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.86
+    },
+    "27900": {
+      "medianDownloadMbps": 139.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.62
+    },
+    "27940": {
+      "medianDownloadMbps": 196.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.69
+    },
+    "27980": {
+      "medianDownloadMbps": 191.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.6
+    },
+    "28020": {
+      "medianDownloadMbps": 185.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.36
+    },
+    "28060": {
+      "medianDownloadMbps": 165.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.38
+    },
+    "28100": {
+      "medianDownloadMbps": 167.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.05
+    },
+    "28140": {
+      "medianDownloadMbps": 189.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.81
+    },
+    "28180": {
+      "medianDownloadMbps": 197.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.88
+    },
+    "28260": {
+      "medianDownloadMbps": 178.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.33
+    },
+    "28300": {
+      "medianDownloadMbps": 192.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.8
+    },
+    "28340": {
+      "medianDownloadMbps": 136.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.38
+    },
+    "28380": {
+      "medianDownloadMbps": 162.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.9
+    },
+    "28420": {
+      "medianDownloadMbps": 188.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.33
+    },
+    "28500": {
+      "medianDownloadMbps": 171.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.7
+    },
+    "28540": {
+      "medianDownloadMbps": 190.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.33
+    },
+    "28580": {
+      "medianDownloadMbps": 192.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.08
+    },
+    "28620": {
+      "medianDownloadMbps": 210.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 84.29
+    },
+    "28660": {
+      "medianDownloadMbps": 174.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.73
+    },
+    "28700": {
+      "medianDownloadMbps": 170.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.3
+    },
+    "28740": {
+      "medianDownloadMbps": 199.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.85
+    },
+    "28780": {
+      "medianDownloadMbps": 132.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.99
+    },
+    "28820": {
+      "medianDownloadMbps": 131.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.76
+    },
+    "28860": {
+      "medianDownloadMbps": 147.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.03
+    },
+    "28900": {
+      "medianDownloadMbps": 159.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.97
+    },
+    "28940": {
+      "medianDownloadMbps": 175.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.27
+    },
+    "29020": {
+      "medianDownloadMbps": 176.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.46
+    },
+    "29060": {
+      "medianDownloadMbps": 203.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.27
+    },
+    "29100": {
+      "medianDownloadMbps": 185.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.1
+    },
+    "29180": {
+      "medianDownloadMbps": 171.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.63
+    },
+    "29200": {
+      "medianDownloadMbps": 155.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.99
+    },
+    "29260": {
+      "medianDownloadMbps": 151.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.46
+    },
+    "29300": {
+      "medianDownloadMbps": 156.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.56
+    },
+    "29340": {
+      "medianDownloadMbps": 152.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.91
+    },
+    "29380": {
+      "medianDownloadMbps": 129.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.62
+    },
+    "29420": {
+      "medianDownloadMbps": 162.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.87
+    },
+    "29460": {
+      "medianDownloadMbps": 177.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.91
+    },
+    "29500": {
+      "medianDownloadMbps": 130.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.26
+    },
+    "29540": {
+      "medianDownloadMbps": 183.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.32
+    },
+    "29620": {
+      "medianDownloadMbps": 178.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.38
+    },
+    "29660": {
+      "medianDownloadMbps": 191.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.65
+    },
+    "29700": {
+      "medianDownloadMbps": 170.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.15
+    },
+    "29740": {
+      "medianDownloadMbps": 168.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.37
+    },
+    "29780": {
+      "medianDownloadMbps": 105.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 42.1
+    },
+    "29820": {
+      "medianDownloadMbps": 189.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.95
+    },
+    "29860": {
+      "medianDownloadMbps": 104.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 41.63
+    },
+    "29900": {
+      "medianDownloadMbps": 147.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.03
+    },
+    "29940": {
+      "medianDownloadMbps": 198.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.31
+    },
+    "29980": {
+      "medianDownloadMbps": 134.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.71
+    },
+    "30020": {
+      "medianDownloadMbps": 164.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.87
+    },
+    "30060": {
+      "medianDownloadMbps": 119.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.83
+    },
+    "30100": {
+      "medianDownloadMbps": 185.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.22
+    },
+    "30140": {
+      "medianDownloadMbps": 175.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.31
+    },
+    "30220": {
+      "medianDownloadMbps": 155.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.06
+    },
+    "30260": {
+      "medianDownloadMbps": 158.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.22
+    },
+    "30280": {
+      "medianDownloadMbps": 159.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.7
+    },
+    "30300": {
+      "medianDownloadMbps": 167.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.11
+    },
+    "30340": {
+      "medianDownloadMbps": 192.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.93
+    },
+    "30380": {
+      "medianDownloadMbps": 161.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.65
+    },
+    "30420": {
+      "medianDownloadMbps": 157.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.93
+    },
+    "30460": {
+      "medianDownloadMbps": 187.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.99
+    },
+    "30580": {
+      "medianDownloadMbps": 143.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.38
+    },
+    "30620": {
+      "medianDownloadMbps": 183.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.39
+    },
+    "30660": {
+      "medianDownloadMbps": 142.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.08
+    },
+    "30700": {
+      "medianDownloadMbps": 199.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.87
+    },
+    "30780": {
+      "medianDownloadMbps": 168.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.39
+    },
+    "30820": {
+      "medianDownloadMbps": 168.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.31
+    },
+    "30860": {
+      "medianDownloadMbps": 186.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.53
+    },
+    "30900": {
+      "medianDownloadMbps": 141.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.63
+    },
+    "30940": {
+      "medianDownloadMbps": 171.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.63
+    },
+    "30980": {
+      "medianDownloadMbps": 142.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.16
+    },
+    "31020": {
+      "medianDownloadMbps": 177.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.86
+    },
+    "31060": {
+      "medianDownloadMbps": 206.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.65
+    },
+    "31080": {
+      "medianDownloadMbps": 192.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.17
+    },
+    "31140": {
+      "medianDownloadMbps": 179.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.63
+    },
+    "31180": {
+      "medianDownloadMbps": 173.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.26
+    },
+    "31220": {
+      "medianDownloadMbps": 145.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.3
+    },
+    "31260": {
+      "medianDownloadMbps": 167.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.82
+    },
+    "31300": {
+      "medianDownloadMbps": 124.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.82
+    },
+    "31340": {
+      "medianDownloadMbps": 148.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.5
+    },
+    "31380": {
+      "medianDownloadMbps": 158.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.5
+    },
+    "31420": {
+      "medianDownloadMbps": 165.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.16
+    },
+    "31460": {
+      "medianDownloadMbps": 163.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.57
+    },
+    "31500": {
+      "medianDownloadMbps": 149.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.81
+    },
+    "31540": {
+      "medianDownloadMbps": 198.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.22
+    },
+    "31580": {
+      "medianDownloadMbps": 150.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.07
+    },
+    "31620": {
+      "medianDownloadMbps": 100.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 40.06
+    },
+    "31660": {
+      "medianDownloadMbps": 171.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.57
+    },
+    "31680": {
+      "medianDownloadMbps": 111.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 44.49
+    },
+    "31700": {
+      "medianDownloadMbps": 207.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.98
+    },
+    "31740": {
+      "medianDownloadMbps": 190.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.38
+    },
+    "31820": {
+      "medianDownloadMbps": 165.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.06
+    },
+    "31860": {
+      "medianDownloadMbps": 183.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.51
+    },
+    "31900": {
+      "medianDownloadMbps": 178.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.4
+    },
+    "31930": {
+      "medianDownloadMbps": 151.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.45
+    },
+    "31940": {
+      "medianDownloadMbps": 139.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.84
+    },
+    "31980": {
+      "medianDownloadMbps": 159.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.71
+    },
+    "32000": {
+      "medianDownloadMbps": 136.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.68
+    },
+    "32020": {
+      "medianDownloadMbps": 161.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.71
+    },
+    "32100": {
+      "medianDownloadMbps": 169.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.91
+    },
+    "32140": {
+      "medianDownloadMbps": 169.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.71
+    },
+    "32180": {
+      "medianDownloadMbps": 159.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.72
+    },
+    "32260": {
+      "medianDownloadMbps": 158.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.49
+    },
+    "32280": {
+      "medianDownloadMbps": 144.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.73
+    },
+    "32300": {
+      "medianDownloadMbps": 141.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.44
+    },
+    "32340": {
+      "medianDownloadMbps": 169.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.69
+    },
+    "32380": {
+      "medianDownloadMbps": 172.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.81
+    },
+    "32420": {
+      "medianDownloadMbps": 110.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 44.29
+    },
+    "32460": {
+      "medianDownloadMbps": 135.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.22
+    },
+    "32500": {
+      "medianDownloadMbps": 152.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.05
+    },
+    "32540": {
+      "medianDownloadMbps": 124.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.7
+    },
+    "32580": {
+      "medianDownloadMbps": 149.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.94
+    },
+    "32620": {
+      "medianDownloadMbps": 130.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.19
+    },
+    "32660": {
+      "medianDownloadMbps": 160.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.31
+    },
+    "32700": {
+      "medianDownloadMbps": 165.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.18
+    },
+    "32740": {
+      "medianDownloadMbps": 162.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.89
+    },
+    "32780": {
+      "medianDownloadMbps": 180.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.04
+    },
+    "32820": {
+      "medianDownloadMbps": 163.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.54
+    },
+    "32860": {
+      "medianDownloadMbps": 159.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.72
+    },
+    "32900": {
+      "medianDownloadMbps": 172.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.84
+    },
+    "32940": {
+      "medianDownloadMbps": 136.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.49
+    },
+    "33020": {
+      "medianDownloadMbps": 140.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.03
+    },
+    "33060": {
+      "medianDownloadMbps": 126.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.54
+    },
+    "33100": {
+      "medianDownloadMbps": 187.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.81
+    },
+    "33140": {
+      "medianDownloadMbps": 173.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.42
+    },
+    "33180": {
+      "medianDownloadMbps": 147.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.89
+    },
+    "33220": {
+      "medianDownloadMbps": 172.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.16
+    },
+    "33260": {
+      "medianDownloadMbps": 171.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.5
+    },
+    "33300": {
+      "medianDownloadMbps": 166.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.41
+    },
+    "33340": {
+      "medianDownloadMbps": 189.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.74
+    },
+    "33380": {
+      "medianDownloadMbps": 87.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 34.85
+    },
+    "33420": {
+      "medianDownloadMbps": 150.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.32
+    },
+    "33460": {
+      "medianDownloadMbps": 198.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.54
+    },
+    "33500": {
+      "medianDownloadMbps": 196.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.67
+    },
+    "33540": {
+      "medianDownloadMbps": 184.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.66
+    },
+    "33580": {
+      "medianDownloadMbps": 169.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.86
+    },
+    "33620": {
+      "medianDownloadMbps": 149.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.65
+    },
+    "33660": {
+      "medianDownloadMbps": 146.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.52
+    },
+    "33700": {
+      "medianDownloadMbps": 174.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.7
+    },
+    "33740": {
+      "medianDownloadMbps": 138.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.21
+    },
+    "33780": {
+      "medianDownloadMbps": 176.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.77
+    },
+    "33860": {
+      "medianDownloadMbps": 177.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.11
+    },
+    "33940": {
+      "medianDownloadMbps": 146.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.65
+    },
+    "33980": {
+      "medianDownloadMbps": 196.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.45
+    },
+    "34020": {
+      "medianDownloadMbps": 163.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.46
+    },
+    "34060": {
+      "medianDownloadMbps": 186.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.49
+    },
+    "34100": {
+      "medianDownloadMbps": 145.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.15
+    },
+    "34140": {
+      "medianDownloadMbps": 170.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.18
+    },
+    "34180": {
+      "medianDownloadMbps": 175.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.23
+    },
+    "34220": {
+      "medianDownloadMbps": 139.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.67
+    },
+    "34260": {
+      "medianDownloadMbps": 157.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.97
+    },
+    "34300": {
+      "medianDownloadMbps": 174.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.9
+    },
+    "34340": {
+      "medianDownloadMbps": 164.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.65
+    },
+    "34350": {
+      "medianDownloadMbps": 206.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.53
+    },
+    "34380": {
+      "medianDownloadMbps": 149.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.66
+    },
+    "34420": {
+      "medianDownloadMbps": 90.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 36.05
+    },
+    "34460": {
+      "medianDownloadMbps": 146.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.63
+    },
+    "34500": {
+      "medianDownloadMbps": 131.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.68
+    },
+    "34540": {
+      "medianDownloadMbps": 155.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.23
+    },
+    "34580": {
+      "medianDownloadMbps": 187.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.12
+    },
+    "34620": {
+      "medianDownloadMbps": 170.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.32
+    },
+    "34660": {
+      "medianDownloadMbps": 151.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.52
+    },
+    "34700": {
+      "medianDownloadMbps": 170.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.03
+    },
+    "34740": {
+      "medianDownloadMbps": 159.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.6
+    },
+    "34780": {
+      "medianDownloadMbps": 130.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.11
+    },
+    "34820": {
+      "medianDownloadMbps": 192.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.9
+    },
+    "34860": {
+      "medianDownloadMbps": 138.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.53
+    },
+    "34900": {
+      "medianDownloadMbps": 194.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.64
+    },
+    "34940": {
+      "medianDownloadMbps": 201.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.52
+    },
+    "34980": {
+      "medianDownloadMbps": 193.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.26
+    },
+    "35020": {
+      "medianDownloadMbps": 118.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.27
+    },
+    "35060": {
+      "medianDownloadMbps": 119.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.71
+    },
+    "35100": {
+      "medianDownloadMbps": 178.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.22
+    },
+    "35140": {
+      "medianDownloadMbps": 121.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 48.4
+    },
+    "35220": {
+      "medianDownloadMbps": 158.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.56
+    },
+    "35260": {
+      "medianDownloadMbps": 175.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.0
+    },
+    "35300": {
+      "medianDownloadMbps": 192.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.82
+    },
+    "35380": {
+      "medianDownloadMbps": 176.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.52
+    },
+    "35420": {
+      "medianDownloadMbps": 160.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.2
+    },
+    "35440": {
+      "medianDownloadMbps": 186.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.63
+    },
+    "35460": {
+      "medianDownloadMbps": 104.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 41.69
+    },
+    "35580": {
+      "medianDownloadMbps": 169.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.87
+    },
+    "35620": {
+      "medianDownloadMbps": 193.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.37
+    },
+    "35660": {
+      "medianDownloadMbps": 153.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.55
+    },
+    "35700": {
+      "medianDownloadMbps": 145.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.27
+    },
+    "35740": {
+      "medianDownloadMbps": 154.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.96
+    },
+    "35820": {
+      "medianDownloadMbps": 167.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.87
+    },
+    "35840": {
+      "medianDownloadMbps": 198.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.39
+    },
+    "35860": {
+      "medianDownloadMbps": 145.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.12
+    },
+    "35900": {
+      "medianDownloadMbps": 183.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.54
+    },
+    "35940": {
+      "medianDownloadMbps": 159.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.94
+    },
+    "35980": {
+      "medianDownloadMbps": 198.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.42
+    },
+    "36020": {
+      "medianDownloadMbps": 202.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.97
+    },
+    "36100": {
+      "medianDownloadMbps": 180.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.0
+    },
+    "36140": {
+      "medianDownloadMbps": 193.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.34
+    },
+    "36220": {
+      "medianDownloadMbps": 158.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.33
+    },
+    "36260": {
+      "medianDownloadMbps": 199.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.73
+    },
+    "36300": {
+      "medianDownloadMbps": 174.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.71
+    },
+    "36340": {
+      "medianDownloadMbps": 164.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.84
+    },
+    "36380": {
+      "medianDownloadMbps": 158.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.2
+    },
+    "36420": {
+      "medianDownloadMbps": 176.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.74
+    },
+    "36460": {
+      "medianDownloadMbps": 140.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.02
+    },
+    "36500": {
+      "medianDownloadMbps": 205.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 82.16
+    },
+    "36540": {
+      "medianDownloadMbps": 193.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.45
+    },
+    "36580": {
+      "medianDownloadMbps": 159.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.86
+    },
+    "36620": {
+      "medianDownloadMbps": 145.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.24
+    },
+    "36660": {
+      "medianDownloadMbps": 110.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 44.23
+    },
+    "36700": {
+      "medianDownloadMbps": 119.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.88
+    },
+    "36740": {
+      "medianDownloadMbps": 198.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.41
+    },
+    "36780": {
+      "medianDownloadMbps": 181.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.73
+    },
+    "36820": {
+      "medianDownloadMbps": 154.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.66
+    },
+    "36830": {
+      "medianDownloadMbps": 130.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.22
+    },
+    "36837": {
+      "medianDownloadMbps": 159.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.8
+    },
+    "36840": {
+      "medianDownloadMbps": 136.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.64
+    },
+    "36900": {
+      "medianDownloadMbps": 144.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.76
+    },
+    "36940": {
+      "medianDownloadMbps": 173.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.44
+    },
+    "36980": {
+      "medianDownloadMbps": 167.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.98
+    },
+    "37060": {
+      "medianDownloadMbps": 176.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.56
+    },
+    "37100": {
+      "medianDownloadMbps": 203.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.37
+    },
+    "37120": {
+      "medianDownloadMbps": 139.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.62
+    },
+    "37140": {
+      "medianDownloadMbps": 151.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.44
+    },
+    "37220": {
+      "medianDownloadMbps": 131.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.48
+    },
+    "37260": {
+      "medianDownloadMbps": 140.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.16
+    },
+    "37300": {
+      "medianDownloadMbps": 129.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.64
+    },
+    "37340": {
+      "medianDownloadMbps": 201.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.58
+    },
+    "37420": {
+      "medianDownloadMbps": 144.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.8
+    },
+    "37460": {
+      "medianDownloadMbps": 182.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.07
+    },
+    "37500": {
+      "medianDownloadMbps": 158.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.4
+    },
+    "37540": {
+      "medianDownloadMbps": 145.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.04
+    },
+    "37580": {
+      "medianDownloadMbps": 120.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 48.02
+    },
+    "37620": {
+      "medianDownloadMbps": 169.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.79
+    },
+    "37660": {
+      "medianDownloadMbps": 142.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.0
+    },
+    "37740": {
+      "medianDownloadMbps": 132.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.14
+    },
+    "37770": {
+      "medianDownloadMbps": 126.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.58
+    },
+    "37780": {
+      "medianDownloadMbps": 129.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.79
+    },
+    "37800": {
+      "medianDownloadMbps": 155.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.14
+    },
+    "37860": {
+      "medianDownloadMbps": 190.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.12
+    },
+    "37900": {
+      "medianDownloadMbps": 170.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.3
+    },
+    "37940": {
+      "medianDownloadMbps": 129.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.92
+    },
+    "37980": {
+      "medianDownloadMbps": 197.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.04
+    },
+    "38060": {
+      "medianDownloadMbps": 193.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.27
+    },
+    "38100": {
+      "medianDownloadMbps": 152.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.84
+    },
+    "38180": {
+      "medianDownloadMbps": 193.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.26
+    },
+    "38220": {
+      "medianDownloadMbps": 106.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 42.62
+    },
+    "38240": {
+      "medianDownloadMbps": 188.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.56
+    },
+    "38260": {
+      "medianDownloadMbps": 170.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.18
+    },
+    "38300": {
+      "medianDownloadMbps": 189.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.75
+    },
+    "38340": {
+      "medianDownloadMbps": 188.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.52
+    },
+    "38380": {
+      "medianDownloadMbps": 137.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.83
+    },
+    "38420": {
+      "medianDownloadMbps": 154.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.8
+    },
+    "38460": {
+      "medianDownloadMbps": 184.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.72
+    },
+    "38500": {
+      "medianDownloadMbps": 139.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.98
+    },
+    "38540": {
+      "medianDownloadMbps": 173.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.51
+    },
+    "38580": {
+      "medianDownloadMbps": 124.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.65
+    },
+    "38620": {
+      "medianDownloadMbps": 136.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.76
+    },
+    "38660": {
+      "medianDownloadMbps": 109.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 43.88
+    },
+    "38700": {
+      "medianDownloadMbps": 149.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.78
+    },
+    "38740": {
+      "medianDownloadMbps": 131.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.41
+    },
+    "38780": {
+      "medianDownloadMbps": 152.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.17
+    },
+    "38820": {
+      "medianDownloadMbps": 183.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.35
+    },
+    "38860": {
+      "medianDownloadMbps": 201.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.61
+    },
+    "38900": {
+      "medianDownloadMbps": 202.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.99
+    },
+    "38920": {
+      "medianDownloadMbps": 133.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.4
+    },
+    "38940": {
+      "medianDownloadMbps": 196.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.63
+    },
+    "39020": {
+      "medianDownloadMbps": 168.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.18
+    },
+    "39060": {
+      "medianDownloadMbps": 168.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.24
+    },
+    "39100": {
+      "medianDownloadMbps": 197.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.12
+    },
+    "39150": {
+      "medianDownloadMbps": 174.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.76
+    },
+    "39220": {
+      "medianDownloadMbps": 164.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.9
+    },
+    "39260": {
+      "medianDownloadMbps": 149.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.87
+    },
+    "39300": {
+      "medianDownloadMbps": 191.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.48
+    },
+    "39340": {
+      "medianDownloadMbps": 202.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.09
+    },
+    "39380": {
+      "medianDownloadMbps": 169.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.59
+    },
+    "39420": {
+      "medianDownloadMbps": 179.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.8
+    },
+    "39460": {
+      "medianDownloadMbps": 185.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.03
+    },
+    "39500": {
+      "medianDownloadMbps": 161.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.62
+    },
+    "39540": {
+      "medianDownloadMbps": 188.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.57
+    },
+    "39580": {
+      "medianDownloadMbps": 203.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.58
+    },
+    "39660": {
+      "medianDownloadMbps": 187.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.97
+    },
+    "39700": {
+      "medianDownloadMbps": 97.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 39.03
+    },
+    "39740": {
+      "medianDownloadMbps": 180.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.24
+    },
+    "39780": {
+      "medianDownloadMbps": 115.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.98
+    },
+    "39820": {
+      "medianDownloadMbps": 169.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.73
+    },
+    "39860": {
+      "medianDownloadMbps": 166.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.61
+    },
+    "39900": {
+      "medianDownloadMbps": 192.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.8
+    },
+    "39940": {
+      "medianDownloadMbps": 148.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.45
+    },
+    "39980": {
+      "medianDownloadMbps": 158.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.46
+    },
+    "40060": {
+      "medianDownloadMbps": 183.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.36
+    },
+    "40080": {
+      "medianDownloadMbps": 170.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.0
+    },
+    "40100": {
+      "medianDownloadMbps": 137.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.16
+    },
+    "40140": {
+      "medianDownloadMbps": 190.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.32
+    },
+    "40180": {
+      "medianDownloadMbps": 156.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.67
+    },
+    "40220": {
+      "medianDownloadMbps": 173.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.25
+    },
+    "40260": {
+      "medianDownloadMbps": 128.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.34
+    },
+    "40300": {
+      "medianDownloadMbps": 162.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.94
+    },
+    "40340": {
+      "medianDownloadMbps": 186.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.55
+    },
+    "40380": {
+      "medianDownloadMbps": 190.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.16
+    },
+    "40420": {
+      "medianDownloadMbps": 175.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.1
+    },
+    "40460": {
+      "medianDownloadMbps": 155.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.0
+    },
+    "40530": {
+      "medianDownloadMbps": 148.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.39
+    },
+    "40540": {
+      "medianDownloadMbps": 175.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.22
+    },
+    "40580": {
+      "medianDownloadMbps": 157.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.83
+    },
+    "40620": {
+      "medianDownloadMbps": 167.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.1
+    },
+    "40660": {
+      "medianDownloadMbps": 168.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.29
+    },
+    "40700": {
+      "medianDownloadMbps": 169.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.96
+    },
+    "40740": {
+      "medianDownloadMbps": 130.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.16
+    },
+    "40760": {
+      "medianDownloadMbps": 134.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.62
+    },
+    "40780": {
+      "medianDownloadMbps": 159.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.63
+    },
+    "40820": {
+      "medianDownloadMbps": 134.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.84
+    },
+    "40860": {
+      "medianDownloadMbps": 182.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.85
+    },
+    "40900": {
+      "medianDownloadMbps": 196.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.72
+    },
+    "40940": {
+      "medianDownloadMbps": 138.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.43
+    },
+    "40980": {
+      "medianDownloadMbps": 172.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.03
+    },
+    "41060": {
+      "medianDownloadMbps": 178.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.47
+    },
+    "41100": {
+      "medianDownloadMbps": 184.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.77
+    },
+    "41140": {
+      "medianDownloadMbps": 150.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.22
+    },
+    "41180": {
+      "medianDownloadMbps": 185.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.28
+    },
+    "41220": {
+      "medianDownloadMbps": 198.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.44
+    },
+    "41260": {
+      "medianDownloadMbps": 175.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.23
+    },
+    "41400": {
+      "medianDownloadMbps": 146.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.44
+    },
+    "41420": {
+      "medianDownloadMbps": 185.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.09
+    },
+    "41460": {
+      "medianDownloadMbps": 168.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.41
+    },
+    "41500": {
+      "medianDownloadMbps": 172.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.91
+    },
+    "41540": {
+      "medianDownloadMbps": 174.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.59
+    },
+    "41620": {
+      "medianDownloadMbps": 200.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.28
+    },
+    "41660": {
+      "medianDownloadMbps": 167.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.07
+    },
+    "41700": {
+      "medianDownloadMbps": 182.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.05
+    },
+    "41740": {
+      "medianDownloadMbps": 204.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.88
+    },
+    "41760": {
+      "medianDownloadMbps": 118.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.3
+    },
+    "41780": {
+      "medianDownloadMbps": 177.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.91
+    },
+    "41820": {
+      "medianDownloadMbps": 169.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.61
+    },
+    "41860": {
+      "medianDownloadMbps": 208.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 83.45
+    },
+    "41900": {
+      "medianDownloadMbps": 88.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 35.26
+    },
+    "41940": {
+      "medianDownloadMbps": 212.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 84.95
+    },
+    "41980": {
+      "medianDownloadMbps": 106.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 42.72
+    },
+    "42020": {
+      "medianDownloadMbps": 188.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.32
+    },
+    "42100": {
+      "medianDownloadMbps": 196.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.58
+    },
+    "42140": {
+      "medianDownloadMbps": 168.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.19
+    },
+    "42180": {
+      "medianDownloadMbps": 136.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.69
+    },
+    "42200": {
+      "medianDownloadMbps": 194.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.72
+    },
+    "42220": {
+      "medianDownloadMbps": 201.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.42
+    },
+    "42300": {
+      "medianDownloadMbps": 163.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.18
+    },
+    "42340": {
+      "medianDownloadMbps": 186.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.49
+    },
+    "42380": {
+      "medianDownloadMbps": 167.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.93
+    },
+    "42420": {
+      "medianDownloadMbps": 163.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.28
+    },
+    "42460": {
+      "medianDownloadMbps": 163.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.38
+    },
+    "42500": {
+      "medianDownloadMbps": 137.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.87
+    },
+    "42540": {
+      "medianDownloadMbps": 174.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.72
+    },
+    "42620": {
+      "medianDownloadMbps": 128.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.44
+    },
+    "42660": {
+      "medianDownloadMbps": 209.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 83.68
+    },
+    "42680": {
+      "medianDownloadMbps": 188.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.26
+    },
+    "42700": {
+      "medianDownloadMbps": 156.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.75
+    },
+    "42740": {
+      "medianDownloadMbps": 150.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.03
+    },
+    "42780": {
+      "medianDownloadMbps": 154.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.61
+    },
+    "42820": {
+      "medianDownloadMbps": 109.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 43.78
+    },
+    "42860": {
+      "medianDownloadMbps": 136.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.62
+    },
+    "42900": {
+      "medianDownloadMbps": 170.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.21
+    },
+    "42940": {
+      "medianDownloadMbps": 157.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.99
+    },
+    "42980": {
+      "medianDownloadMbps": 152.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.08
+    },
+    "43020": {
+      "medianDownloadMbps": 145.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.17
+    },
+    "43060": {
+      "medianDownloadMbps": 143.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.36
+    },
+    "43100": {
+      "medianDownloadMbps": 181.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.41
+    },
+    "43140": {
+      "medianDownloadMbps": 152.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.05
+    },
+    "43180": {
+      "medianDownloadMbps": 141.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.52
+    },
+    "43220": {
+      "medianDownloadMbps": 181.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.39
+    },
+    "43260": {
+      "medianDownloadMbps": 173.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.35
+    },
+    "43300": {
+      "medianDownloadMbps": 150.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.27
+    },
+    "43320": {
+      "medianDownloadMbps": 126.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.66
+    },
+    "43340": {
+      "medianDownloadMbps": 148.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.57
+    },
+    "43380": {
+      "medianDownloadMbps": 176.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.73
+    },
+    "43420": {
+      "medianDownloadMbps": 169.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.66
+    },
+    "43460": {
+      "medianDownloadMbps": 167.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.79
+    },
+    "43500": {
+      "medianDownloadMbps": 151.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.77
+    },
+    "43580": {
+      "medianDownloadMbps": 166.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.64
+    },
+    "43620": {
+      "medianDownloadMbps": 198.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.45
+    },
+    "43660": {
+      "medianDownloadMbps": 148.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.39
+    },
+    "43700": {
+      "medianDownloadMbps": 165.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.29
+    },
+    "43740": {
+      "medianDownloadMbps": 147.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.97
+    },
+    "43760": {
+      "medianDownloadMbps": 152.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.87
+    },
+    "43780": {
+      "medianDownloadMbps": 173.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.19
+    },
+    "43900": {
+      "medianDownloadMbps": 174.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.92
+    },
+    "43940": {
+      "medianDownloadMbps": 182.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.17
+    },
+    "43980": {
+      "medianDownloadMbps": 174.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.95
+    },
+    "44020": {
+      "medianDownloadMbps": 175.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.27
+    },
+    "44060": {
+      "medianDownloadMbps": 184.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.77
+    },
+    "44100": {
+      "medianDownloadMbps": 163.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.21
+    },
+    "44140": {
+      "medianDownloadMbps": 180.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.16
+    },
+    "44180": {
+      "medianDownloadMbps": 149.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.94
+    },
+    "44220": {
+      "medianDownloadMbps": 180.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.15
+    },
+    "44260": {
+      "medianDownloadMbps": 144.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.88
+    },
+    "44300": {
+      "medianDownloadMbps": 182.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.13
+    },
+    "44340": {
+      "medianDownloadMbps": 174.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.72
+    },
+    "44420": {
+      "medianDownloadMbps": 153.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.25
+    },
+    "44460": {
+      "medianDownloadMbps": 185.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.02
+    },
+    "44500": {
+      "medianDownloadMbps": 151.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.58
+    },
+    "44540": {
+      "medianDownloadMbps": 160.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.05
+    },
+    "44580": {
+      "medianDownloadMbps": 158.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.37
+    },
+    "44620": {
+      "medianDownloadMbps": 190.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 76.36
+    },
+    "44660": {
+      "medianDownloadMbps": 149.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.66
+    },
+    "44700": {
+      "medianDownloadMbps": 182.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.09
+    },
+    "44740": {
+      "medianDownloadMbps": 150.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.23
+    },
+    "44780": {
+      "medianDownloadMbps": 156.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.45
+    },
+    "44860": {
+      "medianDownloadMbps": 121.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 48.66
+    },
+    "44900": {
+      "medianDownloadMbps": 127.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.16
+    },
+    "44940": {
+      "medianDownloadMbps": 168.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.42
+    },
+    "44980": {
+      "medianDownloadMbps": 157.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.86
+    },
+    "45000": {
+      "medianDownloadMbps": 136.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.4
+    },
+    "45020": {
+      "medianDownloadMbps": 122.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.01
+    },
+    "45060": {
+      "medianDownloadMbps": 189.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.66
+    },
+    "45140": {
+      "medianDownloadMbps": 124.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 49.62
+    },
+    "45180": {
+      "medianDownloadMbps": 144.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.72
+    },
+    "45220": {
+      "medianDownloadMbps": 186.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.49
+    },
+    "45300": {
+      "medianDownloadMbps": 193.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.32
+    },
+    "45340": {
+      "medianDownloadMbps": 156.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.61
+    },
+    "45380": {
+      "medianDownloadMbps": 144.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.69
+    },
+    "45460": {
+      "medianDownloadMbps": 162.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.16
+    },
+    "45500": {
+      "medianDownloadMbps": 142.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.8
+    },
+    "45520": {
+      "medianDownloadMbps": 162.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.07
+    },
+    "45540": {
+      "medianDownloadMbps": 187.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.88
+    },
+    "45580": {
+      "medianDownloadMbps": 167.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.14
+    },
+    "45620": {
+      "medianDownloadMbps": 164.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.69
+    },
+    "45660": {
+      "medianDownloadMbps": 165.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.37
+    },
+    "45700": {
+      "medianDownloadMbps": 107.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 43.08
+    },
+    "45740": {
+      "medianDownloadMbps": 148.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.28
+    },
+    "45780": {
+      "medianDownloadMbps": 182.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.97
+    },
+    "45820": {
+      "medianDownloadMbps": 158.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.4
+    },
+    "45860": {
+      "medianDownloadMbps": 202.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 81.02
+    },
+    "45900": {
+      "medianDownloadMbps": 176.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.77
+    },
+    "45940": {
+      "medianDownloadMbps": 194.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.83
+    },
+    "45980": {
+      "medianDownloadMbps": 132.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.08
+    },
+    "46020": {
+      "medianDownloadMbps": 176.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.64
+    },
+    "46060": {
+      "medianDownloadMbps": 184.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.62
+    },
+    "46100": {
+      "medianDownloadMbps": 138.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 55.55
+    },
+    "46140": {
+      "medianDownloadMbps": 173.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.18
+    },
+    "46180": {
+      "medianDownloadMbps": 129.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 51.72
+    },
+    "46220": {
+      "medianDownloadMbps": 161.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.76
+    },
+    "46300": {
+      "medianDownloadMbps": 165.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.11
+    },
+    "46340": {
+      "medianDownloadMbps": 125.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.11
+    },
+    "46380": {
+      "medianDownloadMbps": 154.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.63
+    },
+    "46420": {
+      "medianDownloadMbps": 126.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.41
+    },
+    "46460": {
+      "medianDownloadMbps": 151.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 60.48
+    },
+    "46500": {
+      "medianDownloadMbps": 178.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.41
+    },
+    "46520": {
+      "medianDownloadMbps": 198.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.4
+    },
+    "46540": {
+      "medianDownloadMbps": 180.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.12
+    },
+    "46620": {
+      "medianDownloadMbps": 143.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.57
+    },
+    "46660": {
+      "medianDownloadMbps": 144.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.7
+    },
+    "46700": {
+      "medianDownloadMbps": 197.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.86
+    },
+    "46780": {
+      "medianDownloadMbps": 163.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.26
+    },
+    "46820": {
+      "medianDownloadMbps": 186.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.63
+    },
+    "46860": {
+      "medianDownloadMbps": 170.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.23
+    },
+    "46900": {
+      "medianDownloadMbps": 125.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.26
+    },
+    "46980": {
+      "medianDownloadMbps": 144.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.76
+    },
+    "47020": {
+      "medianDownloadMbps": 143.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.35
+    },
+    "47080": {
+      "medianDownloadMbps": 127.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 50.93
+    },
+    "47180": {
+      "medianDownloadMbps": 161.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.46
+    },
+    "47220": {
+      "medianDownloadMbps": 179.7,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.87
+    },
+    "47240": {
+      "medianDownloadMbps": 200.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 80.33
+    },
+    "47260": {
+      "medianDownloadMbps": 189.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.61
+    },
+    "47300": {
+      "medianDownloadMbps": 160.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.07
+    },
+    "47340": {
+      "medianDownloadMbps": 145.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 58.19
+    },
+    "47380": {
+      "medianDownloadMbps": 158.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.55
+    },
+    "47420": {
+      "medianDownloadMbps": 176.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.5
+    },
+    "47460": {
+      "medianDownloadMbps": 176.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.58
+    },
+    "47540": {
+      "medianDownloadMbps": 184.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.63
+    },
+    "47580": {
+      "medianDownloadMbps": 188.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 75.53
+    },
+    "47620": {
+      "medianDownloadMbps": 152.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 61.03
+    },
+    "47660": {
+      "medianDownloadMbps": 157.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.8
+    },
+    "47700": {
+      "medianDownloadMbps": 163.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.31
+    },
+    "47780": {
+      "medianDownloadMbps": 142.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 56.99
+    },
+    "47820": {
+      "medianDownloadMbps": 166.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.4
+    },
+    "47900": {
+      "medianDownloadMbps": 209.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 83.61
+    },
+    "47920": {
+      "medianDownloadMbps": 149.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 59.9
+    },
+    "47940": {
+      "medianDownloadMbps": 175.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.05
+    },
+    "47980": {
+      "medianDownloadMbps": 168.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.2
+    },
+    "48020": {
+      "medianDownloadMbps": 171.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.74
+    },
+    "48060": {
+      "medianDownloadMbps": 185.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 74.08
+    },
+    "48100": {
+      "medianDownloadMbps": 130.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 52.21
+    },
+    "48140": {
+      "medianDownloadMbps": 164.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.65
+    },
+    "48180": {
+      "medianDownloadMbps": 134.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 53.93
+    },
+    "48220": {
+      "medianDownloadMbps": 160.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.07
+    },
+    "48260": {
+      "medianDownloadMbps": 166.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.74
+    },
+    "48300": {
+      "medianDownloadMbps": 183.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 73.4
+    },
+    "48460": {
+      "medianDownloadMbps": 117.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 47.15
+    },
+    "48500": {
+      "medianDownloadMbps": 113.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 45.23
+    },
+    "48540": {
+      "medianDownloadMbps": 164.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.72
+    },
+    "48580": {
+      "medianDownloadMbps": 178.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.35
+    },
+    "48620": {
+      "medianDownloadMbps": 179.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 71.93
+    },
+    "48660": {
+      "medianDownloadMbps": 166.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.73
+    },
+    "48700": {
+      "medianDownloadMbps": 171.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.49
+    },
+    "48780": {
+      "medianDownloadMbps": 173.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 69.5
+    },
+    "48820": {
+      "medianDownloadMbps": 159.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 63.91
+    },
+    "48900": {
+      "medianDownloadMbps": 194.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 77.65
+    },
+    "48940": {
+      "medianDownloadMbps": 155.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.34
+    },
+    "48980": {
+      "medianDownloadMbps": 167.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 67.03
+    },
+    "49020": {
+      "medianDownloadMbps": 160.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.07
+    },
+    "49060": {
+      "medianDownloadMbps": 155.9,
+      "source": "census_proxy",
+      "pctWiredBroadband": 62.36
+    },
+    "49080": {
+      "medianDownloadMbps": 121.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 48.38
+    },
+    "49100": {
+      "medianDownloadMbps": 197.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 78.9
+    },
+    "49180": {
+      "medianDownloadMbps": 180.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.23
+    },
+    "49220": {
+      "medianDownloadMbps": 177.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.82
+    },
+    "49260": {
+      "medianDownloadMbps": 144.6,
+      "source": "census_proxy",
+      "pctWiredBroadband": 57.83
+    },
+    "49300": {
+      "medianDownloadMbps": 170.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.05
+    },
+    "49340": {
+      "medianDownloadMbps": 199.3,
+      "source": "census_proxy",
+      "pctWiredBroadband": 79.73
+    },
+    "49380": {
+      "medianDownloadMbps": 163.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 65.2
+    },
+    "49420": {
+      "medianDownloadMbps": 165.2,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.08
+    },
+    "49460": {
+      "medianDownloadMbps": 175.0,
+      "source": "census_proxy",
+      "pctWiredBroadband": 70.01
+    },
+    "49500": {
+      "medianDownloadMbps": 94.8,
+      "source": "census_proxy",
+      "pctWiredBroadband": 37.91
+    },
+    "49620": {
+      "medianDownloadMbps": 181.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 72.43
+    },
+    "49660": {
+      "medianDownloadMbps": 171.1,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.45
+    },
+    "49700": {
+      "medianDownloadMbps": 160.5,
+      "source": "census_proxy",
+      "pctWiredBroadband": 64.18
+    },
+    "49740": {
+      "medianDownloadMbps": 167.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 66.97
+    },
+    "49780": {
+      "medianDownloadMbps": 171.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 68.55
+    },
+    "49820": {
+      "medianDownloadMbps": 137.4,
+      "source": "census_proxy",
+      "pctWiredBroadband": 54.96
+    }
+  }
+}

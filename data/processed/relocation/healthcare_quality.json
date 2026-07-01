@@ -1,0 +1,4573 @@
+{
+  "metadata": {
+    "source": "CMS Provider Data Catalog \u2014 Hospital General Information",
+    "source_url": "https://data.cms.gov/provider-data/api/1/datastore/query/xubh-q36u/0",
+    "dataset_id": "xubh-q36u",
+    "publication": "https://data.cms.gov/provider-data/dataset/xubh-q36u",
+    "fields": {
+      "hospital_overall_rating": "CMS 1-5 star overall quality rating; 'Not Available' for critical-access/specialty"
+    },
+    "join_keys": "(state, county_normalized) -> CBSA via cbsa_county_crosswalk.json",
+    "aggregation": "CBSA quality_score = mean(hospital_overall_rating); counts split by rated vs total",
+    "generated_at": "2026-07-01T15:33:06.465572+00:00",
+    "cbsa_count": 911,
+    "cbsas_with_rating": 836
+  },
+  "healthcare_quality": {
+    "20020": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "10700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22520": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "13820": {
+      "hospital_quality_score": 2.9,
+      "hospital_count_rated": 10,
+      "hospital_count_total": 16
+    },
+    "22840": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37120": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "33860": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 7
+    },
+    "12220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "26620": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "23460": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "21460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "46220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 6
+    },
+    "10760": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "42460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11500": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "19300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "19460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "33660": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 7
+    },
+    "27530": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "12120": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "45180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "42820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45980": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "17980": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "29300": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "21640": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "11260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "28540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38060": {
+      "hospital_quality_score": 3.22,
+      "hospital_count_rated": 32,
+      "hospital_count_total": 58
+    },
+    "46060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 13
+    },
+    "39150": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "49740": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "22380": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "43420": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "29420": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "43320": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 6
+    },
+    "35700": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "37740": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "40940": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "22220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 9
+    },
+    "30780": {
+      "hospital_quality_score": 2.45,
+      "hospital_count_rated": 11,
+      "hospital_count_total": 19
+    },
+    "40780": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "42620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25460": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22900": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 6
+    },
+    "22620": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "27860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "26300": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "34260": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "37500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "14180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "38220": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31680": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "20980": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "12900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26260": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "32820": {
+      "hospital_quality_score": 2.44,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 21
+    },
+    "25760": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "45500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "11660": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "41860": {
+      "hospital_quality_score": 3.36,
+      "hospital_count_rated": 36,
+      "hospital_count_total": 45
+    },
+    "21700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "34900": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "40900": {
+      "hospital_quality_score": 3.81,
+      "hospital_count_rated": 16,
+      "hospital_count_total": 21
+    },
+    "40140": {
+      "hospital_quality_score": 2.7,
+      "hospital_count_rated": 30,
+      "hospital_count_total": 39
+    },
+    "41740": {
+      "hospital_quality_score": 3.94,
+      "hospital_count_rated": 16,
+      "hospital_count_total": 22
+    },
+    "17020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "12540": {
+      "hospital_quality_score": 2.43,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 10
+    },
+    "41940": {
+      "hospital_quality_score": 3.25,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 12
+    },
+    "31080": {
+      "hospital_quality_score": 3.01,
+      "hospital_count_rated": 89,
+      "hospital_count_total": 115
+    },
+    "39780": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20940": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "47300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "23420": {
+      "hospital_quality_score": 2.8,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 8
+    },
+    "33700": {
+      "hospital_quality_score": 1.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "46700": {
+      "hospital_quality_score": 2.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "37100": {
+      "hospital_quality_score": 3.2,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 7
+    },
+    "44700": {
+      "hospital_quality_score": 2.86,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 8
+    },
+    "42220": {
+      "hospital_quality_score": 3.4,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 7
+    },
+    "42200": {
+      "hospital_quality_score": 3.25,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "25260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49700": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "41500": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "46020": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "42100": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "42020": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "39820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "46380": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "43760": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "31460": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 3
+    },
+    "17340": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "45000": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "14500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 6
+    },
+    "19740": {
+      "hospital_quality_score": 4.05,
+      "hospital_count_rated": 19,
+      "hospital_count_total": 27
+    },
+    "33940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22660": {
+      "hospital_quality_score": 4.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "39380": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "20420": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "17820": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 9
+    },
+    "24300": {
+      "hospital_quality_score": 4.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "22820": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "44460": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "24060": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "44540": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20780": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "14720": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "18780": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "15860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25540": {
+      "hospital_quality_score": 2.88,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 13
+    },
+    "49340": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 14
+    },
+    "45860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "35300": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 9
+    },
+    "14860": {
+      "hospital_quality_score": 4.17,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 8
+    },
+    "35980": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "37980": {
+      "hospital_quality_score": 3.29,
+      "hospital_count_rated": 42,
+      "hospital_count_total": 72
+    },
+    "20100": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "41540": {
+      "hospital_quality_score": 3.2,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 6
+    },
+    "27260": {
+      "hospital_quality_score": 3.38,
+      "hospital_count_rated": 13,
+      "hospital_count_total": 17
+    },
+    "33100": {
+      "hospital_quality_score": 2.91,
+      "hospital_count_rated": 44,
+      "hospital_count_total": 53
+    },
+    "36740": {
+      "hospital_quality_score": 3.07,
+      "hospital_count_rated": 14,
+      "hospital_count_total": 20
+    },
+    "15980": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "19660": {
+      "hospital_quality_score": 4.14,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 8
+    },
+    "34940": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "37340": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 8
+    },
+    "26140": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "37860": {
+      "hospital_quality_score": 3.8,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 6
+    },
+    "37460": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "45300": {
+      "hospital_quality_score": 2.89,
+      "hospital_count_rated": 19,
+      "hospital_count_total": 24
+    },
+    "35840": {
+      "hospital_quality_score": 3.71,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 10
+    },
+    "38940": {
+      "hospital_quality_score": 1.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "42700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "29460": {
+      "hospital_quality_score": 2.4,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 5
+    },
+    "18880": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "36100": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "39460": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "42680": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "23540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "45220": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "28580": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "29380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "11580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37260": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48100": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "17500": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "19140": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "45580": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "12060": {
+      "hospital_quality_score": 3.06,
+      "hospital_count_rated": 34,
+      "hospital_count_total": 48
+    },
+    "12020": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "10500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "15660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "42340": {
+      "hospital_quality_score": 1.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 6
+    },
+    "15260": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "12260": {
+      "hospital_quality_score": 2.4,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 9
+    },
+    "23580": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45740": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "47580": {
+      "hospital_quality_score": 1.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "22340": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "44340": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18380": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "31420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "46660": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "27700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20140": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "47080": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "12460": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "41220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "33300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "25980": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "16340": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "46520": {
+      "hospital_quality_score": 3.83,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 11
+    },
+    "27980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "25900": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 6
+    },
+    "28180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "46300": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "30300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "14260": {
+      "hospital_quality_score": 4.33,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 11
+    },
+    "26820": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "39940": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "38540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "17660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "13940": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 3
+    },
+    "34300": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27220": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "15420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "30860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "25200": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "41760": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37900": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "41180": {
+      "hospital_quality_score": 3.48,
+      "hospital_count_rated": 31,
+      "hospital_count_total": 41
+    },
+    "16980": {
+      "hospital_quality_score": 3.16,
+      "hospital_count_rated": 74,
+      "hospital_count_total": 103
+    },
+    "16060": {
+      "hospital_quality_score": 1.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "19940": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36837": {
+      "hospital_quality_score": 2.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "39500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20820": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16460": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "44580": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "34500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "19180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "44100": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "23660": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16580": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "14010": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "19500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "28100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "23300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40420": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "19340": {
+      "hospital_quality_score": 2.8,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 8
+    },
+    "22800": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40300": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "30660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37140": {
+      "hospital_quality_score": 3.25,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "45380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "27300": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "26900": {
+      "hospital_quality_score": 3.7,
+      "hospital_count_rated": 23,
+      "hospital_count_total": 35
+    },
+    "33140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "29020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "31140": {
+      "hospital_quality_score": 3.1,
+      "hospital_count_rated": 10,
+      "hospital_count_total": 17
+    },
+    "31980": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "43780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "23060": {
+      "hospital_quality_score": 3.6,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 9
+    },
+    "21140": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "18820": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45460": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 7
+    },
+    "35220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "47180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "12140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "39980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "14020": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "47780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "42980": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "30900": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "14160": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "21780": {
+      "hospital_quality_score": 3.25,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 7
+    },
+    "17140": {
+      "hospital_quality_score": 3.83,
+      "hospital_count_rated": 18,
+      "hospital_count_total": 31
+    },
+    "34620": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29200": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "18020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "47700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "28340": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35860": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "47340": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23140": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "37940": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "19540": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "24700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "42500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22700": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36540": {
+      "hospital_quality_score": 3.91,
+      "hospital_count_rated": 11,
+      "hospital_count_total": 19
+    },
+    "26980": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "11180": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "19780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 9
+    },
+    "47940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 6
+    },
+    "16300": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "15460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32380": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "17540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "36900": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43980": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "44020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "16140": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "37800": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "21840": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "44740": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36820": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38260": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "28140": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 27,
+      "hospital_count_total": 38
+    },
+    "41460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "25700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36840": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45820": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "48620": {
+      "hospital_quality_score": 3.75,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 14
+    },
+    "26740": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "23780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "31740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 6
+    },
+    "30580": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32700": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "37660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "19980": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "24460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "49060": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "11860": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "21380": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16420": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26580": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "30460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 11
+    },
+    "30940": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "21060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "14540": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "23980": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "33180": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "12680": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "17300": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 7
+    },
+    "19220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "40080": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "34460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "31580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32460": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43700": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29180": {
+      "hospital_quality_score": 2.83,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 15
+    },
+    "26380": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 7
+    },
+    "35380": {
+      "hospital_quality_score": 3.1,
+      "hospital_count_rated": 10,
+      "hospital_count_total": 28
+    },
+    "35060": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "33740": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 9
+    },
+    "29340": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 7
+    },
+    "34020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "25220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 6
+    },
+    "36660": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "10780": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 10
+    },
+    "43340": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 13
+    },
+    "19760": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "40820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "33380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "22860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "14220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "12940": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 8
+    },
+    "35020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "12620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 6
+    },
+    "38860": {
+      "hospital_quality_score": 3.6,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 6
+    },
+    "30340": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "12300": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "25180": {
+      "hospital_quality_score": 3.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "12580": {
+      "hospital_quality_score": 3.4,
+      "hospital_count_rated": 20,
+      "hospital_count_total": 29
+    },
+    "47900": {
+      "hospital_quality_score": 3.19,
+      "hospital_count_rated": 31,
+      "hospital_count_total": 35
+    },
+    "19060": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "15680": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15700": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "14460": {
+      "hospital_quality_score": 3.43,
+      "hospital_count_rated": 35,
+      "hospital_count_total": 52
+    },
+    "39300": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 15,
+      "hospital_count_total": 21
+    },
+    "12700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "44140": {
+      "hospital_quality_score": 2.71,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 10
+    },
+    "38340": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "47240": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "19820": {
+      "hospital_quality_score": 2.53,
+      "hospital_count_rated": 32,
+      "hospital_count_total": 45
+    },
+    "24340": {
+      "hospital_quality_score": 3.89,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 12
+    },
+    "10300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "44780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "28020": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "35660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "17740": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "10940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "10980": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25880": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13020": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11460": {
+      "hospital_quality_score": 4.25,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "32100": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "27020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "34740": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40980": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "12980": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "34380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27100": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45900": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "33780": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26340": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "31220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29620": {
+      "hospital_quality_score": 2.8,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 8
+    },
+    "22420": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "33220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "42300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26090": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "21540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "33460": {
+      "hospital_quality_score": 3.8,
+      "hospital_count_rated": 25,
+      "hospital_count_total": 33
+    },
+    "20260": {
+      "hospital_quality_score": 3.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 12
+    },
+    "40340": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "22060": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "39860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "49380": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "41060": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "10820": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "10660": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49100": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22260": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "24330": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "36940": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "14660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "48820": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "31860": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "13420": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "21860": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "32140": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "24220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "35580": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "47420": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "27140": {
+      "hospital_quality_score": 2.3,
+      "hospital_count_rated": 10,
+      "hospital_count_total": 19
+    },
+    "46180": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "25060": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 9
+    },
+    "18420": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29860": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "44260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "46980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37060": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "17260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "15020": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32940": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 6
+    },
+    "25620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "24740": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "17380": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26940": {
+      "hospital_quality_score": 1.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "24900": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38100": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "24980": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27900": {
+      "hospital_quality_score": 2.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "41140": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "42740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27620": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "40620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22780": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "44180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "30060": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "17860": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "33620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48460": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "38740": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "14700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "47660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16020": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "43460": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "32340": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "25740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "13740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "24500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "33540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "15580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "14580": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "30700": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "28260": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "24260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "25580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35820": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23340": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18100": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "35740": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "30420": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 3
+    },
+    "13100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "39900": {
+      "hospital_quality_score": 3.6,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 8
+    },
+    "29820": {
+      "hospital_quality_score": 2.93,
+      "hospital_count_rated": 14,
+      "hospital_count_total": 26
+    },
+    "21220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23820": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49080": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22280": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "18180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "30100": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 10
+    },
+    "29060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28300": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "35620": {
+      "hospital_quality_score": 3.14,
+      "hospital_count_rated": 111,
+      "hospital_count_total": 142
+    },
+    "36140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "47220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45940": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "12100": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "10900": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 7
+    },
+    "10740": {
+      "hospital_quality_score": 2.83,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 8
+    },
+    "42140": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "10460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22140": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "40740": {
+      "hospital_quality_score": 1.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "21580": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "29740": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "17580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16100": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "31060": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "23700": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "26020": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "38780": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "40760": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24380": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "19700": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "45340": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29780": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "15380": {
+      "hospital_quality_score": 2.62,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 12
+    },
+    "13780": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "10580": {
+      "hospital_quality_score": 2.57,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 10
+    },
+    "39100": {
+      "hospital_quality_score": 3.17,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 8
+    },
+    "40380": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 13
+    },
+    "46540": {
+      "hospital_quality_score": 1.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "11220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48060": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "12860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31660": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "36580": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "21300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "26460": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36460": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "45060": {
+      "hospital_quality_score": 2.71,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 8
+    },
+    "18500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "27460": {
+      "hospital_quality_score": 1.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "18660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24020": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 6
+    },
+    "28740": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "12180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38460": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24100": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16740": {
+      "hospital_quality_score": 3.65,
+      "hospital_count_rated": 17,
+      "hospital_count_total": 22
+    },
+    "11700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 6
+    },
+    "34340": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "24660": {
+      "hospital_quality_score": 3.25,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "29900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "22580": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49180": {
+      "hospital_quality_score": 3.6,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 7
+    },
+    "19000": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "41820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28820": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22180": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "20500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 9
+    },
+    "24780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "25860": {
+      "hospital_quality_score": 2.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "27340": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "31300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "14380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "39580": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 7
+    },
+    "15500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32000": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40580": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "21020": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38240": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "10620": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48980": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "33980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40260": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34820": {
+      "hospital_quality_score": 3.17,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 8
+    },
+    "14820": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13900": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "33500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "22020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "48780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "27420": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "19860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18140": {
+      "hospital_quality_score": 3.15,
+      "hospital_count_rated": 13,
+      "hospital_count_total": 25
+    },
+    "39020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "30620": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "35420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "32020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43380": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "17460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 21,
+      "hospital_count_total": 28
+    },
+    "10420": {
+      "hospital_quality_score": 3.8,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 8
+    },
+    "41780": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "19430": {
+      "hospital_quality_score": 4.11,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 14
+    },
+    "45780": {
+      "hospital_quality_score": 3.29,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 11
+    },
+    "47540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49300": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "49780": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34540": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38580": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "49660": {
+      "hospital_quality_score": 3.12,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 11
+    },
+    "16380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "15940": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "46780": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "48540": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "44220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "45660": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "17060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "22300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "41400": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "23380": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "18740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31900": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "11780": {
+      "hospital_quality_score": 3.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "31930": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "48940": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13340": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48260": {
+      "hospital_quality_score": 1.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "19580": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "46500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15340": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "27160": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "47920": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24820": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "46140": {
+      "hospital_quality_score": 3.83,
+      "hospital_count_rated": 12,
+      "hospital_count_total": 27
+    },
+    "49260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "33060": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "36420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 15,
+      "hospital_count_total": 33
+    },
+    "20460": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "12780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21120": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "10220": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "11060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20340": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34780": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "32540": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "11620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "44660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "30020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "45140": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "43060": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48220": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "25100": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "45520": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38900": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 18,
+      "hospital_count_total": 21
+    },
+    "32780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "18700": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21660": {
+      "hospital_quality_score": 4.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "10540": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "40700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "41420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 5
+    },
+    "13460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28900": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "35440": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "11820": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "25840": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "39260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26220": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29260": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15060": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "42540": {
+      "hospital_quality_score": 2.86,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 9
+    },
+    "38300": {
+      "hospital_quality_score": 3.38,
+      "hospital_count_rated": 26,
+      "hospital_count_total": 32
+    },
+    "14100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "25420": {
+      "hospital_quality_score": 3.8,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 7
+    },
+    "21500": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "30260": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11020": {
+      "hospital_quality_score": 4.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "39060": {
+      "hospital_quality_score": 4.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "43740": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "39740": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 6
+    },
+    "48700": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "49620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "30380": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "26500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23900": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "30140": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "29540": {
+      "hospital_quality_score": 4.25,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "42380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "20180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36340": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "32740": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "16540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "47620": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "26860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "44300": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "30820": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "41260": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "14620": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "41980": {
+      "hospital_quality_score": 1.83,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 42
+    },
+    "38660": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 4
+    },
+    "10380": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 4
+    },
+    "32420": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "41900": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 3
+    },
+    "49500": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "11640": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "16700": {
+      "hospital_quality_score": 3.88,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 9
+    },
+    "43900": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "42860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "22500": {
+      "hospital_quality_score": 2.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "24860": {
+      "hospital_quality_score": 4.25,
+      "hospital_count_rated": 8,
+      "hospital_count_total": 14
+    },
+    "17900": {
+      "hospital_quality_score": 3.57,
+      "hospital_count_rated": 7,
+      "hospital_count_total": 9
+    },
+    "23860": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23500": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35140": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25940": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "44940": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "24940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "46420": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "47980": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "10100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "38180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43620": {
+      "hospital_quality_score": 4.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 9
+    },
+    "39660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "43940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "26700": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "46820": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "33580": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "34980": {
+      "hospital_quality_score": 3.68,
+      "hospital_count_rated": 19,
+      "hospital_count_total": 30
+    },
+    "46100": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "18900": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "28940": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 13
+    },
+    "28700": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 6
+    },
+    "27740": {
+      "hospital_quality_score": 2.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "34100": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "24620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18260": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "32280": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "11940": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "42940": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "46460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37540": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43180": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "35460": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "29980": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "17420": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "15140": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "30280": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "19420": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21340": {
+      "hospital_quality_score": 2.17,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 12
+    },
+    "28500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "48660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 6
+    },
+    "17780": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "19100": {
+      "hospital_quality_score": 3.66,
+      "hospital_count_rated": 58,
+      "hospital_count_total": 102
+    },
+    "26420": {
+      "hospital_quality_score": 3.62,
+      "hospital_count_rated": 34,
+      "hospital_count_total": 77
+    },
+    "47020": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "15180": {
+      "hospital_quality_score": 2.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "29700": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "30980": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "13140": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "31180": {
+      "hospital_quality_score": 2.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 10
+    },
+    "47380": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "18580": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "28660": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 9
+    },
+    "45020": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "12420": {
+      "hospital_quality_score": 3.54,
+      "hospital_count_rated": 13,
+      "hospital_count_total": 28
+    },
+    "41700": {
+      "hospital_quality_score": 3.55,
+      "hospital_count_rated": 11,
+      "hospital_count_total": 25
+    },
+    "34420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "13300": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "46340": {
+      "hospital_quality_score": 3.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "23620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "20580": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "32580": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 7
+    },
+    "36220": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "33260": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "11380": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "19620": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25820": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "28780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "27380": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 3
+    },
+    "37580": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11100": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "31260": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "10180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "44860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "26660": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "44500": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "11980": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "18620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13060": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "29500": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "34860": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "38380": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "33420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "41660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "46900": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "15220": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "24180": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23240": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13700": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "40100": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "20900": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37300": {
+      "hospital_quality_score": 1.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "30220": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "10860": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38920": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "14420": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "14300": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "37780": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43660": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "20300": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "46620": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37770": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "14780": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "37420": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "39340": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 9
+    },
+    "41620": {
+      "hospital_quality_score": 4.45,
+      "hospital_count_rated": 11,
+      "hospital_count_total": 14
+    },
+    "36260": {
+      "hospital_quality_score": 4.6,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 8
+    },
+    "16260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "39220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "41100": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "46860": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25720": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "12740": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "15540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "40860": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13540": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "25500": {
+      "hospital_quality_score": 5.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "49020": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "47260": {
+      "hospital_quality_score": 3.71,
+      "hospital_count_rated": 14,
+      "hospital_count_total": 18
+    },
+    "16820": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "44420": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "40060": {
+      "hospital_quality_score": 3.78,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 13
+    },
+    "31340": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "40220": {
+      "hospital_quality_score": 3.2,
+      "hospital_count_rated": 5,
+      "hospital_count_total": 6
+    },
+    "13980": {
+      "hospital_quality_score": 3.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 4
+    },
+    "14140": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "19260": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "13720": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "47460": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34580": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "42660": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 24,
+      "hospital_count_total": 33
+    },
+    "48300": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "16500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "36500": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "13380": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "10140": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "34180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 4
+    },
+    "49420": {
+      "hospital_quality_score": 1.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "14740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "31020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "44060": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 6,
+      "hospital_count_total": 10
+    },
+    "28420": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 5
+    },
+    "38820": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "36830": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 2
+    },
+    "39420": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "21260": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "43220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "36020": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34060": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "17220": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "16620": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 6
+    },
+    "13220": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "21180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "34350": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "37620": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "21900": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "44620": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "29100": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "33340": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 14,
+      "hospital_count_total": 24
+    },
+    "11540": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "31540": {
+      "hospital_quality_score": 4.22,
+      "hospital_count_rated": 9,
+      "hospital_count_total": 11
+    },
+    "48140": {
+      "hospital_quality_score": 3.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 5
+    },
+    "49220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 3
+    },
+    "31820": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "43100": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "36780": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "24580": {
+      "hospital_quality_score": 3.75,
+      "hospital_count_rated": 4,
+      "hospital_count_total": 8
+    },
+    "12660": {
+      "hospital_quality_score": 4.67,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 3
+    },
+    "39540": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "27500": {
+      "hospital_quality_score": 3.33,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 4
+    },
+    "20740": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 3,
+      "hospital_count_total": 5
+    },
+    "48020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "13180": {
+      "hospital_quality_score": 2.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "22540": {
+      "hospital_quality_score": 4.5,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 4
+    },
+    "48580": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "31940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "38420": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 3
+    },
+    "32860": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "43020": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "23940": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "43260": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 2
+    },
+    "40180": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "16220": {
+      "hospital_quality_score": 2.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 3
+    },
+    "16940": {
+      "hospital_quality_score": 4.0,
+      "hospital_count_rated": 2,
+      "hospital_count_total": 2
+    },
+    "29660": {
+      "hospital_quality_score": 3.0,
+      "hospital_count_rated": 1,
+      "hospital_count_total": 1
+    },
+    "40540": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    },
+    "21740": {
+      "hospital_quality_score": null,
+      "hospital_count_rated": 0,
+      "hospital_count_total": 1
+    }
+  }
+}

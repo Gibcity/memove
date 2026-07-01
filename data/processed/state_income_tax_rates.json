@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "source": "Tax Foundation / Federation of Tax Administrators, State Individual Income Tax Rates 2024/2025",
+    "url": "https://taxfoundation.org/data/all/state/state-income-tax-rates-2025/",
+    "generated_at": "2026-06-28T22:00:00Z",
+    "description": "Top marginal state-level individual income tax rate for each state and DC. Rates are as of January 1, 2025 (2024 tax year rates). Values are decimal (e.g., 0.133 = 13.3%). States with no broad-based income tax show 0.0.",
+    "no_income_tax_states": [
+      "AK",
+      "FL",
+      "NV",
+      "SD",
+      "TN",
+      "TX",
+      "WA",
+      "WY"
+    ],
+    "no_income_tax_on_wages": [
+      "NH"
+    ],
+    "notes": " PR added as US territory with Act 60 caveat."
+  },
+  "states": {
+    "AK": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax"
+    },
+    "AL": {
+      "topMarginalRate": 0.05,
+      "noStateIncomeTax": false,
+      "notes": "Flat 5.0%"
+    },
+    "AR": {
+      "topMarginalRate": 0.044,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 4.4% (reduced from 4.7% in 2024)"
+    },
+    "AZ": {
+      "topMarginalRate": 0.025,
+      "noStateIncomeTax": false,
+      "notes": "Flat 2.5% (reduced from 2.98% in 2023 due to revenue triggers)"
+    },
+    "CA": {
+      "topMarginalRate": 0.133,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 13.3% (>$1M)"
+    },
+    "CO": {
+      "topMarginalRate": 0.044,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.4% (TABOR-adjusted; was 4.55%, reduced to 4.4% for 2024)"
+    },
+    "CT": {
+      "topMarginalRate": 0.0699,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 6.99%"
+    },
+    "DC": {
+      "topMarginalRate": 0.1075,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 10.75% (>$1M)"
+    },
+    "DE": {
+      "topMarginalRate": 0.066,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 6.6%"
+    },
+    "FL": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax"
+    },
+    "GA": {
+      "topMarginalRate": 0.0549,
+      "noStateIncomeTax": false,
+      "notes": "Flat 5.49% (transitioning to flat; was graduated, now flat as of 2024)"
+    },
+    "HI": {
+      "topMarginalRate": 0.11,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 11.0%"
+    },
+    "IA": {
+      "topMarginalRate": 0.057,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.7% (transitioning to flat 3.9% by 2026; currently 5.7% for 2024)"
+    },
+    "ID": {
+      "topMarginalRate": 0.058,
+      "noStateIncomeTax": false,
+      "notes": "Flat 5.8%"
+    },
+    "IL": {
+      "topMarginalRate": 0.0495,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.95%"
+    },
+    "IN": {
+      "topMarginalRate": 0.0305,
+      "noStateIncomeTax": false,
+      "notes": "Flat 3.05% (reduced from 3.15% in 2024)"
+    },
+    "KS": {
+      "topMarginalRate": 0.057,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.7%"
+    },
+    "KY": {
+      "topMarginalRate": 0.04,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.0% (reduced from 4.5% in 2024)"
+    },
+    "LA": {
+      "topMarginalRate": 0.0425,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 4.25%"
+    },
+    "MA": {
+      "topMarginalRate": 0.09,
+      "noStateIncomeTax": false,
+      "notes": "Flat 5.0% on ordinary income; 9.0% surtax on income >$1M"
+    },
+    "MD": {
+      "topMarginalRate": 0.0575,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.75% (plus local rates averaging ~3.2%)"
+    },
+    "ME": {
+      "topMarginalRate": 0.0715,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 7.15%"
+    },
+    "MI": {
+      "topMarginalRate": 0.0425,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.25%"
+    },
+    "MN": {
+      "topMarginalRate": 0.0985,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 9.85%"
+    },
+    "MO": {
+      "topMarginalRate": 0.048,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 4.8% (reduced from 4.95% in 2024)"
+    },
+    "MS": {
+      "topMarginalRate": 0.047,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.7% (reduced from 5.0% in 2024; fully flat as of 2023)"
+    },
+    "MT": {
+      "topMarginalRate": 0.0675,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 6.75%"
+    },
+    "NC": {
+      "topMarginalRate": 0.045,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.5% (reduced from 4.75% in 2024; continuing to decline)"
+    },
+    "ND": {
+      "topMarginalRate": 0.029,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 2.9%"
+    },
+    "NE": {
+      "topMarginalRate": 0.0664,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 6.64% (reduced from 6.84% in 2024)"
+    },
+    "NH": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax on wages; 3% interest & dividends tax phasing out (repealed 2027)"
+    },
+    "NJ": {
+      "topMarginalRate": 0.1075,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 10.75% (>$1M)"
+    },
+    "NM": {
+      "topMarginalRate": 0.059,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.9%"
+    },
+    "NV": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax"
+    },
+    "NY": {
+      "topMarginalRate": 0.109,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 10.9% (>$25M); NYC residents pay additional ~3.876%"
+    },
+    "OH": {
+      "topMarginalRate": 0.0399,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 3.99%"
+    },
+    "OK": {
+      "topMarginalRate": 0.0475,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 4.75%"
+    },
+    "OR": {
+      "topMarginalRate": 0.099,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 9.9%"
+    },
+    "PA": {
+      "topMarginalRate": 0.0307,
+      "noStateIncomeTax": false,
+      "notes": "Flat 3.07%"
+    },
+    "RI": {
+      "topMarginalRate": 0.0599,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.99%"
+    },
+    "SC": {
+      "topMarginalRate": 0.064,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 6.4% (reduced from 6.5% in 2024)"
+    },
+    "SD": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax"
+    },
+    "TN": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax on wages; interest/dividend tax fully phased out as of 2021"
+    },
+    "TX": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax"
+    },
+    "UT": {
+      "topMarginalRate": 0.0465,
+      "noStateIncomeTax": false,
+      "notes": "Flat 4.65% (reduced from 4.85% in 2023)"
+    },
+    "VA": {
+      "topMarginalRate": 0.0575,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.75%"
+    },
+    "VT": {
+      "topMarginalRate": 0.0875,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 8.75%"
+    },
+    "WA": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax on wages; 7% capital gains tax on gains >$250K"
+    },
+    "WI": {
+      "topMarginalRate": 0.0765,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 7.65%"
+    },
+    "WV": {
+      "topMarginalRate": 0.0552,
+      "noStateIncomeTax": false,
+      "notes": "Top rate 5.52% (reduced from 6.5% in 2024; continuing to decline)"
+    },
+    "WY": {
+      "topMarginalRate": 0.0,
+      "noStateIncomeTax": true,
+      "notes": "No state income tax"
+    },
+    "PR": {
+      "topMarginalRate": 0.33,
+      "noStateIncomeTax": false,
+      "notes": "US territory (Puerto Rico). Top marginal 33%; residents meeting Act 60/22 export-services criteria pay 0% on qualifying income. Sources: hacienda.pr.gov."
+    }
+  }
+}

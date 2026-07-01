@@ -1,0 +1,5233 @@
+{
+  "metadata": {
+    "source": "Merged: committed 7f48baa amenities + 89 Overpass cache files (best-per-CBSA-code)",
+    "url": "https://overpass-api.de/api/interpreter + https://overpass.private.coffee/api/interpreter",
+    "generated_at": "2026-06-29T02:58:00Z",
+    "radius_km": "60metro/25micro (80km for targeted fix)",
+    "cbsa_count": 870,
+    "non_zero_cbsas": 691,
+    "coverage_pct": 79.4
+  },
+  "amenities": {
+    "10100": {
+      "groceryStoreDensityPerCapita": 1.182257,
+      "bigBoxStoreCount": 4,
+      "recreationAreaCount": 17,
+      "natureAreaCount": 0
+    },
+    "10180": {
+      "groceryStoreDensityPerCapita": 0.000413,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 78.0,
+      "natureAreaCount": 354.0
+    },
+    "10220": {
+      "groceryStoreDensityPerCapita": 0.000131,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 515.0
+    },
+    "10300": {
+      "groceryStoreDensityPerCapita": 0.000151,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 86.0
+    },
+    "10380": {
+      "groceryStoreDensityPerCapita": 2.460192,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 464.0,
+      "natureAreaCount": 208.0
+    },
+    "10420": {
+      "groceryStoreDensityPerCapita": 0.000335,
+      "bigBoxStoreCount": 15.0,
+      "recreationAreaCount": 381.0,
+      "natureAreaCount": 3562.0
+    },
+    "10460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 6.0
+    },
+    "10500": {
+      "groceryStoreDensityPerCapita": 0.000237,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 65.0,
+      "natureAreaCount": 385.0
+    },
+    "10540": {
+      "groceryStoreDensityPerCapita": 3.421515,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 284.0,
+      "natureAreaCount": 39.0
+    },
+    "10580": {
+      "groceryStoreDensityPerCapita": 1.386226,
+      "bigBoxStoreCount": 21.0,
+      "recreationAreaCount": 652.0,
+      "natureAreaCount": 348.0
+    },
+    "10620": {
+      "groceryStoreDensityPerCapita": 2.232036,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 36.0,
+      "natureAreaCount": 16.0
+    },
+    "10660": {
+      "groceryStoreDensityPerCapita": 1.296302,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 47.0,
+      "natureAreaCount": 23.0
+    },
+    "10700": {
+      "groceryStoreDensityPerCapita": 1.633937,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 46.0,
+      "natureAreaCount": 0.0
+    },
+    "10740": {
+      "groceryStoreDensityPerCapita": 1.26642,
+      "bigBoxStoreCount": 35.0,
+      "recreationAreaCount": 784.0,
+      "natureAreaCount": 30.0
+    },
+    "10760": {
+      "groceryStoreDensityPerCapita": 0.969368,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 1.0
+    },
+    "10780": {
+      "groceryStoreDensityPerCapita": 2.240955,
+      "bigBoxStoreCount": 14,
+      "recreationAreaCount": 106,
+      "natureAreaCount": 12
+    },
+    "10860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "10900": {
+      "groceryStoreDensityPerCapita": 5.746288,
+      "bigBoxStoreCount": 79.0,
+      "recreationAreaCount": 2520.0,
+      "natureAreaCount": 452.0
+    },
+    "10940": {
+      "groceryStoreDensityPerCapita": 1.203833,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 53.0,
+      "natureAreaCount": 2.0
+    },
+    "10980": {
+      "groceryStoreDensityPerCapita": 2.421224,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 32.0,
+      "natureAreaCount": 15.0
+    },
+    "11020": {
+      "groceryStoreDensityPerCapita": 8.398565,
+      "bigBoxStoreCount": 20.0,
+      "recreationAreaCount": 389.0,
+      "natureAreaCount": 63.0
+    },
+    "11060": {
+      "groceryStoreDensityPerCapita": 1.210849,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 25.0,
+      "natureAreaCount": 0.0
+    },
+    "11100": {
+      "groceryStoreDensityPerCapita": 2.153908,
+      "bigBoxStoreCount": 14.0,
+      "recreationAreaCount": 172.0,
+      "natureAreaCount": 5.0
+    },
+    "11140": {
+      "groceryStoreDensityPerCapita": 0.294612,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 0.0
+    },
+    "11180": {
+      "groceryStoreDensityPerCapita": 10.058033,
+      "bigBoxStoreCount": 25.0,
+      "recreationAreaCount": 811.0,
+      "natureAreaCount": 580.0
+    },
+    "11220": {
+      "groceryStoreDensityPerCapita": 3.627277,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 80.0,
+      "natureAreaCount": 12.0
+    },
+    "11260": {
+      "groceryStoreDensityPerCapita": 0.3005,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 50.0,
+      "natureAreaCount": 1580.0
+    },
+    "11380": {
+      "groceryStoreDensityPerCapita": 0.544603,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "11420": {
+      "groceryStoreDensityPerCapita": 0.869389,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 31.0,
+      "natureAreaCount": 17.0
+    },
+    "11460": {
+      "groceryStoreDensityPerCapita": 18.258871,
+      "bigBoxStoreCount": 93.0,
+      "recreationAreaCount": 3574.0,
+      "natureAreaCount": 405.0
+    },
+    "11500": {
+      "groceryStoreDensityPerCapita": 9.297361,
+      "bigBoxStoreCount": 35.0,
+      "recreationAreaCount": 296.0,
+      "natureAreaCount": 7.0
+    },
+    "11540": {
+      "groceryStoreDensityPerCapita": 5.679667,
+      "bigBoxStoreCount": 27.0,
+      "recreationAreaCount": 1188.0,
+      "natureAreaCount": 117.0
+    },
+    "11580": {
+      "groceryStoreDensityPerCapita": 0.875708,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 10.0
+    },
+    "11620": {
+      "groceryStoreDensityPerCapita": 1.199452,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 20.0,
+      "natureAreaCount": 1.0
+    },
+    "11640": {
+      "groceryStoreDensityPerCapita": 11.439886,
+      "bigBoxStoreCount": 28.0,
+      "recreationAreaCount": 1089.0,
+      "natureAreaCount": 570.0
+    },
+    "11660": {
+      "groceryStoreDensityPerCapita": 0.931576,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 25.0,
+      "natureAreaCount": 0.0
+    },
+    "11700": {
+      "groceryStoreDensityPerCapita": 3.471897,
+      "bigBoxStoreCount": 21.0,
+      "recreationAreaCount": 361.0,
+      "natureAreaCount": 88.0
+    },
+    "11740": {
+      "groceryStoreDensityPerCapita": 1.903964,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 62.0,
+      "natureAreaCount": 7.0
+    },
+    "11780": {
+      "groceryStoreDensityPerCapita": 0.921508,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 60.0,
+      "natureAreaCount": 7.0
+    },
+    "11820": {
+      "groceryStoreDensityPerCapita": 2.427774,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 58.0,
+      "natureAreaCount": 15.0
+    },
+    "11860": {
+      "groceryStoreDensityPerCapita": 2.452634,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 16.0,
+      "natureAreaCount": 8.0
+    },
+    "11900": {
+      "groceryStoreDensityPerCapita": 1.795156,
+      "bigBoxStoreCount": 1,
+      "recreationAreaCount": 47,
+      "natureAreaCount": 34
+    },
+    "12020": {
+      "groceryStoreDensityPerCapita": 8.973422,
+      "bigBoxStoreCount": 42.0,
+      "recreationAreaCount": 476.0,
+      "natureAreaCount": 20.0
+    },
+    "12060": {
+      "groceryStoreDensityPerCapita": 1.115714,
+      "bigBoxStoreCount": 135.0,
+      "recreationAreaCount": 1795.0,
+      "natureAreaCount": 50.0
+    },
+    "12100": {
+      "groceryStoreDensityPerCapita": 14.872111,
+      "bigBoxStoreCount": 72.0,
+      "recreationAreaCount": 1476.0,
+      "natureAreaCount": 118.0
+    },
+    "12120": {
+      "groceryStoreDensityPerCapita": 0.544144,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 4.0
+    },
+    "12140": {
+      "groceryStoreDensityPerCapita": 2.077946,
+      "bigBoxStoreCount": 2,
+      "recreationAreaCount": 54,
+      "natureAreaCount": 14
+    },
+    "12220": {
+      "groceryStoreDensityPerCapita": 4.396834,
+      "bigBoxStoreCount": 26.0,
+      "recreationAreaCount": 288.0,
+      "natureAreaCount": 12.0
+    },
+    "12260": {
+      "groceryStoreDensityPerCapita": 1.48475,
+      "bigBoxStoreCount": 22.0,
+      "recreationAreaCount": 263.0,
+      "natureAreaCount": 10.0
+    },
+    "12300": {
+      "groceryStoreDensityPerCapita": 1.451578,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 108.0,
+      "natureAreaCount": 76.0
+    },
+    "12380": {
+      "groceryStoreDensityPerCapita": 0.997954,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 45.0,
+      "natureAreaCount": 28.0
+    },
+    "12420": {
+      "groceryStoreDensityPerCapita": 0.953676,
+      "bigBoxStoreCount": 64.0,
+      "recreationAreaCount": 1505.0,
+      "natureAreaCount": 90.0
+    },
+    "12460": {
+      "groceryStoreDensityPerCapita": 1.720401,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 27.0,
+      "natureAreaCount": 9.0
+    },
+    "12540": {
+      "groceryStoreDensityPerCapita": 0.981383,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 282.0,
+      "natureAreaCount": 19.0
+    },
+    "12580": {
+      "groceryStoreDensityPerCapita": 3.176051,
+      "bigBoxStoreCount": 132.0,
+      "recreationAreaCount": 4029.0,
+      "natureAreaCount": 1574.0
+    },
+    "12620": {
+      "groceryStoreDensityPerCapita": 1.965409,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 177.0,
+      "natureAreaCount": 102.0
+    },
+    "12660": {
+      "groceryStoreDensityPerCapita": 1.370614,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 105.0,
+      "natureAreaCount": 26.0
+    },
+    "12680": {
+      "groceryStoreDensityPerCapita": 1.282627,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 2.0
+    },
+    "12700": {
+      "groceryStoreDensityPerCapita": 3.835492,
+      "bigBoxStoreCount": 15.0,
+      "recreationAreaCount": 511.0,
+      "natureAreaCount": 6512.0
+    },
+    "12740": {
+      "groceryStoreDensityPerCapita": 2.677018,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 50.0,
+      "natureAreaCount": 34.0
+    },
+    "12780": {
+      "groceryStoreDensityPerCapita": 0.57057,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 24.0,
+      "natureAreaCount": 2.0
+    },
+    "12860": {
+      "groceryStoreDensityPerCapita": 1.374476,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 38.0,
+      "natureAreaCount": 2.0
+    },
+    "12900": {
+      "groceryStoreDensityPerCapita": 0.722909,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 22.0,
+      "natureAreaCount": 0.0
+    },
+    "12940": {
+      "groceryStoreDensityPerCapita": 1.126754,
+      "bigBoxStoreCount": 42.0,
+      "recreationAreaCount": 317.0,
+      "natureAreaCount": 43.0
+    },
+    "12980": {
+      "groceryStoreDensityPerCapita": 13.13325,
+      "bigBoxStoreCount": 31.0,
+      "recreationAreaCount": 1008.0,
+      "natureAreaCount": 200.0
+    },
+    "13020": {
+      "groceryStoreDensityPerCapita": 10.891356,
+      "bigBoxStoreCount": 19,
+      "recreationAreaCount": 672,
+      "natureAreaCount": 73
+    },
+    "13100": {
+      "groceryStoreDensityPerCapita": 1.385425,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 23.0,
+      "natureAreaCount": 1.0
+    },
+    "13140": {
+      "groceryStoreDensityPerCapita": 0.000184,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 2.0
+    },
+    "13180": {
+      "groceryStoreDensityPerCapita": 3.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "13220": {
+      "groceryStoreDensityPerCapita": 0.000183,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "13260": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "13300": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13340": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13380": {
+      "groceryStoreDensityPerCapita": 4e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13460": {
+      "groceryStoreDensityPerCapita": 4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13500": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "13540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13620": {
+      "groceryStoreDensityPerCapita": 3.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13660": {
+      "groceryStoreDensityPerCapita": 0.000125,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13720": {
+      "groceryStoreDensityPerCapita": 0.000126,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13740": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13780": {
+      "groceryStoreDensityPerCapita": 0.00015,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 1.0
+    },
+    "13820": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 14.0,
+      "recreationAreaCount": 37.0,
+      "natureAreaCount": 10.0
+    },
+    "13900": {
+      "groceryStoreDensityPerCapita": 0.00021,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "13940": {
+      "groceryStoreDensityPerCapita": 6.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "13980": {
+      "groceryStoreDensityPerCapita": 0.000168,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "14010": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14100": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "14140": {
+      "groceryStoreDensityPerCapita": 5.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14160": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "14180": {
+      "groceryStoreDensityPerCapita": 2.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14220": {
+      "groceryStoreDensityPerCapita": 4.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "14300": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14380": {
+      "groceryStoreDensityPerCapita": 0.000275,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "14420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14460": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 43.0,
+      "recreationAreaCount": 18.0,
+      "natureAreaCount": 2.0
+    },
+    "14500": {
+      "groceryStoreDensityPerCapita": 9.1e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "14540": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 4.0
+    },
+    "14580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14700": {
+      "groceryStoreDensityPerCapita": 1.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "14720": {
+      "groceryStoreDensityPerCapita": 0.000194,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "14740": {
+      "groceryStoreDensityPerCapita": 0.000192,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "14780": {
+      "groceryStoreDensityPerCapita": 5.6e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "14820": {
+      "groceryStoreDensityPerCapita": 0.000121,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 4.0
+    },
+    "14860": {
+      "groceryStoreDensityPerCapita": 9.7e-05,
+      "bigBoxStoreCount": 18.0,
+      "recreationAreaCount": 30.0,
+      "natureAreaCount": 2.0
+    },
+    "15020": {
+      "groceryStoreDensityPerCapita": 0.000287,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 4.0
+    },
+    "15060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15140": {
+      "groceryStoreDensityPerCapita": 0.000225,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 48.0
+    },
+    "15180": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 2.0
+    },
+    "15220": {
+      "groceryStoreDensityPerCapita": 2.6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "15260": {
+      "groceryStoreDensityPerCapita": 0.000668,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 0.0
+    },
+    "15340": {
+      "groceryStoreDensityPerCapita": 9.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "15380": {
+      "groceryStoreDensityPerCapita": 7.9e-05,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 2.0
+    },
+    "15420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15540": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 2.0
+    },
+    "15580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "15620": {
+      "groceryStoreDensityPerCapita": 6.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15660": {
+      "groceryStoreDensityPerCapita": 0.000485,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "15680": {
+      "groceryStoreDensityPerCapita": 0.000114,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 0.0
+    },
+    "15700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15780": {
+      "groceryStoreDensityPerCapita": 3.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15820": {
+      "groceryStoreDensityPerCapita": 0.000107,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "15860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "15940": {
+      "groceryStoreDensityPerCapita": 5.5e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 11.0,
+      "natureAreaCount": 0.0
+    },
+    "15980": {
+      "groceryStoreDensityPerCapita": 7.9e-05,
+      "bigBoxStoreCount": 29.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 3.0
+    },
+    "16020": {
+      "groceryStoreDensityPerCapita": 5.1e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "16060": {
+      "groceryStoreDensityPerCapita": 8.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 10.0
+    },
+    "16100": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "16140": {
+      "groceryStoreDensityPerCapita": 0.000145,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "16180": {
+      "groceryStoreDensityPerCapita": 0.000326,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "16220": {
+      "groceryStoreDensityPerCapita": 1.006213,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 45.0,
+      "natureAreaCount": 505.0
+    },
+    "16260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "16300": {
+      "groceryStoreDensityPerCapita": 9.8e-05,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "16340": {
+      "groceryStoreDensityPerCapita": 2.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "16380": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "16420": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "16460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "16540": {
+      "groceryStoreDensityPerCapita": 6e-06,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "16580": {
+      "groceryStoreDensityPerCapita": 8.5e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "16620": {
+      "groceryStoreDensityPerCapita": 0.000202,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "16660": {
+      "groceryStoreDensityPerCapita": 1.7e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "16700": {
+      "groceryStoreDensityPerCapita": 0.000127,
+      "bigBoxStoreCount": 17.0,
+      "recreationAreaCount": 18.0,
+      "natureAreaCount": 4.0
+    },
+    "16740": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 24.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 4.0
+    },
+    "16820": {
+      "groceryStoreDensityPerCapita": 0.000171,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "16860": {
+      "groceryStoreDensityPerCapita": 0.000115,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 20.0,
+      "natureAreaCount": 4.0
+    },
+    "16940": {
+      "groceryStoreDensityPerCapita": 9e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "16980": {
+      "groceryStoreDensityPerCapita": 4.8e-05,
+      "bigBoxStoreCount": 90.0,
+      "recreationAreaCount": 20.0,
+      "natureAreaCount": 47.0
+    },
+    "17020": {
+      "groceryStoreDensityPerCapita": 8.9e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "17060": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17140": {
+      "groceryStoreDensityPerCapita": 5.7e-05,
+      "bigBoxStoreCount": 27.0,
+      "recreationAreaCount": 23.0,
+      "natureAreaCount": 0.0
+    },
+    "17220": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "17260": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "17300": {
+      "groceryStoreDensityPerCapita": 1.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "17340": {
+      "groceryStoreDensityPerCapita": 1.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17460": {
+      "groceryStoreDensityPerCapita": 0.000124,
+      "bigBoxStoreCount": 31.0,
+      "recreationAreaCount": 23.0,
+      "natureAreaCount": 0.0
+    },
+    "17500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17540": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "17580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17620": {
+      "groceryStoreDensityPerCapita": 2.9e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17640": {
+      "groceryStoreDensityPerCapita": 7.8e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "17660": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "17700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "17740": {
+      "groceryStoreDensityPerCapita": 0.000491,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17780": {
+      "groceryStoreDensityPerCapita": 1.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "17820": {
+      "groceryStoreDensityPerCapita": 9e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "17860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "17980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18180": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "18220": {
+      "groceryStoreDensityPerCapita": 0.000299,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "18260": {
+      "groceryStoreDensityPerCapita": 9e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "18300": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "18380": {
+      "groceryStoreDensityPerCapita": 0.000148,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "18420": {
+      "groceryStoreDensityPerCapita": 0.000173,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 10.0
+    },
+    "18460": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "18500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18580": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "18620": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18660": {
+      "groceryStoreDensityPerCapita": 0.000342,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18700": {
+      "groceryStoreDensityPerCapita": 0.000146,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "18740": {
+      "groceryStoreDensityPerCapita": 0.000164,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18820": {
+      "groceryStoreDensityPerCapita": 0.000132,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "18860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "18880": {
+      "groceryStoreDensityPerCapita": 1e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "18900": {
+      "groceryStoreDensityPerCapita": 9.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 75.0
+    },
+    "18980": {
+      "groceryStoreDensityPerCapita": 6.8e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 24.0
+    },
+    "19000": {
+      "groceryStoreDensityPerCapita": 8.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "19060": {
+      "groceryStoreDensityPerCapita": 0.000105,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 0.0
+    },
+    "19100": {
+      "groceryStoreDensityPerCapita": 2.7e-05,
+      "bigBoxStoreCount": 40.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 0.0
+    },
+    "19140": {
+      "groceryStoreDensityPerCapita": 7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "19180": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "19300": {
+      "groceryStoreDensityPerCapita": 5.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 2.0
+    },
+    "19340": {
+      "groceryStoreDensityPerCapita": 4.4e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 2.0
+    },
+    "19420": {
+      "groceryStoreDensityPerCapita": 6.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "19430": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 68.0,
+      "natureAreaCount": 0.0
+    },
+    "19460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "19580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "19620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "19660": {
+      "groceryStoreDensityPerCapita": 5.8e-05,
+      "bigBoxStoreCount": 14.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 0.0
+    },
+    "19700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "19740": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 14.0,
+      "recreationAreaCount": 15.0,
+      "natureAreaCount": 0.0
+    },
+    "19760": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "19780": {
+      "groceryStoreDensityPerCapita": 5.8e-05,
+      "bigBoxStoreCount": 14.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "19820": {
+      "groceryStoreDensityPerCapita": 5e-05,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "19860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "19940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "19980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20020": {
+      "groceryStoreDensityPerCapita": 8.6e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "20060": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "20100": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "20140": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "20180": {
+      "groceryStoreDensityPerCapita": 1.3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20220": {
+      "groceryStoreDensityPerCapita": 0.000213,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20260": {
+      "groceryStoreDensityPerCapita": 1.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "20300": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "20420": {
+      "groceryStoreDensityPerCapita": 0.000125,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "20460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20500": {
+      "groceryStoreDensityPerCapita": 9.3e-05,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 3.0
+    },
+    "20540": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 35.0
+    },
+    "20580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20660": {
+      "groceryStoreDensityPerCapita": 5.3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "20700": {
+      "groceryStoreDensityPerCapita": 9.5e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 3.0
+    },
+    "20740": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 2.0
+    },
+    "20780": {
+      "groceryStoreDensityPerCapita": 1.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20820": {
+      "groceryStoreDensityPerCapita": 8.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "20940": {
+      "groceryStoreDensityPerCapita": 1.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "20980": {
+      "groceryStoreDensityPerCapita": 2.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "21020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21060": {
+      "groceryStoreDensityPerCapita": 7.7e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "21120": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21140": {
+      "groceryStoreDensityPerCapita": 0.000184,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "21180": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "21220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "21260": {
+      "groceryStoreDensityPerCapita": 2.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21300": {
+      "groceryStoreDensityPerCapita": 0.000227,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "21340": {
+      "groceryStoreDensityPerCapita": 0.461275,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 323.0,
+      "natureAreaCount": 897.0
+    },
+    "21380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21420": {
+      "groceryStoreDensityPerCapita": 4.8e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "21460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21500": {
+      "groceryStoreDensityPerCapita": 0.000495,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 4.0
+    },
+    "21540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21640": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21660": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 16.0,
+      "natureAreaCount": 1.0
+    },
+    "21700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21780": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 1.0
+    },
+    "21820": {
+      "groceryStoreDensityPerCapita": 0.934589,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 43.0,
+      "natureAreaCount": 859.0
+    },
+    "21840": {
+      "groceryStoreDensityPerCapita": 0.000634,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "21860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "21980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22020": {
+      "groceryStoreDensityPerCapita": 0.000171,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "22060": {
+      "groceryStoreDensityPerCapita": 0.000119,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22180": {
+      "groceryStoreDensityPerCapita": 6.9e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 13.0
+    },
+    "22220": {
+      "groceryStoreDensityPerCapita": 2.5e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 14.0
+    },
+    "22260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22280": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22300": {
+      "groceryStoreDensityPerCapita": 9.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "22340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 3.0
+    },
+    "22420": {
+      "groceryStoreDensityPerCapita": 0.000375,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "22500": {
+      "groceryStoreDensityPerCapita": 9.5e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 15.0,
+      "natureAreaCount": 0.0
+    },
+    "22520": {
+      "groceryStoreDensityPerCapita": 5.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 13.0
+    },
+    "22540": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "22580": {
+      "groceryStoreDensityPerCapita": 0.00017,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "22620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "22660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "22700": {
+      "groceryStoreDensityPerCapita": 0.000216,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22780": {
+      "groceryStoreDensityPerCapita": 1.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "22800": {
+      "groceryStoreDensityPerCapita": 5.2e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "22820": {
+      "groceryStoreDensityPerCapita": 3.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "22840": {
+      "groceryStoreDensityPerCapita": 9.8e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "22860": {
+      "groceryStoreDensityPerCapita": 0.000103,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 13.0
+    },
+    "22900": {
+      "groceryStoreDensityPerCapita": 7.7e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 18.0,
+      "natureAreaCount": 10.0
+    },
+    "23060": {
+      "groceryStoreDensityPerCapita": 8.6e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "23140": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23240": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "23300": {
+      "groceryStoreDensityPerCapita": 0.000112,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "23340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23420": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 14.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 0.0
+    },
+    "23460": {
+      "groceryStoreDensityPerCapita": 6.8e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 15.0
+    },
+    "23500": {
+      "groceryStoreDensityPerCapita": 5.3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "23540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23660": {
+      "groceryStoreDensityPerCapita": 4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23780": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23820": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "23860": {
+      "groceryStoreDensityPerCapita": 0.000173,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "23900": {
+      "groceryStoreDensityPerCapita": 4.8e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "23940": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "23980": {
+      "groceryStoreDensityPerCapita": 1.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "24020": {
+      "groceryStoreDensityPerCapita": 0.000276,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "24060": {
+      "groceryStoreDensityPerCapita": 1.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "24100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "24140": {
+      "groceryStoreDensityPerCapita": 0.000409,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "24180": {
+      "groceryStoreDensityPerCapita": 3.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24220": {
+      "groceryStoreDensityPerCapita": 0.00024,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24260": {
+      "groceryStoreDensityPerCapita": 0.000222,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "24300": {
+      "groceryStoreDensityPerCapita": 5.1e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "24330": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24340": {
+      "groceryStoreDensityPerCapita": 0.000141,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "24380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24420": {
+      "groceryStoreDensityPerCapita": 3.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 0.0
+    },
+    "24460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24500": {
+      "groceryStoreDensityPerCapita": 5.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24540": {
+      "groceryStoreDensityPerCapita": 2.986732,
+      "bigBoxStoreCount": 31.0,
+      "recreationAreaCount": 688.0,
+      "natureAreaCount": 3210.0
+    },
+    "24580": {
+      "groceryStoreDensityPerCapita": 0.000195,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 30.0,
+      "natureAreaCount": 1.0
+    },
+    "24620": {
+      "groceryStoreDensityPerCapita": 0.000114,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "24660": {
+      "groceryStoreDensityPerCapita": 0.000205,
+      "bigBoxStoreCount": 16.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 11.0
+    },
+    "24700": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "24740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24860": {
+      "groceryStoreDensityPerCapita": 6.4e-05,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "24900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "24980": {
+      "groceryStoreDensityPerCapita": 0.000326,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 12.0
+    },
+    "25020": {
+      "groceryStoreDensityPerCapita": 0.000103,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "25060": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 18.0,
+      "natureAreaCount": 2.0
+    },
+    "25100": {
+      "groceryStoreDensityPerCapita": 0.000142,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "25180": {
+      "groceryStoreDensityPerCapita": 4.1e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 0.0
+    },
+    "25200": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25220": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "25260": {
+      "groceryStoreDensityPerCapita": 4.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25300": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25420": {
+      "groceryStoreDensityPerCapita": 9.1e-05,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 1.0
+    },
+    "25460": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "25500": {
+      "groceryStoreDensityPerCapita": 0.000302,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "25540": {
+      "groceryStoreDensityPerCapita": 0.00011,
+      "bigBoxStoreCount": 27.0,
+      "recreationAreaCount": 17.0,
+      "natureAreaCount": 1.0
+    },
+    "25580": {
+      "groceryStoreDensityPerCapita": 3.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "25620": {
+      "groceryStoreDensityPerCapita": 8.1e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 33.0
+    },
+    "25700": {
+      "groceryStoreDensityPerCapita": 3.5e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "25720": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25740": {
+      "groceryStoreDensityPerCapita": 1.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25760": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25780": {
+      "groceryStoreDensityPerCapita": 0.000235,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "25820": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25840": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25860": {
+      "groceryStoreDensityPerCapita": 0.000107,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "25880": {
+      "groceryStoreDensityPerCapita": 0.000241,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "25940": {
+      "groceryStoreDensityPerCapita": 0.000133,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 5.0
+    },
+    "25980": {
+      "groceryStoreDensityPerCapita": 0.000255,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "26020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26090": {
+      "groceryStoreDensityPerCapita": 8.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26140": {
+      "groceryStoreDensityPerCapita": 7.7e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "26220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26260": {
+      "groceryStoreDensityPerCapita": 7.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 2.0
+    },
+    "26300": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 1.0
+    },
+    "26340": {
+      "groceryStoreDensityPerCapita": 5.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26380": {
+      "groceryStoreDensityPerCapita": 1.067536,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 83.0,
+      "natureAreaCount": 2624.0
+    },
+    "26420": {
+      "groceryStoreDensityPerCapita": 4.5e-05,
+      "bigBoxStoreCount": 47.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "26460": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26500": {
+      "groceryStoreDensityPerCapita": 2.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 2.0
+    },
+    "26540": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "26580": {
+      "groceryStoreDensityPerCapita": 0.000106,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "26620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26820": {
+      "groceryStoreDensityPerCapita": 1.766807,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 220.0,
+      "natureAreaCount": 400.0
+    },
+    "26860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "26900": {
+      "groceryStoreDensityPerCapita": 8.9e-05,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 49.0,
+      "natureAreaCount": 3.0
+    },
+    "26940": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "26980": {
+      "groceryStoreDensityPerCapita": 6.8e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "27020": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27060": {
+      "groceryStoreDensityPerCapita": 0.000224,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 1.0
+    },
+    "27100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27460": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "27500": {
+      "groceryStoreDensityPerCapita": 0.000122,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 21.0,
+      "natureAreaCount": 3.0
+    },
+    "27530": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27580": {
+      "groceryStoreDensityPerCapita": 0.000136,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27600": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "27620": {
+      "groceryStoreDensityPerCapita": 1.3e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "27660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27700": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "27740": {
+      "groceryStoreDensityPerCapita": 0.000116,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 0.0
+    },
+    "27780": {
+      "groceryStoreDensityPerCapita": 4.5e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 2.0
+    },
+    "27860": {
+      "groceryStoreDensityPerCapita": 3e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 8.0
+    },
+    "27900": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 1.0
+    },
+    "27940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "27980": {
+      "groceryStoreDensityPerCapita": 0.000146,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "28020": {
+      "groceryStoreDensityPerCapita": 0.000367,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 10.0
+    },
+    "28060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28100": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "28140": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 5.0
+    },
+    "28180": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28260": {
+      "groceryStoreDensityPerCapita": 0.00037,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "28300": {
+      "groceryStoreDensityPerCapita": 0.000131,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "28340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "28420": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "28500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28660": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "28700": {
+      "groceryStoreDensityPerCapita": 5.2e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 1.0
+    },
+    "28740": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "28780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28820": {
+      "groceryStoreDensityPerCapita": 0.000291,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 5.0
+    },
+    "28860": {
+      "groceryStoreDensityPerCapita": 3.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "28940": {
+      "groceryStoreDensityPerCapita": 6.1e-05,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 9.0
+    },
+    "29020": {
+      "groceryStoreDensityPerCapita": 0.000204,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "29060": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "29100": {
+      "groceryStoreDensityPerCapita": 0.000108,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "29180": {
+      "groceryStoreDensityPerCapita": 1.9e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29200": {
+      "groceryStoreDensityPerCapita": 9.4e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "29260": {
+      "groceryStoreDensityPerCapita": 0.000114,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "29300": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 16.0,
+      "natureAreaCount": 0.0
+    },
+    "29340": {
+      "groceryStoreDensityPerCapita": 3.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "29380": {
+      "groceryStoreDensityPerCapita": 5.7e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29420": {
+      "groceryStoreDensityPerCapita": 0.233395,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 887.0
+    },
+    "29460": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 2.0
+    },
+    "29500": {
+      "groceryStoreDensityPerCapita": 8.1e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29540": {
+      "groceryStoreDensityPerCapita": 8.9e-05,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 3.0
+    },
+    "29620": {
+      "groceryStoreDensityPerCapita": 0.000276,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "29660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29700": {
+      "groceryStoreDensityPerCapita": 4e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29740": {
+      "groceryStoreDensityPerCapita": 7.7e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 1.0
+    },
+    "29780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29820": {
+      "groceryStoreDensityPerCapita": 5.5e-05,
+      "bigBoxStoreCount": 21.0,
+      "recreationAreaCount": 39.0,
+      "natureAreaCount": 1.0
+    },
+    "29860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "29900": {
+      "groceryStoreDensityPerCapita": 0.000234,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "29940": {
+      "groceryStoreDensityPerCapita": 8.4e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "29980": {
+      "groceryStoreDensityPerCapita": 0.00027,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 41.0
+    },
+    "30020": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 15.0,
+      "natureAreaCount": 18.0
+    },
+    "30060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30300": {
+      "groceryStoreDensityPerCapita": 4.6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 1.0
+    },
+    "30340": {
+      "groceryStoreDensityPerCapita": 0.000126,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 3.0
+    },
+    "30380": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "30420": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "30460": {
+      "groceryStoreDensityPerCapita": 0.000126,
+      "bigBoxStoreCount": 15.0,
+      "recreationAreaCount": 17.0,
+      "natureAreaCount": 4.0
+    },
+    "30580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30620": {
+      "groceryStoreDensityPerCapita": 0.000108,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 15.0
+    },
+    "30660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30780": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 69.0
+    },
+    "30820": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30860": {
+      "groceryStoreDensityPerCapita": 9.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "30900": {
+      "groceryStoreDensityPerCapita": 5.3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30940": {
+      "groceryStoreDensityPerCapita": 7e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "30980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31060": {
+      "groceryStoreDensityPerCapita": 0.000104,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "31080": {
+      "groceryStoreDensityPerCapita": 4.4e-05,
+      "bigBoxStoreCount": 88.0,
+      "recreationAreaCount": 34.0,
+      "natureAreaCount": 9.0
+    },
+    "31140": {
+      "groceryStoreDensityPerCapita": 8e-05,
+      "bigBoxStoreCount": 21.0,
+      "recreationAreaCount": 22.0,
+      "natureAreaCount": 1.0
+    },
+    "31180": {
+      "groceryStoreDensityPerCapita": 3e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31220": {
+      "groceryStoreDensityPerCapita": 0.000274,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31300": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31340": {
+      "groceryStoreDensityPerCapita": 0.000137,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "31380": {
+      "groceryStoreDensityPerCapita": 3.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 1.0
+    },
+    "31420": {
+      "groceryStoreDensityPerCapita": 8.6e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 15.0,
+      "natureAreaCount": 0.0
+    },
+    "31460": {
+      "groceryStoreDensityPerCapita": 3.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "31500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31580": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31620": {
+      "groceryStoreDensityPerCapita": 8.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "31660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31680": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31700": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 4.0
+    },
+    "31740": {
+      "groceryStoreDensityPerCapita": 9.7e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31820": {
+      "groceryStoreDensityPerCapita": 9.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 2.0
+    },
+    "31860": {
+      "groceryStoreDensityPerCapita": 4.8e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "31900": {
+      "groceryStoreDensityPerCapita": 0.000104,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 19.0
+    },
+    "31930": {
+      "groceryStoreDensityPerCapita": 1.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 2.0
+    },
+    "31940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "31980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32140": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32260": {
+      "groceryStoreDensityPerCapita": 2.5e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32280": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 20.0
+    },
+    "32300": {
+      "groceryStoreDensityPerCapita": 0.000389,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32340": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "32380": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "32420": {
+      "groceryStoreDensityPerCapita": 1.853415,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 59.0,
+      "natureAreaCount": 241.0
+    },
+    "32460": {
+      "groceryStoreDensityPerCapita": 8.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 2.0
+    },
+    "32500": {
+      "groceryStoreDensityPerCapita": 0.000176,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "32540": {
+      "groceryStoreDensityPerCapita": 0.000206,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "32580": {
+      "groceryStoreDensityPerCapita": 1.8e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "32620": {
+      "groceryStoreDensityPerCapita": 0.0002,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32660": {
+      "groceryStoreDensityPerCapita": 0.000121,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 3.0
+    },
+    "32700": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32740": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "32780": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "32820": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 340.0
+    },
+    "32860": {
+      "groceryStoreDensityPerCapita": 0.000221,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "32900": {
+      "groceryStoreDensityPerCapita": 1.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 2.0
+    },
+    "32940": {
+      "groceryStoreDensityPerCapita": 7.2e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33020": {
+      "groceryStoreDensityPerCapita": 0.000121,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "33100": {
+      "groceryStoreDensityPerCapita": 5e-06,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "33140": {
+      "groceryStoreDensityPerCapita": 8.9e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33180": {
+      "groceryStoreDensityPerCapita": 8.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33300": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33340": {
+      "groceryStoreDensityPerCapita": 8e-05,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 1.0
+    },
+    "33380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33460": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 18.0,
+      "recreationAreaCount": 33.0,
+      "natureAreaCount": 1.0
+    },
+    "33500": {
+      "groceryStoreDensityPerCapita": 1.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33540": {
+      "groceryStoreDensityPerCapita": 5.1e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 11.0,
+      "natureAreaCount": 0.0
+    },
+    "33580": {
+      "groceryStoreDensityPerCapita": 0.000555,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33660": {
+      "groceryStoreDensityPerCapita": 9e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "33700": {
+      "groceryStoreDensityPerCapita": 0.000105,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 16.0,
+      "natureAreaCount": 2.0
+    },
+    "33740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33860": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 11.0,
+      "natureAreaCount": 1.0
+    },
+    "33940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "33980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "34060": {
+      "groceryStoreDensityPerCapita": 9.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "34100": {
+      "groceryStoreDensityPerCapita": 3.5e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 16.0
+    },
+    "34140": {
+      "groceryStoreDensityPerCapita": 5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34180": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34220": {
+      "groceryStoreDensityPerCapita": 0.000131,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "34260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34340": {
+      "groceryStoreDensityPerCapita": 0.00014,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "34350": {
+      "groceryStoreDensityPerCapita": 0.000124,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34380": {
+      "groceryStoreDensityPerCapita": 2.36458708398046e-05,
+      "bigBoxStoreCount": 22.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34580": {
+      "groceryStoreDensityPerCapita": 8e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "34620": {
+      "groceryStoreDensityPerCapita": 0.00016,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "34660": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "34700": {
+      "groceryStoreDensityPerCapita": 0.000116,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34740": {
+      "groceryStoreDensityPerCapita": 7.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "34780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "34820": {
+      "groceryStoreDensityPerCapita": 5e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "34860": {
+      "groceryStoreDensityPerCapita": 3.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "34900": {
+      "groceryStoreDensityPerCapita": 2.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "34940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "34980": {
+      "groceryStoreDensityPerCapita": 5e-05,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 63.0,
+      "natureAreaCount": 1.0
+    },
+    "35020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "35060": {
+      "groceryStoreDensityPerCapita": 0.000107,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "35100": {
+      "groceryStoreDensityPerCapita": 0.000228,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 8.0
+    },
+    "35140": {
+      "groceryStoreDensityPerCapita": 0.000237,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "35220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "35300": {
+      "groceryStoreDensityPerCapita": 0.000171,
+      "bigBoxStoreCount": 20.0,
+      "recreationAreaCount": 23.0,
+      "natureAreaCount": 2.0
+    },
+    "35380": {
+      "groceryStoreDensityPerCapita": 5.1e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 32.0,
+      "natureAreaCount": 1.0
+    },
+    "35420": {
+      "groceryStoreDensityPerCapita": 0.00014,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "35440": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "35580": {
+      "groceryStoreDensityPerCapita": 0.000193,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "35620": {
+      "groceryStoreDensityPerCapita": 0.000168,
+      "bigBoxStoreCount": 168.0,
+      "recreationAreaCount": 235.0,
+      "natureAreaCount": 5.0
+    },
+    "35660": {
+      "groceryStoreDensityPerCapita": 7.8e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "35700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "35740": {
+      "groceryStoreDensityPerCapita": 0.000247,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 1.0
+    },
+    "35820": {
+      "groceryStoreDensityPerCapita": 0.000112,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "35840": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 17.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 0.0
+    },
+    "35860": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "35900": {
+      "groceryStoreDensityPerCapita": 0.000408,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "35940": {
+      "groceryStoreDensityPerCapita": 1.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "35980": {
+      "groceryStoreDensityPerCapita": 0.000183,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 22.0,
+      "natureAreaCount": 0.0
+    },
+    "36020": {
+      "groceryStoreDensityPerCapita": 1.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36100": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "36140": {
+      "groceryStoreDensityPerCapita": 0.000199,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "36220": {
+      "groceryStoreDensityPerCapita": 0.000154,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "36300": {
+      "groceryStoreDensityPerCapita": 9e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36340": {
+      "groceryStoreDensityPerCapita": 4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "36380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36420": {
+      "groceryStoreDensityPerCapita": 4.6e-05,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 57.0,
+      "natureAreaCount": 8.0
+    },
+    "36460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 3.0
+    },
+    "36500": {
+      "groceryStoreDensityPerCapita": 0.00018,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "36540": {
+      "groceryStoreDensityPerCapita": 0.000122,
+      "bigBoxStoreCount": 21.0,
+      "recreationAreaCount": 30.0,
+      "natureAreaCount": 3.0
+    },
+    "36580": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 22.0
+    },
+    "36660": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "36700": {
+      "groceryStoreDensityPerCapita": 8.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "36740": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 74.0,
+      "recreationAreaCount": 40.0,
+      "natureAreaCount": 0.0
+    },
+    "36780": {
+      "groceryStoreDensityPerCapita": 0.000117,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "36820": {
+      "groceryStoreDensityPerCapita": 0.000408,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36830": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36837": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "36940": {
+      "groceryStoreDensityPerCapita": 0.000267,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "36980": {
+      "groceryStoreDensityPerCapita": 9.1e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 12.0
+    },
+    "37060": {
+      "groceryStoreDensityPerCapita": 0.000285,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "37100": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 16.0,
+      "natureAreaCount": 1.0
+    },
+    "37120": {
+      "groceryStoreDensityPerCapita": 4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "37140": {
+      "groceryStoreDensityPerCapita": 2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "37220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37260": {
+      "groceryStoreDensityPerCapita": 2.7e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37300": {
+      "groceryStoreDensityPerCapita": 1.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "37340": {
+      "groceryStoreDensityPerCapita": 9.2e-05,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 13.0
+    },
+    "37420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37460": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "37500": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 1.0
+    },
+    "37540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37620": {
+      "groceryStoreDensityPerCapita": 0.000134,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "37660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37770": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37800": {
+      "groceryStoreDensityPerCapita": 3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37860": {
+      "groceryStoreDensityPerCapita": 5.5e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 1.0
+    },
+    "37900": {
+      "groceryStoreDensityPerCapita": 7.5e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 4.0
+    },
+    "37940": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "37980": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 33.0,
+      "recreationAreaCount": 55.0,
+      "natureAreaCount": 1.0
+    },
+    "38060": {
+      "groceryStoreDensityPerCapita": 3e-06,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 1.0
+    },
+    "38100": {
+      "groceryStoreDensityPerCapita": 1.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 14.0
+    },
+    "38180": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "38220": {
+      "groceryStoreDensityPerCapita": 2.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 9.0
+    },
+    "38240": {
+      "groceryStoreDensityPerCapita": 6.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38300": {
+      "groceryStoreDensityPerCapita": 6e-05,
+      "bigBoxStoreCount": 18.0,
+      "recreationAreaCount": 20.0,
+      "natureAreaCount": 4.0
+    },
+    "38340": {
+      "groceryStoreDensityPerCapita": 8.5e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 2.0
+    },
+    "38380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38420": {
+      "groceryStoreDensityPerCapita": 1.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38460": {
+      "groceryStoreDensityPerCapita": 1.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38500": {
+      "groceryStoreDensityPerCapita": 0.000151,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "38540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "38580": {
+      "groceryStoreDensityPerCapita": 9.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "38620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38660": {
+      "groceryStoreDensityPerCapita": 3.1e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "38700": {
+      "groceryStoreDensityPerCapita": 8.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "38780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38820": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "38860": {
+      "groceryStoreDensityPerCapita": 7.2e-05,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 3.0
+    },
+    "38900": {
+      "groceryStoreDensityPerCapita": 9.8e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "38920": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "38940": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 12.0,
+      "natureAreaCount": 0.0
+    },
+    "39020": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "39060": {
+      "groceryStoreDensityPerCapita": 9.8e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "39100": {
+      "groceryStoreDensityPerCapita": 4.3e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 32.0,
+      "natureAreaCount": 0.0
+    },
+    "39150": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 2.0
+    },
+    "39220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "39260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "39300": {
+      "groceryStoreDensityPerCapita": 5.8e-05,
+      "bigBoxStoreCount": 24.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 3.0
+    },
+    "39340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "39380": {
+      "groceryStoreDensityPerCapita": 0.000149,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "39420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "39460": {
+      "groceryStoreDensityPerCapita": 0.000126,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 2.0
+    },
+    "39500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 5.0
+    },
+    "39540": {
+      "groceryStoreDensityPerCapita": 8.6e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 1.0
+    },
+    "39580": {
+      "groceryStoreDensityPerCapita": 8.6e-05,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 2.0
+    },
+    "39660": {
+      "groceryStoreDensityPerCapita": 1.424948,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 68.0,
+      "natureAreaCount": 804.0
+    },
+    "39700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "39740": {
+      "groceryStoreDensityPerCapita": 8.2e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 34.0,
+      "natureAreaCount": 0.0
+    },
+    "39780": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "39820": {
+      "groceryStoreDensityPerCapita": 2.36456,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 118.0,
+      "natureAreaCount": 5212.0
+    },
+    "39860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "39900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "39940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "39980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40080": {
+      "groceryStoreDensityPerCapita": 8.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40140": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "40180": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40220": {
+      "groceryStoreDensityPerCapita": 0.000257,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "40260": {
+      "groceryStoreDensityPerCapita": 1.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40300": {
+      "groceryStoreDensityPerCapita": 1.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "40340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40420": {
+      "groceryStoreDensityPerCapita": 9.5e-05,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 40.0,
+      "natureAreaCount": 2.0
+    },
+    "40460": {
+      "groceryStoreDensityPerCapita": 0.000116,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 2.0
+    },
+    "40530": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "40540": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40580": {
+      "groceryStoreDensityPerCapita": 0.000208,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 7.0
+    },
+    "40620": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "40660": {
+      "groceryStoreDensityPerCapita": 0.000112,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 0.0
+    },
+    "40700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40740": {
+      "groceryStoreDensityPerCapita": 0.000386,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "40760": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "40780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "40820": {
+      "groceryStoreDensityPerCapita": 0.000103,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "40860": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "40900": {
+      "groceryStoreDensityPerCapita": 1.4e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 38.0,
+      "natureAreaCount": 0.0
+    },
+    "40940": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 3.0
+    },
+    "40980": {
+      "groceryStoreDensityPerCapita": 0.000348,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "41060": {
+      "groceryStoreDensityPerCapita": 2.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "41100": {
+      "groceryStoreDensityPerCapita": 9.8e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "41140": {
+      "groceryStoreDensityPerCapita": 4.1e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 21.0
+    },
+    "41180": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 17.0,
+      "natureAreaCount": 1.0
+    },
+    "41220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "41400": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "41460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "41500": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "41540": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "41620": {
+      "groceryStoreDensityPerCapita": 0.167374,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 327.0,
+      "natureAreaCount": 347.0
+    },
+    "41660": {
+      "groceryStoreDensityPerCapita": 1.145391,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 63.0,
+      "natureAreaCount": 182.0
+    },
+    "41700": {
+      "groceryStoreDensityPerCapita": 2.1e-05,
+      "bigBoxStoreCount": 25.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 1.0
+    },
+    "41740": {
+      "groceryStoreDensityPerCapita": 2e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "41760": {
+      "groceryStoreDensityPerCapita": 8.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "41780": {
+      "groceryStoreDensityPerCapita": 0.000106,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "41820": {
+      "groceryStoreDensityPerCapita": 0.000173,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "41860": {
+      "groceryStoreDensityPerCapita": 0.000159,
+      "bigBoxStoreCount": 26.0,
+      "recreationAreaCount": 45.0,
+      "natureAreaCount": 4.0
+    },
+    "41900": {
+      "groceryStoreDensityPerCapita": 0.00012,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "41940": {
+      "groceryStoreDensityPerCapita": 6e-06,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "41980": {
+      "groceryStoreDensityPerCapita": 9.1e-05,
+      "bigBoxStoreCount": 74.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "42020": {
+      "groceryStoreDensityPerCapita": 2.236326,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 289.0,
+      "natureAreaCount": 3494.0
+    },
+    "42100": {
+      "groceryStoreDensityPerCapita": 0.000194,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 6.0
+    },
+    "42140": {
+      "groceryStoreDensityPerCapita": 0.000162,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 2.0
+    },
+    "42180": {
+      "groceryStoreDensityPerCapita": 4.9e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "42200": {
+      "groceryStoreDensityPerCapita": 1.3e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "42220": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 1.0
+    },
+    "42300": {
+      "groceryStoreDensityPerCapita": 8.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "42340": {
+      "groceryStoreDensityPerCapita": 0.000103,
+      "bigBoxStoreCount": 16.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 3.0
+    },
+    "42380": {
+      "groceryStoreDensityPerCapita": 8.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "42420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "42460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "42500": {
+      "groceryStoreDensityPerCapita": 8.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "42540": {
+      "groceryStoreDensityPerCapita": 8.5e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 16.0,
+      "natureAreaCount": 0.0
+    },
+    "42620": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "42660": {
+      "groceryStoreDensityPerCapita": 4e-06,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "42680": {
+      "groceryStoreDensityPerCapita": 3.1e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "42700": {
+      "groceryStoreDensityPerCapita": 7.8e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 0.0
+    },
+    "42740": {
+      "groceryStoreDensityPerCapita": 0.000163,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "42780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "42820": {
+      "groceryStoreDensityPerCapita": 2.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "42860": {
+      "groceryStoreDensityPerCapita": 6.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "42900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "42940": {
+      "groceryStoreDensityPerCapita": 0.000122,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "42980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "43020": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "43060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "43100": {
+      "groceryStoreDensityPerCapita": 0.00017,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 19.0,
+      "natureAreaCount": 2.0
+    },
+    "43140": {
+      "groceryStoreDensityPerCapita": 7e-05,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43180": {
+      "groceryStoreDensityPerCapita": 5.9e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 18.0
+    },
+    "43220": {
+      "groceryStoreDensityPerCapita": 3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43260": {
+      "groceryStoreDensityPerCapita": 0.000128,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "43300": {
+      "groceryStoreDensityPerCapita": 2.9e-05,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "43320": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43340": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 17.0,
+      "natureAreaCount": 0.0
+    },
+    "43380": {
+      "groceryStoreDensityPerCapita": 0.000104,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43420": {
+      "groceryStoreDensityPerCapita": 8e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "43460": {
+      "groceryStoreDensityPerCapita": 2.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43500": {
+      "groceryStoreDensityPerCapita": 7.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43580": {
+      "groceryStoreDensityPerCapita": 0.000436,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "43620": {
+      "groceryStoreDensityPerCapita": 0.000126,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43660": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43700": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43760": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43780": {
+      "groceryStoreDensityPerCapita": 0.000164,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "43900": {
+      "groceryStoreDensityPerCapita": 0.0001,
+      "bigBoxStoreCount": 10.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 2.0
+    },
+    "43940": {
+      "groceryStoreDensityPerCapita": 7.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "43980": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44020": {
+      "groceryStoreDensityPerCapita": 0.000226,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "44060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "44100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44260": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "44300": {
+      "groceryStoreDensityPerCapita": 0.00012,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 1.0
+    },
+    "44340": {
+      "groceryStoreDensityPerCapita": 7.5e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "44420": {
+      "groceryStoreDensityPerCapita": 0.000303,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "44460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44500": {
+      "groceryStoreDensityPerCapita": 2.3e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44540": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44620": {
+      "groceryStoreDensityPerCapita": 5.7e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 7.0
+    },
+    "44660": {
+      "groceryStoreDensityPerCapita": 3.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "44700": {
+      "groceryStoreDensityPerCapita": 7.1e-05,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 1.0
+    },
+    "44740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44780": {
+      "groceryStoreDensityPerCapita": 6.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44860": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "44900": {
+      "groceryStoreDensityPerCapita": 8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "44940": {
+      "groceryStoreDensityPerCapita": 0.000147,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 3.0
+    },
+    "44980": {
+      "groceryStoreDensityPerCapita": 1.1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "45000": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "45020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "45060": {
+      "groceryStoreDensityPerCapita": 0.000184,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "45140": {
+      "groceryStoreDensityPerCapita": 8.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "45180": {
+      "groceryStoreDensityPerCapita": 1.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "45220": {
+      "groceryStoreDensityPerCapita": 7.3e-05,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 14.0,
+      "natureAreaCount": 1.0
+    },
+    "45300": {
+      "groceryStoreDensityPerCapita": 3.9e-05,
+      "bigBoxStoreCount": 24.0,
+      "recreationAreaCount": 31.0,
+      "natureAreaCount": 8.0
+    },
+    "45340": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "45380": {
+      "groceryStoreDensityPerCapita": 8.9e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "45460": {
+      "groceryStoreDensityPerCapita": 0.000183,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "45500": {
+      "groceryStoreDensityPerCapita": 4.1e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "45520": {
+      "groceryStoreDensityPerCapita": 3.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "45540": {
+      "groceryStoreDensityPerCapita": 0.000114,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 1.0
+    },
+    "45580": {
+      "groceryStoreDensityPerCapita": 0.000109,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "45620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "45660": {
+      "groceryStoreDensityPerCapita": 3.6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "45700": {
+      "groceryStoreDensityPerCapita": 9.7e-05,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 9.0
+    },
+    "45740": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 1.0
+    },
+    "45780": {
+      "groceryStoreDensityPerCapita": 6.2e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 1.0
+    },
+    "45820": {
+      "groceryStoreDensityPerCapita": 0.000197,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "45860": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "45900": {
+      "groceryStoreDensityPerCapita": 7e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "45940": {
+      "groceryStoreDensityPerCapita": 0.000383,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 42.0,
+      "natureAreaCount": 3.0
+    },
+    "45980": {
+      "groceryStoreDensityPerCapita": 3e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "46020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "46060": {
+      "groceryStoreDensityPerCapita": 0.508445,
+      "bigBoxStoreCount": 19.0,
+      "recreationAreaCount": 294.0,
+      "natureAreaCount": 3427.0
+    },
+    "46100": {
+      "groceryStoreDensityPerCapita": 9e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "46140": {
+      "groceryStoreDensityPerCapita": 5e-06,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "46180": {
+      "groceryStoreDensityPerCapita": 2.4e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 20.0
+    },
+    "46220": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "46300": {
+      "groceryStoreDensityPerCapita": 0.000104,
+      "bigBoxStoreCount": 5.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "46340": {
+      "groceryStoreDensityPerCapita": 5.5e-05,
+      "bigBoxStoreCount": 7.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "46380": {
+      "groceryStoreDensityPerCapita": 3.3e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "46420": {
+      "groceryStoreDensityPerCapita": 3.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "46460": {
+      "groceryStoreDensityPerCapita": 6.5e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 75.0
+    },
+    "46500": {
+      "groceryStoreDensityPerCapita": 5.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "46520": {
+      "groceryStoreDensityPerCapita": 2.9e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "46540": {
+      "groceryStoreDensityPerCapita": 3e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 0.0
+    },
+    "46620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "46660": {
+      "groceryStoreDensityPerCapita": 0.000189,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 8.0,
+      "natureAreaCount": 0.0
+    },
+    "46700": {
+      "groceryStoreDensityPerCapita": 7.1e-05,
+      "bigBoxStoreCount": 8.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "46780": {
+      "groceryStoreDensityPerCapita": 3.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "46820": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "46860": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "46900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "46980": {
+      "groceryStoreDensityPerCapita": 6.8e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "47020": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "47080": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 23.0
+    },
+    "47180": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 4.0,
+      "natureAreaCount": 1.0
+    },
+    "47220": {
+      "groceryStoreDensityPerCapita": 0.00026,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "47240": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "47260": {
+      "groceryStoreDensityPerCapita": 2.9e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 1.0
+    },
+    "47300": {
+      "groceryStoreDensityPerCapita": 4e-06,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "47340": {
+      "groceryStoreDensityPerCapita": 3.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "47380": {
+      "groceryStoreDensityPerCapita": 6.8e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 5.0,
+      "natureAreaCount": 3.0
+    },
+    "47420": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "47460": {
+      "groceryStoreDensityPerCapita": 10.458568,
+      "bigBoxStoreCount": 13.0,
+      "recreationAreaCount": 375.0,
+      "natureAreaCount": 995.0
+    },
+    "47540": {
+      "groceryStoreDensityPerCapita": 2.2e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 1.0
+    },
+    "47580": {
+      "groceryStoreDensityPerCapita": 9.9e-05,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "47620": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "47660": {
+      "groceryStoreDensityPerCapita": 7.4e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 12.0
+    },
+    "47700": {
+      "groceryStoreDensityPerCapita": 0.000124,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 0.0
+    },
+    "47780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "47900": {
+      "groceryStoreDensityPerCapita": 2e-05,
+      "bigBoxStoreCount": 17.0,
+      "recreationAreaCount": 21.0,
+      "natureAreaCount": 1.0
+    },
+    "47920": {
+      "groceryStoreDensityPerCapita": 0.000104,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "47940": {
+      "groceryStoreDensityPerCapita": 0.000309,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "47980": {
+      "groceryStoreDensityPerCapita": 0.000173,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "48020": {
+      "groceryStoreDensityPerCapita": 4.7e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "48060": {
+      "groceryStoreDensityPerCapita": 0.000128,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "48100": {
+      "groceryStoreDensityPerCapita": 7.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 1.0
+    },
+    "48140": {
+      "groceryStoreDensityPerCapita": 0.000168,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 0.0
+    },
+    "48180": {
+      "groceryStoreDensityPerCapita": 5.4e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "48220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "48260": {
+      "groceryStoreDensityPerCapita": 0.000146,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 3.0
+    },
+    "48300": {
+      "groceryStoreDensityPerCapita": 1.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "48460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "48500": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 12.0
+    },
+    "48540": {
+      "groceryStoreDensityPerCapita": 0.000115,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 13.0,
+      "natureAreaCount": 1.0
+    },
+    "48580": {
+      "groceryStoreDensityPerCapita": 7.6e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "48620": {
+      "groceryStoreDensityPerCapita": 0.000212,
+      "bigBoxStoreCount": 12.0,
+      "recreationAreaCount": 24.0,
+      "natureAreaCount": 0.0
+    },
+    "48660": {
+      "groceryStoreDensityPerCapita": 2e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 6.0,
+      "natureAreaCount": 1.0
+    },
+    "48700": {
+      "groceryStoreDensityPerCapita": 0.000132,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 3.0,
+      "natureAreaCount": 1.0
+    },
+    "48780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "48820": {
+      "groceryStoreDensityPerCapita": 0.000206,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "48900": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "48980": {
+      "groceryStoreDensityPerCapita": 0.000267,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "49020": {
+      "groceryStoreDensityPerCapita": 2.8e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "49060": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49080": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49100": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 1.0,
+      "natureAreaCount": 0.0
+    },
+    "49180": {
+      "groceryStoreDensityPerCapita": 0.000139,
+      "bigBoxStoreCount": 6.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 3.0
+    },
+    "49220": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "49260": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49300": {
+      "groceryStoreDensityPerCapita": 8.6e-05,
+      "bigBoxStoreCount": 1.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "49340": {
+      "groceryStoreDensityPerCapita": 8.5e-05,
+      "bigBoxStoreCount": 9.0,
+      "recreationAreaCount": 7.0,
+      "natureAreaCount": 0.0
+    },
+    "49380": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49420": {
+      "groceryStoreDensityPerCapita": 3.5e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49460": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49500": {
+      "groceryStoreDensityPerCapita": 7e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49620": {
+      "groceryStoreDensityPerCapita": 7.4e-05,
+      "bigBoxStoreCount": 11.0,
+      "recreationAreaCount": 10.0,
+      "natureAreaCount": 0.0
+    },
+    "49660": {
+      "groceryStoreDensityPerCapita": 5.2e-05,
+      "bigBoxStoreCount": 4.0,
+      "recreationAreaCount": 21.0,
+      "natureAreaCount": 1.0
+    },
+    "49700": {
+      "groceryStoreDensityPerCapita": 0.000177,
+      "bigBoxStoreCount": 3.0,
+      "recreationAreaCount": 9.0,
+      "natureAreaCount": 1.0
+    },
+    "49740": {
+      "groceryStoreDensityPerCapita": 1e-05,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    },
+    "49780": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 2.0,
+      "recreationAreaCount": 2.0,
+      "natureAreaCount": 0.0
+    },
+    "49820": {
+      "groceryStoreDensityPerCapita": 0.0,
+      "bigBoxStoreCount": 0.0,
+      "recreationAreaCount": 0.0,
+      "natureAreaCount": 0.0
+    }
+  }
+}

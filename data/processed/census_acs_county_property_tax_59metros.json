@@ -1,0 +1,611 @@
+{
+  "source": {
+    "name": "U.S. Census Bureau, ACS 5-Year Estimates (2022)",
+    "url": "https://api.census.gov/data/2022/acs/acs5",
+    "method": "Median real estate taxes paid (B25103_001E) \u00f7 median home value (B25077_001E)",
+    "denominator": "Owner-occupied housing units, all",
+    "field_meaning": "effective_rate_pct is the implicit effective tax rate for the median owner-occupied household, NOT an aggregate ad-valorem rate",
+    "data_caveat_ct": "Connecticut reorganized counties into 9 Planning Regions in 2022; all50_CT uses Capitol Planning Region (FIPS 110) as Hartford County (FIPS 003) no longer exists in 2022 ACS",
+    "key_source": ".env.census (chmod 600)",
+    "generated": "2026-06-22T18:42:28.988437Z"
+  },
+  "schema_version": "census_acs_county_tax.v1",
+  "vintage": "2022 ACS 5-year",
+  "metros_ok": 59,
+  "metros_suppressed": 0,
+  "metros_failed": 0,
+  "metros": [
+    {
+      "name": "Monroe County, New York",
+      "state_fips": "36",
+      "county_fips": "055",
+      "median_annual_tax_paid_usd": 5306,
+      "median_home_value_usd": 182700,
+      "effective_rate_pct": 2.904,
+      "suppressed": false,
+      "metro": "all50_NY"
+    },
+    {
+      "name": "Mercer County, New Jersey",
+      "state_fips": "34",
+      "county_fips": "021",
+      "median_annual_tax_paid_usd": 8576,
+      "median_home_value_usd": 327600,
+      "effective_rate_pct": 2.618,
+      "suppressed": false,
+      "metro": "all50_NJ"
+    },
+    {
+      "name": "Capitol Planning Region, Connecticut",
+      "state_fips": "09",
+      "county_fips": "110",
+      "median_annual_tax_paid_usd": 6303,
+      "median_home_value_usd": 283800,
+      "effective_rate_pct": 2.221,
+      "suppressed": false,
+      "metro": "all50_CT"
+    },
+    {
+      "name": "Cook County, Illinois",
+      "state_fips": "17",
+      "county_fips": "031",
+      "median_annual_tax_paid_usd": 5941,
+      "median_home_value_usd": 293700,
+      "effective_rate_pct": 2.023,
+      "suppressed": false,
+      "metro": "all50_IL"
+    },
+    {
+      "name": "Bexar County, Texas",
+      "state_fips": "48",
+      "county_fips": "029",
+      "median_annual_tax_paid_usd": 4171,
+      "median_home_value_usd": 222300,
+      "effective_rate_pct": 1.876,
+      "suppressed": false,
+      "metro": "San Antonio"
+    },
+    {
+      "name": "Hillsborough County, New Hampshire",
+      "state_fips": "33",
+      "county_fips": "011",
+      "median_annual_tax_paid_usd": 6681,
+      "median_home_value_usd": 356200,
+      "effective_rate_pct": 1.876,
+      "suppressed": false,
+      "metro": "all50_NH"
+    },
+    {
+      "name": "Polk County, Iowa",
+      "state_fips": "19",
+      "county_fips": "153",
+      "median_annual_tax_paid_usd": 4208,
+      "median_home_value_usd": 232000,
+      "effective_rate_pct": 1.814,
+      "suppressed": false,
+      "metro": "all50_IA"
+    },
+    {
+      "name": "Dane County, Wisconsin",
+      "state_fips": "55",
+      "county_fips": "025",
+      "median_annual_tax_paid_usd": 6103,
+      "median_home_value_usd": 342900,
+      "effective_rate_pct": 1.78,
+      "suppressed": false,
+      "metro": "Madison"
+    },
+    {
+      "name": "Douglas County, Nebraska",
+      "state_fips": "31",
+      "county_fips": "055",
+      "median_annual_tax_paid_usd": 3991,
+      "median_home_value_usd": 227400,
+      "effective_rate_pct": 1.755,
+      "suppressed": false,
+      "metro": "all50_NE"
+    },
+    {
+      "name": "Dallas County, Texas",
+      "state_fips": "48",
+      "county_fips": "113",
+      "median_annual_tax_paid_usd": 4360,
+      "median_home_value_usd": 252200,
+      "effective_rate_pct": 1.729,
+      "suppressed": false,
+      "metro": "Dallas"
+    },
+    {
+      "name": "Chittenden County, Vermont",
+      "state_fips": "50",
+      "county_fips": "007",
+      "median_annual_tax_paid_usd": 6404,
+      "median_home_value_usd": 378300,
+      "effective_rate_pct": 1.693,
+      "suppressed": false,
+      "metro": "all50_VT"
+    },
+    {
+      "name": "Allegheny County, Pennsylvania",
+      "state_fips": "42",
+      "county_fips": "003",
+      "median_annual_tax_paid_usd": 3358,
+      "median_home_value_usd": 200200,
+      "effective_rate_pct": 1.677,
+      "suppressed": false,
+      "metro": "Pittsburgh"
+    },
+    {
+      "name": "Franklin County, Ohio",
+      "state_fips": "39",
+      "county_fips": "049",
+      "median_annual_tax_paid_usd": 3977,
+      "median_home_value_usd": 243100,
+      "effective_rate_pct": 1.636,
+      "suppressed": false,
+      "metro": "Columbus"
+    },
+    {
+      "name": "Travis County, Texas",
+      "state_fips": "48",
+      "county_fips": "453",
+      "median_annual_tax_paid_usd": 7160,
+      "median_home_value_usd": 444800,
+      "effective_rate_pct": 1.61,
+      "suppressed": false,
+      "metro": "Austin"
+    },
+    {
+      "name": "Hamilton County, Ohio",
+      "state_fips": "39",
+      "county_fips": "061",
+      "median_annual_tax_paid_usd": 3297,
+      "median_home_value_usd": 205000,
+      "effective_rate_pct": 1.608,
+      "suppressed": false,
+      "metro": "Cincinnati"
+    },
+    {
+      "name": "Outagamie County, Wisconsin",
+      "state_fips": "55",
+      "county_fips": "087",
+      "median_annual_tax_paid_usd": 3481,
+      "median_home_value_usd": 224100,
+      "effective_rate_pct": 1.553,
+      "suppressed": false,
+      "metro": "Appleton"
+    },
+    {
+      "name": "Kalamazoo County, Michigan",
+      "state_fips": "26",
+      "county_fips": "077",
+      "median_annual_tax_paid_usd": 3185,
+      "median_home_value_usd": 209700,
+      "effective_rate_pct": 1.519,
+      "suppressed": false,
+      "metro": "Kalamazoo"
+    },
+    {
+      "name": "Providence County, Rhode Island",
+      "state_fips": "44",
+      "county_fips": "007",
+      "median_annual_tax_paid_usd": 4588,
+      "median_home_value_usd": 310500,
+      "effective_rate_pct": 1.478,
+      "suppressed": false,
+      "metro": "all50_RI"
+    },
+    {
+      "name": "Worcester County, Massachusetts",
+      "state_fips": "25",
+      "county_fips": "027",
+      "median_annual_tax_paid_usd": 4922,
+      "median_home_value_usd": 363200,
+      "effective_rate_pct": 1.355,
+      "suppressed": false,
+      "metro": "all50_MA"
+    },
+    {
+      "name": "Anchorage Municipality, Alaska",
+      "state_fips": "02",
+      "county_fips": "020",
+      "median_annual_tax_paid_usd": 4760,
+      "median_home_value_usd": 363800,
+      "effective_rate_pct": 1.308,
+      "suppressed": false,
+      "metro": "all50_AK"
+    },
+    {
+      "name": "Sedgwick County, Kansas",
+      "state_fips": "20",
+      "county_fips": "173",
+      "median_annual_tax_paid_usd": 2232,
+      "median_home_value_usd": 175700,
+      "effective_rate_pct": 1.27,
+      "suppressed": false,
+      "metro": "all50_KS"
+    },
+    {
+      "name": "St. Louis County, Missouri",
+      "state_fips": "29",
+      "county_fips": "189",
+      "median_annual_tax_paid_usd": 3101,
+      "median_home_value_usd": 249400,
+      "effective_rate_pct": 1.243,
+      "suppressed": false,
+      "metro": "St. Louis"
+    },
+    {
+      "name": "Cass County, North Dakota",
+      "state_fips": "38",
+      "county_fips": "017",
+      "median_annual_tax_paid_usd": 3294,
+      "median_home_value_usd": 270300,
+      "effective_rate_pct": 1.219,
+      "suppressed": false,
+      "metro": "all50_ND"
+    },
+    {
+      "name": "Minnehaha County, South Dakota",
+      "state_fips": "46",
+      "county_fips": "099",
+      "median_annual_tax_paid_usd": 2940,
+      "median_home_value_usd": 246200,
+      "effective_rate_pct": 1.194,
+      "suppressed": false,
+      "metro": "all50_SD"
+    },
+    {
+      "name": "Kent County, Michigan",
+      "state_fips": "26",
+      "county_fips": "081",
+      "median_annual_tax_paid_usd": 2889,
+      "median_home_value_usd": 242200,
+      "effective_rate_pct": 1.193,
+      "suppressed": false,
+      "metro": "Grand Rapids"
+    },
+    {
+      "name": "Jackson County, Missouri",
+      "state_fips": "29",
+      "county_fips": "095",
+      "median_annual_tax_paid_usd": 2336,
+      "median_home_value_usd": 196900,
+      "effective_rate_pct": 1.186,
+      "suppressed": false,
+      "metro": "Kansas City"
+    },
+    {
+      "name": "Cumberland County, Maine",
+      "state_fips": "23",
+      "county_fips": "005",
+      "median_annual_tax_paid_usd": 4372,
+      "median_home_value_usd": 372900,
+      "effective_rate_pct": 1.172,
+      "suppressed": false,
+      "metro": "all50_ME"
+    },
+    {
+      "name": "Hennepin County, Minnesota",
+      "state_fips": "27",
+      "county_fips": "053",
+      "median_annual_tax_paid_usd": 4142,
+      "median_home_value_usd": 358000,
+      "effective_rate_pct": 1.157,
+      "suppressed": false,
+      "metro": "Minneapolis"
+    },
+    {
+      "name": "Baltimore County, Maryland",
+      "state_fips": "24",
+      "county_fips": "005",
+      "median_annual_tax_paid_usd": 3561,
+      "median_home_value_usd": 310800,
+      "effective_rate_pct": 1.146,
+      "suppressed": false,
+      "metro": "all50_MD"
+    },
+    {
+      "name": "Shelby County, Tennessee",
+      "state_fips": "47",
+      "county_fips": "157",
+      "median_annual_tax_paid_usd": 2312,
+      "median_home_value_usd": 206100,
+      "effective_rate_pct": 1.122,
+      "suppressed": false,
+      "metro": "Memphis"
+    },
+    {
+      "name": "Olmsted County, Minnesota",
+      "state_fips": "27",
+      "county_fips": "109",
+      "median_annual_tax_paid_usd": 3110,
+      "median_home_value_usd": 285600,
+      "effective_rate_pct": 1.089,
+      "suppressed": false,
+      "metro": "Rochester"
+    },
+    {
+      "name": "Oklahoma County, Oklahoma",
+      "state_fips": "40",
+      "county_fips": "109",
+      "median_annual_tax_paid_usd": 1923,
+      "median_home_value_usd": 190500,
+      "effective_rate_pct": 1.009,
+      "suppressed": false,
+      "metro": "all50_OK"
+    },
+    {
+      "name": "Bernalillo County, New Mexico",
+      "state_fips": "35",
+      "county_fips": "001",
+      "median_annual_tax_paid_usd": 2459,
+      "median_home_value_usd": 247300,
+      "effective_rate_pct": 0.994,
+      "suppressed": false,
+      "metro": "all50_NM"
+    },
+    {
+      "name": "Marion County, Indiana",
+      "state_fips": "18",
+      "county_fips": "097",
+      "median_annual_tax_paid_usd": 1760,
+      "median_home_value_usd": 184100,
+      "effective_rate_pct": 0.956,
+      "suppressed": false,
+      "metro": "Indianapolis"
+    },
+    {
+      "name": "Hinds County, Mississippi",
+      "state_fips": "28",
+      "county_fips": "049",
+      "median_annual_tax_paid_usd": 1350,
+      "median_home_value_usd": 141600,
+      "effective_rate_pct": 0.953,
+      "suppressed": false,
+      "metro": "all50_MS"
+    },
+    {
+      "name": "Fulton County, Georgia",
+      "state_fips": "13",
+      "county_fips": "121",
+      "median_annual_tax_paid_usd": 3631,
+      "median_home_value_usd": 398300,
+      "effective_rate_pct": 0.912,
+      "suppressed": false,
+      "metro": "all50_GA"
+    },
+    {
+      "name": "Spokane County, Washington",
+      "state_fips": "53",
+      "county_fips": "063",
+      "median_annual_tax_paid_usd": 2974,
+      "median_home_value_usd": 331600,
+      "effective_rate_pct": 0.897,
+      "suppressed": false,
+      "metro": "Spokane"
+    },
+    {
+      "name": "Jefferson County, Kentucky",
+      "state_fips": "21",
+      "county_fips": "111",
+      "median_annual_tax_paid_usd": 1905,
+      "median_home_value_usd": 222200,
+      "effective_rate_pct": 0.857,
+      "suppressed": false,
+      "metro": "Louisville"
+    },
+    {
+      "name": "Pulaski County, Arkansas",
+      "state_fips": "05",
+      "county_fips": "119",
+      "median_annual_tax_paid_usd": 1515,
+      "median_home_value_usd": 187600,
+      "effective_rate_pct": 0.808,
+      "suppressed": false,
+      "metro": "all50_AR"
+    },
+    {
+      "name": "Duval County, Florida",
+      "state_fips": "12",
+      "county_fips": "031",
+      "median_annual_tax_paid_usd": 2021,
+      "median_home_value_usd": 251300,
+      "effective_rate_pct": 0.804,
+      "suppressed": false,
+      "metro": "all50_FL"
+    },
+    {
+      "name": "Mecklenburg County, North Carolina",
+      "state_fips": "37",
+      "county_fips": "119",
+      "median_annual_tax_paid_usd": 2663,
+      "median_home_value_usd": 334700,
+      "effective_rate_pct": 0.796,
+      "suppressed": false,
+      "metro": "all50_NC"
+    },
+    {
+      "name": "Sacramento County, California",
+      "state_fips": "06",
+      "county_fips": "067",
+      "median_annual_tax_paid_usd": 3575,
+      "median_home_value_usd": 465900,
+      "effective_rate_pct": 0.767,
+      "suppressed": false,
+      "metro": "all50_CA"
+    },
+    {
+      "name": "Kanawha County, West Virginia",
+      "state_fips": "54",
+      "county_fips": "039",
+      "median_annual_tax_paid_usd": 911,
+      "median_home_value_usd": 131200,
+      "effective_rate_pct": 0.694,
+      "suppressed": false,
+      "metro": "all50_WV"
+    },
+    {
+      "name": "Deschutes County, Oregon",
+      "state_fips": "41",
+      "county_fips": "017",
+      "median_annual_tax_paid_usd": 3533,
+      "median_home_value_usd": 526200,
+      "effective_rate_pct": 0.671,
+      "suppressed": false,
+      "metro": "Bend"
+    },
+    {
+      "name": "Gallatin County, Montana",
+      "state_fips": "30",
+      "county_fips": "031",
+      "median_annual_tax_paid_usd": 3423,
+      "median_home_value_usd": 526700,
+      "effective_rate_pct": 0.65,
+      "suppressed": false,
+      "metro": "Bozeman"
+    },
+    {
+      "name": "Davidson County, Tennessee",
+      "state_fips": "47",
+      "county_fips": "037",
+      "median_annual_tax_paid_usd": 2232,
+      "median_home_value_usd": 354700,
+      "effective_rate_pct": 0.629,
+      "suppressed": false,
+      "metro": "Nashville"
+    },
+    {
+      "name": "Jefferson County, Alabama",
+      "state_fips": "01",
+      "county_fips": "073",
+      "median_annual_tax_paid_usd": 1282,
+      "median_home_value_usd": 208900,
+      "effective_rate_pct": 0.614,
+      "suppressed": false,
+      "metro": "all50_AL"
+    },
+    {
+      "name": "Ada County, Idaho",
+      "state_fips": "16",
+      "county_fips": "001",
+      "median_annual_tax_paid_usd": 2504,
+      "median_home_value_usd": 423500,
+      "effective_rate_pct": 0.591,
+      "suppressed": false,
+      "metro": "Boise"
+    },
+    {
+      "name": "Richmond County, Virginia",
+      "state_fips": "51",
+      "county_fips": "159",
+      "median_annual_tax_paid_usd": 1288,
+      "median_home_value_usd": 218600,
+      "effective_rate_pct": 0.589,
+      "suppressed": false,
+      "metro": "all50_VA"
+    },
+    {
+      "name": "Salt Lake County, Utah",
+      "state_fips": "49",
+      "county_fips": "035",
+      "median_annual_tax_paid_usd": 2590,
+      "median_home_value_usd": 440400,
+      "effective_rate_pct": 0.588,
+      "suppressed": false,
+      "metro": "all50_UT"
+    },
+    {
+      "name": "Laramie County, Wyoming",
+      "state_fips": "56",
+      "county_fips": "021",
+      "median_annual_tax_paid_usd": 1705,
+      "median_home_value_usd": 295800,
+      "effective_rate_pct": 0.576,
+      "suppressed": false,
+      "metro": "all50_WY"
+    },
+    {
+      "name": "District of Columbia, District of Columbia",
+      "state_fips": "11",
+      "county_fips": "001",
+      "median_annual_tax_paid_usd": 3957,
+      "median_home_value_usd": 705000,
+      "effective_rate_pct": 0.561,
+      "suppressed": false,
+      "metro": "all50_DC"
+    },
+    {
+      "name": "Greenville County, South Carolina",
+      "state_fips": "45",
+      "county_fips": "045",
+      "median_annual_tax_paid_usd": 1392,
+      "median_home_value_usd": 248900,
+      "effective_rate_pct": 0.559,
+      "suppressed": false,
+      "metro": "all50_SC"
+    },
+    {
+      "name": "Boulder County, Colorado",
+      "state_fips": "08",
+      "county_fips": "013",
+      "median_annual_tax_paid_usd": 3559,
+      "median_home_value_usd": 671100,
+      "effective_rate_pct": 0.53,
+      "suppressed": false,
+      "metro": "Boulder"
+    },
+    {
+      "name": "Clark County, Nevada",
+      "state_fips": "32",
+      "county_fips": "003",
+      "median_annual_tax_paid_usd": 1898,
+      "median_home_value_usd": 368800,
+      "effective_rate_pct": 0.515,
+      "suppressed": false,
+      "metro": "all50_NV"
+    },
+    {
+      "name": "Kent County, Delaware",
+      "state_fips": "10",
+      "county_fips": "001",
+      "median_annual_tax_paid_usd": 1291,
+      "median_home_value_usd": 272300,
+      "effective_rate_pct": 0.474,
+      "suppressed": false,
+      "metro": "all50_DE"
+    },
+    {
+      "name": "Denver County, Colorado",
+      "state_fips": "08",
+      "county_fips": "031",
+      "median_annual_tax_paid_usd": 2447,
+      "median_home_value_usd": 540400,
+      "effective_rate_pct": 0.453,
+      "suppressed": false,
+      "metro": "Denver"
+    },
+    {
+      "name": "El Paso County, Colorado",
+      "state_fips": "08",
+      "county_fips": "041",
+      "median_annual_tax_paid_usd": 1629,
+      "median_home_value_usd": 390500,
+      "effective_rate_pct": 0.417,
+      "suppressed": false,
+      "metro": "Colorado Springs"
+    },
+    {
+      "name": "Honolulu County, Hawaii",
+      "state_fips": "15",
+      "county_fips": "003",
+      "median_annual_tax_paid_usd": 2368,
+      "median_home_value_usd": 832200,
+      "effective_rate_pct": 0.285,
+      "suppressed": false,
+      "metro": "all50_HI"
+    }
+  ],
+  "suppressed_metros": [],
+  "errors": []
+}

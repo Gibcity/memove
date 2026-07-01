@@ -1,0 +1,141 @@
+{
+  "source": {
+    "name": "Schools gate \u2014 heuristic based on state-level K-12 rankings",
+    "method": "Binary gate. PASS unless state in documented bottom-decile list (LA/NM/MS/WV/AK/OK).",
+    "pulled_at": "2026-06-19T01:55:00Z",
+    "caveat": "Heuristic only. For Phase 2 (specific house hunting), pull metro-level district data via Niche or GreatSchools API."
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "results": {
+    "Memphis": {
+      "state": "TN",
+      "verdict": "PASS",
+      "rationale": "Tennessee schools variable; Nashville-area (Williamson County) is top-5 in state"
+    },
+    "Nashville": {
+      "state": "TN",
+      "verdict": "PASS",
+      "rationale": "Tennessee schools variable; Nashville-area (Williamson County) is top-5 in state"
+    },
+    "Louisville": {
+      "state": "KY",
+      "verdict": "PASS",
+      "rationale": "State KY not in documented bottom-decile; metro-level data not pulled"
+    },
+    "St. Louis": {
+      "state": "MO",
+      "verdict": "PASS",
+      "rationale": "State MO not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Kansas City": {
+      "state": "MO",
+      "verdict": "PASS",
+      "rationale": "State MO not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Indianapolis": {
+      "state": "IN",
+      "verdict": "PASS",
+      "rationale": "State IN not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Columbus": {
+      "state": "OH",
+      "verdict": "PASS",
+      "rationale": "State OH not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Cincinnati": {
+      "state": "OH",
+      "verdict": "PASS",
+      "rationale": "State OH not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Pittsburgh": {
+      "state": "PA",
+      "verdict": "PASS",
+      "rationale": "State PA not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Dallas": {
+      "state": "TX",
+      "verdict": "PASS",
+      "rationale": "Texas schools highly variable; suburban districts often top-100 (Keller, Southlake, etc.)"
+    },
+    "Houston": {
+      "state": "TX",
+      "verdict": "PASS",
+      "rationale": "Texas schools highly variable; suburban districts often top-100 (Keller, Southlake, etc.)"
+    },
+    "San Antonio": {
+      "state": "TX",
+      "verdict": "PASS",
+      "rationale": "Texas schools highly variable; suburban districts often top-100 (Keller, Southlake, etc.)"
+    },
+    "Austin": {
+      "state": "TX",
+      "verdict": "PASS",
+      "rationale": "Texas schools highly variable; suburban districts often top-100 (Keller, Southlake, etc.)"
+    },
+    "Denver": {
+      "state": "CO",
+      "verdict": "PASS",
+      "rationale": "Colorado schools well-rated statewide; Cherry Creek (Denver suburb) top-rated"
+    },
+    "Colorado Springs": {
+      "state": "CO",
+      "verdict": "PASS",
+      "rationale": "Colorado schools well-rated statewide; Cherry Creek (Denver suburb) top-rated"
+    },
+    "Boulder": {
+      "state": "CO",
+      "verdict": "PASS",
+      "rationale": "Colorado schools well-rated statewide; Cherry Creek (Denver suburb) top-rated"
+    },
+    "Boise City": {
+      "state": "ID",
+      "verdict": "PASS",
+      "rationale": "State ID not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Spokane": {
+      "state": "WA",
+      "verdict": "PASS",
+      "rationale": "State WA not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Bend": {
+      "state": "OR",
+      "verdict": "PASS",
+      "rationale": "State OR not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Bozeman": {
+      "state": "MT",
+      "verdict": "PASS",
+      "rationale": "State MT not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Grand Rapids": {
+      "state": "MI",
+      "verdict": "PASS",
+      "rationale": "State MI not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Kalamazoo": {
+      "state": "MI",
+      "verdict": "PASS",
+      "rationale": "State MI not in documented bottom-decile; metro-level data not pulled"
+    },
+    "Rochester": {
+      "state": "MN",
+      "verdict": "PASS",
+      "rationale": "Minnesota schools consistently rank in top 5 nationally (Niche, US News)"
+    },
+    "Minneapolis": {
+      "state": "MN",
+      "verdict": "PASS",
+      "rationale": "Minnesota schools consistently rank in top 5 nationally (Niche, US News)"
+    },
+    "Appleton": {
+      "state": "WI",
+      "verdict": "PASS",
+      "rationale": "Wisconsin schools consistently rank in top 10 nationally"
+    },
+    "Madison": {
+      "state": "WI",
+      "verdict": "PASS",
+      "rationale": "Wisconsin schools consistently rank in top 10 nationally"
+    }
+  }
+}

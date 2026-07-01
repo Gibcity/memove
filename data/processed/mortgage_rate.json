@@ -1,0 +1,24 @@
+{
+  "source": {
+    "name": "Freddie Mac Primary Mortgage Market Survey",
+    "url": "https://www.freddiemac.com/pmms",
+    "pulled_at": "2026-06-18T05:10:54Z",
+    "retrieval_method": "puppeteer"
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "record_type": "scalar",
+  "attribute": "30_year_fixed_mortgage_rate",
+  "value": 6.52,
+  "unit": "percent",
+  "as_of_date": "2026-06-11",
+  "geo": {
+    "level": "national",
+    "value": "US"
+  },
+  "comparison": {
+    "prior_week": 6.48,
+    "year_ago": 6.84
+  },
+  "fifteen_year_frm": 5.84,
+  "notes": "30-year FRM averaged 6.52% as of 06/11/2026. Slightly below the strategy's 6.75% default; golden-handcuff delta vs Tyler's 3.5% is still ~$700/mo on a $400K mortgage. Tyler keeps 3.5%; every move re-prices at ~6.52%."
+}

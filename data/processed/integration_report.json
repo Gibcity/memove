@@ -1,0 +1,103 @@
+{
+  "ran_at": "2026-06-19T21:54:22.645833Z",
+  "metros_updated": 59,
+  "field_changes": {
+    "sunshine": 59,
+    "county_property_tax": 59,
+    "crime": 2
+  },
+  "spot_checks": {
+    "Memphis": {
+      "climate_sunny_proxy": 278.5,
+      "climate_sunshine_hours_annual": 3342.2,
+      "county_property_tax_effective_pct": 1.122,
+      "crime": {
+        "metro": "Memphis",
+        "source": "MPD Public Safety Incidents / WPRDC UCR Blotter",
+        "window_years": [
+          2020,
+          2021,
+          2022
+        ],
+        "headline_year": 2022,
+        "per_100k_total_2022": 11882.5,
+        "per_100k_violent_2022": 3194.1,
+        "per_100k_property_2022": 4431.2,
+        "per_100k_trend": {
+          "2020": 10170.7,
+          "2021": 10126.9,
+          "2022": 11882.5
+        },
+        "by_bucketed_category_2022": {
+          "property": 40326,
+          "other": 38741,
+          "violent": 29068
+        },
+        "population_denominator": {
+          "county": "Shelby",
+          "state": "TN",
+          "pop_2023": 910042
+        },
+        "data_quality_note": "Pittsburgh UCR dataset has ~41% NA-category rows in 2022; violent/property rates likely undercounted by similar margin. Compare Memphis's UCR categories (clean) vs Pittsburgh's NA-heavy for honest reading."
+      }
+    },
+    "Pittsburgh": {
+      "climate_sunny_proxy": 249.7,
+      "climate_sunshine_hours_annual": 2996.5,
+      "county_property_tax_effective_pct": 1.677,
+      "crime": {
+        "metro": "Pittsburgh",
+        "source": "MPD Public Safety Incidents / WPRDC UCR Blotter",
+        "window_years": [
+          2020,
+          2021,
+          2022
+        ],
+        "headline_year": 2022,
+        "per_100k_total_2022": 3055.6,
+        "per_100k_violent_2022": 441.8,
+        "per_100k_property_2022": 731.7,
+        "per_100k_trend": {
+          "2020": 2836.8,
+          "2021": 3135.9,
+          "2022": 3055.6
+        },
+        "by_bucketed_category_2022": {
+          "other": 23034,
+          "property": 8955,
+          "violent": 5407
+        },
+        "population_denominator": {
+          "county": "Allegheny",
+          "state": "PA",
+          "pop_2023": 1223840
+        },
+        "data_quality_note": "Pittsburgh UCR dataset has ~41% NA-category rows in 2022; violent/property rates likely undercounted by similar margin. Compare Memphis's UCR categories (clean) vs Pittsburgh's NA-heavy for honest reading."
+      }
+    },
+    "Denver": {
+      "climate_sunny_proxy": 311.2,
+      "climate_sunshine_hours_annual": 3734.7,
+      "county_property_tax_effective_pct": 0.453,
+      "crime": null
+    },
+    "Boulder": {
+      "climate_sunny_proxy": 315.4,
+      "climate_sunshine_hours_annual": 3784.4,
+      "county_property_tax_effective_pct": 0.53,
+      "crime": null
+    },
+    "all50_NY": {
+      "climate_sunny_proxy": 243.8,
+      "climate_sunshine_hours_annual": 2925.4,
+      "county_property_tax_effective_pct": 2.904,
+      "crime": null
+    },
+    "all50_HI": {
+      "climate_sunny_proxy": 341.8,
+      "climate_sunshine_hours_annual": 4101.3,
+      "county_property_tax_effective_pct": 0.285,
+      "crime": null
+    }
+  }
+}

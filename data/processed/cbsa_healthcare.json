@@ -1,0 +1,4707 @@
+{
+  "metadata": {
+    "source": "cms_hospital_general_information",
+    "methodology": "Hospital counts derived from CMS Hospital General Information dataset. Hospitals matched to CBSA component counties via (state, county_name) normalization. hospitalCountWithin10mi = count of CMS-certified hospitals in the CBSA's component counties. healthcareAccessScore = percentile rank (0-100) of hospitals_per_100k across all 939 CBSAs.",
+    "generated_at": "2026-06-28T19:23:47.292517+00:00",
+    "cbsa_count": 939,
+    "total_hospitals_in_cms_dataset": 5432,
+    "total_hospitals_matched": 4300
+  },
+  "healthcare": {
+    "10100": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 97.8,
+      "hospitals_per_100k": 7.09
+    },
+    "10140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 61.0,
+      "hospitals_per_100k": 2.64
+    },
+    "10180": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 34.8,
+      "hospitals_per_100k": 1.7
+    },
+    "10220": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 98.5,
+      "hospitals_per_100k": 7.87
+    },
+    "10300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 11.4,
+      "hospitals_per_100k": 1.01
+    },
+    "10380": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 21.7,
+      "hospitals_per_100k": 1.29
+    },
+    "10420": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 16.4,
+      "hospitals_per_100k": 1.14
+    },
+    "10460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 28.1,
+      "hospitals_per_100k": 1.47
+    },
+    "10500": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 45.7,
+      "hospitals_per_100k": 2.03
+    },
+    "10540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 31.0,
+      "hospitals_per_100k": 1.56
+    },
+    "10580": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 15.8,
+      "hospitals_per_100k": 1.11
+    },
+    "10620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 32.0,
+      "hospitals_per_100k": 1.59
+    },
+    "10660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.7,
+      "hospitals_per_100k": 3.24
+    },
+    "10700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 12.2,
+      "hospitals_per_100k": 1.02
+    },
+    "10740": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 8.3,
+      "hospitals_per_100k": 0.87
+    },
+    "10760": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 80.2,
+      "hospitals_per_100k": 3.88
+    },
+    "10780": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 96.7,
+      "hospitals_per_100k": 6.59
+    },
+    "10820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 90.3,
+      "hospitals_per_100k": 5.12
+    },
+    "10860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.2,
+      "hospitals_per_100k": 2.04
+    },
+    "10900": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 6.7,
+      "hospitals_per_100k": 0.81
+    },
+    "10940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 56.1,
+      "hospitals_per_100k": 2.41
+    },
+    "10980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.5,
+      "hospitals_per_100k": 3.46
+    },
+    "11020": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 73.3,
+      "hospitals_per_100k": 3.26
+    },
+    "11060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 81.4,
+      "hospitals_per_100k": 4.04
+    },
+    "11100": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 40.3,
+      "hospitals_per_100k": 1.86
+    },
+    "11140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 67.7,
+      "hospitals_per_100k": 2.95
+    },
+    "11180": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 55.4,
+      "hospitals_per_100k": 2.39
+    },
+    "11220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 45.1,
+      "hospitals_per_100k": 2.02
+    },
+    "11260": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 37.4,
+      "hospitals_per_100k": 1.75
+    },
+    "11380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 92.4,
+      "hospitals_per_100k": 5.45
+    },
+    "11420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.7,
+      "hospitals_per_100k": 2.9
+    },
+    "11460": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 32.7,
+      "hospitals_per_100k": 1.62
+    },
+    "11500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 8.1,
+      "hospitals_per_100k": 0.86
+    },
+    "11540": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 20.0,
+      "hospitals_per_100k": 1.23
+    },
+    "11580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 67.2,
+      "hospitals_per_100k": 2.92
+    },
+    "11620": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 97.1,
+      "hospitals_per_100k": 6.85
+    },
+    "11640": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 15.4,
+      "hospitals_per_100k": 1.1
+    },
+    "11660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.1,
+      "hospitals_per_100k": 4.66
+    },
+    "11700": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 21.3,
+      "hospitals_per_100k": 1.28
+    },
+    "11740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 42.0,
+      "hospitals_per_100k": 1.9
+    },
+    "11780": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 90.5,
+      "hospitals_per_100k": 5.12
+    },
+    "11820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 88.5,
+      "hospitals_per_100k": 4.86
+    },
+    "11860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 95.5,
+      "hospitals_per_100k": 6.13
+    },
+    "11900": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 73.5,
+      "hospitals_per_100k": 3.26
+    },
+    "11940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 40.8,
+      "hospitals_per_100k": 1.87
+    },
+    "11980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 19.4,
+      "hospitals_per_100k": 1.21
+    },
+    "12020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 10.1,
+      "hospitals_per_100k": 0.93
+    },
+    "12060": {
+      "hospitalCountWithin10mi": 48,
+      "healthcareAccessScore": 6.0,
+      "hospitals_per_100k": 0.79
+    },
+    "12100": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 14.9,
+      "hospitals_per_100k": 1.09
+    },
+    "12120": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 92.2,
+      "hospitals_per_100k": 5.44
+    },
+    "12140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 86.6,
+      "hospitals_per_100k": 4.62
+    },
+    "12180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 22.7,
+      "hospitals_per_100k": 1.31
+    },
+    "12220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 3.7,
+      "hospitals_per_100k": 0.57
+    },
+    "12260": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 27.8,
+      "hospitals_per_100k": 1.47
+    },
+    "12300": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 56.3,
+      "hospitals_per_100k": 2.42
+    },
+    "12380": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.0,
+      "hospitals_per_100k": 0.0
+    },
+    "12420": {
+      "hospitalCountWithin10mi": 28,
+      "healthcareAccessScore": 19.8,
+      "hospitals_per_100k": 1.22
+    },
+    "12460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.3,
+      "hospitals_per_100k": 3.44
+    },
+    "12540": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 15.5,
+      "hospitals_per_100k": 1.1
+    },
+    "12580": {
+      "hospitalCountWithin10mi": 29,
+      "healthcareAccessScore": 12.0,
+      "hospitals_per_100k": 1.02
+    },
+    "12620": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 80.5,
+      "hospitals_per_100k": 3.93
+    },
+    "12660": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 86.2,
+      "hospitals_per_100k": 4.57
+    },
+    "12680": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 48.0,
+      "hospitals_per_100k": 2.14
+    },
+    "12700": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 22.5,
+      "hospitals_per_100k": 1.31
+    },
+    "12740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 74.3,
+      "hospitals_per_100k": 3.35
+    },
+    "12780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 41.8,
+      "hospitals_per_100k": 1.9
+    },
+    "12860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 36.1,
+      "hospitals_per_100k": 1.72
+    },
+    "12900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 38.9,
+      "hospitals_per_100k": 1.81
+    },
+    "12940": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 10.0,
+      "hospitals_per_100k": 0.92
+    },
+    "12980": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 68.1,
+      "hospitals_per_100k": 2.98
+    },
+    "13020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 10.6,
+      "hospitals_per_100k": 0.96
+    },
+    "13060": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 92.9,
+      "hospitals_per_100k": 5.52
+    },
+    "13100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 86.7,
+      "hospitals_per_100k": 4.62
+    },
+    "13140": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 11.5,
+      "hospitals_per_100k": 1.01
+    },
+    "13180": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 52.1,
+      "hospitals_per_100k": 2.25
+    },
+    "13220": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 84.2,
+      "hospitals_per_100k": 4.35
+    },
+    "13260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 51.3,
+      "hospitals_per_100k": 2.22
+    },
+    "13300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.0,
+      "hospitals_per_100k": 3.23
+    },
+    "13340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 49.6,
+      "hospitals_per_100k": 2.17
+    },
+    "13380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 2.9,
+      "hospitals_per_100k": 0.44
+    },
+    "13420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 96.5,
+      "hospitals_per_100k": 6.48
+    },
+    "13460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 3.2,
+      "hospitals_per_100k": 0.5
+    },
+    "13500": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.1,
+      "hospitals_per_100k": 0.0
+    },
+    "13540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 62.0,
+      "hospitals_per_100k": 2.68
+    },
+    "13620": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 99.3,
+      "hospitals_per_100k": 9.55
+    },
+    "13660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 58.0,
+      "hospitals_per_100k": 2.49
+    },
+    "13700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 94.1,
+      "hospitals_per_100k": 5.8
+    },
+    "13720": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 58.6,
+      "hospitals_per_100k": 2.51
+    },
+    "13740": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 48.9,
+      "hospitals_per_100k": 2.16
+    },
+    "13780": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 19.7,
+      "hospitals_per_100k": 1.22
+    },
+    "13820": {
+      "hospitalCountWithin10mi": 16,
+      "healthcareAccessScore": 26.5,
+      "hospitals_per_100k": 1.44
+    },
+    "13900": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 28.9,
+      "hospitals_per_100k": 1.5
+    },
+    "13940": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 96.1,
+      "hospitals_per_100k": 6.22
+    },
+    "13980": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 56.0,
+      "hospitals_per_100k": 2.41
+    },
+    "14010": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 17.8,
+      "hospitals_per_100k": 1.17
+    },
+    "14020": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 40.4,
+      "hospitals_per_100k": 1.86
+    },
+    "14100": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 88.3,
+      "hospitals_per_100k": 4.81
+    },
+    "14140": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 65.4,
+      "hospitals_per_100k": 2.83
+    },
+    "14160": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 76.2,
+      "hospitals_per_100k": 3.55
+    },
+    "14180": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 89.3,
+      "hospitals_per_100k": 4.96
+    },
+    "14220": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 84.5,
+      "hospitals_per_100k": 4.39
+    },
+    "14260": {
+      "hospitalCountWithin10mi": 11,
+      "healthcareAccessScore": 26.2,
+      "hospitals_per_100k": 1.43
+    },
+    "14300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.3,
+      "hospitals_per_100k": 2.77
+    },
+    "14380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 39.9,
+      "hospitals_per_100k": 1.83
+    },
+    "14420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 88.6,
+      "hospitals_per_100k": 4.86
+    },
+    "14460": {
+      "hospitalCountWithin10mi": 52,
+      "healthcareAccessScore": 13.8,
+      "hospitals_per_100k": 1.06
+    },
+    "14500": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 39.7,
+      "hospitals_per_100k": 1.83
+    },
+    "14540": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 51.0,
+      "hospitals_per_100k": 2.21
+    },
+    "14580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 34.1,
+      "hospitals_per_100k": 1.67
+    },
+    "14620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 57.7,
+      "hospitals_per_100k": 2.47
+    },
+    "14660": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 82.6,
+      "hospitals_per_100k": 4.13
+    },
+    "14700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 37.7,
+      "hospitals_per_100k": 1.78
+    },
+    "14720": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.2,
+      "hospitals_per_100k": 3.23
+    },
+    "14740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 2.8,
+      "hospitals_per_100k": 0.36
+    },
+    "14780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 93.2,
+      "hospitals_per_100k": 5.59
+    },
+    "14820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 68.9,
+      "hospitals_per_100k": 3.02
+    },
+    "14860": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 7.5,
+      "hospitals_per_100k": 0.83
+    },
+    "15020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 65.9,
+      "hospitals_per_100k": 2.87
+    },
+    "15060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 83.5,
+      "hospitals_per_100k": 4.27
+    },
+    "15100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.3,
+      "hospitals_per_100k": 2.89
+    },
+    "15140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 93.5,
+      "hospitals_per_100k": 5.62
+    },
+    "15180": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 26.1,
+      "hospitals_per_100k": 1.42
+    },
+    "15220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.3,
+      "hospitals_per_100k": 2.62
+    },
+    "15260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 37.5,
+      "hospitals_per_100k": 1.76
+    },
+    "15340": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 87.8,
+      "hospitals_per_100k": 4.78
+    },
+    "15380": {
+      "hospitalCountWithin10mi": 12,
+      "healthcareAccessScore": 12.5,
+      "hospitals_per_100k": 1.03
+    },
+    "15420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 83.8,
+      "hospitals_per_100k": 4.3
+    },
+    "15460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 50.7,
+      "hospitals_per_100k": 2.21
+    },
+    "15500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 3.8,
+      "hospitals_per_100k": 0.58
+    },
+    "15540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 8.8,
+      "hospitals_per_100k": 0.89
+    },
+    "15580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 65.5,
+      "hospitals_per_100k": 2.83
+    },
+    "15620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.4,
+      "hospitals_per_100k": 2.05
+    },
+    "15660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 36.7,
+      "hospitals_per_100k": 1.73
+    },
+    "15680": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 8.6,
+      "hospitals_per_100k": 0.88
+    },
+    "15700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 69.7,
+      "hospitals_per_100k": 3.07
+    },
+    "15740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.1,
+      "hospitals_per_100k": 2.6
+    },
+    "15780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.0,
+      "hospitals_per_100k": 3.65
+    },
+    "15820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 91.7,
+      "hospitals_per_100k": 5.37
+    },
+    "15860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.1,
+      "hospitals_per_100k": 2.04
+    },
+    "15940": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 20.3,
+      "hospitals_per_100k": 1.25
+    },
+    "15980": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 4.5,
+      "hospitals_per_100k": 0.65
+    },
+    "16020": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 69.8,
+      "hospitals_per_100k": 3.07
+    },
+    "16060": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 79.0,
+      "hospitals_per_100k": 3.74
+    },
+    "16100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 73.6,
+      "hospitals_per_100k": 3.26
+    },
+    "16140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 99.5,
+      "hospitals_per_100k": 9.65
+    },
+    "16180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 35.9,
+      "hospitals_per_100k": 1.72
+    },
+    "16220": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 79.3,
+      "hospitals_per_100k": 3.77
+    },
+    "16260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 36.4,
+      "hospitals_per_100k": 1.72
+    },
+    "16300": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 27.4,
+      "hospitals_per_100k": 1.45
+    },
+    "16340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 53.6,
+      "hospitals_per_100k": 2.32
+    },
+    "16380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 54.8,
+      "hospitals_per_100k": 2.36
+    },
+    "16420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.8,
+      "hospitals_per_100k": 3.25
+    },
+    "16460": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 91.6,
+      "hospitals_per_100k": 5.33
+    },
+    "16500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 56.4,
+      "hospitals_per_100k": 2.42
+    },
+    "16540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 21.4,
+      "hospitals_per_100k": 1.28
+    },
+    "16580": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 38.4,
+      "hospitals_per_100k": 1.79
+    },
+    "16620": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 53.7,
+      "hospitals_per_100k": 2.33
+    },
+    "16660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 37.1,
+      "hospitals_per_100k": 1.74
+    },
+    "16700": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 16.2,
+      "hospitals_per_100k": 1.12
+    },
+    "16740": {
+      "hospitalCountWithin10mi": 22,
+      "healthcareAccessScore": 6.9,
+      "hospitals_per_100k": 0.82
+    },
+    "16820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 9.3,
+      "hospitals_per_100k": 0.9
+    },
+    "16860": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 13.9,
+      "hospitals_per_100k": 1.06
+    },
+    "16940": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 44.6,
+      "hospitals_per_100k": 1.99
+    },
+    "16980": {
+      "hospitalCountWithin10mi": 103,
+      "healthcareAccessScore": 14.3,
+      "hospitals_per_100k": 1.08
+    },
+    "17020": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 25.8,
+      "hospitals_per_100k": 1.4
+    },
+    "17060": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 59.9,
+      "hospitals_per_100k": 2.6
+    },
+    "17140": {
+      "hospitalCountWithin10mi": 31,
+      "healthcareAccessScore": 24.6,
+      "hospitals_per_100k": 1.38
+    },
+    "17220": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 84.8,
+      "hospitals_per_100k": 4.43
+    },
+    "17260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.4,
+      "hospitals_per_100k": 4.7
+    },
+    "17300": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 49.5,
+      "hospitals_per_100k": 2.17
+    },
+    "17340": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 67.6,
+      "hospitals_per_100k": 2.94
+    },
+    "17380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.9,
+      "hospitals_per_100k": 3.26
+    },
+    "17420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 6.2,
+      "hospitals_per_100k": 0.79
+    },
+    "17460": {
+      "hospitalCountWithin10mi": 28,
+      "healthcareAccessScore": 23.8,
+      "hospitals_per_100k": 1.35
+    },
+    "17500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 58.3,
+      "hospitals_per_100k": 2.51
+    },
+    "17540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 83.7,
+      "hospitals_per_100k": 4.3
+    },
+    "17580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.5,
+      "hospitals_per_100k": 2.07
+    },
+    "17620": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.2,
+      "hospitals_per_100k": 0.0
+    },
+    "17640": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.3,
+      "hospitals_per_100k": 0.0
+    },
+    "17660": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 17.1,
+      "hospitals_per_100k": 1.15
+    },
+    "17700": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.4,
+      "hospitals_per_100k": 0.0
+    },
+    "17740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 51.9,
+      "hospitals_per_100k": 2.23
+    },
+    "17780": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 28.5,
+      "hospitals_per_100k": 1.48
+    },
+    "17820": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 18.9,
+      "hospitals_per_100k": 1.19
+    },
+    "17860": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 41.6,
+      "hospitals_per_100k": 1.9
+    },
+    "17900": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 14.6,
+      "hospitals_per_100k": 1.08
+    },
+    "17980": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 40.0,
+      "hospitals_per_100k": 1.84
+    },
+    "18020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 19.5,
+      "hospitals_per_100k": 1.21
+    },
+    "18060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 35.4,
+      "hospitals_per_100k": 1.71
+    },
+    "18100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 94.3,
+      "hospitals_per_100k": 5.84
+    },
+    "18140": {
+      "hospitalCountWithin10mi": 25,
+      "healthcareAccessScore": 18.0,
+      "hospitals_per_100k": 1.17
+    },
+    "18180": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 59.8,
+      "hospitals_per_100k": 2.6
+    },
+    "18220": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.5,
+      "hospitals_per_100k": 0.0
+    },
+    "18260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 37.2,
+      "hospitals_per_100k": 1.75
+    },
+    "18300": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 86.8,
+      "hospitals_per_100k": 4.62
+    },
+    "18380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 89.1,
+      "hospitals_per_100k": 4.94
+    },
+    "18420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.2,
+      "hospitals_per_100k": 2.88
+    },
+    "18460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 48.7,
+      "hospitals_per_100k": 2.16
+    },
+    "18500": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 83.6,
+      "hospitals_per_100k": 4.27
+    },
+    "18580": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 10.2,
+      "hospitals_per_100k": 0.95
+    },
+    "18620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 41.4,
+      "hospitals_per_100k": 1.89
+    },
+    "18660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 48.1,
+      "hospitals_per_100k": 2.14
+    },
+    "18700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 13.1,
+      "hospitals_per_100k": 1.05
+    },
+    "18740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.6,
+      "hospitals_per_100k": 2.73
+    },
+    "18780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 98.0,
+      "hospitals_per_100k": 7.56
+    },
+    "18820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.6,
+      "hospitals_per_100k": 2.63
+    },
+    "18860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 77.8,
+      "hospitals_per_100k": 3.64
+    },
+    "18880": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 46.8,
+      "hospitals_per_100k": 2.08
+    },
+    "18900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 32.8,
+      "hospitals_per_100k": 1.62
+    },
+    "18980": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 52.7,
+      "hospitals_per_100k": 2.27
+    },
+    "19000": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 91.5,
+      "hospitals_per_100k": 5.31
+    },
+    "19060": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 71.2,
+      "hospitals_per_100k": 3.15
+    },
+    "19100": {
+      "hospitalCountWithin10mi": 102,
+      "healthcareAccessScore": 23.3,
+      "hospitals_per_100k": 1.33
+    },
+    "19140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 25.6,
+      "hospitals_per_100k": 1.4
+    },
+    "19180": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 81.8,
+      "hospitals_per_100k": 4.05
+    },
+    "19220": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 77.7,
+      "hospitals_per_100k": 3.64
+    },
+    "19260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 43.2,
+      "hospitals_per_100k": 1.94
+    },
+    "19300": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 35.5,
+      "hospitals_per_100k": 1.71
+    },
+    "19340": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 31.2,
+      "hospitals_per_100k": 1.57
+    },
+    "19420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 69.1,
+      "hospitals_per_100k": 3.03
+    },
+    "19430": {
+      "hospitalCountWithin10mi": 14,
+      "healthcareAccessScore": 36.5,
+      "hospitals_per_100k": 1.72
+    },
+    "19460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 4.3,
+      "hospitals_per_100k": 0.64
+    },
+    "19500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 42.6,
+      "hospitals_per_100k": 1.93
+    },
+    "19540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.7,
+      "hospitals_per_100k": 2.79
+    },
+    "19580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 91.0,
+      "hospitals_per_100k": 5.22
+    },
+    "19620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 47.4,
+      "hospitals_per_100k": 2.1
+    },
+    "19660": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 18.6,
+      "hospitals_per_100k": 1.18
+    },
+    "19700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 80.7,
+      "hospitals_per_100k": 3.94
+    },
+    "19740": {
+      "hospitalCountWithin10mi": 27,
+      "healthcareAccessScore": 9.8,
+      "hospitals_per_100k": 0.91
+    },
+    "19760": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 92.6,
+      "hospitals_per_100k": 5.47
+    },
+    "19780": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 21.0,
+      "hospitals_per_100k": 1.26
+    },
+    "19820": {
+      "hospitalCountWithin10mi": 45,
+      "healthcareAccessScore": 12.4,
+      "hospitals_per_100k": 1.03
+    },
+    "19860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 67.8,
+      "hospitals_per_100k": 2.96
+    },
+    "19940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 67.5,
+      "hospitals_per_100k": 2.92
+    },
+    "19980": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 94.5,
+      "hospitals_per_100k": 5.85
+    },
+    "20020": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 61.2,
+      "hospitals_per_100k": 2.65
+    },
+    "20060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 43.5,
+      "hospitals_per_100k": 1.95
+    },
+    "20100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 15.1,
+      "hospitals_per_100k": 1.1
+    },
+    "20140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 69.9,
+      "hospitals_per_100k": 3.07
+    },
+    "20180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 20.7,
+      "hospitals_per_100k": 1.25
+    },
+    "20220": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 69.4,
+      "hospitals_per_100k": 3.04
+    },
+    "20260": {
+      "hospitalCountWithin10mi": 12,
+      "healthcareAccessScore": 82.5,
+      "hospitals_per_100k": 4.12
+    },
+    "20300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.3,
+      "hospitals_per_100k": 4.7
+    },
+    "20340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 53.3,
+      "hospitals_per_100k": 2.32
+    },
+    "20420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 76.9,
+      "hospitals_per_100k": 3.57
+    },
+    "20460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 48.5,
+      "hospitals_per_100k": 2.15
+    },
+    "20500": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 24.9,
+      "hospitals_per_100k": 1.39
+    },
+    "20540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.2,
+      "hospitals_per_100k": 2.72
+    },
+    "20580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 36.6,
+      "hospitals_per_100k": 1.73
+    },
+    "20660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 61.4,
+      "hospitals_per_100k": 2.66
+    },
+    "20700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 18.8,
+      "hospitals_per_100k": 1.19
+    },
+    "20740": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 67.1,
+      "hospitals_per_100k": 2.91
+    },
+    "20780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 38.8,
+      "hospitals_per_100k": 1.8
+    },
+    "20820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.5,
+      "hospitals_per_100k": 2.89
+    },
+    "20900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 55.9,
+      "hospitals_per_100k": 2.4
+    },
+    "20940": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 15.9,
+      "hospitals_per_100k": 1.11
+    },
+    "20980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 59.3,
+      "hospitals_per_100k": 2.58
+    },
+    "21020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 40.9,
+      "hospitals_per_100k": 1.87
+    },
+    "21060": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 21.5,
+      "hospitals_per_100k": 1.28
+    },
+    "21120": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 85.2,
+      "hospitals_per_100k": 4.49
+    },
+    "21140": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 27.3,
+      "hospitals_per_100k": 1.45
+    },
+    "21180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 76.8,
+      "hospitals_per_100k": 3.57
+    },
+    "21220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 39.0,
+      "hospitals_per_100k": 1.81
+    },
+    "21260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 52.3,
+      "hospitals_per_100k": 2.25
+    },
+    "21300": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 55.3,
+      "hospitals_per_100k": 2.39
+    },
+    "21340": {
+      "hospitalCountWithin10mi": 12,
+      "healthcareAccessScore": 24.7,
+      "hospitals_per_100k": 1.38
+    },
+    "21380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.1,
+      "hospitals_per_100k": 2.88
+    },
+    "21420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 71.5,
+      "hospitals_per_100k": 3.2
+    },
+    "21460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 40.7,
+      "hospitals_per_100k": 1.87
+    },
+    "21500": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 40.1,
+      "hospitals_per_100k": 1.85
+    },
+    "21540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.1,
+      "hospitals_per_100k": 2.71
+    },
+    "21580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 57.8,
+      "hospitals_per_100k": 2.48
+    },
+    "21640": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.7,
+      "hospitals_per_100k": 3.7
+    },
+    "21660": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 13.2,
+      "hospitals_per_100k": 1.05
+    },
+    "21700": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 78.4,
+      "hospitals_per_100k": 3.67
+    },
+    "21740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 88.7,
+      "hospitals_per_100k": 4.87
+    },
+    "21780": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 51.7,
+      "hospitals_per_100k": 2.23
+    },
+    "21820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 46.6,
+      "hospitals_per_100k": 2.08
+    },
+    "21840": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 96.3,
+      "hospitals_per_100k": 6.34
+    },
+    "21860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 90.1,
+      "hospitals_per_100k": 5.01
+    },
+    "21900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 38.0,
+      "hospitals_per_100k": 1.78
+    },
+    "21980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 80.6,
+      "hospitals_per_100k": 3.94
+    },
+    "22020": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 31.9,
+      "hospitals_per_100k": 1.59
+    },
+    "22060": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 68.0,
+      "hospitals_per_100k": 2.98
+    },
+    "22100": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 85.3,
+      "hospitals_per_100k": 4.49
+    },
+    "22140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 33.6,
+      "hospitals_per_100k": 1.64
+    },
+    "22180": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 16.8,
+      "hospitals_per_100k": 1.15
+    },
+    "22220": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 33.3,
+      "hospitals_per_100k": 1.63
+    },
+    "22260": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 89.8,
+      "hospitals_per_100k": 4.99
+    },
+    "22280": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 34.4,
+      "hospitals_per_100k": 1.68
+    },
+    "22300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 23.7,
+      "hospitals_per_100k": 1.33
+    },
+    "22340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 94.2,
+      "hospitals_per_100k": 5.82
+    },
+    "22380": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 64.0,
+      "hospitals_per_100k": 2.76
+    },
+    "22420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 5.3,
+      "hospitals_per_100k": 0.74
+    },
+    "22500": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 29.0,
+      "hospitals_per_100k": 1.5
+    },
+    "22520": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 44.1,
+      "hospitals_per_100k": 1.98
+    },
+    "22540": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 80.0,
+      "hospitals_per_100k": 3.85
+    },
+    "22580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.9,
+      "hospitals_per_100k": 1.55
+    },
+    "22620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 84.0,
+      "hospitals_per_100k": 4.32
+    },
+    "22660": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 25.1,
+      "hospitals_per_100k": 1.39
+    },
+    "22700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 62.8,
+      "hospitals_per_100k": 2.7
+    },
+    "22780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 40.5,
+      "hospitals_per_100k": 1.86
+    },
+    "22800": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 36.8,
+      "hospitals_per_100k": 1.73
+    },
+    "22820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 97.2,
+      "hospitals_per_100k": 6.89
+    },
+    "22840": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 25.4,
+      "hospitals_per_100k": 1.4
+    },
+    "22860": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 95.9,
+      "hospitals_per_100k": 6.19
+    },
+    "22900": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 57.2,
+      "hospitals_per_100k": 2.44
+    },
+    "23060": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 48.3,
+      "hospitals_per_100k": 2.14
+    },
+    "23140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 69.2,
+      "hospitals_per_100k": 3.03
+    },
+    "23180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 23.1,
+      "hospitals_per_100k": 1.33
+    },
+    "23240": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.8,
+      "hospitals_per_100k": 3.71
+    },
+    "23300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 52.2,
+      "hospitals_per_100k": 2.25
+    },
+    "23340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 62.2,
+      "hospitals_per_100k": 2.69
+    },
+    "23380": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 74.6,
+      "hospitals_per_100k": 3.4
+    },
+    "23420": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 6.4,
+      "hospitals_per_100k": 0.79
+    },
+    "23460": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 67.0,
+      "hospitals_per_100k": 2.9
+    },
+    "23500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 37.8,
+      "hospitals_per_100k": 1.78
+    },
+    "23540": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 8.7,
+      "hospitals_per_100k": 0.88
+    },
+    "23580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 3.0,
+      "hospitals_per_100k": 0.49
+    },
+    "23620": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 88.0,
+      "hospitals_per_100k": 4.78
+    },
+    "23660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 44.9,
+      "hospitals_per_100k": 2.01
+    },
+    "23700": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 93.1,
+      "hospitals_per_100k": 5.55
+    },
+    "23780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 87.7,
+      "hospitals_per_100k": 4.74
+    },
+    "23820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 45.3,
+      "hospitals_per_100k": 2.02
+    },
+    "23860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 31.4,
+      "hospitals_per_100k": 1.57
+    },
+    "23900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 10.3,
+      "hospitals_per_100k": 0.96
+    },
+    "23940": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 89.0,
+      "hospitals_per_100k": 4.92
+    },
+    "23980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 39.6,
+      "hospitals_per_100k": 1.82
+    },
+    "24020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 5.9,
+      "hospitals_per_100k": 0.79
+    },
+    "24060": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 79.6,
+      "hospitals_per_100k": 3.8
+    },
+    "24100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 41.0,
+      "hospitals_per_100k": 1.88
+    },
+    "24140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 35.0,
+      "hospitals_per_100k": 1.7
+    },
+    "24180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 32.3,
+      "hospitals_per_100k": 1.6
+    },
+    "24220": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 79.9,
+      "hospitals_per_100k": 3.84
+    },
+    "24260": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 90.9,
+      "hospitals_per_100k": 5.21
+    },
+    "24300": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 59.1,
+      "hospitals_per_100k": 2.56
+    },
+    "24330": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 96.8,
+      "hospitals_per_100k": 6.66
+    },
+    "24340": {
+      "hospitalCountWithin10mi": 12,
+      "healthcareAccessScore": 15.6,
+      "hospitals_per_100k": 1.1
+    },
+    "24380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.5,
+      "hospitals_per_100k": 3.67
+    },
+    "24420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 16.3,
+      "hospitals_per_100k": 1.14
+    },
+    "24460": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 99.9,
+      "hospitals_per_100k": 11.78
+    },
+    "24500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 54.9,
+      "hospitals_per_100k": 2.37
+    },
+    "24540": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 9.6,
+      "hospitals_per_100k": 0.91
+    },
+    "24580": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 57.0,
+      "hospitals_per_100k": 2.44
+    },
+    "24620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 25.9,
+      "hospitals_per_100k": 1.42
+    },
+    "24660": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 3.3,
+      "hospitals_per_100k": 0.52
+    },
+    "24700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 79.5,
+      "hospitals_per_100k": 3.78
+    },
+    "24740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 85.1,
+      "hospitals_per_100k": 4.48
+    },
+    "24780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 17.9,
+      "hospitals_per_100k": 1.17
+    },
+    "24820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 42.8,
+      "hospitals_per_100k": 1.93
+    },
+    "24860": {
+      "hospitalCountWithin10mi": 14,
+      "healthcareAccessScore": 29.2,
+      "hospitals_per_100k": 1.5
+    },
+    "24900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.9,
+      "hospitals_per_100k": 2.64
+    },
+    "24940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 27.1,
+      "hospitals_per_100k": 1.44
+    },
+    "24980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.0,
+      "hospitals_per_100k": 4.66
+    },
+    "25020": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.6,
+      "hospitals_per_100k": 0.0
+    },
+    "25060": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 48.8,
+      "hospitals_per_100k": 2.16
+    },
+    "25100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.5,
+      "hospitals_per_100k": 4.73
+    },
+    "25180": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 34.6,
+      "hospitals_per_100k": 1.69
+    },
+    "25200": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 80.8,
+      "hospitals_per_100k": 3.94
+    },
+    "25220": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 84.9,
+      "hospitals_per_100k": 4.48
+    },
+    "25260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 4.7,
+      "hospitals_per_100k": 0.66
+    },
+    "25300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 59.2,
+      "hospitals_per_100k": 2.57
+    },
+    "25420": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 18.3,
+      "hospitals_per_100k": 1.18
+    },
+    "25460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 51.5,
+      "hospitals_per_100k": 2.23
+    },
+    "25500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 5.2,
+      "hospitals_per_100k": 0.74
+    },
+    "25540": {
+      "hospitalCountWithin10mi": 13,
+      "healthcareAccessScore": 14.2,
+      "hospitals_per_100k": 1.07
+    },
+    "25580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 71.6,
+      "hospitals_per_100k": 3.21
+    },
+    "25620": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 53.5,
+      "hospitals_per_100k": 2.32
+    },
+    "25700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.4,
+      "hospitals_per_100k": 3.46
+    },
+    "25720": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 59.4,
+      "hospitals_per_100k": 2.58
+    },
+    "25740": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 77.1,
+      "hospitals_per_100k": 3.58
+    },
+    "25760": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 95.4,
+      "hospitals_per_100k": 6.11
+    },
+    "25780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 54.6,
+      "hospitals_per_100k": 2.35
+    },
+    "25820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 91.9,
+      "hospitals_per_100k": 5.38
+    },
+    "25840": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 73.0,
+      "hospitals_per_100k": 3.26
+    },
+    "25860": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 24.3,
+      "hospitals_per_100k": 1.37
+    },
+    "25880": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 49.9,
+      "hospitals_per_100k": 2.19
+    },
+    "25900": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 67.9,
+      "hospitals_per_100k": 2.97
+    },
+    "25940": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 39.8,
+      "hospitals_per_100k": 1.83
+    },
+    "25980": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 56.7,
+      "hospitals_per_100k": 2.43
+    },
+    "26020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 63.8,
+      "hospitals_per_100k": 2.74
+    },
+    "26090": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 7.4,
+      "hospitals_per_100k": 0.83
+    },
+    "26140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 21.6,
+      "hospitals_per_100k": 1.29
+    },
+    "26220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 82.8,
+      "hospitals_per_100k": 4.17
+    },
+    "26260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 97.5,
+      "hospitals_per_100k": 7.06
+    },
+    "26300": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 68.2,
+      "hospitals_per_100k": 3.0
+    },
+    "26340": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 90.2,
+      "hospitals_per_100k": 5.06
+    },
+    "26380": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 74.7,
+      "hospitals_per_100k": 3.4
+    },
+    "26420": {
+      "hospitalCountWithin10mi": 77,
+      "healthcareAccessScore": 14.5,
+      "hospitals_per_100k": 1.08
+    },
+    "26460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 32.9,
+      "hospitals_per_100k": 1.63
+    },
+    "26500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 52.8,
+      "hospitals_per_100k": 2.27
+    },
+    "26540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.4,
+      "hospitals_per_100k": 2.72
+    },
+    "26580": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 34.2,
+      "hospitals_per_100k": 1.67
+    },
+    "26620": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 6.6,
+      "hospitals_per_100k": 0.81
+    },
+    "26660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 22.0,
+      "hospitals_per_100k": 1.3
+    },
+    "26700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 99.4,
+      "hospitals_per_100k": 9.56
+    },
+    "26740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 72.3,
+      "hospitals_per_100k": 3.23
+    },
+    "26780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 92.3,
+      "hospitals_per_100k": 5.45
+    },
+    "26820": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 58.7,
+      "hospitals_per_100k": 2.52
+    },
+    "26860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 19.3,
+      "hospitals_per_100k": 1.2
+    },
+    "26900": {
+      "hospitalCountWithin10mi": 35,
+      "healthcareAccessScore": 34.0,
+      "hospitals_per_100k": 1.66
+    },
+    "26940": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 98.3,
+      "hospitals_per_100k": 7.73
+    },
+    "26980": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 53.0,
+      "hospitals_per_100k": 2.27
+    },
+    "27020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 96.6,
+      "hospitals_per_100k": 6.56
+    },
+    "27060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 10.8,
+      "hospitals_per_100k": 0.98
+    },
+    "27100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 4.2,
+      "hospitals_per_100k": 0.62
+    },
+    "27140": {
+      "hospitalCountWithin10mi": 19,
+      "healthcareAccessScore": 71.7,
+      "hospitals_per_100k": 3.21
+    },
+    "27160": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 69.6,
+      "hospitals_per_100k": 3.07
+    },
+    "27180": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 51.4,
+      "hospitals_per_100k": 2.22
+    },
+    "27220": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 93.7,
+      "hospitals_per_100k": 5.69
+    },
+    "27260": {
+      "hospitalCountWithin10mi": 17,
+      "healthcareAccessScore": 13.6,
+      "hospitals_per_100k": 1.05
+    },
+    "27300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 61.1,
+      "hospitals_per_100k": 2.65
+    },
+    "27340": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 28.0,
+      "hospitals_per_100k": 1.47
+    },
+    "27380": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 94.8,
+      "hospitals_per_100k": 5.9
+    },
+    "27420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 99.1,
+      "hospitals_per_100k": 9.26
+    },
+    "27460": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 54.7,
+      "hospitals_per_100k": 2.35
+    },
+    "27500": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 57.1,
+      "hospitals_per_100k": 2.44
+    },
+    "27530": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.6,
+      "hospitals_per_100k": 1.54
+    },
+    "27540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 77.2,
+      "hospitals_per_100k": 3.58
+    },
+    "27580": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.7,
+      "hospitals_per_100k": 0.0
+    },
+    "27600": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 0.9,
+      "hospitals_per_100k": 0.0
+    },
+    "27620": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 23.6,
+      "hospitals_per_100k": 1.33
+    },
+    "27660": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.0,
+      "hospitals_per_100k": 0.0
+    },
+    "27700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 74.0,
+      "hospitals_per_100k": 3.3
+    },
+    "27740": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 42.5,
+      "hospitals_per_100k": 1.93
+    },
+    "27780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 29.1,
+      "hospitals_per_100k": 1.5
+    },
+    "27860": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 28.7,
+      "hospitals_per_100k": 1.49
+    },
+    "27900": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 50.3,
+      "hospitals_per_100k": 2.2
+    },
+    "27940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 70.8,
+      "hospitals_per_100k": 3.11
+    },
+    "27980": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 56.6,
+      "hospitals_per_100k": 2.43
+    },
+    "28020": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 30.3,
+      "hospitals_per_100k": 1.53
+    },
+    "28060": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 41.3,
+      "hospitals_per_100k": 1.89
+    },
+    "28100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 40.6,
+      "hospitals_per_100k": 1.86
+    },
+    "28140": {
+      "hospitalCountWithin10mi": 38,
+      "healthcareAccessScore": 36.9,
+      "hospitals_per_100k": 1.73
+    },
+    "28180": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 82.3,
+      "hospitals_per_100k": 4.08
+    },
+    "28260": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 91.3,
+      "hospitals_per_100k": 5.29
+    },
+    "28300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 22.4,
+      "hospitals_per_100k": 1.31
+    },
+    "28340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 47.7,
+      "hospitals_per_100k": 2.11
+    },
+    "28380": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.1,
+      "hospitals_per_100k": 0.0
+    },
+    "28420": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 33.7,
+      "hospitals_per_100k": 1.64
+    },
+    "28500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 41.5,
+      "hospitals_per_100k": 1.89
+    },
+    "28540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 97.9,
+      "hospitals_per_100k": 7.19
+    },
+    "28580": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 78.3,
+      "hospitals_per_100k": 3.66
+    },
+    "28620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 62.3,
+      "hospitals_per_100k": 2.69
+    },
+    "28660": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 41.2,
+      "hospitals_per_100k": 1.88
+    },
+    "28700": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 43.4,
+      "hospitals_per_100k": 1.95
+    },
+    "28740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 15.2,
+      "hospitals_per_100k": 1.1
+    },
+    "28780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.1,
+      "hospitals_per_100k": 3.23
+    },
+    "28820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 39.2,
+      "hospitals_per_100k": 1.82
+    },
+    "28860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 74.8,
+      "hospitals_per_100k": 3.41
+    },
+    "28900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 26.9,
+      "hospitals_per_100k": 1.44
+    },
+    "28940": {
+      "hospitalCountWithin10mi": 13,
+      "healthcareAccessScore": 27.9,
+      "hospitals_per_100k": 1.47
+    },
+    "29020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 55.7,
+      "hospitals_per_100k": 2.4
+    },
+    "29060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 31.1,
+      "hospitals_per_100k": 1.56
+    },
+    "29100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 26.8,
+      "hospitals_per_100k": 1.44
+    },
+    "29180": {
+      "hospitalCountWithin10mi": 15,
+      "healthcareAccessScore": 70.9,
+      "hospitals_per_100k": 3.13
+    },
+    "29200": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 51.6,
+      "hospitals_per_100k": 2.23
+    },
+    "29260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 79.7,
+      "hospitals_per_100k": 3.8
+    },
+    "29300": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 42.4,
+      "hospitals_per_100k": 1.92
+    },
+    "29340": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 72.4,
+      "hospitals_per_100k": 3.24
+    },
+    "29380": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 65.8,
+      "hospitals_per_100k": 2.86
+    },
+    "29420": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 54.2,
+      "hospitals_per_100k": 2.33
+    },
+    "29460": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 4.9,
+      "hospitals_per_100k": 0.68
+    },
+    "29500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 98.7,
+      "hospitals_per_100k": 8.1
+    },
+    "29540": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 9.4,
+      "hospitals_per_100k": 0.9
+    },
+    "29620": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 28.4,
+      "hospitals_per_100k": 1.48
+    },
+    "29660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 61.5,
+      "hospitals_per_100k": 2.66
+    },
+    "29700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 5.7,
+      "hospitals_per_100k": 0.75
+    },
+    "29740": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 52.9,
+      "hospitals_per_100k": 2.27
+    },
+    "29780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 71.3,
+      "hospitals_per_100k": 3.18
+    },
+    "29820": {
+      "hospitalCountWithin10mi": 26,
+      "healthcareAccessScore": 16.7,
+      "hospitals_per_100k": 1.15
+    },
+    "29860": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 55.5,
+      "hospitals_per_100k": 2.4
+    },
+    "29900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 67.4,
+      "hospitals_per_100k": 2.92
+    },
+    "29940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 7.7,
+      "hospitals_per_100k": 0.84
+    },
+    "29980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 52.5,
+      "hospitals_per_100k": 2.25
+    },
+    "30020": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 71.1,
+      "hospitals_per_100k": 3.14
+    },
+    "30060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.2,
+      "hospitals_per_100k": 2.77
+    },
+    "30100": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 85.6,
+      "hospitals_per_100k": 4.52
+    },
+    "30140": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 47.2,
+      "hospitals_per_100k": 2.09
+    },
+    "30220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 86.9,
+      "hospitals_per_100k": 4.65
+    },
+    "30260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 54.1,
+      "hospitals_per_100k": 2.33
+    },
+    "30280": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.6,
+      "hospitals_per_100k": 2.89
+    },
+    "30300": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 70.6,
+      "hospitals_per_100k": 3.1
+    },
+    "30340": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 38.5,
+      "hospitals_per_100k": 1.79
+    },
+    "30380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 49.4,
+      "hospitals_per_100k": 2.17
+    },
+    "30420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 99.8,
+      "hospitals_per_100k": 11.58
+    },
+    "30460": {
+      "hospitalCountWithin10mi": 11,
+      "healthcareAccessScore": 47.9,
+      "hospitals_per_100k": 2.13
+    },
+    "30580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 85.9,
+      "hospitals_per_100k": 4.56
+    },
+    "30620": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 80.4,
+      "hospitals_per_100k": 3.92
+    },
+    "30660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 76.5,
+      "hospitals_per_100k": 3.57
+    },
+    "30700": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 37.6,
+      "hospitals_per_100k": 1.77
+    },
+    "30780": {
+      "hospitalCountWithin10mi": 19,
+      "healthcareAccessScore": 58.8,
+      "hospitals_per_100k": 2.54
+    },
+    "30820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.8,
+      "hospitals_per_100k": 2.64
+    },
+    "30860": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 45.2,
+      "hospitals_per_100k": 2.02
+    },
+    "30900": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 91.4,
+      "hospitals_per_100k": 5.29
+    },
+    "30940": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 61.7,
+      "hospitals_per_100k": 2.67
+    },
+    "30980": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 25.2,
+      "hospitals_per_100k": 1.39
+    },
+    "31020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 9.5,
+      "hospitals_per_100k": 0.9
+    },
+    "31060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 90.7,
+      "hospitals_per_100k": 5.19
+    },
+    "31080": {
+      "hospitalCountWithin10mi": 115,
+      "healthcareAccessScore": 8.5,
+      "hospitals_per_100k": 0.88
+    },
+    "31140": {
+      "hospitalCountWithin10mi": 17,
+      "healthcareAccessScore": 22.9,
+      "hospitals_per_100k": 1.33
+    },
+    "31180": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 70.7,
+      "hospitals_per_100k": 3.1
+    },
+    "31220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.2,
+      "hospitals_per_100k": 3.43
+    },
+    "31260": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 75.7,
+      "hospitals_per_100k": 3.46
+    },
+    "31300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 8.0,
+      "hospitals_per_100k": 0.85
+    },
+    "31340": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 5.8,
+      "hospitals_per_100k": 0.76
+    },
+    "31380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.1,
+      "hospitals_per_100k": 3.65
+    },
+    "31420": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 35.7,
+      "hospitals_per_100k": 1.71
+    },
+    "31460": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 42.2,
+      "hospitals_per_100k": 1.91
+    },
+    "31500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 95.1,
+      "hospitals_per_100k": 6.05
+    },
+    "31540": {
+      "hospitalCountWithin10mi": 11,
+      "healthcareAccessScore": 32.6,
+      "hospitals_per_100k": 1.62
+    },
+    "31580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 50.5,
+      "hospitals_per_100k": 2.21
+    },
+    "31620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 84.6,
+      "hospitals_per_100k": 4.4
+    },
+    "31660": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 83.0,
+      "hospitals_per_100k": 4.21
+    },
+    "31680": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 69.0,
+      "hospitals_per_100k": 3.02
+    },
+    "31700": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 18.4,
+      "hospitals_per_100k": 1.18
+    },
+    "31740": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 85.0,
+      "hospitals_per_100k": 4.48
+    },
+    "31820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 57.5,
+      "hospitals_per_100k": 2.46
+    },
+    "31860": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 42.9,
+      "hospitals_per_100k": 1.93
+    },
+    "31900": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 55.8,
+      "hospitals_per_100k": 2.4
+    },
+    "31930": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 74.5,
+      "hospitals_per_100k": 3.35
+    },
+    "31940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.4,
+      "hospitals_per_100k": 1.53
+    },
+    "31980": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 85.5,
+      "hospitals_per_100k": 4.51
+    },
+    "32000": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 52.0,
+      "hospitals_per_100k": 2.24
+    },
+    "32020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.2,
+      "hospitals_per_100k": 1.53
+    },
+    "32100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 68.8,
+      "hospitals_per_100k": 3.01
+    },
+    "32140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 98.6,
+      "hospitals_per_100k": 7.89
+    },
+    "32180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 83.9,
+      "hospitals_per_100k": 4.31
+    },
+    "32260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 58.1,
+      "hospitals_per_100k": 2.5
+    },
+    "32280": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 95.2,
+      "hospitals_per_100k": 6.07
+    },
+    "32300": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.2,
+      "hospitals_per_100k": 0.0
+    },
+    "32340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.6,
+      "hospitals_per_100k": 4.73
+    },
+    "32380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 44.5,
+      "hospitals_per_100k": 1.98
+    },
+    "32420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 70.1,
+      "hospitals_per_100k": 3.09
+    },
+    "32460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.3,
+      "hospitals_per_100k": 2.72
+    },
+    "32500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 94.6,
+      "hospitals_per_100k": 5.86
+    },
+    "32540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 86.4,
+      "hospitals_per_100k": 4.57
+    },
+    "32580": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 6.5,
+      "hospitals_per_100k": 0.8
+    },
+    "32620": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 89.7,
+      "hospitals_per_100k": 4.99
+    },
+    "32660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 56.8,
+      "hospitals_per_100k": 2.43
+    },
+    "32700": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 99.7,
+      "hospitals_per_100k": 9.97
+    },
+    "32740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 55.2,
+      "hospitals_per_100k": 2.38
+    },
+    "32780": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 24.0,
+      "hospitals_per_100k": 1.35
+    },
+    "32820": {
+      "hospitalCountWithin10mi": 21,
+      "healthcareAccessScore": 31.3,
+      "hospitals_per_100k": 1.57
+    },
+    "32860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 50.6,
+      "hospitals_per_100k": 2.21
+    },
+    "32900": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 5.0,
+      "hospitals_per_100k": 0.71
+    },
+    "32940": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 95.8,
+      "hospitals_per_100k": 6.17
+    },
+    "33020": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.3,
+      "hospitals_per_100k": 0.0
+    },
+    "33060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 73.7,
+      "hospitals_per_100k": 3.28
+    },
+    "33100": {
+      "hospitalCountWithin10mi": 53,
+      "healthcareAccessScore": 8.2,
+      "hospitals_per_100k": 0.87
+    },
+    "33140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 38.2,
+      "hospitals_per_100k": 1.78
+    },
+    "33180": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 98.8,
+      "hospitals_per_100k": 8.25
+    },
+    "33220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 19.2,
+      "hospitals_per_100k": 1.2
+    },
+    "33260": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 36.0,
+      "hospitals_per_100k": 1.72
+    },
+    "33300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 42.3,
+      "hospitals_per_100k": 1.91
+    },
+    "33340": {
+      "hospitalCountWithin10mi": 24,
+      "healthcareAccessScore": 30.1,
+      "hospitals_per_100k": 1.53
+    },
+    "33380": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 92.1,
+      "hospitals_per_100k": 5.44
+    },
+    "33420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.9,
+      "hospitals_per_100k": 3.5
+    },
+    "33460": {
+      "hospitalCountWithin10mi": 33,
+      "healthcareAccessScore": 9.2,
+      "hospitals_per_100k": 0.9
+    },
+    "33500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 59.7,
+      "hospitals_per_100k": 2.59
+    },
+    "33540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 34.5,
+      "hospitals_per_100k": 1.69
+    },
+    "33580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 83.4,
+      "hospitals_per_100k": 4.27
+    },
+    "33620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 81.9,
+      "hospitals_per_100k": 4.06
+    },
+    "33660": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 33.2,
+      "hospitals_per_100k": 1.63
+    },
+    "33700": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 9.7,
+      "hospitals_per_100k": 0.91
+    },
+    "33740": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 84.4,
+      "hospitals_per_100k": 4.37
+    },
+    "33780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 4.4,
+      "hospitals_per_100k": 0.65
+    },
+    "33860": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 39.4,
+      "hospitals_per_100k": 1.82
+    },
+    "33940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 47.1,
+      "hospitals_per_100k": 2.09
+    },
+    "33980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 27.6,
+      "hospitals_per_100k": 1.46
+    },
+    "34020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 82.2,
+      "hospitals_per_100k": 4.07
+    },
+    "34060": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 48.2,
+      "hospitals_per_100k": 2.14
+    },
+    "34100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 25.5,
+      "hospitals_per_100k": 1.4
+    },
+    "34140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 58.4,
+      "hospitals_per_100k": 2.51
+    },
+    "34180": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 81.3,
+      "hospitals_per_100k": 4.03
+    },
+    "34220": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 84.3,
+      "hospitals_per_100k": 4.37
+    },
+    "34260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 88.1,
+      "hospitals_per_100k": 4.78
+    },
+    "34300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.8,
+      "hospitals_per_100k": 3.48
+    },
+    "34340": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 65.0,
+      "hospitals_per_100k": 2.8
+    },
+    "34350": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 70.4,
+      "hospitals_per_100k": 3.09
+    },
+    "34380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.7,
+      "hospitals_per_100k": 1.54
+    },
+    "34420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 86.1,
+      "hospitals_per_100k": 4.56
+    },
+    "34460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 47.8,
+      "hospitals_per_100k": 2.12
+    },
+    "34500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 92.0,
+      "hospitals_per_100k": 5.4
+    },
+    "34540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 32.2,
+      "hospitals_per_100k": 1.6
+    },
+    "34580": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 53.2,
+      "hospitals_per_100k": 2.32
+    },
+    "34620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 9.1,
+      "hospitals_per_100k": 0.89
+    },
+    "34660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 61.9,
+      "hospitals_per_100k": 2.68
+    },
+    "34700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 53.8,
+      "hospitals_per_100k": 2.33
+    },
+    "34740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 3.6,
+      "hospitals_per_100k": 0.57
+    },
+    "34780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 68.4,
+      "hospitals_per_100k": 3.0
+    },
+    "34820": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 32.5,
+      "hospitals_per_100k": 1.61
+    },
+    "34860": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 70.0,
+      "hospitals_per_100k": 3.09
+    },
+    "34900": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 49.8,
+      "hospitals_per_100k": 2.18
+    },
+    "34940": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 6.1,
+      "hospitals_per_100k": 0.79
+    },
+    "34980": {
+      "hospitalCountWithin10mi": 30,
+      "healthcareAccessScore": 29.3,
+      "hospitals_per_100k": 1.51
+    },
+    "35020": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 96.2,
+      "hospitals_per_100k": 6.24
+    },
+    "35060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 61.6,
+      "hospitals_per_100k": 2.67
+    },
+    "35100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 6.8,
+      "hospitals_per_100k": 0.82
+    },
+    "35140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.7,
+      "hospitals_per_100k": 2.64
+    },
+    "35220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.3,
+      "hospitals_per_100k": 2.04
+    },
+    "35260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 17.7,
+      "hospitals_per_100k": 1.16
+    },
+    "35300": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 12.8,
+      "hospitals_per_100k": 1.04
+    },
+    "35380": {
+      "hospitalCountWithin10mi": 28,
+      "healthcareAccessScore": 51.1,
+      "hospitals_per_100k": 2.21
+    },
+    "35420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 48.6,
+      "hospitals_per_100k": 2.15
+    },
+    "35440": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 80.9,
+      "hospitals_per_100k": 3.97
+    },
+    "35460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.9,
+      "hospitals_per_100k": 2.76
+    },
+    "35580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 98.2,
+      "hospitals_per_100k": 7.73
+    },
+    "35620": {
+      "hospitalCountWithin10mi": 142,
+      "healthcareAccessScore": 5.1,
+      "hospitals_per_100k": 0.71
+    },
+    "35660": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 22.3,
+      "hospitals_per_100k": 1.3
+    },
+    "35700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 47.0,
+      "hospitals_per_100k": 2.09
+    },
+    "35740": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 95.7,
+      "hospitals_per_100k": 6.16
+    },
+    "35820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.8,
+      "hospitals_per_100k": 2.79
+    },
+    "35840": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 18.7,
+      "hospitals_per_100k": 1.18
+    },
+    "35860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 77.5,
+      "hospitals_per_100k": 3.62
+    },
+    "35900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 29.5,
+      "hospitals_per_100k": 1.51
+    },
+    "35940": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 75.1,
+      "hospitals_per_100k": 3.42
+    },
+    "35980": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 5.4,
+      "hospitals_per_100k": 0.75
+    },
+    "36020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 17.4,
+      "hospitals_per_100k": 1.16
+    },
+    "36100": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 6.3,
+      "hospitals_per_100k": 0.79
+    },
+    "36140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 13.3,
+      "hospitals_per_100k": 1.05
+    },
+    "36220": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 19.9,
+      "hospitals_per_100k": 1.23
+    },
+    "36260": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 17.0,
+      "hospitals_per_100k": 1.15
+    },
+    "36300": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 93.0,
+      "hospitals_per_100k": 5.52
+    },
+    "36340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 44.3,
+      "hospitals_per_100k": 1.98
+    },
+    "36380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 58.5,
+      "hospitals_per_100k": 2.51
+    },
+    "36420": {
+      "hospitalCountWithin10mi": 33,
+      "healthcareAccessScore": 53.1,
+      "hospitals_per_100k": 2.31
+    },
+    "36460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 22.2,
+      "hospitals_per_100k": 1.3
+    },
+    "36500": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 11.9,
+      "hospitals_per_100k": 1.02
+    },
+    "36540": {
+      "hospitalCountWithin10mi": 19,
+      "healthcareAccessScore": 43.9,
+      "hospitals_per_100k": 1.97
+    },
+    "36580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 74.4,
+      "hospitals_per_100k": 3.35
+    },
+    "36620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 37.3,
+      "hospitals_per_100k": 1.75
+    },
+    "36660": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 77.6,
+      "hospitals_per_100k": 3.63
+    },
+    "36700": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.4,
+      "hospitals_per_100k": 0.0
+    },
+    "36740": {
+      "hospitalCountWithin10mi": 20,
+      "healthcareAccessScore": 5.5,
+      "hospitals_per_100k": 0.75
+    },
+    "36780": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 54.4,
+      "hospitals_per_100k": 2.34
+    },
+    "36820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 85.7,
+      "hospitals_per_100k": 4.53
+    },
+    "36830": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 99.6,
+      "hospitals_per_100k": 9.73
+    },
+    "36837": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 62.5,
+      "hospitals_per_100k": 2.7
+    },
+    "36840": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 80.1,
+      "hospitals_per_100k": 3.85
+    },
+    "36900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 65.6,
+      "hospitals_per_100k": 2.83
+    },
+    "36940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 61.8,
+      "hospitals_per_100k": 2.67
+    },
+    "36980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 7.1,
+      "hospitals_per_100k": 0.83
+    },
+    "37060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 38.1,
+      "hospitals_per_100k": 1.78
+    },
+    "37100": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 7.2,
+      "hospitals_per_100k": 0.83
+    },
+    "37120": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 45.4,
+      "hospitals_per_100k": 2.02
+    },
+    "37140": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 82.0,
+      "hospitals_per_100k": 4.06
+    },
+    "37220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 43.0,
+      "hospitals_per_100k": 1.93
+    },
+    "37260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 24.2,
+      "hospitals_per_100k": 1.36
+    },
+    "37300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 36.2,
+      "hospitals_per_100k": 1.72
+    },
+    "37340": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 22.6,
+      "hospitals_per_100k": 1.31
+    },
+    "37420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 85.8,
+      "hospitals_per_100k": 4.54
+    },
+    "37460": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 33.9,
+      "hospitals_per_100k": 1.66
+    },
+    "37500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 49.7,
+      "hospitals_per_100k": 2.18
+    },
+    "37540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 70.5,
+      "hospitals_per_100k": 3.1
+    },
+    "37580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 44.7,
+      "hospitals_per_100k": 1.99
+    },
+    "37620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 16.1,
+      "hospitals_per_100k": 1.12
+    },
+    "37660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 89.6,
+      "hospitals_per_100k": 4.98
+    },
+    "37740": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 93.4,
+      "hospitals_per_100k": 5.62
+    },
+    "37770": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 92.8,
+      "hospitals_per_100k": 5.51
+    },
+    "37780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 97.7,
+      "hospitals_per_100k": 7.08
+    },
+    "37800": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 95.0,
+      "hospitals_per_100k": 5.97
+    },
+    "37860": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 18.2,
+      "hospitals_per_100k": 1.18
+    },
+    "37900": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 28.8,
+      "hospitals_per_100k": 1.49
+    },
+    "37940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.4,
+      "hospitals_per_100k": 2.78
+    },
+    "37980": {
+      "hospitalCountWithin10mi": 72,
+      "healthcareAccessScore": 17.3,
+      "hospitals_per_100k": 1.16
+    },
+    "38060": {
+      "hospitalCountWithin10mi": 58,
+      "healthcareAccessScore": 19.0,
+      "hospitals_per_100k": 1.19
+    },
+    "38100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 76.1,
+      "hospitals_per_100k": 3.55
+    },
+    "38180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 88.2,
+      "hospitals_per_100k": 4.81
+    },
+    "38220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 16.5,
+      "hospitals_per_100k": 1.14
+    },
+    "38240": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 11.1,
+      "hospitals_per_100k": 0.99
+    },
+    "38260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 90.6,
+      "hospitals_per_100k": 5.13
+    },
+    "38300": {
+      "hospitalCountWithin10mi": 32,
+      "healthcareAccessScore": 24.1,
+      "hospitals_per_100k": 1.35
+    },
+    "38340": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 53.9,
+      "hospitals_per_100k": 2.33
+    },
+    "38380": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 95.6,
+      "hospitals_per_100k": 6.15
+    },
+    "38420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 93.9,
+      "hospitals_per_100k": 5.79
+    },
+    "38460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 20.5,
+      "hospitals_per_100k": 1.25
+    },
+    "38500": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 99.0,
+      "hospitals_per_100k": 8.66
+    },
+    "38540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 47.5,
+      "hospitals_per_100k": 2.1
+    },
+    "38580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 77.9,
+      "hospitals_per_100k": 3.65
+    },
+    "38620": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 86.0,
+      "hospitals_per_100k": 4.56
+    },
+    "38660": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 38.7,
+      "hospitals_per_100k": 1.8
+    },
+    "38700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.9,
+      "hospitals_per_100k": 2.8
+    },
+    "38740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 79.2,
+      "hospitals_per_100k": 3.77
+    },
+    "38780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 91.2,
+      "hospitals_per_100k": 5.22
+    },
+    "38820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 59.6,
+      "hospitals_per_100k": 2.59
+    },
+    "38860": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 14.7,
+      "hospitals_per_100k": 1.09
+    },
+    "38900": {
+      "hospitalCountWithin10mi": 21,
+      "healthcareAccessScore": 7.6,
+      "hospitals_per_100k": 0.84
+    },
+    "38920": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 89.4,
+      "hospitals_per_100k": 4.97
+    },
+    "38940": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 11.6,
+      "hospitals_per_100k": 1.01
+    },
+    "39020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 63.0,
+      "hospitals_per_100k": 2.71
+    },
+    "39060": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 47.3,
+      "hospitals_per_100k": 2.09
+    },
+    "39100": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 16.6,
+      "hospitals_per_100k": 1.15
+    },
+    "39150": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 34.3,
+      "hospitals_per_100k": 1.68
+    },
+    "39220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 88.9,
+      "hospitals_per_100k": 4.92
+    },
+    "39260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 81.0,
+      "hospitals_per_100k": 4.0
+    },
+    "39300": {
+      "hospitalCountWithin10mi": 21,
+      "healthcareAccessScore": 20.8,
+      "hospitals_per_100k": 1.26
+    },
+    "39340": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 23.0,
+      "hospitals_per_100k": 1.33
+    },
+    "39380": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 38.3,
+      "hospitals_per_100k": 1.78
+    },
+    "39420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 83.3,
+      "hospitals_per_100k": 4.24
+    },
+    "39460": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 13.5,
+      "hospitals_per_100k": 1.05
+    },
+    "39500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 22.8,
+      "hospitals_per_100k": 1.32
+    },
+    "39540": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 11.7,
+      "hospitals_per_100k": 1.01
+    },
+    "39580": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 3.1,
+      "hospitals_per_100k": 0.49
+    },
+    "39660": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 76.3,
+      "hospitals_per_100k": 3.56
+    },
+    "39700": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.5,
+      "hospitals_per_100k": 0.0
+    },
+    "39740": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 25.7,
+      "hospitals_per_100k": 1.4
+    },
+    "39780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.0,
+      "hospitals_per_100k": 1.53
+    },
+    "39820": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 50.2,
+      "hospitals_per_100k": 2.2
+    },
+    "39860": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 82.9,
+      "hospitals_per_100k": 4.19
+    },
+    "39900": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 33.0,
+      "hospitals_per_100k": 1.63
+    },
+    "39940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 29.7,
+      "hospitals_per_100k": 1.52
+    },
+    "39980": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 68.6,
+      "hospitals_per_100k": 3.01
+    },
+    "40060": {
+      "hospitalCountWithin10mi": 13,
+      "healthcareAccessScore": 11.0,
+      "hospitals_per_100k": 0.99
+    },
+    "40080": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 65.1,
+      "hospitals_per_100k": 2.8
+    },
+    "40100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 29.9,
+      "hospitals_per_100k": 1.52
+    },
+    "40140": {
+      "hospitalCountWithin10mi": 39,
+      "healthcareAccessScore": 7.9,
+      "hospitals_per_100k": 0.85
+    },
+    "40180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 59.0,
+      "hospitals_per_100k": 2.54
+    },
+    "40220": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 42.1,
+      "hospitals_per_100k": 1.91
+    },
+    "40260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 29.4,
+      "hospitals_per_100k": 1.51
+    },
+    "40300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 43.1,
+      "hospitals_per_100k": 1.94
+    },
+    "40340": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 50.9,
+      "hospitals_per_100k": 2.21
+    },
+    "40380": {
+      "hospitalCountWithin10mi": 13,
+      "healthcareAccessScore": 19.1,
+      "hospitals_per_100k": 1.2
+    },
+    "40420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 9.0,
+      "hospitals_per_100k": 0.89
+    },
+    "40460": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.6,
+      "hospitals_per_100k": 0.0
+    },
+    "40530": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.7,
+      "hospitals_per_100k": 0.0
+    },
+    "40540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 55.0,
+      "hospitals_per_100k": 2.38
+    },
+    "40580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 24.8,
+      "hospitals_per_100k": 1.39
+    },
+    "40620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 51.8,
+      "hospitals_per_100k": 2.23
+    },
+    "40660": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 45.6,
+      "hospitals_per_100k": 2.03
+    },
+    "40700": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 62.4,
+      "hospitals_per_100k": 2.69
+    },
+    "40740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 70.3,
+      "hospitals_per_100k": 3.09
+    },
+    "40760": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 89.2,
+      "hospitals_per_100k": 4.95
+    },
+    "40780": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 77.0,
+      "hospitals_per_100k": 3.58
+    },
+    "40820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 82.7,
+      "hospitals_per_100k": 4.14
+    },
+    "40860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 33.8,
+      "hospitals_per_100k": 1.65
+    },
+    "40900": {
+      "hospitalCountWithin10mi": 21,
+      "healthcareAccessScore": 8.4,
+      "hospitals_per_100k": 0.88
+    },
+    "40940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.0,
+      "hospitals_per_100k": 2.6
+    },
+    "40980": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 31.7,
+      "hospitals_per_100k": 1.58
+    },
+    "41060": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 58.2,
+      "hospitals_per_100k": 2.5
+    },
+    "41100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 3.4,
+      "hospitals_per_100k": 0.55
+    },
+    "41140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 33.5,
+      "hospitals_per_100k": 1.64
+    },
+    "41180": {
+      "hospitalCountWithin10mi": 41,
+      "healthcareAccessScore": 27.5,
+      "hospitals_per_100k": 1.46
+    },
+    "41220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 39.1,
+      "hospitals_per_100k": 1.81
+    },
+    "41260": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 72.5,
+      "hospitals_per_100k": 3.24
+    },
+    "41400": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 44.0,
+      "hospitals_per_100k": 1.97
+    },
+    "41420": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 17.2,
+      "hospitals_per_100k": 1.15
+    },
+    "41460": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 90.0,
+      "hospitals_per_100k": 5.01
+    },
+    "41500": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 9.9,
+      "hospitals_per_100k": 0.91
+    },
+    "41540": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 26.0,
+      "hospitals_per_100k": 1.42
+    },
+    "41620": {
+      "hospitalCountWithin10mi": 14,
+      "healthcareAccessScore": 16.0,
+      "hospitals_per_100k": 1.12
+    },
+    "41660": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 33.4,
+      "hospitals_per_100k": 1.64
+    },
+    "41700": {
+      "hospitalCountWithin10mi": 25,
+      "healthcareAccessScore": 10.7,
+      "hospitals_per_100k": 0.97
+    },
+    "41740": {
+      "hospitalCountWithin10mi": 22,
+      "healthcareAccessScore": 4.8,
+      "hospitals_per_100k": 0.67
+    },
+    "41760": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.9,
+      "hospitals_per_100k": 2.08
+    },
+    "41780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 23.2,
+      "hospitals_per_100k": 1.33
+    },
+    "41820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 31.6,
+      "hospitals_per_100k": 1.57
+    },
+    "41860": {
+      "hospitalCountWithin10mi": 45,
+      "healthcareAccessScore": 10.4,
+      "hospitals_per_100k": 0.96
+    },
+    "41900": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 56.2,
+      "hospitals_per_100k": 2.41
+    },
+    "41940": {
+      "hospitalCountWithin10mi": 12,
+      "healthcareAccessScore": 3.9,
+      "hospitals_per_100k": 0.61
+    },
+    "41980": {
+      "hospitalCountWithin10mi": 42,
+      "healthcareAccessScore": 45.5,
+      "hospitals_per_100k": 2.03
+    },
+    "42020": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 14.1,
+      "hospitals_per_100k": 1.06
+    },
+    "42100": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 28.6,
+      "hospitals_per_100k": 1.49
+    },
+    "42140": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 43.3,
+      "hospitals_per_100k": 1.94
+    },
+    "42180": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.8,
+      "hospitals_per_100k": 0.0
+    },
+    "42200": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 23.9,
+      "hospitals_per_100k": 1.35
+    },
+    "42220": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 26.3,
+      "hospitals_per_100k": 1.43
+    },
+    "42300": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 63.5,
+      "hospitals_per_100k": 2.73
+    },
+    "42340": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 28.3,
+      "hospitals_per_100k": 1.48
+    },
+    "42380": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 74.2,
+      "hospitals_per_100k": 3.32
+    },
+    "42420": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 1.9,
+      "hospitals_per_100k": 0.0
+    },
+    "42460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 41.7,
+      "hospitals_per_100k": 1.9
+    },
+    "42500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 82.4,
+      "hospitals_per_100k": 4.1
+    },
+    "42540": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 31.8,
+      "hospitals_per_100k": 1.59
+    },
+    "42620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 22.1,
+      "hospitals_per_100k": 1.3
+    },
+    "42660": {
+      "hospitalCountWithin10mi": 33,
+      "healthcareAccessScore": 7.0,
+      "hospitals_per_100k": 0.82
+    },
+    "42680": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 20.1,
+      "hospitals_per_100k": 1.24
+    },
+    "42700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 43.7,
+      "hospitals_per_100k": 1.95
+    },
+    "42740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 53.4,
+      "hospitals_per_100k": 2.32
+    },
+    "42780": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.0,
+      "hospitals_per_100k": 0.0
+    },
+    "42820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.2,
+      "hospitals_per_100k": 2.61
+    },
+    "42860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 21.1,
+      "hospitals_per_100k": 1.27
+    },
+    "42900": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.1,
+      "hospitals_per_100k": 0.0
+    },
+    "42940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 11.8,
+      "hospitals_per_100k": 1.02
+    },
+    "42980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 49.1,
+      "hospitals_per_100k": 2.16
+    },
+    "43020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 51.2,
+      "hospitals_per_100k": 2.22
+    },
+    "43060": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 24.5,
+      "hospitals_per_100k": 1.37
+    },
+    "43100": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 34.9,
+      "hospitals_per_100k": 1.7
+    },
+    "43140": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 11.3,
+      "hospitals_per_100k": 1.0
+    },
+    "43180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 44.2,
+      "hospitals_per_100k": 1.98
+    },
+    "43220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 29.6,
+      "hospitals_per_100k": 1.51
+    },
+    "43260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 96.4,
+      "hospitals_per_100k": 6.42
+    },
+    "43300": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 67.3,
+      "hospitals_per_100k": 2.92
+    },
+    "43320": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 93.3,
+      "hospitals_per_100k": 5.6
+    },
+    "43340": {
+      "hospitalCountWithin10mi": 13,
+      "healthcareAccessScore": 74.1,
+      "hospitals_per_100k": 3.32
+    },
+    "43380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 46.7,
+      "hospitals_per_100k": 2.08
+    },
+    "43420": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 71.4,
+      "hospitals_per_100k": 3.19
+    },
+    "43460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 60.4,
+      "hospitals_per_100k": 2.63
+    },
+    "43500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 76.7,
+      "hospitals_per_100k": 3.57
+    },
+    "43580": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 45.0,
+      "hospitals_per_100k": 2.01
+    },
+    "43620": {
+      "hospitalCountWithin10mi": 9,
+      "healthcareAccessScore": 72.6,
+      "hospitals_per_100k": 3.24
+    },
+    "43660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 94.9,
+      "hospitals_per_100k": 5.92
+    },
+    "43700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 30.5,
+      "hospitals_per_100k": 1.54
+    },
+    "43740": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 82.1,
+      "hospitals_per_100k": 4.06
+    },
+    "43760": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 39.3,
+      "hospitals_per_100k": 1.82
+    },
+    "43780": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 30.8,
+      "hospitals_per_100k": 1.54
+    },
+    "43900": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 4.1,
+      "hospitals_per_100k": 0.61
+    },
+    "43940": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 98.1,
+      "hospitals_per_100k": 7.68
+    },
+    "43980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 95.3,
+      "hospitals_per_100k": 6.09
+    },
+    "44020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 93.6,
+      "hospitals_per_100k": 5.65
+    },
+    "44060": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 35.3,
+      "hospitals_per_100k": 1.71
+    },
+    "44100": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 27.0,
+      "hospitals_per_100k": 1.44
+    },
+    "44140": {
+      "hospitalCountWithin10mi": 10,
+      "healthcareAccessScore": 27.2,
+      "hospitals_per_100k": 1.45
+    },
+    "44180": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 13.4,
+      "hospitals_per_100k": 1.05
+    },
+    "44220": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 50.4,
+      "hospitals_per_100k": 2.21
+    },
+    "44260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 73.2,
+      "hospitals_per_100k": 3.26
+    },
+    "44300": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 20.9,
+      "hospitals_per_100k": 1.26
+    },
+    "44340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 20.6,
+      "hospitals_per_100k": 1.25
+    },
+    "44420": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 32.1,
+      "hospitals_per_100k": 1.6
+    },
+    "44460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 81.1,
+      "hospitals_per_100k": 4.01
+    },
+    "44500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 54.5,
+      "hospitals_per_100k": 2.34
+    },
+    "44540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 87.2,
+      "hospitals_per_100k": 4.69
+    },
+    "44580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 77.3,
+      "hospitals_per_100k": 3.6
+    },
+    "44620": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 65.7,
+      "hospitals_per_100k": 2.85
+    },
+    "44660": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 56.9,
+      "hospitals_per_100k": 2.44
+    },
+    "44700": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 12.3,
+      "hospitals_per_100k": 1.03
+    },
+    "44740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 88.4,
+      "hospitals_per_100k": 4.83
+    },
+    "44780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 73.8,
+      "hospitals_per_100k": 3.28
+    },
+    "44860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 62.7,
+      "hospitals_per_100k": 2.7
+    },
+    "44900": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.2,
+      "hospitals_per_100k": 0.0
+    },
+    "44940": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 27.7,
+      "hospitals_per_100k": 1.47
+    },
+    "44980": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.3,
+      "hospitals_per_100k": 0.0
+    },
+    "45000": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 71.0,
+      "hospitals_per_100k": 3.14
+    },
+    "45020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 97.0,
+      "hospitals_per_100k": 6.82
+    },
+    "45060": {
+      "hospitalCountWithin10mi": 8,
+      "healthcareAccessScore": 19.6,
+      "hospitals_per_100k": 1.21
+    },
+    "45140": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 83.2,
+      "hospitals_per_100k": 4.22
+    },
+    "45180": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 57.6,
+      "hospitals_per_100k": 2.47
+    },
+    "45220": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 21.9,
+      "hospitals_per_100k": 1.3
+    },
+    "45300": {
+      "hospitalCountWithin10mi": 34,
+      "healthcareAccessScore": 14.0,
+      "hospitals_per_100k": 1.06
+    },
+    "45340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.8,
+      "hospitals_per_100k": 2.9
+    },
+    "45380": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 94.7,
+      "hospitals_per_100k": 5.9
+    },
+    "45460": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 79.4,
+      "hospitals_per_100k": 3.78
+    },
+    "45500": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 62.9,
+      "hospitals_per_100k": 2.71
+    },
+    "45520": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 79.1,
+      "hospitals_per_100k": 3.75
+    },
+    "45540": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.5,
+      "hospitals_per_100k": 0.0
+    },
+    "45580": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 77.4,
+      "hospitals_per_100k": 3.62
+    },
+    "45620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 50.0,
+      "hospitals_per_100k": 2.19
+    },
+    "45660": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 92.5,
+      "hospitals_per_100k": 5.45
+    },
+    "45700": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 56.5,
+      "hospitals_per_100k": 2.42
+    },
+    "45740": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.9,
+      "hospitals_per_100k": 3.74
+    },
+    "45780": {
+      "hospitalCountWithin10mi": 11,
+      "healthcareAccessScore": 35.2,
+      "hospitals_per_100k": 1.71
+    },
+    "45820": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 48.4,
+      "hospitals_per_100k": 2.15
+    },
+    "45860": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 14.4,
+      "hospitals_per_100k": 1.08
+    },
+    "45900": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 43.6,
+      "hospitals_per_100k": 1.95
+    },
+    "45940": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 13.0,
+      "hospitals_per_100k": 1.04
+    },
+    "45980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 69.3,
+      "hospitals_per_100k": 3.03
+    },
+    "46020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 43.8,
+      "hospitals_per_100k": 1.95
+    },
+    "46060": {
+      "hospitalCountWithin10mi": 13,
+      "healthcareAccessScore": 20.4,
+      "hospitals_per_100k": 1.25
+    },
+    "46100": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 64.6,
+      "hospitals_per_100k": 2.79
+    },
+    "46140": {
+      "hospitalCountWithin10mi": 27,
+      "healthcareAccessScore": 61.3,
+      "hospitals_per_100k": 2.65
+    },
+    "46180": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 69.5,
+      "hospitals_per_100k": 3.06
+    },
+    "46220": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 50.1,
+      "hospitals_per_100k": 2.2
+    },
+    "46300": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 37.0,
+      "hospitals_per_100k": 1.74
+    },
+    "46340": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 35.1,
+      "hospitals_per_100k": 1.7
+    },
+    "46380": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 73.9,
+      "hospitals_per_100k": 3.29
+    },
+    "46420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 78.6,
+      "hospitals_per_100k": 3.68
+    },
+    "46460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 73.1,
+      "hospitals_per_100k": 3.26
+    },
+    "46500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 59.5,
+      "hospitals_per_100k": 2.58
+    },
+    "46520": {
+      "hospitalCountWithin10mi": 11,
+      "healthcareAccessScore": 14.8,
+      "hospitals_per_100k": 1.09
+    },
+    "46540": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 24.4,
+      "hospitals_per_100k": 1.37
+    },
+    "46620": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 81.2,
+      "hospitals_per_100k": 4.03
+    },
+    "46660": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 62.6,
+      "hospitals_per_100k": 2.7
+    },
+    "46700": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 23.5,
+      "hospitals_per_100k": 1.33
+    },
+    "46780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 97.3,
+      "hospitals_per_100k": 6.94
+    },
+    "46820": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 96.9,
+      "hospitals_per_100k": 6.69
+    },
+    "46860": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.5,
+      "hospitals_per_100k": 2.78
+    },
+    "46900": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 98.4,
+      "hospitals_per_100k": 7.82
+    },
+    "46980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 52.6,
+      "hospitals_per_100k": 2.26
+    },
+    "47020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 45.8,
+      "hospitals_per_100k": 2.03
+    },
+    "47080": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 65.2,
+      "hospitals_per_100k": 2.81
+    },
+    "47180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 64.1,
+      "hospitals_per_100k": 2.77
+    },
+    "47220": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 4.6,
+      "hospitals_per_100k": 0.65
+    },
+    "47240": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 88.8,
+      "hospitals_per_100k": 4.87
+    },
+    "47260": {
+      "hospitalCountWithin10mi": 18,
+      "healthcareAccessScore": 11.2,
+      "hospitals_per_100k": 1.0
+    },
+    "47300": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 7.8,
+      "hospitals_per_100k": 0.84
+    },
+    "47340": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 71.9,
+      "hospitals_per_100k": 3.22
+    },
+    "47380": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 26.7,
+      "hospitals_per_100k": 1.44
+    },
+    "47420": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 84.1,
+      "hospitals_per_100k": 4.35
+    },
+    "47460": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 32.4,
+      "hospitals_per_100k": 1.61
+    },
+    "47540": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 49.0,
+      "hospitals_per_100k": 2.16
+    },
+    "47580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 12.9,
+      "hospitals_per_100k": 1.04
+    },
+    "47620": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 90.8,
+      "hospitals_per_100k": 5.2
+    },
+    "47660": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 40.2,
+      "hospitals_per_100k": 1.85
+    },
+    "47700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 57.9,
+      "hospitals_per_100k": 2.49
+    },
+    "47780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 68.3,
+      "hospitals_per_100k": 3.0
+    },
+    "47820": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.6,
+      "hospitals_per_100k": 0.0
+    },
+    "47900": {
+      "hospitalCountWithin10mi": 35,
+      "healthcareAccessScore": 3.5,
+      "hospitals_per_100k": 0.55
+    },
+    "47920": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 75.6,
+      "hospitals_per_100k": 3.46
+    },
+    "47940": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 76.4,
+      "hospitals_per_100k": 3.56
+    },
+    "47980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 66.4,
+      "hospitals_per_100k": 2.89
+    },
+    "48020": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 17.6,
+      "hospitals_per_100k": 1.16
+    },
+    "48060": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 74.9,
+      "hospitals_per_100k": 3.41
+    },
+    "48100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 80.3,
+      "hospitals_per_100k": 3.92
+    },
+    "48140": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 68.7,
+      "hospitals_per_100k": 3.01
+    },
+    "48180": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 38.6,
+      "hospitals_per_100k": 1.79
+    },
+    "48220": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 97.4,
+      "hospitals_per_100k": 7.04
+    },
+    "48260": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 35.8,
+      "hospitals_per_100k": 1.72
+    },
+    "48300": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 57.4,
+      "hospitals_per_100k": 2.45
+    },
+    "48460": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 89.9,
+      "hospitals_per_100k": 5.01
+    },
+    "48500": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 91.8,
+      "hospitals_per_100k": 5.38
+    },
+    "48540": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 66.0,
+      "hospitals_per_100k": 2.87
+    },
+    "48580": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 41.9,
+      "hospitals_per_100k": 1.9
+    },
+    "48620": {
+      "hospitalCountWithin10mi": 14,
+      "healthcareAccessScore": 49.3,
+      "hospitals_per_100k": 2.16
+    },
+    "48660": {
+      "hospitalCountWithin10mi": 6,
+      "healthcareAccessScore": 81.6,
+      "hospitals_per_100k": 4.04
+    },
+    "48700": {
+      "hospitalCountWithin10mi": 4,
+      "healthcareAccessScore": 76.0,
+      "hospitals_per_100k": 3.51
+    },
+    "48780": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 90.4,
+      "hospitals_per_100k": 5.12
+    },
+    "48820": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 86.5,
+      "hospitals_per_100k": 4.58
+    },
+    "48900": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 12.7,
+      "hospitals_per_100k": 1.04
+    },
+    "48940": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 55.1,
+      "hospitals_per_100k": 2.38
+    },
+    "48980": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 21.2,
+      "hospitals_per_100k": 1.27
+    },
+    "49020": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 25.3,
+      "hospitals_per_100k": 1.39
+    },
+    "49060": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 93.8,
+      "hospitals_per_100k": 5.77
+    },
+    "49080": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 94.0,
+      "hospitals_per_100k": 5.79
+    },
+    "49100": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 44.8,
+      "hospitals_per_100k": 2.01
+    },
+    "49180": {
+      "hospitalCountWithin10mi": 7,
+      "healthcareAccessScore": 12.6,
+      "hospitals_per_100k": 1.03
+    },
+    "49220": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 81.7,
+      "hospitals_per_100k": 4.05
+    },
+    "49260": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 100.0,
+      "hospitals_per_100k": 12.41
+    },
+    "49300": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 35.6,
+      "hospitals_per_100k": 1.71
+    },
+    "49340": {
+      "hospitalCountWithin10mi": 14,
+      "healthcareAccessScore": 26.4,
+      "hospitals_per_100k": 1.44
+    },
+    "49380": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 85.4,
+      "hospitals_per_100k": 4.51
+    },
+    "49420": {
+      "hospitalCountWithin10mi": 3,
+      "healthcareAccessScore": 18.1,
+      "hospitals_per_100k": 1.17
+    },
+    "49460": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 98.9,
+      "hospitals_per_100k": 8.58
+    },
+    "49500": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 54.3,
+      "hospitals_per_100k": 2.34
+    },
+    "49620": {
+      "hospitalCountWithin10mi": 5,
+      "healthcareAccessScore": 15.0,
+      "hospitals_per_100k": 1.09
+    },
+    "49660": {
+      "hospitalCountWithin10mi": 11,
+      "healthcareAccessScore": 45.9,
+      "hospitals_per_100k": 2.04
+    },
+    "49700": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 15.7,
+      "hospitals_per_100k": 1.11
+    },
+    "49740": {
+      "hospitalCountWithin10mi": 2,
+      "healthcareAccessScore": 10.9,
+      "hospitals_per_100k": 0.98
+    },
+    "49780": {
+      "hospitalCountWithin10mi": 1,
+      "healthcareAccessScore": 17.5,
+      "hospitals_per_100k": 1.16
+    },
+    "49820": {
+      "hospitalCountWithin10mi": 0,
+      "healthcareAccessScore": 2.7,
+      "hospitals_per_100k": 0.0
+    }
+  }
+}

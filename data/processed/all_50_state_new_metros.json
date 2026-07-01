@@ -1,0 +1,310 @@
+{
+  "source": {
+    "name": "Phase 2 all-50-state expansion \u2014 new metros to add",
+    "schema_version": "us-reloc-2026.v2",
+    "pulled_at": "2026-06-19",
+    "note": "Top-1 metro per missing state by Zillow SizeRank (population proxy). AGIS/Sacramento for expensive-GA states."
+  },
+  "states_current": [
+    "CO",
+    "ID",
+    "IN",
+    "KY",
+    "MI",
+    "MN",
+    "MO",
+    "MT",
+    "OH",
+    "OR",
+    "PA",
+    "TN",
+    "TX",
+    "WA",
+    "WI"
+  ],
+  "states_new": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "IL",
+    "KS",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MS",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NJ",
+    "NM",
+    "NV",
+    "NY",
+    "OK",
+    "RI",
+    "SC",
+    "SD",
+    "UT",
+    "VA",
+    "VT",
+    "WV",
+    "WY"
+  ],
+  "new_metros": {
+    "AK": {
+      "metro": "Anchorage, AK",
+      "state": "AK",
+      "size_rank": 139,
+      "zhvi_2026_05": 422103.0,
+      "affordable_bool": false
+    },
+    "AL": {
+      "metro": "Birmingham, AL",
+      "state": "AL",
+      "size_rank": 51,
+      "zhvi_2026_05": 262556.0,
+      "affordable_bool": true
+    },
+    "AR": {
+      "metro": "Little Rock, AR",
+      "state": "AR",
+      "size_rank": 81,
+      "zhvi_2026_05": 231039.0,
+      "affordable_bool": true
+    },
+    "AZ": {
+      "metro": "Phoenix, AZ",
+      "state": "AZ",
+      "size_rank": 11,
+      "zhvi_2026_05": 448352.0,
+      "affordable_bool": false
+    },
+    "CA": {
+      "metro": "Los Angeles, CA",
+      "state": "CA",
+      "size_rank": 2,
+      "zhvi_2026_05": 968608.0,
+      "affordable_bool": false
+    },
+    "CT": {
+      "metro": "Hartford, CT",
+      "state": "CT",
+      "size_rank": 49,
+      "zhvi_2026_05": 400167.0,
+      "affordable_bool": false
+    },
+    "DE": {
+      "metro": "Salisbury, MD",
+      "state": "DE",
+      "size_rank": 134,
+      "zhvi_2026_05": 429483.0,
+      "affordable_bool": false
+    },
+    "FL": {
+      "metro": "Miami, FL",
+      "state": "FL",
+      "size_rank": 8,
+      "zhvi_2026_05": 475622.0,
+      "affordable_bool": false
+    },
+    "GA": {
+      "metro": "Atlanta, GA",
+      "state": "GA",
+      "size_rank": 9,
+      "zhvi_2026_05": 382938.0,
+      "affordable_bool": true
+    },
+    "HI": {
+      "metro": "Urban Honolulu, HI",
+      "state": "HI",
+      "size_rank": 55,
+      "zhvi_2026_05": 851163.0,
+      "affordable_bool": false
+    },
+    "IA": {
+      "metro": "Des Moines, IA",
+      "state": "IA",
+      "size_rank": 84,
+      "zhvi_2026_05": 296070.0,
+      "affordable_bool": true
+    },
+    "IL": {
+      "metro": "Chicago, IL",
+      "state": "IL",
+      "size_rank": 3,
+      "zhvi_2026_05": 353998.0,
+      "affordable_bool": true
+    },
+    "KS": {
+      "metro": "Wichita, KS",
+      "state": "KS",
+      "size_rank": 94,
+      "zhvi_2026_05": 225557.0,
+      "affordable_bool": true
+    },
+    "LA": {
+      "metro": "New Orleans, LA",
+      "state": "LA",
+      "size_rank": 47,
+      "zhvi_2026_05": 261414.0,
+      "affordable_bool": true
+    },
+    "MA": {
+      "metro": "Boston, MA",
+      "state": "MA",
+      "size_rank": 10,
+      "zhvi_2026_05": 741868.0,
+      "affordable_bool": false
+    },
+    "MD": {
+      "metro": "Baltimore, MD",
+      "state": "MD",
+      "size_rank": 20,
+      "zhvi_2026_05": 405877.0,
+      "affordable_bool": false
+    },
+    "ME": {
+      "metro": "Portland, ME",
+      "state": "ME",
+      "size_rank": 105,
+      "zhvi_2026_05": 542063.0,
+      "affordable_bool": false
+    },
+    "MS": {
+      "metro": "Jackson, MS",
+      "state": "MS",
+      "size_rank": 98,
+      "zhvi_2026_05": 215136.0,
+      "affordable_bool": true
+    },
+    "NC": {
+      "metro": "Charlotte, NC",
+      "state": "NC",
+      "size_rank": 23,
+      "zhvi_2026_05": 390321.0,
+      "affordable_bool": true
+    },
+    "ND": {
+      "metro": "Fargo, ND",
+      "state": "ND",
+      "size_rank": 194,
+      "zhvi_2026_05": 327854.0,
+      "affordable_bool": true
+    },
+    "NE": {
+      "metro": "Omaha, NE",
+      "state": "NE",
+      "size_rank": 59,
+      "zhvi_2026_05": 310337.0,
+      "affordable_bool": true
+    },
+    "NH": {
+      "metro": "Manchester, NH",
+      "state": "NH",
+      "size_rank": 131,
+      "zhvi_2026_05": 526340.0,
+      "affordable_bool": false
+    },
+    "NJ": {
+      "metro": "Trenton, NJ",
+      "state": "NJ",
+      "size_rank": 142,
+      "zhvi_2026_05": 446377.0,
+      "affordable_bool": false
+    },
+    "NM": {
+      "metro": "Albuquerque, NM",
+      "state": "NM",
+      "size_rank": 62,
+      "zhvi_2026_05": 352894.0,
+      "affordable_bool": true
+    },
+    "NV": {
+      "metro": "Las Vegas, NV",
+      "state": "NV",
+      "size_rank": 30,
+      "zhvi_2026_05": 430650.0,
+      "affordable_bool": false
+    },
+    "NY": {
+      "metro": "New York, NY",
+      "state": "NY",
+      "size_rank": 1,
+      "zhvi_2026_05": 727625.0,
+      "affordable_bool": false
+    },
+    "OK": {
+      "metro": "Oklahoma City, OK",
+      "state": "OK",
+      "size_rank": 42,
+      "zhvi_2026_05": 246872.0,
+      "affordable_bool": true
+    },
+    "RI": {
+      "metro": "Providence, RI",
+      "state": "RI",
+      "size_rank": 39,
+      "zhvi_2026_05": 524867.0,
+      "affordable_bool": false
+    },
+    "SC": {
+      "metro": "Greenville, SC",
+      "state": "SC",
+      "size_rank": 61,
+      "zhvi_2026_05": 315285.0,
+      "affordable_bool": true
+    },
+    "SD": {
+      "metro": "Sioux Falls, SD",
+      "state": "SD",
+      "size_rank": 182,
+      "zhvi_2026_05": 342936.0,
+      "affordable_bool": true
+    },
+    "UT": {
+      "metro": "Salt Lake City, UT",
+      "state": "UT",
+      "size_rank": 48,
+      "zhvi_2026_05": 568656.0,
+      "affordable_bool": false
+    },
+    "VA": {
+      "metro": "Washington, DC",
+      "state": "VA",
+      "size_rank": 6,
+      "zhvi_2026_05": 583013.0,
+      "affordable_bool": false
+    },
+    "VT": {
+      "metro": "Burlington, VT",
+      "state": "VT",
+      "size_rank": 206,
+      "zhvi_2026_05": 472552.0,
+      "affordable_bool": false
+    },
+    "WV": {
+      "metro": "Charleston, WV",
+      "state": "WV",
+      "size_rank": 192,
+      "zhvi_2026_05": 148817.0,
+      "affordable_bool": true
+    },
+    "WY": {
+      "metro": "Cheyenne, WY",
+      "state": "WY",
+      "size_rank": 391,
+      "zhvi_2026_05": 390859.0,
+      "affordable_bool": true
+    }
+  },
+  "total_state_count": 50
+}

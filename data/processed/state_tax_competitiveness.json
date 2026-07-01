@@ -1,0 +1,285 @@
+{
+  "source": {
+    "name": "Tax Foundation 2026 State Tax Competitiveness Index",
+    "url": "https://taxfoundation.org/research/all/state/2026-state-tax-competitiveness-index/",
+    "pulled_at": "2026-06-30T18:43:00Z",
+    "retrieval_method": "puppeteer",
+    "notes": "Pulled 2026 master table from taxfoundation.org; DC rank 48 and PR sentinel rank 51 added (PR is territory, not scored)."
+  },
+  "schema_version": "us-reloc-2026.v1",
+  "record_type": "scalar_set",
+  "attribute": "state_tax_competitiveness_index_2026",
+  "states": {
+    "Wyoming": {
+      "overall_rank": 1,
+      "individual_income_rank": 1,
+      "property_tax_rank": 37,
+      "no_state_income_tax": true
+    },
+    "South Dakota": {
+      "overall_rank": 2,
+      "individual_income_rank": 1,
+      "property_tax_rank": 8,
+      "no_state_income_tax": true
+    },
+    "New Hampshire": {
+      "overall_rank": 3,
+      "individual_income_rank": 1,
+      "property_tax_rank": 44,
+      "no_state_income_tax_on_wages": true
+    },
+    "Alaska": {
+      "overall_rank": 4,
+      "individual_income_rank": 1,
+      "property_tax_rank": 31,
+      "no_state_income_tax": true
+    },
+    "Florida": {
+      "overall_rank": 5,
+      "individual_income_rank": 1,
+      "property_tax_rank": 20,
+      "no_state_income_tax": true
+    },
+    "Montana": {
+      "overall_rank": 6,
+      "individual_income_rank": 12,
+      "property_tax_rank": 17
+    },
+    "Texas": {
+      "overall_rank": 7,
+      "individual_income_rank": 1,
+      "property_tax_rank": 38,
+      "no_state_income_tax": true
+    },
+    "Tennessee": {
+      "overall_rank": 8,
+      "individual_income_rank": 1,
+      "property_tax_rank": 32,
+      "no_state_income_tax": true
+    },
+    "Idaho": {
+      "overall_rank": 9,
+      "individual_income_rank": 14,
+      "property_tax_rank": 3
+    },
+    "Indiana": {
+      "overall_rank": 10,
+      "individual_income_rank": 20,
+      "property_tax_rank": 4
+    },
+    "North Dakota": {
+      "overall_rank": 11,
+      "individual_income_rank": 18,
+      "property_tax_rank": 6
+    },
+    "Missouri": {
+      "overall_rank": 12,
+      "individual_income_rank": 17,
+      "property_tax_rank": 12
+    },
+    "North Carolina": {
+      "overall_rank": 13,
+      "individual_income_rank": 22,
+      "property_tax_rank": 21
+    },
+    "Arizona": {
+      "overall_rank": 14,
+      "individual_income_rank": 9,
+      "property_tax_rank": 10
+    },
+    "Utah": {
+      "overall_rank": 15,
+      "individual_income_rank": 10,
+      "property_tax_rank": 14
+    },
+    "Michigan": {
+      "overall_rank": 16,
+      "individual_income_rank": 19,
+      "property_tax_rank": 29
+    },
+    "Iowa": {
+      "overall_rank": 17,
+      "individual_income_rank": 11,
+      "property_tax_rank": 33
+    },
+    "Georgia": {
+      "overall_rank": 18,
+      "individual_income_rank": 16,
+      "property_tax_rank": 35
+    },
+    "Oklahoma": {
+      "overall_rank": 19,
+      "individual_income_rank": 29,
+      "property_tax_rank": 11
+    },
+    "Nevada": {
+      "overall_rank": 20,
+      "individual_income_rank": 8,
+      "property_tax_rank": 9,
+      "no_state_income_tax": true
+    },
+    "Wisconsin": {
+      "overall_rank": 21,
+      "individual_income_rank": 34,
+      "property_tax_rank": 7
+    },
+    "Nebraska": {
+      "overall_rank": 22,
+      "individual_income_rank": 26,
+      "property_tax_rank": 46
+    },
+    "Kansas": {
+      "overall_rank": 23,
+      "individual_income_rank": 28,
+      "property_tax_rank": 26
+    },
+    "Delaware": {
+      "overall_rank": 24,
+      "individual_income_rank": 43,
+      "property_tax_rank": 2
+    },
+    "Kentucky": {
+      "overall_rank": 25,
+      "individual_income_rank": 25,
+      "property_tax_rank": 30
+    },
+    "Maine": {
+      "overall_rank": 26,
+      "individual_income_rank": 23,
+      "property_tax_rank": 45
+    },
+    "Mississippi": {
+      "overall_rank": 27,
+      "individual_income_rank": 32,
+      "property_tax_rank": 39
+    },
+    "New Mexico": {
+      "overall_rank": 28,
+      "individual_income_rank": 37,
+      "property_tax_rank": 1
+    },
+    "South Carolina": {
+      "overall_rank": 29,
+      "individual_income_rank": 24,
+      "property_tax_rank": 40
+    },
+    "Virginia": {
+      "overall_rank": 30,
+      "individual_income_rank": 36,
+      "property_tax_rank": 24
+    },
+    "Louisiana": {
+      "overall_rank": 31,
+      "individual_income_rank": 15,
+      "property_tax_rank": 22
+    },
+    "West Virginia": {
+      "overall_rank": 32,
+      "individual_income_rank": 27,
+      "property_tax_rank": 19
+    },
+    "Colorado": {
+      "overall_rank": 33,
+      "individual_income_rank": 21,
+      "property_tax_rank": 34
+    },
+    "Arkansas": {
+      "overall_rank": 34,
+      "individual_income_rank": 40,
+      "property_tax_rank": 16
+    },
+    "Oregon": {
+      "overall_rank": 35,
+      "individual_income_rank": 41,
+      "property_tax_rank": 28
+    },
+    "Pennsylvania": {
+      "overall_rank": 36,
+      "individual_income_rank": 38,
+      "property_tax_rank": 13
+    },
+    "Alabama": {
+      "overall_rank": 37,
+      "individual_income_rank": 35,
+      "property_tax_rank": 18
+    },
+    "Illinois": {
+      "overall_rank": 38,
+      "individual_income_rank": 13,
+      "property_tax_rank": 41
+    },
+    "Ohio": {
+      "overall_rank": 39,
+      "individual_income_rank": 33,
+      "property_tax_rank": 5
+    },
+    "Rhode Island": {
+      "overall_rank": 40,
+      "individual_income_rank": 30,
+      "property_tax_rank": 43
+    },
+    "Hawaii": {
+      "overall_rank": 41,
+      "individual_income_rank": 45,
+      "property_tax_rank": 15
+    },
+    "Vermont": {
+      "overall_rank": 42,
+      "individual_income_rank": 39,
+      "property_tax_rank": 50
+    },
+    "Massachusetts": {
+      "overall_rank": 43,
+      "individual_income_rank": 42,
+      "property_tax_rank": 48
+    },
+    "Minnesota": {
+      "overall_rank": 44,
+      "individual_income_rank": 44,
+      "property_tax_rank": 23
+    },
+    "Washington": {
+      "overall_rank": 45,
+      "individual_income_rank": 31,
+      "property_tax_rank": 25
+    },
+    "Maryland": {
+      "overall_rank": 46,
+      "individual_income_rank": 47,
+      "property_tax_rank": 36
+    },
+    "Connecticut": {
+      "overall_rank": 47,
+      "individual_income_rank": 46,
+      "property_tax_rank": 49
+    },
+    "California": {
+      "overall_rank": 48,
+      "individual_income_rank": 49,
+      "property_tax_rank": 27
+    },
+    "New Jersey": {
+      "overall_rank": 49,
+      "individual_income_rank": 48,
+      "property_tax_rank": 42
+    },
+    "New York": {
+      "overall_rank": 50,
+      "individual_income_rank": 50,
+      "property_tax_rank": 47
+    },
+    "District of Columbia": {
+      "overall_rank": 48,
+      "individual_income_rank": 32,
+      "property_tax_rank": 47
+    },
+    "Puerto Rico": {
+      "overall_rank": 51,
+      "individual_income_rank": 51,
+      "property_tax_rank": 1,
+      "no_state_income_tax": false,
+      "notes": "US territory. Not ranked by Tax Foundation. Assigned sentinel: overall 51 (most uncompetitive for IVU 11.5% sales + high top individual rate), property 1 (no primary-residence property tax)."
+    }
+  },
+  "notes": "Top 10 fiscal-hygiene states (overall rank \u226410): WY, SD, NH, AK, FL, MT, TX, TN, ID, IN. CO at rank 33 \u2014 flat 4.55% income tax is mid-pack; property tax rank 34 reflects state avg (Denver metro spikes). IL rank 38 confirms fiscal-hygiene fail. State income tax rate on $50K Tyler: $0 in WY/SD/AK/FL/TX/NV; $0 wages only in NH; CO 4.55% flat \u2248 $2,275."
+}

@@ -1,0 +1,367 @@
+{
+  "metadata": {
+    "source": "Equable Institute State of Pensions 2025 (FY 2023 actuarial data)",
+    "url": "https://equable.org/state-of-pensions-2025/",
+    "generated_at": "2026-06-28T22:00:00Z",
+    "description": "Aggregate state pension funded ratio \u2014 the ratio of actuarial assets to actuarial accrued liabilities across all state-administered pension plans in each state. Values range 0.0 (0% funded) to 1.0+ (100%+ funded). Some well-funded states exceed 100%, capped at 1.0 for scoring.",
+    "units": "decimal ratio (e.g., 0.842 = 84.2% funded)",
+    "states_with_scraped_data": [
+      "CA",
+      "CT",
+      "FL",
+      "IL",
+      "OH",
+      "PR"
+    ],
+    "states_filled_from_report": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CO",
+      "DC",
+      "DE",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+    ],
+    "notes": " PR added (US territory) at 27% per PR Treasury actuarial data."
+  },
+  "states": {
+    "AK": {
+      "fundedRatio": 0.678,
+      "fundedRatioPct": 67.8,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "AL": {
+      "fundedRatio": 0.674,
+      "fundedRatioPct": 67.4,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "AR": {
+      "fundedRatio": 0.775,
+      "fundedRatioPct": 77.5,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "AZ": {
+      "fundedRatio": 0.634,
+      "fundedRatioPct": 63.4,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "CA": {
+      "fundedRatio": 0.842,
+      "fundedRatioPct": 84.2,
+      "source": "equable_2025",
+      "classification": "Fragile"
+    },
+    "CO": {
+      "fundedRatio": 0.649,
+      "fundedRatioPct": 64.9,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "CT": {
+      "fundedRatio": 0.663,
+      "fundedRatioPct": 66.3,
+      "source": "equable_2025",
+      "classification": "Fragile"
+    },
+    "DC": {
+      "fundedRatio": 0.904,
+      "fundedRatioPct": 90.4,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "DE": {
+      "fundedRatio": 0.859,
+      "fundedRatioPct": 85.9,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "FL": {
+      "fundedRatio": 0.86,
+      "fundedRatioPct": 86.0,
+      "source": "equable_2025",
+      "classification": "Fragile"
+    },
+    "GA": {
+      "fundedRatio": 0.735,
+      "fundedRatioPct": 73.5,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "HI": {
+      "fundedRatio": 0.583,
+      "fundedRatioPct": 58.3,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "IA": {
+      "fundedRatio": 0.843,
+      "fundedRatioPct": 84.3,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "ID": {
+      "fundedRatio": 0.852,
+      "fundedRatioPct": 85.2,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "IL": {
+      "fundedRatio": 0.54,
+      "fundedRatioPct": 54.0,
+      "source": "equable_2025",
+      "classification": "Distressed"
+    },
+    "IN": {
+      "fundedRatio": 0.722,
+      "fundedRatioPct": 72.2,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "KS": {
+      "fundedRatio": 0.679,
+      "fundedRatioPct": 67.9,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "KY": {
+      "fundedRatio": 0.475,
+      "fundedRatioPct": 47.5,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Distressed"
+    },
+    "LA": {
+      "fundedRatio": 0.69,
+      "fundedRatioPct": 69.0,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "MA": {
+      "fundedRatio": 0.634,
+      "fundedRatioPct": 63.4,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "MD": {
+      "fundedRatio": 0.667,
+      "fundedRatioPct": 66.7,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "ME": {
+      "fundedRatio": 0.827,
+      "fundedRatioPct": 82.7,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "MI": {
+      "fundedRatio": 0.612,
+      "fundedRatioPct": 61.2,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "MN": {
+      "fundedRatio": 0.788,
+      "fundedRatioPct": 78.8,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "MO": {
+      "fundedRatio": 0.743,
+      "fundedRatioPct": 74.3,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "MS": {
+      "fundedRatio": 0.571,
+      "fundedRatioPct": 57.1,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Distressed"
+    },
+    "MT": {
+      "fundedRatio": 0.731,
+      "fundedRatioPct": 73.1,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "NC": {
+      "fundedRatio": 0.825,
+      "fundedRatioPct": 82.5,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "ND": {
+      "fundedRatio": 0.681,
+      "fundedRatioPct": 68.1,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "NE": {
+      "fundedRatio": 0.889,
+      "fundedRatioPct": 88.9,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "NH": {
+      "fundedRatio": 0.622,
+      "fundedRatioPct": 62.2,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "NJ": {
+      "fundedRatio": 0.512,
+      "fundedRatioPct": 51.2,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "NM": {
+      "fundedRatio": 0.691,
+      "fundedRatioPct": 69.1,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "NV": {
+      "fundedRatio": 0.747,
+      "fundedRatioPct": 74.7,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "NY": {
+      "fundedRatio": 0.916,
+      "fundedRatioPct": 91.6,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "OH": {
+      "fundedRatio": 0.837,
+      "fundedRatioPct": 83.7,
+      "source": "equable_2025",
+      "classification": "Fragile"
+    },
+    "OK": {
+      "fundedRatio": 0.743,
+      "fundedRatioPct": 74.3,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "OR": {
+      "fundedRatio": 0.833,
+      "fundedRatioPct": 83.3,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "PA": {
+      "fundedRatio": 0.616,
+      "fundedRatioPct": 61.6,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "RI": {
+      "fundedRatio": 0.583,
+      "fundedRatioPct": 58.3,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "SC": {
+      "fundedRatio": 0.629,
+      "fundedRatioPct": 62.9,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "SD": {
+      "fundedRatio": 0.913,
+      "fundedRatioPct": 91.3,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "TN": {
+      "fundedRatio": 0.883,
+      "fundedRatioPct": 88.3,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "TX": {
+      "fundedRatio": 0.712,
+      "fundedRatioPct": 71.2,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "UT": {
+      "fundedRatio": 0.857,
+      "fundedRatioPct": 85.7,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "VA": {
+      "fundedRatio": 0.801,
+      "fundedRatioPct": 80.1,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "VT": {
+      "fundedRatio": 0.657,
+      "fundedRatioPct": 65.7,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Fragile"
+    },
+    "WA": {
+      "fundedRatio": 0.892,
+      "fundedRatioPct": 89.2,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "WI": {
+      "fundedRatio": 0.841,
+      "fundedRatioPct": 84.1,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "WV": {
+      "fundedRatio": 0.798,
+      "fundedRatioPct": 79.8,
+      "source": "equable_state_of_pensions_2025"
+    },
+    "WY": {
+      "fundedRatio": 0.912,
+      "fundedRatioPct": 91.2,
+      "source": "equable_state_of_pensions_2025",
+      "classification": "Resilient"
+    },
+    "PR": {
+      "fundedRatio": 0.27,
+      "notes": "PR Employees Retirement System (ERS) actuarial value; severely underfunded per most recent PR Treasury actuarial report."
+    }
+  }
+}

@@ -12,7 +12,7 @@ export function loadLocations(): Location[] {
   if (!cache) {
     cache = JSON.parse(
       readFileSync(
-        resolve(__dirname, '../../../../../sources/processed/relocation/locations.json'),
+        resolve(__dirname, '../../../../../data/processed/relocation/locations.json'),
         'utf8',
       ),
     );
