@@ -1,15 +1,6 @@
-import {
-  Controller,
-  Get,
-  Injectable,
-  NotFoundException,
-  Param,
-  Query,
-  UseGuards,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import type { Location } from '@memove/shared';
 import { RelocationService } from './relocation.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 // ponytail: rental lane reads existing cost fields + generates external
 // search URLs by string concat. No scraping, no MLS, no API calls.
@@ -109,29 +100,5 @@ export class HousingService {
       isAffordable: ratio <= AFFORDABILITY_RATIO,
       monthlyIncomeNeeded: rent > 0 ? Math.round(rent / AFFORDABILITY_RATIO) : 0,
     };
-  }
-}
-
-@Controller('api/relocation/housing')
-@UseGuards(JwtAuthGuard)
-export class HousingController {
-  constructor(private readonly housing: HousingService) {}
-
-  @Get('market/:locationId')
-  market(@Param('locationId') id: string): RentalMarket {
-    return this.housing.getRentalMarket(id);
-  }
-
-  @Get('listings/:locationId')
-  listings(@Param('locationId') id: string): ListingLink[] {
-    return this.housing.getListingLinks(id);
-  }
-
-  @Get('affordability/:locationId')
-  affordability(
-    @Param('locationId') id: string,
-    @Query('budget') budget?: string,
-  ): AffordabilityResult {
-    return this.housing.getAffordability(id, budget ? Number(budget) : undefined);
   }
 }
