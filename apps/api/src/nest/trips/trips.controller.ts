@@ -144,7 +144,7 @@ export class TripsController {
       throw new HttpException({ error: 'No permission to edit this trip' }, 403);
     }
     try {
-      const result = this.trips.update(id, user.id, body, user.role);
+      const result = this.trips.update(id, user.id, body as never, user.role);
       if (Object.keys(result.changes).length > 0) {
         writeAudit({ userId: user.id, action: 'trip.update', ip: getClientIp(req), details: { tripId: Number(id), trip: result.newTitle, ...(result.ownerEmail ? { owner: result.ownerEmail } : {}), ...result.changes } });
         if (result.isAdminEdit && result.ownerEmail) logInfo(`Admin ${user.email} edited trip "${result.newTitle}" owned by ${result.ownerEmail}`);

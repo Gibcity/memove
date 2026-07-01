@@ -7,6 +7,7 @@ export function MobileDayPickerSheet(S: SidebarState) {
     dayPickerPlace, setDayPickerPlace, setMobileShowDays, onPlaceClick, canEditPlaces, onEditPlace,
     t, days, mobileShowDays, onAssignToDay, assignments, onDeletePlace,
   } = S
+  if (!dayPickerPlace) return null
   return ReactDOM.createPortal(
     <div
       onClick={() => { setDayPickerPlace(null); setMobileShowDays(false) }}

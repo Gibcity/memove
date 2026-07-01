@@ -104,6 +104,9 @@ export class PlacesController {
       throw new HttpException({ error: 'Place name is required' }, 400);
     }
     const place = this.places.create(tripId, body as never);
+    if (!place) {
+      throw new HttpException({ error: 'Failed to create place' }, 500);
+    }
     this.places.broadcast(tripId, 'place:created', { place }, socketId);
     this.places.onCreated(tripId, place.id);
     return { place };
@@ -218,7 +221,7 @@ export class PlacesController {
         ? await this.places.importGoogleList(tripId, body.url, opts)
         : await this.places.importNaverList(tripId, body.url, opts);
       if ('error' in result) {
-        throw new HttpException({ error: result.error }, result.status);
+        throw new HttpException({ error: result.error }, result.status ?? 400);
       }
       for (const place of result.places) {
         this.places.broadcast(tripId, 'place:created', { place }, socketId);
@@ -270,7 +273,7 @@ export class PlacesController {
     try {
       const result = await this.places.searchImage(tripId, id, user.id);
       if ('error' in result) {
-        throw new HttpException({ error: result.error }, result.status);
+        throw new HttpException({ error: result.error }, result.status ?? 400);
       }
       return { photos: result.photos };
     } catch (err: unknown) {

@@ -65,8 +65,8 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
   const renderBody = (body) => {
     if (!body) return null
     const lines = body.split('\n')
-    const elements = []
-    let listItems = []
+    const elements: React.ReactElement[] = []
+    let listItems: string[] = []
 
     const flushList = () => {
       if (listItems.length > 0) {

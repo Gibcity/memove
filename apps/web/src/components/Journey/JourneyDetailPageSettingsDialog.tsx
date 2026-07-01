@@ -262,7 +262,7 @@ export function JourneySettingsDialog({ journey, onClose, onSaved, onOpenInvite,
           }
         }}
         title={t('journey.trips.unlinkTrip')}
-        message={t('journey.trips.unlinkMessage', { title: unlinkTarget?.title })}
+        message={t('journey.trips.unlinkMessage', { title: unlinkTarget?.title ?? '' })}
         confirmLabel={t('journey.trips.unlink')}
         danger
       />

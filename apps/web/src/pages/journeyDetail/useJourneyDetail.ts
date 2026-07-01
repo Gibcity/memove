@@ -130,7 +130,7 @@ export function useJourneyDetail() {
           if (!firstAhead || top < firstAhead.top) firstAhead = { id: entryId, top }
         }
       })
-      const winner = lastPast || firstAhead
+      const winner: { id: string; top: number } | null = (lastPast ?? firstAhead) as { id: string; top: number } | null
       if (winner) {
         setActiveEntryId(winner.id)
         if (locatedEntryIdsRef.current.has(winner.id)) {

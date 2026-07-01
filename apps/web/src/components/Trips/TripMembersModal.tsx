@@ -163,6 +163,13 @@ function ShareLinkSection({ tripId, t }: { tripId: number; t: (key: string, para
   )
 }
 
+import type { TripMember } from '@memove/shared'
+
+interface MembersData {
+  owner: (TripMember & { role: 'owner' })
+  members: TripMember[]
+}
+
 interface TripMembersModalProps {
   isOpen: boolean
   onClose: () => void
@@ -171,12 +178,12 @@ interface TripMembersModalProps {
 }
 
 export default function TripMembersModal({ isOpen, onClose, tripId, tripTitle }: TripMembersModalProps) {
-  const [data, setData] = useState(null)
-  const [allUsers, setAllUsers] = useState([])
+  const [data, setData] = useState<MembersData | null>(null)
+  const [allUsers, setAllUsers] = useState<{ id: number; username: string; email?: string; avatar?: string | null; avatar_url?: string | null }[]>([])
   const [loading, setLoading] = useState(false)
   const [selectedUserId, setSelectedUserId] = useState('')
   const [adding, setAdding] = useState(false)
-  const [removingId, setRemovingId] = useState(null)
+  const [removingId, setRemovingId] = useState<number | null>(null)
   const toast = useToast()
   const { user } = useAuthStore()
   const { t } = useTranslation()
@@ -216,6 +223,7 @@ export default function TripMembersModal({ isOpen, onClose, tripId, tripTitle }:
     setAdding(true)
     try {
       const target = allUsers.find(u => String(u.id) === String(selectedUserId))
+      if (!target) { toast.error(t('members.addError')); return }
       await tripsApi.addMember(tripId, target.username)
       setSelectedUserId('')
       await loadMembers()
@@ -227,7 +235,7 @@ export default function TripMembersModal({ isOpen, onClose, tripId, tripTitle }:
     }
   }
 
-  const handleRemove = async (userId, isSelf) => {
+  const handleRemove = async (userId: number, isSelf: boolean) => {
     const msg = isSelf
       ? t('members.confirmLeave')
       : t('members.confirmRemove')
@@ -335,7 +343,7 @@ export default function TripMembersModal({ isOpen, onClose, tripId, tripTitle }:
                     display: 'flex', alignItems: 'center', gap: 10,
                     padding: '8px 12px', borderRadius: 10,
                   }}>
-                    <Avatar username={member.username} avatarUrl={member.avatar_url} />
+                    <Avatar username={member.username} avatarUrl={member.avatar_url ?? null} />
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
                         <span className="text-content" style={{ fontSize: 13, fontWeight: 600 }}>{member.username}</span>

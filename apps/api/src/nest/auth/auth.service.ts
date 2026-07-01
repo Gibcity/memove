@@ -22,7 +22,7 @@ export class AuthService {
   sendPasswordResetEmail(email: string, url: string, userId: number | null) { return sendPasswordResetEmail(email, url, userId); }
 
   // Public config + auth flows
-  getAppConfig(user: User | undefined) { return auth.getAppConfig(user); }
+  getAppConfig(user: User | undefined) { return auth.getAppConfig(user ? { id: user.id } : null); }
   demoLogin() { return auth.demoLogin(); }
   validateInviteToken(token: string) { return auth.validateInviteToken(token); }
   registerUser(body: unknown) { return auth.registerUser(body as Parameters<typeof auth.registerUser>[0]); }

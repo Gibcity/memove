@@ -64,13 +64,13 @@ interface CreatePollModalProps {
 
 function CreatePollModal({ onClose, onCreate, t }: CreatePollModalProps) {
   const [question, setQuestion] = useState('')
-  const [options, setOptions] = useState(['', ''])
+  const [options, setOptions] = useState<string[]>(['', ''])
   const [multiChoice, setMultiChoice] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
   const addOption = () => setOptions(prev => [...prev, ''])
-  const removeOption = (i) => setOptions(prev => prev.filter((_, j) => j !== i))
-  const updateOption = (i, v) => setOptions(prev => prev.map((o, j) => j === i ? v : o))
+  const removeOption = (i: number) => setOptions(prev => prev.filter((_, j) => j !== i))
+  const updateOption = (i: number, v: string) => setOptions(prev => prev.map((o, j) => j === i ? v : o))
 
   const canSubmit = question.trim() && options.filter(o => o.trim()).length >= 2 && !submitting
 
@@ -151,8 +151,8 @@ interface VoterChipProps {
 
 function VoterChip({ voter, offset }: VoterChipProps) {
   const [hover, setHover] = useState(false)
-  const ref = React.useRef(null)
-  const [pos, setPos] = useState({ top: 0, left: 0 })
+  const ref = React.useRef<HTMLDivElement>(null)
+  const [pos, setPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 })
 
   return (
     <>
@@ -347,7 +347,7 @@ export default function CollabPolls({ tripId, currentUser }: CollabPollsProps) {
   const can = useCanDo()
   const trip = useTripStore((s) => s.trip)
   const canEdit = can('collab_edit', trip)
-  const [polls, setPolls] = useState([])
+  const [polls, setPolls] = useState<Poll[]>([])
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
 
@@ -379,7 +379,7 @@ export default function CollabPolls({ tripId, currentUser }: CollabPollsProps) {
     return () => removeListener(handler)
   }, [])
 
-  const handleCreate = useCallback(async (data) => {
+  const handleCreate = useCallback(async (data: { question: string; options: string[]; multi_choice: boolean }) => {
     try {
       const result = await collabApi.createPoll(tripId, data)
       const created = result.poll || result
@@ -391,7 +391,7 @@ export default function CollabPolls({ tripId, currentUser }: CollabPollsProps) {
     }
   }, [tripId, toast, t])
 
-  const handleVote = useCallback(async (pollId, optionIndex) => {
+  const handleVote = useCallback(async (pollId: number, optionIndex: number) => {
     try {
       const result = await collabApi.votePoll(tripId, pollId, optionIndex)
       const updated = result.poll || result
@@ -401,7 +401,7 @@ export default function CollabPolls({ tripId, currentUser }: CollabPollsProps) {
     }
   }, [tripId, toast, t])
 
-  const handleClose = useCallback(async (pollId) => {
+  const handleClose = useCallback(async (pollId: number) => {
     try {
       await collabApi.closePoll(tripId, pollId)
       setPolls(prev => prev.map(p => p.id === pollId ? { ...p, is_closed: true } : p))
@@ -410,7 +410,7 @@ export default function CollabPolls({ tripId, currentUser }: CollabPollsProps) {
     }
   }, [tripId, toast, t])
 
-  const handleDelete = useCallback(async (pollId) => {
+  const handleDelete = useCallback(async (pollId: number) => {
     try {
       await collabApi.deletePoll(tripId, pollId)
       setPolls(prev => prev.filter(p => p.id !== pollId))

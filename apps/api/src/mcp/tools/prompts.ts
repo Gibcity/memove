@@ -81,7 +81,7 @@ ${days?.map((d: any, i: number) => `Day ${i + 1} (${d.date}): ${d.assignments?.l
       if (!items.length) {
         return { messages: [{ role: 'user', content: { type: 'text', text: 'No packing items found for this trip.' } }] };
       }
-      const grouped = items.reduce((acc: Record<string, any[]>, item: any) => {
+      const grouped = items.reduce<Record<string, any[]>>((acc, item: any) => {
         const cat = item.category || 'General';
         if (!acc[cat]) acc[cat] = [];
         acc[cat].push(item);

@@ -1,10 +1,11 @@
-# NestJS migration layer — module & test guide
+# NestJS module & test guide
 
-This folder holds the co-hosted NestJS app that incrementally strangles the legacy
-Express API (see the "Brownfield Rewrite" board). Until a prefix is migrated, the
-top-level dispatcher in `src/index.ts` routes it to the legacy app; migrated
-prefixes go to Nest. **Weather (`weather/`) is the reference implementation** — copy
-its shape when migrating a new domain.
+NestJS serves the entire API surface; the legacy Express app has been
+decommissioned (see the "Brownfield Rewrite" board for the strangler history).
+Every route — `/api/*`, the platform/transport routes (`/mcp`, `/.well-known`,
+OAuth SDK, SPA catch-all), and `/uploads` — runs through the single NestJS app
+wired up in `src/bootstrap.ts`. **Weather (`weather/`) is the reference
+implementation** — copy its shape when adding a new domain.
 
 ## Module layout (per domain)
 
@@ -15,13 +16,14 @@ server/src/nest/<domain>/<domain>.controller.ts     # same routes/verbs/params/s
 server/src/nest/<domain>/<domain>.module.ts         # registered in app.module.ts
 ```
 
-Add the prefix to `DEFAULT_NEST_PREFIXES` in `strangler.ts` to route it to Nest
-(operators can override at runtime via the `NEST_PREFIXES` env var — instant
-rollback, no redeploy). Trip-scoped mounts use a pattern prefix with a `:param`
-segment (e.g. `/api/trips/:tripId/packing`); the matcher routes only that nested
-mount to Nest and leaves the sibling trip routes (days, places, ...) on Express.
+A route registered on the Nest controller is served by Nest directly — there is no
+prefix toggle to flip anymore (the strangler's `NEST_PREFIXES` env override is historical).
+Trip-scoped mounts use a pattern prefix with a `:param` segment (e.g.
+`/api/trips/:tripId/packing`); sibling trip routes (days, places, …) are all on Nest too.
 
 ## Migrated so far
+
+All domains are on Nest. The strangler ran in two phases and is now closed:
 
 - **Phase 1 (leaf):** weather, airports, config (public), system-notices, maps,
   categories, tags, notifications, atlas.
@@ -32,7 +34,6 @@ mount to Nest and leaves the sibling trip routes (days, places, ...) on Express.
 - `common/idempotency.interceptor.ts` — global `APP_INTERCEPTOR` replaying the
   client's `X-Idempotency-Key` on mutations, mirroring the legacy
   `applyIdempotency` middleware so retried writes don't double-apply.
-- `strangler.ts` — supports both static prefixes and `:param` pattern prefixes.
 
 ## Parity gotchas worth remembering
 
@@ -64,9 +65,11 @@ scoped to `src/nest/**`) requires ≥80%.
    See `weather.controller.test.ts`.
 
 2. **Parity test** — `tests/parity/<domain>.parity.test.ts`. Mock the shared service
-   identically for both apps, then fire the same request at the Express route and the
-   Nest controller with the `expectParity()` harness (`tests/parity/parity.ts`) and
-   assert identical status + body. This is the gate before flipping the toggle.
+   identically for both apps, then fire the same request at the legacy Express
+   route and the Nest controller with the `expectParity()` harness
+   (`tests/parity/parity.ts`) and assert identical status + body. These tests are
+   preserved as a regression net for domains already on Nest — Express is gone,
+   so they document the byte-identical contract the migration locked in.
    See `weather.parity.test.ts`.
 
 3. **e2e** — `tests/e2e/<domain>.e2e.test.ts`. Boot the Nest module against a temp
@@ -75,7 +78,11 @@ scoped to `src/nest/**`) requires ≥80%.
    end-to-end (401 without cookie, 200 with a signed session). Mock external I/O
    (HTTP/etc.). See `weather.e2e.test.ts`.
 
-## Definition of Done (per module)
+## Definition of Done (historical — per module)
+
+This is the workflow the strangler used to migrate each domain, kept for context.
+Every item below was satisfied module-by-module before the Express route/service
+was retired; nothing here gates new work any more.
 
 Contract in `@memove/shared` → service ported 1:1 → controller with identical routes →
 validation/error parity → unit + parity + e2e tests over the gate → prefix toggled to

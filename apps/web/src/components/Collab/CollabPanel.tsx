@@ -75,7 +75,7 @@ export default function CollabPanel({ tripId, tripMembers = [], collabFeatures }
     features.whatsnext && 'whatsnext',
   ].filter(Boolean) as string[]
 
-  if (tabs.length === 0) return null
+  if (tabs.length === 0 || !user) return null
 
   if (isDesktop) {
     // Chat always 380px fixed when on. Right panels share remaining space.

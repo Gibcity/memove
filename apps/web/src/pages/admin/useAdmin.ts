@@ -312,6 +312,7 @@ export function useAdmin() {
   }
 
   const handleSaveUser = async () => {
+    if (!editingUser) return
     try {
       const payload: { username?: string; email?: string; role: string; password?: string } = {
         username: editForm.username.trim() || undefined,

@@ -37,7 +37,7 @@ export default function CollabChat({ tripId, currentUser }: CollabChatProps) {
           }}>
             <Reply size={12} style={{ flexShrink: 0, opacity: 0.5 }} />
             <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
-              <strong>{replyTo.username}</strong>: {(replyTo.text || '').slice(0, 60)}
+              <strong>{replyTo.user?.username ?? '?'}</strong>: {(replyTo.text || '').slice(0, 60)}
             </span>
             <button onClick={() => setReplyTo(null)} style={{
               background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: 'var(--text-faint)',

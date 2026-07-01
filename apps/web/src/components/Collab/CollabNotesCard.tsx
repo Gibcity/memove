@@ -164,7 +164,7 @@ export function NoteCard({ note, currentUser, canEdit, onUpdate, onDelete, onEdi
                     const isImage = a.mime_type?.startsWith('image/')
                     const ext = (a.original_name || '').split('.').pop()?.toUpperCase() || '?'
                     return isImage ? (
-                      <AuthedImg key={a.id} src={a.url} alt={a.original_name}
+                      <AuthedImg key={a.id} src={a.url ?? ''} alt={a.original_name}
                         style={{ width: 48, height: 48, objectFit: 'cover', borderRadius: 8, cursor: 'pointer', transition: 'transform 0.12s, box-shadow 0.12s' }}
                         onClick={() => onPreviewFile?.(a)}
                         onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)' }}

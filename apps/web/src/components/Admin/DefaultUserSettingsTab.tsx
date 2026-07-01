@@ -265,7 +265,7 @@ export default function DefaultUserSettingsTab(): React.ReactElement {
         />
         <p className="text-xs mt-1 text-content-faint">{t('settings.mapDefaultHint')}</p>
         <div style={{ position: 'relative', height: '200px', width: '100%', marginTop: 12 }}>
-          {React.createElement(MapViewGL, {
+          {React.createElement(MapViewGL as any, {
             places: mapPreviewPlaces,
             dayPlaces: [],
             route: null,

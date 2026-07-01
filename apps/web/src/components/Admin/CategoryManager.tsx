@@ -4,7 +4,7 @@ import { useToast } from '../shared/Toast'
 import { Plus, Edit2, Trash2, Pipette } from 'lucide-react'
 import { CATEGORY_ICON_MAP, ICON_LABELS, getCategoryIcon } from '../shared/categoryIcons'
 import { useTranslation } from '../../i18n'
-import { getApiErrorMessage } from '../../types'
+import { getApiErrorMessage, type Category } from '../../types'
 
 const PRESET_COLORS = [
   '#6366f1', '#8b5cf6', '#ec4899', '#ef4444', '#f97316',
@@ -15,13 +15,13 @@ const PRESET_COLORS = [
 const ICON_NAMES = Object.keys(CATEGORY_ICON_MAP)
 
 export default function CategoryManager() {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<Category[]>([])
   const [showForm, setShowForm] = useState(false)
-  const [editingId, setEditingId] = useState(null)
+  const [editingId, setEditingId] = useState<number | null>(null)
   const [form, setForm] = useState({ name: '', color: '#6366f1', icon: 'MapPin' })
   const [isSaving, setIsSaving] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const colorInputRef = useRef(null)
+  const colorInputRef = useRef<HTMLInputElement>(null)
   const toast = useToast()
   const { t } = useTranslation()
 

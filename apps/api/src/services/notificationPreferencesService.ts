@@ -258,7 +258,7 @@ export function setAdminPreferences(
   for (const [eventType, channels] of Object.entries(globalPrefs)) {
     if (!channels) continue;
     for (const [channel, enabled] of Object.entries(channels)) {
-      setAdminGlobalPref(eventType as NotifEventType, channel as 'email' | 'webhook' | 'ntfy', enabled);
+      setAdminGlobalPref(eventType as NotifEventType, channel as 'email' | 'webhook' | 'ntfy', enabled ?? false);
     }
   }
 

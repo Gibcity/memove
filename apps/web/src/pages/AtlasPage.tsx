@@ -15,7 +15,7 @@ import { getApiErrorMessage } from '../types'
 function MobileStats({ data, stats, countries, resolveName, t, dark }: { data: AtlasData | null; stats: AtlasStats; countries: AtlasCountry[]; resolveName: (code: string) => string; t: TranslationFn; dark: boolean }): React.ReactElement {
   const tp = dark ? '#f1f5f9' : '#0f172a'
   const tf = dark ? '#475569' : '#94a3b8'
-  const { continents, lastTrip, nextTrip, streak, firstYear, tripsThisYear } = data || {}
+  const { continents, lastTrip, nextTrip, streak = 0, firstYear, tripsThisYear = 0 } = data || {}
   const CL = { 'Europe': t('atlas.europe'), 'Asia': t('atlas.asia'), 'North America': t('atlas.northAmerica'), 'South America': t('atlas.southAmerica'), 'Africa': t('atlas.africa'), 'Oceania': t('atlas.oceania') }
   const thisYear = new Date().getFullYear()
 
@@ -492,7 +492,7 @@ function SidebarContent({ data, stats, countries, selectedCountry, countryDetail
   const tf = dark ? '#475569' : '#94a3b8'
   const accent = '#818cf8'
 
-  const { mostVisited, continents, lastTrip, nextTrip, streak, firstYear, tripsThisYear } = data || {}
+  const { mostVisited, continents, lastTrip, nextTrip, streak = 0, firstYear, tripsThisYear = 0 } = data || {}
   const contEntries = continents ? Object.entries(continents).sort((a, b) => b[1] - a[1]) : []
   const maxCont = contEntries.length > 0 ? contEntries[0][1] : 1
   const CL = { 'Europe': t('atlas.europe'), 'Asia': t('atlas.asia'), 'North America': t('atlas.northAmerica'), 'South America': t('atlas.southAmerica'), 'Africa': t('atlas.africa'), 'Oceania': t('atlas.oceania') }

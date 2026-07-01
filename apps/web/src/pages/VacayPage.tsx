@@ -196,7 +196,7 @@ export default function VacayPage(): React.ReactElement {
             <AlertTriangle size={18} className="text-red-500 shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-content">
-                {t('vacay.removeYearConfirm', { year: deleteYear })}
+                {t('vacay.removeYearConfirm', { year: deleteYear ?? 0 })}
               </p>
               <p className="text-xs mt-1 text-content-muted">
                 {t('vacay.removeYearHint')}
@@ -207,7 +207,7 @@ export default function VacayPage(): React.ReactElement {
             <button onClick={() => setDeleteYear(null)} className="px-4 py-2 text-sm rounded-lg transition-colors border text-content-muted border-edge">
               {t('common.cancel')}
             </button>
-            <button onClick={async () => { await removeYear(deleteYear); setDeleteYear(null) }} className="px-4 py-2 text-sm bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors">
+            <button onClick={async () => { if (deleteYear != null) { await removeYear(deleteYear); setDeleteYear(null) } }} className="px-4 py-2 text-sm bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors">
               {t('vacay.remove')}
             </button>
           </div>

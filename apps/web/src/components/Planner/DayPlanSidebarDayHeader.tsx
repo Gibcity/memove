@@ -93,7 +93,7 @@ export function DayPlanSidebarDayHeader({
               <>
                 <div style={{ width: '64%', height: 1, background: 'currentColor', opacity: 0.25 }} />
                 <div style={{ padding: '3px 0 4px' }}>
-                  <WeatherWidget lat={wLat} lng={wLng} date={day.date} stacked />
+                  <WeatherWidget lat={wLat} lng={wLng} date={day.date ?? ''} stacked />
                 </div>
               </>
             )}

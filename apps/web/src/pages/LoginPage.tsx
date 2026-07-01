@@ -646,7 +646,7 @@ export default function LoginPage(): React.ReactElement {
                 onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'white'; e.currentTarget.style.borderColor = '#d1d5db' }}
               >
                 <Shield size={16} />
-                {t('login.oidcSignIn', { name: appConfig.oidc_display_name })}
+                {t('login.oidcSignIn', { name: appConfig.oidc_display_name ?? '' })}
               </a>
             </>
           )}

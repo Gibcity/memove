@@ -13,7 +13,7 @@ interface EmojiPickerProps {
 
 export function EmojiPicker({ onSelect, onClose, anchorRef, containerRef }: EmojiPickerProps) {
   const [cat, setCat] = useState(Object.keys(EMOJI_CATEGORIES)[0])
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement | null>(null)
 
   const getPos = () => {
     const container = containerRef?.current

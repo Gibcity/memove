@@ -41,7 +41,7 @@ export function DayPlanSidebarTransportDetailModal({
           const color = TRANSPORT_COLORS[res.type] || 'var(--text-muted)'
           const meta = typeof res.metadata === 'string' ? JSON.parse(res.metadata || '{}') : (res.metadata || {})
 
-          const detailFields = []
+          const detailFields: { label: string; value: any; sensitive?: boolean }[] = []
           if (res.type === 'flight') {
             if (meta.airline) detailFields.push({ label: t('reservations.meta.airline'), value: meta.airline })
             if (meta.flight_number) detailFields.push({ label: t('reservations.meta.flightNumber'), value: meta.flight_number })

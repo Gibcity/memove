@@ -18,7 +18,8 @@ import {
     AssetsList,
     StatusResult,
     SyncAlbumResult,
-    AssetInfo
+    AssetInfo,
+    Asset
 } from './helpersService';
 import { send as sendNotification } from '../notificationService';
 
@@ -183,14 +184,14 @@ async function _fetchSynologyJson<T>(url: string, body: URLSearchParams, skipSsl
         }
         const response = await resp.json() as SynologyApiResponse<T>;
         if (!response.success) {
-            const code = response.error.code;
+            const code = response.error?.code ?? -1;
             const message = SYNOLOGY_ERROR_MESSAGES[code] ?? 'Synology API request failed (code ' + code + ')';
             // Preserve session error codes (106, 107, 119) for internal retry logic in _requestSynologyApi.
             // All other Synology app-level codes are mapped to HTTP 400 — they are not HTTP status codes.
             const httpStatus = [106, 107, 119].includes(code) ? code : 400;
             return fail(message, httpStatus);
         }
-        return success(response.data);
+        return success(response.data as T);
     } catch (error) {
         if (error instanceof SsrfBlockedError) {
             return fail(error.message, 400);
@@ -355,7 +356,7 @@ export async function updateSynologySettings(userId: number, synologyUrl: string
 
     const ssrf = await checkSsrf(synologyUrl);
     if (!ssrf.allowed) {
-        return fail(ssrf.error, 400);
+        return fail(ssrf.error ?? 'SSRF check failed', 400);
     }
 
     const result = _readSynologyUser(userId, ['synology_password'])
@@ -415,7 +416,7 @@ export async function testSynologyConnection(userId: number, synologyUrl: string
 
     const ssrf = await checkSsrf(synologyUrl);
     if (!ssrf.allowed) {
-        return fail(ssrf.error, 400);
+        return fail(ssrf.error ?? 'SSRF check failed', 400);
     }
 
     const resp = await _loginToSynology(synologyUrl, synologyUsername, synologyPassword, { otp: synologyOtp, skipSsl: synologySkipSsl });
@@ -574,7 +575,7 @@ export async function searchSynologyPhotos(userId: number, from?: string, to?: s
     if (!result.success) return result as ServiceResult<AssetsList>;
 
     const allItems = result.data.list || [];
-    const assets = allItems.map(item => _normalizeSynologyPhotoInfo(item));
+    const assets = allItems.map(item => _normalizeSynologyPhotoInfo(item)) as Asset[];
 
     return success({
         assets,

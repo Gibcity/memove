@@ -217,7 +217,7 @@ export function useTripPlanner() {
       if (!cacheKey || getCached(cacheKey)) continue
       const photoId = p.google_place_id || p.osm_id
       if (photoId || (p.lat && p.lng)) {
-        fetchPhoto(cacheKey, photoId || `coords:${p.lat}:${p.lng}`, p.lat, p.lng, p.name)
+        fetchPhoto(cacheKey, photoId || `coords:${p.lat}:${p.lng}`, p.lat ?? undefined, p.lng ?? undefined, p.name)
       }
     }
   }, [isLoading, places])

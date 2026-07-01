@@ -230,19 +230,19 @@ export function getCountryFromAddress(address: string | null): string | null {
 // ── Resolve a place to a country code (address -> bbox -> geocode) ──────────
 
 async function resolveCountryCode(place: Place): Promise<string | null> {
-  let code = getCountryFromAddress(place.address);
-  if (!code && place.lat && place.lng) {
+  let code = getCountryFromAddress(place.address ?? null);
+  if (!code && place.lat != null && place.lng != null) {
     code = getCountryFromCoords(place.lat, place.lng);
   }
-  if (!code && place.lat && place.lng) {
+  if (!code && place.lat != null && place.lng != null) {
     code = await reverseGeocodeCountry(place.lat, place.lng);
   }
   return code;
 }
 
 function resolveCountryCodeSync(place: Place): string | null {
-  let code = getCountryFromAddress(place.address);
-  if (!code && place.lat && place.lng) {
+  let code = getCountryFromAddress(place.address ?? null);
+  if (!code && place.lat != null && place.lng != null) {
     code = getCountryFromCoords(place.lat, place.lng);
   }
   return code;

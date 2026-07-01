@@ -26,19 +26,34 @@ function setSessionCache(key, value) {
   try { sessionStorage.setItem(key, JSON.stringify(value)) } catch {}
 }
 
-function usePlaceDetails(googlePlaceId, osmId, language) {
-  const [details, setDetails] = useState(null)
+interface GooglePlaceDetails {
+  place_id?: string
+  name?: string
+  rating?: number
+  rating_count?: number
+  reviews?: { text?: string }[]
+  opening_hours?: string[]
+  open_now?: boolean | null
+  phone?: string
+  summary?: string
+  google_maps_url?: string
+  website?: string
+  [key: string]: unknown
+}
+
+function usePlaceDetails(googlePlaceId: string | null | undefined, osmId: string | number | null | undefined, language: string): GooglePlaceDetails | null {
+  const [details, setDetails] = useState<GooglePlaceDetails | null>(null)
   const detailId = googlePlaceId || osmId
   const cacheKey = `gdetails_${detailId}_${language}`
   useEffect(() => {
     if (!detailId) { setDetails(null); return }
-    if (detailsCache.has(cacheKey)) { setDetails(detailsCache.get(cacheKey)); return }
+    if (detailsCache.has(cacheKey)) { setDetails(detailsCache.get(cacheKey) as GooglePlaceDetails); return }
     const cached = getSessionCache(cacheKey)
-    if (cached) { detailsCache.set(cacheKey, cached); setDetails(cached); return }
-    mapsApi.details(detailId, language).then(data => {
+    if (cached) { detailsCache.set(cacheKey, cached); setDetails(cached as GooglePlaceDetails); return }
+    mapsApi.details(String(detailId), language).then(data => {
       detailsCache.set(cacheKey, data.place)
       setSessionCache(cacheKey, data.place)
-      setDetails(data.place)
+      setDetails(data.place as GooglePlaceDetails)
     }).catch(() => {})
   }, [detailId, language])
   return details
@@ -127,19 +142,19 @@ export default function PlaceInspector({
   const [isUploading, setIsUploading] = useState(false)
   const [editingName, setEditingName] = useState(false)
   const [nameValue, setNameValue] = useState('')
-  const nameInputRef = useRef(null)
-  const fileInputRef = useRef(null)
+  const nameInputRef = useRef<HTMLInputElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const googleDetails = usePlaceDetails(place?.google_place_id, place?.osm_id, language)
 
   const startNameEdit = () => {
-    if (!onUpdatePlace) return
+    if (!onUpdatePlace || !place) return
     setNameValue(place.name || '')
     setEditingName(true)
     setTimeout(() => nameInputRef.current?.focus(), 0)
   }
 
   const commitNameEdit = () => {
-    if (!editingName) return
+    if (!editingName || !place) return
     const trimmed = nameValue.trim()
     setEditingName(false)
     if (!trimmed || trimmed === place.name) return
@@ -235,7 +250,7 @@ export default function PlaceInspector({
                 />
               )
             })()}
-            {place.price > 0 && (
+            {place.price != null && place.price > 0 && (
               <Chip icon={<Euro size={12} />} text={`${place.price} ${place.currency || '€'}`} color="#059669" bg="#ecfdf5" />
             )}
           </div>
@@ -243,10 +258,10 @@ export default function PlaceInspector({
           {/* Telefon */}
           {(place.phone || googleDetails?.phone) && (
             <div style={{ display: 'flex', gap: 12 }}>
-              <a href={`tel:${place.phone || googleDetails.phone}`}
+              <a href={`tel:${place.phone || googleDetails?.phone}`}
                 className="text-content"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 12, textDecoration: 'none' }}>
-                <Phone size={12} /> {place.phone || googleDetails.phone}
+                <Phone size={12} /> {place.phone || googleDetails?.phone}
               </a>
             </div>
           )}
@@ -383,15 +398,15 @@ interface ParticipantsBoxProps {
 
 function ParticipantsBox({ tripMembers, participantIds, allJoined, onSetParticipants, selectedAssignmentId, selectedDayId, t }: ParticipantsBoxProps) {
   const [showAdd, setShowAdd] = React.useState(false)
-  const [hoveredId, setHoveredId] = React.useState(null)
+  const [hoveredId, setHoveredId] = React.useState<number | null>(null)
 
   // Active participants: if allJoined, show all members; otherwise show only those in participantIds
   const activeMembers = allJoined ? tripMembers : tripMembers.filter(m => participantIds.includes(m.id))
   const availableToAdd = allJoined ? [] : tripMembers.filter(m => !participantIds.includes(m.id))
 
-  const handleRemove = (userId) => {
-    if (!onSetParticipants) return
-    let newIds
+  const handleRemove = (userId: number) => {
+    if (!onSetParticipants || selectedAssignmentId === null || selectedDayId === null) return
+    let newIds: number[]
     if (allJoined) {
       newIds = tripMembers.filter(m => m.id !== userId).map(m => m.id)
     } else {
@@ -401,8 +416,8 @@ function ParticipantsBox({ tripMembers, participantIds, allJoined, onSetParticip
     onSetParticipants(selectedAssignmentId, selectedDayId, newIds)
   }
 
-  const handleAdd = (userId) => {
-    if (!onSetParticipants) return
+  const handleAdd = (userId: number) => {
+    if (!onSetParticipants || selectedAssignmentId === null || selectedDayId === null) return
     const newIds = [...participantIds, userId]
     if (newIds.length === tripMembers.length) {
       onSetParticipants(selectedAssignmentId, selectedDayId, [])

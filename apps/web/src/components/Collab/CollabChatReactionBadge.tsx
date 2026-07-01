@@ -13,7 +13,7 @@ interface ReactionBadgeProps {
 export function ReactionBadge({ reaction, currentUserId, onReact }: ReactionBadgeProps) {
   const [hover, setHover] = useState(false)
   const [pos, setPos] = useState({ top: 0, left: 0 })
-  const ref = useRef(null)
+  const ref = useRef<HTMLButtonElement | null>(null)
   const names = reaction.users.map(u => u.username).join(', ')
 
   return (

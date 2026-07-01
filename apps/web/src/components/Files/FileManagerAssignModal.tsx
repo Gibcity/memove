@@ -112,9 +112,9 @@ export function AssignModal(S: FileManagerState) {
                 {dayGroups.map(({ day, dayPlaces }) => (
                   <div key={day.id}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', padding: '8px 10px 2px' }}>
-                      <span>{day.title || t('dayplan.dayN', { n: day.day_number })}</span>
+                      <span>{day.title || t('dayplan.dayN', { n: day.day_number ?? 0 })}</span>
                       {(() => {
-                        const badge = day.date || (day.title ? t('dayplan.dayN', { n: day.day_number }) : null)
+                        const badge = day.date || (day.title ? t('dayplan.dayN', { n: day.day_number ?? 0 }) : null)
                         return badge ? (
                           <span style={{
                             fontSize: 10, fontWeight: 600, color: 'var(--text-faint)',

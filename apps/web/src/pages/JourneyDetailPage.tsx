@@ -530,7 +530,7 @@ export default function JourneyDetailPage() {
           }
         }}
         title={t('journey.trips.unlinkTrip')}
-        message={t('journey.trips.unlinkMessage', { title: unlinkTrip?.title })}
+        message={t('journey.trips.unlinkMessage', { title: unlinkTrip?.title ?? '' })}
         confirmLabel={t('journey.trips.unlink')}
         danger
       />

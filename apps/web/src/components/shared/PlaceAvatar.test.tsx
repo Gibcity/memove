@@ -30,7 +30,7 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
-  vi.mocked(getCached).mockReturnValue(null);
+  vi.mocked(getCached).mockReturnValue(null as any);
   vi.mocked(isLoading).mockReturnValue(false);
   vi.mocked(fetchPhoto).mockReset();
   vi.mocked(onThumbReady).mockReturnValue(() => {});
@@ -155,7 +155,7 @@ describe('PlaceAvatar', () => {
   });
 
   it('FE-COMP-AVATAR-013: registers onThumbReady callback when photo is loading', () => {
-    vi.mocked(getCached).mockReturnValue(null);
+    vi.mocked(getCached).mockReturnValue(null as any);
     vi.mocked(isLoading).mockReturnValue(true);
 
     render(<PlaceAvatar place={{ ...basePlaceNoImage, google_place_id: 'gid456' }} />);

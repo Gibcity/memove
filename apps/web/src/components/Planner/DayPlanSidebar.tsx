@@ -144,26 +144,26 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
     return new Set<number>(days.map(d => d.id))
   })
   useEffect(() => { onExpandedDaysChange?.(expandedDays) }, [expandedDays])
-  const [editingDayId, setEditingDayId] = useState(null)
+  const [editingDayId, setEditingDayId] = useState<number | null>(null)
   const [editTitle, setEditTitle] = useState('')
   const [isCalculating, setIsCalculating] = useState(false)
-  const [routeInfo, setRouteInfo] = useState(null)
+  const [routeInfo, setRouteInfo] = useState<{ distance: string; duration: string } | null>(null)
   const [routeLegs, setRouteLegs] = useState<Record<number, RouteSegment>>({})
   const [hotelLegs, setHotelLegs] = useState<{ top?: { seg: RouteSegment; name: string }; bottom?: { seg: RouteSegment; name: string } }>({})
   const optimizeFromAccommodation = useSettingsStore(s => s.settings.optimize_from_accommodation)
   const legsAbortRef = useRef<AbortController | null>(null)
-  const [draggingId, setDraggingId] = useState(null)
+  const [draggingId, setDraggingId] = useState<number | null>(null)
   const [lockedIds, setLockedIds] = useState<Set<number>>(new Set())
-  const [lockHoverId, setLockHoverId] = useState(null)
+  const [lockHoverId, setLockHoverId] = useState<number | null>(null)
   const [undoHover, setUndoHover] = useState(false)
   const [pdfHover, setPdfHover] = useState(false)
   const [icsHover, setIcsHover] = useState(false)
   const [hoveredAssignmentId, setHoveredAssignmentId] = useState<number | null>(null)
-  const [dropTargetKey, _setDropTargetKey] = useState(null)
-  const dropTargetRef = useRef(null)
-  const setDropTargetKey = (key) => { dropTargetRef.current = key; _setDropTargetKey(key) }
-  const [dragOverDayId, setDragOverDayId] = useState(null)
-  const [transportDetail, setTransportDetail] = useState(null)
+  const [dropTargetKey, _setDropTargetKey] = useState<string | null>(null)
+  const dropTargetRef = useRef<string | null>(null)
+  const setDropTargetKey = (key: string | null) => { dropTargetRef.current = key; _setDropTargetKey(key) }
+  const [dragOverDayId, setDragOverDayId] = useState<number | null>(null)
+  const [transportDetail, setTransportDetail] = useState<Reservation | null>(null)
   const [transportPosVersion, setTransportPosVersion] = useState(0)
 
   useEffect(() => {
@@ -179,8 +179,11 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
     // For arrow reorder
     reorderIds?: number[];
   } | null>(null)
-  const inputRef = useRef(null)
-  const dragDataRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
+  const dragDataRef = useRef<{
+    assignmentId?: string; noteId?: string; reservationId?: string;
+    fromDayId?: string; phase?: 'single' | 'start' | 'middle' | 'end';
+  } | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement | null>(null)
   useLayoutEffect(() => {
     if (scrollContainerRef.current && initialScrollTop) {
@@ -212,8 +215,8 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
         assignmentId: dragDataRef.current.assignmentId || '',
         noteId: dragDataRef.current.noteId || '',
         reservationId: dragDataRef.current.reservationId || '',
-        fromDayId: parseInt(dragDataRef.current.fromDayId) || 0,
-        phase: (dragDataRef.current.phase || 'single') as 'single' | 'start' | 'middle' | 'end',
+        fromDayId: parseInt(dragDataRef.current.fromDayId ?? '0') || 0,
+        phase: dragDataRef.current.phase || 'single',
       }
     }
     // Externer Drag (aus PlacesSidebar)
@@ -357,7 +360,7 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
   const getMergedItems = (dayId: number): MergedItem[] =>
     _getMergedItems({
       dayAssignments: getDayAssignments(dayId),
-      dayNotes: (dayNotes[String(dayId)] || []).slice().sort((a, b) => a.sort_order - b.sort_order),
+      dayNotes: (dayNotes[String(dayId)] || []).slice().sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0)),
       dayTransports: getTransportForDay(dayId),
       dayId,
       getDisplayTime: getDisplayTimeForDay,
@@ -759,7 +762,7 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
   const handleCalculateRoute = async () => {
     if (!selectedDayId) return
     const da = getDayAssignments(selectedDayId)
-    const waypoints = da.map(a => a.place).filter(p => p?.lat && p?.lng).map(p => ({ lat: p.lat, lng: p.lng }))
+    const waypoints = da.map(a => a.place).filter((p): p is NonNullable<typeof p> => !!(p?.lat && p?.lng)).map(p => ({ lat: p.lat as number, lng: p.lng as number }))
     if (waypoints.length < 2) { toast.error(t('dayplan.toast.needTwoPlaces')); return }
     setIsCalculating(true)
     try {
@@ -793,9 +796,9 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
     // Separate fixed (stay at their index) and movable assignments. A place is
     // fixed if it's locked OR has a set time — timed places are anchored by their
     // time, so the optimizer must not reshuffle them.
-    const locked = new Map() // index -> assignment
-    const unlocked = []
-    da.forEach((a, i) => {
+    const locked = new Map<number, Assignment>() // index -> assignment
+    const unlocked: Assignment[] = []
+    da.forEach((a: Assignment, i: number) => {
       if (lockedIds.has(a.id) || a.place?.place_time) locked.set(i, a)
       else unlocked.push(a)
     })
@@ -810,7 +813,7 @@ function useDayPlanSidebar(props: DayPlanSidebarProps) {
       ? getAccommodationAnchors(day, days, accommodations)
       : {}
     const optimizedAssignments = unlockedWithCoords.length >= 2
-      ? optimizeRoute(unlockedWithCoords.map(a => ({ ...a.place, _assignmentId: a.id })), anchors).map(p => unlockedWithCoords.find(a => a.id === p._assignmentId)).filter(Boolean)
+      ? optimizeRoute(unlockedWithCoords.map(a => ({ id: a.place!.id, name: a.place!.name, _assignmentId: a.id, lat: a.place!.lat as number, lng: a.place!.lng as number })), anchors).map(p => unlockedWithCoords.find(a => a.id === p._assignmentId)).filter(Boolean)
       : unlockedWithCoords
     const optimizedQueue = [...optimizedAssignments, ...unlockedNoCoords]
 

@@ -60,7 +60,7 @@ export default React.memo(function PlaceAvatar({ place, size = 32, category }: P
       return onThumbReady(cacheKey, thumb => setPhotoSrc(thumb))
     }
 
-    fetchPhoto(cacheKey, photoId || `coords:${place.lat}:${place.lng}`, place.lat, place.lng, place.name,
+    fetchPhoto(cacheKey, photoId || `coords:${place.lat}:${place.lng}`, place.lat ?? undefined, place.lng ?? undefined, place.name,
       entry => { setPhotoSrc(entry.thumbDataUrl || entry.photoUrl) }
     )
     return onThumbReady(cacheKey, thumb => setPhotoSrc(thumb))

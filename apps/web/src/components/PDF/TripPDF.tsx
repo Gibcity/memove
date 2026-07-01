@@ -64,7 +64,7 @@ function safeImg(url) {
 }
 
 // Generate SVG string from Lucide icon name (for category thumbnails)
-let _renderToStaticMarkup = null
+let _renderToStaticMarkup: ((element: React.ReactNode) => string) | null = null
 async function ensureRenderer() {
   if (!_renderToStaticMarkup) {
     const mod = await import('react-dom/server')
@@ -85,7 +85,7 @@ function shortDate(d, locale) {
 }
 
 function longDateRange(days, locale) {
-  const dd = [...days].filter(d => d.date).sort((a, b) => a.day_number - b.day_number)
+  const dd = [...days].filter(d => d.date).sort((a, b) => (a.day_number ?? 0) - (b.day_number ?? 0))
   if (!dd.length) return null
   const f = new Date(dd[0].date + 'T00:00:00Z')
   const l = new Date(dd[dd.length - 1].date + 'T00:00:00Z')
@@ -118,7 +118,7 @@ async function fetchPlacePhotos(assignments: AssignmentsMap, places: Place[]) {
       // Same key the app UI uses: google_place_id || osm_id || coords.
       const photoId = p.google_place_id || osm_id || `coords:${p.lat}:${p.lng}`
       try {
-        const data = await mapsApi.placePhoto(photoId, p.lat, p.lng, p.name)
+        const data = await mapsApi.placePhoto(photoId, p.lat ?? undefined, p.lng ?? undefined, p.name ?? undefined)
         if (data.photoUrl) photoMap[p.id] = data.photoUrl
       } catch {}
     })
@@ -143,7 +143,7 @@ export async function downloadTripPDF({ trip, days, places, assignments, categor
   await ensureRenderer()
   const loc = _locale || undefined
   const tr = _t || (k => k)
-  const sorted = [...(days || [])].sort((a, b) => a.day_number - b.day_number)
+  const sorted = [...(days || [])].sort((a, b) => (a.day_number ?? 0) - (b.day_number ?? 0))
   const range = longDateRange(sorted, loc)
   const coverImg = safeImg(trip?.cover_image)
   //retrieve accommodations for the trip to display on the day sections and prefetch their photos if needed
@@ -159,7 +159,7 @@ export async function downloadTripPDF({ trip, days, places, assignments, categor
     .flatMap(a => a).reduce((s, a) => s + (Number(a.place?.price) || 0), 0)
 
   // Span helpers for multi-day transport (mirrors DayPlanSidebar logic)
-  const pdfGetDayOrder = (d: Day) => d.day_number
+  const pdfGetDayOrder = (d: Day): number => d.day_number ?? 0
   const pdfGetSpanPhase = (r: any, dayId: number): 'single' | 'start' | 'middle' | 'end' => {
     const startId = r.day_id
     const endId = r.end_day_id ?? startId
@@ -205,7 +205,7 @@ export async function downloadTripPDF({ trip, days, places, assignments, categor
     const dayReservations = pdfGetTransportForDay(day.id)
       .filter(r => !(r.type === 'car' && pdfGetSpanPhase(r, day.id) === 'middle'))
 
-    const merged = []
+    const merged: Array<{ type: string; k: number; data: any }> = []
     assigned.forEach(a => merged.push({ type: 'place', k: a.order_index ?? 0, data: a }))
     notes.forEach(n    => merged.push({ type: 'note',  k: n.sort_order ?? 0, data: n }))
     dayReservations.forEach(r => {
@@ -364,8 +364,8 @@ export async function downloadTripPDF({ trip, days, places, assignments, categor
     return `
       <div class="day-section${di > 0 ? ' page-break' : ''}">
         <div class="day-header">
-          <span class="day-tag">${escHtml(tr('dayplan.dayN', { n: day.day_number })).toUpperCase()}</span>
-          <span class="day-title">${escHtml(day.title || tr('dayplan.dayN', { n: day.day_number }))}</span>
+          <span class="day-tag">${escHtml(tr('dayplan.dayN', { n: day.day_number ?? '' })).toUpperCase()}</span>
+          <span class="day-title">${escHtml(day.title || tr('dayplan.dayN', { n: day.day_number ?? '' }))}</span>
           ${day.date ? `<span class="day-date">${shortDate(day.date, loc)}</span>` : ''}
           ${cost ? `<span class="day-cost">${cost}</span>` : ''}
         </div>
@@ -374,7 +374,7 @@ export async function downloadTripPDF({ trip, days, places, assignments, categor
   }).join('')
 
   const html = `<!DOCTYPE html>
-<html lang="${loc.split('-')[0]}">
+<html lang="${(loc || 'en').split('-')[0]}">
 <head>
 <meta charset="UTF-8">
 <base href="${window.location.origin}/">

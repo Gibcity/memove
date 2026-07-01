@@ -96,7 +96,7 @@ export default function VacayCalendar() {
             onClick={() => setCompanyMode(false)}
             className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium transition-[background-color,color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] border ${!companyMode ? 'bg-content text-surface-card border-transparent' : 'bg-transparent text-content-muted border-edge'}`}>
             <MousePointer2 size={13} />
-            {selectedUser && <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: selectedUser.color }} />}
+            {selectedUser && <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: selectedUser.color ?? undefined }} />}
             {selectedUser ? selectedUser.username : t('vacay.modeVacation')}
           </button>
           {companyHolidaysEnabled && (

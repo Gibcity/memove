@@ -12,7 +12,7 @@ import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import ConfirmDialog from '../shared/ConfirmDialog'
 import type { User } from '../../types'
-import type { CollabNote } from './CollabNotes.types'
+import type { CollabNote, NoteFile } from './CollabNotes.types'
 import { FONT, NOTE_COLORS } from './CollabNotes.constants'
 import { NoteFormModal } from './CollabNotesFormModal'
 import { CategorySettingsModal } from './CollabNotesCategorySettingsModal'
@@ -37,21 +37,21 @@ function useCollabNotes({ tripId, currentUser }: CollabNotesProps) {
   const can = useCanDo()
   const trip = useTripStore((s) => s.trip)
   const canEdit = can('collab_edit', trip)
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState<CollabNote[]>([])
   const [loading, setLoading] = useState(true)
   const [showNewModal, setShowNewModal] = useState(false)
-  const [editingNote, setEditingNote] = useState(null)
+  const [editingNote, setEditingNote] = useState<CollabNote | null>(null)
   const [viewingNote, setViewingNote] = useState<CollabNote | null>(null)
-  const [previewFile, setPreviewFile] = useState(null)
+  const [previewFile, setPreviewFile] = useState<NoteFile | null>(null)
   const [showSettings, setShowSettings] = useState(false)
-  const [activeCategory, setActiveCategory] = useState(null)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [pendingDeleteNoteId, setPendingDeleteNoteId] = useState<number | null>(null)
 
   // Empty categories (no notes yet) stored in localStorage
-  const [emptyCategories, setEmptyCategories] = useState(() => {
-    try { return JSON.parse(localStorage.getItem(`collab-cats-${tripId}`)) || {} } catch { return {} }
+  const [emptyCategories, setEmptyCategories] = useState<Record<string, string>>(() => {
+    try { return JSON.parse(localStorage.getItem(`collab-cats-${tripId}`) || '{}') || {} } catch { return {} }
   })
-  const saveEmptyCategories = (map) => {
+  const saveEmptyCategories = (map: Record<string, string>) => {
     setEmptyCategories(map)
     localStorage.setItem(`collab-cats-${tripId}`, JSON.stringify(map))
   }
@@ -434,7 +434,7 @@ function ViewNoteModal(S: NotesState) {
                   return (
                     <div key={a.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, maxWidth: 72 }}>
                       {isImage ? (
-                        <AuthedImg src={a.url} alt={a.original_name}
+                        <AuthedImg src={a.url ?? ''} alt={a.original_name}
                           style={{ width: 64, height: 64, objectFit: 'cover', borderRadius: 8, cursor: 'pointer', transition: 'transform 0.12s, box-shadow 0.12s' }}
                           onClick={() => setPreviewFile(a)}
                           onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.06)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)' }}

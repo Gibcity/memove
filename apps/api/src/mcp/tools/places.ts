@@ -84,10 +84,12 @@ export function registerPlaceTools(server: McpServer, userId: number, scopes: st
       try {
         const run = db.transaction(() => {
           const place = createPlace(String(tripId), { name, description, lat, lng, address, category_id, google_place_id, osm_id, notes: place_notes, website, phone, price, currency });
+          if (!place) return null;
           const assignment = createAssignment(dayId, place.id, assignment_notes ?? null);
           return { place, assignment };
         });
         const result = run();
+        if (!result) return { content: [{ type: 'text' as const, text: 'Failed to create place.' }], isError: true };
         safeBroadcast(tripId, 'place:created', { place: result.place });
         safeBroadcast(tripId, 'assignment:created', { assignment: result.assignment });
         return ok(result);

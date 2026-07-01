@@ -71,14 +71,14 @@ function usePlaceFormModal(props: PlaceFormModalProps) {
   } = props
   const [form, setForm] = useState(DEFAULT_FORM)
   const [mapsSearch, setMapsSearch] = useState('')
-  const [mapsResults, setMapsResults] = useState([])
+  const [mapsResults, setMapsResults] = useState<any[]>([])
   const [isSearchingMaps, setIsSearchingMaps] = useState(false)
   const [newCategoryName, setNewCategoryName] = useState('')
   const [showNewCategory, setShowNewCategory] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [duplicateWarning, setDuplicateWarning] = useState<string | null>(null)
-  const [pendingFiles, setPendingFiles] = useState([])
-  const fileRef = useRef(null)
+  const [pendingFiles, setPendingFiles] = useState<File[]>([])
+  const fileRef = useRef<HTMLInputElement | null>(null)
   const [acSuggestions, setAcSuggestions] = useState<{ placeId: string; mainText: string; secondaryText: string }[]>([])
   const [acHighlight, setAcHighlight] = useState(-1)
   const acDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -527,7 +527,7 @@ export default function PlaceFormModal(props: PlaceFormModalProps) {
           <button
             type="button"
             onClick={handleSubmit}
-            disabled={isSaving || hasTimeError}
+            disabled={Boolean(isSaving || hasTimeError)}
             className="px-6 py-2 bg-slate-900 text-white text-sm rounded-lg hover:bg-slate-700 disabled:opacity-60 font-medium"
           >
             {isSaving ? t('common.saving') : place ? t('common.update') : duplicateWarning ? t('places.addAnyway') : t('common.add')}
@@ -746,7 +746,7 @@ export default function PlaceFormModal(props: PlaceFormModalProps) {
             handleChange={handleChange}
             assignmentId={assignmentId}
             dayAssignments={dayAssignments}
-            hasTimeError={hasTimeError}
+            hasTimeError={Boolean(hasTimeError)}
             t={t}
           />
         )}

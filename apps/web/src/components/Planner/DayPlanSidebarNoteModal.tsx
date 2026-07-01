@@ -11,7 +11,7 @@ interface NoteModalUi {
 interface DayPlanSidebarNoteModalProps {
   noteUi: Record<string, NoteModalUi | undefined>
   setNoteUi: (updater: (prev: any) => any) => void
-  noteInputRef: React.RefObject<HTMLInputElement>
+  noteInputRef: React.RefObject<HTMLInputElement | null>
   cancelNote: (dayId: number) => void
   saveNote: (dayId: number) => void
   t: (key: string, params?: Record<string, any>) => string

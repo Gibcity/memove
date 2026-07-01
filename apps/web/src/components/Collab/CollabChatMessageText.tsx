@@ -1,4 +1,5 @@
 import { URL_REGEX } from './CollabChat.constants'
+import type { ReactElement } from 'react'
 
 /* ── Message Text with clickable URLs ── */
 interface MessageTextProps {
@@ -8,7 +9,7 @@ interface MessageTextProps {
 export function MessageText({ text }: MessageTextProps) {
   const parts = text.split(URL_REGEX)
   const urls = text.match(URL_REGEX) || []
-  const result = []
+  const result: (string | ReactElement)[] = []
   parts.forEach((part, i) => {
     if (part) result.push(part)
     if (urls[i]) result.push(

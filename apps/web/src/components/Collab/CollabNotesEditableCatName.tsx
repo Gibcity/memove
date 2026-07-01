@@ -8,7 +8,7 @@ interface EditableCatNameProps {
 export function EditableCatName({ name, onRename }: EditableCatNameProps) {
   const [editing, setEditing] = useState(false)
   const [value, setValue] = useState(name)
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => { if (editing && inputRef.current) { inputRef.current.focus(); inputRef.current.select() } }, [editing])
 

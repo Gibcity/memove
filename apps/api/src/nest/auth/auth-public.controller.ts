@@ -111,7 +111,7 @@ export class AuthPublicController {
     const rawEmail = typeof body?.email === 'string' ? body.email : '';
     const ip = getClientIp(req);
 
-    const outcome = this.auth.requestPasswordReset(rawEmail, ip);
+    const outcome = this.auth.requestPasswordReset(rawEmail, ip ?? '');
     if (outcome.reason === 'issued' && outcome.tokenForDelivery && outcome.userEmail) {
       const origin = this.auth.getAppUrl();
       const url = `${origin.replace(/\/$/, '')}/reset-password?token=${encodeURIComponent(outcome.tokenForDelivery)}`;

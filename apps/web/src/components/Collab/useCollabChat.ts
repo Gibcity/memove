@@ -6,6 +6,7 @@ import { useTripStore } from '../../store/tripStore'
 import { addListener, removeListener } from '../../api/websocket'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
+import type { ChatMessage } from './CollabChat.types'
 
 export function useCollabChat(tripId: any, currentUser: any) {
   const { t } = useTranslation()
@@ -15,32 +16,32 @@ export function useCollabChat(tripId: any, currentUser: any) {
   const trip = useTripStore((s) => s.trip)
   const canEdit = can('collab_edit', trip)
 
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [loading, setLoading] = useState(true)
   const [hasMore, setHasMore] = useState(false)
   const [loadingMore, setLoadingMore] = useState(false)
   const [text, setText] = useState('')
-  const [replyTo, setReplyTo] = useState(null)
-  const [hoveredId, setHoveredId] = useState(null)
+  const [replyTo, setReplyTo] = useState<ChatMessage | null>(null)
+  const [hoveredId, setHoveredId] = useState<number | null>(null)
   const [sending, setSending] = useState(false)
   const [showEmoji, setShowEmoji] = useState(false)
-  const [reactMenu, setReactMenu] = useState(null) // { msgId, x, y }
-  const [deletingIds, setDeletingIds] = useState(new Set())
+  const [reactMenu, setReactMenu] = useState<{ msgId: number; x: number; y: number } | null>(null) // { msgId, x, y }
+  const [deletingIds, setDeletingIds] = useState(new Set<number>())
   const deleteTimersRef = useRef<ReturnType<typeof setTimeout>[]>([])
 
   useEffect(() => {
     return () => { deleteTimersRef.current.forEach(clearTimeout) }
   }, [])
 
-  const containerRef = useRef(null)
-  const messagesRef = useRef(messages)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const messagesRef = useRef<ChatMessage[]>(messages)
   messagesRef.current = messages
-  const scrollRef = useRef(null)
-  const textareaRef = useRef(null)
-  const emojiBtnRef = useRef(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const emojiBtnRef = useRef<HTMLButtonElement>(null)
   const isAtBottom = useRef(true)
 
-  const scrollToBottom = useCallback((behavior = 'auto') => {
+  const scrollToBottom = useCallback((behavior: ScrollBehavior = 'auto') => {
     const el = scrollRef.current
     if (!el) return
     requestAnimationFrame(() => el.scrollTo({ top: el.scrollHeight, behavior }))
@@ -74,7 +75,7 @@ export function useCollabChat(tripId: any, currentUser: any) {
     const el = scrollRef.current
     const prevHeight = el ? el.scrollHeight : 0
     try {
-      const data = await collabApi.getMessages(tripId, messages[0]?.id)
+      const data = await collabApi.getMessages(tripId, messages[0]?.id != null ? String(messages[0].id) : undefined)
       const older = (Array.isArray(data) ? data : data.messages || []).map(m => m.deleted ? { ...m, _deleted: true } : m)
       if (older.length === 0) { setHasMore(false) }
       else {

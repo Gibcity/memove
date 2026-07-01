@@ -120,7 +120,7 @@ export class ReservationsController {
       this.reservations.broadcast(tripId, 'accommodation:updated', {}, socketId);
     }
     const cur = current as { title: string; type?: string };
-    this.reservations.syncBudgetOnUpdate(tripId, id, (body.title as string) ?? '', body.type as string | undefined, cur.title, cur.type, body.create_budget_entry, socketId);
+    this.reservations.syncBudgetOnUpdate(tripId, id, (body.title as string) ?? '', body.type as string | undefined, cur.title, cur.type, body.create_budget_entry as { total_price?: number; category?: string } | undefined, socketId);
     this.reservations.broadcast(tripId, 'reservation:updated', { reservation }, socketId);
     // Push a locally-edited AirTrail flight back to AirTrail (fire-and-forget,
     // under the importer's credentials — see airtrailSync). #214

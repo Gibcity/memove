@@ -37,7 +37,7 @@ export default function FilesPage(): React.ReactElement {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">{t('files.pageTitle')}</h1>
-              <p className="text-gray-500 text-sm">{t('files.subtitle', { count: files.length, trip: trip?.title })}</p>
+              <p className="text-gray-500 text-sm">{t('files.subtitle', { count: files.length, trip: trip?.title ?? '' })}</p>
             </div>
           </div>
 

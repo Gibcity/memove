@@ -4,6 +4,7 @@ import { Pencil, Trash2, ExternalLink, Navigation, CalendarDays } from 'lucide-r
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import { useContextMenu } from '../shared/ContextMenu'
+import type { MenuItem } from '../shared/ContextMenu'
 import { placesApi } from '../../api/client'
 import { useTripStore } from '../../store/tripStore'
 import { useCanDo } from '../../store/permissionsStore'
@@ -172,7 +173,7 @@ export function usePlacesSidebar(props: PlacesSidebarProps) {
       return next
     })
   }
-  const [dayPickerPlace, setDayPickerPlace] = useState(null)
+  const [dayPickerPlace, setDayPickerPlace] = useState<Place | null>(null)
   const [catDropOpen, setCatDropOpen] = useState(false)
   const [mobileShowDays, setMobileShowDays] = useState(false)
 
@@ -210,14 +211,17 @@ export function usePlacesSidebar(props: PlacesSidebarProps) {
 
   const openContextMenu = useCallback((e: React.MouseEvent, place: Place) => {
     const selDayId = selectedDayIdRef.current
-    ctxMenu.open(e, [
-      canEditPlaces && { label: t('common.edit'), icon: Pencil, onClick: () => props.onEditPlace(place) },
-      selDayId && { label: t('planner.addToDay'), icon: CalendarDays, onClick: () => props.onAssignToDay(place.id, selDayId) },
-      place.website && { label: t('inspector.website'), icon: ExternalLink, onClick: () => window.open(place.website, '_blank') },
-      (place.lat && place.lng) && { label: 'Google Maps', icon: Navigation, onClick: () => window.open(`https://www.google.com/maps/search/?api=1&query=${(place as any).google_place_id ? encodeURIComponent(place.name) + '&query_place_id=' + (place as any).google_place_id : place.lat + ',' + place.lng}`, '_blank') },
+    const website = place.website
+    const hasLatLng = !!(place.lat && place.lng)
+    const rawItems: (MenuItem | false)[] = [
+      canEditPlaces ? { label: t('common.edit'), icon: Pencil, onClick: () => props.onEditPlace(place) } : false,
+      selDayId ? { label: t('planner.addToDay'), icon: CalendarDays, onClick: () => props.onAssignToDay(place.id, selDayId) } : false,
+      website ? { label: t('inspector.website'), icon: ExternalLink, onClick: () => window.open(website, '_blank') } : false,
+      hasLatLng ? { label: 'Google Maps', icon: Navigation, onClick: () => window.open(`https://www.google.com/maps/search/?api=1&query=${(place as any).google_place_id ? encodeURIComponent(place.name) + '&query_place_id=' + (place as any).google_place_id : place.lat + ',' + place.lng}`, '_blank') } : false,
       { divider: true },
-      canEditPlaces && { label: t('common.delete'), icon: Trash2, danger: true, onClick: () => props.onDeletePlace(place.id) },
-    ])
+      canEditPlaces ? { label: t('common.delete'), icon: Trash2, danger: true, onClick: () => props.onDeletePlace(place.id) } : false,
+    ]
+    ctxMenu.open(e, rawItems.filter((it): it is MenuItem => Boolean(it)))
   }, [ctxMenu.open, canEditPlaces, t, props.onEditPlace, props.onAssignToDay, props.onDeletePlace])
 
   return {

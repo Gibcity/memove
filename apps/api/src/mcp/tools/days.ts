@@ -156,10 +156,12 @@ export function registerDayTools(server: McpServer, userId: number, scopes: stri
       try {
         const run = db.transaction(() => {
           const place = createPlace(String(tripId), { name, description, lat, lng, address, category_id, google_place_id, osm_id, notes: place_notes, website, phone, price, currency });
+          if (!place) return null;
           const accommodation = createAccommodation(tripId, { place_id: place.id, start_day_id, end_day_id, check_in, check_in_end, check_out, confirmation, notes: accommodation_notes });
           return { place, accommodation };
         });
         const result = run();
+        if (!result) return { content: [{ type: 'text' as const, text: 'Failed to create place.' }], isError: true };
         safeBroadcast(tripId, 'place:created', { place: result.place });
         safeBroadcast(tripId, 'accommodation:created', { accommodation: result.accommodation });
         return ok(result);

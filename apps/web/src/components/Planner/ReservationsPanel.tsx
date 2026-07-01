@@ -120,7 +120,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
     : undefined
   const DayLabel = ({ day }: { day: typeof startDay }) => {
     if (!day) return null
-    const name = day.title || t('dayplan.dayN', { n: day.day_number })
+    const name = day.title || t('dayplan.dayN', { n: day.day_number ?? 0 })
     const badge = day.date
       ? new Date(day.date + 'T00:00:00Z').toLocaleDateString(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' })
       : null

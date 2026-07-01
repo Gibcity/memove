@@ -97,7 +97,7 @@ export function useFileManager({ files = [], onUpload, onDelete, onUpdate, place
     }
   }
 
-  const [previewFile, setPreviewFile] = useState(null)
+  const [previewFile, setPreviewFile] = useState<TripFile | null>(null)
   const [previewFileUrl, setPreviewFileUrl] = useState('')
   const [assignFileId, setAssignFileId] = useState<number | null>(null)
 

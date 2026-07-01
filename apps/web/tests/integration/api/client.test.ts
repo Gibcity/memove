@@ -432,7 +432,7 @@ describe('API client interceptors', () => {
     );
 
     await inAppNotificationsApi.list({ unread_only: true });
-    expect(searchParams?.get('unread_only')).toBe('true');
+    expect((searchParams as unknown as URLSearchParams | undefined)?.get('unread_only')).toBe('true');
   });
 
   it('FE-API-020: shareApi.getSharedTrip hits /api/shared/tok123', async () => {

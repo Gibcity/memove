@@ -23,7 +23,7 @@ function getPastDate(daysBack: number): string {
 const tomorrow = getFutureDate(1)
 const yesterday = getPastDate(1)
 
-function makeAssignment(id: number, placeOverrides: Record<string, unknown> = {}, participants: unknown[] = []) {
+function makeAssignment(id: number, placeOverrides: Record<string, unknown> = {}, participants: unknown[] = []): any {
   return {
     id,
     day_id: 1,
@@ -186,7 +186,7 @@ describe('WhatsNextWidget', () => {
       notes: null,
     }))
 
-    const assignments: Record<string, unknown[]> = {}
+    const assignments: Record<string, any[]> = {}
     let placeId = 100
     for (const day of days) {
       assignments[String(day.id)] = [

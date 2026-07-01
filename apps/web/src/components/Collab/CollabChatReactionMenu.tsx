@@ -11,7 +11,7 @@ interface ReactionMenuProps {
 }
 
 export function ReactionMenu({ x, y, onReact, onClose }: ReactionMenuProps) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const close = (e) => { if (ref.current && !ref.current.contains(e.target)) onClose() }

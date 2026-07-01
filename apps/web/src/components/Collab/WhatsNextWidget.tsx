@@ -4,7 +4,7 @@ import { useSettingsStore } from '../../store/settingsStore'
 import { useTranslation } from '../../i18n'
 import { MapPin, Clock, Calendar, Users, Sparkles } from 'lucide-react'
 
-function formatTime(timeStr, is12h) {
+function formatTime(timeStr: string | null | undefined, is12h: boolean) {
   if (!timeStr) return ''
   const [h, m] = timeStr.split(':').map(Number)
   if (is12h) {
@@ -15,7 +15,7 @@ function formatTime(timeStr, is12h) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
 }
 
-function formatDayLabel(date, t, locale) {
+function formatDayLabel(date: string, t: (key: string) => string, locale: string | undefined) {
   const now = new Date()
   const nowDate = now.toISOString().split('T')[0]
   const tomorrowUtc = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1))
@@ -43,11 +43,23 @@ export default function WhatsNextWidget({ tripMembers = [] }: WhatsNextWidgetPro
   const { t, locale } = useTranslation()
   const is12h = useSettingsStore(s => s.settings.time_format) === '12h'
 
+  interface UpcomingItem {
+  id: number
+  name: string
+  time: string | null | undefined
+  endTime: string | null | undefined
+  date: string
+  dayTitle: string | null | undefined
+  category: { id: number; name?: string | null; color?: string | null; icon?: string | null } | null | undefined
+  participants: { user_id: number; username: string; avatar?: string | null }[]
+  address: string | null | undefined
+}
+
   const upcoming = useMemo(() => {
     const now = new Date()
     const nowDate = now.toISOString().split('T')[0]
     const nowTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
-    const items = []
+    const items: UpcomingItem[] = []
 
     for (const day of (days || [])) {
       if (!day.date) continue

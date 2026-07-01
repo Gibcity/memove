@@ -10,6 +10,8 @@ interface MenuItem {
   divider?: boolean
 }
 
+export type { MenuItem }
+
 interface MenuState {
   x: number
   y: number

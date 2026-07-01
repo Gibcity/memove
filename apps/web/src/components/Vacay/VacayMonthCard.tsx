@@ -43,11 +43,11 @@ export default function VacayMonthCard({
     const daysInMonth = new Date(year, month + 1, 0).getDate()
     let startDow = firstDay.getDay() - weekStart
     if (startDow < 0) startDow += 7
-    const cells = []
+    const cells: (number | null)[] = []
     for (let i = 0; i < startDow; i++) cells.push(null)
     for (let d = 1; d <= daysInMonth; d++) cells.push(d)
     while (cells.length % 7 !== 0) cells.push(null)
-    const w = []
+    const w: (number | null)[][] = []
     for (let i = 0; i < cells.length; i += 7) w.push(cells.slice(i, i + 7))
     return w
   }, [year, month])

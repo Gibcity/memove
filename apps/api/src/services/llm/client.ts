@@ -95,7 +95,7 @@ export async function completeWithTools(
     try {
       parsed = JSON.parse(call.function.arguments);
     } catch (_e) {
-      throw new Error(`Model returned invalid JSON for tool '${name}': ${call.function.arguments}`);
+      throw new Error(`Model returned invalid JSON for tool '${name}': ${call.function.arguments}`, { cause: _e });
     }
     const handler = toolHandlers.get(name);
     if (!handler) {

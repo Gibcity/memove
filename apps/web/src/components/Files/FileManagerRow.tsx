@@ -15,13 +15,13 @@ export function FileRow(p: FileManagerState & { file: TripFile; isTrash?: boolea
   const FileIcon = getFileIcon(file.mime_type)
   const allLinkedPlaceIds = new Set<number>()
   if (file.place_id) allLinkedPlaceIds.add(file.place_id)
-  for (const pid of (file.linked_place_ids || [])) allLinkedPlaceIds.add(pid)
-  const linkedPlaces = [...allLinkedPlaceIds].map(pid => places?.find(p => p.id === pid)).filter(Boolean)
+  for (const pid of (file.linked_place_ids || [])) if (pid != null) allLinkedPlaceIds.add(pid)
+  const linkedPlaces = [...allLinkedPlaceIds].map(pid => places?.find(p => p.id === pid)).filter((x): x is NonNullable<typeof x> => x != null)
   // All linked reservations (primary + file_links)
   const allLinkedResIds = new Set<number>()
   if (file.reservation_id) allLinkedResIds.add(file.reservation_id)
-  for (const rid of (file.linked_reservation_ids || [])) allLinkedResIds.add(rid)
-  const linkedReservations = [...allLinkedResIds].map(rid => reservations?.find(r => r.id === rid)).filter(Boolean)
+  for (const rid of (file.linked_reservation_ids || [])) if (rid != null) allLinkedResIds.add(rid)
+  const linkedReservations = [...allLinkedResIds].map(rid => reservations?.find(r => r.id === rid)).filter((x): x is NonNullable<typeof x> => x != null)
   return (
     <div key={file.id} style={{
       background: 'var(--bg-card)', border: '1px solid var(--border-primary)', borderRadius: 12,

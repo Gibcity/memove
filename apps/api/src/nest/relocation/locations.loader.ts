@@ -17,5 +17,5 @@ export function loadLocations(): Location[] {
       ),
     );
   }
-  return cache;
+  return cache ?? [];
 }

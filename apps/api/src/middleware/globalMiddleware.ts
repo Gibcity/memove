@@ -7,16 +7,17 @@ import { logDebug, logWarn, logError } from '../services/auditLog';
 import { enforceGlobalMfaPolicy } from './mfaPolicy';
 
 /**
- * The global request pipeline shared by the legacy Express app and the NestJS
- * instance. Both mount the *exact same* config so a request hitting a migrated
- * Nest route is protected identically to one hitting the legacy fallback
- * (helmet/CSP, CORS, HSTS, forced-HTTPS, the global MFA policy and request
- * logging). Keeping it in one place is what makes the strangler dispatch
- * behaviourally transparent — and is the prerequisite for retiring Express,
- * since the Nest instance must carry the whole shell on its own.
+ * The global request pipeline mounted on the NestJS app's underlying Express
+ * instance (see bootstrap.ts → applyGlobalMiddleware). Helmet/CSP, CORS, HSTS,
+ * forced-HTTPS, the global MFA policy and request logging live here so every
+ * route Nest serves — `/api/*`, the platform/transport routes, `/uploads` —
+ * goes through the same shell. The legacy Express app is gone, so this is now
+ * the only request pipeline in the project; the integration-test harness
+ * shares the same builder.
  *
- * `bodyParser` is opt-out: the Nest instance does its own body parsing, so it
- * passes `false` to avoid parsing the request twice.
+ * `bodyParser` is opt-out: Nest does its own body parsing, so
+ * `bootstrap.ts` passes `false` to avoid parsing the request twice (the raw
+ * `/mcp` body must reach the MCP handler unparsed).
  */
 export function applyGlobalMiddleware(
   app: express.Application,
@@ -26,7 +27,7 @@ export function applyGlobalMiddleware(
 
   // Trust first proxy (nginx/Docker) for correct req.ip
   if (process.env.NODE_ENV?.toLowerCase() === 'production' || process.env.TRUST_PROXY) {
-    app.set('trust proxy', Number.parseInt(process.env.TRUST_PROXY) || 1);
+    app.set('trust proxy', Number.parseInt(process.env.TRUST_PROXY ?? '') || 1);
   }
 
   // Compress responses (gzip via Accept-Encoding). The Atlas admin-0 country

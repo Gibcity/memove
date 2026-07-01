@@ -417,7 +417,7 @@ export function MapViewGL({
           || place.osm_id
           || place.image_url
         if (photoId || (place.lat && place.lng)) {
-          fetchPhoto(cacheKey, photoId || `coords:${place.lat}:${place.lng}`, place.lat, place.lng, place.name)
+          fetchPhoto(cacheKey, photoId || `coords:${place.lat}:${place.lng}`, place.lat ?? undefined, place.lng ?? undefined, place.name)
         }
       }
     }
@@ -462,7 +462,7 @@ export function MapViewGL({
         onClickRefs.current.marker?.(place.id)
       })
       el.addEventListener('mouseenter', () => {
-        popupRef.current?.setLngLat([place.lng, place.lat])
+        popupRef.current?.setLngLat([place.lng ?? 0, place.lat ?? 0])
           .setHTML(buildPlacePopupHtml(place as Place & { category_color?: string; category_icon?: string; category_name?: string }, photoUrl))
           .addTo(map)
       })
@@ -586,7 +586,7 @@ export function MapViewGL({
 
   const prevFitKey = useRef(-1)
   useEffect(() => {
-    if (fitKey === prevFitKey.current) return
+    if (fitKey == null || fitKey === prevFitKey.current) return
     prevFitKey.current = fitKey
     const map = mapRef.current
     if (!map) return
@@ -594,7 +594,7 @@ export function MapViewGL({
     const valid = target.filter(p => p.lat && p.lng)
     if (valid.length === 0) return
     const bounds = new maplibregl.LngLatBounds()
-    valid.forEach(p => bounds.extend([p.lng, p.lat]))
+    valid.forEach(p => bounds.extend([p.lng ?? 0, p.lat ?? 0]))
     const run = () => {
       try {
         map.fitBounds(bounds, {

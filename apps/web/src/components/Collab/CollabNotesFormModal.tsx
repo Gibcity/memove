@@ -31,10 +31,10 @@ export function NoteFormModal({ onClose, onSubmit, onDeleteFile, existingCategor
   const [content, setContent] = useState(note?.content || '')
   const [category, setCategory] = useState(note?.category || allCategories[0] || '')
   const [website, setWebsite] = useState(note?.website || '')
-  const [pendingFiles, setPendingFiles] = useState([])
+  const [pendingFiles, setPendingFiles] = useState<File[]>([])
   const [existingAttachments, setExistingAttachments] = useState(note?.attachments || [])
   const [submitting, setSubmitting] = useState(false)
-  const fileRef = useRef(null)
+  const fileRef = useRef<HTMLInputElement | null>(null)
 
   const finalCategory = category
 
@@ -259,7 +259,7 @@ export function NoteFormModal({ onClose, onSubmit, onDeleteFile, existingCategor
                 const isImage = a.mime_type?.startsWith('image/')
                 return (
                   <div key={a.id} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px', borderRadius: 8, background: 'var(--bg-secondary)', fontSize: 11, color: 'var(--text-muted)' }}>
-                    {isImage && <AuthedImg src={a.url} style={{ width: 18, height: 18, objectFit: 'cover', borderRadius: 3 }} />}
+                    {isImage && <AuthedImg src={a.url ?? ''} style={{ width: 18, height: 18, objectFit: 'cover', borderRadius: 3 }} />}
                     {(a.original_name || '').length > 20 ? a.original_name.slice(0, 17) + '...' : a.original_name}
                     <button type="button" onClick={() => handleDeleteAttachment(a.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ef4444', padding: 0, display: 'flex' }}>
                       <X size={10} />

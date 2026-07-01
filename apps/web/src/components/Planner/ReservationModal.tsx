@@ -5,6 +5,7 @@ import { useTripStore } from '../../store/tripStore'
 import { useAddonStore } from '../../store/addonStore'
 import Modal from '../shared/Modal'
 import CustomSelect from '../shared/CustomSelect'
+import type { SelectOption } from '../shared/CustomSelect'
 import { Hotel, Utensils, Ticket, FileText, Users, Paperclip, X, ExternalLink, Link2 } from 'lucide-react'
 import { useToast } from '../shared/Toast'
 import { useTranslation } from '../../i18n'
@@ -24,8 +25,10 @@ const TYPE_OPTIONS = [
   { value: 'other',      labelKey: 'reservations.type.other',      Icon: FileText },
 ]
 
-function buildAssignmentOptions(days, assignments, t, locale) {
-  const options = []
+type AssignmentOption = SelectOption & { dayDate?: string | null }
+
+function buildAssignmentOptions(days: Day[], assignments: AssignmentsMap, t: (key: string, opts?: Record<string, unknown>) => string, locale: string): AssignmentOption[] {
+  const options: AssignmentOption[] = []
   for (const day of (days || [])) {
     const da = (assignments?.[String(day.id)] || []).slice().sort((a, b) => a.order_index - b.order_index)
     if (da.length === 0) continue
@@ -71,7 +74,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
   const loadFiles = useTripStore(s => s.loadFiles)
   const toast = useToast()
   const { t, locale } = useTranslation()
-  const fileInputRef = useRef(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const isBudgetEnabled = useAddonStore(s => s.isEnabled('budget'))
   const deleteBudgetItem = useTripStore(s => s.deleteBudgetItem)
@@ -87,7 +90,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
   })
   const [isSaving, setIsSaving] = useState(false)
   const [uploadingFile, setUploadingFile] = useState(false)
-  const [pendingFiles, setPendingFiles] = useState([])
+  const [pendingFiles, setPendingFiles] = useState<File[]>([])
   const [showFilePicker, setShowFilePicker] = useState(false)
   const [linkedFileIds, setLinkedFileIds] = useState<number[]>([])
 
@@ -146,9 +149,14 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
     if (!isOpen || !reservation || reservation.type !== 'hotel' || !reservation.accommodation_id) return
     const acc = accommodations.find(a => a.id == reservation.accommodation_id)
     if (!acc) return
-    setForm(prev => {
+    setForm((prev): typeof prev => {
       if (prev.hotel_place_id !== '' || prev.hotel_start_day !== '' || prev.hotel_end_day !== '') return prev
-      return { ...prev, hotel_place_id: acc.place_id, hotel_start_day: acc.start_day_id, hotel_end_day: acc.end_day_id }
+      return {
+        ...prev,
+        hotel_place_id: acc.place_id ?? '',
+        hotel_start_day: acc.start_day_id ?? '',
+        hotel_end_day: acc.end_day_id ?? '',
+      }
     })
   }, [accommodations, isOpen, reservation])
 
@@ -212,7 +220,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
           fd.append('file', file)
           fd.append('reservation_id', String(saved.id))
           fd.append('description', form.title)
-          await onFileUpload(fd)
+          await onFileUpload?.(fd)
         }
       }
       // Open the Costs editor for the saved booking when the user asked to
@@ -234,8 +242,8 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
     try { await deleteBudgetItem(Number(tripId), item.id) } catch { toast.error(t('common.unknownError')) }
   }
 
-  const handleFileChange = async (e) => {
-    const file = (e.target as HTMLInputElement).files?.[0]
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
     if (!file) return
     if (reservation?.id) {
       setUploadingFile(true)
@@ -244,7 +252,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
         fd.append('file', file)
         fd.append('reservation_id', String(reservation.id))
         fd.append('description', reservation.title)
-        await onFileUpload(fd)
+        await onFileUpload?.(fd)
         toast.success(t('reservations.toast.fileUploaded'))
       } catch {
         toast.error(t('reservations.toast.uploadError'))
@@ -324,11 +332,11 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
                 value={form.assignment_id}
                 onChange={value => {
                   set('assignment_id', value)
-                  const opt = assignmentOptions.find(o => o.value === value)
+                  const opt = assignmentOptions.find(o => o.value === value) as AssignmentOption | undefined
                   if (opt?.dayDate) {
                     setForm(prev => {
                       if (prev.reservation_time) return prev
-                      return { ...prev, reservation_time: opt.dayDate }
+                      return { ...prev, reservation_time: opt.dayDate as string }
                     })
                   }
                 }}
@@ -453,7 +461,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
               <div>
                 <label className={labelClass}>{t('reservations.meta.fromDay')}</label>
                 <CustomSelect
-                  value={form.hotel_start_day}
+                  value={(form.hotel_start_day ?? '') as string | number}
                   onChange={value => setForm(prev => ({
                     ...prev,
                     hotel_start_day: value,
@@ -462,12 +470,12 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
                   }))}
                   placeholder={t('reservations.meta.selectDay')}
                   options={days.map(d => {
-                    const dateBadge = d.date ? (formatDate(d.date, locale) ?? undefined) : undefined
-                    const dayBadge = d.title ? t('dayplan.dayN', { n: d.day_number }) : undefined
+                    const dateBadge = d.date ? formatDate(d.date, locale) : ''
+                    const dayBadge = d.title ? t('dayplan.dayN', { n: d.day_number ?? 0 }) : ''
                     return {
-                      value: d.id,
-                      label: d.title || t('dayplan.dayN', { n: d.day_number }),
-                      badge: dateBadge ?? dayBadge,
+                      value: String(d.id),
+                      label: d.title || t('dayplan.dayN', { n: d.day_number ?? 0 }),
+                      badge: dateBadge || dayBadge || undefined,
                     }
                   })}
                   size="sm"
@@ -476,7 +484,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
               <div>
                 <label className={labelClass}>{t('reservations.meta.toDay')}</label>
                 <CustomSelect
-                  value={form.hotel_end_day}
+                  value={(form.hotel_end_day ?? '') as string | number}
                   onChange={value => setForm(prev => ({
                     ...prev,
                     hotel_start_day: days.findIndex(d => d.id === value) < days.findIndex(d => d.id === prev.hotel_start_day)
@@ -485,12 +493,12 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
                   }))}
                   placeholder={t('reservations.meta.selectDay')}
                   options={days.map(d => {
-                    const dateBadge = d.date ? (formatDate(d.date, locale) ?? undefined) : undefined
-                    const dayBadge = d.title ? t('dayplan.dayN', { n: d.day_number }) : undefined
+                    const dateBadge = d.date ? formatDate(d.date, locale) : ''
+                    const dayBadge = d.title ? t('dayplan.dayN', { n: d.day_number ?? 0 }) : ''
                     return {
-                      value: d.id,
-                      label: d.title || t('dayplan.dayN', { n: d.day_number }),
-                      badge: dateBadge ?? dayBadge,
+                      value: String(d.id),
+                      label: d.title || t('dayplan.dayN', { n: d.day_number ?? 0 }),
+                      badge: dateBadge || dayBadge || undefined,
                     }
                   })}
                   size="sm"

@@ -49,6 +49,7 @@ function setupWebSocket(server: http.Server): void {
 
   const HEARTBEAT_INTERVAL = 30000; // 30 seconds
   const heartbeat = setInterval(() => {
+    if (!wss) return;
     wss.clients.forEach((ws) => {
       const nws = ws as NomadWebSocket;
       if (nws.isAlive === false) return nws.terminate();
@@ -57,12 +58,12 @@ function setupWebSocket(server: http.Server): void {
     });
   }, HEARTBEAT_INTERVAL);
 
-  wss.on('close', () => clearInterval(heartbeat));
+  wss?.on('close', () => clearInterval(heartbeat));
 
   wss.on('connection', (ws: WebSocket, req: http.IncomingMessage) => {
     const nws = ws as NomadWebSocket;
     // Extract token from query param
-    const url = new URL(req.url, 'http://localhost');
+    const url = new URL(req.url ?? '/', 'http://localhost');
     const token = url.searchParams.get('token');
 
     if (!token) {
@@ -118,6 +119,7 @@ function setupWebSocket(server: http.Server): void {
     nws.on('message', (data) => {
       // Rate limiting
       const rate = socketMsgCounts.get(nws);
+      if (!rate) return;
       const now = Date.now();
       if (now - rate.windowStart > WS_MSG_WINDOW) {
         rate.count = 1;
@@ -149,8 +151,8 @@ function setupWebSocket(server: http.Server): void {
         }
         // Add to room
         if (!rooms.has(tripId)) rooms.set(tripId, new Set());
-        rooms.get(tripId).add(nws);
-        socketRooms.get(nws).add(tripId);
+        rooms.get(tripId)!.add(nws);
+        socketRooms.get(nws)?.add(tripId);
         nws.send(JSON.stringify({ type: 'joined', tripId }));
       }
 

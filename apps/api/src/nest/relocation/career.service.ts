@@ -277,7 +277,7 @@ if (require.main === module) {
   console.assert(austin?.state === 'TX', 'Austin lookup');
   console.assert(austin?.cbsaCode === '12420', 'Austin cbsa code (Austin-Round Rock-Georgetown, TX = 12420): got ' + austin?.cbsaCode);
   console.assert(typeof austin?.medianEarningsUsd === 'number' && austin.medianEarningsUsd > 20000, 'Austin median earnings plausible: ' + austin?.medianEarningsUsd);
-  console.assert(austin?.totalEmployed !== null && austin.totalEmployed > 100000, 'Austin totalEmployed plausible: ' + austin?.totalEmployed);
+  console.assert(typeof austin?.totalEmployed === 'number' && austin.totalEmployed > 100000, 'Austin totalEmployed plausible: ' + austin?.totalEmployed);
   console.assert(austin?.occupationTopGroup !== null, 'Austin top occupation group: ' + JSON.stringify(austin?.occupationTopGroup));
   console.assert('nursing' in (svc.getLicensingBoards('TX') as object), 'TX boards');
   console.assert('nursing' in (svc.getLicensingBoards('ZZ') as object), 'fallback boards');

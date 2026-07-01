@@ -186,7 +186,7 @@ function MessageBubble({ message }: { message: ChatMessage }): React.ReactElemen
         >
           {message.text}
         </div>
-        {!isUser && message.tool && message.data && (
+        {!isUser && message.tool && (message.data as React.ReactNode) && (
           <div className="w-full">
             <PayloadRenderer tool={message.tool} data={message.data} />
           </div>

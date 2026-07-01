@@ -565,7 +565,7 @@ export function exportICS(tripId: string | number): { ics: string; filename: str
       }
       return out;
     }
-    return `DTSTART;VALUE=DATE:${fmtDate(first.local_date)}\r\n`;
+    return `DTSTART;VALUE=DATE:${fmtDate(first.local_date ?? '')}\r\n`;
   };
 
   // Reservations as events

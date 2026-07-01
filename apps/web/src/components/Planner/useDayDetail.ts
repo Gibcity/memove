@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react'
 import { weatherApi, accommodationsApi } from '../../api/client'
 import { isDayInAccommodationRange } from '../../utils/dayOrder'
+import type { WeatherResult } from '@memove/shared'
+import type { Accommodation } from '../../types'
 
 /** Day-detail data + accommodation logic: weather load, accommodations list,
  *  hotel picker form state and create/update/delete handlers. */
 export function useDayDetail(day: any, days: any, tripId: any, lat: any, lng: any, language: any, onAccommodationChange: any) {
-  const [weather, setWeather] = useState(null)
+  const [weather, setWeather] = useState<WeatherResult | null>(null)
   const [loading, setLoading] = useState(false)
-  const [accommodation, setAccommodation] = useState(null)
-  const [dayAccommodations, setDayAccommodations] = useState<any[]>([])
-  const [accommodations, setAccommodations] = useState([])
+  const [accommodation, setAccommodation] = useState<Accommodation | null>(null)
+  const [dayAccommodations, setDayAccommodations] = useState<Accommodation[]>([])
+  const [accommodations, setAccommodations] = useState<Accommodation[]>([])
   const [showHotelPicker, setShowHotelPicker] = useState(false)
-  const [hotelDayRange, setHotelDayRange] = useState({ start: day?.id, end: day?.id })
+  const [hotelDayRange, setHotelDayRange] = useState<{ start: number | undefined; end: number | undefined }>({ start: day?.id, end: day?.id })
   const [hotelCategoryFilter, setHotelCategoryFilter] = useState('')
-  const [hotelForm, setHotelForm] = useState({ check_in: '', check_in_end: '', check_out: '', confirmation: '', place_id: null })
+  const [hotelForm, setHotelForm] = useState({ check_in: '', check_in_end: '', check_out: '', confirmation: '', place_id: null as number | null })
 
   useEffect(() => {
     if (!day?.date || !lat || !lng) { setWeather(null); return }
     setLoading(true)
     weatherApi.getDetailed(lat, lng, day.date, language)
-      .then(data => setWeather(data.error ? null : data))
+      .then(data => setWeather(data.error ? null : (data as WeatherResult)))
       .catch(() => setWeather(null))
       .finally(() => setLoading(false))
   }, [day?.date, lat, lng, language])
@@ -49,8 +51,8 @@ export function useDayDetail(day: any, days: any, tripId: any, lat: any, lng: an
     try {
       const data = await accommodationsApi.create(tripId, {
         place_id: hotelForm.place_id,
-        start_day_id: hotelDayRange.start,
-        end_day_id: hotelDayRange.end,
+        start_day_id: hotelDayRange.start ?? day?.id,
+        end_day_id: hotelDayRange.end ?? day?.id,
         check_in: hotelForm.check_in || null,
         check_in_end: hotelForm.check_in_end || null,
         check_out: hotelForm.check_out || null,

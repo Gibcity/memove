@@ -40,11 +40,12 @@
 - **Commit**: `7e5f8c18` — 22 files, +566/-242.
 - **Exit criterion**: ✅ all ready-to-wire controllers validate via `ZodValidationPipe`.
 
-### 5. strictNullChecks migration — WSJF 1.0 · large (incremental) · 🔴 pending
+### 5. strictNullChecks migration — WSJF 1.0 · large (incremental) · 🟢 done
 - **Problem**: `strict: false` in both api and web tsconfig.
 - **482 client + 60 server errors** when enabled.
-- **Approach**: file-by-file opt-in via `tsconfig` includes, not global flip.
-- **Exit criterion (per unit)**: file added to strict scope and compiles.
+- **Fix**: All 543 errors fixed across ~90 files. Mechanical fixes: `?.` optional chaining, `?? defaults`, null guards, typed useState/useRef generics, type narrowing. Both tsconfigs now have `"strictNullChecks": true` as standalone override (keeping `strict: false` for now — other strict sub-flags not yet enabled). Added `import '../typings/express'` to app.module.ts to load Express Request.user augmentation.
+- **Verified**: `tsc --noEmit` clean on both apps/api and apps/web. `pnpm -r typecheck` passes. Lint clean. Test failures identical to baseline (40 pre-existing).
+- **Exit criterion**: ✅ strictNullChecks enabled, zero errors.
 
 ---
 
@@ -64,3 +65,4 @@
 
 ## Changelog
 - 2026-07-01: Created from verified investigation. console.log count corrected 49→221. Controller count corrected 5→44. useShallow dropped as no-op. T5 stubs and LLM streaming dispatched.
+- 2026-07-01: strictNullChecks migration complete. 543 errors fixed across ~90 files. Both tsconfigs flipped. Stale strangler docs cleaned up (nest/README.md, oauth.module.ts, index.ts, globalMiddleware.ts).

@@ -28,9 +28,9 @@ export default function VacayPersons() {
   }, [currentUser, selectedUserId])
   const [showInvite, setShowInvite] = useState(false)
   const [showColorPicker, setShowColorPicker] = useState(false)
-  const [colorEditUserId, setColorEditUserId] = useState(null)
-  const [availableUsers, setAvailableUsers] = useState([])
-  const [selectedInviteUser, setSelectedInviteUser] = useState(null)
+  const [colorEditUserId, setColorEditUserId] = useState<number | null>(null)
+  const [availableUsers, setAvailableUsers] = useState<{ id: number; username: string; email: string }[]>([])
+  const [selectedInviteUser, setSelectedInviteUser] = useState<string | number | null>(null)
   const [inviting, setInviting] = useState(false)
 
   const loadAvailable = async () => {
@@ -41,10 +41,11 @@ export default function VacayPersons() {
   }
 
   const handleInvite = async () => {
-    if (!selectedInviteUser) return
+    if (selectedInviteUser === null) return
     setInviting(true)
     try {
-      await invite(selectedInviteUser)
+      const userId = typeof selectedInviteUser === 'number' ? selectedInviteUser : Number(selectedInviteUser)
+      await invite(userId)
       toast.success(t('vacay.inviteSent'))
       setShowInvite(false)
       setSelectedInviteUser(null)
@@ -55,7 +56,8 @@ export default function VacayPersons() {
     }
   }
 
-  const handleColorChange = async (color) => {
+  const handleColorChange = async (color: string) => {
+    if (colorEditUserId === null) return
     await updateColor(color, colorEditUserId)
     setShowColorPicker(false)
     setColorEditUserId(null)
@@ -86,7 +88,7 @@ export default function VacayPersons() {
               <button
                 onClick={(e) => { e.stopPropagation(); setColorEditUserId(u.id); setShowColorPicker(true) }}
                 className="w-3.5 h-3.5 rounded-full shrink-0 transition-transform hover:scale-125"
-                style={{ backgroundColor: u.color, cursor: 'pointer' }}
+                style={{ backgroundColor: u.color ?? undefined, cursor: 'pointer' }}
                 title={t('vacay.changeColor')}
               />
               <span className="text-xs font-medium flex-1 truncate text-content">
@@ -134,7 +136,7 @@ export default function VacayPersons() {
                 <p className="text-xs text-center py-4 text-content-faint">{t('vacay.noUsersAvailable')}</p>
               ) : (
                 <CustomSelect
-                  value={selectedInviteUser}
+                  value={selectedInviteUser ?? ''}
                   onChange={setSelectedInviteUser}
                   options={availableUsers.map(u => ({ value: u.id, label: `${u.username} (${u.email})` }))}
                   placeholder={t('vacay.selectUser')}

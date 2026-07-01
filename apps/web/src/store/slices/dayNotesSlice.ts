@@ -1,7 +1,7 @@
 import { daysApi, dayNotesApi } from '../../api/client'
 import type { StoreApi } from 'zustand'
 import type { TripStoreState } from '../tripStore'
-import type { DayNote } from '../../types'
+import type { DayNote, DayNoteCreateRequest, DayNoteUpdateRequest } from '@memove/shared'
 import { getApiErrorMessage } from '../../types'
 
 type SetState = StoreApi<TripStoreState>['setState']
@@ -49,7 +49,13 @@ export const createDayNotesSlice = (set: SetState, get: GetState): DayNotesSlice
       }
     }))
     try {
-      const result = await dayNotesApi.create(tripId, dayId, data)
+      const req: DayNoteCreateRequest = {
+        text: data.text,
+        ...(data.time != null ? { time: data.time } : {}),
+        ...(data.icon != null ? { icon: data.icon } : {}),
+        ...(data.sort_order !== undefined ? { sort_order: data.sort_order } : {}),
+      }
+      const result = await dayNotesApi.create(tripId, dayId, req)
       set(state => ({
         dayNotes: {
           ...state.dayNotes,
@@ -70,7 +76,13 @@ export const createDayNotesSlice = (set: SetState, get: GetState): DayNotesSlice
 
   updateDayNote: async (tripId, dayId, id, data) => {
     try {
-      const result = await dayNotesApi.update(tripId, dayId, id, data)
+      const req: DayNoteUpdateRequest = {
+        ...(data.text !== undefined ? { text: data.text } : {}),
+        ...(data.time != null ? { time: data.time } : {}),
+        ...(data.icon != null ? { icon: data.icon } : {}),
+        ...(data.sort_order !== undefined ? { sort_order: data.sort_order } : {}),
+      }
+      const result = await dayNotesApi.update(tripId, dayId, id, req)
       set(state => ({
         dayNotes: {
           ...state.dayNotes,
@@ -114,7 +126,10 @@ export const createDayNotesSlice = (set: SetState, get: GetState): DayNotesSlice
     try {
       await dayNotesApi.delete(tripId, fromDayId, noteId)
       const result = await dayNotesApi.create(tripId, toDayId, {
-        text: note.text, time: note.time, icon: note.icon, sort_order,
+        text: note.text,
+        ...(note.time != null ? { time: note.time } : {}),
+        ...(note.icon != null ? { icon: note.icon } : {}),
+        ...(sort_order !== undefined ? { sort_order } : {}),
       })
       set(s => ({
         dayNotes: {

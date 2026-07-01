@@ -6,6 +6,7 @@ import { triggerDownload } from './FileManager.helpers'
 
 export function PdfPreviewModal(S: FileManagerState) {
   const { previewFile, setPreviewFile, previewFileUrl, toast, t } = S
+  if (!previewFile) return null
   return ReactDOM.createPortal(
     <div
       style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}

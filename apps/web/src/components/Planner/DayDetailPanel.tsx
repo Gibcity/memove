@@ -168,7 +168,7 @@ export default function DayDetailPanel({ day, days, places, categories = [], tri
                   {weather.precipitation_probability_max != null && (
                     <Chip icon={Droplets} value={`${weather.precipitation_probability_max}%`} />
                   )}
-                  {weather.precipitation_sum > 0 && (
+                  {weather.precipitation_sum != null && weather.precipitation_sum > 0 && (
                     <Chip icon={CloudRain} value={`${weather.precipitation_sum.toFixed(1)} mm`} />
                   )}
                   {weather.wind_max != null && (
@@ -179,10 +179,10 @@ export default function DayDetailPanel({ day, days, places, categories = [], tri
                 </div>
 
                 {/* Hourly scroll */}
-                {weather.hourly?.length > 0 && (
+                {(weather.hourly?.length ?? 0) > 0 && (
                   <div style={{ overflowX: 'auto', margin: '0 -6px', padding: '0 6px 4px' }}>
                     <div style={{ display: 'inline-flex', gap: 2 }}>
-                      {weather.hourly.filter((_, i) => i % 2 === 0).map(h => (
+                      {(weather.hourly ?? []).filter((_, i) => i % 2 === 0).map(h => (
                         <div key={h.hour} style={{
                           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3,
                           width: 44, padding: '5px 2px', borderRadius: 8,
@@ -305,10 +305,10 @@ interface InfoChipProps {
 function InfoChip({ icon: Icon, label, value, placeholder, onEdit, type }: InfoChipProps) {
   const [editing, setEditing] = React.useState(false)
   const [val, setVal] = React.useState(value || '')
-  const inputRef = React.useRef(null)
+  const inputRef = React.useRef<HTMLInputElement>(null)
 
   React.useEffect(() => { setVal(value || '') }, [value])
-  React.useEffect(() => { if (editing && inputRef.current) inputRef.current.focus() }, [editing])
+  React.useEffect(() => { if (editing) inputRef.current?.focus() }, [editing])
 
   const save = () => {
     setEditing(false)

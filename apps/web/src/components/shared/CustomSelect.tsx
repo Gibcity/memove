@@ -9,15 +9,18 @@ interface SelectOption {
   label: string
   icon?: React.ReactNode
   isHeader?: boolean
+  disabled?: boolean
   searchLabel?: string
   groupLabel?: string
   badge?: string
 }
 
-interface CustomSelectProps {
+export type { SelectOption }
+
+interface CustomSelectProps<T extends SelectOption = SelectOption> {
   value: string | number
-  onChange: (value: string | number) => void
-  options?: SelectOption[]
+  onChange: (value: string | number, option?: T) => void
+  options?: T[]
   placeholder?: string
   searchable?: boolean
   style?: React.CSSProperties
@@ -25,7 +28,7 @@ interface CustomSelectProps {
   disabled?: boolean
 }
 
-export default function CustomSelect({
+export default function CustomSelect<T extends SelectOption = SelectOption>({
   value,
   onChange,
   options = [],
@@ -34,7 +37,7 @@ export default function CustomSelect({
   style = {},
   size = 'md',
   disabled = false,
-}: CustomSelectProps) {
+}: CustomSelectProps<T>) {
   const [open, setOpen] = useState(false)
   const [search, setSearch] = useState('')
   const ref = useRef<HTMLDivElement>(null)

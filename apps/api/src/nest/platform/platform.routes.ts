@@ -159,7 +159,7 @@ export function applyPlatformTransport(app: express.Application): void {
       scopesSupported: ALL_SCOPES as string[],
       resourceName: 'memove MCP',
     });
-    return _sdkMetaRouter;
+    return _sdkMetaRouter!;
   }
 
   // Only invoke the SDK metadata router for /.well-known/* paths.

@@ -798,7 +798,7 @@ export async function importNaverList(
 
   const firstPage = await fetchPage(0);
   if ('error' in firstPage) {
-    return { error: firstPage.error, status: firstPage.status };
+    return { error: firstPage.error ?? 'Unknown error', status: firstPage.status ?? 500 };
   }
 
   const listName = firstPage.data.folder?.name || 'Naver Maps List';
@@ -810,7 +810,7 @@ export async function importNaverList(
   for (let start = limit; start < totalCount; start += limit) {
     const page = await fetchPage(start);
     if ('error' in page) {
-      return { error: page.error, status: page.status };
+      return { error: page.error ?? 'Unknown error', status: page.status ?? 500 };
     }
     const pageItems = page.data.bookmarkList || [];
     if (!Array.isArray(pageItems) || pageItems.length === 0) break;

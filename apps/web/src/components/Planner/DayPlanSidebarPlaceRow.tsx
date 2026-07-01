@@ -6,6 +6,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import { useContextMenu } from '../shared/ContextMenu'
+import type { MenuItem } from '../shared/ContextMenu'
 import { formatTime, splitReservationDateTime } from '../../utils/formatters'
 import { parseTimeToMinutes } from '../../utils/dayMerge'
 import { TRANSPORT_TYPES } from '../../utils/dayMerge'
@@ -135,14 +136,16 @@ export function DayPlanSidebarPlaceRow({
         ref={el => registerAutoScrollRef(assignment.id, el, isPlaceSelected)}
         onDragEnd={() => { setDraggingId(null); setDragOverDayId(null); setDropTargetKey(null); dragDataRef.current = null }}
         onClick={() => { onPlaceClick(isPlaceSelected ? null : place.id, isPlaceSelected ? null : assignment.id); if (!isPlaceSelected) onSelectDay(dayId, true) }}
-        onContextMenu={e => ctxMenu.open(e, [
-          canEditDays && onEditPlace && { label: t('common.edit'), icon: Pencil, onClick: () => onEditPlace(place, assignment.id) },
-          canEditDays && onRemoveAssignment && { label: t('planner.removeFromDay'), icon: Trash2, onClick: () => onRemoveAssignment(dayId, assignment.id) },
-          place.website && { label: t('inspector.website'), icon: ExternalLink, onClick: () => window.open(place.website, '_blank') },
-          (place.lat && place.lng) && { label: 'Google Maps', icon: Navigation, onClick: () => window.open(`https://www.google.com/maps/search/?api=1&query=${place.google_place_id ? encodeURIComponent(place.name) + '&query_place_id=' + place.google_place_id : place.lat + ',' + place.lng}`, '_blank') },
-          { divider: true },
-          canEditDays && onDeletePlace && { label: t('common.delete'), icon: Trash2, danger: true, onClick: () => onDeletePlace(place.id) },
-        ])}
+        onContextMenu={e => {
+          const items: MenuItem[] = []
+          if (canEditDays && onEditPlace) items.push({ label: t('common.edit'), icon: Pencil, onClick: () => onEditPlace(place, assignment.id) })
+          if (canEditDays && onRemoveAssignment) items.push({ label: t('planner.removeFromDay'), icon: Trash2, onClick: () => onRemoveAssignment(dayId, assignment.id) })
+          if (place.website) items.push({ label: t('inspector.website'), icon: ExternalLink, onClick: () => window.open(place.website ?? '', '_blank') })
+          if (place.lat && place.lng) items.push({ label: 'Google Maps', icon: Navigation, onClick: () => window.open(`https://www.google.com/maps/search/?api=1&query=${place.google_place_id ? encodeURIComponent(place.name) + '&query_place_id=' + place.google_place_id : place.lat + ',' + place.lng}`, '_blank') })
+          items.push({ divider: true })
+          if (canEditDays && onDeletePlace) items.push({ label: t('common.delete'), icon: Trash2, danger: true, onClick: () => onDeletePlace(place.id) })
+          ctxMenu.open(e, items)
+        }}
         onMouseEnter={e => {
           if (!isPlaceSelected && !lockedIds.has(assignment.id))
             e.currentTarget.style.background = 'var(--bg-hover)'
@@ -307,23 +310,26 @@ export function DayPlanSidebarPlaceRow({
               </div>
             )
           })()}
-          {assignment.participants?.length > 0 && (
-            <div style={{ marginTop: 3, display: 'flex', alignItems: 'center', gap: -4 }}>
-              {assignment.participants.slice(0, 5).map((p, pi) => (
-                <div key={p.user_id} className="bg-surface-tertiary text-content-muted" style={{
-                  width: 16, height: 16, borderRadius: '50%', border: '1.5px solid var(--bg-card)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 7, fontWeight: 700,
-                  marginLeft: pi > 0 ? -4 : 0, flexShrink: 0,
-                  overflow: 'hidden',
-                }}>
-                  {p.avatar ? <img src={`/uploads/avatars/${p.avatar}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : p.username?.[0]?.toUpperCase()}
-                </div>
-              ))}
-              {assignment.participants.length > 5 && (
-                <span className="text-content-faint" style={{ fontSize: 8, marginLeft: 2 }}>+{assignment.participants.length - 5}</span>
-              )}
-            </div>
-          )}
+          {(() => {
+            const participants = assignment.participants ?? []
+            return participants.length > 0 ? (
+              <div style={{ marginTop: 3, display: 'flex', alignItems: 'center', gap: -4 }}>
+                {participants.slice(0, 5).map((p, pi) => (
+                  <div key={p.user_id} className="bg-surface-tertiary text-content-muted" style={{
+                    width: 16, height: 16, borderRadius: '50%', border: '1.5px solid var(--bg-card)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 7, fontWeight: 700,
+                    marginLeft: pi > 0 ? -4 : 0, flexShrink: 0,
+                    overflow: 'hidden',
+                  }}>
+                    {p.avatar ? <img src={`/uploads/avatars/${p.avatar}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : p.username?.[0]?.toUpperCase()}
+                  </div>
+                ))}
+                {participants.length > 5 && (
+                  <span className="text-content-faint" style={{ fontSize: 8, marginLeft: 2 }}>+{participants.length - 5}</span>
+                )}
+              </div>
+            ) : null
+          })()}
         </div>
         {canEditDays && <div className="reorder-buttons" style={{ flexShrink: 0, display: 'flex', gap: 1, transition: 'opacity 0.15s' }}>
           <button onClick={moveUp} disabled={idx === 0} className={idx === 0 ? 'text-[var(--border-primary)]' : 'text-content-faint'} style={{ background: 'none', border: 'none', padding: '1px 2px', cursor: idx === 0 ? 'default' : 'pointer', display: 'flex', lineHeight: 1 }}>

@@ -24,7 +24,7 @@ interface TripFormModalProps {
 
 export default function TripFormModal({ isOpen, onClose, onSave, trip, onCoverUpdate }: TripFormModalProps) {
   const isEditing = !!trip
-  const fileRef = useRef(null)
+  const fileRef = useRef<HTMLInputElement | null>(null)
   const toast = useToast()
   const { t } = useTranslation()
   const currentUser = useAuthStore(s => s.user)
@@ -45,8 +45,8 @@ export default function TripFormModal({ isOpen, onClose, onSave, trip, onCoverUp
   const [customReminder, setCustomReminder] = useState(false)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [coverPreview, setCoverPreview] = useState(null)
-  const [pendingCoverFile, setPendingCoverFile] = useState(null)
+  const [coverPreview, setCoverPreview] = useState<string | null>(null)
+  const [pendingCoverFile, setPendingCoverFile] = useState<File | null>(null)
   const [uploadingCover, setUploadingCover] = useState(false)
   const [allUsers, setAllUsers] = useState<{ id: number; username: string }[]>([])
   const [selectedMembers, setSelectedMembers] = useState<number[]>([])
@@ -167,11 +167,12 @@ export default function TripFormModal({ isOpen, onClose, onSave, trip, onCoverUp
     e.target.value = ''
   }
 
-  const uploadCoverNow = async (file) => {
+  const uploadCoverNow = async (file: File) => {
     setUploadingCover(true)
     try {
       const fd = new FormData()
       fd.append('cover', file)
+      if (!trip) return
       const data = await tripsApi.uploadCover(trip.id, fd)
       setCoverPreview(data.cover_image)
       onCoverUpdate?.(trip.id, data.cover_image)

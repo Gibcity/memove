@@ -12,7 +12,7 @@ export interface TripMember {
 // ── Chip with custom tooltip ─────────────────────────────────────────────────
 interface ChipWithTooltipProps {
   label: string
-  avatarUrl: string | null
+  avatarUrl?: string | null
   size?: number
   paid?: boolean
   onClick?: () => void

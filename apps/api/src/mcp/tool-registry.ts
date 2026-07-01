@@ -996,7 +996,7 @@ const logisticsTools: ToolDefinition[] = [
       };
 
       if (args.save) {
-        svc.journey.setMoveTimeline(Number(userId), { moveDate: args.moveDate as string, tasks: tasks as any });
+        svc.journey!.setMoveTimeline(Number(userId), { moveDate: args.moveDate as string, tasks: tasks as any });
       }
       return { summary, phases };
     },
@@ -1167,7 +1167,7 @@ const logisticsTools: ToolDefinition[] = [
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
     handler: (svc, args, userId) => {
-      const journey = svc.journey.toggleTask(Number(userId), args.taskId as string);
+      const journey = svc.journey!.toggleTask(Number(userId), args.taskId as string);
       const taskInTimeline = journey.moveTimeline?.tasks.find((t: any) => t.id === args.taskId);
       const isComplete = journey.completedTasks.includes(args.taskId as string);
       return {
@@ -1467,7 +1467,7 @@ const journeyTools: ToolDefinition[] = [
     inputSchema: {},
     annotations: TOOL_ANNOTATIONS_READONLY,
     scope: 'read',
-    handler: (svc, _args, userId) => ({ journey: svc.journey.getJourney(Number(userId)) }),
+    handler: (svc, _args, userId) => ({ journey: svc.journey!.getJourney(Number(userId)) }),
   },
   {
     name: 'shortlist_location',
@@ -1478,7 +1478,7 @@ const journeyTools: ToolDefinition[] = [
     },
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
-    handler: (svc, args, userId) => ({ journey: svc.journey.shortlistLocation(Number(userId), args.locationId as string) }),
+    handler: (svc, args, userId) => ({ journey: svc.journey!.shortlistLocation(Number(userId), args.locationId as string) }),
   },
   {
     name: 'eliminate_location',
@@ -1490,7 +1490,7 @@ const journeyTools: ToolDefinition[] = [
     },
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
-    handler: (svc, args, userId) => ({ journey: svc.journey.eliminateLocation(Number(userId), args.locationId as string, args.reason as string | undefined) }),
+    handler: (svc, args, userId) => ({ journey: svc.journey!.eliminateLocation(Number(userId), args.locationId as string, args.reason as string | undefined) }),
   },
   {
     name: 'update_relocation_preferences',
@@ -1507,7 +1507,7 @@ const journeyTools: ToolDefinition[] = [
     },
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
-    handler: (svc, args, userId) => ({ journey: svc.journey.updatePreferences(Number(userId), args as never) }),
+    handler: (svc, args, userId) => ({ journey: svc.journey!.updatePreferences(Number(userId), args as never) }),
   },
   {
     name: 'toggle_move_task',
@@ -1518,7 +1518,7 @@ const journeyTools: ToolDefinition[] = [
     },
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
-    handler: (svc, args, userId) => ({ journey: svc.journey.toggleTask(Number(userId), args.taskId as string) }),
+    handler: (svc, args, userId) => ({ journey: svc.journey!.toggleTask(Number(userId), args.taskId as string) }),
   },
   {
     name: 'save_comparison',
@@ -1529,7 +1529,7 @@ const journeyTools: ToolDefinition[] = [
     },
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
-    handler: (svc, args, userId) => ({ journey: svc.journey.saveComparison(Number(userId), args.comparison) }),
+    handler: (svc, args, userId) => ({ journey: svc.journey!.saveComparison(Number(userId), args.comparison) }),
   },
   {
     name: 'set_relocation_phase',
@@ -1540,7 +1540,7 @@ const journeyTools: ToolDefinition[] = [
     },
     annotations: TOOL_ANNOTATIONS_WRITE,
     scope: 'write',
-    handler: (svc, args, userId) => ({ journey: svc.journey.setPhase(Number(userId), args.phase as string) }),
+    handler: (svc, args, userId) => ({ journey: svc.journey!.setPhase(Number(userId), args.phase as string) }),
   },
 ];
 

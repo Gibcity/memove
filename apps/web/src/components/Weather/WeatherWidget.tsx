@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Sun, Cloud, CloudRain, CloudSnow, CloudDrizzle, CloudLightning, Wind } from 'lucide-react'
 import { fetchWeather } from '../../services/weatherQueue'
 import { useSettingsStore } from '../../store/settingsStore'
+import type { WeatherResult } from '@memove/shared'
 
 const WEATHER_ICON_MAP = {
   Clear: Sun,
@@ -47,7 +48,7 @@ interface WeatherWidgetProps {
 }
 
 export default function WeatherWidget({ lat, lng, date, compact = false, stacked = false }: WeatherWidgetProps) {
-  const [weather, setWeather] = useState(null)
+  const [weather, setWeather] = useState<WeatherResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [failed, setFailed] = useState(false)
   const isFahrenheit = useSettingsStore(s => s.settings.temperature_unit) === 'fahrenheit'

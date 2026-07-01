@@ -57,7 +57,7 @@ export class AdminController {
   updateUser(@CurrentUser() user: User, @Param('id') id: string, @Body() body: unknown, @Req() req: Request) {
     const result = ok(this.admin.updateUser(id, body));
     writeAudit({ userId: user.id, action: 'admin.user_update', resource: String(id), ip: getClientIp(req), details: { targetUser: result.previousEmail, fields: result.changed } });
-    logInfo(`Admin ${user.email} edited user ${result.previousEmail} (fields: ${result.changed.join(', ')})`);
+    logInfo(`Admin ${user.email} edited user ${result.previousEmail} (fields: ${(result.changed ?? []).join(', ')})`);
     return { user: result.user };
   }
 

@@ -93,7 +93,7 @@ export function bulkImport(tripId: string | number, items: ImportItem[]) {
       const weight = item.weight_grams ? parseInt(String(item.weight_grams)) || null : null;
 
       // Resolve bag by name if provided
-      let bagId = null;
+      let bagId: number | null = null;
       if (item.bag?.trim()) {
         const bagName = item.bag.trim();
         const existing = db.prepare('SELECT id FROM packing_bags WHERE trip_id = ? AND name = ?').get(tripId, bagName) as { id: number } | undefined;
@@ -102,7 +102,7 @@ export function bulkImport(tripId: string | number, items: ImportItem[]) {
         } else {
           const bagCount = (db.prepare('SELECT COUNT(*) as c FROM packing_bags WHERE trip_id = ?').get(tripId) as { c: number }).c;
           const newBag = db.prepare('INSERT INTO packing_bags (trip_id, name, color) VALUES (?, ?, ?)').run(tripId, bagName, BAG_COLORS[bagCount % BAG_COLORS.length]);
-          bagId = newBag.lastInsertRowid;
+          bagId = Number(newBag.lastInsertRowid);
         }
       }
 

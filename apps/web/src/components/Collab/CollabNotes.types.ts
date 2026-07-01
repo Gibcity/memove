@@ -26,6 +26,7 @@ export interface CollabNote {
   files?: NoteFile[]
   // Wire field: collabService embeds note files as `attachments` (with url).
   attachments?: NoteFile[]
+  updated_at?: string
 }
 
 export interface NoteAuthor {

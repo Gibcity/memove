@@ -37,18 +37,30 @@ const HOURS = Array.from({ length: 24 }, (_, i) => i)
 
 const DAYS_OF_MONTH = Array.from({ length: 28 }, (_, i) => i + 1)
 
+interface Backup {
+  filename: string
+  created_at?: string
+  size?: number
+}
+
+interface RestoreConfirm {
+  type: 'file' | 'upload'
+  filename: string
+  file?: File
+}
+
 export default function BackupPanel() {
-  const [backups, setBackups] = useState([])
+  const [backups, setBackups] = useState<Backup[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isCreating, setIsCreating] = useState(false)
-  const [restoringFile, setRestoringFile] = useState(null)
+  const [restoringFile, setRestoringFile] = useState<string | null>(null)
   const [isUploading, setIsUploading] = useState(false)
   const [autoSettings, setAutoSettings] = useState({ enabled: false, interval: 'daily', keep_days: 7, hour: 2, day_of_week: 0, day_of_month: 1 })
   const [autoSettingsSaving, setAutoSettingsSaving] = useState(false)
   const [autoSettingsDirty, setAutoSettingsDirty] = useState(false)
   const [serverTimezone, setServerTimezone] = useState('')
-  const [restoreConfirm, setRestoreConfirm] = useState(null) // { type: 'file'|'upload', filename, file? }
-  const fileInputRef = useRef(null)
+  const [restoreConfirm, setRestoreConfirm] = useState<RestoreConfirm | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const toast = useToast()
   const { t, language, locale } = useTranslation()
   const is12h = useSettingsStore(s => s.settings.time_format) === '12h'
@@ -101,7 +113,7 @@ export default function BackupPanel() {
 
   const executeRestore = async () => {
     if (!restoreConfirm) return
-    const { type, filename, file } = restoreConfirm
+    const { type, filename } = restoreConfirm
     setRestoreConfirm(null)
 
     if (type === 'file') {
@@ -115,6 +127,8 @@ export default function BackupPanel() {
         setRestoringFile(null)
       }
     } else {
+      const file = restoreConfirm.file
+      if (!file) return
       setIsUploading(true)
       try {
         await backupApi.uploadRestore(file)

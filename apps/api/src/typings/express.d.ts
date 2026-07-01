@@ -16,6 +16,11 @@ declare module 'express-serve-static-core' {
   }
 }
 
-// This file has imports, so TS treats it as a module. The empty export keeps
-// the `declare module` augmentation visible project-wide.
-export {};
+// ponytail: `@types/express` re-declares `interface Request<P...>` extending
+// core.Request. Augment core isn't enough — TS only walks `extends` chains
+// for property resolution on the *exported* `Request`. Mirror on express too.
+declare module 'express' {
+  interface Request {
+    user?: User | null;
+  }
+}
