@@ -163,5 +163,9 @@ export const relocationApi = {
 
   /** Ask the concierge a general relocation question. */
   askConcierge: (query: string) =>
-    apiClient.post<{ answer: string; category: string }>('/relocation/concierge', { query }).then(r => r.data),
+    apiClient.post<{ answer: string; category: string; logged: boolean }>('/relocation/concierge', { query }).then(r => r.data),
+
+  /** Category counts + sample queries — lane-promotion pipeline data. */
+  getConciergeStats: () =>
+    apiClient.get<{ category: string; count: number; sampleQueries: string[] }[]>('/relocation/concierge/stats').then(r => r.data),
 }

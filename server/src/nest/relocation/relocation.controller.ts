@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   HttpException,
   NotFoundException,
@@ -435,5 +436,36 @@ export class RelocationController {
   @Get('concierge/stats')
   conciergeStats() {
     return this.concierge.getQueryStats();
+  }
+
+  // ── DSR (GDPR/CCPA) ───────────────────────────────────────────
+  // ponytail: synchronous export/delete of every relocation-scoped row
+  // for the authenticated user — relocation_user_profile, relocation_journey,
+  // and any in-memory elicitation sessions. Relocation lacks Qdrant
+  // (search is location-static), so no vector store purge is needed.
+
+  /** GET /api/relocation/dsr/export — full relocation data export for the user */
+  @Get('dsr/export')
+  exportDsr(@CurrentUser() user: User) {
+    const userId = String(user.id);
+    return {
+      exportedAt: new Date().toISOString(),
+      userId,
+      ...this.relocation.exportUserData(userId),
+      journey: this.journey.exportUserData(Number(user.id)),
+    };
+  }
+
+  /** DELETE /api/relocation/dsr/delete — purge all relocation data for the user */
+  @Delete('dsr/delete')
+  deleteDsr(@CurrentUser() user: User) {
+    const profile = this.relocation.deleteUserData(String(user.id));
+    const journey = this.journey.deleteUserData(Number(user.id));
+    return {
+      deletedAt: new Date().toISOString(),
+      userId: String(user.id),
+      ...profile,
+      ...journey,
+    };
   }
 }

@@ -554,6 +554,12 @@ const elicitationSessions = new Map<string, ElicitationSession>();
 const elicitationAnswers = new Map<string, string[]>(); // sessionId → answers
 const implicitSignals: ImplicitSignal[] = [];
 
+// ponytail: ImplicitSignal carries no userId (see shared
+// relocation.schema.ts) so the process-global array cannot be reliably
+// attributed per-user. DSR uses profile.implicitSignalCount for export
+// and zeroes it on delete; the raw array is intentionally untouched so
+// other users' signals never leak.
+
 let _sessionCounter = 0;
 
 function newSessionId(): string {
@@ -1296,5 +1302,44 @@ export class RelocationService {
       }
     }
     return undefined;
+  }
+
+  // ── DSR (GDPR/CCPA) ─────────────────────────────────────────────────
+  // ponytail: gather every relocation-scoped row for the user; serialise
+  // verbatim. Elicitation sessions are in-memory and swept by userId match.
+
+  /** Collect every relocation-scoped record for export. */
+  exportUserData(userId: string): {
+    profile: UserProfile;
+    elicitationSessions: ElicitationSession[];
+  } {
+    const sessions: ElicitationSession[] = [];
+    for (const s of elicitationSessions.values()) {
+      if (s.userId === userId) sessions.push(s);
+    }
+    return { profile: this.getUserProfile(userId), elicitationSessions: sessions };
+  }
+
+  /** Purge all relocation-scoped records for the user. */
+  deleteUserData(userId: string): {
+    profileDeleted: boolean;
+    elicitationSessionsCleared: number;
+  } {
+    const res = this.db.run(
+      'DELETE FROM relocation_user_profile WHERE user_id = ?',
+      userId,
+    );
+    let sessionsCleared = 0;
+    for (const [sessionId, session] of elicitationSessions) {
+      if (session.userId === userId) {
+        elicitationSessions.delete(sessionId);
+        elicitationAnswers.delete(sessionId);
+        sessionsCleared += 1;
+      }
+    }
+    return {
+      profileDeleted: res.changes > 0,
+      elicitationSessionsCleared: sessionsCleared,
+    };
   }
 }

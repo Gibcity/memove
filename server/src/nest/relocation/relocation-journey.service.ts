@@ -272,4 +272,35 @@ export class RelocationJourneyService {
       description: JSON.stringify({ _relocationLink: true, version: 1, userId }),
     });
   }
+
+  // ── DSR (GDPR/CCPA) ──────────────────────────────────────────────
+  // ponytail: journey row + (lazily-created) trips the journey bridges
+  // into are wiped here. The trip FK is `user_id ON DELETE CASCADE`, so
+  // deleting the user row in `users` would cascade the trip away too —
+  // this stands alone for partial relocation-DSR (no full account kill).
+
+  /** Collect relocation_journey row for export. Null if user has no journey. */
+  exportUserData(userId: number): RelocationJourney | null {
+    const row = this.db.get<JourneyRow>(
+      'SELECT * FROM relocation_journey WHERE user_id = ?',
+      userId,
+    );
+    return row ? rowToJourney(row) : null;
+  }
+
+  /** Purge the relocation_journey row and any bridged relocation trip. */
+  deleteUserData(userId: number): {
+    journeyDeleted: boolean;
+  } {
+    this.db.run(
+      'DELETE FROM trips WHERE user_id = ? AND kind = ?',
+      userId,
+      TRIP_KIND.RELOCATION,
+    );
+    const res = this.db.run(
+      'DELETE FROM relocation_journey WHERE user_id = ?',
+      userId,
+    );
+    return { journeyDeleted: res.changes > 0 };
+  }
 }
