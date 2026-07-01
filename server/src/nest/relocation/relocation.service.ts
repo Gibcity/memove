@@ -637,7 +637,13 @@ export class RelocationService {
       if (filters.maxRiskWildfire && climate.wildfireRiskScore > filters.maxRiskWildfire) continue;
       if (filters.maxHotDays && climate.daysMaxGt90FAnnual > filters.maxHotDays) continue;
       if (filters.maxColdDays && climate.daysMinLt32FAnnual > filters.maxColdDays) continue;
-      if (filters.minPopulation && loc.population < filters.minPopulation) continue;
+      if (filters.minPopulation) {
+        // ponytail: if population is missing, do NOT silently pass — minPopulation
+        // is a floor, and a location we can't evaluate against the floor shouldn't
+        // qualify. undefined < N is false in JS, which is the silent-pass bug this
+        // guard fixes.
+        if (loc.population === undefined || loc.population < filters.minPopulation) continue;
+      }
       if (
         filters.nameContains &&
         !loc.name.toLowerCase().includes(filters.nameContains.toLowerCase())

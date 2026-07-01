@@ -128,6 +128,5 @@ function shutdown(signal: string): void {
     process.exit(1);
   }, 10000);
 }
-
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 process.on('SIGINT', () => shutdown('SIGINT'));

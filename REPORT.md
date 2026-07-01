@@ -325,3 +325,34 @@ report:
 ticket (open finding 1).** Relocation end-to-end is green across server +
 client + provenance + isolation. The remaining gate is the LLM-judge script,
 which is tracked separately.
+## Run on 2026-07-01T17:11:18Z
+
+\`\`\`text
+§10.1 (Playwright): not captured
+§10.3 (Playwright): not captured
+Additive vitest gates: exit 0
+Build: exit 0
+Playwright integration: exit 1
+
+Last 20 lines of Playwright output:
+        26 |   await page.locator('button[type="submit"]').click()
+          at /home/mongo/projects/us-relocation-2026/trek/client/e2e/auth.setup.ts:23:20
+  
+      attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+      test-results/auth.setup.ts-authenticate-5ecde-ncl-forced-password-change--setup-retry1/test-failed-1.png
+      ────────────────────────────────────────────────────────────────────────────────────────────────
+  
+      Error Context: test-results/auth.setup.ts-authenticate-5ecde-ncl-forced-password-change--setup-retry1/error-context.md
+  
+      attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+      test-results/auth.setup.ts-authenticate-5ecde-ncl-forced-password-change--setup-retry1/trace.zip
+      Usage:
+  
+          npx playwright show-trace test-results/auth.setup.ts-authenticate-5ecde-ncl-forced-password-change--setup-retry1/trace.zip
+  
+      ────────────────────────────────────────────────────────────────────────────────────────────────
+  
+    1 failed
+      [setup] › e2e/auth.setup.ts:14:1 › authenticate the seeded admin (incl. forced password change) 
+    3 did not run
+\`\`\`

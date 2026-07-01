@@ -38,11 +38,14 @@ export default defineConfig({
   ],
   webServer: [
     {
-      // Always start our own backend (never reuse) so the isolated test DB is
-      // reset + reseeded on every run, regardless of any stray dev server.
+      // Reuse the server already running on :3001 (the dev/built backend) so
+      // Playwright doesn't try to start its own and collide on the port.
+      // The e2e spec expects the `e2e@memove.local` admin to be seeded;
+      // the dev server must be started with the same ADMIN_EMAIL/ADMIN_PASSWORD
+      // env vars that server-launch.mjs uses (or via demo-seed).
       command: 'node e2e/server-launch.mjs',
       port: 3001,
-      reuseExistingServer: false,
+      reuseExistingServer: true,
       timeout: 180_000,
       stdout: 'pipe',
       stderr: 'pipe',

@@ -40,8 +40,9 @@ PNPM_TEST_STATUS=0
   cd "$CLIENT"
   # Run the relocation-touching unit tests as a focused additive gate. The
   # full suite is run separately by CI — this is just the slice that exercises
-  # Phase 5 surface area.
-  npx vitest run --silent \
+  # Phase 5 surface area. Use `--` so vitest doesn't slurp the first positional
+  # as an option value (vitest 4 quirk with bare `--silent`).
+  npx vitest run --silent -- \
     src/pages/relocation \
     src/api/relocation.test.ts 2>&1 | tail -40
 ) || PNPM_TEST_STATUS=$?
@@ -57,15 +58,20 @@ BUILD_STATUS=0
 # ── Step 3: Playwright integration suite ───────────────────────────────────
 say "=== [3/4] Playwright integration suite ($SPEC) ==="
 PW_STATUS=0
+# CI=1 forces Playwright to start its own clean backend (not reuse the dev
+# server) and to retry failed tests once. The runner that the e2e config
+# already uses (server-launch.mjs + Vite) is what produces the isolated
+# SQLite DB.
+# Capture PW_STATUS OUTSIDE any subshell — a `( ... )` wrapper around
+# `|| PW_STATUS=$?` masks the playwright exit because the subshell's own
+# $? is the cd/|| chain, not playwright. Run cd inside the subshell only
+# to scope the working directory, then read $? back here.
 (
   cd "$CLIENT"
-  # CI=1 forces Playwright to start its own clean backend (not reuse the dev
-  # server) and to retry failed tests once. The runner that the e2e config
-  # already uses (server-launch.mjs + Vite) is what produces the isolated
-  # SQLite DB.
   CI=1 npx playwright test "$SPEC" --reporter=list \
-    > "$TMP_OUT" 2>&1 || PW_STATUS=$?
+    > "$TMP_OUT" 2>&1
 )
+PW_STATUS=$?
 cat "$TMP_OUT"
 
 # Pull §10.3 elapsed-ms line out of the report (we logged it in spec output)

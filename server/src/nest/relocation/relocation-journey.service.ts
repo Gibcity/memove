@@ -150,7 +150,7 @@ export class RelocationJourneyService {
     try {
       this.bridgeTripFromJourney(userId);
     } catch (e) {
-      // eslint-disable-next-line no-console
+       
       console.error('[relocation-journey] bridge trip failed', { userId, error: (e as Error)?.message });
     }
     return this.getJourney(userId);
