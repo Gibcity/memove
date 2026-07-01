@@ -178,7 +178,7 @@ describe('Public routes', () => {
   it('FE-COMP-APP-013: /shared/:token is accessible without authentication', async () => {
     seedAuth({ isAuthenticated: false })
     renderApp('/shared/sometoken')
-    expect(screen.getByText('SharedTrip')).toBeInTheDocument()
+    await waitFor(() => expect(screen.getByText('SharedTrip')).toBeInTheDocument())
   })
 
   it('FE-COMP-APP-014: unknown routes redirect to / which then redirects to /login', async () => {

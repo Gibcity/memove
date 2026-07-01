@@ -1,4 +1,4 @@
-import React, { useEffect, ReactNode } from 'react'
+import React, { Suspense, lazy, useEffect, ReactNode } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore } from './store/authStore'
 import { useSettingsStore } from './store/settingsStore'
@@ -6,22 +6,37 @@ import { useAddonStore } from './store/addonStore'
 import LoginPage from './pages/LoginPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
-import DashboardPage from './pages/DashboardPage'
-import TripPlannerPage from './pages/TripPlannerPage'
-import FilesPage from './pages/FilesPage'
-import AdminPage from './pages/AdminPage'
-import SettingsPage from './pages/SettingsPage'
-import VacayPage from './pages/VacayPage'
-import AtlasPage from './pages/AtlasPage'
-import JourneyPage from './pages/JourneyPage'
-import JourneyDetailPage from './pages/JourneyDetailPage'
-import JourneyPublicPage from './pages/JourneyPublicPage'
-import SharedTripPage from './pages/SharedTripPage'
-import InAppNotificationsPage from './pages/InAppNotificationsPage.tsx'
-import AgentSurface from './pages/relocation/AgentSurface'
-import OAuthAuthorizePage from './pages/OAuthAuthorizePage'
+import { PageSpinner } from './components/shared/Spinner'
 import { ToastContainer } from './components/shared/Toast'
 import { ErrorBoundary } from './components/shared/ErrorBoundary'
+// ponytail: lazy-loaded for bundle splitting
+const DashboardPage = lazy(() => import('./pages/DashboardPage'))
+// ponytail: lazy-loaded for bundle splitting
+const TripPlannerPage = lazy(() => import('./pages/TripPlannerPage'))
+// ponytail: lazy-loaded for bundle splitting
+const FilesPage = lazy(() => import('./pages/FilesPage'))
+// ponytail: lazy-loaded for bundle splitting
+const AdminPage = lazy(() => import('./pages/AdminPage'))
+// ponytail: lazy-loaded for bundle splitting
+const SettingsPage = lazy(() => import('./pages/SettingsPage'))
+// ponytail: lazy-loaded for bundle splitting
+const VacayPage = lazy(() => import('./pages/VacayPage'))
+// ponytail: lazy-loaded for bundle splitting
+const AtlasPage = lazy(() => import('./pages/AtlasPage'))
+// ponytail: lazy-loaded for bundle splitting
+const JourneyPage = lazy(() => import('./pages/JourneyPage'))
+// ponytail: lazy-loaded for bundle splitting
+const JourneyDetailPage = lazy(() => import('./pages/JourneyDetailPage'))
+// ponytail: lazy-loaded for bundle splitting
+const JourneyPublicPage = lazy(() => import('./pages/JourneyPublicPage'))
+// ponytail: lazy-loaded for bundle splitting
+const SharedTripPage = lazy(() => import('./pages/SharedTripPage'))
+// ponytail: lazy-loaded for bundle splitting
+const InAppNotificationsPage = lazy(() => import('./pages/InAppNotificationsPage.tsx'))
+// ponytail: lazy-loaded for bundle splitting — landing page for relocation add-on
+const AgentSurface = lazy(() => import('./pages/relocation/AgentSurface'))
+// ponytail: lazy-loaded for bundle splitting
+const OAuthAuthorizePage = lazy(() => import('./pages/OAuthAuthorizePage'))
 import BottomNav from './components/Layout/BottomNav'
 import { TranslationProvider, useTranslation } from './i18n'
 import { authApi } from './api/client'
@@ -211,7 +226,8 @@ export default function App() {
       {!isAuthPage && <SystemNoticeHost />}
       <ToastContainer />
       <OfflineBanner />
-      <Routes>
+      <Suspense fallback={<PageSpinner wrapperClassName="min-h-screen flex items-center justify-center bg-slate-50" className="w-10 h-10 border-4 border-slate-200 border-t-slate-900" />}>
+        <Routes>
         <Route path="/" element={<RootRedirect />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/shared/:token" element={<SharedTripPage />} />
@@ -312,7 +328,8 @@ export default function App() {
           }
         />
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        </Routes>
+      </Suspense>
     </TranslationProvider>
   )
 }
