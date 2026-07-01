@@ -2,14 +2,14 @@
 node_modules/
 
 # Build output
-client/dist/
-server/dist/
-shared/dist/
-server/public/*
-!server/public/.gitkeep
+apps/web/dist/
+apps/api/dist/
+packages/shared/dist/
+apps/api/public/*
+!apps/api/public/.gitkeep
 
 # Generated PWA icons (built from SVG via prebuild)
-client/public/icons/*.png
+apps/web/public/icons/*.png
 
 # Database
 *.db
@@ -20,8 +20,8 @@ client/public/icons/*.png
 *.sqlite-wal
 
 # User data
-server/data/*
-server/uploads/
+apps/api/data/*
+apps/api/uploads/
 
 # Environment
 .env
