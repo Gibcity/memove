@@ -1,5 +1,13 @@
 # memove Relocation Frontend — QA Roast
 
+> **Historical document (2026-06-28).** Many findings below have since been resolved.
+> For current state see `/home/mongo/projects/us-relocation-2026/feature-map.md`
+> "Wiring gaps" section. Specifically #12 (chat rich payloads), #2 (Apply Checklist),
+> #4 (hard-filter label), #5 (apiClient bypass), #6 (static SVG map), and #8/#11/#13
+> (Saved tab, elicitation edit) are fixed as of 2026-06-30. Finding #10 (score
+> explainability) remains partially open. Kept here for audit trail — do not
+> treat the score column as current.
+
 Scope: `/home/mongo/projects/us-relocation-2026/memove/client/src/pages/relocation/`,
 `/home/mongo/projects/us-relocation-2026/memove/client/src/api/relocation.ts`,
 `/home/mongo/projects/us-relocation-2026/memove/shared/src/relocation/relocation.schema.ts`.
