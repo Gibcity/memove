@@ -2,22 +2,44 @@ import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 
-// ponytail: reuse existing locations.json — no new data pipeline, no BLS calls.
-// BLS OEUM series IDs are metro-specific and require an API key for v2.
-// v1 surfaces what's already on Location: COL index, home value, rent, tax score.
+// Occupation/earnings data comes from Census ACS S2001 + S2401 (see
+// sources/scripts/pull_cbsa_occupation_earnings.py). BLS OEUM/MSA isn't
+// accessible — the public BLS API v2 doesn't expose OEUM series, and
+// www.bls.gov is geo-blocked at our egress. ACS gives us the same shape
+// (CBSA-level employment counts + median earnings) with one key we already
+// have. Reuse the existing Location record for the cost/fiscal fields.
 
 const LOCATIONS_PATH = path.resolve(
   __dirname,
   '../../../../sources/processed/relocation/locations.json',
 );
+const OCCUPATION_PATH = path.resolve(
+  __dirname,
+  '../../../../sources/processed/cbsa_occupation.json',
+);
 
-let _cache: LocationLite[] | null = null;
+let _locations: LocationLite[] | null = null;
+let _cbsaData: Map<string, CbsaCareer> | null = null;
 
 interface LocationLite {
   name: string;
   state: string;
   cost: { medianHomeValue: number; medianRent: number; costOfLivingIndex: number };
   fiscal: { taxCompetitivenessScore: number };
+}
+
+interface CbsaCareer {
+  cbsa_code: string;
+  earnings: {
+    medianEarningsUsd: number | null;
+    medianEarningsFullTimeYearRoundUsd: number | null;
+    meanEarningsFullTimeYearRoundUsd: number | null;
+  };
+  occupation: {
+    totalEmployed: number | null;
+    byGroup: Record<string, number | null>;
+    pctByGroup: Record<string, number | null>;
+  };
 }
 
 interface LicensingBoard { name: string; url: string }
@@ -121,10 +143,16 @@ function stateNameFromCode(code: string): string {
 export interface EconomicIndicators {
   metroName: string;
   state: string;
+  cbsaCode: string | null;
   costOfLivingIndex: number;
   medianHomeValue: number;
   medianRent: number;
   taxCompetitivenessScore: number;
+  medianEarningsUsd: number | null;
+  medianEarningsFullTimeYearRoundUsd: number | null;
+  totalEmployed: number | null;
+  occupationPctByGroup: Record<string, number | null> | null;
+  occupationTopGroup: { group: string; pct: number } | null;
   note: string;
 }
 
@@ -135,19 +163,65 @@ export interface OccupationOutlook {
 }
 
 function loadLocations(): LocationLite[] {
-  if (_cache === null) {
-    _cache = JSON.parse(fs.readFileSync(LOCATIONS_PATH, 'utf-8')) as LocationLite[];
+  if (_locations === null) {
+    _locations = JSON.parse(fs.readFileSync(LOCATIONS_PATH, 'utf-8')) as LocationLite[];
   }
-  return _cache;
+  return _locations;
+}
+
+function loadCbsaData(): Map<string, CbsaCareer> {
+  if (_cbsaData === null) {
+    const raw = JSON.parse(fs.readFileSync(OCCUPATION_PATH, 'utf-8')) as { cbsas: CbsaCareer[] };
+    _cbsaData = new Map(raw.cbsas.map((c) => [c.cbsa_code, c]));
+  }
+  return _cbsaData;
+}
+
+// ponytail: Locations use short "City, ST" names (e.g. "Austin, TX"); ACS
+// payload is keyed by cbsa_code only. Build the name→cbsa_code index from
+// the canonical ACS pull and match there. Done once at module load.
+let _nameToCbsa: Map<string, string> | null = null;
+function nameToCbsaIndex(): Map<string, string> {
+  if (_nameToCbsa === null) {
+    const acsPath = path.resolve(__dirname, '../../../../sources/processed/census_acs_cbsa.json');
+    const acs = JSON.parse(fs.readFileSync(acsPath, 'utf-8')) as {
+      cbsas: { cbsa_code: string; name: string }[];
+    };
+    const SUFFIXES = [' Micro Area', ' Metro Area'] as const;
+    const idx = new Map<string, string>();
+    for (const rec of acs.cbsas) {
+      for (const suffix of SUFFIXES) {
+        if (rec.name.endsWith(suffix)) {
+          idx.set(rec.name.slice(0, -suffix.length), rec.cbsa_code);
+          break;
+        }
+      }
+      idx.set(rec.name, rec.cbsa_code);
+    }
+    // ponytail: multi-state CBSAs (e.g. "New York-Newark-Jersey City, NY-NJ-PA")
+    // have the primary state in locations.json ("…NY"). Build a secondary index
+    // keyed by the primary-state version so startsWith lookups still resolve.
+    // ponytail: secondary index — primary state truncated to "<city>, ST" form.
+    const primaryIdx = new Map<string, string>();
+    for (const [k, v] of idx.entries()) {
+      // Pull out "<prefix>, ST" — everything up to the first ", ST" segment.
+      const m = k.match(/^(.+?), ([A-Z]{2})(?:-|$)/);
+      if (m) primaryIdx.set(`${m[1]}, ${m[2]}`, v);
+    }
+    for (const [k, v] of primaryIdx) {
+      if (!idx.has(k)) idx.set(k, v);
+    }
+    _nameToCbsa = idx;
+  }
+  return _nameToCbsa;
 }
 
 @Injectable()
 export class CareerService {
-  // ponytail: returns proxy economic fields already on Location.
-  // Real medianHouseholdIncome / unemploymentRate aren't in v1 schema.
-  // TODO(wages): wire BLS OEUM (https://data.bls.gov/oew/) when a metro→series
-  // mapping is built at ingest time — currently just returns Location-level
-  // cost/fiscal fields, renamed from getWageData so it stops claiming to be wages.
+  // ponytail: real data path — Location provides cost/fiscal; ACS S2001/S2401
+  // provides earnings + occupation mix. Both files are pre-built and
+  // cacheable in memory; lookups are O(1). The previous "TODO wages" stub is
+  // now real Census ACS data (BLS OEUM is unavailable from this network).
   getEconomicIndicators(metroName: string, _occupation?: string): EconomicIndicators | null {
     const needle = metroName.trim().toLowerCase();
     const locs = loadLocations();
@@ -159,14 +233,36 @@ export class CareerService {
         return l.name.toLowerCase().startsWith(city) && l.state.toLowerCase() === needle.split(',').pop()?.trim();
       });
     if (!loc) return null;
+
+    const cbsaCode = nameToCbsaIndex().get(loc.name) ?? null;
+    const cbsa = cbsaCode ? loadCbsaData().get(cbsaCode) : undefined;
+
+    const pct = cbsa?.occupation.pctByGroup ?? null;
+    let topGroup: { group: string; pct: number } | null = null;
+    if (pct) {
+      for (const [group, value] of Object.entries(pct)) {
+        if (typeof value === 'number' && (topGroup === null || value > topGroup.pct)) {
+          topGroup = { group, pct: value };
+        }
+      }
+    }
+
     return {
       metroName: loc.name,
       state: loc.state,
+      cbsaCode,
       costOfLivingIndex: loc.cost.costOfLivingIndex,
       medianHomeValue: loc.cost.medianHomeValue,
       medianRent: loc.cost.medianRent,
       taxCompetitivenessScore: loc.fiscal.taxCompetitivenessScore,
-      note: 'Proxy economic indicators from existing Location record. Wages from BLS OEUM are not yet wired (TODO).',
+      medianEarningsUsd: cbsa?.earnings.medianEarningsUsd ?? null,
+      medianEarningsFullTimeYearRoundUsd: cbsa?.earnings.medianEarningsFullTimeYearRoundUsd ?? null,
+      totalEmployed: cbsa?.occupation.totalEmployed ?? null,
+      occupationPctByGroup: pct,
+      occupationTopGroup: topGroup,
+      note: cbsa
+        ? 'Earnings/occupation from Census ACS 5-Year S2001+S2401 (2022 vintage). BLS OEUM not accessible from this network.'
+        : 'Location found but no ACS occupation/earnings record (likely micro area below Census publish threshold).',
     };
   }
 
@@ -193,7 +289,12 @@ export class CareerService {
 // ponytail: one-liner self-check — fails if lookup or URL format drifts.
 if (require.main === module) {
   const svc = new CareerService();
-  console.assert(svc.getEconomicIndicators('Austin, TX')?.state === 'TX', 'Austin lookup');
+  const austin = svc.getEconomicIndicators('Austin, TX');
+  console.assert(austin?.state === 'TX', 'Austin lookup');
+  console.assert(austin?.cbsaCode === '12420', 'Austin cbsa code (Austin-Round Rock-Georgetown, TX = 12420): got ' + austin?.cbsaCode);
+  console.assert(typeof austin?.medianEarningsUsd === 'number' && austin.medianEarningsUsd > 20000, 'Austin median earnings plausible: ' + austin?.medianEarningsUsd);
+  console.assert(austin?.totalEmployed !== null && austin.totalEmployed > 100000, 'Austin totalEmployed plausible: ' + austin?.totalEmployed);
+  console.assert(austin?.occupationTopGroup !== null, 'Austin top occupation group: ' + JSON.stringify(austin?.occupationTopGroup));
   console.assert('nursing' in (svc.getLicensingBoards('TX') as object), 'TX boards');
   console.assert('nursing' in (svc.getLicensingBoards('ZZ') as object), 'fallback boards');
   const url = svc.getOccupationOutlook('Registered Nurse').blsOohUrl;

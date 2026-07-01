@@ -27,6 +27,13 @@ const env = {
   MEMOVE_DB_FILE: dbFile,
   ADMIN_EMAIL: 'e2e@memove.local',
   ADMIN_PASSWORD: 'E2eTest12345!',
+  // ponytail: force demo-mode OFF so seedAdminAccount runs and creates
+  // e2e@memove.local with must_change_password=1 (matches auth.setup.ts).
+  // Without this, the repo's .env's DEMO_MODE=true causes
+  // seeds.ts:seedAdminAccount to early-return and the demo seeder
+  // creates admin@memove.app instead — auth.setup then hits "unknown_email".
+  // 1-line harness fix; the bootstrap bug (Bug E?) should still be filed.
+  DEMO_MODE: 'false',
   PORT: '3001',
   NODE_ENV: 'development',
 }

@@ -539,9 +539,16 @@ const ELICITATION_QUESTIONS: ElicitationQuestion[] = [
         value: 'safety',
         label: 'Safe neighborhoods with low crime',
       },
+      // ponytail: schools and healthcare were one option — parents and
+      // patients have orthogonal needs, so split. Distinct values mean
+      // downstream weight mapping can target each independently.
       {
-        value: 'schools_healthcare',
-        label: 'Good schools and healthcare access',
+        value: 'schools',
+        label: 'Good public schools',
+      },
+      {
+        value: 'healthcare_access',
+        label: 'Strong healthcare access',
       },
       {
         value: 'jobs_internet',
@@ -679,6 +686,14 @@ export class RelocationService {
           taxCompetitivenessScore: loc.fiscal.taxCompetitivenessScore,
           statePensionFundedRatio: loc.fiscal.statePensionFundedRatio,
         },
+        // ponytail: include education.publicSchoolRatingAvg in the list
+        // payload so parents can scan schools across the corpus without
+        // hitting detail. studentTeacherRatio is intentionally omitted —
+        // it's a `0:1` placeholder for every CBSA (NCES CCD not pulled);
+        // surfacing bad data is worse than missing data.
+        education: loc.education?.publicSchoolRatingAvg != null
+          ? { publicSchoolRatingAvg: loc.education.publicSchoolRatingAvg }
+          : undefined,
       } as Partial<Location>);
 
       if (results.length >= limit) break;
@@ -1166,7 +1181,14 @@ export class RelocationService {
         } else if (answer === 'safety') {
           stated.push({ metric: 'crime', rank: 1, weight: 0.4 });
           weights.crime = 0.35;
-        } else if (answer === 'schools_healthcare') {
+        } else if (answer === 'schools') {
+          // ponytail: schools/healthcare were one option (schools_healthcare).
+          // Split the Q3 branch the same way the options were split so the
+          // new values actually map to weights — otherwise the answer
+          // silently no-ops.
+          stated.push({ metric: 'amenities', rank: 1, weight: 0.4 });
+          weights.amenities = 0.3;
+        } else if (answer === 'healthcare_access') {
           stated.push({ metric: 'amenities', rank: 1, weight: 0.4 });
           weights.amenities = 0.3;
         } else if (answer === 'jobs_internet') {

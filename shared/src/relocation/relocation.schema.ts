@@ -122,6 +122,17 @@ export const healthOutcomesDataSchema = z.object({
 });
 export type HealthOutcomesData = z.infer<typeof healthOutcomesDataSchema>;
 
+// EPA National Walkability Index, aggregated to CBSA. Score is a
+// population-weighted mean of block-group NatWalkInd (1-20 scale).
+// Source: https://www.epa.gov/smartgrowth/national-walkability-index-user-guide-and-methodology
+export const walkabilityDataSchema = z.object({
+  walkabilityScore: z.number(), // 1-20, pop-weighted mean
+  walkabilityUnweighted: z.number(), // 1-20, simple mean
+  blockGroupCount: z.number(),
+  totPop: z.number(),
+});
+export type WalkabilityData = z.infer<typeof walkabilityDataSchema>;
+
 export const locationSchema = z.object({
   // Identity
   id: z.string(), // 'dallas-tx'
@@ -145,6 +156,7 @@ export const locationSchema = z.object({
   transportation: transportationDataSchema.optional(),
   mobility: mobilityDataSchema.optional(),
   healthOutcomes: healthOutcomesDataSchema.optional(),
+  walkability: walkabilityDataSchema.optional(),
 
   // Composite scores
   blended: blendedScoreSchema,
