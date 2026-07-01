@@ -214,6 +214,7 @@ references real paths (see `scripts/check-agents-md.mjs`).
 
 ## 12. See also
 
+- `PLAN.md` — execution plan: MapLibre migration, repo consolidation, quality debt backlog
 - `README.md` — human-facing project overview, screenshots, feature tour
 - `wiki/` — operator docs (Unraid install, photo providers, MFA, 2FA rotation)
 - `docs/system-notices.md` — server-side notice system (the most-edited domain guide)
