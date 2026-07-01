@@ -23,6 +23,9 @@ apps/web/public/icons/*.png
 apps/api/data/*
 apps/api/uploads/
 
+# Large raw input data (untracked to keep repo light; processed/normalized are tracked)
+data/raw/
+
 # Environment
 .env
 .env.*

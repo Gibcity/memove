@@ -2,7 +2,7 @@
 
 > **Purpose:** Single bootstrap file for AI coding agents. Read this first on every new
 > session. Stable, short, machine-checked. Human-facing docs live in `README.md`,
-> `docs/wiki/`, and the root-level `CONTRACT.md` / `INVENTORY.md` / `BRIEF-*.md`.
+> `docs/wiki/`, and `docs/planning/` (planning briefs and contracts).
 
 This file is read by Codex, Claude Code, Cursor, Gemini CLI, Zed, aider, and others.
 Keep it under **~300 lines**. Anything longer belongs in a linked doc.
@@ -219,7 +219,7 @@ references real paths (see `scripts/check-agents-md.mjs`).
 - `README.md` — human-facing project overview, screenshots, feature tour
 - `wiki/` — operator docs (Unraid install, photo providers, MFA, 2FA rotation)
 - `docs/system-notices.md` — server-side notice system (the most-edited domain guide)
-- Root-level `CONTRACT.md`, `INVENTORY.md`, `BRIEF-*.md` — planning docs for the
+- `docs/planning/CONTRACT.md`, `docs/planning/INVENTORY.md`, `docs/planning/BRIEF-*.md` — planning docs for the
   relocation add-on (read these before relocation tasks)
 - `CONTRIBUTING.md` — PR + commit + branch policy
 - `SECURITY.md` — vulnerability reporting
