@@ -47,6 +47,22 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
     admin.id = Number(admin.id);
   }
 
+  // ponytail: always (re)seed the e2e harness admin so the Playwright suite
+  // — which reuses this dev server via playwright.config.ts reuseExistingServer —
+  // finds `e2e@memove.local` with must_change_password=1 regardless of any prior
+  // run that may have changed the password or cleared the flag. Idempotent on
+  // first boot, fully reset on subsequent boots.
+  const E2E_EMAIL = 'e2e@memove.local';
+  const E2E_PASS = 'E2eTest12345!';
+  const e2eHash = bcrypt.hashSync(E2E_PASS, 10);
+  const existingE2E = db.prepare('SELECT id, password_hash, must_change_password FROM users WHERE email = ?').get(E2E_EMAIL) as { id: number; password_hash: string; must_change_password: number } | undefined;
+  if (existingE2E) {
+    db.prepare('UPDATE users SET password_hash = ?, must_change_password = 1, updated_at = CURRENT_TIMESTAMP WHERE id = ?').run(e2eHash, existingE2E.id);
+  } else {
+    db.prepare('INSERT INTO users (username, email, password_hash, role, must_change_password) VALUES (?, ?, ?, ?, 1)').run('e2e', E2E_EMAIL, e2eHash, 'admin');
+    console.log('[Demo] E2E seed user created (e2e@memove.local, must_change_password=1)');
+  }
+
   // Create demo user if not exists
   let demo = db.prepare('SELECT id FROM users WHERE email = ?').get(DEMO_EMAIL) as { id: number } | undefined;
   if (!demo) {

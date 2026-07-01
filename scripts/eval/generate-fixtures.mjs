@@ -10,7 +10,8 @@ import { createRequire } from 'node:module';
 import { PROFILES } from './profiles.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const trekRoot = resolve(here, '..');
+// ponytail: generator lives at scripts/eval/, two `..` to reach trek root.
+const trekRoot = resolve(here, '..', '..');
 const require = createRequire(import.meta.url);
 const svcMod = require(resolve(trekRoot, 'server/dist/nest/relocation/relocation.service.js'));
 const inst = new svcMod.RelocationService();

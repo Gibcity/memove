@@ -10,6 +10,11 @@
 // card, hard-filter banner, or candidate rows. The buildplan's components /
 // localization keys are stable enough to anchor on. If you find yourself
 // updating i18n keys, update these strings too.
+//
+// ponytail: /relocation now mounts the AgentSurface chat (Sparkles header +
+// empty-hero prompts + sticky input) instead of the old elicitation card +
+// candidate library. The elicitation API is still served and the test still
+// drives it end-to-end; only the DOM anchor changed.
 
 import { test, expect, request as pwRequest } from '@playwright/test'
 
@@ -41,11 +46,14 @@ test.describe('Phase 5 §10.1–10.3 relocation integration', () => {
     const t0 = now()
     await page.goto(RELOCATION)
 
-    // The elicitation card is the first interactive thing the user sees. It
-    // anchors on the i18n title (trek/shared/src/i18n/en/relocation.ts:100).
-    await expect(page.getByText('Tell us about your move')).toBeVisible({
-      timeout: 30_000,
-    })
+    // The AgentSurface chat header is the first persistent thing the user
+    // sees; it proves the SPA shell mounted the relocation page. The old
+    // elicitation card ("Tell us about your move") was removed when the chat
+    // surface replaced the card + library layout. The API block below still
+    // drives the elicitation end-to-end — same intent, different anchor.
+    await expect(
+      page.getByRole('heading', { name: 'Relocation agent', level: 1 }),
+    ).toBeVisible({ timeout: 30_000 })
 
     // ── Drive 3 elicitation answers via the API (same path the FE uses) ──
     // Three responses close out one session (`done: true`). The task spec
@@ -174,42 +182,31 @@ test.describe('Phase 5 §10.1–10.3 relocation integration', () => {
     }
   })
 
-  test('§10.3 cold-start: candidates list reaches /relocation within budget', async ({
+  test('§10.3 cold-start: agentsurface reaches /relocation within budget', async ({
     page,
     baseURL,
   }) => {
     // Fresh session in this storageState — same seeded admin (DB is shared
     // with §10.1 / §10.2 by design). The "cold-start" property we measure is
-    // the UI time-to-first-candidate-paint against a warm-ish profile.
+    // the UI time-to-interactive against a warm-ish profile.
     const t0 = now()
     await page.goto(RELOCATION)
 
-    // Wait for ANY signal that the candidate library has hydrated: a button
-    // with aria-label starting with "{name} details" (the row component
-    // used in the candidate library), or the empty-state text. Both prove
-    // the candidate-fetch finished and the shell is interactive.
-    const candidateRow = page.getByRole('button', {
-      name: /^[A-Z][a-zA-Z .'-]+,?\s?[A-Z]{2}\s+details$/,
-    })
-
-    const arrived = await Promise.race([
-      candidateRow
-        .first()
-        .waitFor({ state: 'visible', timeout: 5 * 60_000 })
-        .then(() => 'row' as const),
-      page
-        .getByText(/no candidates match your filters/i)
-        .first()
-        .waitFor({ state: 'visible', timeout: 5 * 60_000 })
-        .then(() => 'empty' as const),
-    ]).catch(() => 'timeout' as const)
+    // Wait for a hydration signal on the new AgentSurface: the sticky agent
+    // input renders as soon as the shell mounts (independent of any chat
+    // fetch). Replaces the old "candidate row / empty-state" race, which
+    // pointed at the candidate library that lived inside the now-removed
+    // elicitation card layout.
+    const agentInput = page.getByPlaceholder(
+      'Ask about cities, costs, timelines…',
+    )
+    await agentInput.waitFor({ state: 'visible', timeout: 30_000 })
 
     const elapsed = now() - t0
 
     // Surface the measurement so the run report can cite it.
-    console.log(`§10.3 cold-start elapsed ms: ${elapsed}; outcome: ${arrived}`)
+    console.log(`§10.3 cold-start elapsed ms: ${elapsed}; outcome: hydrated`)
 
-    expect(arrived).not.toBe('timeout')
     // Sanity: not 5 minutes. The spec budget is 5 min; we expect sub-second
     // on a warm seeded DB, but don't make the test flaky on slower hardware.
     expect(elapsed).toBeLessThan(5 * 60_000)
