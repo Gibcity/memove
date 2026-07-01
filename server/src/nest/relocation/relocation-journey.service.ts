@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Optional } from '@nestjs/common';
 import type { RelocationJourney, JourneyPreferences, JourneyTimeline, JourneyDecision } from '@memove/shared';
 import { DatabaseService } from '../database/database.service';
 import { RelocationService } from './relocation.service';
@@ -56,6 +56,7 @@ export class RelocationJourneyService {
     private readonly db: DatabaseService,
     // ponytail: optional so MCP tools that `new RelocationJourneyService(db)` directly
     // keep working. When absent, the bridge falls back to a generic title.
+    @Optional()
     private readonly relocation?: RelocationService,
   ) {}
 
