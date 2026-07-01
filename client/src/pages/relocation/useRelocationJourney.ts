@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import type { RelocationJourney, JourneyPreferences } from '@memove/shared'
 import { relocationApi } from '../../api/relocation'
 import { useToast } from '../../components/shared/Toast'
 
@@ -11,48 +12,6 @@ import { useToast } from '../../components/shared/Toast'
  * thin wrapper around each — server is the source of truth, so every action
  * re-fetches the journey rather than mutating locally.
  */
-
-// ponytail: shape lives here, not @memove/shared, because the journey types
-// haven't been promoted to the shared schema yet. Hoist when a second
-// consumer (FE + server + ETL) needs them.
-export interface JourneyTimelineTask {
-  id: string
-  phase: string
-  title: string
-  description: string
-  dueOffsetDays: number
-  category: 'research' | 'logistics' | 'admin' | 'housing' | 'financial'
-  completed: boolean
-}
-
-export interface JourneyTimeline {
-  moveDate?: string
-  tasks: JourneyTimelineTask[]
-}
-
-export interface RelocationJourney {
-  userId: number
-  shortlistedLocations: string[]
-  savedComparisons: unknown[]
-  moveTimeline: JourneyTimeline | null
-  preferences: Record<string, unknown>
-  decisionLog: unknown[]
-  completedTasks: string[]
-  currentPhase: string
-  createdAt: string
-  updatedAt: string
-}
-
-// ponytail: the server defines 4 phases (discovery/housing/logistics/
-// settlement). Inline the list here so the panel can render phase chips
-// without an extra constant export from shared.
-export const JOURNEY_PHASES = [
-  'discovery',
-  'housing',
-  'logistics',
-  'settlement',
-] as const
-export type JourneyPhase = (typeof JOURNEY_PHASES)[number]
 
 const EMPTY_JOURNEY: RelocationJourney = {
   userId: 0,
@@ -137,7 +96,7 @@ export function useRelocationJourney() {
   )
 
   const updatePreferences = useCallback(
-    async (prefs: Record<string, unknown>) => {
+    async (prefs: Partial<JourneyPreferences>) => {
       try {
         const next = await relocationApi.updateJourneyPreferences(prefs)
         setJourney(next)

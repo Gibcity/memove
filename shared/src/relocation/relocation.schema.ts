@@ -342,3 +342,68 @@ export const elicitationSessionSchema = z.object({
   updatedAt: z.string(),
 });
 export type ElicitationSession = z.infer<typeof elicitationSessionSchema>;
+
+// --- §Relocation journey (persistent per-user workspace) ---------------------
+
+// ponytail: server defines 4 phases. Mirror the const list here so consumers
+// don't need a separate import for the discriminated union of valid phases.
+export const JOURNEY_PHASES = ['discovery', 'housing', 'logistics', 'settlement'] as const;
+export type JourneyPhase = (typeof JOURNEY_PHASES)[number];
+
+export const journeyPreferencesSchema = z.object({
+  maxBudget: z.number().optional(),
+  householdSize: z.number().optional(),
+  employment: z.enum(['remote', 'hybrid', 'onsite', 'retired', 'student', 'looking']).optional(),
+  demographics: z
+    .object({
+      ageRange: z.string().optional(),
+      hasChildren: z.boolean().optional(),
+      schoolAgeChildren: z.number().optional(),
+    })
+    .optional(),
+  climatePreference: z.enum(['warm', 'mild', 'four_seasons', 'cold_tolerant']).optional(),
+  priorities: z.record(z.string(), z.number()).optional(), // metric → weight
+});
+export type JourneyPreferences = z.infer<typeof journeyPreferencesSchema>;
+
+export const journeyTimelineTaskSchema = z.object({
+  id: z.string(),
+  phase: z.string(),
+  title: z.string(),
+  description: z.string(),
+  dueOffsetDays: z.number(),
+  category: z.enum(['research', 'logistics', 'admin', 'housing', 'financial']),
+  completed: z.boolean(),
+});
+export type JourneyTimelineTask = z.infer<typeof journeyTimelineTaskSchema>;
+
+export const journeyTimelineSchema = z.object({
+  moveDate: z.string().optional(),
+  tasks: z.array(journeyTimelineTaskSchema),
+});
+export type JourneyTimeline = z.infer<typeof journeyTimelineSchema>;
+
+export const journeyDecisionSchema = z.object({
+  timestamp: z.string(),
+  type: z.enum(['shortlist', 'eliminate', 'compare', 'preference_update', 'phase_change']),
+  description: z.string(),
+  data: z.record(z.string(), z.unknown()).optional(),
+});
+export type JourneyDecision = z.infer<typeof journeyDecisionSchema>;
+
+// ponytail: savedComparisons is intentionally `unknown[]` — server stores
+// arbitrary comparison payloads from compareLocations and we don't pin a
+// shape yet. Tighten when the comparison tool emits a stable contract.
+export const relocationJourneySchema = z.object({
+  userId: z.number(),
+  shortlistedLocations: z.array(z.string()),
+  savedComparisons: z.array(z.unknown()),
+  moveTimeline: journeyTimelineSchema.nullable(),
+  preferences: journeyPreferencesSchema,
+  decisionLog: z.array(journeyDecisionSchema),
+  completedTasks: z.array(z.string()),
+  currentPhase: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+export type RelocationJourney = z.infer<typeof relocationJourneySchema>;

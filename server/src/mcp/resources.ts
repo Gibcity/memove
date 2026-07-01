@@ -17,6 +17,7 @@ import { isAddonEnabled, getCollabFeatures } from '../services/adminService';
 import { ADDON_IDS } from '../addons';
 import { canAccessJourney, getJourneyFull, listEntries, listJourneys } from '../services/journeyService';
 import { RelocationService } from '../nest/relocation/relocation.service';
+import { createDbAdapter } from './_dbAdapter';
 import { canRead, canReadTrips } from './scopes';
 
 function parseId(value: string | string[]): number | null {
@@ -443,16 +444,7 @@ export function registerResources(server: McpServer, userId: number, scopes: str
 
   // Relocation resources (relocation addon)
   if (isAddonEnabled(ADDON_IDS.RELOCATION) && canRead(scopes, 'relocation')) {
-    // ponytail: minimal DatabaseService-shaped adapter so the Nest-injected
-    // RelocationService works without DI in the MCP layer (same pattern as
-    // relocation_journey.ts).
-    const dbAdapter = {
-      get: <T>(sql: string, ...params: unknown[]): T | undefined =>
-        db.prepare(sql).get(...params) as T | undefined,
-      run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
-    } as never;
-
-    const relocService = new RelocationService(dbAdapter);
+    const relocService = new RelocationService(createDbAdapter(db));
 
     server.registerResource(
       'relocation-locations',

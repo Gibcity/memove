@@ -1,9 +1,8 @@
 import React from 'react'
 import { useTranslation } from '../../../i18n'
-import type { UserProfile, HardFilter } from '@memove/shared'
+import type { UserProfile, HardFilter, RelocationJourney, JourneyPhase } from '@memove/shared'
+import { JOURNEY_PHASES } from '@memove/shared'
 import type { ElicitationState, HardFilterPrompt } from '../relocationModel'
-import type { RelocationJourney, JourneyPhase } from '../useRelocationJourney'
-import { JOURNEY_PHASES } from '../useRelocationJourney'
 import {
   X,
   ArrowRight,

@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { renderHook, act, waitFor } from '@testing-library/react'
+import type { JourneyPreferences } from '@memove/shared'
+import { JOURNEY_PHASES } from '@memove/shared'
 
 // Mock the api module so we can verify the 6 journey endpoints are called
 // with the right paths/payloads, and so the hook's logic is testable without
@@ -16,7 +18,7 @@ vi.mock('../../../src/api/relocation', () => ({
     getJourney: () => mockGetJourney(),
     shortlist: (id: string) => mockShortlist(id),
     eliminate: (id: string, reason?: string) => mockEliminate(id, reason),
-    updateJourneyPreferences: (prefs: Record<string, unknown>) => mockUpdatePrefs(prefs),
+    updateJourneyPreferences: (prefs: Partial<JourneyPreferences>) => mockUpdatePrefs(prefs),
     toggleTask: (id: string) => mockToggleTask(id),
     setPhase: (phase: string) => mockSetPhase(phase),
   },
@@ -31,7 +33,7 @@ vi.mock('../../../src/components/shared/Toast', () => ({
   }),
 }))
 
-import { useRelocationJourney, JOURNEY_PHASES } from '../../../src/pages/relocation/useRelocationJourney'
+import { useRelocationJourney } from '../../../src/pages/relocation/useRelocationJourney'
 
 // FE-JOURNEY-001 through FE-JOURNEY-008 — verify all 6 endpoints are wired
 // and the hook exposes the derived state the MoveTimelinePanel consumes.

@@ -5,6 +5,7 @@ import { ADDON_IDS } from '../../addons';
 import { RelocationJourneyService } from '../../nest/relocation/relocation-journey.service';
 import { TOOL_ANNOTATIONS_READONLY, TOOL_ANNOTATIONS_WRITE, ok } from './_shared';
 import { canRead, canWrite } from '../scopes';
+import { createDbAdapter } from '../_dbAdapter';
 import { db } from '../../db/database';
 
 /**
@@ -19,14 +20,7 @@ import { db } from '../../db/database';
  * which constructs RelocationService without DI).
  */
 
-/** Minimal adapter wrapping the raw db singleton for RelocationJourneyService. */
-const dbAdapter = {
-  get: <T>(sql: string, ...params: unknown[]): T | undefined =>
-    db.prepare(sql).get(...params) as T | undefined,
-  run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
-} as never;
-
-const journeyService = new RelocationJourneyService(dbAdapter);
+const journeyService = new RelocationJourneyService(createDbAdapter(db));
 
 export function registerJourneyTools(
   server: McpServer,

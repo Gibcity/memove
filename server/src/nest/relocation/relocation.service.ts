@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
-import * as path from 'path';
 import type {
   Location,
   UserProfile,
@@ -11,24 +9,11 @@ import type {
 import { createItem as createTodoItem, listItems as listTodoItems } from '../../services/todoService';
 import { selectChecklistTasks } from './move-checklist-templates';
 import { DatabaseService } from '../database/database.service';
+import { loadLocations } from './locations.loader';
 
 // ── Data loading ──────────────────────────────────────────────────────────────
 
-const LOCATIONS_PATH = path.resolve(
-  __dirname,
-  '../../../../sources/processed/relocation/locations.json',
-);
-
-let _locationsCache: Location[] | null = null;
 let _statsCache: Map<string, { min: number; max: number; mean: number; std: number; n: number }> | null = null;
-
-function loadLocations(): Location[] {
-  if (_locationsCache === null) {
-    const raw = fs.readFileSync(LOCATIONS_PATH, 'utf-8');
-    _locationsCache = JSON.parse(raw) as Location[];
-  }
-  return _locationsCache!;
-}
 
 // ── Field paths for normalization ─────────────────────────────────────────────
 

@@ -5,6 +5,7 @@ import { ADDON_IDS } from '../../addons';
 import { RelocationService } from '../../nest/relocation/relocation.service';
 import { TOOL_ANNOTATIONS_READONLY, TOOL_ANNOTATIONS_WRITE, ok } from './_shared';
 import { canRead, canWrite } from '../scopes';
+import { createDbAdapter } from '../_dbAdapter';
 import { db } from '../../db/database';
 
 /**
@@ -17,18 +18,7 @@ import { db } from '../../db/database';
  * Scope-gated: relocation:read for read ops, relocation:write for mutation.
  */
 
-// ponytail: minimal DatabaseService-shaped adapter so the Nest-injected
-// RelocationService works without DI in the MCP layer (same pattern as
-// relocation_journey.ts).
-const dbAdapter = {
-  get: <T>(sql: string, ...params: unknown[]): T | undefined =>
-    db.prepare(sql).get(...params) as T | undefined,
-  run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
-  all: <T>(sql: string, ...params: unknown[]): T[] =>
-    db.prepare(sql).all(...params) as T[],
-} as never;
-
-const relocationService = new RelocationService(dbAdapter);
+const relocationService = new RelocationService(createDbAdapter(db));
 
 export function registerRelocationTools(
   server: McpServer,

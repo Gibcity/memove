@@ -6,6 +6,7 @@ import type {
   ScoreRequest,
   ScoreResponse,
   ElicitationQuestion,
+  JourneyPreferences,
 } from '@memove/shared'
 
 /** Server response for POST /relocation/score/explain. */
@@ -120,7 +121,7 @@ export const relocationApi = {
     apiClient.post('/relocation/journey/eliminate', { locationId, reason }).then(r => r.data),
 
   /** POST /relocation/journey/preferences — merge-update journey preferences. */
-  updateJourneyPreferences: (prefs: Record<string, unknown>) =>
+  updateJourneyPreferences: (prefs: Partial<JourneyPreferences>) =>
     apiClient.post('/relocation/journey/preferences', prefs).then(r => r.data),
 
   /** POST /relocation/journey/toggle-task — flip a timeline task's completion. */

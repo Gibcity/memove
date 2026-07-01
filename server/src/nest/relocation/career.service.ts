@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
+import type { Location } from '@memove/shared';
+import { loadLocations } from './locations.loader';
 
 // Occupation/earnings data comes from Census ACS S2001 + S2401 (see
 // sources/scripts/pull_cbsa_occupation_earnings.py). BLS OEUM/MSA isn't
@@ -9,24 +11,12 @@ import * as path from 'path';
 // (CBSA-level employment counts + median earnings) with one key we already
 // have. Reuse the existing Location record for the cost/fiscal fields.
 
-const LOCATIONS_PATH = path.resolve(
-  __dirname,
-  '../../../../sources/processed/relocation/locations.json',
-);
 const OCCUPATION_PATH = path.resolve(
   __dirname,
   '../../../../sources/processed/cbsa_occupation.json',
 );
 
-let _locations: LocationLite[] | null = null;
 let _cbsaData: Map<string, CbsaCareer> | null = null;
-
-interface LocationLite {
-  name: string;
-  state: string;
-  cost: { medianHomeValue: number; medianRent: number; costOfLivingIndex: number };
-  fiscal: { taxCompetitivenessScore: number };
-}
 
 interface CbsaCareer {
   cbsa_code: string;
@@ -160,13 +150,6 @@ export interface OccupationOutlook {
   occupation: string;
   blsOohUrl: string;
   note: string;
-}
-
-function loadLocations(): LocationLite[] {
-  if (_locations === null) {
-    _locations = JSON.parse(fs.readFileSync(LOCATIONS_PATH, 'utf-8')) as LocationLite[];
-  }
-  return _locations;
 }
 
 function loadCbsaData(): Map<string, CbsaCareer> {

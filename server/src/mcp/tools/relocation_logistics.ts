@@ -4,9 +4,10 @@ import { isAddonEnabled } from '../../services/adminService';
 import { ADDON_IDS } from '../../addons';
 import { RelocationService } from '../../nest/relocation/relocation.service';
 import { RelocationJourneyService } from '../../nest/relocation/relocation-journey.service';
-import { db } from '../../db/database';
 import { TOOL_ANNOTATIONS_READONLY, TOOL_ANNOTATIONS_WRITE, ok } from './_shared';
 import { canRead, canWrite } from '../scopes';
+import { createDbAdapter } from '../_dbAdapter';
+import { db } from '../../db/database';
 
 /**
  * MCP tools for the Moving Logistics Planner agent.
@@ -17,19 +18,10 @@ import { canRead, canWrite } from '../scopes';
  * Scope-gated: relocation:read for read ops, relocation:write for mutation.
  */
 
-// ponytail: minimal DatabaseService-shaped adapter so the Nest-injected
-// RelocationService and RelocationJourneyService work without DI in the
-// MCP layer (same pattern as relocation_journey.ts).
-const dbAdapter = {
-  get: <T>(sql: string, ...params: unknown[]): T | undefined =>
-    db.prepare(sql).get(...params) as T | undefined,
-  run: (sql: string, ...params: unknown[]) => db.prepare(sql).run(...params),
-} as never;
-
-const relocationService = new RelocationService(dbAdapter);
+const relocationService = new RelocationService(createDbAdapter(db));
 
 function createJourneyService(): RelocationJourneyService {
-  return new RelocationJourneyService(dbAdapter);
+  return new RelocationJourneyService(createDbAdapter(db));
 }
 
 // ponytail: inline haversine; one call per estimate, accuracy > a util import here.

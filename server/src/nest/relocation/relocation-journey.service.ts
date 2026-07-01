@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import type { RelocationJourney, JourneyPreferences, JourneyTimeline, JourneyDecision } from '@memove/shared';
 import { DatabaseService } from '../database/database.service';
 import { RelocationService } from './relocation.service';
 import { createTrip, TRIP_KIND } from '../../services/tripService';
@@ -18,54 +19,6 @@ import { createTrip, TRIP_KIND } from '../../services/tripService';
  *   completed_tasks:       string[]      — task IDs the user has done
  *   current_phase:         phase         — discovery|housing|logistics|settlement
  */
-
-export interface JourneyPreferences {
-  maxBudget?: number;
-  householdSize?: number;
-  employment?: 'remote' | 'hybrid' | 'onsite' | 'retired' | 'student' | 'looking';
-  demographics?: {
-    ageRange?: string;
-    hasChildren?: boolean;
-    schoolAgeChildren?: number;
-  };
-  climatePreference?: 'warm' | 'mild' | 'four_seasons' | 'cold_tolerant';
-  priorities?: Record<string, number>; // cost: 5, climate: 3, etc.
-}
-
-export interface JourneyTimelineTask {
-  id: string;
-  phase: string;
-  title: string;
-  description: string;
-  dueOffsetDays: number; // days relative to move date
-  category: 'research' | 'logistics' | 'admin' | 'housing' | 'financial';
-  completed: boolean;
-}
-
-export interface JourneyTimeline {
-  moveDate?: string;
-  tasks: JourneyTimelineTask[];
-}
-
-export interface JourneyDecision {
-  timestamp: string;
-  type: 'shortlist' | 'eliminate' | 'compare' | 'preference_update' | 'phase_change';
-  description: string;
-  data?: Record<string, unknown>;
-}
-
-export interface RelocationJourney {
-  userId: number;
-  shortlistedLocations: string[];
-  savedComparisons: unknown[];
-  moveTimeline: JourneyTimeline | null;
-  preferences: JourneyPreferences;
-  decisionLog: JourneyDecision[];
-  completedTasks: string[];
-  currentPhase: string;
-  createdAt: string;
-  updatedAt: string;
-}
 
 interface JourneyRow {
   user_id: number;
