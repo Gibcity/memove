@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
+import { RelocationService } from './relocation.service';
+import { createTrip, TRIP_KIND } from '../../services/tripService';
 
 /**
  * RelocationJourneyService — persisted per-user relocation workspace.
@@ -97,7 +99,12 @@ const DEFAULT_PREFERENCES: JourneyPreferences = {};
 
 @Injectable()
 export class RelocationJourneyService {
-  constructor(private readonly db: DatabaseService) {}
+  constructor(
+    private readonly db: DatabaseService,
+    // ponytail: optional so MCP tools that `new RelocationJourneyService(db)` directly
+    // keep working. When absent, the bridge falls back to a generic title.
+    private readonly relocation?: RelocationService,
+  ) {}
 
   /**
    * Get or create the user's relocation journey.
@@ -183,6 +190,16 @@ export class RelocationJourneyService {
       JSON.stringify(timeline),
       userId,
     );
+    // ponytail: setMoveTimeline is the commit point — first time the user
+    // has a real move date. Side-effect: bridge to a trip row so the move
+    // is visible in the existing trips UI. Errors are swallowed; the
+    // journey write above is the source of truth.
+    try {
+      this.bridgeTripFromJourney(userId);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('[relocation-journey] bridge trip failed', { userId, error: (e as Error)?.message });
+    }
     return this.getJourney(userId);
   }
 
@@ -272,5 +289,34 @@ export class RelocationJourneyService {
       userId,
       JSON.stringify(DEFAULT_PREFERENCES),
     );
+  }
+
+  // ponytail: one-way bridge — turns a committed relocation journey into a
+  // `kind=relocation` trip so it shows up in existing trip lists. Idempotent:
+  // (user_id, kind) is unique since each user has exactly one journey. The
+  // trip row is a pointer, not a copy — `description` carries a small JSON
+  // envelope so a future "trip → journey" reverse lookup is one query away.
+  private bridgeTripFromJourney(userId: number): void {
+    const existing = this.db.get<{ id: number }>(
+      `SELECT id FROM trips WHERE user_id = ? AND kind = ? LIMIT 1`,
+      userId,
+      TRIP_KIND.RELOCATION,
+    );
+    if (existing) return;
+
+    const journey = this.getJourney(userId);
+    const firstShortlist = journey.shortlistedLocations[0];
+    const loc = firstShortlist && this.relocation
+      ? this.relocation.getLocationById(firstShortlist)
+      : undefined;
+    const destination = loc?.name ?? 'your new city';
+    const startDate = journey.moveTimeline?.moveDate ?? null;
+
+    createTrip(userId, {
+      title: `Relocation to ${destination}`,
+      ...(startDate ? { start_date: startDate } : {}),
+      kind: TRIP_KIND.RELOCATION,
+      description: JSON.stringify({ _relocationLink: true, version: 1, userId }),
+    });
   }
 }
