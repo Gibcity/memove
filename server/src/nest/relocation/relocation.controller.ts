@@ -249,8 +249,8 @@ export class RelocationController {
    * POST /api/relocation/profile/elicitation/start
    *
    * Begin a new elicitation round.  Returns the session identifier and
-   * the first question.  The frontend's useRelocationElicitation hook
-   * drives the full 3-question conversation from this starting point.
+   * the first question.  The frontend elicitation flow drives the full
+   * 3-question conversation from this starting point.
    */
   @Post('profile/elicitation/start')
   startElicitation(@CurrentUser() user: User) {

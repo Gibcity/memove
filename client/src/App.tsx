@@ -18,7 +18,7 @@ import JourneyDetailPage from './pages/JourneyDetailPage'
 import JourneyPublicPage from './pages/JourneyPublicPage'
 import SharedTripPage from './pages/SharedTripPage'
 import InAppNotificationsPage from './pages/InAppNotificationsPage.tsx'
-import MissionControlShell from './pages/relocation/MissionControlShell'
+import AgentSurface from './pages/relocation/AgentSurface'
 import OAuthAuthorizePage from './pages/OAuthAuthorizePage'
 import { ToastContainer } from './components/shared/Toast'
 import { ErrorBoundary } from './components/shared/ErrorBoundary'
@@ -306,7 +306,7 @@ export default function App() {
           element={
             <ProtectedRoute addonId="relocation">
               <ErrorBoundary>
-                <MissionControlShell />
+                <AgentSurface />
               </ErrorBoundary>
             </ProtectedRoute>
           }

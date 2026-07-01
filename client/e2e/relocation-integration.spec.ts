@@ -112,7 +112,8 @@ test.describe('Phase 5 §10.1–10.3 relocation integration', () => {
       expect(target.id).toBeTruthy()
 
       // ── Fire 3 dismiss signals on the same candidate ──────────────
-      // HARD_FILTER_THRESHOLD is 3 (useRelocationElicitation.ts).
+      // HARD_FILTER_THRESHOLD is 3; mirrors the elicitation hard-filter
+      // promotion threshold on the backend (see elicitation service).
       const ts = () => new Date().toISOString()
       for (let i = 0; i < 3; i++) {
         const resp = await api.post('/api/relocation/profile/signal', {
@@ -144,8 +145,8 @@ test.describe('Phase 5 §10.1–10.3 relocation integration', () => {
         )
         .toMatchObject({ implicitSignalCount: expect.any(Number) })
 
-      // Confirm a hard filter via the endpoint (mirrors confirmHardFilter
-      // in useRelocationElicitation).
+      // Confirm a hard filter via the endpoint (the same POST the FE
+      // elicitation flow uses when the user accepts the promotion prompt).
       const confirm = await api.post('/api/relocation/profile', {
         data: {
           hardFilters: [
@@ -183,10 +184,10 @@ test.describe('Phase 5 §10.1–10.3 relocation integration', () => {
     const t0 = now()
     await page.goto(RELOCATION)
 
-    // Wait for ANY signal that the candidate library has hydrated: a row
-    // with role="button" + aria-label starting with "{name} details" (the
-    // CandidateRow component), or the empty-state text. Both prove the
-    // candidate-fetch finished and the shell is interactive.
+    // Wait for ANY signal that the candidate library has hydrated: a button
+    // with aria-label starting with "{name} details" (the row component
+    // used in the candidate library), or the empty-state text. Both prove
+    // the candidate-fetch finished and the shell is interactive.
     const candidateRow = page.getByRole('button', {
       name: /^[A-Z][a-zA-Z .'-]+,?\s?[A-Z]{2}\s+details$/,
     })

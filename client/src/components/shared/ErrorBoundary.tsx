@@ -3,9 +3,9 @@ import { Component, type ReactNode } from 'react'
 interface Props { children: ReactNode }
 interface State { hasError: boolean }
 
-// Ponytail: minimal class boundary — safety net so a TypeError in a leaf
-// (e.g. ViewportStatPanel before the null-guard lands) doesn't blank the
-// whole relocation page. React 18 still needs a class boundary; no hooks API.
+// Ponytail: minimal class boundary — safety net so a TypeError in a deep
+// child before its null-guard lands doesn't blank the whole page. React 18
+// still needs a class boundary; no hooks API.
 export class ErrorBoundary extends Component<Props, State> {
   state: State = { hasError: false }
 
