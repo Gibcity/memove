@@ -356,3 +356,56 @@ Last 20 lines of Playwright output:
       [setup] › e2e/auth.setup.ts:14:1 › authenticate the seeded admin (incl. forced password change) 
     3 did not run
 \`\`\`
+## Run on 2026-07-01T17:17:33Z
+
+\`\`\`text
+§10.1 (Playwright): not captured
+§10.3 (Playwright): §10.3 cold-start elapsed ms: 39712; outcome: timeout
+Additive vitest gates: exit 0
+Build: exit 0
+Playwright integration: exit 1
+
+Last 20 lines of Playwright output:
+          at /home/mongo/projects/us-relocation-2026/trek/client/e2e/relocation-integration.spec.ts:212:25
+  
+      attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+      test-results/relocation-integration-Pha-8a8f8-es-relocation-within-budget-app-retry1/test-failed-1.png
+      ────────────────────────────────────────────────────────────────────────────────────────────────
+  
+      Error Context: test-results/relocation-integration-Pha-8a8f8-es-relocation-within-budget-app-retry1/error-context.md
+  
+      attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+      test-results/relocation-integration-Pha-8a8f8-es-relocation-within-budget-app-retry1/trace.zip
+      Usage:
+  
+          npx playwright show-trace test-results/relocation-integration-Pha-8a8f8-es-relocation-within-budget-app-retry1/trace.zip
+  
+      ────────────────────────────────────────────────────────────────────────────────────────────────
+  
+    2 failed
+      [app] › e2e/relocation-integration.spec.ts:36:3 › Phase 5 §10.1–10.3 relocation integration › §10.1 end-to-end elicitation drives candidate list 
+      [app] › e2e/relocation-integration.spec.ts:177:3 › Phase 5 §10.1–10.3 relocation integration › §10.3 cold-start: candidates list reaches /relocation within budget 
+    2 passed (2.8m)
+\`\`\`
+## Run on 2026-07-01T17:41:20Z
+
+\`\`\`text
+§10.1 (Playwright): §10.1 elapsed ms (UI arrival + 3 round-trips): 2843
+§10.3 (Playwright): §10.3 cold-start elapsed ms: 955; outcome: hydrated
+Additive vitest gates: exit 0
+Build: exit 0
+Playwright integration: exit 0
+
+Last 20 lines of Playwright output:
+  
+  Running 4 tests using 1 worker
+  
+    ✓  1 [setup] › e2e/auth.setup.ts:16:1 › authenticate the admin (15.9s)
+  §10.1 elapsed ms (UI arrival + 3 round-trips): 2843
+    ✓  2 [app] › e2e/relocation-integration.spec.ts:41:3 › Phase 5 §10.1–10.3 relocation integration › §10.1 end-to-end elicitation drives candidate list (3.0s)
+    ✓  3 [app] › e2e/relocation-integration.spec.ts:101:3 › Phase 5 §10.1–10.3 relocation integration › §10.2 implicit dismiss signals produce a hard-filter proposal (2.9s)
+  §10.3 cold-start elapsed ms: 955; outcome: hydrated
+    ✓  4 [app] › e2e/relocation-integration.spec.ts:185:3 › Phase 5 §10.1–10.3 relocation integration › §10.3 cold-start: agentsurface reaches /relocation within budget (1.1s)
+  
+    4 passed (24.3s)
+\`\`\`
