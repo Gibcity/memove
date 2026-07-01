@@ -10,11 +10,15 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import { packingCreateItemRequestSchema } from '@memove/shared';
 import type { User } from '../../types';
 import { PackingService } from './packing.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/trips/:tripId/packing — trip-scoped packing list (items, bags, templates,
@@ -73,18 +77,16 @@ export class PackingController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(packingCreateItemRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { name?: string; category?: string; checked?: boolean },
+    @Body() body: z.infer<typeof packingCreateItemRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.name) {
-      throw new HttpException({ error: 'Item name is required' }, 400);
-    }
-    const item = this.packing.createItem(tripId, { name: body.name, category: body.category, checked: body.checked });
+    const item = this.packing.createItem(tripId, body);
     this.packing.broadcast(tripId, 'packing:created', { item }, socketId);
     return { item };
   }

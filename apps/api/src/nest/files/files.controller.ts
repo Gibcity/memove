@@ -14,16 +14,20 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
+  UsePipes,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
+import type { z } from 'zod';
+import { fileUpdateRequestSchema, fileLinkRequestSchema } from '@memove/shared';
 import type { User } from '../../types';
 import { FilesService } from './files.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { MAX_FILE_SIZE, BLOCKED_EXTENSIONS, filesDir, getAllowedExtensions } from '../../services/fileService';
 import { isDemoEmail } from '../../services/demo';
 
@@ -48,6 +52,12 @@ const UPLOAD = {
     reject();
   },
 };
+
+// ponytail: schema accepts string|number for nullable FKs (matches the wire
+// shape from multipart URLs), but the service expects string. Coerce here
+// rather than redefining the schema.
+const toId = (v: string | number | null | undefined): string | null | undefined =>
+  v === undefined ? undefined : v === null ? null : String(v);
 
 /**
  * /api/trips/:tripId/files — trip file manager (upload, metadata, starring,
@@ -107,7 +117,8 @@ export class FilesController {
   }
 
   @Put(':id')
-  update(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body() body: { description?: string; place_id?: string | null; reservation_id?: string | null }, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(fileUpdateRequestSchema))
+  update(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body() body: z.infer<typeof fileUpdateRequestSchema>, @Headers('x-socket-id') socketId?: string) {
     const trip = this.requireTrip(tripId, user);
     if (!this.files.can('file_edit', trip, user)) {
       throw new HttpException({ error: 'No permission to edit files' }, 403);
@@ -116,7 +127,8 @@ export class FilesController {
     if (!file) {
       throw new HttpException({ error: 'File not found' }, 404);
     }
-    const updated = this.files.updateFile(id, file, { description: body.description, place_id: body.place_id, reservation_id: body.reservation_id });
+    // ponytail: see toId at module top — schema widens FKs to string|number.
+    const updated = this.files.updateFile(id, file, { description: body.description, place_id: toId(body.place_id), reservation_id: toId(body.reservation_id) });
     this.files.broadcast(tripId, 'file:updated', { file: updated }, socketId);
     return { file: updated };
   }
@@ -194,7 +206,8 @@ export class FilesController {
 
   @Post(':id/link')
   @HttpCode(200) // Express answers link with res.json (200).
-  link(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body() body: { reservation_id?: string | null; assignment_id?: string | null; place_id?: string | null }) {
+  @UsePipes(new ZodValidationPipe(fileLinkRequestSchema))
+  link(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body() body: z.infer<typeof fileLinkRequestSchema>) {
     const trip = this.requireTrip(tripId, user);
     if (!this.files.can('file_edit', trip, user)) {
       throw new HttpException({ error: 'No permission' }, 403);
@@ -203,7 +216,7 @@ export class FilesController {
     if (!file) {
       throw new HttpException({ error: 'File not found' }, 404);
     }
-    const links = this.files.createFileLink(id, { reservation_id: body.reservation_id, assignment_id: body.assignment_id, place_id: body.place_id });
+    const links = this.files.createFileLink(id, { reservation_id: toId(body.reservation_id), assignment_id: toId(body.assignment_id), place_id: toId(body.place_id) });
     return { success: true, links };
   }
 

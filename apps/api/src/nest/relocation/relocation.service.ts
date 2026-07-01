@@ -14,7 +14,7 @@ import { RelocationCache } from '../../services/relocationCache';
 import { loadLocations } from './locations.loader';
 import { RelocationJourneyService } from './relocation-journey.service';
 
-// ── Data loading ──────────────────────────────────────────────────────────────
+// ── Normalization stats ───────────────────────────────────────────────────────
 
 let _statsCache: Map<string, { min: number; max: number; mean: number; std: number; n: number }> | null = null;
 

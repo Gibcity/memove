@@ -13,7 +13,16 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  placeCreateRequestSchema,
+  placeUpdateRequestSchema,
+  placeBulkDeleteRequestSchema,
+  placeImportListRequestSchema,
+  placeListQuerySchema,
+} from '@memove/shared';
 import { logError } from '../../services/auditLog';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { memoryStorage } from 'multer';
@@ -21,6 +30,7 @@ import type { User } from '../../types';
 import { PlacesService } from './places.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 const STRING_LIMITS: Record<string, number> = { name: 200, description: 2000, address: 500, notes: 2000 };
 const UPLOAD = { storage: memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } };
@@ -68,22 +78,23 @@ export class PlacesController {
   }
 
   @Get()
+  @UsePipes(new ZodValidationPipe(placeListQuerySchema))
   list(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Query('search') search?: string,
-    @Query('category') category?: string,
-    @Query('tag') tag?: string,
+    @Query() query: z.infer<typeof placeListQuerySchema>,
   ) {
     this.requireTrip(tripId, user);
+    const { search, category, tag } = query;
     return { places: this.places.list(tripId, { search, category, tag }) };
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(placeCreateRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: Record<string, unknown> & { name?: string },
+    @Body() body: z.infer<typeof placeCreateRequestSchema> & Record<string, unknown>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
@@ -164,30 +175,48 @@ export class PlacesController {
   }
 
   @Post('import/google-list')
-  async importGoogle(@CurrentUser() user: User, @Param('tripId') tripId: string, @Body('url') url: unknown, @Body('enrich') enrich: unknown, @Headers('x-socket-id') socketId?: string) {
-    return this.importList('google', user, tripId, url, enrich, socketId);
+  @UsePipes(new ZodValidationPipe(placeImportListRequestSchema))
+  importGoogle(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Body() body: z.infer<typeof placeImportListRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
+    return this.importList('google', user, tripId, body, socketId);
   }
 
   @Post('import/naver-list')
-  async importNaver(@CurrentUser() user: User, @Param('tripId') tripId: string, @Body('url') url: unknown, @Body('enrich') enrich: unknown, @Headers('x-socket-id') socketId?: string) {
-    return this.importList('naver', user, tripId, url, enrich, socketId);
+  @UsePipes(new ZodValidationPipe(placeImportListRequestSchema))
+  importNaver(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Body() body: z.infer<typeof placeImportListRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
+    return this.importList('naver', user, tripId, body, socketId);
   }
 
   /** Shared google/naver list import — identical flow, different provider + error string. */
-  private async importList(provider: 'google' | 'naver', user: User, tripId: string, url: unknown, enrich: unknown, socketId?: string) {
+  private async importList(
+    provider: 'google' | 'naver',
+    user: User,
+    tripId: string,
+    body: z.infer<typeof placeImportListRequestSchema>,
+    socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!url || typeof url !== 'string') {
+    if (!body.url) {
       throw new HttpException({ error: 'URL is required' }, 400);
     }
     // Opt-in: re-resolve each imported place via the Places API to fill in
     // photo / address / website / phone and persist a google_place_id (#886).
-    const opts = { enrich: parseBool(enrich, false), userId: user.id };
+    const opts = { enrich: body.enrich ?? false, userId: user.id };
     const label = provider === 'google' ? 'Google' : 'Naver';
     try {
       const result = provider === 'google'
-        ? await this.places.importGoogleList(tripId, url, opts)
-        : await this.places.importNaverList(tripId, url, opts);
+        ? await this.places.importGoogleList(tripId, body.url, opts)
+        : await this.places.importNaverList(tripId, body.url, opts);
       if ('error' in result) {
         throw new HttpException({ error: result.error }, result.status);
       }
@@ -204,17 +233,16 @@ export class PlacesController {
 
   @Post('bulk-delete')
   @HttpCode(200) // Express answers bulk-delete with res.json (200), unlike the 201 imports.
+  @UsePipes(new ZodValidationPipe(placeBulkDeleteRequestSchema))
   bulkDelete(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body('ids') ids: unknown,
+    @Body() body: z.infer<typeof placeBulkDeleteRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!Array.isArray(ids) || ids.some((v) => typeof v !== 'number')) {
-      throw new HttpException({ error: 'ids must be an array of numbers' }, 400);
-    }
+    const { ids } = body;
     if (ids.length === 0) {
       return { deleted: [], count: 0 };
     }
@@ -253,15 +281,16 @@ export class PlacesController {
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(placeUpdateRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: Record<string, unknown>,
+    @Body() body: z.infer<typeof placeUpdateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
-    validateLengths(body);
+    validateLengths(body as Record<string, unknown>);
     this.requireEdit(trip, user);
     const place = this.places.update(tripId, id, body as never);
     if (!place) {

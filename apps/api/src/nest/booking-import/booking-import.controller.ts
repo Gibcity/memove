@@ -7,15 +7,19 @@ import {
   HttpException,
   UseGuards,
   UseInterceptors,
+  UsePipes,
   UploadedFiles,
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { memoryStorage } from 'multer';
+import type { z } from 'zod';
 import type { User } from '../../types';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { BookingImportService } from './booking-import.service';
-import type { BookingImportPreviewItem, BookingImportPreviewResponse, BookingImportConfirmResponse } from '@memove/shared';
+import { bookingImportConfirmRequestSchema } from '@memove/shared';
+import type { BookingImportPreviewResponse, BookingImportConfirmResponse } from '@memove/shared';
 
 const ACCEPTED_EXTS = new Set(['.eml', '.pdf', '.pkpass', '.html', '.htm', '.txt']);
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
@@ -83,20 +87,16 @@ export class BookingImportController {
    * Persists the user-confirmed subset of parsed items.
    */
   @Post('booking/confirm')
+  @UsePipes(new ZodValidationPipe(bookingImportConfirmRequestSchema))
   async confirm(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { items?: BookingImportPreviewItem[] },
+    @Body() body: z.infer<typeof bookingImportConfirmRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ): Promise<BookingImportConfirmResponse> {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
 
-    const items = body?.items;
-    if (!Array.isArray(items) || items.length === 0) {
-      throw new HttpException({ error: 'items must be a non-empty array' }, 400);
-    }
-
-    return this.bookingImport.confirm(tripId, items, socketId);
+    return this.bookingImport.confirm(tripId, body.items, socketId);
   }
 }

@@ -13,7 +13,17 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  collabMessageCreateRequestSchema,
+  collabNoteCreateRequestSchema,
+  collabNoteUpdateRequestSchema,
+  collabPollCreateRequestSchema,
+  collabPollVoteRequestSchema,
+  collabReactionRequestSchema,
+} from '@memove/shared';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import path from 'path';
@@ -23,6 +33,7 @@ import type { User } from '../../types';
 import { CollabService } from './collab.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { BLOCKED_EXTENSIONS } from '../../services/fileService';
 
 const MAX_NOTE_FILE_SIZE = 50 * 1024 * 1024;
@@ -82,36 +93,33 @@ export class CollabController {
   }
 
   @Post('notes')
-  createNote(@CurrentUser() user: User, @Param('tripId') tripId: string, @Body() body: { title?: string; content?: string; category?: string; color?: string; website?: string }, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(collabNoteCreateRequestSchema))
+  createNote(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Body() body: z.infer<typeof collabNoteCreateRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.title) {
-      throw new HttpException({ error: 'Title is required' }, 400);
-    }
-    const note = this.collab.createNote(tripId, user.id, {
-      title: body.title,
-      content: body.content,
-      category: body.category,
-      color: body.color,
-      website: body.website,
-    });
+    const note = this.collab.createNote(tripId, user.id, body);
     this.collab.broadcast(tripId, 'collab:note:created', { note }, socketId);
     this.collab.notifyCollab(tripId, user);
     return { note };
   }
 
   @Put('notes/:id')
-  updateNote(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body() body: { title?: string; content?: string; category?: string; color?: string; pinned?: number | boolean; website?: string }, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(collabNoteUpdateRequestSchema))
+  updateNote(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Param('id') id: string,
+    @Body() body: z.infer<typeof collabNoteUpdateRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    const note = this.collab.updateNote(tripId, id, {
-      title: body.title,
-      content: body.content,
-      category: body.category,
-      color: body.color,
-      pinned: body.pinned,
-      website: body.website,
-    });
+    const note = this.collab.updateNote(tripId, id, body);
     if (!note) {
       throw new HttpException({ error: 'Note not found' }, 404);
     }
@@ -167,32 +175,33 @@ export class CollabController {
   }
 
   @Post('polls')
-  createPoll(@CurrentUser() user: User, @Param('tripId') tripId: string, @Body() body: { question?: string; options?: unknown[]; multiple?: boolean; multiple_choice?: boolean; deadline?: string }, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(collabPollCreateRequestSchema))
+  createPoll(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Body() body: z.infer<typeof collabPollCreateRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.question) {
-      throw new HttpException({ error: 'Question is required' }, 400);
-    }
-    if (!Array.isArray(body.options) || body.options.length < 2) {
-      throw new HttpException({ error: 'At least 2 options are required' }, 400);
-    }
-    const poll = this.collab.createPoll(tripId, user.id, {
-      question: body.question,
-      options: body.options,
-      multiple: body.multiple,
-      multiple_choice: body.multiple_choice,
-      deadline: body.deadline,
-    });
+    const poll = this.collab.createPoll(tripId, user.id, body);
     this.collab.broadcast(tripId, 'collab:poll:created', { poll }, socketId);
     return { poll };
   }
 
   @Post('polls/:id/vote')
   @HttpCode(200)
-  votePoll(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body('option_index') optionIndex: number, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(collabPollVoteRequestSchema))
+  votePoll(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Param('id') id: string,
+    @Body() body: z.infer<typeof collabPollVoteRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    const result = this.collab.votePoll(tripId, id, user.id, optionIndex);
+    const result = this.collab.votePoll(tripId, id, user.id, body.option_index);
     if (result.error === 'not_found') throw new HttpException({ error: 'Poll not found' }, 404);
     if (result.error === 'closed') throw new HttpException({ error: 'Poll is closed' }, 400);
     if (result.error === 'invalid_index') throw new HttpException({ error: 'Invalid option index' }, 400);
@@ -231,16 +240,16 @@ export class CollabController {
   }
 
   @Post('messages')
-  createMessage(@CurrentUser() user: User, @Param('tripId') tripId: string, @Body() body: { text?: string; reply_to?: number | null }, @Headers('x-socket-id') socketId?: string) {
-    if (body.text && body.text.length > 5000) {
-      throw new HttpException({ error: 'text must be 5000 characters or less' }, 400);
-    }
+  @UsePipes(new ZodValidationPipe(collabMessageCreateRequestSchema))
+  createMessage(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Body() body: z.infer<typeof collabMessageCreateRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.text || !body.text.trim()) {
-      throw new HttpException({ error: 'Message text is required' }, 400);
-    }
-    const result = this.collab.createMessage(tripId, user.id, body.text, body.reply_to);
+    const result = this.collab.createMessage(tripId, user.id, body.text, body.reply_to ?? null);
     if (result.error === 'reply_not_found') {
       throw new HttpException({ error: 'Reply target message not found' }, 400);
     }
@@ -252,13 +261,17 @@ export class CollabController {
 
   @Post('messages/:id/react')
   @HttpCode(200)
-  react(@CurrentUser() user: User, @Param('tripId') tripId: string, @Param('id') id: string, @Body('emoji') emoji: string, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(collabReactionRequestSchema))
+  react(
+    @CurrentUser() user: User,
+    @Param('tripId') tripId: string,
+    @Param('id') id: string,
+    @Body() body: z.infer<typeof collabReactionRequestSchema>,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!emoji) {
-      throw new HttpException({ error: 'Emoji is required' }, 400);
-    }
-    const result = this.collab.reactMessage(id, tripId, user.id, emoji);
+    const result = this.collab.reactMessage(id, tripId, user.id, body.emoji);
     if (!result.found) {
       throw new HttpException({ error: 'Message not found' }, 404);
     }

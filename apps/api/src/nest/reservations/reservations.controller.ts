@@ -9,18 +9,22 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  reservationCreateRequestSchema,
+  reservationUpdateRequestSchema,
+  reservationPositionsRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { ReservationsService } from './reservations.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { pushReservationToAirtrail } from '../../services/airtrail/airtrailSync';
 
-type ReservationBody = Record<string, unknown> & {
-  title?: string;
-  type?: string;
-  create_budget_entry?: { total_price?: number; category?: string };
-};
+type ReservationBody = z.infer<typeof reservationCreateRequestSchema> & Record<string, unknown>;
 
 /**
  * /api/trips/:tripId/reservations — trip-scoped bookings.
@@ -57,6 +61,7 @@ export class ReservationsController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(reservationCreateRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
@@ -65,42 +70,43 @@ export class ReservationsController {
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.title) {
+    const { title, type, create_budget_entry } = body;
+    if (!title) {
       throw new HttpException({ error: 'Title is required' }, 400);
     }
     const { reservation, accommodationCreated } = this.reservations.create(tripId, body as never);
     if (accommodationCreated) {
       this.reservations.broadcast(tripId, 'accommodation:created', {}, socketId);
     }
-    this.reservations.syncBudgetOnCreate(tripId, reservation.id, body.title, body.type, body.create_budget_entry, socketId);
+    const typeStr = typeof type === 'string' ? type : undefined;
+    this.reservations.syncBudgetOnCreate(tripId, reservation.id, title, typeStr, create_budget_entry as never, socketId);
     this.reservations.broadcast(tripId, 'reservation:created', { reservation }, socketId);
-    this.reservations.notifyBookingChange(tripId, user, body.title, body.type ?? '');
+    this.reservations.notifyBookingChange(tripId, user, title, typeStr ?? '');
     return { reservation };
   }
 
   @Put('positions')
+  @UsePipes(new ZodValidationPipe(reservationPositionsRequestSchema))
   updatePositions(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { positions?: unknown; day_id?: unknown },
+    @Body() body: z.infer<typeof reservationPositionsRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!Array.isArray(body.positions)) {
-      throw new HttpException({ error: 'positions must be an array' }, 400);
-    }
-    this.reservations.updatePositions(tripId, body.positions, body.day_id);
+    this.reservations.updatePositions(tripId, body.positions as never, body.day_id as never);
     this.reservations.broadcast(tripId, 'reservation:positions', { positions: body.positions, day_id: body.day_id }, socketId);
     return { success: true };
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(reservationUpdateRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: ReservationBody,
+    @Body() body: z.infer<typeof reservationUpdateRequestSchema> & Record<string, unknown>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
@@ -114,14 +120,14 @@ export class ReservationsController {
       this.reservations.broadcast(tripId, 'accommodation:updated', {}, socketId);
     }
     const cur = current as { title: string; type?: string };
-    this.reservations.syncBudgetOnUpdate(tripId, id, body.title ?? '', body.type, cur.title, cur.type, body.create_budget_entry, socketId);
+    this.reservations.syncBudgetOnUpdate(tripId, id, (body.title as string) ?? '', body.type as string | undefined, cur.title, cur.type, body.create_budget_entry, socketId);
     this.reservations.broadcast(tripId, 'reservation:updated', { reservation }, socketId);
     // Push a locally-edited AirTrail flight back to AirTrail (fire-and-forget,
     // under the importer's credentials — see airtrailSync). #214
     if ((reservation as any)?.external_source === 'airtrail' && (reservation as any)?.sync_enabled) {
       void pushReservationToAirtrail(Number((reservation as any).id), Number(tripId)).catch(() => {});
     }
-    this.reservations.notifyBookingChange(tripId, user, body.title || cur.title, body.type || cur.type || '');
+    this.reservations.notifyBookingChange(tripId, user, (body.title as string) || cur.title, (body.type as string | undefined) || cur.type || '');
     return { reservation };
   }
 

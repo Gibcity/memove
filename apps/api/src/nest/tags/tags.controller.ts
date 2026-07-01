@@ -1,9 +1,12 @@
-import { Body, Controller, Delete, Get, HttpException, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, Param, Post, Put, UseGuards, UsePipes } from '@nestjs/common';
+import { z } from 'zod';
 import type { Tag, TagListResponse } from '@memove/shared';
+import { createTagRequestSchema, updateTagRequestSchema } from '@memove/shared';
 import type { User } from '../../types';
 import { TagsService } from './tags.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/tags — per-user place-tag CRUD.
@@ -25,28 +28,25 @@ export class TagsController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(createTagRequestSchema))
   create(
     @CurrentUser() user: User,
-    @Body('name') name?: string,
-    @Body('color') color?: string,
+    @Body() body: z.infer<typeof createTagRequestSchema>,
   ): { tag: Tag } {
-    if (!name) {
-      throw new HttpException({ error: 'Tag name is required' }, 400);
-    }
-    return { tag: this.tags.create(user.id, name, color) };
+    return { tag: this.tags.create(user.id, body.name, body.color) };
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(updateTagRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('id') id: string,
-    @Body('name') name?: string,
-    @Body('color') color?: string,
+    @Body() body: z.infer<typeof updateTagRequestSchema>,
   ): { tag: Tag } {
     if (!this.tags.getByIdAndUser(id, user.id)) {
       throw new HttpException({ error: 'Tag not found' }, 404);
     }
-    return { tag: this.tags.update(id, name, color) };
+    return { tag: this.tags.update(id, body.name, body.color) };
   }
 
   @Delete(':id')

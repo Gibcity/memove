@@ -1,10 +1,13 @@
-import { Body, Controller, Delete, Get, HttpException, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, Param, Post, Put, UseGuards, UsePipes } from '@nestjs/common';
+import { z } from 'zod';
 import type { Category, CategoryListResponse } from '@memove/shared';
+import { createCategoryRequestSchema, updateCategoryRequestSchema } from '@memove/shared';
 import type { User } from '../../types';
 import { CategoriesService } from './categories.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { AdminGuard } from '../auth/admin.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/categories — place-category palette CRUD.
@@ -27,30 +30,25 @@ export class CategoriesController {
 
   @Post()
   @UseGuards(JwtAuthGuard, AdminGuard)
+  @UsePipes(new ZodValidationPipe(createCategoryRequestSchema))
   create(
     @CurrentUser() user: User,
-    @Body('name') name?: string,
-    @Body('color') color?: string,
-    @Body('icon') icon?: string,
+    @Body() body: z.infer<typeof createCategoryRequestSchema>,
   ): { category: Category } {
-    if (!name) {
-      throw new HttpException({ error: 'Category name is required' }, 400);
-    }
-    return { category: this.categories.create(user.id, name, color, icon) };
+    return { category: this.categories.create(user.id, body.name, body.color, body.icon) };
   }
 
   @Put(':id')
   @UseGuards(JwtAuthGuard, AdminGuard)
+  @UsePipes(new ZodValidationPipe(updateCategoryRequestSchema))
   update(
     @Param('id') id: string,
-    @Body('name') name?: string,
-    @Body('color') color?: string,
-    @Body('icon') icon?: string,
+    @Body() body: z.infer<typeof updateCategoryRequestSchema>,
   ): { category: Category } {
     if (!this.categories.getById(id)) {
       throw new HttpException({ error: 'Category not found' }, 404);
     }
-    return { category: this.categories.update(id, name, color, icon) };
+    return { category: this.categories.update(id, body.name, body.color, body.icon) };
   }
 
   @Delete(':id')

@@ -1,10 +1,13 @@
-import { Body, Controller, Delete, Get, HttpException, Param, Post, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, Param, Post, Res, UseGuards, UsePipes } from '@nestjs/common';
 import type { Response } from 'express';
 import { createReadStream } from 'node:fs';
+import type { z } from 'zod';
+import { shareLinkRequestSchema } from '@memove/shared';
 import type { User } from '../../types';
 import { ShareService } from './share.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/trips/:tripId/share-link — manage a trip's public read-only share token.
@@ -29,10 +32,11 @@ export class TripShareController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(shareLinkRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { share_map?: boolean; share_bookings?: boolean; share_packing?: boolean; share_budget?: boolean; share_collab?: boolean },
+    @Body() body: z.infer<typeof shareLinkRequestSchema>,
     @Res({ passthrough: true }) res: Response,
   ) {
     this.requireManage(tripId, user);

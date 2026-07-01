@@ -9,11 +9,20 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  todoCategoryAssigneesRequestSchema,
+  todoCreateItemRequestSchema,
+  todoReorderRequestSchema,
+  todoUpdateItemRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { TodoService } from './todo.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/trips/:tripId/todo — trip-scoped task list.
@@ -50,47 +59,45 @@ export class TodoController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(todoCreateItemRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { name?: string; category?: string; due_date?: string; description?: string; assigned_user_id?: number; priority?: number },
+    @Body() body: z.infer<typeof todoCreateItemRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.name) {
-      throw new HttpException({ error: 'Item name is required' }, 400);
-    }
-    const { name, category, due_date, description, assigned_user_id, priority } = body;
-    const item = this.todo.createItem(tripId, { name, category, due_date, description, assigned_user_id, priority });
+    const item = this.todo.createItem(tripId, body);
     this.todo.broadcast(tripId, 'todo:created', { item }, socketId);
     return { item };
   }
 
   @Put('reorder')
+  @UsePipes(new ZodValidationPipe(todoReorderRequestSchema))
   reorder(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body('orderedIds') orderedIds: number[],
+    @Body() body: z.infer<typeof todoReorderRequestSchema>,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    this.todo.reorderItems(tripId, orderedIds);
+    this.todo.reorderItems(tripId, body.orderedIds);
     return { success: true };
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(todoUpdateItemRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: Record<string, unknown>,
+    @Body() body: z.infer<typeof todoUpdateItemRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    const { name, checked, category, due_date, description, assigned_user_id, priority } = body as Record<string, never>;
-    const updated = this.todo.updateItem(tripId, id, { name, checked, category, due_date, description, assigned_user_id, priority }, Object.keys(body));
+    const updated = this.todo.updateItem(tripId, id, body as unknown as Parameters<typeof this.todo.updateItem>[2], Object.keys(body));
     if (!updated) {
       throw new HttpException({ error: 'Item not found' }, 404);
     }
@@ -121,17 +128,18 @@ export class TodoController {
   }
 
   @Put('category-assignees/:categoryName')
+  @UsePipes(new ZodValidationPipe(todoCategoryAssigneesRequestSchema))
   updateCategoryAssignees(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('categoryName') categoryName: string,
-    @Body('user_ids') userIds: number[],
+    @Body() body: z.infer<typeof todoCategoryAssigneesRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
     const category = decodeURIComponent(categoryName);
-    const rows = this.todo.updateCategoryAssignees(tripId, category, userIds);
+    const rows = this.todo.updateCategoryAssignees(tripId, category, body.user_ids);
     this.todo.broadcast(tripId, 'todo:assignees', { category, assignees: rows }, socketId);
     return { assignees: rows };
   }

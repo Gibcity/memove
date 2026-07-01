@@ -13,6 +13,7 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
+  UsePipes,
 } from '@nestjs/common';
 import { logError } from '../../services/auditLog';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -21,10 +22,17 @@ import type { Request, Response } from 'express';
 import path from 'path';
 import fs from 'fs';
 import { v4 as uuid } from 'uuid';
+import type { z } from 'zod';
+import {
+  changePasswordRequestSchema,
+  mcpTokenCreateRequestSchema,
+  mfaEnableRequestSchema,
+} from '@memove/shared';
 import { AuthService } from './auth.service';
 import { RateLimitService } from './rate-limit.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { CurrentUser } from './current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { writeAudit, getClientIp } from '../../services/auditLog';
 import { isDemoEmail } from '../../services/demo';
 import type { User } from '../../types';
@@ -78,7 +86,8 @@ export class AuthController {
   }
 
   @Put('me/password')
-  changePassword(@CurrentUser() user: User, @Body() body: unknown, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
+  @UsePipes(new ZodValidationPipe(changePasswordRequestSchema))
+  changePassword(@CurrentUser() user: User, @Body() body: z.infer<typeof changePasswordRequestSchema>, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
     this.limit('login', req, 5);
     const result = this.auth.changePassword(user.id, user.email, body);
     if (result.error) {
@@ -203,7 +212,8 @@ export class AuthController {
 
   @Post('mfa/enable')
   @HttpCode(200)
-  mfaEnable(@CurrentUser() user: User, @Body() body: { code?: unknown }, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(mfaEnableRequestSchema))
+  mfaEnable(@CurrentUser() user: User, @Body() body: z.infer<typeof mfaEnableRequestSchema>, @Req() req: Request) {
     this.limit('mfa', req, 5);
     const result = this.auth.enableMfa(user.id, body.code);
     if (result.error) {
@@ -232,7 +242,8 @@ export class AuthController {
 
   @Post('mcp-tokens')
   @HttpCode(201)
-  createMcpToken(@CurrentUser() user: User, @Body() body: { name?: unknown }, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(mcpTokenCreateRequestSchema))
+  createMcpToken(@CurrentUser() user: User, @Body() body: z.infer<typeof mcpTokenCreateRequestSchema>, @Req() req: Request) {
     this.limit('login', req, 5);
     const result = this.auth.createMcpToken(user.id, body.name);
     if (result.error) {

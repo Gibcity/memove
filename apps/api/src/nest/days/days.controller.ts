@@ -9,12 +9,20 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  dayCreateRequestSchema,
+  dayUpdateRequestSchema,
+  dayReorderRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { DaysService } from './days.service';
 import { DayReorderError } from '../../services/dayService';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/trips/:tripId/days — trip itinerary days.
@@ -50,10 +58,11 @@ export class DaysController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(dayCreateRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { date?: string; notes?: string; position?: number },
+    @Body() body: z.infer<typeof dayCreateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
@@ -71,35 +80,35 @@ export class DaysController {
   }
 
   @Put('reorder')
+  @UsePipes(new ZodValidationPipe(dayReorderRequestSchema))
   reorder(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { orderedIds?: number[] },
+    @Body() body: z.infer<typeof dayReorderRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!Array.isArray(body.orderedIds)) {
-      throw new HttpException({ error: 'orderedIds must be an array' }, 400);
-    }
+    const { orderedIds } = body;
     try {
-      this.days.reorder(tripId, body.orderedIds);
+      this.days.reorder(tripId, orderedIds);
     } catch (err) {
       if (err instanceof DayReorderError) {
         throw new HttpException({ error: err.message }, 400);
       }
       throw err;
     }
-    this.days.broadcast(tripId, 'day:reordered', { orderedIds: body.orderedIds }, socketId);
+    this.days.broadcast(tripId, 'day:reordered', { orderedIds }, socketId);
     return { success: true };
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(dayUpdateRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: { notes?: string; title?: string | null },
+    @Body() body: z.infer<typeof dayUpdateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);

@@ -1,9 +1,17 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpException, NotFoundException, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpException, NotFoundException, Param, Post, Put, Query, Req, UseGuards, UsePipes } from '@nestjs/common';
 import type { Request } from 'express';
+import type { z } from 'zod';
+import {
+  adminUserCreateRequestSchema,
+  adminPermissionsRequestSchema,
+  adminInviteCreateRequestSchema,
+  adminFeatureToggleRequestSchema,
+} from '@memove/shared';
 import { AdminService } from './admin.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { AdminGuard } from '../auth/admin.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { writeAudit, getClientIp, logInfo } from '../../services/auditLog';
 import { send as sendNotification } from '../../services/notificationService';
 import type { User } from '../../types';
@@ -38,7 +46,8 @@ export class AdminController {
 
   @Post('users')
   @HttpCode(201)
-  createUser(@CurrentUser() user: User, @Body() body: unknown, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(adminUserCreateRequestSchema))
+  createUser(@CurrentUser() user: User, @Body() body: z.infer<typeof adminUserCreateRequestSchema>, @Req() req: Request) {
     const result = ok(this.admin.createUser(body));
     writeAudit({ userId: user.id, action: 'admin.user_create', resource: String(result.insertedId), ip: getClientIp(req), details: result.auditDetails });
     return { user: result.user };
@@ -75,7 +84,8 @@ export class AdminController {
   permissions() { return this.admin.getPermissions(); }
 
   @Put('permissions')
-  savePermissions(@CurrentUser() user: User, @Body() body: { permissions?: unknown }, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(adminPermissionsRequestSchema))
+  savePermissions(@CurrentUser() user: User, @Body() body: z.infer<typeof adminPermissionsRequestSchema>, @Req() req: Request) {
     if (!body.permissions || typeof body.permissions !== 'object') {
       throw new HttpException({ error: 'permissions object required' }, 400);
     }
@@ -137,7 +147,8 @@ export class AdminController {
 
   @Post('invites')
   @HttpCode(201)
-  createInvite(@CurrentUser() user: User, @Body() body: unknown, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(adminInviteCreateRequestSchema))
+  createInvite(@CurrentUser() user: User, @Body() body: z.infer<typeof adminInviteCreateRequestSchema>, @Req() req: Request) {
     const result = this.admin.createInvite(user.id, body);
     writeAudit({ userId: user.id, action: 'admin.invite_create', resource: String(result.inviteId), ip: getClientIp(req), details: { max_uses: result.uses, expires_in_days: result.expiresInDays } });
     return { invite: result.invite };
@@ -155,7 +166,8 @@ export class AdminController {
   getBagTracking() { return this.admin.getBagTracking(); }
 
   @Put('bag-tracking')
-  updateBagTracking(@CurrentUser() user: User, @Body() body: { enabled?: unknown }, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(adminFeatureToggleRequestSchema))
+  updateBagTracking(@CurrentUser() user: User, @Body() body: z.infer<typeof adminFeatureToggleRequestSchema>, @Req() req: Request) {
     const result = this.admin.updateBagTracking(body.enabled);
     writeAudit({ userId: user.id, action: 'admin.bag_tracking', ip: getClientIp(req), details: { enabled: result.enabled } });
     return result;
@@ -165,8 +177,8 @@ export class AdminController {
   getPlacesPhotos() { return this.admin.getPlacesPhotos(); }
 
   @Put('places-photos')
-  updatePlacesPhotos(@CurrentUser() user: User, @Body() body: { enabled?: unknown }, @Req() req: Request) {
-    if (typeof body.enabled !== 'boolean') throw new HttpException({ error: 'enabled must be a boolean' }, 400);
+  @UsePipes(new ZodValidationPipe(adminFeatureToggleRequestSchema))
+  updatePlacesPhotos(@CurrentUser() user: User, @Body() body: z.infer<typeof adminFeatureToggleRequestSchema>, @Req() req: Request) {
     const result = this.admin.updatePlacesPhotos(body.enabled);
     writeAudit({ userId: user.id, action: 'admin.places_photos', ip: getClientIp(req), details: { enabled: result.enabled } });
     return result;
@@ -176,8 +188,8 @@ export class AdminController {
   getPlacesAutocomplete() { return this.admin.getPlacesAutocomplete(); }
 
   @Put('places-autocomplete')
-  updatePlacesAutocomplete(@CurrentUser() user: User, @Body() body: { enabled?: unknown }, @Req() req: Request) {
-    if (typeof body.enabled !== 'boolean') throw new HttpException({ error: 'enabled must be a boolean' }, 400);
+  @UsePipes(new ZodValidationPipe(adminFeatureToggleRequestSchema))
+  updatePlacesAutocomplete(@CurrentUser() user: User, @Body() body: z.infer<typeof adminFeatureToggleRequestSchema>, @Req() req: Request) {
     const result = this.admin.updatePlacesAutocomplete(body.enabled);
     writeAudit({ userId: user.id, action: 'admin.places_autocomplete', ip: getClientIp(req), details: { enabled: result.enabled } });
     return result;
@@ -187,8 +199,8 @@ export class AdminController {
   getPlacesDetails() { return this.admin.getPlacesDetails(); }
 
   @Put('places-details')
-  updatePlacesDetails(@CurrentUser() user: User, @Body() body: { enabled?: unknown }, @Req() req: Request) {
-    if (typeof body.enabled !== 'boolean') throw new HttpException({ error: 'enabled must be a boolean' }, 400);
+  @UsePipes(new ZodValidationPipe(adminFeatureToggleRequestSchema))
+  updatePlacesDetails(@CurrentUser() user: User, @Body() body: z.infer<typeof adminFeatureToggleRequestSchema>, @Req() req: Request) {
     const result = this.admin.updatePlacesDetails(body.enabled);
     writeAudit({ userId: user.id, action: 'admin.places_details', ip: getClientIp(req), details: { enabled: result.enabled } });
     return result;

@@ -1,5 +1,6 @@
 import { Injectable, Optional } from '@nestjs/common';
 import type { RelocationJourney, JourneyPreferences, JourneyTimeline, JourneyDecision } from '@memove/shared';
+
 import { DatabaseService } from '../database/database.service';
 import { RelocationService } from './relocation.service';
 import { createTrip, TRIP_KIND } from '../../services/tripService';

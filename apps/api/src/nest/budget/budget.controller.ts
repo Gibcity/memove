@@ -10,11 +10,25 @@ import {
   Put,
   Query,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  budgetCreateItemRequestSchema,
+  budgetCreateSettlementRequestSchema,
+  budgetReorderCategoriesRequestSchema,
+  budgetReorderItemsRequestSchema,
+  budgetToggleMemberPaidRequestSchema,
+  budgetUpdateItemRequestSchema,
+  budgetUpdateMembersRequestSchema,
+  budgetUpdatePayersRequestSchema,
+  budgetUpdateSettlementRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { BudgetService } from './budget.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 /**
  * /api/trips/:tripId/budget — trip-scoped expense planner.
@@ -74,17 +88,15 @@ export class BudgetController {
   }
 
   @Post('settlements')
+  @UsePipes(new ZodValidationPipe(budgetCreateSettlementRequestSchema))
   createSettlement(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { from_user_id?: number; to_user_id?: number; amount?: number },
+    @Body() body: z.infer<typeof budgetCreateSettlementRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (body.from_user_id == null || body.to_user_id == null || body.amount == null) {
-      throw new HttpException({ error: 'from_user_id, to_user_id and amount are required' }, 400);
-    }
     const settlement = this.budget.createSettlement(
       tripId,
       { from_user_id: body.from_user_id, to_user_id: body.to_user_id, amount: body.amount },
@@ -95,18 +107,16 @@ export class BudgetController {
   }
 
   @Put('settlements/:settlementId')
+  @UsePipes(new ZodValidationPipe(budgetUpdateSettlementRequestSchema))
   updateSettlement(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('settlementId') settlementId: string,
-    @Body() body: { from_user_id?: number; to_user_id?: number; amount?: number },
+    @Body() body: z.infer<typeof budgetUpdateSettlementRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (body.from_user_id == null || body.to_user_id == null || body.amount == null) {
-      throw new HttpException({ error: 'from_user_id, to_user_id and amount are required' }, 400);
-    }
     const settlement = this.budget.updateSettlement(settlementId, tripId, {
       from_user_id: body.from_user_id,
       to_user_id: body.to_user_id,
@@ -136,56 +146,57 @@ export class BudgetController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(budgetCreateItemRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: { name?: string; category?: string; total_price?: number; persons?: number | null; days?: number | null; note?: string | null; expense_date?: string | null; reservation_id?: number },
+    @Body() body: z.infer<typeof budgetCreateItemRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!body.name) {
-      throw new HttpException({ error: 'Name is required' }, 400);
-    }
-    const item = this.budget.create(tripId, body as { name: string });
+    const item = this.budget.create(tripId, body);
     this.budget.broadcast(tripId, 'budget:created', { item }, socketId);
     return { item };
   }
 
   @Put('reorder/items')
+  @UsePipes(new ZodValidationPipe(budgetReorderItemsRequestSchema))
   reorderItems(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body('orderedIds') orderedIds: number[],
+    @Body() body: z.infer<typeof budgetReorderItemsRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    this.budget.reorderItems(tripId, orderedIds);
-    this.budget.broadcast(tripId, 'budget:reordered', { orderedIds }, socketId);
+    this.budget.reorderItems(tripId, body.orderedIds);
+    this.budget.broadcast(tripId, 'budget:reordered', { orderedIds: body.orderedIds }, socketId);
     return { success: true };
   }
 
   @Put('reorder/categories')
+  @UsePipes(new ZodValidationPipe(budgetReorderCategoriesRequestSchema))
   reorderCategories(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body('orderedCategories') orderedCategories: string[],
+    @Body() body: z.infer<typeof budgetReorderCategoriesRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    this.budget.reorderCategories(tripId, orderedCategories);
-    this.budget.broadcast(tripId, 'budget:reordered', { orderedCategories }, socketId);
+    this.budget.reorderCategories(tripId, body.orderedCategories);
+    this.budget.broadcast(tripId, 'budget:reordered', { orderedCategories: body.orderedCategories }, socketId);
     return { success: true };
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(budgetUpdateItemRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: Record<string, unknown>,
+    @Body() body: z.infer<typeof budgetUpdateItemRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
@@ -202,19 +213,17 @@ export class BudgetController {
   }
 
   @Put(':id/members')
+  @UsePipes(new ZodValidationPipe(budgetUpdateMembersRequestSchema))
   updateMembers(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body('user_ids') userIds: unknown,
+    @Body() body: z.infer<typeof budgetUpdateMembersRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!Array.isArray(userIds)) {
-      throw new HttpException({ error: 'user_ids must be an array' }, 400);
-    }
-    const result = this.budget.updateMembers(id, tripId, userIds);
+    const result = this.budget.updateMembers(id, tripId, body.user_ids);
     if (!result) {
       throw new HttpException({ error: 'Budget item not found' }, 404);
     }
@@ -223,19 +232,17 @@ export class BudgetController {
   }
 
   @Put(':id/payers')
+  @UsePipes(new ZodValidationPipe(budgetUpdatePayersRequestSchema))
   setPayers(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body('payers') payers: unknown,
+    @Body() body: z.infer<typeof budgetUpdatePayersRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    if (!Array.isArray(payers)) {
-      throw new HttpException({ error: 'payers must be an array' }, 400);
-    }
-    const item = this.budget.setPayers(id, tripId, payers as { user_id: number; amount: number }[]);
+    const item = this.budget.setPayers(id, tripId, body.payers);
     if (!item) {
       throw new HttpException({ error: 'Budget item not found' }, 404);
     }
@@ -244,18 +251,19 @@ export class BudgetController {
   }
 
   @Put(':id/members/:userId/paid')
+  @UsePipes(new ZodValidationPipe(budgetToggleMemberPaidRequestSchema))
   toggleMemberPaid(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
     @Param('userId') userId: string,
-    @Body('paid') paid: boolean,
+    @Body() body: z.infer<typeof budgetToggleMemberPaidRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
-    const member = this.budget.toggleMemberPaid(id, tripId, userId, paid);
-    this.budget.broadcast(tripId, 'budget:member-paid-updated', { itemId: Number(id), userId: Number(userId), paid: paid ? 1 : 0 }, socketId);
+    const member = this.budget.toggleMemberPaid(id, tripId, userId, body.paid);
+    this.budget.broadcast(tripId, 'budget:member-paid-updated', { itemId: Number(id), userId: Number(userId), paid: body.paid ? 1 : 0 }, socketId);
     return { member };
   }
 

@@ -9,22 +9,20 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  accommodationCreateRequestSchema,
+  accommodationUpdateRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { AccommodationsService } from './accommodations.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
-type AccommodationBody = {
-  place_id?: number;
-  start_day_id?: number;
-  end_day_id?: number;
-  check_in?: string | null;
-  check_in_end?: string | null;
-  check_out?: string | null;
-  confirmation?: string | null;
-  notes?: string | null;
-};
+type AccommodationCreateBody = z.infer<typeof accommodationCreateRequestSchema>;
 
 /**
  * /api/trips/:tripId/accommodations — trip-scoped lodging blocks.
@@ -62,10 +60,11 @@ export class AccommodationsController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(accommodationCreateRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
-    @Body() body: AccommodationBody,
+    @Body() body: AccommodationCreateBody,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
@@ -74,7 +73,7 @@ export class AccommodationsController {
     if (!place_id || !start_day_id || !end_day_id) {
       throw new HttpException({ error: 'place_id, start_day_id, and end_day_id are required' }, 400);
     }
-    const errors = this.accommodations.validateRefs(tripId, place_id, start_day_id, end_day_id);
+    const errors = this.accommodations.validateRefs(tripId, Number(place_id), Number(start_day_id), Number(end_day_id));
     if (errors.length > 0) {
       throw new HttpException({ error: errors[0].message }, 404);
     }
@@ -85,11 +84,12 @@ export class AccommodationsController {
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(accommodationUpdateRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: AccommodationBody,
+    @Body() body: z.infer<typeof accommodationUpdateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = this.requireTrip(tripId, user);
@@ -99,7 +99,7 @@ export class AccommodationsController {
       throw new HttpException({ error: 'Accommodation not found' }, 404);
     }
     const { place_id, start_day_id, end_day_id, check_in, check_in_end, check_out, confirmation, notes } = body;
-    const errors = this.accommodations.validateRefs(tripId, place_id, start_day_id, end_day_id);
+    const errors = this.accommodations.validateRefs(tripId, Number(place_id), Number(start_day_id), Number(end_day_id));
     if (errors.length > 0) {
       throw new HttpException({ error: errors[0].message }, 404);
     }

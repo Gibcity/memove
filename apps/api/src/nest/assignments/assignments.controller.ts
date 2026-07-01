@@ -9,11 +9,21 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import {
+  assignmentCreateRequestSchema,
+  assignmentReorderRequestSchema,
+  assignmentMoveRequestSchema,
+  assignmentTimeRequestSchema,
+  assignmentParticipantsRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { AssignmentsService } from './assignments.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 type Trip = NonNullable<ReturnType<AssignmentsService['verifyTripAccess']>>;
 
@@ -55,11 +65,12 @@ export class DayAssignmentsController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(assignmentCreateRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('dayId') dayId: string,
-    @Body() body: { place_id?: unknown; notes?: string | null },
+    @Body() body: z.infer<typeof assignmentCreateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = requireTrip(this.assignments, tripId, user);
@@ -77,11 +88,12 @@ export class DayAssignmentsController {
   }
 
   @Put('reorder')
+  @UsePipes(new ZodValidationPipe(assignmentReorderRequestSchema))
   reorder(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('dayId') dayId: string,
-    @Body('orderedIds') orderedIds: number[],
+    @Body() body: z.infer<typeof assignmentReorderRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = requireTrip(this.assignments, tripId, user);
@@ -89,8 +101,8 @@ export class DayAssignmentsController {
     if (!this.assignments.dayExists(dayId, tripId)) {
       throw new HttpException({ error: 'Day not found' }, 404);
     }
-    this.assignments.reorderAssignments(dayId, orderedIds);
-    this.assignments.broadcast(tripId, 'assignment:reordered', { dayId: Number(dayId), orderedIds }, socketId);
+    this.assignments.reorderAssignments(dayId, body.orderedIds);
+    this.assignments.broadcast(tripId, 'assignment:reordered', { dayId: Number(dayId), orderedIds: body.orderedIds }, socketId);
     return { success: true };
   }
 
@@ -123,11 +135,12 @@ export class AssignmentOpsController {
   constructor(private readonly assignments: AssignmentsService) {}
 
   @Put(':id/move')
+  @UsePipes(new ZodValidationPipe(assignmentMoveRequestSchema))
   move(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: { new_day_id?: unknown; order_index?: number },
+    @Body() body: z.infer<typeof assignmentMoveRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = requireTrip(this.assignments, tripId, user);
@@ -152,11 +165,12 @@ export class AssignmentOpsController {
   }
 
   @Put(':id/time')
+  @UsePipes(new ZodValidationPipe(assignmentTimeRequestSchema))
   time(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body() body: { place_time?: string | null; end_time?: string | null },
+    @Body() body: z.infer<typeof assignmentTimeRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = requireTrip(this.assignments, tripId, user);
@@ -170,19 +184,17 @@ export class AssignmentOpsController {
   }
 
   @Put(':id/participants')
+  @UsePipes(new ZodValidationPipe(assignmentParticipantsRequestSchema))
   setParticipants(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('id') id: string,
-    @Body('user_ids') userIds: unknown,
+    @Body() body: z.infer<typeof assignmentParticipantsRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
     const trip = requireTrip(this.assignments, tripId, user);
     requireEdit(this.assignments, trip, user);
-    if (!Array.isArray(userIds)) {
-      throw new HttpException({ error: 'user_ids must be an array' }, 400);
-    }
-    const participants = this.assignments.setParticipants(id, userIds);
+    const participants = this.assignments.setParticipants(id, body.user_ids);
     this.assignments.broadcast(tripId, 'assignment:participants', { assignmentId: Number(id), participants }, socketId);
     return { participants };
   }

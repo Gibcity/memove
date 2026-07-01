@@ -15,6 +15,7 @@ import {
   UploadedFile,
   UseGuards,
   UseInterceptors,
+  UsePipes,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Request, Response } from 'express';
@@ -22,10 +23,18 @@ import { diskStorage } from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
+import { z } from 'zod';
+import {
+  tripCreateRequestSchema,
+  tripUpdateRequestSchema,
+  tripCopyRequestSchema,
+  tripAddMemberRequestSchema,
+} from '@memove/shared';
 import type { User } from '../../types';
 import { TripsService } from './trips.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 import { writeAudit, getClientIp, logInfo } from '../../services/auditLog';
 import { isDemoEmail } from '../../services/demo';
 import { NotFoundError, ValidationError } from '../../services/tripService';
@@ -73,23 +82,28 @@ export class TripsController {
 
   @Post()
   @HttpCode(201)
-  create(@CurrentUser() user: User, @Body() body: Record<string, unknown>, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(tripCreateRequestSchema))
+  create(
+    @CurrentUser() user: User,
+    @Body() body: z.infer<typeof tripCreateRequestSchema> & Record<string, unknown>,
+    @Req() req: Request,
+  ) {
     if (!this.trips.can('trip_create', user.role, null, user.id, false)) {
       throw new HttpException({ error: 'No permission to create trips' }, 403);
     }
-    const { title, description, currency, reminder_days, day_count } = body as Record<string, never>;
+    const { title, description, currency, reminder_days, day_count, kind } = body;
     if (!title) {
       throw new HttpException({ error: 'Title is required' }, 400);
     }
-    let start_date: string | null = (body.start_date as string) || null;
-    let end_date: string | null = (body.end_date as string) || null;
+    let start_date: string | null = body.start_date || null;
+    let end_date: string | null = body.end_date || null;
     if (start_date && !end_date) end_date = toDateStr(addDays(new Date(start_date), 6));
     else if (!start_date && end_date) start_date = toDateStr(addDays(new Date(end_date), -6));
     if (start_date && end_date && new Date(end_date) < new Date(start_date)) {
       throw new HttpException({ error: 'End date must be after start date' }, 400);
     }
     const parsedDayCount = day_count ? Math.min(Math.max(Number(day_count) || 7, 1), 365) : undefined;
-    const { trip, tripId, reminderDays } = this.trips.create(user.id, { title, description, start_date, end_date, currency, reminder_days, day_count: parsedDayCount, kind: body.kind as string | undefined });
+    const { trip, tripId, reminderDays } = this.trips.create(user.id, { title, description, start_date, end_date, currency, reminder_days, day_count: parsedDayCount, kind: kind as string | undefined });
     writeAudit({ userId: user.id, action: 'trip.create', ip: getClientIp(req), details: { tripId, title, reminder_days: reminderDays === 0 ? 'none' : `${reminderDays} days` } });
     if (reminderDays > 0) logInfo(`${user.email} set ${reminderDays}-day reminder for trip "${title}"`);
     return { trip };
@@ -105,7 +119,14 @@ export class TripsController {
   }
 
   @Put(':id')
-  update(@CurrentUser() user: User, @Param('id') id: string, @Body() body: Record<string, unknown>, @Req() req: Request, @Headers('x-socket-id') socketId?: string) {
+  @UsePipes(new ZodValidationPipe(tripUpdateRequestSchema))
+  update(
+    @CurrentUser() user: User,
+    @Param('id') id: string,
+    @Body() body: z.infer<typeof tripUpdateRequestSchema> & Record<string, unknown>,
+    @Req() req: Request,
+    @Headers('x-socket-id') socketId?: string,
+  ) {
     const access = this.trips.canAccessTrip(id, user.id);
     if (!access) {
       throw new HttpException({ error: 'Trip not found' }, 404);
@@ -169,7 +190,13 @@ export class TripsController {
 
   @Post(':id/copy')
   @HttpCode(201)
-  copy(@CurrentUser() user: User, @Param('id') id: string, @Body('title') title: string | undefined, @Req() req: Request) {
+  @UsePipes(new ZodValidationPipe(tripCopyRequestSchema))
+  copy(
+    @CurrentUser() user: User,
+    @Param('id') id: string,
+    @Body() body: z.infer<typeof tripCopyRequestSchema>,
+    @Req() req: Request,
+  ) {
     if (!this.trips.can('trip_create', user.role, null, user.id, false)) {
       throw new HttpException({ error: 'No permission to create trips' }, 403);
     }
@@ -177,8 +204,8 @@ export class TripsController {
       throw new HttpException({ error: 'Trip not found' }, 404);
     }
     try {
-      const newTripId = this.trips.copy(id, user.id, title);
-      writeAudit({ userId: user.id, action: 'trip.copy', ip: getClientIp(req), details: { sourceTripId: Number(id), newTripId, title } });
+      const newTripId = this.trips.copy(id, user.id, body.title);
+      writeAudit({ userId: user.id, action: 'trip.copy', ip: getClientIp(req), details: { sourceTripId: Number(id), newTripId, title: body.title } });
       return { trip: this.trips.getCopiedTrip(newTripId, user.id) };
     } catch {
       throw new HttpException({ error: 'Failed to copy trip' }, 500);
@@ -213,7 +240,12 @@ export class TripsController {
 
   @Post(':id/members')
   @HttpCode(201)
-  addMember(@CurrentUser() user: User, @Param('id') id: string, @Body('identifier') identifier: string) {
+  @UsePipes(new ZodValidationPipe(tripAddMemberRequestSchema))
+  addMember(
+    @CurrentUser() user: User,
+    @Param('id') id: string,
+    @Body() body: z.infer<typeof tripAddMemberRequestSchema>,
+  ) {
     const access = this.trips.canAccessTrip(id, user.id);
     if (!access) {
       throw new HttpException({ error: 'Trip not found' }, 404);
@@ -222,7 +254,7 @@ export class TripsController {
       throw new HttpException({ error: 'No permission to manage members' }, 403);
     }
     try {
-      const result = this.trips.addMember(id, identifier, access.user_id, user.id);
+      const result = this.trips.addMember(id, body.identifier, access.user_id, user.id);
       this.trips.notifyInvite(id, user, result.targetUserId, result.tripTitle, result.member.email);
       return { member: result.member };
     } catch (e: unknown) {

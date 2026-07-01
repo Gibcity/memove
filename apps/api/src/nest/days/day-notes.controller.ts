@@ -9,13 +9,15 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
 } from '@nestjs/common';
+import { z } from 'zod';
+import { dayNoteCreateRequestSchema, dayNoteUpdateRequestSchema } from '@memove/shared';
 import type { User } from '../../types';
 import { DayNotesService } from './day-notes.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
-
-type DayNoteBody = { text?: string; time?: string; icon?: string; sort_order?: number };
+import { ZodValidationPipe } from '../common/zod-validation.pipe';
 
 // Runs BEFORE the trip-access check, so an over-long field 400s first. The `time`
 // cap matches the shared dayNote schema (max 250) and the note dialog's counter;
@@ -66,14 +68,15 @@ export class DayNotesController {
   }
 
   @Post()
+  @UsePipes(new ZodValidationPipe(dayNoteCreateRequestSchema))
   create(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('dayId') dayId: string,
-    @Body() body: DayNoteBody,
+    @Body() body: z.infer<typeof dayNoteCreateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
-    validateLengths(body);
+    validateLengths(body as Record<string, unknown>);
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
     if (!this.notes.dayExists(dayId, tripId)) {
@@ -88,15 +91,16 @@ export class DayNotesController {
   }
 
   @Put(':id')
+  @UsePipes(new ZodValidationPipe(dayNoteUpdateRequestSchema))
   update(
     @CurrentUser() user: User,
     @Param('tripId') tripId: string,
     @Param('dayId') dayId: string,
     @Param('id') id: string,
-    @Body() body: DayNoteBody,
+    @Body() body: z.infer<typeof dayNoteUpdateRequestSchema>,
     @Headers('x-socket-id') socketId?: string,
   ) {
-    validateLengths(body);
+    validateLengths(body as Record<string, unknown>);
     const trip = this.requireTrip(tripId, user);
     this.requireEdit(trip, user);
     const current = this.notes.getNote(id, dayId, tripId);
