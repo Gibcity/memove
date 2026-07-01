@@ -359,9 +359,9 @@ export class RelocationController {
   /**
    * POST /api/relocation/chat — conversational agent endpoint.
    *
-   * Thin wrapper: delegates intent detection, regex chain, scoring, and LLM
-   * fallback to RelocationChatService. Response shape unchanged from the
-   * pre-extraction controller.
+   * Thin wrapper: delegates to RelocationChatService which calls
+   * completeWithTools() (LLM-driven tool-calling agent). The previous
+   * regex-keyword chain was extracted to that service on 2026-06-30 (§6 #3).
    */
   @Post('chat')
   @UsePipes(new ZodValidationPipe(chatSchema))

@@ -223,8 +223,9 @@ describe('JourneyPublicPage', () => {
     await waitFor(() => {
       expect(screen.getByText('Tokyo 2026')).toBeInTheDocument();
     });
-    // Footer shows "memove" brand and "Made with" text
-    expect(screen.getByText('memove')).toBeInTheDocument();
+    // Footer shows "memove" brand and "Made with" text. Brand renders in
+    // both the hero (img alt) and the footer (strong) — both count.
+    expect(screen.getAllByText('memove').length).toBeGreaterThan(0);
     expect(screen.getByText(/Made with/)).toBeInTheDocument();
     expect(screen.getByText('GitHub')).toBeInTheDocument();
   });
