@@ -24,6 +24,17 @@ vi.mock('../../../src/config', () => ({
   ENCRYPTION_KEY: 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7b8c9d0e1f2a3b4c5d6a7b8c9d0e1f2',
   updateJwtSecret: () => {},
 }));
+// ponytail: relocation_admin tools are gated on the 'relocation' addon. Mirror the
+// pattern in tools-vacay.test.ts / tools-prompts.test.ts: stub isAddonEnabled() to
+// return true, otherwise the tools never get registered and the server returns
+// "Tool not found" (-32602). Pre-existing gap that was hidden behind the
+// @modelcontextprotocol/sdk/server/mcp import error prior to 1.29.
+// getCollabFeatures is imported by sibling tool modules (trips, collab) — vitest
+// requires all consumed exports from a vi.mock factory to be present.
+vi.mock('../../../src/services/adminService', () => ({
+  isAddonEnabled: vi.fn().mockReturnValue(true),
+  getCollabFeatures: vi.fn().mockReturnValue({ chat: true, notes: true, polls: true, whatsnext: true }),
+}));
 
 import { createTables } from '../../../src/db/schema';
 import { createMcpHarness, parseToolResult, type McpHarness } from '../../helpers/mcp-harness';
