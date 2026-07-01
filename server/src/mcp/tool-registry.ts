@@ -1376,29 +1376,71 @@ const adminTools: ToolDefinition[] = [
     handler: (_svc, _args, _userId) => {
       const checklist = [
         { category: 'Government', priority: 'high', items: [
-          { entity: 'USPS', action: 'File Change of Address (online free, $1.10 in person)', deadlineDays: 0, automated: true },
-          { entity: 'IRS / Federal Tax', action: 'Update address on next return OR file Form 8822', deadlineDays: 0, automated: false },
-          { entity: 'Social Security Administration', action: 'Update address online at ssa.gov/myaccount', deadlineDays: 0, automated: false },
+          { entity: 'USPS', url: 'https://move.usps.com/', action: 'File Change of Address (online free, $1.10 in person)', deadlineDays: 0, automated: true },
+          { entity: 'IRS / Federal Tax', url: 'https://www.irs.gov/forms-pubs/about-form-8822', action: 'Update address on next return OR file Form 8822', deadlineDays: 0, automated: false },
+          { entity: 'Social Security Administration', url: 'https://www.ssa.gov/myaccount/', action: 'Update address online at ssa.gov/myaccount', deadlineDays: 0, automated: false },
           { entity: 'Voter Registration', action: 'Register at new address', deadlineDays: 30, automated: false },
           { entity: 'Department of Motor Vehicles', action: 'Update license + vehicle registration', deadlineDays: 30, automated: false },
-          { entity: 'VA (Veterans Affairs)', action: 'Update address if receiving benefits', deadlineDays: 0, automated: false },
+          { entity: 'VA (Veterans Affairs)', url: 'https://www.va.gov/change-address/', action: 'Update address if receiving benefits', deadlineDays: 0, automated: false },
+          { entity: 'Passport (US State Dept)', action: 'File Form DS-5520 if mail cannot reach you; otherwise no change needed', deadlineDays: 0, automated: false },
+          { entity: 'Selective Service', action: 'Update address within 10 days if male 18-25', deadlineDays: 10, automated: false },
         ]},
         { category: 'Financial', priority: 'high', items: [
           { entity: 'Banks (checking & savings)', action: 'Update address at each bank', deadlineDays: 14, automated: false },
           { entity: 'Credit cards', action: 'Update billing address on every card', deadlineDays: 7, automated: false },
           { entity: 'Investment accounts', action: 'Update brokerage, retirement, HSA', deadlineDays: 14, automated: false },
+          { entity: 'Mortgage / Home loan servicer', action: 'Update property insurance address + billing', deadlineDays: 7, automated: false },
+          { entity: 'Payroll / Employer', action: 'Update direct deposit + W-4 address', deadlineDays: 7, automated: false },
+          { entity: 'Student loan servicer', action: 'Update borrower contact address', deadlineDays: 14, automated: false },
         ]},
         { category: 'Insurance', priority: 'high', items: [
           { entity: 'Auto insurance', action: 'Update garaging address BEFORE move', deadlineDays: 0, automated: false },
           { entity: 'Homeowners / Renters', action: 'Bind new policy; old policy ends at move', deadlineDays: 0, automated: false },
           { entity: 'Health insurance', action: 'Update address; marketplace switch if cross-state', deadlineDays: 14, automated: false },
+          { entity: 'Life insurance', action: 'Update beneficiary + owner address', deadlineDays: 30, automated: false },
+          { entity: 'Umbrella / Liability', action: 'Update policy to reflect new property', deadlineDays: 30, automated: false },
         ]},
         { category: 'Utilities & Services', priority: 'medium', items: [
           { entity: 'Electric utility', action: 'Transfer service to new address', deadlineDays: 0, automated: true },
+          { entity: 'Gas utility', action: 'Schedule transfer + safety inspection if needed', deadlineDays: 0, automated: true },
+          { entity: 'Water / Sewer', action: 'Establish new account with local municipality', deadlineDays: 0, automated: false },
+          { entity: 'Trash / Recycling', action: 'Confirm pickup schedule + bin swap if required', deadlineDays: 7, automated: false },
           { entity: 'Internet / Broadband', action: 'Schedule install (often 2-week lead time)', deadlineDays: 14, automated: false },
+          { entity: 'Cable / Streaming', action: 'Update service address or cancel', deadlineDays: 7, automated: false },
           { entity: 'Mobile phone', action: 'Update billing address; check coverage', deadlineDays: 7, automated: false },
+          { entity: 'Landline (if any)', action: 'Port number or cancel service', deadlineDays: 7, automated: false },
+        ]},
+        { category: 'Subscriptions & Memberships', priority: 'medium', items: [
+          { entity: 'Newspaper / Magazines', action: 'Update delivery address or cancel', deadlineDays: 7, automated: false },
+          { entity: 'Subscription boxes', action: 'Update shipping address (e.g., Birchbox, HelloFresh)', deadlineDays: 7, automated: false },
+          { entity: 'Gym / Fitness', action: 'Cancel, transfer, or freeze membership', deadlineDays: 14, automated: false },
+          { entity: 'Professional associations', action: 'Update chapter + mailing address', deadlineDays: 14, automated: false },
+          { entity: 'Warehouse clubs (Costco/Sam\'s)', action: 'Update card address; verify new location', deadlineDays: 14, automated: false },
+          { entity: 'Loyalty programs', action: 'Update preferred address on airline / hotel / retail', deadlineDays: 14, automated: false },
+          { entity: 'Amazon / Online retailers', action: 'Add new address as default; clear old saved entries', deadlineDays: 0, automated: false },
+          { entity: 'Meal kit services', action: 'Update delivery ZIP or cancel before billing cutoff', deadlineDays: 7, automated: false },
+        ]},
+        { category: 'Personal & Medical', priority: 'medium', items: [
+          { entity: 'Primary care physician', action: 'Transfer records + find new in-network provider', deadlineDays: 30, automated: false },
+          { entity: 'Dentist', action: 'Transfer records + find new provider', deadlineDays: 30, automated: false },
+          { entity: 'Pharmacy', action: 'Transfer prescriptions to a chain near new address', deadlineDays: 14, automated: false },
+          { entity: 'Optometrist / Vision', action: 'Transfer glasses / contacts prescription records', deadlineDays: 30, automated: false },
+          { entity: 'Veterinarian', action: 'Transfer pet records + refill prescriptions', deadlineDays: 14, automated: false },
+          { entity: 'Therapist / Counselor', action: 'Find in-network provider OR continue telehealth', deadlineDays: 30, automated: false },
+        ]},
+        { category: 'Legal & Miscellaneous', priority: 'low', items: [
+          { entity: 'Attorney / Legal counsel', action: 'Update contact address for active matters', deadlineDays: 14, automated: false },
+          { entity: 'Will / Estate executor', action: 'Notify executor of new address', deadlineDays: 30, automated: false },
+          { entity: 'Trust beneficiary records', action: 'Update beneficiary addresses', deadlineDays: 30, automated: false },
+          { entity: 'Divorce / Custody court', action: 'File address change with family court if required', deadlineDays: 14, automated: false },
+          { entity: 'Home security / Alarm', action: 'Update monitoring service address', deadlineDays: 7, automated: false },
+          { entity: 'Personal contacts', action: 'Send new address to family + friends', deadlineDays: 0, automated: false },
+          { entity: 'Charitable donations', action: 'Update recurring gift billing address', deadlineDays: 14, automated: false },
+          { entity: 'Cloud / SaaS accounts', action: 'Update backup address for Apple, Google, Microsoft, etc.', deadlineDays: 7, automated: false },
+          { entity: 'Domain registrar', action: 'Update WHOIS contact address', deadlineDays: 14, automated: false },
         ]},
       ];
+      const totalItems = checklist.reduce((n, c) => n + c.items.length, 0);
       return {
         overview: {
           recommendedFirstStep: 'File a Change of Address with USPS — it forwards most first-class mail for 12 months.',
@@ -1407,6 +1449,7 @@ const adminTools: ToolDefinition[] = [
           forwardingDurationMonths: 12,
         },
         checklist,
+        summary: { totalItems },
       };
     },
   },

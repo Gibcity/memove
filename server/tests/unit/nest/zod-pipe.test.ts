@@ -5,7 +5,7 @@ import { ZodValidationPipe } from '../../../src/nest/common/zod-validation.pipe'
 
 describe('ZodValidationPipe', () => {
   const pipe = new ZodValidationPipe(z.object({ name: z.string().min(1) }));
-  const meta = {} as never;
+  const meta = { type: 'body' } as never;
 
   it('returns the parsed value for valid input', () => {
     expect(pipe.transform({ name: 'x' }, meta)).toEqual({ name: 'x' });

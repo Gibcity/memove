@@ -1,5 +1,5 @@
 import { db } from '../db/database';
-import { avatarUrl } from './authService';
+import { avatarUrl } from './avatarUrl';
 
 const BAG_COLORS = ['#6366f1', '#ec4899', '#f97316', '#10b981', '#06b6d4', '#8b5cf6', '#ef4444', '#f59e0b', '#3b82f6', '#84cc16', '#d946ef', '#14b8a6', '#f43f5e', '#a855f7', '#eab308', '#64748b'];
 

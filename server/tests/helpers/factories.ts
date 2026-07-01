@@ -95,13 +95,22 @@ export function createTrip(
 
   // Auto-generate days if dates are provided
   if (overrides.start_date && overrides.end_date) {
-    const start = new Date(overrides.start_date);
-    const end = new Date(overrides.end_date);
     const tripId = result.lastInsertRowid as number;
+    // ponytail: iterate in UTC — `new Date('YYYY-MM-DD')` parses as UTC midnight
+    // but `setDate(±n)` runs in local time, so on a negative-offset host the
+    // inclusive <= check terminates a day early and we under-insert.
+    const [sy, sm, sd] = overrides.start_date.split('-').map(Number);
+    const [ey, em, ed] = overrides.end_date.split('-').map(Number);
+    const startMs = Date.UTC(sy, sm - 1, sd);
+    const endMs = Date.UTC(ey, em - 1, ed);
+    const MS_PER_DAY = 86_400_000;
     let dayNumber = 1;
-    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-      const dateStr = d.toISOString().slice(0, 10);
-      db.prepare('INSERT INTO days (trip_id, day_number, date) VALUES (?, ?, ?)').run(tripId, dayNumber++, dateStr);
+    for (let ms = startMs; ms <= endMs; ms += MS_PER_DAY) {
+      const d = new Date(ms);
+      const yyyy = d.getUTCFullYear();
+      const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+      const dd = String(d.getUTCDate()).padStart(2, '0');
+      db.prepare('INSERT INTO days (trip_id, day_number, date) VALUES (?, ?, ?)').run(tripId, dayNumber++, `${yyyy}-${mm}-${dd}`);
     }
   }
 
