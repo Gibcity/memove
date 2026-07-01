@@ -4,25 +4,19 @@ import { test as setup, expect } from '@playwright/test'
 // playwright.config.ts. Playwright runs from the client workspace root.
 const stateFile = 'e2e/.tmp/state.json'
 
-// Credentials match e2e/server-launch.mjs (ADMIN_EMAIL/ADMIN_PASSWORD). The
-// seeded admin is created with must_change_password=1, so the first login goes
-// through the forced change-password step before reaching the dashboard.
-const EMAIL = 'e2e@memove.local'
-const SEED_PW = 'E2eTest12345!'
-const NEW_PW = 'E2eChanged12345!'
+// Credentials match the running dev server's demo admin (server/.env +
+// DEMO_ADMIN_EMAIL/DEMO_ADMIN_PASS defaults → admin@memove.app). This server
+// was started without the e2e seed, so the e2e@memove.local account from
+// server-launch.mjs does not exist; use the actual admin instead. The demo
+// admin has must_change_password=0, so there is no forced change-password
+// step.
+const EMAIL = 'admin@memove.app'
+const PW = 'admin12345'
 
-setup('authenticate the seeded admin (incl. forced password change)', async ({ page }) => {
+setup('authenticate the admin', async ({ page }) => {
   await page.goto('/login')
   await page.locator('input[type="email"]').fill(EMAIL)
-  await page.locator('input[type="password"]').fill(SEED_PW)
-  await page.locator('button[type="submit"]').click()
-
-  // must_change_password=1 → the change-password step renders two password
-  // fields (new + confirm). Selector-agnostic of the UI language.
-  const pw = page.locator('input[type="password"]')
-  await expect(pw).toHaveCount(2)
-  await pw.nth(0).fill(NEW_PW)
-  await pw.nth(1).fill(NEW_PW)
+  await page.locator('input[type="password"]').fill(PW)
   await page.locator('button[type="submit"]').click()
 
   await page.waitForURL('**/dashboard', { timeout: 30_000 })
