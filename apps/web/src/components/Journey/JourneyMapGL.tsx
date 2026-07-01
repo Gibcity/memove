@@ -1,8 +1,10 @@
 import { useEffect, useRef, useImperativeHandle, forwardRef, useCallback } from 'react'
-import mapboxgl from 'mapbox-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import { useSettingsStore } from '../../store/settingsStore'
-import { isStandardFamily, supportsCustom3d, wantsTerrain, addCustom3dBuildings, addTerrainAndSky } from '../Map/mapboxSetup'
+import maplibregl from 'maplibre-gl'
+import 'maplibre-gl/dist/maplibre-gl.css'
+// ponytail: v1 has no 3D / terrain / custom styles — DEFAULT_MAP_STYLE is the
+// only style. When Protomaps ships, bring back the 3D helpers from
+// `../Map/mapboxSetup` here.
+import { DEFAULT_MAP_STYLE } from '../Map/mapboxSetup'
 
 export interface JourneyMapGLHandle {
   highlightMarker: (id: string | null) => void
@@ -95,8 +97,8 @@ function ensureJourneyPopupStyle() {
   const s = document.createElement('style')
   s.id = 'memove-journey-popup-style'
   s.textContent = `
-    .mapboxgl-popup.memove-journey-popup { pointer-events: none; animation: memove-journey-popup-in 180ms ease-out; }
-    .mapboxgl-popup.memove-journey-popup .mapboxgl-popup-content {
+    .maplibregl-popup.memove-journey-popup { pointer-events: none; animation: memove-journey-popup-in 180ms ease-out; }
+    .maplibregl-popup.memove-journey-popup .maplibregl-popup-content {
       padding: 9px 14px 10px;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.94);
@@ -108,20 +110,20 @@ function ensureJourneyPopupStyle() {
       min-width: 160px;
       max-width: 280px;
     }
-    .mapboxgl-popup.memove-journey-popup.memove-dark .mapboxgl-popup-content {
+    .maplibregl-popup.memove-journey-popup.memove-dark .maplibregl-popup-content {
       background: rgba(24, 24, 27, 0.88);
       border-color: rgba(255, 255, 255, 0.08);
       color: #FAFAFA;
     }
-    .mapboxgl-popup.memove-journey-popup .mapboxgl-popup-tip {
+    .maplibregl-popup.memove-journey-popup .maplibregl-popup-tip {
       border-top-color: rgba(255, 255, 255, 0.94);
       border-bottom-color: rgba(255, 255, 255, 0.94);
     }
-    .mapboxgl-popup.memove-journey-popup.memove-dark .mapboxgl-popup-tip {
+    .maplibregl-popup.memove-journey-popup.memove-dark .maplibregl-popup-tip {
       border-top-color: rgba(24, 24, 27, 0.88);
       border-bottom-color: rgba(24, 24, 27, 0.88);
     }
-    .mapboxgl-popup.memove-journey-popup .mapboxgl-popup-close-button { display: none; }
+    .maplibregl-popup.memove-journey-popup .maplibregl-popup-close-button { display: none; }
     .memove-journey-popup-title {
       font-size: 13.5px;
       font-weight: 600;
@@ -132,7 +134,7 @@ function ensureJourneyPopupStyle() {
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .mapboxgl-popup.memove-journey-popup.memove-dark .memove-journey-popup-title { color: #FAFAFA; }
+    .maplibregl-popup.memove-journey-popup.memove-dark .memove-journey-popup-title { color: #FAFAFA; }
     .memove-journey-popup-sub {
       display: flex;
       align-items: baseline;
@@ -143,7 +145,7 @@ function ensureJourneyPopupStyle() {
       line-height: 1.35;
       white-space: nowrap;
     }
-    .mapboxgl-popup.memove-journey-popup.memove-dark .memove-journey-popup-sub { color: #A1A1AA; }
+    .maplibregl-popup.memove-journey-popup.memove-dark .memove-journey-popup-sub { color: #A1A1AA; }
     .memove-journey-popup-place {
       min-width: 0;
       overflow: hidden;
@@ -198,16 +200,12 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
   ref
 ) {
   const stableTrail = trail || EMPTY_TRAIL
-  const mapboxStyle = useSettingsStore(s => s.settings.mapbox_style || 'mapbox://styles/mapbox/standard')
-  const mapboxToken = useSettingsStore(s => s.settings.mapbox_access_token || '')
-  const mapbox3d = useSettingsStore(s => s.settings.mapbox_3d_enabled !== false)
-  const mapboxQuality = useSettingsStore(s => s.settings.mapbox_quality_mode === true)
   const containerRef = useRef<HTMLDivElement>(null)
-  const mapRef = useRef<mapboxgl.Map | null>(null)
-  const markersRef = useRef<Map<string, mapboxgl.Marker>>(new Map())
+  const mapRef = useRef<maplibregl.Map | null>(null)
+  const markersRef = useRef<Map<string, maplibregl.Marker>>(new Map())
   const itemsRef = useRef<Item[]>([])
   const highlightedRef = useRef<string | null>(null)
-  const popupRef = useRef<mapboxgl.Popup | null>(null)
+  const popupRef = useRef<maplibregl.Popup | null>(null)
   const onMarkerClickRef = useRef(onMarkerClick)
   onMarkerClickRef.current = onMarkerClick
   const darkRef = useRef(dark)
@@ -247,7 +245,7 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
       const el = popupRef.current.getElement()
       if (el) el.classList.toggle('memove-dark', !!darkRef.current)
     } else {
-      popupRef.current = new mapboxgl.Popup({
+      popupRef.current = new maplibregl.Popup({
         closeButton: false,
         closeOnClick: false,
         closeOnMove: false,
@@ -305,11 +303,10 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
       mapRef.current.flyTo({
         center: marker.getLngLat(),
         zoom: Math.max(mapRef.current.getZoom(), 14),
-        pitch: mapbox3d ? 45 : 0,
         duration: 600,
       })
     } catch { /* map not yet ready */ }
-  }, [highlightMarker, mapbox3d])
+  }, [highlightMarker])
 
   const invalidateSize = useCallback(() => {
     try { mapRef.current?.resize() } catch { /* map not yet ready */ }
@@ -317,53 +314,40 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
 
   useImperativeHandle(ref, () => ({ highlightMarker, focusMarker, invalidateSize }), [highlightMarker, focusMarker, invalidateSize])
 
-  // Build map once per style/token change. Markers and layers are rebuilt
-  // inside the same effect so they stay in sync with the active style.
+  // Build map once per entries change. v1: no token, no 3D, no globe — basemap
+  // is the constant DEFAULT_MAP_STYLE from ./mapboxSetup.
   useEffect(() => {
-    if (!containerRef.current || !mapboxToken) return
-    mapboxgl.accessToken = mapboxToken
+    if (!containerRef.current) return
 
     const items = buildItems(entries)
     itemsRef.current = items
 
-    const bounds = new mapboxgl.LngLatBounds()
+    const bounds = new maplibregl.LngLatBounds()
     items.forEach(i => bounds.extend([i.lng, i.lat]))
     stableTrail.forEach(p => bounds.extend([p.lng, p.lat]))
     const hasPoints = items.length > 0 || stableTrail.length > 0
 
-    const map = new mapboxgl.Map({
+    const map = new maplibregl.Map({
       container: containerRef.current,
-      style: mapboxStyle,
+      style: DEFAULT_MAP_STYLE,
       center: hasPoints ? bounds.getCenter() : [0, 30],
       zoom: hasPoints ? 2 : 1,
-      pitch: mapbox3d && fullScreen ? 45 : 0,
-      attributionControl: true,
-      antialias: mapboxQuality,
-      projection: mapboxQuality ? 'globe' : 'mercator',
     })
     mapRef.current = map
 
     map.on('load', () => {
-      if (mapbox3d) {
-        if (!isStandardFamily(mapboxStyle) && wantsTerrain(mapboxStyle)) addTerrainAndSky(map)
-        if (supportsCustom3d(mapboxStyle)) addCustom3dBuildings(map, !!darkRef.current)
-      }
-      // Flatten Mapbox Standard's built-in DEM so HTML markers (at Z=0)
-      // stay pinned to their coordinates at every zoom and pitch.
-      if (mapboxStyle === 'mapbox://styles/mapbox/standard') {
-        try { map.setTerrain(null) } catch { /* noop */ }
-      }
+      // ponytail: 3D/terrain blocks dropped in v1 (no DEM source for MapLibre).
 
       // route trail — dashed line connecting entries in time order
       if (items.length > 1) {
         const coords = items.map(i => [i.lng, i.lat])
-        if (map.getSource('journey-route')) (map.getSource('journey-route') as mapboxgl.GeoJSONSource).setData({
-          type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: coords } as GeoJSON.LineString,
+        if (map.getSource('journey-route')) (map.getSource('journey-route') as maplibregl.GeoJSONSource).setData({
+          type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: coords },
         })
         else {
           map.addSource('journey-route', {
             type: 'geojson',
-            data: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: coords } as GeoJSON.LineString },
+            data: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: coords } },
           })
           map.addLayer({
             id: 'journey-route-line',
@@ -383,7 +367,7 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
       // markers
       items.forEach((item) => {
         const el = markerHtml(item.dayColor, item.dayLabel, false)
-        const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
+        const marker = new maplibregl.Marker({ element: el, anchor: 'bottom' })
           .setLngLat([item.lng, item.lat])
           .addTo(map)
         el.addEventListener('click', (ev) => {
@@ -400,7 +384,6 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
           map.fitBounds(bounds, {
             padding: { top: 50, bottom: pb, left: 50, right: 50 },
             maxZoom: 16,
-            pitch: mapbox3d && fullScreen ? 45 : 0,
             duration: 0,
           })
         } catch { /* empty bounds */ }
@@ -418,7 +401,7 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
       try { map.remove() } catch { /* noop */ }
       mapRef.current = null
     }
-  }, [entries, stableTrail, mapboxStyle, mapboxToken, mapbox3d, mapboxQuality, fullScreen, paddingBottom])
+  }, [entries, stableTrail, fullScreen, paddingBottom])
 
   // external activeMarkerId → highlight + flyTo
   useEffect(() => {
@@ -431,27 +414,12 @@ const JourneyMapGL = forwardRef<JourneyMapGLHandle, Props>(function JourneyMapGL
         mapRef.current.flyTo({
           center: marker.getLngLat(),
           zoom: Math.max(mapRef.current.getZoom(), 12),
-          pitch: mapbox3d && fullScreen ? 45 : 0,
           duration: 500,
         })
       } catch { /* map not ready */ }
     }, 50)
     return () => clearTimeout(t)
-  }, [activeMarkerId, highlightMarker, mapbox3d, fullScreen])
-
-  if (!mapboxToken) {
-    return (
-      <div
-        style={{ position: 'relative', height: height === 9999 ? '100%' : height, width: '100%', borderRadius: 'inherit', overflow: 'hidden' }}
-        className="flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 text-center px-6"
-      >
-        <div className="text-sm text-zinc-500">
-          No Mapbox access token configured.<br />
-          <span className="text-xs">Settings → Map → Mapbox GL</span>
-        </div>
-      </div>
-    )
-  }
+  }, [activeMarkerId, highlightMarker, fullScreen])
 
   return (
     <div style={{ position: 'relative', height: height === 9999 ? '100%' : height, width: '100%', borderRadius: 'inherit', overflow: 'hidden' }}>

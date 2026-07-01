@@ -10,99 +10,158 @@ import { useAuthStore } from '../store/authStore';
 import { useSettingsStore } from '../store/settingsStore';
 import AtlasPage from './AtlasPage';
 
-// ── Leaflet mock ──────────────────────────────────────────────────────────────
-vi.mock('leaflet', () => {
-  // Mock layer returned by onEachFeature — supports event registration
-  const makeMockLayer = () => {
-    const layer: any = {
-      bindTooltip: vi.fn().mockReturnThis(),
-      on: vi.fn().mockImplementation((event: string, cb: Function) => {
-        // Immediately invoke mouseover/mouseout/click to cover callback bodies
-        if (event === 'mouseover' || event === 'mouseout' || event === 'click') {
-          try { cb({ target: layer }); } catch { /* ignore null ref errors */ }
-        }
-        return layer;
-      }),
-      setStyle: vi.fn(),
-      getBounds: vi.fn(() => ({ isValid: vi.fn(() => true) })),
-      resetStyle: vi.fn(),
-      removeFrom: vi.fn(),
-    };
-    return layer;
-  };
+// ── MapLibre mock ──────────────────────────────────────────────────────────────
+// jsdom has no WebGL — we stub the imperative API with vi.fn shims that mimic
+// just enough for useAtlas to mount and for the page tests to drive their click/
+// hover flows. Event handlers registered with `map.on(event, layerId, cb)` are
+// invoked immediately with a synthesised feature payload, replacing the old Leaflet
+// mock that ran `onEachFeature` for every feature at construction.
+vi.mock('maplibre-gl', () => {
+  // Default feature factory — keeps existing tests simple; tests that need
+  // country detection can override by setting `maplibregl.__setFeatures`.
+  let syntheticFeatures: any[] = []
+  const setSyntheticFeatures = (f: any[]) => { syntheticFeatures = f }
 
-  const mockMap = {
-    setView: vi.fn().mockReturnThis(),
-    on: vi.fn().mockImplementation((event: string, cb: Function) => {
-      if (event === 'zoomend') {
-        // Invoke with zoom=5 to cover the shouldShow=true branch (loadRegionsForViewport)
-        const origGetZoom = mockMap.getZoom;
-        mockMap.getZoom = vi.fn(() => 5);
-        try { cb(); } catch { /* ignore */ }
-        // Invoke with zoom=4 to cover the shouldShow=false else branch (lines 335-338)
-        mockMap.getZoom = vi.fn(() => 4);
-        try { cb(); } catch { /* ignore */ }
-        mockMap.getZoom = origGetZoom;
-      } else if (event === 'moveend') {
-        try { cb(); } catch { /* ignore */ }
-      }
-      return mockMap;
-    }),
-    off: vi.fn().mockReturnThis(),
-    remove: vi.fn(),
-    invalidateSize: vi.fn(),
-    fitBounds: vi.fn(),
-    addLayer: vi.fn(),
-    removeLayer: vi.fn(),
-    getContainer: vi.fn(() => document.createElement('div')),
-    getZoom: vi.fn(() => 4),
-    createPane: vi.fn(),
-    getPane: vi.fn(() => ({ style: {} })),
-    // intersects=true so loadRegionsForViewport can fetch region geo data
-    getBounds: vi.fn(() => ({ intersects: vi.fn(() => true) })),
-    hasLayer: vi.fn(() => false),
-    getCenter: vi.fn(() => ({ lat: 25, lng: 0 })),
-  };
+  // Layer-event registry: layerId → array of {event, cb}
+  const layerListeners: Record<string, Array<{ event: string; cb: Function }>> = {}
+  let mapListeners: Array<{ event: string; cb: Function }> = []
 
-  const L = {
-    map: vi.fn(() => mockMap),
-    tileLayer: vi.fn(() => ({ addTo: vi.fn().mockReturnThis() })),
-    // Call onEachFeature and style callbacks for each feature so those paths are covered
-    geoJSON: vi.fn((data: any, options: any) => {
-      if (options?.onEachFeature && data?.features) {
-        for (const feature of data.features) {
-          const layer = makeMockLayer();
-          try {
-            if (options.style) options.style(feature);
-            options.onEachFeature(feature, layer);
-          } catch {
-            // ignore errors from callbacks in mock
+  // Make `maplibregl` available globally so the synthetic feature setter can be
+  // poked at in tests without importing it into the test file's mock scope.
+  ;(globalThis as any).__maplibreTestBridge = { setSyntheticFeatures }
+
+  // pendingFeatures: sourceId → array of features whose click hasn't fired yet.
+  // Production code may register layer click handlers AFTER setData runs, so we
+  // queue the synthetic click events here and replay them as soon as a matching
+  // `map.on('click' | 'mouseenter', layerId, cb)` is registered. This preserves
+  // the original Leaflet mock's "auto-fire on construction" semantics without
+  // coupling to a specific effect order.
+  const pendingFeatures: Record<string, any[]> = {}
+
+  class FakeMap {
+    _zoom = 4
+    // Mock source registry: sourceId → {data}. Captures features when useAtlas
+    // calls `source.setData(featureCollection)` so layer click handlers receive
+    // them later via __fireLayerEvent.
+    _sources: Record<string, { data: any }> = {}
+    on = vi.fn((eventOrLayer: any, layerOrCb?: any, cb?: any) => {
+      // Three forms: map.on(event, cb) | map.on(event, layerId, cb)
+      if (cb) {
+        // layer-scoped: (event, layerId, cb)
+        const layerId = layerOrCb as string
+        layerListeners[layerId] = layerListeners[layerId] || []
+        layerListeners[layerId].push({ event: eventOrLayer, cb })
+        // Replay any queued features for this layer that match this event.
+        if (eventOrLayer === 'click' || eventOrLayer === 'mouseenter' || eventOrLayer === 'mousemove' || eventOrLayer === 'mouseleave') {
+          for (const [sid, feats] of Object.entries(pendingFeatures)) {
+            for (const f of feats) {
+              try { cb({ features: [f], originalEvent: { clientX: 0, clientY: 0 } }) } catch { /* */ }
+            }
+            delete pendingFeatures[sid]
           }
         }
+      } else {
+        // global: (event, cb)
+        mapListeners.push({ event: eventOrLayer, cb: layerOrCb })
+        if (eventOrLayer === 'zoomend') {
+          // Original Leaflet mock exercised zoom=5 (regions branch) then zoom=4 (no-regions branch).
+          ;(this as any)._zoom = 5
+          try { layerOrCb() } catch { /* */ }
+          ;(this as any)._zoom = 4
+          try { layerOrCb() } catch { /* */ }
+        } else if (eventOrLayer === 'moveend') {
+          try { layerOrCb() } catch { /* */ }
+        }
       }
-      return {
-        addTo: vi.fn().mockReturnThis(),
-        remove: vi.fn(),
-        clearLayers: vi.fn(),
-        resetStyle: vi.fn(),
-        removeFrom: vi.fn(),
-      };
-    }),
-    divIcon: vi.fn(() => ({})),
-    marker: vi.fn(() => ({
-      addTo: vi.fn().mockReturnThis(),
-      on: vi.fn(),
-      remove: vi.fn(),
-      bindTooltip: vi.fn().mockReturnThis(),
-    })),
-    latLngBounds: vi.fn(() => ({ extend: vi.fn(), isValid: vi.fn(() => true) })),
-    layerGroup: vi.fn(() => ({ addTo: vi.fn().mockReturnThis(), clearLayers: vi.fn() })),
-    canvas: vi.fn(() => ({})),
-    svg: vi.fn(() => ({})),
-    control: { zoom: vi.fn(() => ({ addTo: vi.fn() })) },
+      return this
+    })
+    off = vi.fn((eventOrLayer: any, layerOrCb?: any, cb?: any) => {
+      if (cb) {
+        const layerId = layerOrCb as string
+        layerListeners[layerId] = (layerListeners[layerId] || []).filter(l => l.cb !== cb)
+      } else {
+        mapListeners = mapListeners.filter(l => l.cb !== layerOrCb)
+      }
+      return this
+    })
+    remove = vi.fn()
+    addControl = vi.fn().mockReturnThis()
+    setMaxBounds = vi.fn()
+    setPaintProperty = vi.fn()
+    setLayoutProperty = vi.fn()
+    getCanvas = vi.fn(() => ({ style: {} }))
+    getBounds = vi.fn(() => ({ intersects: vi.fn(() => true) }))
+    getZoom = vi.fn(function (this: any) { return this._zoom })
+    getSource = vi.fn((id: string) => ({
+      // ponytail: setData is the mount point where production code publishes GeoJSON.
+      // The original Leaflet mock auto-fired click handlers at layer construction; we
+      // do the same here by queueing features into `pendingFeatures[sourceId]` and
+      // letting the `map.on(event, layerId, cb)` replay loop pick them up — this lets
+      // tests probe "what happens on a layer click" without forcing them to reach for
+      // __fireLayerEvent, and crucially it survives the real order where setData runs
+      // in one effect before the click-listener effect registers `map.on('click', …)`.
+      setData: vi.fn((data: any) => {
+        ;(this as any)._sources[id] = { data }
+        syntheticFeatures = data?.features || []
+        pendingFeatures[id] = syntheticFeatures.slice()
+        for (const [layerId, listeners] of Object.entries(layerListeners)) {
+          for (const f of syntheticFeatures) {
+            for (const l of listeners as any) {
+              if (l.event === 'click' || l.event === 'mouseenter') {
+                try { (l as any).cb({ features: [f], originalEvent: { clientX: 0, clientY: 0 } }) } catch { /* */ }
+              }
+            }
+          }
+        }
+      }),
+    }))
+    addSource = vi.fn()
+    addLayer = vi.fn()
+    flyTo = vi.fn()
+    fitBounds = vi.fn()
+    queryRenderedFeatures = vi.fn(() => [])
+    __fireLayerEvent = (layerId: string, event: string, payload: any) => {
+      for (const l of layerListeners[layerId] || []) {
+        if (l.event === event) {
+          try { l.cb(payload) } catch { /* */ }
+        }
+      }
+    }
+  }
+  class FakeMarker {
+    setLngLat = vi.fn().mockReturnThis()
+    setPopup = vi.fn().mockReturnThis()
+    addTo = vi.fn().mockReturnThis()
+    remove = vi.fn()
+  }
+  class FakePopup {
+    setText = vi.fn().mockReturnThis()
+    setHTML = vi.fn().mockReturnThis()
+    addTo = vi.fn().mockReturnThis()
+    remove = vi.fn()
+  }
+  class FakeLngLatBounds {
+    static convert = vi.fn(() => ({ intersects: vi.fn(() => true) }))
+    extend = vi.fn().mockReturnThis()
+  }
+  class FakeNavigationControl {}
+  return {
+    default: {
+      Map: FakeMap,
+      Marker: FakeMarker,
+      Popup: FakePopup,
+      NavigationControl: FakeNavigationControl,
+      LngLatBounds: FakeLngLatBounds,
+    },
+    Map: FakeMap,
+    Marker: FakeMarker,
+    Popup: FakePopup,
+    NavigationControl: FakeNavigationControl,
+    LngLatBounds: FakeLngLatBounds,
+    __setSyntheticFeatures: setSyntheticFeatures,
   };
-  return { default: L, ...L };
 });
+vi.mock('maplibre-gl/dist/maplibre-gl.css', () => ({ default: '' }));
 
 // ── Navbar mock ───────────────────────────────────────────────────────────────
 vi.mock('../components/Layout/Navbar', () => ({

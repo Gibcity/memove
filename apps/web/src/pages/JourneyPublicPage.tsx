@@ -6,7 +6,7 @@ import {
   Sun, CloudSun, Cloud, CloudRain, CloudLightning, Snowflake,
   ThumbsUp, ThumbsDown,
 } from 'lucide-react'
-import JourneyMap from '../components/Journey/JourneyMap'
+import JourneyMapGL from '../components/Journey/JourneyMapGL'
 import JournalBody from '../components/Journey/JournalBody'
 import PhotoLightbox from '../components/Journey/PhotoLightbox'
 import MobileMapTimeline from '../components/Journey/MobileMapTimeline'
@@ -407,7 +407,7 @@ export default function JourneyPublicPage() {
             }}
           >
             <div className="h-full rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm">
-              <JourneyMap
+              <JourneyMapGL
                 ref={mapRef}
                 checkins={[]}
                 entries={sidebarMapItems as any}
@@ -469,7 +469,7 @@ export default function JourneyPublicPage() {
           {/* Map (standalone tab — only in single-column mode) */}
           {view === 'map' && perms.share_map && (
             <div className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-700">
-              <JourneyMap
+              <JourneyMapGL
                 checkins={[]}
                 entries={sidebarMapItems as any}
                 height={500}

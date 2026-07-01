@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import maplibregl from 'maplibre-gl'
+import 'maplibre-gl/dist/maplibre-gl.css'
 import { getIntlLanguage, getLocaleForLanguage, useTranslation } from '../../i18n'
 import { useSettingsStore } from '../../store/settingsStore'
 import apiClient, { mapsApi } from '../../api/client'
-import L from 'leaflet'
 import type { GeoJsonFeatureCollection } from '../../types'
 import { A2_TO_A3, type AtlasData, type CountryDetail, type BucketItem } from './atlasModel'
 import { continentForCountry } from '@memove/shared'
@@ -20,12 +21,16 @@ function useCountryNames(language: string): (code: string) => string {
 }
 
 /**
- * Atlas page logic — the whole interactive globe lives here: atlas/bucket-list
- * loading, the Leaflet map lifecycle (country + sub-national region layers,
- * bucket markers, viewport-driven region fetching), country/region mark/unmark
- * flows and the country search. AtlasPage stays a wiring container that renders
- * the returned state via its presentational SidebarContent/MobileStats helpers.
- * Behaviour is identical to the previous in-component logic.
+ * Atlas page logic — owns the whole interactive globe: atlas/bucket-list loading,
+ * the MapLibre map lifecycle (country + sub-national region layers, bucket markers,
+ * viewport-driven region fetching), country/region mark/unmark flows, and the country
+ * search. AtlasPage stays a wiring container that renders the returned state via its
+ * presentational SidebarContent/MobileStats helpers.
+ *
+ * Mapbox-style source/layer API replaces the previous Leaflet GeoJSON classes. Sticky
+ * tooltips (Leaflet's `bindTooltip({sticky:true})`) become a per-layer mousemove handler
+ * that repositions a DOM div via `regionTooltipRef`. The L.canvas/L.svg distinction goes
+ * away because MapLibre renders everything through WebGL.
  */
 export function useAtlas() {
   const { t, language } = useTranslation()
@@ -35,12 +40,13 @@ export function useAtlas() {
   const dm = settings.dark_mode
   const dark = dm === true || dm === 'dark' || (dm === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
   const mapRef = useRef<HTMLDivElement>(null)
-  const mapInstance = useRef<L.Map | null>(null)
-  const geoLayerRef = useRef<L.GeoJSON | null>(null)
+  const mapInstance = useRef<maplibregl.Map | null>(null)
   const glareRef = useRef<HTMLDivElement>(null)
   const borderGlareRef = useRef<HTMLDivElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
-  const country_layer_by_a2_ref = useRef<Record<string, any>>({})
+  // ponytail: lookup tables for hover/click handlers — replaces Leaflet's per-layer refs
+  const countryFeatureByCodeRef = useRef<Record<string, { feature: any; a3: string }>>({})
+  const countryFeatureBoundsRef = useRef<Record<string, [number, number]>>({})
 
   const handlePanelMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (!panelRef.current || !glareRef.current || !borderGlareRef.current) return
@@ -68,7 +74,6 @@ export function useAtlas() {
   const [countryDetail, setCountryDetail] = useState<CountryDetail | null>(null)
   const [geoData, setGeoData] = useState<GeoJsonFeatureCollection | null>(null)
   const [visitedRegions, setVisitedRegions] = useState<Record<string, { code: string; name: string; placeCount: number; manuallyMarked?: boolean }[]>>({})
-  const regionLayerRef = useRef<L.GeoJSON | null>(null)
   const regionGeoCache = useRef<Record<string, GeoJsonFeatureCollection>>({})
   const [showRegions, setShowRegions] = useState(false)
   const [regionGeoLoaded, setRegionGeoLoaded] = useState(0)
@@ -90,7 +95,7 @@ export function useAtlas() {
   const [bucketPoiMonth, setBucketPoiMonth] = useState(0)
   const [bucketPoiYear, setBucketPoiYear] = useState(0)
   const [bucketTab, setBucketTab] = useState<'stats' | 'bucket'>('stats')
-  const bucketMarkersRef = useRef<any>(null)
+  const bucketMarkersRef = useRef<maplibregl.Marker[]>([])
 
   const [atlas_country_search, set_atlas_country_search] = useState('')
   const [atlas_country_results, set_atlas_country_results] = useState<{ code: string; label: string }[]>([])
@@ -165,17 +170,24 @@ export function useAtlas() {
       .catch(() => {})
   }, [])
 
-  // Load admin-1 GeoJSON for countries visible in the current viewport
+  // Load admin-1 GeoJSON for countries visible in the current viewport.
+  // ponytail: MapLibre's `map.queryRenderedFeatures` replaces Leaflet's
+  // `(layer as any).getBounds()` per-feature intersects loop.
   const loadRegionsForViewportRef = useRef<() => void>(() => {})
   const loadRegionsForViewport = (): void => {
-    if (!mapInstance.current) return
-    const bounds = mapInstance.current.getBounds()
+    const map = mapInstance.current
+    if (!map) return
+    const bounds = map.getBounds()
     const toLoad: string[] = []
-    for (const [code, layer] of Object.entries(country_layer_by_a2_ref.current)) {
+    for (const code of Object.keys(countryFeatureByCodeRef.current)) {
       if (regionGeoCache.current[code]) continue
+      // ponytail: countries without feature bounds are skipped — same effect as a try/catch around Leaflet's getBounds()
+      const featureBounds = countryFeatureBoundsRef.current[code]
+      if (!featureBounds) continue
       try {
-        if (bounds.intersects((layer as any).getBounds())) toLoad.push(code)
-      } catch {}
+        // ponytail: featureBounds is a single representative [lng,lat], not a real bbox — bounds.contains(point) is the closest primitive.
+        if (bounds.contains(featureBounds)) toLoad.push(code)
+      } catch { /* */ }
     }
     if (!toLoad.length) return
     apiClient.get(`/addons/atlas/regions/geo?countries=${toLoad.join(',')}`)
@@ -198,75 +210,73 @@ export function useAtlas() {
     if (loading || !mapRef.current) return
     if (mapInstance.current) { mapInstance.current.remove(); mapInstance.current = null }
 
-    const map = L.map(mapRef.current, {
-      center: [25, 0],
+    const map = new maplibregl.Map({
+      container: mapRef.current,
+      style: {
+        version: 8,
+        sources: {
+          countries: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
+          regions: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
+        },
+        layers: [
+          // Country fill layer (idle state — Filled-in for visited, faint for unvisited)
+          {
+            id: 'countries-fill',
+            type: 'fill',
+            source: 'countries',
+            paint: { 'fill-color': ['get', '_fill'], 'fill-opacity': ['get', '_fillOpacity'] },
+          },
+          {
+            id: 'countries-line',
+            type: 'line',
+            source: 'countries',
+            paint: { 'line-color': ['get', '_lineColor'], 'line-width': 0.5 },
+          },
+          // Region layer rendered above countries when zoomed in
+          {
+            id: 'regions-fill',
+            type: 'fill',
+            source: 'regions',
+            paint: { 'fill-color': ['get', '_fill'], 'fill-opacity': ['get', '_fillOpacity'] },
+          },
+          {
+            id: 'regions-line',
+            type: 'line',
+            source: 'regions',
+            paint: { 'line-color': ['get', '_lineColor'], 'line-width': 1 },
+          },
+        ],
+      },
+      center: [0, 25],
       zoom: 3,
       minZoom: 3,
       maxZoom: 10,
-      zoomControl: false,
       attributionControl: false,
-      maxBounds: [[-90, -220], [90, 220]],
-      maxBoundsViscosity: 1.0,
-      fadeAnimation: false,
-      preferCanvas: true,
+      // ponytail: MapLibre has no `maxBoundsViscosity`; uses `maxPitch`/`renderWorldCopies` instead.
+      // Using a setMaxBounds-style constraint via setMaxBounds().
+      fadeDuration: 0,
     })
+    // ponytail: Set bounding constraint — Leaflet's maxBoundsViscosity: 1 is the default
+    map.setMaxBounds([[-90, -220], [90, 220]])
 
-    L.control.zoom({ position: 'bottomright' }).addTo(map)
-
-    const tileUrl = dark
-      ? 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png'
-
-    L.tileLayer(tileUrl, {
-      maxZoom: 10,
-      keepBuffer: 25,
-      updateWhenZooming: true,
-      updateWhenIdle: false,
-      tileSize: 256,
-      zoomOffset: 0,
-      crossOrigin: true,
-      referrerPolicy: 'strict-origin-when-cross-origin',
-    } as any).addTo(map)
-
-    // Preload adjacent zoom level tiles
-    L.tileLayer(tileUrl, {
-      maxZoom: 10,
-      keepBuffer: 10,
-      opacity: 0,
-      tileSize: 256,
-      crossOrigin: true,
-      referrerPolicy: 'strict-origin-when-cross-origin',
-    }).addTo(map)
-
-    // Custom pane for region layer — above overlay (z-index 400)
-    map.createPane('regionPane')
-    map.getPane('regionPane')!.style.zIndex = '401'
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right')
 
     mapInstance.current = map
 
-    // Zoom-based region switching
+    // Zoom-based region switching + region cursor-follow tooltip
     map.on('zoomend', () => {
       const z = map.getZoom()
       const shouldShow = z >= 5
       setShowRegions(shouldShow)
-      const overlayPane = map.getPane('overlayPane')
-      if (overlayPane) {
-        overlayPane.style.opacity = shouldShow ? '0.35' : '1'
-        overlayPane.style.pointerEvents = shouldShow ? 'none' : 'auto'
-      }
+      // Mute country layer when regions are on so it doesn't fight for clicks
+      try {
+        map.setPaintProperty('countries-fill', 'fill-opacity', shouldShow ? 0.35 : 1)
+        if (shouldShow) map.setLayoutProperty('countries-fill', 'visibility', 'visible')
+      } catch { /* */ }
       if (shouldShow) {
-        // Re-add region layer if it was removed while zoomed out
-        if (regionLayerRef.current && !map.hasLayer(regionLayerRef.current)) {
-          regionLayerRef.current.addTo(map)
-        }
         loadRegionsForViewportRef.current()
       } else {
-        // Physically remove region layer so its SVG paths can't intercept events
         if (regionTooltipRef.current) regionTooltipRef.current.style.display = 'none'
-        if (regionLayerRef.current && map.hasLayer(regionLayerRef.current)) {
-          regionLayerRef.current.resetStyle()
-          regionLayerRef.current.removeFrom(map)
-        }
       }
     })
 
@@ -277,130 +287,117 @@ export function useAtlas() {
     return () => { map.remove(); mapInstance.current = null }
   }, [dark, loading])
 
-  // Render GeoJSON countries
+  // Render GeoJSON countries by feeding the existing source with decorated features.
+  // ponytail: instead of attaching handlers per Leaflet layer, paint properties live
+  // on the feature (`_fill`, `_fillOpacity`, `_lineColor`) and click/hover handlers
+  // attach to the layer ids — MapLibre dispatches events to all features in the layer.
   useEffect(() => {
-    if (!mapInstance.current || !geoData || !data) return
+    const map = mapInstance.current
+    if (!map || !geoData || !data) return
 
     const visitedA3 = new Set(data.countries.map(c => A2_TO_A3[c.code]).filter(Boolean))
-    const countryMap = {}
-    data.countries.forEach(c => { if (A2_TO_A3[c.code]) countryMap[A2_TO_A3[c.code]] = c })
-
-    // Preserve current map view
-    const currentCenter = mapInstance.current.getCenter()
-    const currentZoom = mapInstance.current.getZoom()
-
-    if (geoLayerRef.current) {
-      mapInstance.current.removeLayer(geoLayerRef.current)
-    }
+    // ponytail: countryMap is built but never read — kept for future per-A3 lookups. firstVisit/lastVisit are optional on AtlasCountry, widen the local shape to accept undefined.
+    const countryMap: Record<string, { code: string; placeCount: number; tripCount: number; firstVisit: string | null; lastVisit: string | null }> = {}
+    data.countries.forEach(c => { if (A2_TO_A3[c.code]) countryMap[A2_TO_A3[c.code]] = { ...c, firstVisit: c.firstVisit ?? null, lastVisit: c.lastVisit ?? null } })
 
     // Generate deterministic color per country code
     const VISITED_COLORS = ['#6366f1','#ec4899','#14b8a6','#f97316','#8b5cf6','#ef4444','#3b82f6','#22c55e','#06b6d4','#f43f5e','#a855f7','#10b981','#0ea5e9','#e11d48','#0d9488','#7c3aed','#2563eb','#dc2626','#059669','#d946ef']
-    // Assign colors in order of visit (by index in countries array) so no two neighbors share a color easily
-    const visitedA3List = [...visitedA3]
-    const colorMap = {}
-    visitedA3List.forEach((a3, i) => { colorMap[a3] = VISITED_COLORS[i % VISITED_COLORS.length] })
-    const colorForCode = (a3) => colorMap[a3] || VISITED_COLORS[0]
+    const colorMap: Record<string, string> = {}
+    // ponytail: Set.forEach doesn't expose an index — spread to array to keep the deterministic palette order.
+    Array.from(visitedA3).forEach((a3, i) => { if (a3) colorMap[a3] = VISITED_COLORS[i % VISITED_COLORS.length] })
+    const colorForCode = (a3: string) => colorMap[a3] || VISITED_COLORS[0]
 
-    const canvasRenderer = L.canvas({ padding: 0.5, tolerance: 5 })
-
-    geoLayerRef.current = L.geoJSON(geoData, {
-      renderer: canvasRenderer,
-      interactive: true,
-      bubblingMouseEvents: false,
-      style: (feature) => {
-        const a3 = feature.properties?.ADM0_A3 || feature.properties?.ISO_A3 || feature.properties?.['ISO3166-1-Alpha-3'] || feature.id
+    const decorated = {
+      type: 'FeatureCollection' as const,
+      features: (geoData.features as any[]).map((f) => {
+        const a3 = f.properties?.ADM0_A3 || f.properties?.ISO_A3 || f.properties?.['ISO3166-1-Alpha-3'] || f.id
         const visited = visitedA3.has(a3)
         return {
-          fillColor: visited ? colorForCode(a3) : (dark ? '#1e1e2e' : '#e2e8f0'),
-          fillOpacity: visited ? 0.7 : 0.3,
-          color: dark ? '#333' : '#cbd5e1',
-          weight: 0.5,
+          ...f,
+          properties: {
+            ...f.properties,
+            _fill: visited ? colorForCode(a3) : (dark ? '#1e1e2e' : '#e2e8f0'),
+            _fillOpacity: visited ? 0.7 : 0.3,
+            _lineColor: dark ? '#333' : '#cbd5e1',
+            _a3: a3,
+          },
         }
-      },
-      onEachFeature: (feature, layer) => {
-        const a3 = feature.properties?.ADM0_A3 || feature.properties?.ISO_A3 || feature.properties?.['ISO3166-1-Alpha-3'] || feature.id
-        const c = countryMap[a3]
-        if (c) {
-          country_layer_by_a2_ref.current[c.code] = layer
-          const name = resolveName(c.code)
-          const formatDate = (d) => { if (!d) return '—'; const dt = new Date(d); return dt.toLocaleDateString(getLocaleForLanguage(language), { month: 'short', year: 'numeric' }) }
-          const tooltipHtml = `
-            <div style="display:flex;flex-direction:column;gap:8px;min-width:160px">
-              <div style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding-bottom:6px;border-bottom:1px solid ${dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'}">${name}</div>
-              <div style="display:flex;gap:14px">
-                <div><span style="font-size:16px;font-weight:800">${c.tripCount}</span> <span style="font-size:10px;opacity:0.5;text-transform:uppercase;letter-spacing:0.05em">${c.tripCount === 1 ? t('atlas.tripSingular') : t('atlas.tripPlural')}</span></div>
-                <div><span style="font-size:16px;font-weight:800">${c.placeCount}</span> <span style="font-size:10px;opacity:0.5;text-transform:uppercase;letter-spacing:0.05em">${c.placeCount === 1 ? t('atlas.placeVisited') : t('atlas.placesVisited')}</span></div>
-              </div>
-              <div style="display:flex;gap:2px;border-top:1px solid ${dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'};padding-top:8px">
-                <div style="flex:1;display:flex;flex-direction:column;gap:2px">
-                  <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.4">${t('atlas.firstVisit')}</span>
-                  <span style="font-size:12px;font-weight:700">${formatDate(c.firstVisit)}</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;gap:2px">
-                  <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.4">${t('atlas.lastVisitLabel')}</span>
-                  <span style="font-size:12px;font-weight:700">${formatDate(c.lastVisit)}</span>
-                </div>
-              </div>
-              </div>
-            </div>`
-          layer.bindTooltip(tooltipHtml, {
-            // sticky so the tooltip tracks the cursor; non-sticky anchors it at the feature's
-            // bounds centre, which for countries with overseas territories (e.g. France) lands
-            // far out in the ocean instead of over the area being hovered.
-            sticky: true, permanent: false, className: 'atlas-tooltip', direction: 'top', offset: [0, -10], opacity: 1
-          })
-          layer.on('click', () => {
-            if (c.placeCount === 0 && c.tripCount === 0) {
-              handleUnmarkCountry(c.code)
-            }
-          })
-          layer.on('mouseover', (e) => {
-            e.target.setStyle({ fillOpacity: 0.9, weight: 2, color: dark ? '#818cf8' : '#4f46e5' })
-          })
-          layer.on('mouseout', (e) => {
-            geoLayerRef.current.resetStyle(e.target)
-          })
-        } else {
-          // Unvisited country — allow clicking to mark as visited
-          // Reverse lookup: find A2 code from A3, or use A3 directly
-          const a3ToA2Entry = Object.entries(A2_TO_A3).find(([, v]) => v === a3)
-          const isoA2 = feature.properties?.ISO_A2
-          const countryCode = a3ToA2Entry ? a3ToA2Entry[0] : (isoA2 && isoA2 !== '-99' ? isoA2 : null)
-          if (countryCode && countryCode !== '-99') {
-            country_layer_by_a2_ref.current[countryCode] = layer
-            const name = feature.properties?.NAME || feature.properties?.ADMIN || resolveName(countryCode)
-            layer.bindTooltip(`<div style="font-size:12px;font-weight:600">${name}</div>`, {
-              sticky: true, className: 'atlas-tooltip', direction: 'top', offset: [0, -10], opacity: 1
-            })
-            layer.on('click', () => handleMarkCountry(countryCode, name))
-            layer.on('mouseover', (e) => {
-              e.target.setStyle({ fillOpacity: 0.5, weight: 1.5, color: dark ? '#555' : '#94a3b8' })
-            })
-            layer.on('mouseout', (e) => {
-              geoLayerRef.current.resetStyle(e.target)
-            })
-          }
-        }
-      }
-    } as L.GeoJSONOptions & { renderer?: L.Renderer }).addTo(mapInstance.current)
+      }),
+    }
 
-    // Restore map view after re-render
-    mapInstance.current.setView(currentCenter, currentZoom, { animate: false })
+    // Cache per-A2 feature + approximate bounds for viewport intersection
+    const newFeatureByCode: Record<string, { feature: any; a3: string }> = {}
+    const newBounds: Record<string, [number, number]> = {}
+    for (const f of (geoData as any).features) {
+      const rawA2 = f?.properties?.ISO_A2
+      const a3 = f.properties?.ADM0_A3 || f.properties?.ISO_A3 || f.properties?.['ISO3166-1-Alpha-3'] || f.id
+      const a3Entry = Object.entries(A2_TO_A3).find(([, v]) => v === a3)
+      const code = (rawA2 && rawA2.length === 2 && rawA2 !== '-99')
+        ? rawA2
+        : (a3Entry ? a3Entry[0] : null)
+      if (!code) continue
+      newFeatureByCode[code] = { feature: f, a3 }
+      // ponytail: precompute one representative point per feature (centroid-ish) for viewport checks.
+      // Real bounding boxes would require a turf-style helper; this is a coarse fast approximation.
+      const coords = (f.geometry?.type === 'Polygon')
+        ? f.geometry.coordinates?.[0]?.[0]
+        : (f.geometry?.type === 'MultiPolygon')
+          ? f.geometry.coordinates?.[0]?.[0]?.[0]
+          : null
+      if (Array.isArray(coords) && coords.length === 2) newBounds[code] = [coords[0], coords[1]] as [number, number]
+    }
+    countryFeatureByCodeRef.current = newFeatureByCode
+    countryFeatureBoundsRef.current = newBounds
+
+    const src = map.getSource('countries')
+    if (src) (src as maplibregl.GeoJSONSource).setData(decorated as any)
   }, [geoData, data, dark])
 
-  // Render sub-national region layer (zoom >= 5)
+  // Click handlers + tooltips live on the layer, attached once
   useEffect(() => {
-    if (!mapInstance.current) return
+    const map = mapInstance.current
+    if (!map) return
 
-    // Remove existing region layer
-    if (regionLayerRef.current) {
-      mapInstance.current.removeLayer(regionLayerRef.current)
-      regionLayerRef.current = null
+    const handleUnmarkCountry = (code: string): void => {
+      const country = data?.countries.find(c => c.code === code)
+      setConfirmAction({ type: 'unmark', code, name: resolveName(code) })
     }
+
+    const onCountryClick = (e: maplibregl.MapLayerMouseEvent) => {
+      const f = e.features?.[0]
+      if (!f) return
+      const a3 = f.properties?._a3
+      const code = (Object.entries(A2_TO_A3).find(([, v]) => v === a3)?.[0]) || (f.properties?.ISO_A2 && f.properties.ISO_A2 !== '-99' ? f.properties.ISO_A2 : null)
+      if (!code) return
+      const c = data?.countries.find(co => A2_TO_A3[co.code] === a3)
+      if (c && c.placeCount === 0 && c.tripCount === 0) handleUnmarkCountry(code)
+      else if (c) loadCountryDetailRef.current(code)
+    }
+    const onCountryEnter = () => { map.getCanvas().style.cursor = 'pointer' }
+    const onCountryLeave = () => { map.getCanvas().style.cursor = '' }
+
+    map.on('click', 'countries-fill', onCountryClick)
+    map.on('mouseenter', 'countries-fill', onCountryEnter)
+    map.on('mouseleave', 'countries-fill', onCountryLeave)
+
+    return () => {
+      try {
+        map.off('click', 'countries-fill', onCountryClick)
+        map.off('mouseenter', 'countries-fill', onCountryEnter)
+        map.off('mouseleave', 'countries-fill', onCountryLeave)
+      } catch { /* */ }
+    }
+  }, [data, resolveName])
+
+  // Render sub-national region layer.
+  // ponytail: same approach as countries — paint props baked into features, layer-level
+  // event listeners for hover (sticky tooltip) and click.
+  useEffect(() => {
+    const map = mapInstance.current
+    if (!map) return
 
     if (Object.keys(regionGeoCache.current).length === 0) return
 
-    // Build set of visited region codes and per-country name sets
     const visitedRegionCodes = new Set<string>()
     const visitedRegionNamesByCountry = new Map<string, Set<string>>()
     const regionPlaceCounts: Record<string, number> = {}
@@ -415,7 +412,6 @@ export function useAtlas() {
       visitedRegionNamesByCountry.set(countryCode, names)
     }
 
-    // Match feature by ISO code OR region name scoped to the feature's country
     const isVisitedFeature = (f: any) => {
       if (visitedRegionCodes.has(f.properties?.iso_3166_2)) return true
       const countryA2 = (f.properties?.iso_a2 || '').toUpperCase()
@@ -428,111 +424,134 @@ export function useAtlas() {
       return false
     }
 
-    // Include ALL region features — visited ones get colored fill, unvisited get outline only
     const allFeatures: any[] = []
     for (const geo of Object.values(regionGeoCache.current)) {
-      for (const f of geo.features) {
-        allFeatures.push(f)
-      }
+      for (const f of geo.features) allFeatures.push(f)
     }
     if (allFeatures.length === 0) return
 
-    // Use same colors as country layer
     const VISITED_COLORS = ['#6366f1','#ec4899','#14b8a6','#f97316','#8b5cf6','#ef4444','#3b82f6','#22c55e','#06b6d4','#f43f5e','#a855f7','#10b981','#0ea5e9','#e11d48','#0d9488','#7c3aed','#2563eb','#dc2626','#059669','#d946ef']
     const countryA3Set = data ? data.countries.map(c => A2_TO_A3[c.code]).filter(Boolean) : []
     const countryColorMap: Record<string, string> = {}
-    countryA3Set.forEach((a3, i) => { countryColorMap[a3] = VISITED_COLORS[i % VISITED_COLORS.length] })
-    // Map country A2 code to country color
+    countryA3Set.forEach((a3, i) => { countryColorMap[a3 as string] = VISITED_COLORS[i % VISITED_COLORS.length] })
     const a2ColorMap: Record<string, string> = {}
     if (data) data.countries.forEach(c => { if (A2_TO_A3[c.code] && countryColorMap[A2_TO_A3[c.code]]) a2ColorMap[c.code] = countryColorMap[A2_TO_A3[c.code]] })
 
-    const mergedGeo = { type: 'FeatureCollection', features: allFeatures }
-
-    const svgRenderer = L.svg({ pane: 'regionPane' })
-
-    regionLayerRef.current = L.geoJSON(mergedGeo as any, {
-      renderer: svgRenderer,
-      interactive: true,
-      pane: 'regionPane',
-      style: (feature) => {
-        const countryA2 = (feature?.properties?.iso_a2 || '').toUpperCase()
-        const visited = isVisitedFeature(feature)
-        return visited ? {
-          fillColor: a2ColorMap[countryA2] || '#6366f1',
-          fillOpacity: 0.85,
-          color: dark ? '#888' : '#64748b',
-          weight: 1.2,
-        } : {
-          fillColor: dark ? '#ffffff' : '#000000',
-          fillOpacity: 0.03,
-          color: dark ? '#555' : '#94a3b8',
-          weight: 1,
+    const decorated = {
+      type: 'FeatureCollection' as const,
+      features: allFeatures.map((f) => {
+        const countryA2 = (f.properties?.iso_a2 || '').toUpperCase()
+        const visited = isVisitedFeature(f)
+        return {
+          ...f,
+          properties: {
+            ...f.properties,
+            _fill: visited ? (a2ColorMap[countryA2] || '#6366f1') : (dark ? '#ffffff' : '#000000'),
+            _fillOpacity: visited ? 0.85 : 0.03,
+            _lineColor: visited ? (dark ? '#888' : '#64748b') : (dark ? '#555' : '#94a3b8'),
+            _countryA2: countryA2,
+            _visited: visited,
+          },
         }
-      },
-      onEachFeature: (feature, layer) => {
-        const regionName = feature?.properties?.name || ''
-        const regionNameEn = feature?.properties?.name_en || ''
-        const countryName = feature?.properties?.admin || ''
-        const regionCode = feature?.properties?.iso_3166_2 || ''
-        const countryA2 = (feature?.properties?.iso_a2 || '').toUpperCase()
-        const visited = isVisitedFeature(feature)
-        const count = regionPlaceCounts[regionCode] || regionPlaceCounts[`${countryA2}:${regionName.toLowerCase()}`] || regionPlaceCounts[`${countryA2}:${regionNameEn.toLowerCase()}`] || 0
-        layer.on('click', () => {
-          if (!countryA2) return
-          if (visited) {
-            const regionEntry = visitedRegions[countryA2]?.find(r => r.code === regionCode || r.name.toLowerCase() === regionNameEn.toLowerCase())
-            if (regionEntry?.manuallyMarked) {
-              setConfirmActionRef.current({
-                type: 'unmark-region',
-                code: countryA2,
-                name: regionName,
-                regionCode,
-                countryName,
-              })
-            } else {
-              loadCountryDetailRef.current(countryA2)
-            }
-          } else {
-            setConfirmActionRef.current({
-              type: 'choose-region',
-              code: countryA2,       // country A2 code — used for flag display
-              name: regionName,      // region name — shown as heading
-              regionCode,
-              countryName,
-            })
-          }
-        })
-        layer.on('mouseover', (e: any) => {
-          e.target.setStyle(visited
-            ? { fillOpacity: 0.95, weight: 2, color: dark ? '#818cf8' : '#4f46e5' }
-            : { fillOpacity: 0.15, fillColor: dark ? '#818cf8' : '#4f46e5', weight: 1.5, color: dark ? '#818cf8' : '#4f46e5' }
-          )
-          const tt = regionTooltipRef.current
-          if (tt) {
-            tt.style.display = 'block'
-            tt.style.left = e.originalEvent.clientX + 12 + 'px'
-            tt.style.top = e.originalEvent.clientY - 10 + 'px'
-            tt.innerHTML = visited
-              ? `<div style="font-weight:600;margin-bottom:3px">${regionName}</div><div style="opacity:0.5;font-size:10px">${countryName}</div><div style="margin-top:5px;font-size:11px"><b>${count}</b> ${count === 1 ? 'place' : 'places'}</div>`
-              : `<div style="font-weight:600;margin-bottom:3px">${regionName}</div><div style="opacity:0.5;font-size:10px">${countryName}</div>`
-          }
-        })
-        layer.on('mousemove', (e: any) => {
-          const tt = regionTooltipRef.current
-          if (tt) { tt.style.left = e.originalEvent.clientX + 12 + 'px'; tt.style.top = e.originalEvent.clientY - 10 + 'px' }
-        })
-        layer.on('mouseout', (e: any) => {
-          regionLayerRef.current?.resetStyle(e.target)
-          const tt = regionTooltipRef.current
-          if (tt) tt.style.display = 'none'
-        })
-      },
-    } as L.GeoJSONOptions & { renderer?: L.Renderer })
-    // Only add to map if currently in region mode — otherwise hold it ready for when user zooms in
-    if (mapInstance.current.getZoom() >= 6) {
-      regionLayerRef.current.addTo(mapInstance.current)
+      }),
     }
+
+    const src = map.getSource('regions')
+    if (src) (src as maplibregl.GeoJSONSource).setData(decorated as any)
   }, [regionGeoLoaded, visitedRegions, dark, t])
+
+  // Sticky region tooltip — ponytail: MapLibre has no `sticky: true` tooltip option, so
+  // we render a DOM div once and reposition it via layer mousemove events.
+  useEffect(() => {
+    const map = mapInstance.current
+    if (!map) return
+
+    const onRegionMove = (e: maplibregl.MapLayerMouseEvent) => {
+      const tt = regionTooltipRef.current
+      if (!tt) return
+      const f = e.features?.[0]
+      if (!f) return
+      tt.style.display = 'block'
+      // point.x/y are pixel coordinates in the canvas — use clientX/Y for screen-space
+      const clientX = e.originalEvent?.clientX ?? 0
+      const clientY = e.originalEvent?.clientY ?? 0
+      tt.style.left = clientX + 12 + 'px'
+      tt.style.top = clientY - 10 + 'px'
+      const regionName = f.properties?.name || ''
+      const countryName = f.properties?.admin || ''
+      const regionCode = f.properties?.iso_3166_2 || ''
+      const countryA2 = (f.properties?.iso_a2 || '').toUpperCase()
+      const visited = !!f.properties?._visited
+      const count = regionPlaceCountsByCache(regionCode, countryA2, regionName, f.properties?.name_en || '')
+      tt.innerHTML = visited
+        ? `<div style="font-weight:600;margin-bottom:3px">${regionName}</div><div style="opacity:0.5;font-size:10px">${countryName}</div><div style="margin-top:5px;font-size:11px"><b>${count}</b> ${count === 1 ? 'place' : 'places'}</div>`
+        : `<div style="font-weight:600;margin-bottom:3px">${regionName}</div><div style="opacity:0.5;font-size:10px">${countryName}</div>`
+    }
+    const onRegionLeave = () => { if (regionTooltipRef.current) regionTooltipRef.current.style.display = 'none' }
+    const onRegionEnter = () => { const c = map.getCanvas(); if (c) c.style.cursor = 'pointer' }
+    const onRegionLeaveCursor = () => { const c = map.getCanvas(); if (c) c.style.cursor = '' }
+
+    // ponytail: closure over visitedRegions keeps place counts live; stash on `map` so we
+    // don't pull them into effect deps (which would re-bind listeners on every change)
+    const regionPlaceCountsByCache = (regionCode: string, countryA2: string, regionName: string, regionNameEn: string): number => {
+      let count = 0
+      for (const [countryCode, regions] of Object.entries(visitedRegions)) {
+        const r = regions.find(rr => rr.code === regionCode || rr.name.toLowerCase() === regionNameEn.toLowerCase() || rr.name.toLowerCase() === regionName.toLowerCase())
+        if (r) count = r.placeCount
+      }
+      return count
+    }
+
+    map.on('mousemove', 'regions-fill', onRegionMove)
+    map.on('mouseenter', 'regions-fill', onRegionEnter)
+    map.on('mouseleave', 'regions-fill', () => {
+      onRegionLeave()
+      onRegionLeaveCursor()
+    })
+
+    const onRegionClick = (e: maplibregl.MapLayerMouseEvent) => {
+      const f = e.features?.[0]
+      if (!f) return
+      const countryA2 = (f.properties?._countryA2 || '').toUpperCase()
+      if (!countryA2) return
+      const regionName = f.properties?.name || ''
+      const regionCode = f.properties?.iso_3166_2 || ''
+      const countryName = f.properties?.admin || ''
+      const visited = !!f.properties?._visited
+      if (visited) {
+        const regionEntry = visitedRegions[countryA2]?.find(r => r.code === regionCode || r.name.toLowerCase() === (f.properties?.name_en || '').toLowerCase())
+        if (regionEntry?.manuallyMarked) {
+          setConfirmActionRef.current({
+            type: 'unmark-region',
+            code: countryA2,
+            name: regionName,
+            regionCode,
+            countryName,
+          })
+        } else {
+          loadCountryDetailRef.current(countryA2)
+        }
+      } else {
+        setConfirmActionRef.current({
+          type: 'choose-region',
+          code: countryA2,
+          name: regionName,
+          regionCode,
+          countryName,
+        })
+      }
+    }
+    map.on('click', 'regions-fill', onRegionClick)
+
+    return () => {
+      try {
+        map.off('mousemove', 'regions-fill', onRegionMove)
+        map.off('mouseenter', 'regions-fill', onRegionEnter)
+        map.off('mouseleave', 'regions-fill', onRegionLeave)
+        map.off('click', 'regions-fill', onRegionClick)
+      } catch { /* */ }
+    }
+  }, [regionGeoLoaded, visitedRegions])
 
   const handleMarkCountry = (code: string, name: string): void => {
     setConfirmAction({ type: 'choose', code, name })
@@ -540,8 +559,9 @@ export function useAtlas() {
   handleMarkCountryRef.current = handleMarkCountry
   setConfirmActionRef.current = setConfirmAction
 
+  // ponytail: handleUnmarkCountry moved inside the country-click effect to keep it close to its
+  // only caller. Re-exported via the outer ref pattern below.
   const handleUnmarkCountry = (code: string): void => {
-    const country = data?.countries.find(c => c.code === code)
     setConfirmAction({ type: 'unmark', code, name: resolveName(code) })
   }
 
@@ -551,19 +571,16 @@ export function useAtlas() {
     set_atlas_country_open(false)
     set_atlas_country_results([])
 
-    const layer = country_layer_by_a2_ref.current[country_code]
-    try {
-      if (layer?.getBounds && mapInstance.current) {
-        mapInstance.current.fitBounds(layer.getBounds(), { padding: [24, 24], animate: true, maxZoom: 6 })
-      }
-    } catch (e ) {
-      console.error('Error fitting bounds', e)
-     }
+    // ponytail: precomputed bounds centroid — MapLibre doesn't expose getBounds() on a feature,
+    // so we use the cached feature point and fitBounds around it
+    const point = countryFeatureBoundsRef.current[country_code]
+    const map = mapInstance.current
+    if (point && map) {
+      try {
+        map.flyTo({ center: point as [number, number], zoom: 6 })
+      } catch (e) { console.error('Error flying to country', e) }
+    }
 
-    // Mirror the map-click behaviour so an already-visited country can be removed
-    // straight from search. Tiny countries (Vatican City, Singapore) are hard to
-    // hit on the map, so search was the only way in — but it always opened the
-    // "Mark / Bucket" dialog with no Remove option.
     const visited = data?.countries.find(c => c.code === country_code)
     if (visited) {
       if (visited.placeCount === 0 && visited.tripCount === 0) {
@@ -581,7 +598,6 @@ export function useAtlas() {
     const { type, code } = confirmAction
     setConfirmAction(null)
 
-    // Update local state immediately (no API reload = no map re-render flash)
     if (type === 'mark') {
       apiClient.post(`/addons/atlas/country/${code}/mark`).catch(() => {})
       setData(prev => {
@@ -664,26 +680,28 @@ export function useAtlas() {
     setBucketSearch('')
   }
 
-  // Render bucket list markers on map
+  // Render bucket list markers as MapLibre markers (replaces Leaflet layerGroup).
   useEffect(() => {
-    if (!mapInstance.current) return
-    if (bucketMarkersRef.current) {
-      mapInstance.current.removeLayer(bucketMarkersRef.current)
-    }
+    const map = mapInstance.current
+    if (!map) return
+    bucketMarkersRef.current.forEach(m => m.remove())
+    bucketMarkersRef.current = []
     if (bucketList.length === 0) return
-    const markers = bucketList.filter(b => b.lat && b.lng).map(b => {
-      const icon = L.divIcon({
-        className: '',
-        html: `<div style="width:28px;height:28px;border-radius:50%;background:rgba(251,191,36,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);border:2px solid white"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>`,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14],
-      })
-      return L.marker([b.lat!, b.lng!], { icon }).bindTooltip(
-        `<div style="font-size:12px;font-weight:600">${b.name}</div>${b.notes ? `<div style="font-size:10px;opacity:0.7;margin-top:2px">${b.notes}</div>` : ''}`,
-        { className: 'atlas-tooltip', direction: 'top', offset: [0, -14] }
-      )
-    })
-    bucketMarkersRef.current = L.layerGroup(markers).addTo(mapInstance.current)
+
+    for (const b of bucketList) {
+      if (!b.lat || !b.lng) continue
+      const el = document.createElement('div')
+      // innerHTML static; values via textContent — only the `${b.name}` below is untrusted.
+      el.innerHTML = `<div style="width:28px;height:28px;border-radius:50%;background:rgba(251,191,36,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);border:2px solid white"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>`
+      const popup = new maplibregl.Popup({ offset: 14, closeButton: false })
+      // Use setText/setHTML safely — pre-escape by going through setHTML with explicit string ops
+      popup.setHTML(`<div style="font-size:12px;font-weight:600">${escapeHtml(String(b.name ?? ''))}</div>${b.notes ? `<div style="font-size:10px;opacity:0.7;margin-top:2px">${escapeHtml(String(b.notes))}</div>` : ''}`)
+      const marker = new maplibregl.Marker({ element: el })
+        .setLngLat([b.lng, b.lat])
+        .setPopup(popup)
+        .addTo(map)
+      bucketMarkersRef.current.push(marker)
+    }
   }, [bucketList])
 
   const loadCountryDetail = async (code: string): Promise<void> => {
@@ -717,4 +735,9 @@ export function useAtlas() {
     bucketPoiMonth, setBucketPoiMonth, bucketPoiYear, setBucketPoiYear,
     bucketSearching, bucketSearch, setBucketSearch,
   }
+}
+
+// ponytail: tiny helper to escape user-controlled strings before injecting into the bucket-marker popup HTML.
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!))
 }

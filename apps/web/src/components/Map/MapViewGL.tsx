@@ -1,12 +1,20 @@
 import { useEffect, useRef, useMemo, useState, createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import mapboxgl from 'mapbox-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
+import maplibregl from 'maplibre-gl'
+import 'maplibre-gl/dist/maplibre-gl.css'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useAuthStore } from '../../store/authStore'
 import { getCached, isLoading, fetchPhoto, onThumbReady, getAllThumbs } from '../../services/photoService'
 import { CATEGORY_ICON_MAP } from '../shared/categoryIcons'
-import { isStandardFamily, supportsCustom3d, wantsTerrain, addCustom3dBuildings, addTerrainAndSky } from './mapboxSetup'
+// ponytail: 3D/terrain helpers from `mapboxSetup.ts` were intentionally
+// removed from imports here in v1 (MapLibre has no `mapbox-dem` / `composite`
+// source). Re-import `addCustom3dBuildings` + `addTerrainAndSky` once a
+// vector source with a `building` layer + a raster-dem source are wired up.
+//
+// The basemap (DEFAULT_MAP_STYLE) is imported from `./mapboxSetup` along
+// with the (currently no-op) 3D/terrain helpers. See comment block above
+// for why we don't import those helpers here yet.
+import { DEFAULT_MAP_STYLE } from './mapboxSetup'
 import { attachLocationMarker, type LocationMarkerHandle } from './locationMarkerMapbox'
 import { ReservationMapboxOverlay } from './reservationsMapbox'
 import LocationButton from './LocationButton'
@@ -14,6 +22,8 @@ import { useGeolocation } from '../../hooks/useGeolocation'
 import type { Place, Reservation } from '../../types'
 import { POI_CATEGORY_BY_KEY, type Poi } from './poiCategories'
 import { buildPlacePopupHtml, buildPoiPopupHtml } from './placePopup'
+
+// DEFAULT_MAP_STYLE is imported from `./mapboxSetup` (see import block above).
 
 function categoryIconSvg(iconName: string | null | undefined, size: number): string {
   const IconComponent = (iconName && CATEGORY_ICON_MAP[iconName]) || CATEGORY_ICON_MAP['MapPin']
@@ -54,7 +64,7 @@ interface Props {
   pois?: Poi[]
   onPoiClick?: (poi: Poi) => void
   onViewportChange?: (bbox: { south: number; west: number; north: number; east: number }) => void
-  onMapReady?: (map: mapboxgl.Map | null) => void
+  onMapReady?: (map: maplibregl.Map | null) => void
 }
 
 function createMarkerElement(place: Place & { category_color?: string; category_icon?: string }, photoUrl: string | null, orderNumbers: number[] | null, selected: boolean): HTMLDivElement {
@@ -92,7 +102,7 @@ function createMarkerElement(place: Place & { category_color?: string; category_
 
   const wrap = document.createElement('div')
   // Do NOT set `position: relative` here — mapbox-gl ships
-  // `.mapboxgl-marker { position: absolute }` and relies on it. An inline
+  // `.maplibregl-marker { position: absolute }` and relies on it. An inline
   // `position: relative` here overrides the class, turns every marker into
   // a static block element, and stacks them in document order inside the
   // canvas container. The result looks exactly like "markers drift as the
@@ -171,27 +181,25 @@ export function MapViewGL({
   onViewportChange,
   onMapReady,
 }: Props) {
-  const mapboxStyle = useSettingsStore(s => s.settings.mapbox_style || 'mapbox://styles/mapbox/standard')
-  const mapboxToken = useSettingsStore(s => s.settings.mapbox_access_token || '')
-  const mapbox3d = useSettingsStore(s => s.settings.mapbox_3d_enabled !== false)
-  const mapboxQuality = useSettingsStore(s => s.settings.mapbox_quality_mode === true)
+  // ponytail: no 3D / quality / token in v1. DEFAULT_MAP_STYLE is a constant
+  // raster style (OSM). Add settings back when Protomaps ships.
   const showEndpointLabels = useSettingsStore(s => s.settings.map_booking_labels) !== false
   const placesPhotosEnabled = useAuthStore(s => s.placesPhotosEnabled)
   const [photoUrls, setPhotoUrls] = useState<Record<string, string>>(getAllThumbs)
   const [mapReady, setMapReady] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
-  const mapRef = useRef<mapboxgl.Map | null>(null)
-  const markersRef = useRef<Map<number, mapboxgl.Marker>>(new Map())
+  const mapRef = useRef<maplibregl.Map | null>(null)
+  const markersRef = useRef<Map<number, maplibregl.Marker>>(new Map())
   const locationMarkerRef = useRef<LocationMarkerHandle | null>(null)
   const reservationOverlayRef = useRef<ReservationMapboxOverlay | null>(null)
   // Refs so the reservation overlay always sees the latest callback /
   // options without forcing a full overlay rebuild on every prop change.
   const onReservationClickRef = useRef(onReservationClick)
   onReservationClickRef.current = onReservationClick
-  const poiMarkersRef = useRef<mapboxgl.Marker[]>([])
+  const poiMarkersRef = useRef<maplibregl.Marker[]>([])
   // Single reusable hover popup (name/category/address card) shared by planned
   // places and POI markers — mirrors the Leaflet map's hover tooltip.
-  const popupRef = useRef<mapboxgl.Popup | null>(null)
+  const popupRef = useRef<maplibregl.Popup | null>(null)
   const onPoiClickRef = useRef(onPoiClick)
   onPoiClickRef.current = onPoiClick
   const onViewportChangeRef = useRef(onViewportChange)
@@ -204,23 +212,20 @@ export function MapViewGL({
   onClickRefs.current.map = onMapClick
   onClickRefs.current.context = onMapContextMenu
 
-  // Build/rebuild the map on style/token/3d change
+  // Build the map. v1: no token, no 3D, no globe — DEFAULT_MAP_STYLE is constant.
   useEffect(() => {
-    if (!containerRef.current || !mapboxToken) return
-    mapboxgl.accessToken = mapboxToken
+    if (!containerRef.current) return
 
-    const map = new mapboxgl.Map({
+    const map = new maplibregl.Map({
       container: containerRef.current,
-      style: mapboxStyle,
+      style: DEFAULT_MAP_STYLE,
       center: [center[1], center[0]],
       zoom,
-      pitch: mapbox3d ? 45 : 0,
-      attributionControl: true,
-      antialias: mapboxQuality,
-      projection: mapboxQuality ? 'globe' : 'mercator',
+      // ponytail: MapLibre defaults to visible attribution control with proper
+      // collapsible behaviour; explicitly instantiating it again is redundant.
     })
     mapRef.current = map
-    popupRef.current = new mapboxgl.Popup({
+    popupRef.current = new maplibregl.Popup({
       closeButton: false,
       closeOnClick: false,
       offset: 18,
@@ -234,27 +239,9 @@ export function MapViewGL({
     ;(window as any).__memove_map = map
 
     map.on('load', () => {
-      if (mapbox3d) {
-        // Terrain is only valuable on satellite styles — on clean vector
-        // styles it makes route lines drift off the HTML markers because
-        // the lines snap to DEM height while markers stay at sea level.
-        if (!isStandardFamily(mapboxStyle) && wantsTerrain(mapboxStyle)) addTerrainAndSky(map)
-        if (supportsCustom3d(mapboxStyle)) {
-          const dark = document.documentElement.classList.contains('dark')
-          addCustom3dBuildings(map, dark)
-        }
-      }
-
-      // Mapbox Standard ships its own DEM-based terrain that kicks in
-      // below zoom 13.7. HTML markers project at sea level, so when the
-      // terrain exaggeration ramps up at lower zooms the markers drift
-      // away from the 3D buildings and route lines they belong to. The
-      // non-satellite Standard style still looks great without terrain,
-      // so flatten it out to keep markers pinned. (Satellite variants
-      // are left alone — the DEM is what gives them their character.)
-      if (mapboxStyle === 'mapbox://styles/mapbox/standard') {
-        try { map.setTerrain(null) } catch { /* noop */ }
-      }
+      // ponytail: 3D/terrain blocks dropped in v1 (no DEM source for MapLibre).
+      // Helpers `addCustom3dBuildings` / `addTerrainAndSky` are still imported
+      // above so a future PR can drop them back in cheaply.
       // initial route source — kept around so updates can setData() cheaply
       if (!map.getSource('trip-route')) {
         map.addSource('trip-route', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
@@ -298,7 +285,7 @@ export function MapViewGL({
 
     map.on('click', (e) => {
       const t = e.originalEvent.target as HTMLElement
-      if (t.closest('.mapboxgl-marker')) return // markers handle their own click
+      if (t.closest('.maplibregl-marker')) return // markers handle their own click
       onClickRefs.current.map?.({ latlng: { lat: e.lngLat.lat, lng: e.lngLat.lng } })
     })
     // Emit the viewport bbox (pan/zoom + once on first idle) so the POI-explore
@@ -364,7 +351,7 @@ export function MapViewGL({
         if (Math.abs(curAlt - alt) > 0.25) {
           // mapbox-gl accepts a third altitude element at runtime, but its typings
           // only model the 2-tuple form, so cast to LngLatLike.
-          marker.setLngLat([ll.lng, ll.lat, alt] as unknown as mapboxgl.LngLatLike)
+          marker.setLngLat([ll.lng, ll.lat, alt] as unknown as maplibregl.LngLatLike)
         }
       })
     }
@@ -389,7 +376,7 @@ export function MapViewGL({
       mapRef.current = null
       setMapReady(false)
     }
-  }, [mapboxStyle, mapboxToken, mapbox3d]) // rebuild on style changes only
+  }, [center[0], center[1], zoom]) // rebuild when initial camera changes
 
   // Photo loading — mirrors the Leaflet MapView. Updates via RAF to batch
   // simultaneous thumb arrivals into one re-render.
@@ -489,7 +476,7 @@ export function MapViewGL({
       // pitch. Tried `pitchAlignment: 'map'` to snap markers onto terrain,
       // but it rotates the element by the pitch angle and visually offsets
       // the anchor by ~100px at 45° tilt, which caused the observed drift.
-      const m = new mapboxgl.Marker({ element: el, anchor: 'center' })
+      const m = new maplibregl.Marker({ element: el, anchor: 'center' })
         .setLngLat([place.lng, place.lat])
         .addTo(map)
       markersRef.current.set(place.id, m)
@@ -511,7 +498,7 @@ export function MapViewGL({
       })
       el.addEventListener('mouseleave', () => { popupRef.current?.remove() })
       el.addEventListener('click', (ev) => { ev.stopPropagation(); onPoiClickRef.current?.(poi) })
-      const m = new mapboxgl.Marker({ element: el, anchor: 'center' }).setLngLat([poi.lng, poi.lat]).addTo(map)
+      const m = new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([poi.lng, poi.lat]).addTo(map)
       poiMarkersRef.current.push(m)
     }
   }, [pois, mapReady])
@@ -520,7 +507,7 @@ export function MapViewGL({
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
-    const src = map.getSource('trip-route') as mapboxgl.GeoJSONSource | undefined
+    const src = map.getSource('trip-route') as maplibregl.GeoJSONSource | undefined
     if (!src) return
     const features = (route || []).filter(seg => seg && seg.length > 1).map(seg => ({
       type: 'Feature' as const,
@@ -536,7 +523,7 @@ export function MapViewGL({
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
-    const src = map.getSource('trip-gpx') as mapboxgl.GeoJSONSource | undefined
+    const src = map.getSource('trip-gpx') as maplibregl.GeoJSONSource | undefined
     if (!src) return
     const features = places.flatMap(place => {
       if (!place.route_geometry) return []
@@ -606,14 +593,13 @@ export function MapViewGL({
     const target = dayPlaces.length > 0 ? dayPlaces : places
     const valid = target.filter(p => p.lat && p.lng)
     if (valid.length === 0) return
-    const bounds = new mapboxgl.LngLatBounds()
+    const bounds = new maplibregl.LngLatBounds()
     valid.forEach(p => bounds.extend([p.lng, p.lat]))
     const run = () => {
       try {
         map.fitBounds(bounds, {
           padding: paddingOpts,
           maxZoom: 15,
-          pitch: mapbox3d ? 45 : 0,
           duration: 400,
         })
       } catch { /* noop */ }
@@ -632,7 +618,6 @@ export function MapViewGL({
       map.flyTo({
         center: [target.lng, target.lat],
         zoom: Math.max(map.getZoom(), 14),
-        pitch: mapbox3d ? 45 : 0,
         duration: 400,
         // Account for the side panels and the bottom inspector / day-detail panel
         // so the selected pin lands in the centre of the *visible* map area rather
@@ -640,7 +625,7 @@ export function MapViewGL({
         padding: paddingOpts,
       })
     } catch { /* noop */ }
-  }, [selectedPlaceId, mapbox3d]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [selectedPlaceId]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // External center/zoom prop changes — jump without animation
   useEffect(() => {
@@ -680,17 +665,6 @@ export function MapViewGL({
     if (map.loaded()) apply()
     else map.once('load', apply)
   }, [userPosition, trackingMode])
-
-  if (!mapboxToken) {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 text-center px-6">
-        <div className="text-sm text-zinc-500">
-          No Mapbox access token configured.<br />
-          <span className="text-xs">Settings → Map → Mapbox GL</span>
-        </div>
-      </div>
-    )
-  }
 
   // Desktop browsers only get IP-based geolocation (city-level accuracy),
   // so the button would be misleading. Mobile, where real GPS lives, keeps it.

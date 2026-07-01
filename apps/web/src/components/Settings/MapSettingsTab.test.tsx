@@ -8,12 +8,16 @@ import { buildUser, buildSettings } from '../../../tests/helpers/factories';
 import { ToastContainer } from '../shared/Toast';
 import MapSettingsTab from './MapSettingsTab';
 
-// Mock MapView to avoid Leaflet DOM issues in jsdom
-vi.mock('../Map/MapView', () => ({
-  MapView: ({ onMapClick }: { onMapClick?: (info: { latlng: { lat: number; lng: number } }) => void }) => (
+// Mock the embedded MapLibre component — jsdom has no WebGL, so the real
+// MapViewGL crashes inside its `new maplibregl.Map(...)` init. Replace it
+// with a div that exposes an onMapClick the tests can drive. The rest of
+// the form (template, lat/lng, save) is real React code.
+vi.mock('../Map/MapViewGL', () => ({
+  MapViewGL: ({ onMapClick }: { onMapClick?: (info: { latlng: { lat: number; lng: number } }) => void }) => (
     <div data-testid="map-view" onClick={() => onMapClick?.({ latlng: { lat: 51.5, lng: -0.1 } })} />
   ),
 }));
+vi.mock('maplibre-gl/dist/maplibre-gl.css', () => ({ default: '' }));
 
 beforeEach(() => {
   resetAllStores();

@@ -1,7 +1,7 @@
 import { db } from '../db/database';
 import { decrypt_api_key, maybe_encrypt_api_key } from './apiKeyCrypto';
 
-const ENCRYPTED_SETTING_KEYS = new Set(['webhook_url', 'ntfy_token', 'mapbox_access_token']);
+const ENCRYPTED_SETTING_KEYS = new Set(['webhook_url', 'ntfy_token']);
 // Encrypted keys that are masked (••••••••) when returned to the client.
 // Keys not in this set but in ENCRYPTED_SETTING_KEYS are decrypted and returned.
 const MASKED_SETTING_KEYS = new Set(['webhook_url', 'ntfy_token']);
@@ -15,13 +15,6 @@ export const DEFAULTABLE_USER_SETTING_KEYS = [
   'default_currency',
   'blur_booking_codes',
   'map_tile_url',
-  // Instance-wide Mapbox defaults: an admin can set a shared token + style so the
-  // whole instance uses Mapbox without each user pasting their own key (#920).
-  'map_provider',
-  'mapbox_access_token',
-  'mapbox_style',
-  'mapbox_3d_enabled',
-  'mapbox_quality_mode',
 ] as const;
 
 type DefaultableKey = typeof DEFAULTABLE_USER_SETTING_KEYS[number];
@@ -30,10 +23,9 @@ const VALID_VALUES: Partial<Record<DefaultableKey, unknown[]>> = {
   temperature_unit: ['fahrenheit', 'celsius'],
   time_format: ['12h', '24h'],
   dark_mode: [true, false, 'light', 'dark', 'auto'],
-  map_provider: ['leaflet', 'mapbox-gl'],
 };
 
-const BOOLEAN_KEYS = new Set<DefaultableKey>(['blur_booking_codes', 'mapbox_3d_enabled', 'mapbox_quality_mode']);
+const BOOLEAN_KEYS = new Set<DefaultableKey>(['blur_booking_codes']);
 
 function parseValue(raw: string): unknown {
   try { return JSON.parse(raw); } catch { return raw; }

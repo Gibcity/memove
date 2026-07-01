@@ -16,32 +16,62 @@ vi.mock('react-router-dom', async () => {
   return { ...actual, useParams: () => ({ token: 'test-share-token' }) };
 });
 
-vi.mock('react-leaflet', () => ({
-  MapContainer: ({ children }: any) => <div data-testid="map-container">{children}</div>,
-  TileLayer: () => null,
-  Marker: ({ children }: any) => <div>{children}</div>,
-  Popup: ({ children }: any) => <div>{children}</div>,
-  Polyline: () => null,
-  useMap: () => ({ fitBounds: vi.fn(), setView: vi.fn() }),
-}));
-
-vi.mock('leaflet', () => {
-  const L = {
-    divIcon: vi.fn(() => ({})),
-    latLngBounds: vi.fn(() => ({ extend: vi.fn(), isValid: vi.fn(() => true) })),
-    icon: vi.fn(() => ({})),
-  };
-  return { default: L, ...L };
-});
+vi.mock('maplibre-gl', () => {
+  class FakeMap {
+    on() {}
+    once() {}
+    off() {}
+    loaded() { return true }
+    isStyleLoaded() { return true }
+    fitBounds() {}
+    flyTo() {}
+    jumpTo() {}
+    getZoom() { return 10 }
+    addControl() {}
+    removeControl() {}
+    addSource() {}
+    getSource() { return null }
+    addLayer() {}
+    setLayoutProperty() {}
+    getStyle() { return { layers: [] } }
+    getCanvasContainer() { return document.createElement('div') }
+    remove() {}
+  }
+  class FakeMarker {
+    setLngLat() { return this }
+    addTo() { return this }
+    remove() {}
+    getElement() { return document.createElement('div') }
+  }
+  class FakePopup {
+    setLngLat() { return this }
+    setHTML() { return this }
+    addTo() { return this }
+    remove() {}
+  }
+  const FakeLngLatBounds = function () { return { extend: () => FakeLngLatBounds.prototype } }
+  return {
+    default: {
+      Map: FakeMap,
+      Marker: FakeMarker,
+      Popup: FakePopup,
+      LngLatBounds: FakeLngLatBounds,
+      NavigationControl: function () {},
+      accessToken: '',
+    },
+  }
+})
+vi.mock('maplibre-gl/dist/maplibre-gl.css', () => ({}))
 
 vi.mock('react-dom/server', () => ({
   renderToStaticMarkup: vi.fn(() => '<svg></svg>'),
-}));
+}))
 
-// Mock JourneyMap since it uses vanilla Leaflet (L.map) which requires a real DOM
-vi.mock('../components/Journey/JourneyMap', () => ({
+// JourneyMapGL is the real component now; the parent (JourneyPublicPage) imports
+// it as a default and we render through it without spinning up a real map.
+vi.mock('../components/Journey/JourneyMapGL', () => ({
   default: ({ entries }: any) => <div data-testid="journey-map">Map with {entries?.length || 0} entries</div>,
-}));
+}))
 
 vi.mock('../components/Journey/JournalBody', () => ({
   default: ({ text }: { text: string }) => <div data-testid="journal-body">{text}</div>,

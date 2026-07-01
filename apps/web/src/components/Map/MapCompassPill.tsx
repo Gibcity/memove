@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigation } from 'lucide-react'
-import type mapboxgl from 'mapbox-gl'
+import type maplibregl from 'maplibre-gl'
 
 /**
  * Round compass pill for the Mapbox planner map. The Mapbox map can be rotated and
@@ -9,7 +9,7 @@ import type mapboxgl from 'mapbox-gl'
  * (Mapbox only) and built as the SAME frosted shell (padding 4 around a 34px button)
  * so its height and transparency match the POI pill exactly.
  */
-export function MapCompassPill({ map }: { map: mapboxgl.Map }) {
+export function MapCompassPill({ map }: { map: maplibregl.Map }) {
   const [bearing, setBearing] = useState(() => map.getBearing())
 
   useEffect(() => {

@@ -1,9 +1,8 @@
-import { useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet'
-import L from 'leaflet'
+import { useEffect, useRef } from 'react'
+import maplibregl from 'maplibre-gl'
+import 'maplibre-gl/dist/maplibre-gl.css'
 import { useTranslation, SUPPORTED_LANGUAGES } from '../i18n'
 import { useSettingsStore } from '../store/settingsStore'
-import { getLocaleForLanguage } from '../i18n'
 import { useSharedTrip } from './sharedTrip/useSharedTrip'
 import { getCategoryIcon } from '../components/shared/categoryIcons'
 import { createElement } from 'react'
@@ -16,27 +15,87 @@ import { splitReservationDateTime } from '../utils/formatters'
 
 const TRANSPORT_ICONS = { flight: Plane, train: Train, bus: Bus, car: Car, cruise: Ship }
 
-function createMarkerIcon(place: any) {
+const MAP_STYLE = {
+  version: 8 as const,
+  sources: {
+    osm: {
+      type: 'raster' as const,
+      tiles: ['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+              'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+              'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'],
+      tileSize: 256,
+      attribution: '© OpenStreetMap contributors, © CARTO',
+    },
+  },
+  layers: [{ id: 'osm', type: 'raster' as const, source: 'osm' }],
+}
+
+function createMarkerHtml(place: any): string {
   const cat = place.category
   const color = cat?.color || '#6366f1'
   const CatIcon = getCategoryIcon(cat?.icon)
   const iconSvg = renderToStaticMarkup(createElement(CatIcon, { size: 14, strokeWidth: 2, color: 'white' }))
-  return L.divIcon({
-    className: '',
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
-    html: `<div style="width:28px;height:28px;border-radius:50%;background:${color};display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.3);border:2px solid white;">${iconSvg}</div>`,
-  })
+  return `<div style="width:28px;height:28px;border-radius:50%;background:${color};display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.3);border:2px solid white;">${iconSvg}</div>`
 }
 
-function FitBoundsToPlaces({ places }: { places: any[] }) {
-  const map = useMap()
+function SharedTripMap({ places }: { places: any[] }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<maplibregl.Map | null>(null)
+  const markersRef = useRef<maplibregl.Marker[]>([])
+
   useEffect(() => {
-    if (places.length === 0) return
-    const bounds = L.latLngBounds(places.map(p => [p.lat, p.lng]))
-    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 })
-  }, [places, map])
-  return null
+    if (!containerRef.current) return
+    const initialCenter: [number, number] = places.length > 0
+      ? [places[0].lng, places[0].lat]
+      : [2.35, 48.85]
+    const map = new maplibregl.Map({
+      container: containerRef.current,
+      style: MAP_STYLE,
+      center: initialCenter,
+      zoom: 11,
+      attributionControl: false,
+    })
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
+    mapRef.current = map
+
+    return () => {
+      // ponytail: clean up markers + map on unmount
+      markersRef.current.forEach(m => m.remove())
+      markersRef.current = []
+      map.remove()
+      mapRef.current = null
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- map only initialised once
+  }, [])
+
+  // Replace markers + fit bounds whenever the places list changes
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+
+    markersRef.current.forEach(m => m.remove())
+    markersRef.current = []
+
+    for (const p of places) {
+      const el = document.createElement('div')
+      // innerHTML used by design — createMarkerHtml builds a static SVG from a lucide icon
+      // plus a category color from the DB; no free-text input flows into the markup.
+      el.innerHTML = createMarkerHtml(p)
+      const marker = new maplibregl.Marker({ element: el })
+        .setLngLat([p.lng, p.lat])
+        .setPopup(new maplibregl.Popup({ offset: 14, closeButton: false }).setText(p.name))
+        .addTo(map)
+      markersRef.current.push(marker)
+    }
+
+    if (places.length > 0) {
+      const bounds = new maplibregl.LngLatBounds()
+      for (const p of places) bounds.extend([p.lng, p.lat])
+      map.fitBounds(bounds, { padding: 40, maxZoom: 14, animate: false })
+    }
+  }, [places])
+
+  return <div ref={containerRef} data-testid="map-container" style={{ width: '100%', height: '100%' }} />
 }
 
 export default function SharedTripPage() {
@@ -68,8 +127,6 @@ export default function SharedTripPage() {
   const mapPlaces = selectedDay
     ? (assignments[String(selectedDay)] || []).map((a: any) => a.place).filter((p: any) => p?.lat && p?.lng)
     : (places || []).filter((p: any) => p?.lat && p?.lng)
-
-  const center = mapPlaces.length > 0 ? [mapPlaces[0].lat, mapPlaces[0].lng] : [48.85, 2.35]
 
   return (
     <div className="bg-surface-secondary" style={{ minHeight: '100vh', fontFamily: "var(--font-system)" }}>
@@ -163,15 +220,7 @@ export default function SharedTripPage() {
         {/* Map */}
         {activeTab === 'plan' && (<>
         <div style={{ borderRadius: 16, overflow: 'hidden', height: 300, marginBottom: 20, boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
-          <MapContainer center={center as [number, number]} zoom={11} zoomControl={false} style={{ width: '100%', height: '100%' }}>
-            <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" referrerPolicy="strict-origin-when-cross-origin" />
-            <FitBoundsToPlaces places={mapPlaces} />
-            {mapPlaces.map((p: any) => (
-              <Marker key={p.id} position={[p.lat, p.lng]} icon={createMarkerIcon(p)}>
-                <Tooltip>{p.name}</Tooltip>
-              </Marker>
-            ))}
-          </MapContainer>
+          <SharedTripMap places={mapPlaces} />
         </div>
 
         {/* Day Plan */}

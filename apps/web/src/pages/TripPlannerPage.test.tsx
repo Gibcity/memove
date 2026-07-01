@@ -10,35 +10,57 @@ import TripPlannerPage from './TripPlannerPage';
 import { server } from '../../tests/helpers/msw/server';
 import { http, HttpResponse } from 'msw';
 
-// Mock Leaflet-dependent components
-vi.mock('../components/Map/MapView', () => ({
-  MapView: () => React.createElement('div', { 'data-testid': 'map-view' }),
-}));
+vi.mock('maplibre-gl', () => {
+  class FakeMap {
+    on() {}
+    once() {}
+    off() {}
+    loaded() { return true }
+    isStyleLoaded() { return true }
+    fitBounds() {}
+    flyTo() {}
+    jumpTo() {}
+    getZoom() { return 10 }
+    addControl() {}
+    removeControl() {}
+    addSource() {}
+    getSource() { return null }
+    addLayer() {}
+    setLayoutProperty() {}
+    getStyle() { return { layers: [] } }
+    getCanvasContainer() { return document.createElement('div') }
+    remove() {}
+  }
+  class FakeMarker {
+    setLngLat() { return this }
+    addTo() { return this }
+    remove() {}
+    getElement() { return document.createElement('div') }
+  }
+  class FakePopup {
+    setLngLat() { return this }
+    setHTML() { return this }
+    addTo() { return this }
+    remove() {}
+  }
+  const FakeLngLatBounds = function () { return { extend: () => FakeLngLatBounds.prototype } }
+  return {
+    default: {
+      Map: FakeMap,
+      Marker: FakeMarker,
+      Popup: FakePopup,
+      LngLatBounds: FakeLngLatBounds,
+      NavigationControl: function () {},
+      accessToken: '',
+    },
+  }
+})
+vi.mock('maplibre-gl/dist/maplibre-gl.css', () => ({}))
 
-vi.mock('react-leaflet', () => ({
-  MapContainer: ({ children }: { children: React.ReactNode }) =>
-    React.createElement('div', { 'data-testid': 'map-container' }, children),
-  TileLayer: () => null,
-  Marker: ({ children }: { children?: React.ReactNode }) => React.createElement('div', null, children),
-  Tooltip: ({ children }: { children?: React.ReactNode }) => React.createElement('div', null, children),
-  Polyline: () => null,
-  CircleMarker: () => null,
-  Circle: () => null,
-  useMap: () => ({ fitBounds: vi.fn(), getCenter: vi.fn(() => ({ lat: 0, lng: 0 })) }),
-}));
-
-vi.mock('react-leaflet-cluster', () => ({
-  default: ({ children }: { children: React.ReactNode }) => React.createElement('div', null, children),
-}));
-
-vi.mock('leaflet', () => {
-  const L = {
-    divIcon: vi.fn(() => ({})),
-    latLngBounds: vi.fn(() => ({ extend: vi.fn(), isValid: vi.fn(() => true) })),
-    icon: vi.fn(() => ({})),
-  };
-  return { default: L, ...L };
-});
+// MapViewAuto is what TripPlannerPage actually renders now (always MapViewGL).
+vi.mock('../components/Map/MapViewAuto', () => ({
+  MapViewAuto: () => React.createElement('div', { 'data-testid': 'map-view' }),
+}))
 
 // Mock the WebSocket hook so we can verify it's called
 const mockUseTripWebSocket = vi.fn();

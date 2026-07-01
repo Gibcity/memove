@@ -6,31 +6,55 @@ import { server } from '../../tests/helpers/msw/server';
 import { resetAllStores } from '../../tests/helpers/store';
 import SharedTripPage from './SharedTripPage';
 
-// Mock react-leaflet (SharedTripPage renders a map)
-vi.mock('react-leaflet', () => ({
-  MapContainer: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="map-container">{children}</div>
-  ),
-  TileLayer: () => null,
-  Marker: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
-  Tooltip: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
-  useMap: () => ({
-    fitBounds: vi.fn(),
-    getCenter: vi.fn(() => ({ lat: 0, lng: 0 })),
-  }),
-}));
-
-vi.mock('leaflet', () => {
-  const L = {
-    divIcon: vi.fn(() => ({})),
-    latLngBounds: vi.fn(() => ({
-      extend: vi.fn(),
-      isValid: vi.fn(() => true),
-    })),
-    icon: vi.fn(() => ({})),
+// Mock maplibre-gl (SharedTripPage renders a map). jsdom has no WebGL, so we
+// stub the imperative API with vi.fn stubs that mimic just enough to let the
+// SharedTripMap component mount and expose its container div with the
+// `data-testid="map-container"` attribute.
+vi.mock('maplibre-gl', () => {
+  class FakeMap {
+    on = vi.fn().mockReturnThis()
+    off = vi.fn().mockReturnThis()
+    remove = vi.fn()
+    addControl = vi.fn().mockReturnThis()
+    addSource = vi.fn()
+    addLayer = vi.fn()
+    fitBounds = vi.fn()
+    setStyle = vi.fn()
+  }
+  class FakeMarker {
+    setLngLat = vi.fn().mockReturnThis()
+    setPopup = vi.fn().mockReturnThis()
+    addTo = vi.fn().mockReturnThis()
+    remove = vi.fn()
+  }
+  class FakePopup {
+    setText = vi.fn().mockReturnThis()
+    setHTML = vi.fn().mockReturnThis()
+    addTo = vi.fn().mockReturnThis()
+    remove = vi.fn()
+  }
+  class FakeLngLatBounds {
+    extend = vi.fn().mockReturnThis()
+  }
+  class FakeNavigationControl {}
+  return {
+    default: {
+      Map: FakeMap,
+      Marker: FakeMarker,
+      Popup: FakePopup,
+      NavigationControl: FakeNavigationControl,
+      LngLatBounds: FakeLngLatBounds,
+    },
+    Map: FakeMap,
+    Marker: FakeMarker,
+    Popup: FakePopup,
+    NavigationControl: FakeNavigationControl,
+    LngLatBounds: FakeLngLatBounds,
   };
-  return { default: L, ...L };
 });
+
+// Stub the CSS import — jsdom doesn't care about maplibre-gl stylesheet rules.
+vi.mock('maplibre-gl/dist/maplibre-gl.css', () => ({ default: '' }));
 
 // Mock react-dom/server (used in createMarkerIcon)
 vi.mock('react-dom/server', () => ({
@@ -317,15 +341,16 @@ describe('SharedTripPage', () => {
         expect(screen.getByText('Shared Paris Trip')).toBeInTheDocument();
       });
 
-      // Eiffel Tower is only in the mocked map tooltip (1 occurrence)
-      expect(screen.getAllByText('Eiffel Tower')).toHaveLength(1);
+      // Eiffel Tower is hidden inside the map's marker popups (no always-rendered Leaflet Tooltip).
+      // The visible test surface is just the collapsed day card.
+      expect(screen.queryAllByText('Eiffel Tower')).toHaveLength(0);
 
       // Click the day card header to expand it
       fireEvent.click(screen.getByText('Day One'));
 
-      // Now Eiffel Tower also appears in the expanded day content
+      // Now Eiffel Tower appears in the expanded day content
       await waitFor(() => {
-        expect(screen.getAllByText('Eiffel Tower')).toHaveLength(2);
+        expect(screen.getAllByText('Eiffel Tower')).toHaveLength(1);
       });
     });
   });

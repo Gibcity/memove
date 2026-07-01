@@ -7,7 +7,7 @@ import type { Place } from '../../types'
 // HTML builders for the Mapbox GL hover popup. The Leaflet map already shows a
 // name/category/address card on hover (a cursor-following overlay); Mapbox GL has
 // no equivalent, so these produce the same card as an HTML string for a
-// mapboxgl.Popup. Kept framework-agnostic (plain strings) on purpose.
+// maplibregl.Popup. Kept framework-agnostic (plain strings) on purpose.
 
 type PlaceWithCategory = Place & {
   category_color?: string | null

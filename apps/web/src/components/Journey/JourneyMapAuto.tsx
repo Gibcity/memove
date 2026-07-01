@@ -1,10 +1,9 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react'
-import { useSettingsStore } from '../../store/settingsStore'
-import JourneyMap, { type JourneyMapHandle } from './JourneyMap'
 import JourneyMapGL, { type JourneyMapGLHandle } from './JourneyMapGL'
 
-// Unified handle — both providers expose the same three methods.
-export type JourneyMapAutoHandle = JourneyMapHandle
+// ponytail: collapsed to JourneyMapGL — JourneyMap (Leaflet) was deleted.
+// Re-export the handle type under the old name to avoid touching every consumer.
+export type JourneyMapAutoHandle = JourneyMapGLHandle
 
 interface MapEntry {
   id: string
@@ -31,27 +30,16 @@ interface Props {
 }
 
 const JourneyMapAuto = forwardRef<JourneyMapAutoHandle, Props>(function JourneyMapAuto(props, ref) {
-  const provider = useSettingsStore(s => s.settings.map_provider)
-  const token = useSettingsStore(s => s.settings.mapbox_access_token)
-  const leafletRef = useRef<JourneyMapHandle>(null)
   const glRef = useRef<JourneyMapGLHandle>(null)
 
-  // Fall back to Leaflet when the user selected Mapbox GL but hasn't
-  // supplied a token yet — otherwise the map would just show a stub.
-  const useGL = provider === 'mapbox-gl' && !!token
-
   useImperativeHandle(ref, () => ({
-    highlightMarker: (id) => (useGL ? glRef.current : leafletRef.current)?.highlightMarker(id),
-    focusMarker: (id) => (useGL ? glRef.current : leafletRef.current)?.focusMarker(id),
-    invalidateSize: () => (useGL ? glRef.current : leafletRef.current)?.invalidateSize(),
-  }), [useGL])
+    highlightMarker: (id) => glRef.current?.highlightMarker(id),
+    focusMarker: (id) => glRef.current?.focusMarker(id),
+    invalidateSize: () => glRef.current?.invalidateSize(),
+  }))
 
-  if (useGL) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return <JourneyMapGL ref={glRef} {...(props as any)} />
-  }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <JourneyMap ref={leafletRef} {...(props as any)} />
+  return <JourneyMapGL ref={glRef} {...(props as any)} />
 })
 
 export default JourneyMapAuto

@@ -8,7 +8,7 @@
 
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import mapboxgl from 'mapbox-gl'
+import maplibregl from 'maplibre-gl'
 import { Plane, Train, Ship, Car, Bus, Sailboat, Bike, CarTaxiFront, Route } from 'lucide-react'
 import { escapeHtml } from '@memove/shared'
 import type { Reservation, ReservationEndpoint } from '../../types'
@@ -221,15 +221,15 @@ export interface ReservationOverlayOptions {
 }
 
 export class ReservationMapboxOverlay {
-  private map: mapboxgl.Map
+  private map: maplibregl.Map
   private items: TransportItem[] = []
   private opts: ReservationOverlayOptions
-  private endpointMarkers: mapboxgl.Marker[] = []
-  private statsMarkers: { marker: mapboxgl.Marker; arc: [number, number][] }[] = []
+  private endpointMarkers: maplibregl.Marker[] = []
+  private statsMarkers: { marker: maplibregl.Marker; arc: [number, number][] }[] = []
   private rerender: () => void
   private destroyed = false
 
-  constructor(map: mapboxgl.Map, opts: ReservationOverlayOptions) {
+  constructor(map: maplibregl.Map, opts: ReservationOverlayOptions) {
     this.map = map
     this.opts = opts
     this.rerender = () => { if (!this.destroyed) this.render() }
@@ -328,7 +328,7 @@ export class ReservationMapboxOverlay {
         coordinates: seg.map(([lat, lng]) => [lng, lat]),
       },
     })))
-    const src = map.getSource(RESERVATION_SOURCE_ID) as mapboxgl.GeoJSONSource | undefined
+    const src = map.getSource(RESERVATION_SOURCE_ID) as maplibregl.GeoJSONSource | undefined
     src?.setData({ type: 'FeatureCollection', features })
 
     // ── endpoint markers ────────────────────────────────────────────
@@ -350,7 +350,7 @@ export class ReservationMapboxOverlay {
               this.opts.onEndpointClick?.(item.res.id)
             })
           }
-          const marker = new mapboxgl.Marker({ element: node, anchor: 'center' })
+          const marker = new maplibregl.Marker({ element: node, anchor: 'center' })
             .setLngLat([ep.lng, ep.lat])
             .addTo(map)
           this.endpointMarkers.push(marker)

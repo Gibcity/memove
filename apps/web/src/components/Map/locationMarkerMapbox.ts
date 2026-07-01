@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl'
+import maplibregl from 'maplibre-gl'
 import type { GeoPosition } from '../../hooks/useGeolocation'
 
 // Build the DOM element that backs the mapbox Marker. We animate the
@@ -66,10 +66,10 @@ export interface LocationMarkerHandle {
 // mapbox map. Returns a handle the caller uses to push position updates
 // and clean up. Keeps its own DOM element and GeoJSON source so it can
 // coexist with the regular trip markers.
-export function attachLocationMarker(map: mapboxgl.Map): LocationMarkerHandle {
+export function attachLocationMarker(map: maplibregl.Map): LocationMarkerHandle {
   ensurePulseStyle()
   const { root, cone } = buildLocationEl()
-  const marker = new mapboxgl.Marker({ element: root, anchor: 'center' })
+  const marker = new maplibregl.Marker({ element: root, anchor: 'center' })
 
   const ensureAccuracyLayer = () => {
     if (map.getSource('memove-location-accuracy')) return
@@ -118,7 +118,7 @@ export function attachLocationMarker(map: mapboxgl.Map): LocationMarkerHandle {
   }
 
   const setAccuracy = (p: GeoPosition) => {
-    const src = map.getSource('memove-location-accuracy') as mapboxgl.GeoJSONSource | undefined
+    const src = map.getSource('memove-location-accuracy') as maplibregl.GeoJSONSource | undefined
     if (!src) return
     if (!p.accuracy || p.accuracy < 1) {
       src.setData({ type: 'FeatureCollection', features: [] })
@@ -145,7 +145,7 @@ export function attachLocationMarker(map: mapboxgl.Map): LocationMarkerHandle {
       lastPosRef = p
       if (!p) {
         marker.remove()
-        const src = map.getSource('memove-location-accuracy') as mapboxgl.GeoJSONSource | undefined
+        const src = map.getSource('memove-location-accuracy') as maplibregl.GeoJSONSource | undefined
         src?.setData({ type: 'FeatureCollection', features: [] })
         return
       }

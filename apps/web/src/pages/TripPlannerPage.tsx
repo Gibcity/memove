@@ -211,7 +211,7 @@ export default function TripPlannerPage(): React.ReactElement | null {
   } = useTripPlanner()
 
   const poi = usePoiExplore()
-  const [glMap, setGlMap] = useState<import('mapbox-gl').Map | null>(null)
+  const [glMap, setGlMap] = useState<import('maplibre-gl').Map | null>(null)
   const poiPillEnabled = useSettingsStore(s => s.settings.map_poi_pill_enabled) !== false
 
   // Costs expense editor opened from a booking modal (save-then-open). Lives at the

@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect, useCallback, useMemo } from 'react'
 import { Plus } from 'lucide-react'
-import JourneyMap from './JourneyMap'
+import JourneyMapGL from './JourneyMapGL'
 import MobileEntryCard from './MobileEntryCard'
-import type { JourneyMapHandle } from './JourneyMap'
+import type { JourneyMapGLHandle as JourneyMapHandle } from './JourneyMapGL'
 import type { JourneyEntry } from '../../store/journeyStore'
 import { DAY_COLORS } from './dayColors'
 
@@ -147,7 +147,7 @@ export default function MobileMapTimeline({
         className="fixed left-0 right-0 z-10"
         style={{ top: 'var(--nav-h, 0px)', bottom: 'env(safe-area-inset-bottom, 0px)' }}
       >
-        <JourneyMap
+        <JourneyMapGL
           ref={mapRef}
           entries={mapEntries}
           checkins={[]}
@@ -177,7 +177,7 @@ export default function MobileMapTimeline({
       style={{ top: 'var(--nav-h, 0px)', bottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       {/* Full-screen map */}
-      <JourneyMap
+      <JourneyMapGL
         ref={mapRef}
         entries={mapEntries}
         checkins={[]}

@@ -28,7 +28,7 @@ const glMap = vi.hoisted(() => ({
   getCanvasContainer: vi.fn(() => document.createElement('div')),
 }))
 
-vi.mock('mapbox-gl', () => ({
+vi.mock('maplibre-gl', () => ({
   default: {
     accessToken: '',
     Map: vi.fn(function () {
@@ -56,15 +56,20 @@ vi.mock('mapbox-gl', () => ({
     }),
   },
 }))
-vi.mock('mapbox-gl/dist/mapbox-gl.css', () => ({}))
+vi.mock('maplibre-gl/dist/maplibre-gl.css', () => ({}))
 
-vi.mock('./mapboxSetup', () => ({
-  isStandardFamily: vi.fn(() => false),
-  supportsCustom3d: vi.fn(() => false),
-  wantsTerrain: vi.fn(() => false),
-  addCustom3dBuildings: vi.fn(),
-  addTerrainAndSky: vi.fn(),
-}))
+vi.mock('./mapboxSetup', async () => {
+  const actual = await vi.importActual<typeof import('./mapboxSetup')>('./mapboxSetup')
+  return {
+    ...actual,
+    DEFAULT_MAP_STYLE: { version: 8, sources: {}, layers: [] },
+    isStandardFamily: vi.fn(() => false),
+    supportsCustom3d: vi.fn(() => false),
+    wantsTerrain: vi.fn(() => false),
+    addCustom3dBuildings: vi.fn(),
+    addTerrainAndSky: vi.fn(),
+  }
+})
 
 vi.mock('./locationMarkerMapbox', () => ({
   attachLocationMarker: vi.fn(() => ({ update: vi.fn() })),
@@ -107,13 +112,12 @@ function buildMapPlace(overrides: Record<string, any> = {}) {
 }
 
 beforeEach(() => {
+  // MapViewGL no longer requires map_provider / mapbox_access_token — that was
+  // the Auto wrapper's concern. Settings still seeded for any other field
+  // consumers in MapViewGL.
   useSettingsStore.setState({
     settings: {
       ...useSettingsStore.getState().settings,
-      map_provider: 'mapbox-gl',
-      mapbox_access_token: 'pk.test_token',
-      mapbox_style: 'mapbox://styles/mapbox/streets-v12',
-      mapbox_3d_enabled: false,
     },
   } as any)
 })
