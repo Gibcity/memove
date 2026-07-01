@@ -9,9 +9,11 @@ import {
   Param,
   Post,
   Query,
+  Res,
   UseGuards,
   UsePipes,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { z } from 'zod';
 import type { User } from '../../types';
 import type { ImplicitSignal } from '@memove/shared';
@@ -376,6 +378,58 @@ export class RelocationController {
     @Body() body: z.infer<typeof chatSchema>,
   ) {
     return this.chatService.handle(String(user.id), body.message, body.history);
+  }
+
+  /**
+   * POST /api/relocation/chat/stream — SSE stream of LLM tokens.
+   *
+   * Wire format (Server-Sent Events):
+   *   data: {"t":"hello"}
+   *   data: {"t":" world"}
+   *   ...
+   *   data: [DONE]
+   *
+   * Plain LLM only — no tools. Tool-calling flow stays on /chat (non-streaming).
+   * Body validation reuses `chatSchema` so the wire shape is identical.
+   * ponytail: bare-minimum SSE — no heartbeats, no reconnection hints, no
+   * backpressure. Add when a client actually disconnects mid-stream in prod.
+   */
+  @Post('chat/stream')
+  @UsePipes(new ZodValidationPipe(chatSchema))
+  async chatStream(
+    @CurrentUser() user: User,
+    @Body() body: z.infer<typeof chatSchema>,
+    @Res() res: Response,
+  ): Promise<void> {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache, no-transform',
+      Connection: 'keep-alive',
+      'X-Accel-Buffering': 'no',
+    });
+    const writeEvent = (payload: unknown): void => {
+      res.write(`data: ${JSON.stringify(payload)}\n\n`);
+    };
+    writeEvent({ t: '' }); // poke the FE into streaming state immediately
+    // ponytail: no AbortSignal plumbed — Express's Request type doesn't expose
+    // one. If the client disconnects, res.write throws and the loop aborts.
+    // Add a manual AbortController wired to req.on('close') if needed.
+    try {
+      for await (const token of this.chatService.handleStream(
+        String(user.id),
+        body.message,
+        body.history,
+      )) {
+        if (res.writableEnded) return;
+        writeEvent({ t: token });
+      }
+      res.write('data: [DONE]\n\n');
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : 'stream failed';
+      writeEvent({ error: msg });
+    } finally {
+      res.end();
+    }
   }
 
   // ── Move Checklist ──

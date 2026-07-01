@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import OpenAI from 'openai';
 import { RelocationService } from './relocation.service';
 import { RelocationJourneyService } from './relocation-journey.service';
-import { completeWithTools } from '../../services/llm/client';
+import { completeWithTools, completeStream } from '../../services/llm/client';
 import {
   ALL_RELOCATION_TOOLS,
   type RelocationServices,
@@ -74,6 +75,27 @@ export class RelocationChatService {
         text: "I'm having trouble connecting to my tools right now. Please try again.",
       };
     }
+  }
+
+  /**
+   * Streaming variant of `handle()` — yields text tokens incrementally so the
+   * UI can render before the full response lands. Plain LLM only (no tools);
+   * tool-calling streaming stays in the non-streaming path because we'd need
+   * to accumulate streaming tool-call args and branch on completion.
+   */
+  async *handleStream(
+    userId: string,
+    message: string,
+    history?: ChatHistoryItem[],
+    signal?: AbortSignal,
+  ): AsyncIterable<string> {
+    const uid = String(userId);
+    const journeyState = this.journey.getJourney(Number(uid));
+    const messages = this.buildMessages(uid, message, history, journeyState);
+    yield* completeStream(
+      messages as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
+      { temperature: 0.6, maxTokens: 1000, signal },
+    );
   }
 
   private buildMessages(

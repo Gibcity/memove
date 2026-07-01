@@ -108,4 +108,34 @@ export async function completeWithTools(
   return { text: message?.content ?? '' };
 }
 
+/**
+ * Streaming chat completion — yields text deltas as they arrive from the model.
+ * Use when latency-to-first-token matters (UI chat surface); the non-streaming
+ * `complete()` and `completeWithTools()` are fine for everything else.
+ *
+ * ponytail: additive — does not touch the two existing paths. Tool-calling
+ * streaming is intentionally out of scope (would need to accumulate streaming
+ * tool-call args + branch on completion); use completeWithTools() for that.
+ * Skipped: backpressure handling, retry, stream cancellation beyond AbortSignal.
+ */
+export async function* completeStream(
+  messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[],
+  opts?: { temperature?: number; maxTokens?: number; signal?: AbortSignal },
+): AsyncIterable<string> {
+  const stream = await client().chat.completions.create(
+    {
+      model: LLM_MODEL,
+      messages,
+      temperature: opts?.temperature ?? 0.7,
+      max_tokens: opts?.maxTokens ?? 2048,
+      stream: true,
+    },
+    opts?.signal ? { signal: opts.signal } : undefined,
+  );
+  for await (const chunk of stream) {
+    const delta = chunk.choices[0]?.delta?.content;
+    if (delta) yield delta;
+  }
+}
+
 // SELF-CHECK: curl -s https://api.minimax.io/v1/models -H "Authorization: Bearer ***"

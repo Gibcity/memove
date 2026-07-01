@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Send, Sparkles } from 'lucide-react'
-import { useRelocationChat, type ChatMessage } from './useRelocationChat'
+import { apiClient } from '../../api/client'
+import { useChatStream } from './useChatStream'
 import { PayloadRenderer } from './PayloadRenderer'
 import ConciergePanel from './ConciergePanel'
 
@@ -8,33 +9,87 @@ import ConciergePanel from './ConciergePanel'
 // shell — message thread + sticky input. The payload renderer handles typed
 // content. No context, no store, no state machine.
 
+type ChatRole = 'user' | 'agent'
+interface ChatMessage {
+  id: string
+  role: ChatRole
+  text: string
+  tool?: string
+  data?: unknown
+  ts: number
+}
+
+const STORAGE_KEY = 'relocation.chat.history'
+const MAX_PERSISTED = 50
+function loadHistory(): ChatMessage[] {
+  if (typeof localStorage === 'undefined') return []
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]')
+    return Array.isArray(parsed) ? parsed.slice(-MAX_PERSISTED) : []
+  } catch { return [] }
+}
+
 export default function AgentSurface(): React.ReactElement {
-  const { messages, isLoading, sendMessage, clear } = useRelocationChat()
+  const [messages, setMessages] = useState<ChatMessage[]>(loadHistory)
   const [draft, setDraft] = useState('')
+  const stream = useChatStream()
   const scrollRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const messagesRef = useRef<ChatMessage[]>(messages)
+  messagesRef.current = messages
+
+  const isStreaming = stream.isStreaming
 
   useEffect(() => {
     // ponytail: stick scroll to bottom on new message. auto-scroll is the
     // chat contract — users scroll up explicitly when they want history.
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
-  }, [messages, isLoading])
+  }, [messages, isStreaming])
 
   // ponytail: focus on mount, refocus after the agent finishes a turn so
   // keyboard users can keep typing without clicking. Worth a single ref.
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
-  useEffect(() => {
-    if (!isLoading) inputRef.current?.focus()
-  }, [isLoading])
+  useEffect(() => { inputRef.current?.focus() }, [])
+  useEffect(() => { if (!isStreaming) inputRef.current?.focus() }, [isStreaming])
 
-  const handleSend = (text: string): void => {
+  // ponytail: persist on every change. Silent on quota errors.
+  useEffect(() => {
+    if (typeof localStorage === 'undefined') return
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(messages)) } catch { /* quota */ }
+  }, [messages])
+
+  const handleSend = useCallback(async (text: string): Promise<void> => {
     const t = text.trim()
-    if (!t) return
+    if (!t || isStreaming) return
     setDraft('')
-    void sendMessage(t)
-  }
+    const agentId = `a_${Date.now()}`
+    setMessages(prev => [
+      ...prev,
+      { id: `u_${Date.now()}`, role: 'user', text: t, ts: Date.now() },
+      { id: agentId, role: 'agent', text: '', ts: Date.now() },
+    ])
+    const history = messagesRef.current.map(m => ({ role: m.role, content: m.text }))
+    const updateAgent = (patch: Partial<ChatMessage>): void => {
+      setMessages(prev => prev.map(m => (m.id === agentId ? { ...m, ...patch } : m)))
+    }
+    try {
+      const final = await stream.start(t, history)
+      updateAgent({ text: final })
+    } catch {
+      // ponytail: stream failed → fall back to the non-streaming tool-calling path
+      try {
+        const res = await apiClient.post<ChatMessage>('/relocation/chat', { message: t, history })
+        updateAgent({ text: res.data.text ?? '', tool: res.data.tool, data: res.data.data })
+      } catch (e) {
+        const msg = (e as Error)?.message || 'Chat request failed'
+        updateAgent({ text: `Sorry — ${msg}` })
+      }
+    }
+  }, [isStreaming, stream])
+
+  const clear = useCallback(() => {
+    stream.reset()
+    setMessages([])
+  }, [stream])
 
   return (
     <div className="flex flex-col h-screen bg-surface">
@@ -74,7 +129,7 @@ export default function AgentSurface(): React.ReactElement {
             {messages.map(m => (
               <MessageBubble key={m.id} message={m} />
             ))}
-            {isLoading && <TypingIndicator />}
+            {isStreaming && messages[messages.length - 1]?.text === '' && <TypingIndicator />}
           </div>
         )}
       </div>
@@ -85,7 +140,7 @@ export default function AgentSurface(): React.ReactElement {
         <form
           onSubmit={e => {
             e.preventDefault()
-            handleSend(draft)
+            void handleSend(draft)
           }}
           className="max-w-3xl mx-auto flex items-center gap-2"
         >
@@ -95,14 +150,14 @@ export default function AgentSurface(): React.ReactElement {
             value={draft}
             onChange={e => setDraft(e.target.value)}
             placeholder="Ask about cities, costs, timelines…"
-            disabled={isLoading}
+            disabled={isStreaming}
             className="flex-1 px-4 py-3 rounded-2xl bg-surface-input border border-edge text-content placeholder:text-content-faint text-sm outline-none focus:border-primary-500 transition-colors"
             style={{ fontFamily: 'Poppins, system-ui' }}
             autoFocus
           />
           <button
             type="submit"
-            disabled={!draft.trim() || isLoading}
+            disabled={!draft.trim() || isStreaming}
             className="w-12 h-12 rounded-2xl flex items-center justify-center bg-primary text-primary-50 disabled:opacity-40 transition-opacity shrink-0"
             aria-label="Send"
           >
