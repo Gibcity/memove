@@ -5,6 +5,7 @@ import { db } from '../db/database';
 import { consumeEphemeralToken } from './ephemeralTokens';
 import { verifyJwtAndLoadUser } from '../middleware/auth';
 import { TripFile } from '../types';
+import { logError } from './auditLog';
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -215,7 +216,7 @@ export async function permanentDeleteFile(file: TripFile): Promise<void> {
   try {
     await fs.promises.rm(resolved, { force: true });
   } catch (e) {
-    console.error(`[files] unlink failed for ${file.filename}, keeping DB row:`, e);
+    logError(`${`[files] unlink failed for ${file.filename}, keeping DB row:`} ${e}`);
     throw e;
   }
   db.prepare('DELETE FROM trip_files WHERE id = ?').run(file.id);
@@ -233,7 +234,7 @@ export async function emptyTrash(tripId: string | number): Promise<number> {
       await fs.promises.rm(resolved, { force: true });
       successfullyUnlinked.push(Number(file.id));
     } catch (e) {
-      console.error(`[files] unlink failed for ${file.filename}, keeping DB row:`, e);
+      logError(`${`[files] unlink failed for ${file.filename}, keeping DB row:`} ${e}`);
     }
   }));
   if (successfullyUnlinked.length > 0) {
@@ -256,7 +257,7 @@ export function createFileLink(
       fileId, opts.reservation_id || null, opts.assignment_id || null, opts.place_id || null
     );
   } catch (err) {
-    console.error('[Files] Error creating file link:', err instanceof Error ? err.message : err);
+    logError(`${'[Files] Error creating file link:'} ${err instanceof Error ? err.message : err}`);
   }
   return db.prepare('SELECT * FROM file_links WHERE file_id = ?').all(fileId);
 }

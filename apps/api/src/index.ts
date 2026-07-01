@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import http from 'node:http';
 import type { INestApplication } from '@nestjs/common';
 import { buildApp } from './bootstrap';
+import { logError, logInfo } from './services/auditLog';
 
 // Create upload and data directories on startup
 const uploadsDir = path.join(__dirname, '../uploads');
@@ -49,7 +50,7 @@ const onListen = () => {
     `  User:           uid=${process.getuid?.()} gid=${process.getgid?.()}`,
     '──────────────────────────────────────',
   ];
-  banner.forEach(l => console.log(l));
+  banner.forEach(l => logInfo(l));
   sLogInfo('NestJS serving all routes (Express decommissioned)');
   if (process.env.APP_URL) {
     let parsedAppUrl: URL | null = null;
@@ -105,7 +106,7 @@ async function bootstrap(): Promise<void> {
 }
 
 bootstrap().catch((err) => {
-  console.error('Fatal: failed to bootstrap server', err);
+  logError(`${'Fatal: failed to bootstrap server'} ${err}`);
   process.exit(1);
 });
 

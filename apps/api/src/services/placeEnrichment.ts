@@ -1,6 +1,7 @@
 import { db, getPlaceWithTags } from '../db/database';
 import { broadcast } from '../websocket';
 import { getMapsKey, searchPlaces, getPlacePhoto } from './mapsService';
+import { logError } from './auditLog';
 
 /**
  * Background enrichment for list-imported places (#886).
@@ -155,10 +156,10 @@ export async function enrichImportedPlaces(
       try {
         await enrichOne(tripId, userId, place, lang);
       } catch (err) {
-        console.error(`[Places] enrichment failed for place ${place.id}:`, err instanceof Error ? err.message : err);
+        logError(`${`[Places] enrichment failed for place ${place.id}:`} ${err instanceof Error ? err.message : err}`);
       }
     });
   } catch (err) {
-    console.error('[Places] import enrichment pass failed:', err instanceof Error ? err.message : err);
+    logError(`${'[Places] import enrichment pass failed:'} ${err instanceof Error ? err.message : err}`);
   }
 }

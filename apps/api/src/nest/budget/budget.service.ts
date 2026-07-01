@@ -5,6 +5,7 @@ import { checkPermission } from '../../services/permissions';
 import type { User } from '../../types';
 import * as svc from '../../services/budgetService';
 import { getRates } from '../../services/exchangeRateService';
+import { logError } from '../../services/auditLog';
 
 type Trip = NonNullable<ReturnType<typeof svc.verifyTripAccess>>;
 
@@ -106,7 +107,7 @@ export class BudgetService {
       const updatedRes = db.prepare('SELECT * FROM reservations WHERE id = ?').get(reservation.id);
       broadcast(tripId, 'reservation:updated', { reservation: updatedRes }, socketId);
     } catch (err) {
-      console.error('[budget] Failed to sync price to reservation:', err);
+      logError(`${'[budget] Failed to sync price to reservation:'} ${err}`);
     }
   }
 }

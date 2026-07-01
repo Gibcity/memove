@@ -10,6 +10,7 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
+import { logError } from '../../services/auditLog';
 import type { Response } from 'express';
 import { createReadStream } from 'node:fs';
 import type {
@@ -67,7 +68,7 @@ export class MapsController {
     try {
       return await this.maps.search(user.id, query as string, lang, locationBias);
     } catch (err: unknown) {
-      console.error('Maps search error:', err);
+      logError(`${'Maps search error:'} ${err}`);
       throw toHttpException(err, 'Search error', 500);
     }
   }
@@ -121,7 +122,7 @@ export class MapsController {
     try {
       return await this.maps.autocomplete(user.id, input, lang, locationBias);
     } catch (err: unknown) {
-      console.error('Maps autocomplete error:', err);
+      logError(`${'Maps autocomplete error:'} ${err}`);
       throw toHttpException(err, 'Autocomplete error', 500);
     }
   }
@@ -142,7 +143,7 @@ export class MapsController {
         ? await this.maps.detailsExpanded(user.id, placeId, lang, refresh === '1')
         : await this.maps.details(user.id, placeId, lang);
     } catch (err: unknown) {
-      console.error('Maps details error:', err);
+      logError(`${'Maps details error:'} ${err}`);
       throw toHttpException(err, 'Error fetching place details', 500);
     }
   }
@@ -163,7 +164,7 @@ export class MapsController {
       return await this.maps.photo(user.id, placeId, parseFloat(lat as string), parseFloat(lng as string), name);
     } catch (err: unknown) {
       const status = (err as { status?: number }).status || 500;
-      if (status >= 500) console.error('Place photo error:', err);
+      if (status >= 500) logError(`${'Place photo error:'} ${err}`);
       throw toHttpException(err, 'Error fetching photo', 500);
     }
   }
@@ -217,7 +218,7 @@ export class MapsController {
       return await this.maps.resolveUrl(url);
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Failed to resolve URL';
-      console.error('[Maps] URL resolve error:', message);
+      logError(`${'[Maps] URL resolve error:'} ${message}`);
       throw toHttpException(err, 'Failed to resolve URL', 400);
     }
   }

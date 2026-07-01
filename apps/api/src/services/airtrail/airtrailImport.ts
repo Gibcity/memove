@@ -5,6 +5,7 @@ import { createReservation } from '../reservationService';
 import { getAirtrailCredentials } from './airtrailService';
 import { AirtrailRequestError, listFlights } from './airtrailClient';
 import { canonicalHash, mapFlightToReservation } from './airtrailMapper';
+import { logError } from '../auditLog';
 
 interface ExistingFlightRow {
   id: number;
@@ -123,7 +124,7 @@ export async function importAirtrailFlights(
       linkedIds.add(fid);
       result.imported.push(fid);
     } catch (err) {
-      console.error('[airtrail-import] failed to import flight', fid, err instanceof Error ? err.message : err);
+      logError(`${'[airtrail-import] failed to import flight'} ${fid} ${err instanceof Error ? err.message : err}`);
       result.skipped.push({ flightId: fid, reason: 'invalid', detail: err instanceof Error ? err.message : undefined });
     }
   }

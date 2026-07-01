@@ -5,6 +5,7 @@ import { JWT_SECRET, SESSION_DURATION_SECONDS } from '../config';
 import { User } from '../types';
 import { decrypt_api_key } from './apiKeyCrypto';
 import { resolveAuthToggles } from './authService';
+import { logWarn } from './auditLog';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -159,7 +160,7 @@ export async function discover(issuer: string, discoveryUrl?: string | null): Pr
   const docIssuer = doc.issuer?.replace(/\/+$/, '') ?? '';
   if (docIssuer && docIssuer !== issuer) {
     if (discoveryUrl) {
-      console.warn(
+      logWarn(
         `[OIDC] Discovery doc issuer "${doc.issuer}" differs from configured OIDC_ISSUER "${issuer}". ` +
         `Using discovery doc issuer for id_token verification (custom OIDC_DISCOVERY_URL is set).`,
       );
@@ -394,7 +395,7 @@ export function findOrCreateUser(
           newRole !== 'admin' &&
           (db.prepare("SELECT COUNT(*) as count FROM users WHERE role = 'admin'").get() as { count: number }).count <= 1;
         if (demotingLastAdmin) {
-          console.warn(`[OIDC] Kept admin role for user ${user.id}: their OIDC claims map to '${newRole}', but they are the only admin — demoting would lock the instance out.`);
+          logWarn(`[OIDC] Kept admin role for user ${user.id}: their OIDC claims map to '${newRole}', but they are the only admin — demoting would lock the instance out.`);
         } else {
           db.prepare('UPDATE users SET role = ? WHERE id = ?').run(newRole, user.id);
           user = { ...user, role: newRole } as User;
@@ -459,7 +460,7 @@ export function findOrCreateUser(
     return { user };
   } catch (err) {
     if (err === inviteRaceError) {
-      console.warn(`[OIDC] Invite token ${inviteToken?.slice(0, 8)}... exhausted — concurrent callback won the last slot`);
+      logWarn(`[OIDC] Invite token ${inviteToken?.slice(0, 8)}... exhausted — concurrent callback won the last slot`);
       return { error: 'registration_disabled' };
     }
     throw err;

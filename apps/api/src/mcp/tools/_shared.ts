@@ -1,12 +1,13 @@
 import { broadcast } from '../../websocket';
 import { db } from '../../db/database';
 import { checkPermission } from '../../services/permissions';
+import { logError } from '../../services/auditLog';
 
 export function safeBroadcast(tripId: number, event: string, payload: Record<string, unknown>): void {
   try {
     broadcast(tripId, event, { ...payload, _source: 'mcp' });
   } catch (err) {
-    console.error(`[MCP] broadcast failed for ${event}:`, err?.message ?? err);
+    logError(`${`[MCP] broadcast failed for ${event}:`} ${err?.message ?? err}`);
   }
 }
 

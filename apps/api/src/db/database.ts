@@ -1,6 +1,7 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
+import { logInfo, logError } from '../services/auditLog';
 import { createTables } from './schema';
 import { runMigrations } from './migrations';
 import { runSeeds } from './seeds';
@@ -67,7 +68,7 @@ if (process.env.DEMO_MODE?.toLowerCase() === 'true') {
     const { seedDemoData } = require('../demo/demo-seed');
     seedDemoData(_db);
   } catch (err: unknown) {
-    console.error('[Demo] Seed error:', err instanceof Error ? err.message : err);
+    logError('[Demo] Seed error:' + (err instanceof Error ? err.message : String(err)));
   }
 }
 
@@ -76,15 +77,15 @@ function closeDb(): void {
     try { _db.exec('PRAGMA wal_checkpoint(TRUNCATE)'); } catch (e) {}
     try { _db.close(); } catch (e) {}
     _db = null;
-    console.log('[DB] Database connection closed');
+    logInfo('[DB] Database connection closed');
   }
 }
 
 function reinitialize(): void {
-  console.log('[DB] Reinitializing database connection after restore...');
+  logInfo('[DB] Reinitializing database connection after restore...');
   if (_db) closeDb();
   initDb();
-  console.log('[DB] Database reinitialized successfully');
+  logInfo('[DB] Database reinitialized successfully');
 }
 
 interface PlaceWithCategory extends Place {
@@ -147,7 +148,7 @@ try {
   const { backfillFlightEndpoints } = require('../services/airportService');
   backfillFlightEndpoints();
 } catch (err) {
-  console.error('[DB] Flight endpoint backfill failed:', err);
+  logError('[DB] Flight endpoint backfill failed:' + String(err));
 }
 
 export { db, closeDb, reinitialize, getPlaceWithTags, canAccessTrip, isOwner };

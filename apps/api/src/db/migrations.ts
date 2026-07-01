@@ -1,4 +1,5 @@
 import { encrypt_api_key } from '../services/apiKeyCrypto';
+import { logInfo, logError, logWarn } from '../services/auditLog';
 
 import Database from 'better-sqlite3';
 import fs from 'fs';
@@ -23,14 +24,14 @@ export function trimUserWhitespace(db: Database.Database): boolean {
     const final = collision ? `${trimmed}__migrated_${row.id}` : trimmed;
     if (collision) {
       hadCollision = true;
-      console.warn(
+      logWarn(
         `[migration] WHITESPACE COLLISION username: user id=${row.id} ` +
           `original=${JSON.stringify(row.username)} trimmed="${trimmed}" ` +
           `collides with user id=${collision.id}. Renamed to "${final}". ` +
           `Manual review required.`,
       );
     } else {
-      console.warn(
+      logWarn(
         `[migration] Trimmed username for user id=${row.id}: ` + `${JSON.stringify(row.username)} → "${final}"`,
       );
     }
@@ -51,14 +52,14 @@ export function trimUserWhitespace(db: Database.Database): boolean {
       const at = trimmed.lastIndexOf('@');
       final =
         at > 0 ? `${trimmed.slice(0, at)}__migrated_${row.id}${trimmed.slice(at)}` : `${trimmed}__migrated_${row.id}`;
-      console.warn(
+      logWarn(
         `[migration] WHITESPACE COLLISION email: user id=${row.id} ` +
           `original=${JSON.stringify(row.email)} trimmed="${trimmed}" ` +
           `collides with user id=${collision.id}. Renamed to "${final}". ` +
           `User cannot sign in with this email until manually corrected.`,
       );
     } else {
-      console.warn(`[migration] Trimmed email for user id=${row.id}: ` + `${JSON.stringify(row.email)} → "${final}"`);
+      logWarn(`[migration] Trimmed email for user id=${row.id}: ` + `${JSON.stringify(row.email)} → "${final}"`);
     }
     db.prepare(`UPDATE users SET email = ? WHERE id = ?`).run(final, row.id);
   }
@@ -76,7 +77,7 @@ function runMigrations(db: Database.Database): void {
     if (hasUnsplash) {
       currentVersion = 19;
       db.prepare('INSERT INTO schema_version (version) VALUES (?)').run(currentVersion);
-      console.log('[DB] Schema already up-to-date, setting version to', currentVersion);
+      logInfo(`[DB] Schema already up-to-date, setting version to ${currentVersion}`);
     } else {
       db.prepare('INSERT INTO schema_version (version) VALUES (?)').run(0);
     }
@@ -177,9 +178,9 @@ function runMigrations(db: Database.Database): void {
             reservation_datetime = (SELECT reservation_datetime FROM places WHERE places.id = day_assignments.place_id)
           WHERE place_id IN (SELECT id FROM places WHERE reservation_status IS NOT NULL AND reservation_status != 'none')
         `);
-        console.log('[DB] Migrated reservation data from places to day_assignments');
+        logInfo('[DB] Migrated reservation data from places to day_assignments');
       } catch (e: unknown) {
-        console.error('[DB] Migration 22 data copy error:', e instanceof Error ? e.message : e);
+        logError('[DB] Migration 22 data copy error:' + (e instanceof Error ? e.message : String(e)));
       }
     },
     () => {
@@ -251,7 +252,7 @@ function runMigrations(db: Database.Database): void {
           "INSERT OR IGNORE INTO addons (id, name, description, type, icon, enabled, sort_order) VALUES ('collab', 'Collab', 'Notes, polls, and live chat for trip collaboration', 'trip', 'Users', 1, 6)",
         ).run();
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     () => {
@@ -272,7 +273,7 @@ function runMigrations(db: Database.Database): void {
             assignment_end_time = (SELECT end_time FROM places WHERE places.id = day_assignments.place_id)
         `);
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     () => {
@@ -414,7 +415,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('DROP TABLE IF EXISTS packing_template_items');
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       db.exec(`CREATE TABLE packing_template_items (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -505,7 +506,7 @@ function runMigrations(db: Database.Database): void {
           7,
         );
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     () => {
@@ -671,7 +672,7 @@ function runMigrations(db: Database.Database): void {
           'INSERT OR IGNORE INTO addons (id, name, description, type, icon, enabled, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?)',
         ).run('mcp', 'MCP', 'Model Context Protocol for AI assistant integration', 'integration', 'Terminal', 0, 12);
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Index on mcp_tokens.token_hash
@@ -684,7 +685,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.prepare("UPDATE addons SET type = 'integration' WHERE id = 'mcp'").run();
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     () => {
@@ -743,7 +744,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE budget_items ADD COLUMN expense_date TEXT DEFAULT NULL');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     () => {
@@ -1082,7 +1083,7 @@ function runMigrations(db: Database.Database): void {
         // Non-fatal: the addons table may not exist yet on very old databases.
         // Disabling the legacy memories addon is best-effort, but we no longer
         // swallow the error silently.
-        console.warn("[migrations] Non-fatal: failed to disable legacy 'memories' addon:", err);
+        logWarn("[migrations] Non-fatal: failed to disable legacy 'memories' addon:" + String(err));
       }
     },
     // Migration 69: Place region cache for sub-national Atlas regions
@@ -1288,7 +1289,7 @@ function runMigrations(db: Database.Database): void {
           13,
         );
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration: OAuth 2.1 clients, consents, and tokens for MCP
@@ -1528,61 +1529,61 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN highlight_tags TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec("ALTER TABLE journey_entries ADD COLUMN visibility TEXT NOT NULL DEFAULT 'private'");
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN hero_photo_id TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN color_accent TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN place_name TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN place_id INTEGER REFERENCES places(id) ON DELETE SET NULL');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN lat REAL');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN lng REAL');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
 
       // Check-in: allow a single cover photo reference
       try {
         db.exec('ALTER TABLE journey_checkins ADD COLUMN photo_id TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
 
       // Photos: add caption edit timestamp for gallery ordering
       try {
         db.exec('ALTER TABLE journey_photos ADD COLUMN width INTEGER');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_photos ADD COLUMN height INTEGER');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration 86: Journey multi-trip support + sharing/collaboration
@@ -1617,12 +1618,12 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN user_id INTEGER REFERENCES users(id) ON DELETE SET NULL');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_checkins ADD COLUMN user_id INTEGER REFERENCES users(id) ON DELETE SET NULL');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration 87: Journey rebuild — new schema with trip sync
@@ -1639,17 +1640,17 @@ function runMigrations(db: Database.Database): void {
         try {
           oldJourneys = db.prepare('SELECT * FROM journeys').all();
         } catch (err) {
-          console.warn('[migrations] Non-fatal migration step failed:', err);
+          logWarn('[migrations] Non-fatal migration step failed:' + String(err));
         }
         try {
           oldEntries = db.prepare('SELECT * FROM journey_entries').all();
         } catch (err) {
-          console.warn('[migrations] Non-fatal migration step failed:', err);
+          logWarn('[migrations] Non-fatal migration step failed:' + String(err));
         }
         try {
           oldPhotos = db.prepare('SELECT * FROM journey_photos').all();
         } catch (err) {
-          console.warn('[migrations] Non-fatal migration step failed:', err);
+          logWarn('[migrations] Non-fatal migration step failed:' + String(err));
         }
 
         // Drop all old journey tables
@@ -1795,7 +1796,7 @@ function runMigrations(db: Database.Database): void {
               `,
               ).run(Number(res.lastInsertRowid), j.trip_id, ts);
             } catch (err) {
-              console.warn('[migrations] Non-fatal migration step failed:', err);
+              logWarn('[migrations] Non-fatal migration step failed:' + String(err));
             }
           }
         }
@@ -1854,7 +1855,7 @@ function runMigrations(db: Database.Database): void {
           );
         }
 
-        console.log(
+        logInfo(
           `[DB] Journey migration: imported ${journeyIdMap.size} journeys, ${entryIdMap.size} entries, photos migrated`,
         );
       }
@@ -1864,22 +1865,22 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec("ALTER TABLE journey_photos ADD COLUMN provider TEXT NOT NULL DEFAULT 'local'");
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_photos ADD COLUMN asset_id TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_photos ADD COLUMN owner_id INTEGER REFERENCES users(id)');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         db.exec('ALTER TABLE journey_photos ADD COLUMN shared INTEGER NOT NULL DEFAULT 1');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       // file_path was NOT NULL — recreate table to make it nullable
       const hasProvider = db.prepare("SELECT 1 FROM pragma_table_info('journey_photos') WHERE name = 'provider'").get();
@@ -1909,7 +1910,7 @@ function runMigrations(db: Database.Database): void {
             CREATE INDEX idx_journey_photos_entry ON journey_photos(entry_id);
           `);
         } catch (err) {
-          console.warn('[migrations] Non-fatal migration step failed:', err);
+          logWarn('[migrations] Non-fatal migration step failed:' + String(err));
         }
       }
     },
@@ -1918,7 +1919,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE journeys ADD COLUMN cover_image TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration 90: Pros/Cons for journey entries
@@ -1926,7 +1927,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE journey_entries ADD COLUMN pros_cons TEXT');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration 91: Journey share tokens
@@ -1952,7 +1953,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE vacay_plans ADD COLUMN week_start INTEGER NOT NULL DEFAULT 1');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration: Unified Photo Provider Abstraction Layer (#584)
@@ -2111,7 +2112,7 @@ function runMigrations(db: Database.Database): void {
       try {
         db.exec('ALTER TABLE journey_contributors ADD COLUMN hide_skeletons INTEGER NOT NULL DEFAULT 0');
       } catch (err) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration 100: Idempotency keys for offline mutation replay
@@ -2398,7 +2399,7 @@ function runMigrations(db: Database.Database): void {
           db.exec('CREATE INDEX IF NOT EXISTS idx_day_accommodations_end_day_id ON day_accommodations(end_day_id)');
       } catch (err) {
         // Non-fatal: day_accommodations may not exist on very old installs.
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
       try {
         // notifications schema has varied; probe before indexing.
@@ -2409,7 +2410,7 @@ function runMigrations(db: Database.Database): void {
         }
       } catch (err) {
         // Non-fatal: notifications table may not exist on very old installs.
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     // Migration: widen idempotency_keys primary key to (key, user_id,
@@ -2985,7 +2986,7 @@ function runMigrations(db: Database.Database): void {
           14,
         );
       } catch (err: any) {
-        console.warn('[migrations] Non-fatal migration step failed:', err);
+        logWarn('[migrations] Non-fatal migration step failed:' + String(err));
       }
     },
     () => {
@@ -3099,7 +3100,7 @@ function runMigrations(db: Database.Database): void {
 
   if (currentVersion < migrations.length) {
     for (let i = currentVersion; i < migrations.length; i++) {
-      console.log(`[DB] Running migration ${i + 1}/${migrations.length}`);
+      logInfo(`[DB] Running migration ${i + 1}/${migrations.length}`);
       try {
         const migration = migrations[i];
         if (typeof migration === 'function') {
@@ -3108,12 +3109,12 @@ function runMigrations(db: Database.Database): void {
           migration.raw();
         }
       } catch (err) {
-        console.error(`[migrations] FATAL: Migration ${i + 1} failed, rolled back:`, err);
+        logError(`[migrations] FATAL: Migration ${i + 1} failed, rolled back:` + String(err));
         process.exit(1);
       }
       db.prepare('UPDATE schema_version SET version = ?').run(i + 1);
     }
-    console.log(`[DB] Migrations complete — schema version ${migrations.length}`);
+    logInfo(`[DB] Migrations complete — schema version ${migrations.length}`);
   }
 }
 

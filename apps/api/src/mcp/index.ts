@@ -10,7 +10,7 @@ import { ADDON_IDS } from '../addons';
 import { registerResources } from './resources';
 import { registerTools } from './tools';
 import { McpSession, sessions, revokeUserSessions, revokeUserSessionsForClient } from './sessionManager';
-import { writeAudit, getClientIp } from '../services/auditLog';
+import { writeAudit, getClientIp, logError, logInfo } from '../services/auditLog';
 import { getMcpSafeUrl } from '../services/notifications';
 
 export { revokeUserSessions, revokeUserSessionsForClient };
@@ -167,7 +167,7 @@ const sessionSweepInterval = setInterval(() => {
     if (entry.windowStart < rateCutoff) rateLimitMap.delete(key);
   }
   if (cleaned > 0 || sessions.size > 0) {
-    console.log(`[MCP] Session sweep: cleaned ${cleaned}, active ${sessions.size}`);
+    logInfo(`[MCP] Session sweep: cleaned ${cleaned}, active ${sessions.size}`);
   }
 }, 60 * 1000); // sweep every 1 minute
 
@@ -280,7 +280,7 @@ export async function mcpHandler(req: Request, res: Response): Promise<void> {
     try {
       await session.transport.handleRequest(req, res, req.body);
     } catch (err) {
-      console.error('[MCP] transport.handleRequest error:', err);
+      logError(`${'[MCP] transport.handleRequest error:'} ${err}`);
       if (!res.headersSent) {
         res.status(500).json({ error: 'Internal MCP error' });
       }
@@ -332,7 +332,7 @@ export async function mcpHandler(req: Request, res: Response): Promise<void> {
     onsessioninitialized: (sid) => {
       sessions.set(sid, { server, transport, userId: user.id, scopes, clientId, isStaticToken, lastActivity: Date.now() });
       const authMethod = isStaticToken ? 'static-token' : scopes ? `oauth(${scopes.join(',')})` : 'jwt';
-      console.log(`[MCP] Session ${sid} created for user ${user.id} [${authMethod}]. Active sessions: ${sessions.size}`);
+      logInfo(`[MCP] Session ${sid} created for user ${user.id} [${authMethod}]. Active sessions: ${sessions.size}`);
     },
     onsessionclosed: (sid) => {
       sessions.delete(sid);
@@ -344,7 +344,7 @@ export async function mcpHandler(req: Request, res: Response): Promise<void> {
     await server.connect(transport);
     await transport.handleRequest(req, res, req.body);
   } catch (err) {
-    console.error('[MCP] transport.handleRequest error:', err);
+    logError(`${'[MCP] transport.handleRequest error:'} ${err}`);
     if (!res.headersSent) {
       res.status(500).json({ error: 'Internal MCP error' });
     }
@@ -358,7 +358,7 @@ export function invalidateMcpSessions(): void {
     try { session.transport.close(); } catch { /* ignore */ }
     sessions.delete(sid);
   }
-  console.log('[MCP] All sessions invalidated due to addon state change');
+  logInfo('[MCP] All sessions invalidated due to addon state change');
 }
 
 /** Close all active MCP sessions (call during graceful shutdown). */

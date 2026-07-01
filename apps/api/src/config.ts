@@ -1,4 +1,5 @@
 import { SUPPORTED_LANGUAGE_CODES as SUPPORTED_LANG_CODES } from '@memove/shared';
+import { logInfo, logWarn } from './services/auditLog';
 
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -47,8 +48,8 @@ if (_encryptionKey) {
     // .encryption_key so future JWT rotations cannot break decryption.
     try {
       _encryptionKey = fs.readFileSync(jwtSecretFile, 'utf8').trim();
-      console.warn('WARNING: ENCRYPTION_KEY is not set. Falling back to JWT secret for at-rest encryption.');
-      console.warn('The value has been persisted to data/.encryption_key — JWT rotation is now safe.');
+      logWarn('WARNING: ENCRYPTION_KEY is not set. Falling back to JWT secret for at-rest encryption.');
+      logWarn('The value has been persisted to data/.encryption_key — JWT rotation is now safe.');
     } catch {
       // JWT secret not found — must be a fresh install.
     }
@@ -63,13 +64,10 @@ if (_encryptionKey) {
   try {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     fs.writeFileSync(encKeyFile, _encryptionKey, { mode: 0o600 });
-    console.log('Encryption key persisted to', encKeyFile);
+    logInfo(`Encryption key persisted to ${encKeyFile}`);
   } catch (writeErr: unknown) {
-    console.warn(
-      'WARNING: Could not persist encryption key to disk:',
-      writeErr instanceof Error ? writeErr.message : writeErr,
-    );
-    console.warn('Set ENCRYPTION_KEY env var to avoid losing access to encrypted secrets on restart.');
+    logWarn(`WARNING: Could not persist encryption key to disk: ${writeErr instanceof Error ? writeErr.message : writeErr}`);
+    logWarn('Set ENCRYPTION_KEY env var to avoid losing access to encrypted secrets on restart.');
   }
 }
 
@@ -87,13 +85,10 @@ try {
   try {
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     fs.writeFileSync(jwtSecretFile, _jwtSecret, { mode: 0o600 });
-    console.log('Generated and saved JWT secret to', jwtSecretFile);
+    logInfo(`Generated and saved JWT secret to ${jwtSecretFile}`);
   } catch (writeErr: unknown) {
-    console.warn(
-      'WARNING: Could not persist JWT secret to disk:',
-      writeErr instanceof Error ? writeErr.message : writeErr,
-    );
-    console.warn('Sessions will reset on server restart.');
+    logWarn(`WARNING: Could not persist JWT secret to disk: ${writeErr instanceof Error ? writeErr.message : writeErr}`);
+    logWarn('Sessions will reset on server restart.');
   }
 }
 
@@ -111,9 +106,7 @@ export function updateJwtSecret(newSecret: string): void {
 // selects one. Only applies when the user has no saved language preference.
 const rawDefaultLang = process.env.DEFAULT_LANGUAGE?.toLowerCase() || 'en';
 if (!SUPPORTED_LANG_CODES.includes(rawDefaultLang)) {
-  console.warn(
-    `DEFAULT_LANGUAGE="${rawDefaultLang}" is not supported. Falling back to "en". Supported: ${SUPPORTED_LANG_CODES.join(', ')}`,
-  );
+  logWarn(`DEFAULT_LANGUAGE="${rawDefaultLang}" is not supported. Falling back to "en". Supported: ${SUPPORTED_LANG_CODES.join(', ')}`);
 }
 export const DEFAULT_LANGUAGE = SUPPORTED_LANG_CODES.includes(rawDefaultLang) ? rawDefaultLang : 'en';
 
@@ -143,9 +136,7 @@ function parseDurationMs(value: string): number | null {
 const rawSessionDuration = process.env.SESSION_DURATION?.trim() || DEFAULT_SESSION_DURATION;
 const parsedSessionMs = parseDurationMs(rawSessionDuration);
 if (parsedSessionMs == null) {
-  console.warn(
-    `SESSION_DURATION="${rawSessionDuration}" is not a valid duration (use e.g. 1h, 7d, 30d). Falling back to "${DEFAULT_SESSION_DURATION}".`,
-  );
+  logWarn(`SESSION_DURATION="${rawSessionDuration}" is not a valid duration (use e.g. 1h, 7d, 30d). Falling back to "${DEFAULT_SESSION_DURATION}".`);
 }
 /** Human-readable session length actually in effect (for logs/diagnostics). */
 export const SESSION_DURATION = parsedSessionMs == null ? DEFAULT_SESSION_DURATION : rawSessionDuration;
@@ -163,9 +154,7 @@ const DEFAULT_SESSION_DURATION_REMEMBER = '30d';
 const rawRememberDuration = process.env.SESSION_DURATION_REMEMBER?.trim() || DEFAULT_SESSION_DURATION_REMEMBER;
 const parsedRememberMs = parseDurationMs(rawRememberDuration);
 if (parsedRememberMs == null) {
-  console.warn(
-    `SESSION_DURATION_REMEMBER="${rawRememberDuration}" is not a valid duration (use e.g. 7d, 30d, 90d). Falling back to "${DEFAULT_SESSION_DURATION_REMEMBER}".`,
-  );
+  logWarn(`SESSION_DURATION_REMEMBER="${rawRememberDuration}" is not a valid duration (use e.g. 7d, 30d, 90d). Falling back to "${DEFAULT_SESSION_DURATION_REMEMBER}".`);
 }
 /** Human-readable "remember me" session length actually in effect (for logs/diagnostics). */
 export const SESSION_DURATION_REMEMBER =

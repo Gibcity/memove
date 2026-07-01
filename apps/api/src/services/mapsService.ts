@@ -2,6 +2,7 @@ import { db } from '../db/database';
 import { decrypt_api_key } from './apiKeyCrypto';
 import { safeFetchFollow, SsrfBlockedError } from '../utils/ssrfGuard';
 import { getAppUrl } from './notifications';
+import { logDebug, logError } from './auditLog';
 
 // ── Google API call counter ───────────────────────────────────────────────────
 
@@ -9,7 +10,7 @@ let googleApiCallCount = 0;
 
 function googleFetch(endpoint: string, label: string, init?: RequestInit): Promise<Response> {
   googleApiCallCount++;
-  console.debug(`[Google API] #${googleApiCallCount} ${label} → ${endpoint}`);
+  logDebug(`[Google API] #${googleApiCallCount} ${label} → ${endpoint}`);
   const referer = process.env.APP_URL ? getAppUrl() : undefined;
   return fetch(endpoint, {
     ...init,
@@ -677,7 +678,7 @@ async function autocompleteNominatim(
       });
     return { suggestions, source: 'nominatim' };
   } catch (err) {
-    console.error('Nominatim autocomplete failed:', err);
+    logError(`${'Nominatim autocomplete failed:'} ${err}`);
     return { suggestions: [], source: 'nominatim' };
   }
 }
@@ -762,7 +763,7 @@ export async function getPlaceDetails(userId: number, placeId: string, lang?: st
       'INSERT OR REPLACE INTO place_details_cache (place_id, lang, expanded, payload_json, fetched_at) VALUES (?, ?, 0, ?, ?)'
     ).run(placeId, langKey, JSON.stringify(place), Date.now());
   } catch (dbErr) {
-    console.error('Failed to cache place details:', dbErr);
+    logError(`${'Failed to cache place details:'} ${dbErr}`);
   }
 
   return { place };
@@ -827,7 +828,7 @@ export async function getPlaceDetailsExpanded(userId: number, placeId: string, l
       'INSERT OR REPLACE INTO place_details_cache (place_id, lang, expanded, payload_json, fetched_at) VALUES (?, ?, 1, ?, ?)'
     ).run(placeId, langKey, JSON.stringify(place), Date.now());
   } catch (dbErr) {
-    console.error('Failed to cache expanded place details:', dbErr);
+    logError(`${'Failed to cache expanded place details:'} ${dbErr}`);
   }
 
   return { place };
@@ -902,7 +903,7 @@ export async function getPlacePhoto(
       });
       const body = await detailsRes.text();
       if (!detailsRes.ok) {
-        console.error('Google Places photo details error:', detailsRes.status, body.slice(0, 200));
+        logError(`${'Google Places photo details error:'} ${detailsRes.status} ${body.slice(0, 200)}`);
         return null;
       }
       let details: GooglePlaceDetails & { error?: { message?: string } };
@@ -933,7 +934,7 @@ export async function getPlacePhoto(
           'UPDATE places SET image_url = ?, updated_at = CURRENT_TIMESTAMP WHERE google_place_id = ? AND (image_url IS NULL OR image_url = \'\')'
         ).run(cached.photoUrl, placeId);
       } catch (dbErr) {
-        console.error('Failed to persist photo URL to database:', dbErr);
+        logError(`${'Failed to persist photo URL to database:'} ${dbErr}`);
       }
 
       return { filePath: cached.filePath, attribution };

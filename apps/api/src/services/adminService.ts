@@ -13,6 +13,7 @@ import { validatePassword } from './passwordPolicy';
 import { getPhotoProviderConfig } from './memories/helpersService';
 import { send as sendNotification } from './notificationService';
 import { resolveAuthToggles } from './authService';
+import { logError } from './auditLog';
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -311,7 +312,7 @@ export function saveDemoBaseline(): { error?: string; status?: number; message?:
     saveBaseline();
     return { message: 'Demo baseline saved. Hourly resets will restore to this state.' };
   } catch (err: unknown) {
-    console.error(err);
+    logError(`Failed to save baseline: ${err instanceof Error ? err.message : err}`);
     return { error: 'Failed to save baseline', status: 500 };
   }
 }

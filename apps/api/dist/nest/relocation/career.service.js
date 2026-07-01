@@ -50,7 +50,7 @@ const locations_loader_1 = require("./locations.loader");
 // www.bls.gov is geo-blocked at our egress. ACS gives us the same shape
 // (CBSA-level employment counts + median earnings) with one key we already
 // have. Reuse the existing Location record for the cost/fiscal fields.
-const OCCUPATION_PATH = path.resolve(__dirname, '../../../../sources/processed/cbsa_occupation.json');
+const OCCUPATION_PATH = path.resolve(__dirname, '../../../../../data/processed/cbsa_occupation.json');
 let _cbsaData = null;
 function board(name, url) { return { name, url }; }
 const LICENSING_BOARDS = {
@@ -137,7 +137,7 @@ function loadCbsaData() {
 let _nameToCbsa = null;
 function nameToCbsaIndex() {
     if (_nameToCbsa === null) {
-        const acsPath = path.resolve(__dirname, '../../../../sources/processed/census_acs_cbsa.json');
+        const acsPath = path.resolve(__dirname, '../../../../../data/processed/census_acs_cbsa.json');
         const acs = JSON.parse(fs.readFileSync(acsPath, 'utf-8'));
         const SUFFIXES = [' Micro Area', ' Metro Area'];
         const idx = new Map();

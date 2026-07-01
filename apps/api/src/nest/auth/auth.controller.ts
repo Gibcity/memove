@@ -14,6 +14,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { logError } from '../../services/auditLog';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import type { Request, Response } from 'express';
@@ -195,7 +196,7 @@ export class AuthController {
       const qr_svg = await result.qrPromise!;
       return { secret: result.secret, otpauth_url: result.otpauth_url, qr_svg };
     } catch (err) {
-      console.error('[MFA] QR code generation error:', err);
+      logError(`${'[MFA] QR code generation error:'} ${err}`);
       throw new HttpException({ error: 'Could not generate QR code' }, 500);
     }
   }

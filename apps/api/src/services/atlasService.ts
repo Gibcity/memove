@@ -4,6 +4,7 @@ import zlib from 'zlib';
 import { db } from '../db/database';
 import { Trip, Place } from '../types';
 import { CONTINENT_MAP } from '@memove/shared';
+import { logInfo, logWarn } from './auditLog';
 
 // ── Bundled boundary GeoJSON (admin-0 countries + admin-1 regions) ─────────
 //
@@ -23,14 +24,14 @@ function loadGeoBundle(name: 'admin0' | 'admin1'): any {
   if (cached) return cached;
   const file = path.join(__dirname, '..', '..', 'assets', 'atlas', `${name}.geojson.gz`);
   if (!fs.existsSync(file)) {
-    console.warn(`[Atlas] ${name}.geojson.gz missing — run \`node scripts/build-atlas-geo.mjs\``);
+    logWarn(`[Atlas] ${name}.geojson.gz missing — run \`node scripts/build-atlas-geo.mjs\``);
     const empty = { type: 'FeatureCollection', features: [] };
     geoBundleCache.set(name, empty);
     return empty;
   }
   const geo = JSON.parse(zlib.gunzipSync(fs.readFileSync(file)).toString('utf8'));
   geoBundleCache.set(name, geo);
-  console.log(`[Atlas] Loaded ${name} GeoJSON: ${geo.features?.length || 0} features`);
+  logInfo(`[Atlas] Loaded ${name} GeoJSON: ${geo.features?.length || 0} features`);
   return geo;
 }
 

@@ -22,6 +22,7 @@ import { User } from '../types';
 import { DEMO_EMAIL_PRIMARY, isDemoEmail } from './demo';
 import { avatarUrl } from './avatarUrl';
 import { isPasskeyConfigured } from './webauthnConfig';
+import { logError, logWarn } from './auditLog';
 
 export { avatarUrl };
 
@@ -428,7 +429,7 @@ export function registerUser(body: {
         'UPDATE invite_tokens SET used_count = used_count + 1 WHERE id = ? AND (max_uses = 0 OR used_count < max_uses) RETURNING used_count'
       ).get(validInvite.id);
       if (!updated) {
-        console.warn(`[Auth] Invite token ${validInvite.token.slice(0, 8)}... exceeded max_uses due to race condition`);
+        logWarn(`[Auth] Invite token ${validInvite.token.slice(0, 8)}... exceeded max_uses due to race condition`);
       }
     }
 
@@ -1006,7 +1007,7 @@ export function setupMfa(userId: number, userEmail: string): { error?: string; s
     mfaSetupPending.set(userId, { secret, exp: Date.now() + MFA_SETUP_TTL_MS });
     otpauth_url = authenticator.keyuri(userEmail, 'memove', secret);
   } catch (err) {
-    console.error('[MFA] Setup error:', err);
+    logError(`${'[MFA] Setup error:'} ${err}`);
     return { error: 'MFA setup failed', status: 500 };
   }
   return { secret, otpauth_url, qrPromise: QRCode.toString(otpauth_url, { type: 'svg', width: 250 }) };

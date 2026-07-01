@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import type { Location } from '@memove/shared';
 import { loadLocations } from './locations.loader';
+import { logInfo } from '../../services/auditLog';
 
 // Occupation/earnings data comes from Census ACS S2001 + S2401 (see
 // sources/scripts/pull_cbsa_occupation_earnings.py). BLS OEUM/MSA isn't
@@ -282,5 +283,5 @@ if (require.main === module) {
   console.assert('nursing' in (svc.getLicensingBoards('ZZ') as object), 'fallback boards');
   const url = svc.getOccupationOutlook('Registered Nurse').blsOohUrl;
   console.assert(url === 'https://www.bls.gov/ooh/search?q=Registered%20Nurse', 'BLS search URL: ' + url);
-  console.log('career.service self-check OK');
+  logInfo('career.service self-check OK');
 }

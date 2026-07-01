@@ -3,6 +3,7 @@ import type { User } from '../../types';
 import { SettingsService } from './settings.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
+import { logError } from '../../services/auditLog';
 
 const MASKED_VALUE = '••••••••';
 
@@ -46,7 +47,7 @@ export class SettingsController {
       const updated = this.settings.bulkUpsertSettings(user.id, body.settings as Record<string, unknown>);
       return { success: true, updated };
     } catch (err) {
-      console.error('Error saving settings:', err);
+      logError(`${'Error saving settings:'} ${err}`);
       throw new HttpException({ error: 'Error saving settings' }, 500);
     }
   }

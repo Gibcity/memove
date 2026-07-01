@@ -10,7 +10,7 @@ const node_path_1 = require("node:path");
 let cache = null;
 function loadLocations() {
     if (!cache) {
-        cache = JSON.parse((0, node_fs_1.readFileSync)((0, node_path_1.resolve)(__dirname, '../../../../../sources/processed/relocation/locations.json'), 'utf8'));
+        cache = JSON.parse((0, node_fs_1.readFileSync)((0, node_path_1.resolve)(__dirname, '../../../../../data/processed/relocation/locations.json'), 'utf8'));
     }
     return cache;
 }

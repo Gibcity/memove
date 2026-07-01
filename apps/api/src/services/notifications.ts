@@ -212,7 +212,7 @@ export async function sendPasswordResetEmail(
     // the admin can relay it. Never log the associated user id/email
     // content at a lower level, only what's needed.
      
-    console.log(
+    logInfo(
       `\n===== PASSWORD RESET LINK =====\n` +
       `to: ${to}\n` +
       `url: ${resetUrl}\n` +

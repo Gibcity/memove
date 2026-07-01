@@ -3,6 +3,7 @@ import type { WeatherResult } from '@memove/shared';
 import { WeatherService } from './weather.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiError } from '../../services/weatherService';
+import { logError } from '../../services/auditLog';
 
 /**
  * /api/weather — first migrated leaf module (the pilot).
@@ -61,6 +62,6 @@ function toHttp(err: unknown, logPrefix: string, fallback: string): HttpExceptio
   if (err instanceof ApiError) {
     return new HttpException({ error: err.message }, err.status);
   }
-  console.error(logPrefix, err);
+  logError(`${logPrefix} ${err}`);
   return new HttpException({ error: fallback }, 500);
 }

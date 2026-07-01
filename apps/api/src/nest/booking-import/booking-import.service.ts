@@ -11,6 +11,7 @@ import { KitineraryExtractorService } from './kitinerary-extractor.service';
 import { mapReservations } from './kitinerary-mapper';
 import type { BookingImportPreviewItem, BookingImportPreviewResponse, BookingImportConfirmResponse, Reservation } from '@memove/shared';
 import type { ParsedBookingItem } from './kitinerary.types';
+import { logError } from '../../services/auditLog';
 
 function resolveDayId(tripId: string, iso: string | null | undefined): number | null {
   if (!iso) return null;
@@ -156,7 +157,7 @@ export class BookingImportService {
 
         created.push(reservation);
       } catch (err) {
-        console.error(`[booking-import] Failed to create reservation "${item.title}":`, err instanceof Error ? err.message : err);
+        logError(`${`[booking-import] Failed to create reservation "${item.title}":`} ${err instanceof Error ? err.message : err}`);
       }
     }
 

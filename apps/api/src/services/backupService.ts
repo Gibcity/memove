@@ -6,6 +6,7 @@ import Database from 'better-sqlite3';
 import { db, closeDb, reinitialize } from '../db/database';
 import * as scheduler from '../scheduler';
 import { invalidatePermissionsCache } from './permissions';
+import { logError, logWarn } from './auditLog';
 
 // ---------------------------------------------------------------------------
 // Paths
@@ -26,7 +27,7 @@ if (rawBackupUploadLimit) {
   if (Number.isFinite(parsed) && parsed > 0) {
     backupUploadLimitMb = parsed;
   } else {
-    console.warn(`BACKUP_UPLOAD_LIMIT_MB="${rawBackupUploadLimit}" is not a positive number. Falling back to ${DEFAULT_BACKUP_UPLOAD_LIMIT_MB} MB.`);
+    logWarn(`BACKUP_UPLOAD_LIMIT_MB="${rawBackupUploadLimit}" is not a positive number. Falling back to ${DEFAULT_BACKUP_UPLOAD_LIMIT_MB} MB.`);
   }
 }
 export const MAX_BACKUP_UPLOAD_SIZE = backupUploadLimitMb * 1024 * 1024; // compressed
@@ -202,7 +203,7 @@ export async function createBackup(): Promise<BackupInfo> {
       created_at: stat.birthtime.toISOString(),
     };
   } catch (err: unknown) {
-    console.error('Backup error:', err);
+    logError(`${'Backup error:'} ${err}`);
     if (fs.existsSync(outputPath)) fs.unlinkSync(outputPath);
     throw err;
   }
@@ -325,12 +326,12 @@ export async function restoreFromZip(zipPath: string): Promise<RestoreResult> {
 
     fs.rmSync(extractDir, { recursive: true, force: true });
     if (reinitFailed) {
-      console.error('Restore: database reopen failed after file swap:', reinitFailed);
+      logError(`${'Restore: database reopen failed after file swap:'} ${reinitFailed}`);
       return { success: false, error: 'Backup files were restored but the database connection could not be reopened. Restart the server to finish the restore.', status: 500 };
     }
     return { success: true };
   } catch (err: unknown) {
-    console.error('Restore error:', err);
+    logError(`${'Restore error:'} ${err}`);
     if (fs.existsSync(extractDir)) fs.rmSync(extractDir, { recursive: true, force: true });
     // Belt-and-braces: the inner `finally` already drops the permissions
     // cache after a successful swap, but if the extraction/copy step

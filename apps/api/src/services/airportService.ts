@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { db } from '../db/database';
+import { logInfo, logWarn } from './auditLog';
 
 export interface Airport {
   iata: string;
@@ -20,7 +21,7 @@ function load(): Airport[] {
   if (cache) return cache;
   const file = path.join(__dirname, '..', '..', 'assets', 'airports.json');
   if (!fs.existsSync(file)) {
-    console.warn('[airports] airports.json missing — run `node scripts/build-airports.mjs`');
+    logWarn('[airports] airports.json missing — run `node scripts/build-airports.mjs`');
     cache = [];
     byIata = new Map();
     return cache;
@@ -105,5 +106,5 @@ export function backfillFlightEndpoints(): void {
     filled++;
   }
 
-  console.log(`[airports] Backfill: ${filled} filled, ${flagged} flagged for review`);
+  logInfo(`[airports] Backfill: ${filled} filled, ${flagged} flagged for review`);
 }

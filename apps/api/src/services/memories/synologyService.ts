@@ -4,6 +4,7 @@ import { db } from '../../db/database';
 import { decrypt_api_key, encrypt_api_key, maybe_encrypt_api_key } from '../apiKeyCrypto';
 import { safeFetch, SsrfBlockedError, checkSsrf } from '../../utils/ssrfGuard';
 import { addTripPhotos } from './unifiedService';
+import { logWarn } from '../auditLog';
 import {
     getAlbumLinkForSync,
     updateSyncTimeForAlbumLink,
@@ -460,7 +461,7 @@ export async function listSynologyAlbums(userId: number): Promise<ServiceResult<
         if (result.status === 'rejected') return;
         const value = result.value;
         if ('error' in value) {
-            console.warn('[Synology] album list partial failure:', value.error.message);
+            logWarn(`${'[Synology] album list partial failure:'} ${value.error.message}`);
             return;
         }
         for (const album of value.data ?? []) {

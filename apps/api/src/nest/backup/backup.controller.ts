@@ -14,6 +14,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { logError } from '../../services/auditLog';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Request, Response } from 'express';
 import fs from 'fs';
@@ -134,7 +135,7 @@ export class BackupController {
     try {
       return this.backup.getAutoSettings();
     } catch (err) {
-      console.error('[backup] GET auto-settings:', err);
+      logError(`${'[backup] GET auto-settings:'} ${err}`);
       throw new HttpException({ error: 'Could not load backup settings' }, 500);
     }
   }
@@ -146,7 +147,7 @@ export class BackupController {
       writeAudit({ userId: user.id, action: 'backup.auto_settings', ip: getClientIp(req), details: { enabled: settings.enabled, interval: settings.interval, keep_days: settings.keep_days } });
       return { settings };
     } catch (err) {
-      console.error('[backup] PUT auto-settings:', err);
+      logError(`${'[backup] PUT auto-settings:'} ${err}`);
       const msg = err instanceof Error ? err.message : String(err);
       throw new HttpException({ error: 'Could not save auto-backup settings', detail: process.env.NODE_ENV?.toLowerCase() !== 'production' ? msg : undefined }, 500);
     }

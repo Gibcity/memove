@@ -7,6 +7,7 @@ import { randomUUID } from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { promisify } from 'node:util';
 import type { KiReservation } from './kitinerary.types';
+import { logInfo, logWarn } from '../../services/auditLog';
 
 const execFileAsync = promisify(execFile);
 const TIMEOUT_MS = 30_000;
@@ -19,7 +20,7 @@ export class KitineraryExtractorService implements OnModuleInit {
   onModuleInit() {
     this.binaryPath = this.findBinary();
     if (this.binaryPath) {
-      console.log(`[KItinerary] extractor found at: ${this.binaryPath}`);
+      logInfo(`[KItinerary] extractor found at: ${this.binaryPath}`);
     } else {
       console.info('[KItinerary] extractor not found — booking import feature disabled');
     }
@@ -54,7 +55,7 @@ export class KitineraryExtractorService implements OnModuleInit {
           .filter(l => l.trim())
           .filter(l => !l.includes('Ambig') && !l.includes('JS ERROR') && !l.includes('Invalid result type from script'));
         if (unexpected.length) {
-          console.warn(`[KItinerary] stderr for "${fileName}":`, unexpected.join('\n'));
+          logWarn(`${`[KItinerary] stderr for "${fileName}":`} ${unexpected.join('\n')}`);
         }
       }
 
@@ -65,7 +66,7 @@ export class KitineraryExtractorService implements OnModuleInit {
       try {
         parsed = JSON.parse(text);
       } catch {
-        console.warn(`[KItinerary] non-JSON output for "${fileName}"`);
+        logWarn(`[KItinerary] non-JSON output for "${fileName}"`);
         return [];
       }
 
@@ -81,7 +82,7 @@ export class KitineraryExtractorService implements OnModuleInit {
     const envPath = process.env.KITINERARY_EXTRACTOR_PATH;
     if (envPath) {
       if (existsSync(envPath)) return envPath;
-      console.warn(`[KItinerary] KITINERARY_EXTRACTOR_PATH="${envPath}" not found`);
+      logWarn(`[KItinerary] KITINERARY_EXTRACTOR_PATH="${envPath}" not found`);
       return null;
     }
 

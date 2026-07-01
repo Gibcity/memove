@@ -6,6 +6,7 @@ import type { User } from '../../types';
 import * as svc from '../../services/reservationService';
 import { createBudgetItem, updateBudgetItem, deleteBudgetItem, linkBudgetItemToReservation } from '../../services/budgetService';
 import { typeToCostCategory } from '@memove/shared';
+import { logError } from '../../services/auditLog';
 
 type Trip = NonNullable<ReturnType<typeof svc.verifyTripAccess>>;
 type BudgetEntry = { total_price?: number; category?: string } | undefined;
@@ -72,7 +73,7 @@ export class ReservationsService {
       });
       broadcast(tripId, 'budget:created', { item }, socketId);
     } catch (err) {
-      console.error('[reservations] Failed to create budget entry:', err);
+      logError(`${'[reservations] Failed to create budget entry:'} ${err}`);
     }
   }
 
@@ -122,7 +123,7 @@ export class ReservationsService {
         broadcast(tripId, 'budget:created', { item }, socketId);
       }
     } catch (err) {
-      console.error('[reservations] Failed to create/update budget entry:', err);
+      logError(`${'[reservations] Failed to create/update budget entry:'} ${err}`);
     }
   }
 

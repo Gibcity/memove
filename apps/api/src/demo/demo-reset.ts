@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { logError, logInfo } from '../services/auditLog';
 
 const dataDir = path.join(__dirname, '../../data');
 const dbPath = path.join(dataDir, 'travel.db');
@@ -7,7 +8,7 @@ const baselinePath = path.join(dataDir, 'travel-baseline.db');
 
 function resetDemoUser(): void {
   if (!fs.existsSync(baselinePath)) {
-    console.log('[Demo Reset] No baseline found, skipping. Admin must save baseline first.');
+    logInfo('[Demo Reset] No baseline found, skipping. Admin must save baseline first.');
     return;
   }
 
@@ -22,7 +23,7 @@ function resetDemoUser(): void {
       'SELECT password_hash, maps_api_key, openweather_api_key, unsplash_api_key, avatar FROM users WHERE email = ?'
     ).get(adminEmail) as AdminData | undefined;
   } catch (e: unknown) {
-    console.error('[Demo Reset] Failed to read admin data:', e instanceof Error ? e.message : e);
+    logError(`${'[Demo Reset] Failed to read admin data:'} ${e instanceof Error ? e.message : e}`);
   }
 
   // Flush WAL to main DB file
@@ -38,7 +39,7 @@ function resetDemoUser(): void {
     try { fs.unlinkSync(dbPath + '-wal'); } catch (e) {}
     try { fs.unlinkSync(dbPath + '-shm'); } catch (e) {}
   } catch (e: unknown) {
-    console.error('[Demo Reset] Failed to restore baseline:', e instanceof Error ? e.message : e);
+    logError(`${'[Demo Reset] Failed to restore baseline:'} ${e instanceof Error ? e.message : e}`);
     reinitialize();
     return;
   }
@@ -61,11 +62,11 @@ function resetDemoUser(): void {
         adminEmail
       );
     } catch (e: unknown) {
-      console.error('[Demo Reset] Failed to restore admin credentials:', e instanceof Error ? e.message : e);
+      logError(`${'[Demo Reset] Failed to restore admin credentials:'} ${e instanceof Error ? e.message : e}`);
     }
   }
 
-  console.log('[Demo Reset] Database restored from baseline');
+  logInfo('[Demo Reset] Database restored from baseline');
 }
 
 function saveBaseline(): void {
@@ -75,7 +76,7 @@ function saveBaseline(): void {
   try { db.exec('PRAGMA wal_checkpoint(TRUNCATE)'); } catch (e) {}
 
   fs.copyFileSync(dbPath, baselinePath);
-  console.log('[Demo] Baseline saved');
+  logInfo('[Demo] Baseline saved');
 }
 
 function hasBaseline(): boolean {

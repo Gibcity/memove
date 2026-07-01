@@ -2,6 +2,7 @@ import { Controller, Get, Query, Req, Res } from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { OidcService } from './oidc.service';
 import { cookieOptions } from '../../services/cookie';
+import { logError } from '../../services/auditLog';
 
 const OIDC_STATE_COOKIE = 'memove_oidc_state';
 
@@ -59,7 +60,7 @@ export class OidcController {
       });
       res.redirect(`${doc.authorization_endpoint}?${params}`);
     } catch (err: unknown) {
-      console.error('[OIDC] Login error:', err instanceof Error ? err.message : err);
+      logError(`${'[OIDC] Login error:'} ${err instanceof Error ? err.message : err}`);
       res.status(500).json({ error: 'OIDC login failed' });
     }
   }
@@ -80,7 +81,7 @@ export class OidcController {
 
     if (!this.oidc.oidcLoginEnabled()) return f('/login?oidc_error=sso_disabled');
     if (oidcError) {
-      console.error('[OIDC] Provider error:', oidcError);
+      logError(`${'[OIDC] Provider error:'} ${oidcError}`);
       return f('/login?oidc_error=' + encodeURIComponent(oidcError));
     }
     if (!code || !state) return f('/login?oidc_error=missing_params');
@@ -101,11 +102,11 @@ export class OidcController {
       const doc = await this.oidc.discover(config.issuer, config.discoveryUrl);
       const tokenData = await this.oidc.exchangeCodeForToken(doc, code, pending.redirectUri, config.clientId, config.clientSecret, pending.codeVerifier);
       if (!tokenData._ok || !tokenData.access_token) {
-        console.error('[OIDC] Token exchange failed: status', tokenData._status);
+        logError(`${'[OIDC] Token exchange failed: status'} ${tokenData._status}`);
         return f('/login?oidc_error=token_failed');
       }
       if (!tokenData.id_token) {
-        console.error('[OIDC] Token response missing id_token — refusing login');
+        logError('[OIDC] Token response missing id_token — refusing login');
         return f('/login?oidc_error=no_id_token');
       }
       const idVerify = await this.oidc.verifyIdToken(
@@ -116,7 +117,7 @@ export class OidcController {
       );
       if (idVerify.ok !== true) {
         const reason = 'error' in idVerify ? idVerify.error : 'unknown';
-        console.error('[OIDC] id_token verification failed:', reason);
+        logError(`${'[OIDC] id_token verification failed:'} ${reason}`);
         return f('/login?oidc_error=id_token_invalid');
       }
       const userInfo = await this.oidc.getUserInfo(doc.userinfo_endpoint, tokenData.access_token);
@@ -124,7 +125,7 @@ export class OidcController {
 
       const tokenSub = idVerify.claims.sub;
       if (typeof tokenSub === 'string' && userInfo.sub && userInfo.sub !== tokenSub) {
-        console.error('[OIDC] userinfo.sub does not match id_token.sub — refusing login');
+        logError('[OIDC] userinfo.sub does not match id_token.sub — refusing login');
         return f('/login?oidc_error=subject_mismatch');
       }
 
@@ -136,7 +137,7 @@ export class OidcController {
       const authCode = this.oidc.createAuthCode(jwtToken);
       return f('/login?oidc_code=' + authCode);
     } catch (err: unknown) {
-      console.error('[OIDC] Callback error:', err);
+      logError(`${'[OIDC] Callback error:'} ${err}`);
       return f('/login?oidc_error=server_error');
     }
   }

@@ -1,5 +1,6 @@
 import Database from 'better-sqlite3';
 import crypto from 'crypto';
+import { logInfo, logError } from '../services/auditLog';
 
 // bcrypt cost factor for the seeded admin password — kept in sync with authService.
 const BCRYPT_COST = 12;
@@ -24,12 +25,12 @@ function seedAdminAccount(db: Database.Database): void {
     if (process.env.DEMO_MODE?.toLowerCase() === 'true') return;
 
     if (isOidcOnlyConfigured()) {
-      console.log('');
-      console.log('╔══════════════════════════════════════════════╗');
-      console.log('║  memove — OIDC-Only Mode                       ║');
-      console.log('║  First SSO login will become admin.           ║');
-      console.log('╚══════════════════════════════════════════════╝');
-      console.log('');
+      logInfo('');
+      logInfo('╔══════════════════════════════════════════════╗');
+      logInfo('║  memove — OIDC-Only Mode                       ║');
+      logInfo('║  First SSO login will become admin.           ║');
+      logInfo('╚══════════════════════════════════════════════╝');
+      logInfo('');
       return;
     }
 
@@ -53,16 +54,16 @@ function seedAdminAccount(db: Database.Database): void {
 
     db.prepare('INSERT INTO users (username, email, password_hash, role, must_change_password) VALUES (?, ?, ?, ?, 1)').run(username, email, hash, 'admin');
 
-    console.log('');
-    console.log('╔══════════════════════════════════════════════╗');
-    console.log('║  memove — First Run: Admin Account Created     ║');
-    console.log('╠══════════════════════════════════════════════╣');
-    console.log(`║  Email:    ${email.padEnd(33)}║`);
-    console.log(`║  Password: ${password.padEnd(33)}║`);
-    console.log('╚══════════════════════════════════════════════╝');
-    console.log('');
+    logInfo('');
+    logInfo('╔══════════════════════════════════════════════╗');
+    logInfo('║  memove — First Run: Admin Account Created     ║');
+    logInfo('╠══════════════════════════════════════════════╣');
+    logInfo(`║  Email:    ${email.padEnd(33)}║`);
+    logInfo(`║  Password: ${password.padEnd(33)}║`);
+    logInfo('╚══════════════════════════════════════════════╝');
+    logInfo('');
   } catch (err: unknown) {
-    console.error('[ERROR] Error seeding admin account:', err instanceof Error ? err.message : err);
+    logError('[ERROR] Error seeding admin account:' + (err instanceof Error ? err.message : String(err)));
   }
 }
 
@@ -84,10 +85,10 @@ function seedCategories(db: Database.Database): void {
       ];
       const insertCat = db.prepare('INSERT INTO categories (name, color, icon) VALUES (?, ?, ?)');
       for (const cat of defaultCategories) insertCat.run(cat.name, cat.color, cat.icon);
-      console.log('Default categories seeded');
+      logInfo('Default categories seeded');
     }
   } catch (err: unknown) {
-    console.error('Error seeding categories:', err instanceof Error ? err.message : err);
+    logError('Error seeding categories:' + (err instanceof Error ? err.message : String(err)));
   }
 }
 
@@ -158,9 +159,9 @@ function seedAddons(db: Database.Database): void {
     for (const f of providerFields) {
       insertProviderField.run(f.provider_id, f.field_key, f.label, f.input_type, f.placeholder, f.hint, f.required, f.secret, f.settings_key, f.payload_key, f.sort_order);
     }
-    console.log('Default addons seeded');
+    logInfo('Default addons seeded');
   } catch (err: unknown) {
-    console.error('Error seeding addons:', err instanceof Error ? err.message : err);
+    logError('Error seeding addons:' + (err instanceof Error ? err.message : String(err)));
   }
 }
 

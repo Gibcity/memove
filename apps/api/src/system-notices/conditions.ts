@@ -1,6 +1,7 @@
 import semver from 'semver';
 import { isAddonEnabled } from '../services/adminService.js';
 import type { NoticeCondition, SystemNotice } from './types.js';
+import { logWarn } from '../services/auditLog';
 
 interface ConditionContext {
   user: { login_count: number; first_seen_version: string; role: string; noTrips: number };
@@ -53,7 +54,7 @@ function evaluateOne(condition: NoticeCondition, ctx: ConditionContext): boolean
     case 'custom': {
       const fn = customPredicates.get(condition.id);
       if (!fn) {
-        console.warn(`[systemNotices] unknown custom predicate: "${condition.id}"`);
+        logWarn(`[systemNotices] unknown custom predicate: "${condition.id}"`);
         return false;
       }
       return fn(ctx);

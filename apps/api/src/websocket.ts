@@ -3,6 +3,7 @@ import { db, canAccessTrip } from './db/database';
 import { consumeEphemeralTokenWithMeta } from './services/ephemeralTokens';
 import { User } from './types';
 import http from 'node:http';
+import { logInfo } from './services/auditLog';
 
 interface NomadWebSocket extends WebSocket {
   isAlive: boolean;
@@ -171,7 +172,7 @@ function setupWebSocket(server: http.Server): void {
     });
   });
 
-  console.log('WebSocket server attached at /ws');
+  logInfo('WebSocket server attached at /ws');
 }
 
 function leaveRoom(ws: NomadWebSocket, tripId: number): void {

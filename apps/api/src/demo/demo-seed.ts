@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import Database from 'better-sqlite3';
+import { logInfo } from '../services/auditLog';
 
 function seedDemoData(db: Database.Database): { adminId: number; demoId: number } {
   const ADMIN_USER = process.env.DEMO_ADMIN_USER || 'admin';
@@ -42,7 +43,7 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
     const hash = bcrypt.hashSync(ADMIN_PASS, 10);
     const r = db.prepare('INSERT INTO users (username, email, password_hash, role) VALUES (?, ?, ?, ?)').run(ADMIN_USER, ADMIN_EMAIL, hash, 'admin');
     admin = { id: Number(r.lastInsertRowid) };
-    console.log('[Demo] Admin user created');
+    logInfo('[Demo] Admin user created');
   } else {
     admin.id = Number(admin.id);
   }
@@ -60,7 +61,7 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
     db.prepare('UPDATE users SET password_hash = ?, must_change_password = 1, updated_at = CURRENT_TIMESTAMP WHERE id = ?').run(e2eHash, existingE2E.id);
   } else {
     db.prepare('INSERT INTO users (username, email, password_hash, role, must_change_password) VALUES (?, ?, ?, ?, 1)').run('e2e', E2E_EMAIL, e2eHash, 'admin');
-    console.log('[Demo] E2E seed user created (e2e@memove.local, must_change_password=1)');
+    logInfo('[Demo] E2E seed user created (e2e@memove.local, must_change_password=1)');
   }
 
   // Create demo user if not exists
@@ -69,7 +70,7 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
     const hash = bcrypt.hashSync(DEMO_PASS, 10);
     const r = db.prepare('INSERT INTO users (username, email, password_hash, role) VALUES (?, ?, ?, ?)').run('demo', DEMO_EMAIL, hash, 'user');
     demo = { id: Number(r.lastInsertRowid) };
-    console.log('[Demo] Demo user created');
+    logInfo('[Demo] Demo user created');
   } else {
     demo.id = Number(demo.id);
   }
@@ -80,12 +81,12 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
   // Check if admin already has example trips
   const adminTrips = db.prepare('SELECT COUNT(*) as count FROM trips WHERE user_id = ?').get(admin.id) as { count: number };
   if (adminTrips.count > 0) {
-    console.log('[Demo] Example trips already exist, ensuring demo membership');
+    logInfo('[Demo] Example trips already exist, ensuring demo membership');
     ensureDemoMembership(db, admin.id, demo.id);
     return { adminId: admin.id, demoId: demo.id };
   }
 
-  console.log('[Demo] Seeding example trips...');
+  logInfo('[Demo] Seeding example trips...');
   seedExampleTrips(db, admin.id, demo.id);
 
   // Auto-save baseline after first seed
@@ -317,7 +318,7 @@ function seedExampleTrips(db: Database.Database, adminId: number, demoId: number
 
   insertMember.run(t3, demoId, adminId);
 
-  console.log('[Demo] 3 example trips seeded and shared with demo user');
+  logInfo('[Demo] 3 example trips seeded and shared with demo user');
 }
 
 export { seedDemoData };

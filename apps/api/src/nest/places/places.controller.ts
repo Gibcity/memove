@@ -14,6 +14,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { logError } from '../../services/auditLog';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { memoryStorage } from 'multer';
 import type { User } from '../../types';
@@ -196,7 +197,7 @@ export class PlacesController {
       return { places: result.places, count: result.places.length, listName: result.listName, skipped: result.skipped };
     } catch (err: unknown) {
       if (err instanceof HttpException) throw err;
-      console.error(`[Places] ${label} list import error:`, err instanceof Error ? err.message : err);
+      logError(`${`[Places] ${label} list import error:`} ${err instanceof Error ? err.message : err}`);
       throw new HttpException({ error: `Failed to import ${label} Maps list. Make sure the list is shared publicly.` }, 400);
     }
   }
@@ -246,7 +247,7 @@ export class PlacesController {
       return { photos: result.photos };
     } catch (err: unknown) {
       if (err instanceof HttpException) throw err;
-      console.error('Unsplash error:', err);
+      logError(`${'Unsplash error:'} ${err}`);
       throw new HttpException({ error: 'Error searching for image' }, 500);
     }
   }

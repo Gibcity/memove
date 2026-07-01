@@ -3,6 +3,7 @@ import type { RelocationJourney, JourneyPreferences, JourneyTimeline, JourneyDec
 import { DatabaseService } from '../database/database.service';
 import { RelocationService } from './relocation.service';
 import { createTrip, TRIP_KIND } from '../../services/tripService';
+import { logError } from '../../services/auditLog';
 
 /**
  * RelocationJourneyService — persisted per-user relocation workspace.
@@ -152,7 +153,7 @@ export class RelocationJourneyService {
       this.bridgeTripFromJourney(userId);
     } catch (e) {
        
-      console.error('[relocation-journey] bridge trip failed', { userId, error: (e as Error)?.message });
+      logError(`${'[relocation-journey] bridge trip failed'} ${{ userId, error: (e as Error)?.message }}`);
     }
     return this.getJourney(userId);
   }
