@@ -3,6 +3,7 @@ import type {
   Location,
   UserProfile,
   ImplicitSignal,
+  HardFilterProposal,
   ScoreRequest,
   ScoreResponse,
   ElicitationQuestion,
@@ -37,6 +38,12 @@ export const relocationApi = {
   getProfile: () =>
     apiClient.get<UserProfile>('/relocation/profile').then(r => r.data),
 
+  // ponytail: partial-merge update — server upserts the JSON blob, so the
+  // client passes only the fields it wants to set. Whole-object submit is
+  // the handler's job (e.g. appending a hard filter requires a read first).
+  updateProfile: (partial: Record<string, unknown>) =>
+    apiClient.post<UserProfile>('/relocation/profile', partial).then(r => r.data),
+
   // ── Elicitation flow ───────────────────────────────────────────────
 
   /** Begin a new elicitation round; returns the first question. */
@@ -62,9 +69,10 @@ export const relocationApi = {
   /** Send a behavioral signal (pan, dismiss, save, dwell, etc.). */
   submitSignal: (signal: ImplicitSignal) =>
     apiClient
-      .post<{ profileSnapshot: UserProfile }>('/relocation/profile/signal', {
-        signal,
-      })
+      .post<{ profileSnapshot: UserProfile; hardFilterProposal?: HardFilterProposal }>(
+        '/relocation/profile/signal',
+        { signal },
+      )
       .then(r => r.data),
 
   // ── Scoring ────────────────────────────────────────────────────────

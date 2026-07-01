@@ -223,8 +223,23 @@ export const userProfileSchema = z.object({
   updatedAt: z.string(),
   elicitationRoundsCompleted: z.number(),
   implicitSignalCount: z.number(),
+
+  // Per-user dismiss counts per locationId. Powers F17 hard-filter promotion:
+  // when a locationId crosses the threshold (default 3), the signal endpoint
+  // returns a HardFilterProposal to the client.
+  // ponytail: stored in the profile JSON blob, no schema migration needed.
+  dismissCounts: z.record(z.string(), z.number()).optional(),
 });
 export type UserProfile = z.infer<typeof userProfileSchema>;
+
+// --- §F17 HardFilterProposal (per-location promote-to-hard-filter offer) ----
+
+export const hardFilterProposalSchema = z.object({
+  locationId: z.string(),
+  locationName: z.string(),
+  dismissCount: z.number().int().nonnegative(),
+});
+export type HardFilterProposal = z.infer<typeof hardFilterProposalSchema>;
 
 // --- §2b ImplicitSignal (cross-cutting wire format) --------------------------
 

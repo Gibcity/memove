@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { apiClient } from '../../api/client'
+import type { HardFilterProposal } from '@memove/shared'
 
 // ponytail: backend contract is the source of truth — { role, text, tool?, data? }.
 // Renderer ignores fields it doesn't know; unknown tools fall through to a
@@ -7,11 +8,20 @@ import { apiClient } from '../../api/client'
 // the rendered shape.
 export type ChatRole = 'user' | 'agent'
 
+// ponytail: discriminated tool tag — extends the chat-message contract with a
+// 'hard_filter_proposal' variant so the payload renderer can mount the
+// HardFilterBanner instead of the generic data card. Adding a string union
+// entry keeps the rest of the message shape identical.
+export type ChatTool =
+  | 'hard_filter_proposal'
+  | string
+  | undefined
+
 export interface ChatMessage {
   id: string
   role: ChatRole
   text: string
-  tool?: string
+  tool?: ChatTool
   data?: unknown
   ts: number
 }
@@ -22,6 +32,12 @@ export interface UseRelocationChatResult {
   error: string | null
   quickPrompts: string[]
   sendMessage: (text: string) => Promise<void>
+  /**
+   * Add an externally-detected implicit-signal outcome (e.g. a
+   * HardFilterProposal surfaced by /relocation/profile/signal) as a
+   * special tool-payload message so it renders inline in the thread.
+   */
+  pushToolMessage: (tool: ChatTool, text: string, data?: unknown) => void
   clear: () => void
 }
 
@@ -103,6 +119,23 @@ export function useRelocationChat(): UseRelocationChatResult {
           ts: Date.now(),
         },
       ])
+      // ponytail: F17 — if the chat response carries a hardFilterProposal
+      // alongside the assistant text, surface it as its own banner message
+      // inline in the thread so the user can act on it.
+      const proposal = (data as { hardFilterProposal?: HardFilterProposal }).hardFilterProposal
+      if (proposal) {
+        setMessages(prev => [
+          ...prev,
+          {
+            id: `hfp_${Date.now()}`,
+            role: 'agent',
+            text: `You've dismissed ${proposal.locationName} ${proposal.dismissCount} times — want to hide it?`,
+            tool: 'hard_filter_proposal',
+            data: proposal,
+            ts: Date.now(),
+          },
+        ])
+      }
     } catch (e) {
       if (ctrl.signal.aborted) return
       const msg = (e as Error)?.message || 'Chat request failed'
@@ -124,9 +157,26 @@ export function useRelocationChat(): UseRelocationChatResult {
     setError(null)
   }, [])
 
+  // ponytail: F17 — let callers inject a tool-payload message (e.g. a
+  // HardFilterProposal detected via /relocation/profile/signal) so it
+  // renders inline in the same thread.
+  const pushToolMessage = useCallback((tool: ChatTool, text: string, data?: unknown) => {
+    setMessages(prev => [
+      ...prev,
+      {
+        id: `t_${Date.now()}`,
+        role: 'agent',
+        text,
+        tool,
+        data,
+        ts: Date.now(),
+      },
+    ])
+  }, [])
+
   // ponytail: abort any in-flight chat on unmount — otherwise the closure
   // keeps the component alive (and React warns on setState-after-unmount).
   useEffect(() => () => abortRef.current?.abort(), [])
 
-  return { messages, isLoading, error, quickPrompts: QUICK_PROMPTS, sendMessage, clear }
+  return { messages, isLoading, error, quickPrompts: QUICK_PROMPTS, sendMessage, pushToolMessage, clear }
 }

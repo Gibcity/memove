@@ -5,6 +5,7 @@ import type {
   ElicitationSession,
   ElicitationQuestion,
   ImplicitSignal,
+  HardFilterProposal,
 } from '@memove/shared';
 import { createItem as createTodoItem, listItems as listTodoItems } from '../../services/todoService';
 import { selectChecklistTasks } from './move-checklist-templates';
@@ -458,6 +459,7 @@ function getDefaultProfile(userId: string): UserProfile {
     updatedAt: new Date().toISOString(),
     elicitationRoundsCompleted: 0,
     implicitSignalCount: 0,
+    dismissCounts: {}, // ponytail: F17 — per-location dismiss counter
   };
 }
 
@@ -553,6 +555,11 @@ const ELICITATION_QUESTIONS: ElicitationQuestion[] = [
 const elicitationSessions = new Map<string, ElicitationSession>();
 const elicitationAnswers = new Map<string, string[]>(); // sessionId → answers
 const implicitSignals: ImplicitSignal[] = [];
+
+// ponytail: F17 — once the user has dismissed the same location this many
+// times, surface a HardFilterProposal (a "hide this city?" prompt) instead of
+// silently dropping another dismiss on the floor.
+const HARD_FILTER_DISMISS_THRESHOLD = 3;
 
 // ponytail: ImplicitSignal carries no userId (see shared
 // relocation.schema.ts) so the process-global array cannot be reliably
@@ -1106,19 +1113,53 @@ export class RelocationService {
    * Record a behavioral signal (pan, dismiss, save, dwell, etc.) and
    * update the user profile.  This is the core of the TikTok-style
    * learning loop per RESEARCH.md §1.
+   *
+   * F17: candidate_dismiss signals bump a per-user, per-location counter
+   * on the profile.  When the counter reaches HARD_FILTER_DISMISS_THRESHOLD,
+   * the response carries a `hardFilterProposal` so the client can offer
+   * to add a hard filter for that location.
    */
   submitImplicitSignal(
     userId: string,
     signal: ImplicitSignal,
-  ): { profileSnapshot: UserProfile } {
+  ): {
+    profileSnapshot: UserProfile;
+    hardFilterProposal?: HardFilterProposal;
+  } {
     implicitSignals.push(signal);
 
     const profile = this.getUserProfile(userId);
-    this.upsertUserProfile(userId, {
+    const updates: Partial<UserProfile> = {
       implicitSignalCount: profile.implicitSignalCount + 1,
-    });
+    };
 
-    return { profileSnapshot: this.getUserProfile(userId) };
+    let hardFilterProposal: HardFilterProposal | undefined;
+
+    if (signal.kind === 'candidate_dismiss') {
+      // ponytail: per-user, per-location Map lives in the profile JSON blob —
+      // one read-modify-write upsert, no separate in-memory state to leak
+      // across users on restart.
+      const counts: Record<string, number> = { ...(profile.dismissCounts ?? {}) };
+      const next = (counts[signal.locationId] ?? 0) + 1;
+      counts[signal.locationId] = next;
+      updates.dismissCounts = counts;
+
+      if (next === HARD_FILTER_DISMISS_THRESHOLD) {
+        const loc = this.getLocationById(signal.locationId);
+        if (loc) {
+          hardFilterProposal = {
+            locationId: loc.id,
+            locationName: loc.name,
+            dismissCount: next,
+          };
+        }
+      }
+    }
+
+    const updatedProfile = this.upsertUserProfile(userId, updates);
+    return hardFilterProposal
+      ? { profileSnapshot: updatedProfile, hardFilterProposal }
+      : { profileSnapshot: updatedProfile };
   }
 
   // ── Elicitation internals ──────────────────────────────────────────────

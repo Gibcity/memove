@@ -11,6 +11,7 @@ import { DmvGuideView } from './views/DmvGuideView'
 import { TaxImpactView } from './views/TaxImpactView'
 import { SalaryAdjustmentView } from './views/SalaryAdjustmentView'
 import { UtilitySetupView } from './views/UtilitySetupView'
+import { HardFilterBannerView } from './views/HardFilterBannerView'
 import { GenericDataView } from './views/GenericDataView'
 
 // ponytail: discriminated switch on `tool`. Stable schema → stable render.
@@ -59,6 +60,11 @@ export function PayloadRenderer({ tool, data }: { tool?: string; data?: unknown 
       break
     case 'utility_setup_checklist':
       inner = <UtilitySetupView data={data} />
+      break
+    case 'hard_filter_proposal':
+      // ponytail: F17 — inline banner shows the dismiss-threshold offer
+      // (Yes, hide it / Not now). Same renderer slot, no separate surface.
+      inner = <HardFilterBannerView data={data} />
       break
     default:
       inner = <GenericDataView data={data} />
