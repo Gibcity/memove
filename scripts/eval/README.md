@@ -5,11 +5,11 @@ Deterministic gate for the relocation scoring engine.
 ## Run
 
 The eval imports the compiled server (`server/dist/nest/relocation/relocation.service.js`),
-so the server workspace must be built first. From the `trek/` root:
+so the server workspace must be built first. From the `memove/` root:
 
 ```
 npm run build --workspace=server   # one-time per server change; produces server/dist/
-npm run eval                      # from the trek/ root — gate; exits 1 if below threshold
+npm run eval                      # from the memove/ root — gate; exits 1 if below threshold
 ```
 
 If `server/dist/` is stale or missing, eval fails with

@@ -205,7 +205,7 @@ suite against the candidate corpus, and exits 0.
 **Evidence**
 
 - 🚧 `npm run eval` is still not defined in any of
-  `trek/{package.json,server/package.json,client/package.json,shared/package.json}`.
+  `memove/{package.json,server/package.json,client/package.json,shared/package.json}`.
 - Honest fall-back gate executed today (2026-07-01):
   - `pnpm --filter @memove/server exec vitest run tests/e2e/relocation-isolation.e2e.test.ts tests/e2e/relocation-provenance.e2e.test.ts` — **5/5 passed in 940 ms**.
   - Server build: `node scripts/build.mjs` — exits 0 (the e2e harness depends on it; the run would have failed otherwise).
@@ -231,19 +231,19 @@ suite against the candidate corpus, and exits 0.
 ```
 $ Run on 2026-07-01T00:16:23Z (manual run — see notes below)
 
-Playwright integration suite (trek/client/e2e/relocation-integration.spec.ts):
+Playwright integration suite (memove/client/e2e/relocation-integration.spec.ts):
   ✓ [setup]  authenticate the seeded admin (incl. forced password change)   8.9 s
   ✓ [app]    §10.1 end-to-end elicitation drives candidate list              2.7 s
   ✓ [app]    §10.2 implicit dismiss signals produce a hard-filter proposal  2.7 s
   ✓ [app]    §10.3 cold-start: candidates list reaches /relocation w/i budget 1.2 s
   → 4 passed in 21.5 s
 
-Server relocation-touching suites (trek/server):
+Server relocation-touching suites (memove/server):
   ✓ tests/e2e/relocation-isolation.e2e.test.ts   1/1 passed in  76 ms
   ✓ tests/e2e/relocation-provenance.e2e.test.ts  4/4 passed in 940 ms (file total)
     └─ provenance coverage: 5386/5386 categories (100.00%) across 939 locations
 
-Server e2e full sweep (trek/server/tests/e2e):
+Server e2e full sweep (memove/server/tests/e2e):
   ✓ 200/200 tests passed in 3.10 s
   ✗ 1 file-level failure (reservations.e2e.test.ts) — pre-existing, see below
 
@@ -254,7 +254,7 @@ Build: exit 0 (server `node scripts/build.mjs`; relied on by Playwright harness)
 ```
 
 > **Note on run script invocation.** The runner script
-> (`trek/scripts/run-phase5-integration.sh`) targets only the Playwright
+> (`memove/scripts/run-phase5-integration.sh`) targets only the Playwright
 > integration spec. The server-side `relocation-isolation` and
 > `relocation-provenance` specs were driven separately through vitest. The
 > combined evidence above is what was used to green §§10.1–10.5.
@@ -288,7 +288,7 @@ green sign-offs above are not over-claimed.
 
 | Surface | Symptom | Count | Why it's out of scope |
 |---------|---------|-------|----------------------|
-| `trek/server/node_modules/@modelcontextprotocol/sdk` | package listed in `trek/server/package.json` (`@modelcontextprotocol/sdk: ^1.28.0`) but missing from `node_modules` | **1 file-level fail** in server e2e (`reservations.e2e.test.ts` only); **104 file-level fails** in unit+integration suite (every test that transitively imports `src/mcp/index.ts`) | SDK install drift; not touched by any relocation code. Relocation suite does not import the missing module |
+| `memove/server/node_modules/@modelcontextprotocol/sdk` | package listed in `memove/server/package.json` (`@modelcontextprotocol/sdk: ^1.28.0`) but missing from `node_modules` | **1 file-level fail** in server e2e (`reservations.e2e.test.ts` only); **104 file-level fails** in unit+integration suite (every test that transitively imports `src/mcp/index.ts`) | SDK install drift; not touched by any relocation code. Relocation suite does not import the missing module |
 | `tests/unit/nest/zod-pipe.test.ts` | `Cannot read properties of undefined (reading 'getResponse')` — pre-existing assertion shape | **3 test fail / 1 pass** in `zod-pipe.test.ts` | Zod pipe regression in non-relocation Nest pipe code; called out in `docs/bootstrap-verification-20260627.md` |
 | `tests/unit` (overall) | 104/181 test files fail to import | — | All downstream of the missing `@modelcontextprotocol/sdk` package above |
 | `src/pages/relocation/panels/RelocationMapPanel.test.tsx` | 2 tests: mapbox event registration didn't fire | **2 test fail / 5 pass** in client relocation suite | Map-panel unit test; isolated to the FE relocation component. §10.1–10.4 still green because the Playwright integration suite is the gated evidence, not the unit tests |
@@ -336,7 +336,7 @@ Playwright integration: exit 1
 
 Last 20 lines of Playwright output:
         26 |   await page.locator('button[type="submit"]').click()
-          at /home/mongo/projects/us-relocation-2026/trek/client/e2e/auth.setup.ts:23:20
+          at /home/mongo/projects/us-relocation-2026/memove/client/e2e/auth.setup.ts:23:20
   
       attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
       test-results/auth.setup.ts-authenticate-5ecde-ncl-forced-password-change--setup-retry1/test-failed-1.png
@@ -366,7 +366,7 @@ Build: exit 0
 Playwright integration: exit 1
 
 Last 20 lines of Playwright output:
-          at /home/mongo/projects/us-relocation-2026/trek/client/e2e/relocation-integration.spec.ts:212:25
+          at /home/mongo/projects/us-relocation-2026/memove/client/e2e/relocation-integration.spec.ts:212:25
   
       attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
       test-results/relocation-integration-Pha-8a8f8-es-relocation-within-budget-app-retry1/test-failed-1.png

@@ -25,29 +25,27 @@ export class RelocationCache {
     try {
       return JSON.parse(row.value) as T;
     } catch {
-      // ponytail: poisoned entry — drop it and force a recompute rather
-      // than crash the request.
+      // ponytail: poisoned entry — drop and recompute rather than 500.
       this.db.run('DELETE FROM relocation_cache WHERE key = ?', key);
       return null;
     }
   }
 
   set(key: string, value: unknown, ttlSeconds: number): void {
+    // ponytail: skip cycles / BigInt — better to recompute than 500.
     let serialized: string;
     try {
       serialized = JSON.stringify(value);
     } catch {
-      // ponytail: cycle / BigInt / etc. — silently skip; the next read
-      // will recompute. Better than 500ing the request.
       return;
     }
-    const expires_at = Math.floor(Date.now() / 1000) + ttlSeconds;
+    if (serialized === undefined) return; // JSON.stringify(undefined) === undefined
     this.db.run(
       `INSERT INTO relocation_cache (key, value, expires_at) VALUES (?, ?, ?)
        ON CONFLICT(key) DO UPDATE SET value = excluded.value, expires_at = excluded.expires_at`,
       key,
       serialized,
-      expires_at,
+      Math.floor(Date.now() / 1000) + ttlSeconds,
     );
   }
 
@@ -55,8 +53,9 @@ export class RelocationCache {
     this.db.run('DELETE FROM relocation_cache WHERE key = ?', key);
   }
 
-  // ponytail: stable hash of arbitrary filter shape for cache keying.
-  // Avoids importing a stable-stringify dep.
+  // ponytail: stable cache-key hash. Sorted top-level keys suffice for
+  // scoreLocations' flat filter shape; nested objects would need a proper
+  // canonicalization (out of scope here).
   static hashKey(parts: Record<string, unknown>): string {
     const sorted = JSON.stringify(parts, Object.keys(parts).sort());
     return crypto.createHash('sha256').update(sorted).digest('hex').slice(0, 32);

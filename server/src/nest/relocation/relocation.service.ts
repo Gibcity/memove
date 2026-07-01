@@ -779,9 +779,8 @@ export class RelocationService {
     // then service default. Keeps FE contract and back-compat callers working.
     const limit = filters.topK ?? filters.limit ?? 20;
 
-    // ponytail: F17 dismissal set participates in the cache key so a
-    // user dismissing a city invalidates their own prior scores. Computed
-    // up-front so the same value is used for the key + the scoring pass.
+    // ponytail: F17 dismissal set feeds both the cache key and the score
+    // pass — hoisted up-front so they agree.
     const dismissedIds = new Set<string>();
     if (userId) {
       const hf = this.getUserProfile(userId).hardFilters ?? [];
@@ -791,21 +790,6 @@ export class RelocationService {
         }
       }
     }
-
-    // ponytail: read-through cache. Key = hash(weights + filters + limit
-    // + userId + dismissed). TTL 5m — covers the "browse + adjust weights
-    // + browse" loop without serving stale scores when weights/dismissals
-    // change (both are in the key).
-    const cacheKeyInput: Record<string, unknown> = {
-      weights,
-      filters: { ...filters, weights: undefined, topK: undefined, limit: undefined },
-      userId: userId ?? '',
-      limit,
-      dismissed: Array.from(dismissedIds).sort(),
-    };
-    const cacheKey = `score:${RelocationCache.hashKey(cacheKeyInput)}`;
-    const cached = this.cache.get<ReturnType<RelocationService['scoreLocations']>>(cacheKey);
-    if (cached) return cached;
 
     const cleanFilters: Record<string, unknown> = {};
     if (filters.states) cleanFilters['states'] = filters.states;
@@ -820,8 +804,20 @@ export class RelocationService {
     if (filters.maxColdDays) cleanFilters['maxColdDays'] = filters.maxColdDays;
     if (filters.minPopulation) cleanFilters['minPopulation'] = filters.minPopulation;
 
-    // ponytail: dismissedIds is computed up-front above so it can also feed
-    // the cache key. Not re-derived here.
+    // ponytail: read-through cache, TTL 5m. weights + cleanFilters +
+    // range filters + dismissed + limit + userId fully describe the score;
+    // mutating any one naturally rolls a different key.
+    const cacheKey = `score:${RelocationCache.hashKey({
+      weights,
+      cleanFilters,
+      rangeFilters: filters.filters ?? {},
+      limit,
+      userId: userId ?? '',
+      dismissed: Array.from(dismissedIds).sort(),
+    })}`;
+    const cached = this.cache.get<ReturnType<RelocationService['scoreLocations']>>(cacheKey);
+    if (cached) return cached;
+
     const scored = locations
       .filter((loc) => !dismissedIds.has(loc.id))
       .filter((loc) => applyRangeFilters(loc, filters.filters).included)

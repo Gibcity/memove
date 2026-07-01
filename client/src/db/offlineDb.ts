@@ -148,7 +148,8 @@ class MemoveOfflineDb extends Dexie {
 // import it directly, while every access forwards to the current connection.
 let _db = new MemoveOfflineDb(initialDbName());
 
-// ponytail: one-shot migration from old trek-offline IndexedDB name.
+// ponytail: one-shot migration. Drops the legacy IndexedDB from the prior
+// product incarnation if a stale copy exists on this user's device.
 // Fires-and-forgets so app startup is not blocked; failures are swallowed
 // because the worst case is leaving the orphaned DB on disk until next load.
 Dexie.exists('trek-offline').then(exists => {

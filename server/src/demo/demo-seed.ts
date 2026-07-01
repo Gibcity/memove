@@ -19,11 +19,11 @@ function seedDemoData(db: Database.Database): { adminId: number; demoId: number 
   const DEMO_EMAIL = 'demo@memove.app';
   const DEMO_PASS = 'demo12345';
 
-  // One-shot rebrand migration: rename legacy `*@trek.app` / `*@trek.local` rows
-  // to their `@memove.app` counterparts. Idempotent and safe on every boot.
-  // If the target `@memove.app` row already exists (from a newer install), the
-  // old orphan row is deleted instead of updated to avoid a UNIQUE(email)
-  // collision — it carries no trips or memberships in this codebase.
+  // One-shot rebrand migration: rename legacy demo seed rows from the
+  // prior product's email domains to their current counterparts. Idempotent
+  // and safe on every boot. If the target row already exists (from a newer
+  // install), the old orphan row is deleted instead of updated to avoid a
+  // UNIQUE(email) collision — it carries no trips or memberships in this codebase.
   const renameOrDrop = (oldEmail: string, newEmail: string): void => {
     const target = db.prepare('SELECT id FROM users WHERE email = ?').get(newEmail);
     if (target) {

@@ -27,6 +27,20 @@ jobs:
       - name: Check i18n key parity
         run: node shared/scripts/i18n-parity.mjs --strict
 
+  agents-md-drift:
+    name: AGENTS.md Drift Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Verify AGENTS.md paths resolve and size under 300 lines
+        run: node scripts/check-agents-md.mjs
+
   shared-contracts:
     name: Shared Contracts (Zod)
     runs-on: ubuntu-latest

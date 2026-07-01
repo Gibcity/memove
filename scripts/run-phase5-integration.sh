@@ -3,7 +3,7 @@
 # (Playwright) and the additive vitest gates, then writes the results into
 # REPORT.md.
 #
-# Usage:  ./trek/scripts/run-phase5-integration.sh [phase5-extra-spec...]
+# Usage:  ./memove/scripts/run-phase5-integration.sh [phase5-extra-spec...]
 #
 # Exits non-zero on any failure. The Playwright spec is the integration
 # suite at client/e2e/relocation-integration.spec.ts; vitest gates are the
@@ -12,16 +12,16 @@
 set -u
 
 # ── Paths ──────────────────────────────────────────────────────────────────
-TREK="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-CLIENT="$TREK/client"
-SERVER="$TREK/server"
+MEMOVE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CLIENT="$MEMOVE/client"
+SERVER="$MEMOVE/server"
 SPEC="$CLIENT/e2e/relocation-integration.spec.ts"
 
 # Output tap file for Playwright (also produced even on failure so we can post-mortem)
 TMP_OUT="$(mktemp)"
 trap 'rm -f "$TMP_OUT"' EXIT
 
-LOG_HEAD="$TREK/REPORT.md"
+LOG_HEAD="$MEMOVE/REPORT.md"
 RUN_HEADER="## Run on $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 RESULTS_BLOCK=""
 
@@ -33,7 +33,7 @@ err() { printf '❌ %s\n' "$*" >&2; RESULTS_BLOCK="$RESULTS_BLOCK\n- ❌ $*"; }
 say "=== [1/4] additive vitest gates (client + shared) ==="
 PNPM_TEST_STATUS=0
 (
-  cd "$TREK"
+  cd "$MEMOVE"
   pnpm --filter @memove/shared test 2>&1 | tail -40
 ) || PNPM_TEST_STATUS=$?
 (
@@ -51,7 +51,7 @@ PNPM_TEST_STATUS=0
 say "=== [2/4] build stays clean ==="
 BUILD_STATUS=0
 (
-  cd "$TREK"
+  cd "$MEMOVE"
   pnpm run build 2>&1 | tail -20
 ) || BUILD_STATUS=$?
 
