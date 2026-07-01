@@ -3086,6 +3086,15 @@ function runMigrations(db: Database.Database): void {
         if (!err.message?.includes('duplicate column name')) throw err;
       }
     },
+    // Migration 139: relocation_cache — SQLite K/V hot-cache for scoring
+    { raw: () => db.exec(`
+      CREATE TABLE IF NOT EXISTS relocation_cache (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL,
+        expires_at INTEGER NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_relocation_cache_expires ON relocation_cache(expires_at);
+    `) },
   ];
 
   if (currentVersion < migrations.length) {

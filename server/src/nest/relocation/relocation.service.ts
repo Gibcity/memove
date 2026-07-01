@@ -779,6 +779,34 @@ export class RelocationService {
     // then service default. Keeps FE contract and back-compat callers working.
     const limit = filters.topK ?? filters.limit ?? 20;
 
+    // ponytail: F17 dismissal set participates in the cache key so a
+    // user dismissing a city invalidates their own prior scores. Computed
+    // up-front so the same value is used for the key + the scoring pass.
+    const dismissedIds = new Set<string>();
+    if (userId) {
+      const hf = this.getUserProfile(userId).hardFilters ?? [];
+      for (const f of hf) {
+        if (f.field === 'locationId' && f.operator === 'notIn' && Array.isArray(f.value)) {
+          for (const id of f.value) dismissedIds.add(String(id));
+        }
+      }
+    }
+
+    // ponytail: read-through cache. Key = hash(weights + filters + limit
+    // + userId + dismissed). TTL 5m — covers the "browse + adjust weights
+    // + browse" loop without serving stale scores when weights/dismissals
+    // change (both are in the key).
+    const cacheKeyInput: Record<string, unknown> = {
+      weights,
+      filters: { ...filters, weights: undefined, topK: undefined, limit: undefined },
+      userId: userId ?? '',
+      limit,
+      dismissed: Array.from(dismissedIds).sort(),
+    };
+    const cacheKey = `score:${RelocationCache.hashKey(cacheKeyInput)}`;
+    const cached = this.cache.get<ReturnType<RelocationService['scoreLocations']>>(cacheKey);
+    if (cached) return cached;
+
     const cleanFilters: Record<string, unknown> = {};
     if (filters.states) cleanFilters['states'] = filters.states;
     if (filters.excludeStates) cleanFilters['excludeStates'] = filters.excludeStates;
@@ -792,21 +820,8 @@ export class RelocationService {
     if (filters.maxColdDays) cleanFilters['maxColdDays'] = filters.maxColdDays;
     if (filters.minPopulation) cleanFilters['minPopulation'] = filters.minPopulation;
 
-    // ponytail: F17 — exclude locationIds the user has hard-filtered via
-    // { field: 'locationId', operator: 'notIn', value: string[] }. Guard
-    // lives here (the shared scoring pipeline) so every caller — FE /api/
-    // relocation/score, MCP scoreLocations, future wrappers — respects the
-    // dismissal in one place.
-    const dismissedIds = new Set<string>();
-    if (userId) {
-      const hf = this.getUserProfile(userId).hardFilters ?? [];
-      for (const f of hf) {
-        if (f.field === 'locationId' && f.operator === 'notIn' && Array.isArray(f.value)) {
-          for (const id of f.value) dismissedIds.add(String(id));
-        }
-      }
-    }
-
+    // ponytail: dismissedIds is computed up-front above so it can also feed
+    // the cache key. Not re-derived here.
     const scored = locations
       .filter((loc) => !dismissedIds.has(loc.id))
       .filter((loc) => applyRangeFilters(loc, filters.filters).included)
@@ -816,7 +831,7 @@ export class RelocationService {
     const passed = scored.filter((s) => s.passed);
     const topPassed = passed.slice(0, limit);
 
-    return {
+    const result = {
       totalScored: scored.length,
       passedFilters: passed.length,
       returned: topPassed.length,
@@ -842,6 +857,11 @@ export class RelocationService {
         },
       })),
     };
+
+    // ponytail: 5-minute TTL — covers the iterative score-browse loop
+    // without serving stale scores when the corpus or user weights change.
+    this.cache.set(cacheKey, result, 300);
+    return result;
   }
 
   // ── Explain ──

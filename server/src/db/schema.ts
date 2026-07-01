@@ -526,6 +526,15 @@ function createTables(db: Database.Database): void {
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
+
+    -- Relocation scoring hot-cache. Read-through K/V with TTL; on-read
+    -- expiry sweep keeps the table lean without a cron.
+    CREATE TABLE IF NOT EXISTS relocation_cache (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL,
+      expires_at INTEGER NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_relocation_cache_expires ON relocation_cache(expires_at);
   `);
 }
 
