@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from '../../i18n'
 import { Send, Sparkles, MapPin, CalendarDays, ListChecks, Trash2, GitCompareArrows } from 'lucide-react'
 import { useRelocationChat, type ChatMessage, type RichCard } from './useRelocationChat'
+import { scoreHex } from './relocationModel'
 
 // ponytail: whole component is one file, ~one screenful. No subfolders, no
 // abstraction until a second screen needs the same shape.
@@ -485,15 +486,7 @@ function RichCardView({
   return <></>
 }
 
-// ponytail: tiny hex-color helper for city_list score dots. Inline so the chat
-// file stays self-contained; mirrors scoreToColor breakpoints in relocationModel.
-function scoreHex(score: number): string {
-  if (score >= 80) return '#22c55e' // green
-  if (score >= 60) return '#84cc16' // lime
-  if (score >= 40) return '#eab308' // yellow
-  if (score >= 20) return '#f97316' // orange
-  return '#ef4444' // red
-}
+// ponytail: city_list score dots use canonical scoreHex from relocationModel.
 
 function TypingIndicator(): React.ReactElement {
   const { t } = useTranslation()

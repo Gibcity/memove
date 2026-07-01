@@ -79,6 +79,27 @@ export function scoreToColor(score: number): string {
   return 'oklch(0.5 0.25 15)' // red
 }
 
+// ponytail: spec §1 hex ramp (docs/design/relocation-map-viz.md). One source of
+// truth for SVG fills + small inline backgrounds. Kept separate from
+// scoreToColor above because that one returns oklch() for CSS-var aware UIs
+// (sparkline strokes, panel backgrounds); hex is needed wherever SVG or
+// ARGB-style alpha blending wants raw RGB. If you change a band, update §1.
+export const SCORE_HEX_BANDS: ReadonlyArray<{ readonly min: number; readonly hex: string }> = [
+  { min: 80, hex: '#22c55e' }, // excellent
+  { min: 60, hex: '#84cc16' }, // strong
+  { min: 40, hex: '#eab308' }, // mixed
+  { min: 20, hex: '#d97706' }, // weak
+  { min: 0, hex: '#b91c1c' }, // poor
+] as const
+
+/** Map a 0-100 score to the spec hex band. Clamps to best/worst at the edges. */
+export function scoreHex(score: number): string {
+  for (const band of SCORE_HEX_BANDS) {
+    if (score >= band.min) return band.hex
+  }
+  return SCORE_HEX_BANDS[SCORE_HEX_BANDS.length - 1].hex
+}
+
 /** Build a sort key from the candidates array. */
 export function sortCandidatesByRank(
   candidates: CandidateView[],

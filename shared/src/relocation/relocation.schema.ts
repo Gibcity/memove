@@ -282,7 +282,6 @@ export const topMatchSchema = z.object({
   keyMetrics: z.record(z.string(), z.number()),
 });
 export type TopMatch = z.infer<typeof topMatchSchema>;
-export type ScoredLocation = TopMatch; // ponytail: legacy alias, do not use
 
 export const scoreResponseSchema = z.object({
   totalScored: z.number(),

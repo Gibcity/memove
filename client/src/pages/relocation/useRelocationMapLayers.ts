@@ -14,7 +14,7 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { CandidateView } from './relocationModel'
+import { SCORE_HEX_BANDS, type CandidateView } from './relocationModel'
 
 // Ponytail: PublicaMundi/MappingAPI us-states.json — ~89 KB, already
 // filtered to 50 states + DC + PR (we drop PR). Upstream of the
@@ -25,20 +25,10 @@ import type { CandidateView } from './relocationModel'
 const STATES_GEOJSON_URL =
   'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json'
 
-// Spec §1 — 5-band hex ramp. Shared with the pin layer in
-// RelocationMapPanel so a 78-pin on a 78-state reads as one signal.
-// Keep in sync with `useRelocationMapLayers.ts` callers; do NOT
-// diverge without updating §1 of docs/design/relocation-map-viz.md.
-export const STATE_SCORE_BANDS: ReadonlyArray<{
-  readonly min: number
-  readonly hex: string
-}> = [
-  { min: 80, hex: '#22c55e' }, // excellent
-  { min: 60, hex: '#84cc16' }, // strong
-  { min: 40, hex: '#eab308' }, // mixed
-  { min: 20, hex: '#d97706' }, // weak
-  { min: 0, hex: '#b91c1c' }, // poor
-] as const
+// Spec §1 — 5-band hex ramp. Canonical source lives in relocationModel.ts so
+// the chat dots, slope chart, and choropleth cannot drift. Update §1 of
+// docs/design/relocation-map-viz.md alongside any band change.
+export const STATE_SCORE_BANDS = SCORE_HEX_BANDS
 
 export const NO_DATA_HEX = '#94a3b8' // slate-400 — states with no visible metros
 
