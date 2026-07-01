@@ -17,8 +17,14 @@ import { useSettingsStore } from '../../../store/settingsStore'
 // addSource registers it. That's the only piece of the real mapbox-gl API
 // the panel's load handler actually inspects.
 const glMap = vi.hoisted(() => {
+  // ponytail: vi.hoisted runs once per file; the sources Map MUST reset between
+  // tests, otherwise a previous test's addSource makes getSource() return
+  // non-null in the next test, the panel's load handler skips the click-
+  // listener registration, and 003/004 silently fail with no click handler.
   const sources = new Map<string, any>()
+  const resetSources = () => sources.clear()
   return {
+    __resetSources: resetSources,
     on: vi.fn(),
     off: vi.fn(),
     loaded: vi.fn().mockReturnValue(true),
@@ -93,6 +99,7 @@ function fireLoad() {
 }
 
 beforeEach(() => {
+  ;(glMap as any).__resetSources?.()
   useSettingsStore.setState({
     settings: {
       ...useSettingsStore.getState().settings,
