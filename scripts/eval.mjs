@@ -18,7 +18,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const memoveRoot = resolve(here, '..');
 const repoRoot = resolve(memoveRoot, '..');
 const require = createRequire(import.meta.url);
-const svcMod = require(resolve(memoveRoot, 'server/dist/nest/relocation/relocation.service.js'));
+const svcMod = require(resolve(memoveRoot, 'apps/api/dist/nest/relocation/relocation.service.js'));
 const inst = new svcMod.RelocationService();
 
 const fixturePath = resolve(here, 'eval/fixtures/ranking-cases.json');

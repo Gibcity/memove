@@ -20,7 +20,7 @@ jobs:
         id: checks
         continue-on-error: true
         run: |
-          cd shared
+          cd packages/shared
           npm run lint
           npm run format:check
 
@@ -39,7 +39,7 @@ jobs:
                 'Please fix the issues locally by running the following commands inside the `shared` package:',
                 '',
                 '```bash',
-                'cd shared',
+                'cd packages/shared',
                 'npm run lint',
                 'npm run format',
                 '```',

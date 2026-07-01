@@ -1,7 +1,6 @@
 packages:
-  - client
-  - server
-  - shared
+  - "apps/*"
+  - "packages/*"
 
 allowBuilds:
   '@swc/core': true

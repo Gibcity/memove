@@ -24,26 +24,27 @@ reads. Drift here multiplies across every future session.
 
 ```
 memove/
-├── client/          # React 19 + Vite + Tailwind + Leaflet/Mapbox (PWA)
-├── server/          # NestJS 11 + Express + better-sqlite3 + MCP + WebSocket
-├── shared/          # @memove/shared — Zod schemas, single source of truth
-├── docs/            # System-notices.md and other domain guides
-├── wiki/            # Operator-facing docs (Unraid, photo providers, MFA…)
-├── scripts/         # Build + dev + eval orchestration (run from repo root)
+├── apps/
+│   ├── web/            # React 19 + Vite + Tailwind + Leaflet/Mapbox (PWA)
+│   └── api/            # NestJS 11 + Express + better-sqlite3 + MCP + WebSocket
+├── packages/
+│   └── shared/         # @memove/shared — Zod schemas, single source of truth
+├── docs/               # System-notices.md and other domain guides
+├── wiki/               # Operator-facing docs (Unraid, photo providers, MFA…)
+├── scripts/            # Build + dev + eval orchestration (run from repo root)
 ├── pnpm-workspace.yaml
-├── package.json     # @memove/root — orchestration only; do NOT add deps here
-├── pnpm-lock.yaml   # committed
-├── Dockerfile       # multi-stage; build target is the workspace root
-└── AGENTS.md        # ← you are here
+├── package.json        # @memove/root — orchestration only; do NOT add deps here
+├── pnpm-lock.yaml      # committed
+├── Dockerfile          # multi-stage; build target is the workspace root
+└── AGENTS.md           # ← you are here
 ```
 
-**Workspaces:** `client`, `server`, `shared`. `shared` builds first; both
-`client` and `server` depend on `@memove/shared` via `workspace:*`.
+**Workspaces:** `apps/web` (@memove/client), `apps/api` (@memove/server), `packages/shared` (@memove/shared). `@memove/shared` builds first; both `@memove/client` and `@memove/server` depend on it via `workspace:*`.
 
 **Co-location rules:**
-- `client/src/repo/` — IndexedDB (Dexie) repos per domain (`*Repo.ts` files)
-- `server/src/nest/<domain>/` — NestJS module: `*.module.ts`, `*.service.ts`, `*.controller.ts`, `dto/`
-- `shared/src/<domain>/<domain>.schema.ts` — Zod schemas + inferred TS types
+- `apps/web/src/repo/` — IndexedDB (Dexie) repos per domain (`*Repo.ts` files)
+- `apps/api/src/nest/<domain>/` — NestJS module: `*.module.ts`, `*.service.ts`, `*.controller.ts`, `dto/`
+- `packages/shared/src/<domain>/<domain>.schema.ts` — Zod schemas + inferred TS types
 
 ---
 
@@ -58,7 +59,7 @@ pnpm dev                                # concurrently runs shared watch + serve
 ```
 
 Server listens on `:3000`, client on `:5173` (Vite default). SQLite lands at
-`server/data/<env>.db` (gitignored).
+`apps/api/data/<env>.db` (gitignored).
 
 **One-liner for first-time setup:**
 ```bash
@@ -93,7 +94,7 @@ artifacts are gitignored but pollute the working tree and confuse IDE indexing.
 1. **TypeScript strict mode** in every package. `noUncheckedIndexedAccess`,
    `exactOptionalPropertyTypes` are on.
 2. **No `any`.** Use `unknown` + Zod parse, or define a type.
-3. **No cross-package imports** between `client/src/` and `server/src/`. The
+3. **No cross-package imports** between `apps/web/src/` and `apps/api/src/`. The
    seam is `@memove/shared` (Zod schemas) + the server's OpenAPI spec.
 4. **Conventional commits** enforced by CI. Format: `type(scope): message`.
    Scopes mirror the domain (`feat(relocation):`, `fix(maps):`).
@@ -118,7 +119,7 @@ by existing endpoints — extend, don't duplicate.
 ### 6.3 Database
 - `better-sqlite3` everywhere. Synchronous API by design.
 - One module owns its tables (e.g. `trips/` owns `trips`, `days`, `packing_items`).
-- Migrations live in `server/src/<domain>/migrations/`, run in
+- Migrations live in `apps/api/src/<domain>/migrations/`, run in
   `database/runMigrations()` at boot. New table → new migration, no exceptions.
 
 ### 6.4 Realtime
@@ -126,7 +127,7 @@ WebSocket gateway is one per domain (`TripsGateway`, `CollabGateway`). Client
 subscribes via `useWebSocket(domain)`. Don't open raw sockets from React.
 
 ### 6.5 Schema-first
-**Define the contract in `shared/src/<domain>/<domain>.schema.ts` before
+**Define the contract in `packages/shared/src/<domain>/<domain>.schema.ts` before
 writing server or client code.** Server validates with `.parse()`, client
 imports the inferred type. OpenAPI is generated from the server controller
 decorators — keep them in sync with the Zod schema.
@@ -140,9 +141,9 @@ Client surfaces errors via the toast store — never `console.error` in producti
 
 ## 7. Environment & secrets
 
-- `server/.env` — gitignored. Copy from `.env.example`. Required keys are
+- `apps/api/.env` — gitignored. Copy from `.env.example`. Required keys are
   documented there with inline comments.
-- `server/data/` and `server/uploads/` — user data, gitignored.
+- `apps/api/data/` and `apps/api/uploads/` — user data, gitignored.
 - No secrets in client bundle. If you need a key client-side, scope it to
   public-provider keys (Mapbox, Google Places) and document it in `wiki/`.
 
@@ -154,12 +155,12 @@ These will be edited often; check them before assuming structure changed:
 
 | Path | What lives here |
 |---|---|
-| `server/src/addons.ts` | Add-on registry. New feature → register here. |
-| `server/src/nest/app.module.ts` | Module wiring. New module → import + add. |
-| `shared/src/index.ts` | Re-exports every domain schema. |
-| `client/src/main.tsx` | Router + providers. |
-| `client/src/components/SystemNotices/` | In-app notice renderers (modal/banner). |
-| `server/src/systemNotices/registry.ts` | Server-side notice registry. |
+| `apps/api/src/addons.ts` | Add-on registry. New feature → register here. |
+| `apps/api/src/nest/app.module.ts` | Module wiring. New module → import + add. |
+| `packages/shared/src/index.ts` | Re-exports every domain schema. |
+| `apps/web/src/main.tsx` | Router + providers. |
+| `apps/web/src/components/SystemNotices/` | In-app notice renderers (modal/banner). |
+| `apps/api/src/system-notices/registry.ts` | Server-side notice registry. |
 | `pnpm-workspace.yaml` | Workspace packages. |
 
 ---

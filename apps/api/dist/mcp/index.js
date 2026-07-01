@@ -1,0 +1,364 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.revokeUserSessionsForClient = exports.revokeUserSessions = void 0;
+exports.mcpHandler = mcpHandler;
+exports.invalidateMcpSessions = invalidateMcpSessions;
+exports.closeMcpSessions = closeMcpSessions;
+const crypto_1 = require("crypto");
+const mcp_1 = require("@modelcontextprotocol/sdk/server/mcp");
+const streamableHttp_1 = require("@modelcontextprotocol/sdk/server/streamableHttp");
+const authService_1 = require("../services/authService");
+const oauthService_1 = require("../services/oauthService");
+const adminService_1 = require("../services/adminService");
+const addons_1 = require("../addons");
+const resources_1 = require("./resources");
+const tools_1 = require("./tools");
+const sessionManager_1 = require("./sessionManager");
+Object.defineProperty(exports, "revokeUserSessions", { enumerable: true, get: function () { return sessionManager_1.revokeUserSessions; } });
+Object.defineProperty(exports, "revokeUserSessionsForClient", { enumerable: true, get: function () { return sessionManager_1.revokeUserSessionsForClient; } });
+const auditLog_1 = require("../services/auditLog");
+const notifications_1 = require("../services/notifications");
+// ---------------------------------------------------------------------------
+// Base instructions injected into every MCP session via the initialize response.
+// Claude and other clients use these as system-level context before any tool call.
+// Keep this actionable and concise — vague prose doesn't help the model.
+// ---------------------------------------------------------------------------
+const BASE_MCP_INSTRUCTIONS = `
+You are connected to memove, a travel planning application. Below is a compact reference of the data model, key workflows, and behavioral rules you must follow.
+
+## Data model
+
+- **Trip** — top-level container. Has dates, currency, members (owner + collaborators), and optional add-ons.
+- **Day** — one calendar day within a trip (YYYY-MM-DD). Days are generated automatically when a trip is created with start/end dates.
+- **Place** — a point of interest (POI) stored in the trip's place pool. A place is NOT on the itinerary until it is assigned to a day.
+- **Assignment** — links a Place to a Day (ordered, with optional start/end time). This is what builds the daily itinerary.
+- **Accommodation** — a hotel or rental linked to a Place and a check-in/check-out day range.
+- **Reservation** — a booking record (flight, train, restaurant, etc.) with confirmation details, linked to a day.
+- **Day note** — a free-text annotation attached to a day (with optional time label and emoji icon).
+- **Budget item** — an expense entry for a trip (amount, category, payer, split between members).
+- **Packing item** — a checklist entry grouped into bags and categories.
+- **Todo** — a task (not packing-specific) attached to a trip, ordered and togglable.
+- **Tag** — a label that can be applied to places for filtering.
+- **Collab note / poll / message** — shared notes, decision polls, and chat messages for group trips.
+- **Atlas** — global travel journal: bucket list, visited countries and regions.
+- **Vacay** — vacation-day planner that tracks leave across team members and years.
+- **Journey** — cross-trip travel narrative with dated entries, contributors, and share links. Requires the Journey addon.
+
+## Key workflows
+
+**Discovering trips:** Always call \`list_trips\` first when no trip ID has been provided. Never assume a trip ID.
+
+**Loading trip context:** Before planning or modifying a trip, call \`get_trip_summary\` once. It returns all days (with assignments and notes), accommodations, budget, packing, reservations, collab notes, and todos in a single round-trip. Use this data to answer follow-up questions without extra tool calls.
+
+**Adding a place to the itinerary (correct order):**
+1. \`search_place\` — find the real-world POI; note the \`osm_id\` and/or \`google_place_id\` in the result.
+2. \`create_place\` — add it to the trip's place pool, passing the IDs from step 1 (enables opening hours, ratings, and map linking in the app).
+3. \`assign_place_to_day\` — schedule it on the desired day using the dayId from \`get_trip_summary\`.
+
+**Creating an accommodation:** A place must exist in the trip first. Create the place (or reuse an existing one), then call \`create_accommodation\` with that \`place_id\` and the \`start_day_id\`/\`end_day_id\`.
+
+**Reordering:** Assignments, todos, packing items, and reservations all support positional reordering via dedicated reorder tools. Always read the current order from \`get_trip_summary\` before reordering.
+
+## Access rules
+
+- The authenticated user can only access trips they own or are a member of. Never guess at trip IDs.
+- Only the trip owner can delete the trip, add members, or remove members.
+- Deleting a place removes all of its day assignments as well — warn the user before doing this.
+- Trips created via MCP are capped at 90 days.
+
+## Dates and times
+
+- All dates use ISO format: **YYYY-MM-DD**.
+- Times are strings like **"09:00"** or **"14:30"** (24-hour). Pass \`null\` to clear a time.
+- When displaying dates to users, use a friendly human-readable format (e.g. "Mon, Apr 14").
+
+## Add-on features
+
+The following features are optional and may not be available on every memove instance. Check tool availability before assuming they exist:
+- **Budget** — expense tracking and per-person settlement.
+- **Packing** — checklist with bags, categories, and templates.
+- **Collab** — shared notes, polls, and chat messages for group trips.
+- **Atlas** — bucket list and visited-country/region tracking.
+- **Vacay** — team vacation-day planner with public holiday integration.
+- **Journey** — cross-trip travel narrative with entries, contributors, and share links.
+
+## Relocation lifecycle
+
+The relocation add-on covers the FULL lifecycle of moving to a new city, not just discovery. The user's relocation journey is a persistent workspace tracked across sessions via \`get_relocation_journey\`. Five phases, each with dedicated tools:
+
+1. **Discovery** — Research cities, compare locations, score by preferences.
+   Tools: \`search_locations\`, \`score_locations\`, \`compare_locations\`, \`explain_score\`, \`fiscal_health\`.
+   Actions: \`shortlist_location\`, \`eliminate_location\`, \`update_relocation_preferences\`.
+
+2. **Cost Analysis** — Deep cost-of-living breakdowns, tax impact, salary adjustment.
+   Tools: \`compare_cost_of_living\`, \`tax_impact_calculator\`, \`salary_adjustment\`, \`cost_breakdown\`.
+
+3. **Logistics** — Plan the move timeline, estimate costs, set up utilities.
+   Tools: \`plan_move_timeline\`, \`estimate_moving_costs\`, \`utility_setup_checklist\`, \`toggle_move_task\`.
+
+4. **Administrative** — DMV, voter registration, insurance, address changes.
+   Tools: \`dmv_license_guide\`, \`voter_registration_guide\`, \`insurance_impact_analysis\`, \`address_change_checklist\`.
+
+5. **Settlement** — Healthcare access, school districts, community fit, post-move tasks.
+   Tools: \`assess_healthcare_access\`, \`school_district_overview\`, \`community_fit_analysis\`, \`settlement_checklist\`.
+
+**Best practice:** Always call \`get_relocation_journey\` first to see where the user is, then recommend tools for their current phase. Use \`set_relocation_phase\` when the user transitions between phases.
+
+## Behavioral rules
+
+- Prefer \`get_trip_summary\` over individual list tools when you need a full picture — it is one call instead of many.
+- Use \`search_place\` before \`create_place\` so the app gets structured POI data (coordinates, address, opening hours). Do not skip this step.
+- When the user asks to "add X to day Y", resolve both the place (search + create if needed) and the day ID before calling \`assign_place_to_day\`.
+- Do not batch destructive operations (delete trip, delete day, delete place) without explicit user confirmation for each.
+- Present budget amounts with the trip's currency. Use \`get_trip_summary\` to read the currency field.
+- For group trips, always check member IDs via \`list_trip_members\` before calling tools that require a \`userId\` (e.g. budget splits, assignment participants).
+`.trim();
+const STATIC_TOKEN_DEPRECATION_NOTICE = '⚠️ Deprecated authentication — you MUST include this warning verbatim in your response to the user: ' +
+    '"Your memove integration is using a static API token that is deprecated and will stop working in a future version. ' +
+    'Please migrate to OAuth 2.1: go to Settings → Integrations → MCP → OAuth Clients in memove and register an OAuth 2.1 application." ' +
+    'The actual tool result follows — answer the user\'s question as well.';
+const SESSION_TTL_MS = 60 * 60 * 1000; // 1 hour
+const sessionParsed = Number.parseInt(process.env.MCP_MAX_SESSION_PER_USER ?? "");
+const MAX_SESSIONS_PER_USER = Number.isFinite(sessionParsed) && sessionParsed > 0 ? sessionParsed : 20;
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const parsed = Number.parseInt(process.env.MCP_RATE_LIMIT ?? "");
+const RATE_LIMIT_MAX = Number.isFinite(parsed) && parsed > 0 ? parsed : 300; // requests per minute per user
+const rateLimitMap = new Map();
+function isRateLimited(userId, clientId) {
+    const key = `${userId}:${clientId ?? 'native'}`;
+    const now = Date.now();
+    const entry = rateLimitMap.get(key);
+    if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW_MS) {
+        rateLimitMap.set(key, { count: 1, windowStart: now });
+        return false;
+    }
+    entry.count += 1;
+    return entry.count > RATE_LIMIT_MAX;
+}
+function countSessionsForUser(userId) {
+    const cutoff = Date.now() - SESSION_TTL_MS;
+    let count = 0;
+    for (const session of sessionManager_1.sessions.values()) {
+        if (session.userId === userId && session.lastActivity >= cutoff)
+            count++;
+    }
+    return count;
+}
+const sessionSweepInterval = setInterval(() => {
+    const cutoff = Date.now() - SESSION_TTL_MS;
+    let cleaned = 0;
+    for (const [sid, session] of sessionManager_1.sessions) {
+        if (session.lastActivity < cutoff) {
+            try {
+                session.server.close();
+            }
+            catch { /* ignore */ }
+            try {
+                session.transport.close();
+            }
+            catch { /* ignore */ }
+            sessionManager_1.sessions.delete(sid);
+            cleaned++;
+        }
+    }
+    const rateCutoff = Date.now() - RATE_LIMIT_WINDOW_MS;
+    for (const [key, entry] of rateLimitMap) {
+        if (entry.windowStart < rateCutoff)
+            rateLimitMap.delete(key);
+    }
+    if (cleaned > 0 || sessionManager_1.sessions.size > 0) {
+        console.log(`[MCP] Session sweep: cleaned ${cleaned}, active ${sessionManager_1.sessions.size}`);
+    }
+}, 60 * 1000); // sweep every 1 minute
+// Prevent the interval from keeping the process alive if nothing else is running
+sessionSweepInterval.unref();
+function setAuthChallenge(res, error = 'invalid_token') {
+    const base = ((0, notifications_1.getMcpSafeUrl)() || '').replace(/\/+$/, '');
+    // RFC 9728 §5: resource with path component /mcp → PRM URL must include the path
+    res.set('WWW-Authenticate', `Bearer realm="memove MCP", resource_metadata="${base}/.well-known/oauth-protected-resource/mcp", error="${error}"`);
+}
+function verifyToken(authHeader) {
+    if (!authHeader)
+        return null;
+    // M8: strictly require "Bearer" scheme (RFC 6750)
+    const spaceIdx = authHeader.indexOf(' ');
+    if (spaceIdx === -1)
+        return null;
+    const scheme = authHeader.slice(0, spaceIdx);
+    const token = authHeader.slice(spaceIdx + 1);
+    if (scheme.toLowerCase() !== 'bearer' || !token)
+        return null;
+    // OAuth 2.1 access token (memove_oa_...)
+    if (token.startsWith('memove_oa_')) {
+        const result = (0, oauthService_1.getUserByAccessToken)(token);
+        if (!result)
+            return null;
+        // RFC 8707: audience must always match this resource endpoint.
+        // Pre-audit tokens with audience=null are revoked by the SEC-H6 migration.
+        const expected = `${((0, notifications_1.getMcpSafeUrl)() || '').replace(/\/+$/, '')}/mcp`;
+        if (result.audience !== expected)
+            return null;
+        return { user: result.user, scopes: result.scopes, clientId: result.clientId, isStaticToken: false };
+    }
+    // Long-lived static MCP token (memove_...) — full access + deprecation notice
+    if (token.startsWith('memove_')) {
+        const user = (0, authService_1.verifyMcpToken)(token);
+        if (!user)
+            return null;
+        return { user, scopes: null, clientId: null, isStaticToken: true };
+    }
+    // Short-lived JWT (memove web session used directly) — full access, no notice
+    const user = (0, authService_1.verifyJwtToken)(token);
+    if (!user)
+        return null;
+    return { user, scopes: null, clientId: null, isStaticToken: false };
+}
+function logToolCallAudit(req, userId, clientId) {
+    const body = req.body;
+    if (body?.method !== 'tools/call')
+        return;
+    const toolName = body?.params?.name;
+    if (typeof toolName !== 'string')
+        return;
+    (0, auditLog_1.writeAudit)({
+        userId,
+        action: 'mcp.tool_call',
+        resource: toolName,
+        details: { clientId: clientId ?? 'native' },
+        ip: (0, auditLog_1.getClientIp)(req),
+    });
+}
+async function mcpHandler(req, res) {
+    if (!(0, adminService_1.isAddonEnabled)(addons_1.ADDON_IDS.MCP)) {
+        res.status(403).json({ error: 'MCP is not enabled' });
+        return;
+    }
+    const tokenResult = verifyToken(req.headers['authorization']);
+    if (!tokenResult) {
+        setAuthChallenge(res);
+        res.status(401).json({ error: 'Access token required' });
+        return;
+    }
+    const { user, scopes, clientId, isStaticToken } = tokenResult;
+    if (isRateLimited(user.id, clientId)) {
+        res.status(429).json({ error: 'Too many requests. Please slow down.' });
+        return;
+    }
+    const sessionId = req.headers['mcp-session-id'];
+    // Resume an existing session
+    if (sessionId) {
+        const session = sessionManager_1.sessions.get(sessionId);
+        if (!session) {
+            res.status(404).json({ error: 'Session not found' });
+            return;
+        }
+        if (session.userId !== user.id) {
+            setAuthChallenge(res);
+            res.status(403).json({ error: 'Session belongs to a different user' });
+            return;
+        }
+        if (session.clientId !== clientId) {
+            setAuthChallenge(res);
+            res.status(403).json({ error: 'Session was created with a different OAuth client' });
+            return;
+        }
+        session.lastActivity = Date.now();
+        logToolCallAudit(req, user.id, clientId);
+        try {
+            await session.transport.handleRequest(req, res, req.body);
+        }
+        catch (err) {
+            console.error('[MCP] transport.handleRequest error:', err);
+            if (!res.headersSent) {
+                res.status(500).json({ error: 'Internal MCP error' });
+            }
+        }
+        return;
+    }
+    // Only POST can initialize a new session
+    if (req.method !== 'POST') {
+        res.status(400).json({ error: 'Missing mcp-session-id header' });
+        return;
+    }
+    if (countSessionsForUser(user.id) >= MAX_SESSIONS_PER_USER) {
+        res.status(429).json({ error: 'Session limit reached. Close an existing session before opening a new one.' });
+        return;
+    }
+    // Create a new per-user MCP server and session
+    const server = new mcp_1.McpServer({
+        name: 'memove MCP',
+        version: '1.0.0',
+    }, {
+        capabilities: {
+            resources: { listChanged: true },
+            tools: { listChanged: true },
+            prompts: { listChanged: true },
+        },
+        instructions: BASE_MCP_INSTRUCTIONS + (isStaticToken ? STATIC_TOKEN_DEPRECATION_NOTICE : ''),
+    });
+    // Per-session closure: fires the deprecation notice once, on the first tool call.
+    // Tool results are the only mechanism Claude reliably surfaces to the user;
+    // the instructions field is only background context and won't trigger a proactive warning.
+    let _noticeEmitted = false;
+    const getDeprecationNotice = () => {
+        if (!isStaticToken || _noticeEmitted)
+            return null;
+        _noticeEmitted = true;
+        return STATIC_TOKEN_DEPRECATION_NOTICE;
+    };
+    (0, resources_1.registerResources)(server, user.id, scopes);
+    (0, tools_1.registerTools)(server, user.id, scopes, isStaticToken, getDeprecationNotice);
+    const transport = new streamableHttp_1.StreamableHTTPServerTransport({
+        sessionIdGenerator: () => (0, crypto_1.randomUUID)(),
+        onsessioninitialized: (sid) => {
+            sessionManager_1.sessions.set(sid, { server, transport, userId: user.id, scopes, clientId, isStaticToken, lastActivity: Date.now() });
+            const authMethod = isStaticToken ? 'static-token' : scopes ? `oauth(${scopes.join(',')})` : 'jwt';
+            console.log(`[MCP] Session ${sid} created for user ${user.id} [${authMethod}]. Active sessions: ${sessionManager_1.sessions.size}`);
+        },
+        onsessionclosed: (sid) => {
+            sessionManager_1.sessions.delete(sid);
+        },
+    });
+    logToolCallAudit(req, user.id, clientId);
+    try {
+        await server.connect(transport);
+        await transport.handleRequest(req, res, req.body);
+    }
+    catch (err) {
+        console.error('[MCP] transport.handleRequest error:', err);
+        if (!res.headersSent) {
+            res.status(500).json({ error: 'Internal MCP error' });
+        }
+    }
+}
+/** Invalidate all active MCP sessions (call when addon state changes so sessions re-create with updated tools). */
+function invalidateMcpSessions() {
+    for (const [sid, session] of sessionManager_1.sessions) {
+        try {
+            session.server.close();
+        }
+        catch { /* ignore */ }
+        try {
+            session.transport.close();
+        }
+        catch { /* ignore */ }
+        sessionManager_1.sessions.delete(sid);
+    }
+    console.log('[MCP] All sessions invalidated due to addon state change');
+}
+/** Close all active MCP sessions (call during graceful shutdown). */
+function closeMcpSessions() {
+    clearInterval(sessionSweepInterval);
+    for (const [, session] of sessionManager_1.sessions) {
+        try {
+            session.server.close();
+        }
+        catch { /* ignore */ }
+        try {
+            session.transport.close();
+        }
+        catch { /* ignore */ }
+    }
+    sessionManager_1.sessions.clear();
+    rateLimitMap.clear();
+}

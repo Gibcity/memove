@@ -70,17 +70,17 @@ Return this exact block at the end of your summary:
 | Build shared (required before client/server dev) | `pnpm --filter @memove/shared build` |
 | Full build | `pnpm build` |
 | Eval fixtures | `pnpm eval` |
-| Reset admin password | `cd server && node reset-admin.js` |
+| Reset admin password | `cd apps/api && node reset-admin.js` |
 
-Server runs on `:3000`, client on `:5173`. SQLite at `server/data/dev.db` (gitignored; created on first boot).
+Server runs on `:3000`, client on `:5173`. SQLite at `apps/api/data/dev.db` (gitignored; created on first boot).
 
 ---
 
 ## 3. Codebase navigation (when you don't know where something is)
 
 1. **Start with the directory convention** (see AGENTS.md §2): the domain name
-   usually maps 1:1 to `shared/src/<domain>/`, `server/src/nest/<domain>/`,
-   `client/src/pages/<Domain>/`.
+   usually maps 1:1 to `packages/shared/src/<domain>/`, `apps/api/src/nest/<domain>/`,
+   `apps/web/src/pages/<Domain>/`.
 2. **For investigation before delegating**, prefer the **codegraph MCP**
    (`mcp__codegraph__codegraph_explore`) — one capped call replaces 3-5
    `read_file`s. **Do not** use it for post-commit verification (index is stale).
@@ -150,7 +150,7 @@ fix the check (in the same commit).
 ## 7. Out of scope for these files
 
 These belong in dedicated docs, not here:
-- Full API surface → OpenAPI spec at `server/openapi/` (auto-generated)
+- Full API surface → OpenAPI spec at `apps/api/openapi/` (auto-generated)
 - Operator install / Unraid / photo providers → `wiki/`
 - System-notices internals → `docs/system-notices.md`
 - Relocation planning → root-level `CONTRACT.md`, `INVENTORY.md`, `BRIEF-*.md`

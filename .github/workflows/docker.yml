@@ -110,7 +110,7 @@ jobs:
           # Commit and tag
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json server/package.json client/package.json shared/package.json charts/memove/Chart.yaml
+          git add package.json package-lock.json apps/api/package.json apps/web/package.json packages/shared/package.json charts/memove/Chart.yaml
           git commit -m "chore: bump version to $NEW_VERSION [skip ci]"
           git tag "v$NEW_VERSION"
           git push origin main --follow-tags

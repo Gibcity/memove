@@ -3,9 +3,8 @@
   "private": true,
   "version": "3.1.2",
   "workspaces": [
-    "client",
-    "server",
-    "shared"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "version:major": "npm version major --workspaces --include-workspace-root --no-git-tag-version",
@@ -15,15 +14,15 @@
     "version:preminor": "npm version preminor --preid=beta --workspaces --include-workspace-root --no-git-tag-version",
     "version:prepatch": "npm version prepatch --preid=alpha --workspaces --include-workspace-root --no-git-tag-version",
     "version:prerelease": "npm version prerelease --preid=pre --workspaces --include-workspace-root --no-git-tag-version",
-    "dev": "npm run build --workspace=shared && concurrently --names shared,server,client \"npm run build:watch --workspace=shared\" \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
-    "build": "npm run build --workspace=shared && npm run build --workspace=server && npm run build --workspace=client",
-    "test": "npm run test --workspace=shared && npm run test --workspace=server && npm run test --workspace=client",
-    "test:cov": "npm run test:coverage --workspace=server && npm run test:coverage --workspace=client",
-    "test:e2e": "npm run test:e2e --workspace=server",
-    "lint": "npm run lint --workspace=shared && npm run lint --workspace=server && npm run lint --workspace=client",
+    "dev": "npm run build --workspace=@memove/shared && concurrently --names shared,server,client \"npm run build:watch --workspace=@memove/shared\" \"npm run dev --workspace=@memove/server\" \"npm run dev --workspace=@memove/client\"",
+    "build": "npm run build --workspace=@memove/shared && npm run build --workspace=@memove/server && npm run build --workspace=@memove/client",
+    "test": "npm run test --workspace=@memove/shared && npm run test --workspace=@memove/server && npm run test --workspace=@memove/client",
+    "test:cov": "npm run test:coverage --workspace=@memove/server && npm run test:coverage --workspace=@memove/client",
+    "test:e2e": "npm run test:e2e --workspace=@memove/server",
+    "lint": "npm run lint --workspace=@memove/shared && npm run lint --workspace=@memove/server && npm run lint --workspace=@memove/client",
     "lint:docs": "node scripts/check-agents-md.mjs",
-    "format": "npm run format --workspace=shared && npm run format --workspace=server && npm run format --workspace=client",
-    "format:check": "npm run format:check --workspace=shared && npm run format:check --workspace=server && npm run format:check --workspace=client",
+    "format": "npm run format --workspace=@memove/shared && npm run format --workspace=@memove/server && npm run format --workspace=@memove/client",
+    "format:check": "npm run format:check --workspace=@memove/shared && npm run format:check --workspace=@memove/server && npm run format:check --workspace=@memove/client",
     "eval": "node scripts/eval.mjs"
   },
   "devDependencies": {

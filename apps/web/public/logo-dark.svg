@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="80" viewBox="0 0 158 60" fill="none">
+  <!-- Location pin icon -->
+  <path d="M14 6 C9.58 6 6 9.58 6 14 C6 21 14 32 14 32 C14 32 22 21 22 14 C22 9.58 18.42 6 14 6 Z M14 17.5 C12.62 17.5 11.5 16.38 11.5 15 C11.5 13.62 12.62 12.5 14 12.5 C15.38 12.5 16.5 13.62 16.5 15 C16.5 16.38 15.38 17.5 14 17.5 Z" fill="#ffffff"/>
+  <!-- memove wordmark -->
+  <text x="32" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="-0.5" fill="#ffffff">memove</text>
+</svg>
