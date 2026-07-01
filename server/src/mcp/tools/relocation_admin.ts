@@ -4,6 +4,8 @@ import { isAddonEnabled } from '../../services/adminService';
 import { ADDON_IDS } from '../../addons';
 import { TOOL_ANNOTATIONS_READONLY, ok } from './_shared';
 import { canRead } from '../scopes';
+import type { Location } from '@memove/shared';
+import { loadLocations } from '../../nest/relocation/locations.loader';
 
 /**
  * MCP tools for the relocation add-on — Administrative & Legal agent.
@@ -312,17 +314,11 @@ export function registerAdminTools(
       annotations: TOOL_ANNOTATIONS_READONLY,
     },
     async ({ fromLocationId, toLocationId }) => {
-      // ponytail: read from the same source relocation.ts uses — lazy, no second loader.
-      const fs = await import('fs/promises');
-      const path = await import('path');
-      const jsonPath = path.join(
-        process.cwd(),
-        'sources/processed/relocation/locations.json',
-      );
-      let locations: Array<{ id: string; state: string; name: string; cost: { costOfLivingIndex: number; medianHomeValue: number; propertyTaxRate: number } }> = [];
+      // ponytail: shared loader — graceful on missing file so the tool still
+      // returns qualitative guidance if the dataset isn't built yet.
+      let locations: Location[] = [];
       try {
-        const raw = await fs.readFile(jsonPath, 'utf8');
-        locations = JSON.parse(raw);
+        locations = loadLocations();
       } catch {
         // ponytail: dataset missing — still return qualitative guidance rather than fail
       }

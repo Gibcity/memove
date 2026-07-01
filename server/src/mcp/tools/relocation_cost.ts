@@ -1,11 +1,11 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
 import { z } from 'zod';
-import * as fs from 'fs';
-import * as path from 'path';
 import { isAddonEnabled } from '../../services/adminService';
 import { ADDON_IDS } from '../../addons';
 import { TOOL_ANNOTATIONS_READONLY, ok } from './_shared';
 import { canRead } from '../scopes';
+import type { Location } from '@memove/shared';
+import { loadLocations } from '../../nest/relocation/locations.loader';
 
 /**
  * MCP tools for the Cost of Living Deep-Dive agent.
@@ -16,20 +16,7 @@ import { canRead } from '../scopes';
  * Scope-gated: relocation:read for all ops.
  */
 
-// ── Data loading (mirrors RelocationService's source of truth) ───────────────
-
-const LOCATIONS_PATH = path.resolve(
-  __dirname,
-  '../../../../sources/processed/relocation/locations.json',
-);
-
-let _cache: any[] | null = null;
-function loadLocations(): any[] {
-  if (_cache === null) _cache = JSON.parse(fs.readFileSync(LOCATIONS_PATH, 'utf-8'));
-  return _cache!;
-}
-
-function resolveLocation(idOrName: string): any | null {
+function resolveLocation(idOrName: string): Location | null {
   const locs = loadLocations();
   const norm = idOrName.toLowerCase().trim();
   // ponytail: fuzzy lookup that tolerates "austin-tx" vs the full CBSA
