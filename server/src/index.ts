@@ -81,6 +81,7 @@ const onListen = () => {
   scheduler.startMemovePhotoCacheCleanup();
   scheduler.startPlacePhotoCacheCleanup();
   scheduler.startAirTrailSync();
+  scheduler.startAgentTasks();
   const { startTokenCleanup } = require('./services/ephemeralTokens');
   startTokenCleanup();
   import('./websocket').then(({ setupWebSocket }) => {

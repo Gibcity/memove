@@ -337,7 +337,72 @@ function startIdempotencyCleanup(): void {
   }, { timezone: tz });
 }
 
-// memove photo cache cleanup: every 2 hours — evict disk files and DB rows past their 1h TTL
+// Agent tasks: weekly COL snapshot diff, monthly housing-market refresh, hourly listing
+// alerts during active house-hunt. Wrappers below log TODO and return today; the underlying
+// service methods are real deliverables of later roadmap items. Pattern copied from
+// startTripReminders: per-task currentTask ref, stop guard, app_settings defaults,
+// tz = process.env.TZ || 'UTC', try/catch per tick with logError.
+let agentColTask: ScheduledTask | null = null;
+let agentHousingTask: ScheduledTask | null = null;
+let agentListingsTask: ScheduledTask | null = null;
+
+function startAgentTasks(): void {
+  const { db } = require('./db/database');
+  const getSetting = (key: string, fallback: string) => {
+    try {
+      const v = (db.prepare('SELECT value FROM app_settings WHERE key = ?').get(key) as { value: string } | undefined)?.value;
+      return v ?? fallback;
+    } catch { return fallback; }
+  };
+
+  const tz = process.env.TZ || 'UTC';
+
+  // (1) weekly cost-of-living snapshot diff — Sunday 06:00 local
+  if (agentColTask) { agentColTask.stop(); agentColTask = null; }
+  if (getSetting('agent_col_diff_enabled', 'true') !== 'false') {
+    agentColTask = cron.schedule('0 6 * * 0', async () => {
+      try {
+        const { colService } = require('./services/agents/colService');
+        await colService.snapshotAndDiff();
+      } catch (err: unknown) {
+        logError(`Agent COL diff: ${err instanceof Error ? err.message : err}`);
+      }
+    }, { timezone: tz });
+  }
+
+  // (2) monthly housing-market refresh — 1st of month 04:00 local
+  if (agentHousingTask) { agentHousingTask.stop(); agentHousingTask = null; }
+  if (getSetting('agent_housing_refresh_enabled', 'true') !== 'false') {
+    agentHousingTask = cron.schedule('0 4 1 * *', async () => {
+      try {
+        const { housingMarketService } = require('./services/agents/housingMarketService');
+        await housingMarketService.refresh();
+      } catch (err: unknown) {
+        logError(`Agent housing refresh: ${err instanceof Error ? err.message : err}`);
+      }
+    }, { timezone: tz });
+  }
+
+  // (3) hourly listing alerts — only while a journey is in active house-hunt phase
+  if (agentListingsTask) { agentListingsTask.stop(); agentListingsTask = null; }
+  if (getSetting('agent_listing_alerts_enabled', 'true') !== 'false') {
+    agentListingsTask = cron.schedule('0 * * * *', async () => {
+      try {
+        const { db } = require('./db/database');
+        const inHunt = (db.prepare(
+          "SELECT 1 FROM app_settings WHERE key = 'active_house_hunt' AND value = 'true'"
+        ).get() as { 1: number } | undefined) !== undefined;
+        if (!inHunt) return;
+        const { listingAlertService } = require('./services/agents/listingAlertService');
+        await listingAlertService.scanAndNotify();
+      } catch (err: unknown) {
+        logError(`Agent listing alerts: ${err instanceof Error ? err.message : err}`);
+      }
+    }, { timezone: tz });
+  }
+}
+
+// Memove photo cache cleanup: every 2 hours — evict disk files and DB rows past their 1h TTL
 let memovePhotoCacheTask: ScheduledTask | null = null;
 
 function startMemovePhotoCacheCleanup(): void {
@@ -417,6 +482,9 @@ function stop(): void {
   if (memovePhotoCacheTask) { memovePhotoCacheTask.stop(); memovePhotoCacheTask = null; }
   if (placePhotoCacheTask) { placePhotoCacheTask.stop(); placePhotoCacheTask = null; }
   if (airtrailSyncTask) { airtrailSyncTask.stop(); airtrailSyncTask = null; }
+  if (agentColTask) { agentColTask.stop(); agentColTask = null; }
+  if (agentHousingTask) { agentHousingTask.stop(); agentHousingTask = null; }
+  if (agentListingsTask) { agentListingsTask.stop(); agentListingsTask = null; }
 }
 
-export { start, stop, startDemoReset, startTripReminders, startTodoReminders, startVersionCheck, startIdempotencyCleanup, purgeExpiredIdempotencyKeys, startMemovePhotoCacheCleanup, startPlacePhotoCacheCleanup, startAirTrailSync, loadSettings, saveSettings, VALID_INTERVALS };
+export { start, stop, startDemoReset, startTripReminders, startTodoReminders, startVersionCheck, startIdempotencyCleanup, purgeExpiredIdempotencyKeys, startMemovePhotoCacheCleanup, startPlacePhotoCacheCleanup, startAirTrailSync, startAgentTasks, loadSettings, saveSettings, VALID_INTERVALS };
