@@ -15,6 +15,9 @@ const W = {
   healthcare: z.number().int().min(0).max(5).optional(),
   jobs: z.number().int().min(0).max(5).optional(),
   outdoors: z.number().int().min(0).max(5).optional(),
+  // ponytail: BACKLOG #10 — fiber dimension for Marco persona. Optional so
+  // existing clients that send only the original six keys still validate.
+  fiber: z.number().int().min(0).max(5).optional(),
 };
 const weights = z.object(W).optional();
 
@@ -223,8 +226,22 @@ function annualPropertyTax(loc: any, homeValueOverride?: number): number {
   return hv * (loc.cost?.propertyTaxRate ?? 0);
 }
 
-function annualIncomeTax(income: number, stateRate: number): number {
-  return income * (0.12 + stateRate);
+// ponytail: derive SS-exempt from state code — data JSON doesn't carry the flag.
+// SS-exempt states: SC, PA, MS, GA, AL (+ all zero-income-tax states return $0 state tax anyway).
+const SS_EXEMPT_STATES = new Set(['SC', 'PA', 'MS', 'GA', 'AL']);
+const NO_INCOME_TAX_STATES = new Set(['TX', 'FL', 'NV', 'SD', 'WA', 'WY', 'TN', 'NH']);
+
+function stateIncomeRate(loc: any): number {
+  // ponytail: marginal-rate-on-full-income is wrong for SS-exempt states
+  // (SC/PA/MS/GA/AL) and for zero-income-tax states. Upgrade path: per-income-type
+  // bracket model fed by an explicit {wages, ss, retirement, other} split.
+  const code = loc?.state ?? '';
+  if (SS_EXEMPT_STATES.has(code) || NO_INCOME_TAX_STATES.has(code)) return 0;
+  return loc?.cost?.stateIncomeTaxRate ?? 0;
+}
+
+function annualIncomeTax(loc: any, income: number): number {
+  return income * (0.12 + stateIncomeRate(loc));
 }
 
 function annualTransportation(loc: any): number {
@@ -310,7 +327,7 @@ const costTools: ToolDefinition[] = [
         if (!loc) continue;
         const b = buildBreakdown(loc, (args.householdSize as number | undefined) ?? 2);
         const incTax = args.householdIncome
-          ? annualIncomeTax(args.householdIncome as number, loc.cost?.stateIncomeTaxRate ?? 0)
+          ? annualIncomeTax(loc, args.householdIncome as number)
           : 0;
         const annualTotal = totals(b, true) + incTax;
         breakdown[loc.id] = {
@@ -381,8 +398,11 @@ const costTools: ToolDefinition[] = [
       const hv = (args.homeValue as number | undefined) ?? to.cost?.medianHomeValue ?? 0;
       const fedFlat = 0.12;
       const income = args.annualIncome as number;
-      const fromInc = income * (fedFlat + (from.cost?.stateIncomeTaxRate ?? 0));
-      const toInc = income * (fedFlat + (to.cost?.stateIncomeTaxRate ?? 0));
+      // ponytail: shared stateIncomeRate() handles SS-exempt + zero-income-tax short-circuits.
+      const fromStateRate = stateIncomeRate(from);
+      const toStateRate = stateIncomeRate(to);
+      const fromInc = income * (fedFlat + fromStateRate);
+      const toInc = income * (fedFlat + toStateRate);
       const fromProp = hv * (from.cost?.propertyTaxRate ?? 0);
       const toProp = hv * (to.cost?.propertyTaxRate ?? 0);
       const fromTotal = fromInc + fromProp;
@@ -394,8 +414,8 @@ const costTools: ToolDefinition[] = [
         annualIncome: income,
         homeValueUsed: hv,
         incomeTax: {
-          from: { stateRate: from.cost?.stateIncomeTaxRate, total: fromInc, federal: income * fedFlat, state: income * (from.cost?.stateIncomeTaxRate ?? 0) },
-          to: { stateRate: to.cost?.stateIncomeTaxRate, total: toInc, federal: income * fedFlat, state: income * (to.cost?.stateIncomeTaxRate ?? 0) },
+          from: { stateRate: from.cost?.stateIncomeTaxRate, total: fromInc, federal: income * fedFlat, state: income * fromStateRate },
+          to: { stateRate: to.cost?.stateIncomeTaxRate, total: toInc, federal: income * fedFlat, state: income * toStateRate },
           delta: toInc - fromInc,
         },
         propertyTax: {
