@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import OpenAI from 'openai';
 import { RelocationService } from './relocation.service';
 import { RelocationJourneyService } from './relocation-journey.service';
-import { completeWithTools, completeStream } from '../../services/llm/client';
+import { completeWithTools } from '../../services/llm/client';
 import {
   ALL_RELOCATION_TOOLS,
   type RelocationServices,
@@ -25,7 +24,11 @@ export interface ChatHistoryItem {
 
 const SYSTEM_PROMPT = `You are a relocation planning assistant. You help users discover, evaluate, and compare places to live. You have tools to search locations, score them by weighted criteria, compare head-to-head, check fiscal health, explain scores, and more.
 
-Always use the most relevant tool when the user asks a factual question. After getting tool results, explain your findings concisely in 2-3 sentences. Don't make up data — if you don't have a tool for what's needed, say so.`;
+Always use the most relevant tool when the user asks a factual question. After getting tool results, explain your findings concisely in 2-3 sentences. Don't make up data — if you don't have a tool for what's needed, say so.
+
+Hard rules:
+- Never invent numbers, prices, statistics, or rankings. Every factual claim must come from a tool result.
+- If no tool fits the question, reply exactly: "I don't have data for that." Do not guess.`;
 
 @Injectable()
 export class RelocationChatService {
@@ -79,9 +82,18 @@ export class RelocationChatService {
 
   /**
    * Streaming variant of `handle()` — yields text tokens incrementally so the
-   * UI can render before the full response lands. Plain LLM only (no tools);
-   * tool-calling streaming stays in the non-streaming path because we'd need
-   * to accumulate streaming tool-call args and branch on completion.
+   * UI can render before the full response lands.
+   *
+   * Tool-grounded: runs `handle()` first (LLM tool-calling + handler execution)
+   * to produce a grounded result, then streams the final synthesis text word
+   * by word so the SSE wire shape stays compatible with the FE's streaming
+   * UI. Previously this called `completeStream()` directly (plain LLM, no
+   * tools) — which is why "compare Austin vs Raleigh for taxes" returned
+   * invented numbers instead of tool data.
+   *
+   * ponytail: streaming is purely a display optimization once the answer is
+   * grounded — we already paid the tool-call latency. True mid-tool-call SSE
+   * tokens (accumulate streaming tool args, branch on finish) is out of scope.
    */
   async *handleStream(
     userId: string,
@@ -89,13 +101,16 @@ export class RelocationChatService {
     history?: ChatHistoryItem[],
     signal?: AbortSignal,
   ): AsyncIterable<string> {
-    const uid = String(userId);
-    const journeyState = this.journey.getJourney(Number(uid));
-    const messages = this.buildMessages(uid, message, history, journeyState);
-    yield* completeStream(
-      messages as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
-      { temperature: 0.6, maxTokens: 1000, signal },
-    );
+    const result = await this.handle(userId, message, history);
+    const tokens = result.text.split(/(\s+)/); // keep whitespace as its own token
+    for (const tok of tokens) {
+      if (signal?.aborted) return;
+      yield tok;
+      // ponytail: tiny yield-tick so the FE paints between tokens. Skipped
+      // real per-token delays (would drag the final word out). The UI sees
+      // a single fast burst instead of a 200ms-per-word typewriter.
+      if (tok.trim().length > 0) await new Promise((r) => setTimeout(r, 4));
+    }
   }
 
   private buildMessages(
@@ -109,7 +124,7 @@ export class RelocationChatService {
         ? ` Shortlisted cities: ${journey.shortlistedLocations.join(', ')}.`
         : ' No cities shortlisted yet.'
     }`;
-    const trimmedHistory = (history ?? []).slice(-10).map((h) => ({
+    const trimmedHistory = (history ?? []).slice(-20).map((h) => ({
       role: h.role === 'agent' ? 'assistant' : 'user',
       content: h.content,
     }));

@@ -80,3 +80,76 @@ describe('POST /api/relocation/chat — tool calling chain', () => {
     expect(createMock).toHaveBeenCalledOnce();
   });
 });
+
+/**
+ * Regression: streaming chat previously bypassed tools entirely (called
+ * completeStream() — plain LLM, no tool access). "Compare Austin vs Raleigh
+ * for taxes" returned invented numbers. Fix: handleStream now routes through
+ * handle() (which calls completeWithTools), then streams the grounded text.
+ * These tests assert the streaming path invokes tools and streams text — the
+ * FE never receives a tool-free hallucination on the happy path.
+ */
+describe('POST /api/relocation/chat/stream — tool-grounded streaming', () => {
+  it('routes through tool-calling and streams the grounded synthesis text', async () => {
+    const { user } = createUser(testDb);
+    // Same fixture shape as the non-streaming tool-call test — if streaming
+    // bypasses tools, this mock would never be called.
+    createMock.mockResolvedValueOnce({
+      choices: [{
+        message: {
+          content: 'Tool says: Austin tax burden is 1.8%, Raleigh is 2.1%.',
+          tool_calls: [{ type: 'function', function: { name: 'compare_locations', arguments: '{"locationIds":["austin-tx","raleigh-nc"]}' } }],
+        },
+      }],
+    });
+
+    const res = await request(app)
+      .post('/api/relocation/chat/stream')
+      .set('Cookie', authCookie(user.id))
+      .send({ message: 'compare Austin vs Raleigh for taxes' });
+
+    expect(res.status).toBe(200);
+    expect(res.headers['content-type']).toMatch(/text\/event-stream/);
+    // The LLM (tool-calling path) must have been invoked — if it wasn't,
+    // we silently fell back to plain completeStream (the old bug).
+    expect(createMock).toHaveBeenCalledOnce();
+    const createArgs = createMock.mock.calls[0]?.[0] as { tools?: unknown[] };
+    expect(createArgs?.tools).toBeDefined();
+    // Reassemble SSE `{"t":"..."}` tokens and check the grounded text arrives.
+    // Ponytail: one tiny parser inline — the FE has the same logic in
+    // useChatStream.ts, this just mirrors it for the test.
+    const tokens = [...res.text.matchAll(/"t":"((?:[^"\\]|\\.)*)"/g)].map((m) =>
+      JSON.parse(`"${m[1]}"`) as string,
+    );
+    expect(tokens.join('')).toBe(
+      'Tool says: Austin tax burden is 1.8%, Raleigh is 2.1%.',
+    );
+    expect(res.text).toMatch(/\[DONE\]/);
+  });
+
+  it('returns a no-data refusal on the streaming path when no tool fits', async () => {
+    const { user } = createUser(testDb);
+    // LLM declines to call a tool — handle() returns just text, no `tool`.
+    createMock.mockResolvedValueOnce({
+      choices: [{
+        message: {
+          content: "I don't have data for that.",
+          tool_calls: undefined,
+        },
+      }],
+    });
+
+    const res = await request(app)
+      .post('/api/relocation/chat/stream')
+      .set('Cookie', authCookie(user.id))
+      .send({ message: 'what is the meaning of life' });
+
+    expect(res.status).toBe(200);
+    expect(createMock).toHaveBeenCalledOnce();
+    const tokens = [...res.text.matchAll(/"t":"((?:[^"\\]|\\.)*)"/g)].map((m) =>
+      JSON.parse(`"${m[1]}"`) as string,
+    );
+    expect(tokens.join('')).toBe("I don't have data for that.");
+    expect(res.text).toMatch(/\[DONE\]/);
+  });
+});
