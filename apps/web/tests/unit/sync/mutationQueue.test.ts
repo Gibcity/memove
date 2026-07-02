@@ -195,6 +195,37 @@ describe('mutationQueue.flush — network error', () => {
     expect(m!.status).toBe('pending');
     expect(m!.attempts).toBe(1);
   });
+
+  it('drops a poisoned mutation as failed once MAX_ATTEMPTS is reached, and continues draining later entries', async () => {
+    const poisonedId = generateUUID();
+    const survivorId = generateUUID();
+    await mutationQueue.enqueue(makeMutation({ id: poisonedId }));
+    await mutationQueue.enqueue(makeMutation({ id: survivorId }));
+
+    server.use(
+      http.post('/api/trips/1/places', ({ request }) => {
+        // key off idempotency header so the survivor (second call) can succeed
+        if (request.headers.get('x-idempotency-key') === survivorId) {
+          return HttpResponse.json({ place: buildPlace({ trip_id: 1 }) });
+        }
+        return HttpResponse.error();
+      }),
+    );
+
+    // First two flushes: poisoned retries (attempts 1, 2). Third: drops as failed (attempts 3).
+    await mutationQueue.flush();
+    await mutationQueue.flush();
+    await mutationQueue.flush();
+
+    const poisoned = await offlineDb.mutationQueue.get(poisonedId);
+    expect(poisoned).toBeDefined();
+    expect(poisoned!.status).toBe('failed');
+    expect(poisoned!.attempts).toBe(3);
+
+    // Survivor still got drained across the same flushes (not blocked at the head).
+    const survivor = await offlineDb.mutationQueue.get(survivorId);
+    expect(survivor).toBeUndefined();
+  });
 });
 
 // ── flush — offline guard ─────────────────────────────────────────────────────

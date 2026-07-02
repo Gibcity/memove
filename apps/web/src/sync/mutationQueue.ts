@@ -62,6 +62,12 @@ function isRetryableStatus(status: number | undefined): boolean {
   return status === 401 || status === 408 || status === 425 || status === 429
 }
 
+/** Cap on transient/network retries before a mutation is dropped as failed.
+ *  Prevents a poisoned entry (e.g. malformed body the server keeps 4xx-ing) from
+ *  blocking the head of the queue forever. Bump if transient failures are
+ *  legitimately long-tailed (flaky cellular, long offline windows). */
+const MAX_ATTEMPTS = 3
+
 export const mutationQueue = {
   /**
    * Add a mutation to the queue.
@@ -187,10 +193,23 @@ export const mutationQueue = {
               lastError: String(err),
             })
           } else {
-            // Network / transient error — reset to pending, abort flush (retry next trigger)
+            // Network / transient error — reset to pending, abort flush (retry next trigger),
+            // UNLESS we've exhausted retries: drop it as failed so it can't poison the queue head.
+            const nextAttempts = mutation.attempts + 1
+            if (nextAttempts >= MAX_ATTEMPTS) {
+              // ponytail: keep this for ops triage. Drop the row outright once a count + lastError
+              // are surfaced via failedCount() / offlineDb debug; full dead-letter table is YAGNI.
+              console.warn(`[mutationQueue] dropping ${mutation.id} after ${nextAttempts} attempts: ${String(err)}`)
+              await offlineDb.mutationQueue.update(mutation.id, {
+                status: 'failed',
+                attempts: nextAttempts,
+                lastError: String(err),
+              })
+              continue
+            }
             await offlineDb.mutationQueue.update(mutation.id, {
               status: 'pending',
-              attempts: mutation.attempts + 1,
+              attempts: nextAttempts,
               lastError: String(err),
             })
             break
