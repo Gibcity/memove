@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
-// ponytail: side-effect import to load the express Request augmentation globally
-import '../typings/express';
+// ponytail: `import type` (not a side-effect import) — the `.d.ts` has no JS
+// counterpart, so a runtime `import` emits a `require()` that crashes with
+// MODULE_NOT_FOUND. tsconfig's `include: ["src"]` picks up the augmentation.
+import type {} from '../typings/express';
 import { DatabaseModule } from './database/database.module';
 import { HealthController } from './health/health.controller';
 import { HealthService } from './health/health.service';
