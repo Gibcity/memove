@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface SearchLocationsData {
   total: number
@@ -19,6 +19,7 @@ export function LocationSearchView({ data }: { data: unknown }) {
   const locs = d.locations
   return (
     <ViewCard title={`${locs.length} of ${d.total} locations`} className="space-y-3">
+      <ViewActions />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {locs.map(loc => (
           <div key={loc.id} className="rounded-xl border border-edge bg-surface p-3 gap-1">

@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface AddressChangeItem {
   entity: string
@@ -43,6 +43,7 @@ export function AddressChangeView({ data }: { data: unknown }) {
   const { overview, checklist } = d
   return (
     <ViewCard title="Address change checklist" className="space-y-4">
+      <ViewActions />
       <div className="rounded-xl border border-primary bg-primary-50/50 dark:bg-primary-950/20 p-3">
         <div className="text-[10px] uppercase tracking-wider text-content-muted">First step</div>
         <div className="text-sm font-medium text-content mt-1">{overview.recommendedFirstStep}</div>

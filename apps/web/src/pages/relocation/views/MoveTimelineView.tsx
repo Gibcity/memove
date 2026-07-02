@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface TimelineTask {
   id: string
@@ -48,6 +48,7 @@ export function MoveTimelineView({ data }: { data: unknown }) {
       title={`Move timeline · ${summary.moveDate}`}
       className="space-y-4"
     >
+      <ViewActions />
       <div className="flex items-center gap-3">
         <div className="text-sm text-content-muted">
           {summary.completedTasks} of {summary.totalTasks} tasks

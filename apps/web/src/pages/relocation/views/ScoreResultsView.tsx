@@ -1,4 +1,4 @@
-import { ScoreBar, ViewCard, scoreHex } from './_shared'
+import { ScoreBar, ViewCard, ViewActions, scoreHex } from './_shared'
 
 interface ScoreLocationsData {
   totalScored: number
@@ -29,6 +29,7 @@ export function ScoreResultsView({ data }: { data: unknown }) {
       title={`${matches.length} cities matched your criteria`}
       className="space-y-3"
     >
+      <ViewActions />
       <div className="text-xs text-content-muted">
         Scored {d.totalScored} · passed filters {d.passedFilters}
       </div>

@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface SalaryAdjustmentData {
   from: { id: string; name: string; costOfLivingIndex: number }
@@ -36,6 +36,7 @@ export function SalaryAdjustmentView({ data }: { data: unknown }) {
       title={`${d.from.name} → ${d.to.name} · salary adjustment`}
       className="space-y-4"
     >
+      <ViewActions />
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-xl border border-edge bg-surface p-3">
           <div className="text-[10px] uppercase tracking-wider text-content-muted">{d.from.name}</div>

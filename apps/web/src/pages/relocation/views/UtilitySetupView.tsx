@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface UtilitySetupItem {
   utility: string
@@ -41,6 +41,7 @@ export function UtilitySetupView({ data }: { data: unknown }) {
       title={`Utilities · ${d.toLocation.name}, ${d.toLocation.state}`}
       className="space-y-4"
     >
+      <ViewActions />
       <div className="flex items-center gap-3 text-sm text-content-muted">
         <span className="capitalize">{d.homeType}</span>
         <span>·</span>

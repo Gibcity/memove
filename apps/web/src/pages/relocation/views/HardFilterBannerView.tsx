@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Filter, X } from 'lucide-react'
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 import { relocationApi } from '../../../api/relocation'
 import type { HardFilterProposal, HardFilter } from '@memove/shared'
 
@@ -61,6 +61,7 @@ export function HardFilterBannerView({ data }: { data: unknown }) {
 
   return (
     <ViewCard className="flex flex-col gap-3 border-amber-500/40 bg-amber-500/5">
+      <ViewActions />
       <div className="flex items-start gap-2">
         <div className="w-7 h-7 rounded-full flex items-center justify-center bg-amber-500/15 text-amber-700 dark:text-amber-300 shrink-0">
           <Filter size={14} />

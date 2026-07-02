@@ -1,4 +1,4 @@
-import { ScoreBar, ViewCard, scoreHex } from './_shared'
+import { ScoreBar, ViewCard, ViewActions, scoreHex } from './_shared'
 
 interface CompareLocationsData {
   locations: Array<{
@@ -24,6 +24,7 @@ export function CompareResultsView({ data }: { data: unknown }) {
   )
   return (
     <ViewCard title="Compare" className="space-y-4">
+      <ViewActions />
       <div
         className="grid gap-3"
         style={{ gridTemplateColumns: `repeat(${locs.length}, minmax(0, 1fr))` }}

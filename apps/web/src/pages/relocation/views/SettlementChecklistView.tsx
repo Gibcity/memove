@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface ChecklistSection {
   why?: string
@@ -32,6 +32,7 @@ export function SettlementChecklistView({ data }: { data: unknown }) {
       title={`Settle in ${d.destination.name}, ${d.destination.state}`}
       className="space-y-3"
     >
+      <ViewActions />
       <div className="text-xs text-content-muted">
         First 30 days post-move. Tasks grouped by domain.
       </div>

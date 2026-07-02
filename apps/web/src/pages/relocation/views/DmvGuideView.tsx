@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface DmvGuideData {
   toState: string
@@ -40,6 +40,7 @@ export function DmvGuideView({ data }: { data: unknown }) {
   const vr = d.vehicleRegistration
   return (
     <ViewCard title={`${d.toState} · DMV guide`} className="space-y-4">
+      <ViewActions />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <section className="rounded-xl border border-edge bg-surface p-3 gap-2">
           <h4 className="text-sm font-semibold text-content">Driver's license</h4>

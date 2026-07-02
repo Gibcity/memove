@@ -1,4 +1,4 @@
-import { ScoreBar, ViewCard } from './_shared'
+import { ScoreBar, ViewCard, ViewActions } from './_shared'
 
 interface ExplainScoreData {
   location: { id: string; name: string; state: string }
@@ -17,6 +17,7 @@ export function ScoreExplanationView({ data }: { data: unknown }) {
   if (!d?.location) return null
   return (
     <ViewCard className="space-y-4">
+      <ViewActions />
       <div className="flex items-baseline gap-3">
         <div>
           <div className="text-lg font-semibold text-content" style={{ fontFamily: 'Poppins, system-ui' }}>

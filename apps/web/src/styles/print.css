@@ -1,0 +1,24 @@
+/* ponytail: minimal print stylesheet. Hide app chrome, keep view content.
+   Toggled into global scope via main.tsx — no extra pipeline. */
+
+@media print {
+  /* Sidebar / nav / chat panel / interactive chrome — hide. */
+  nav, aside, header, footer,
+  [data-print-hide],
+  .view-actions { display: none !important; }
+
+  /* Tailwind print: utility fallback (in case the source order shifts one day
+     and a view adds print:hidden chrome of its own). */
+  .print\:hidden { display: none !important; }
+
+  /* Reset page chrome — fit-to-page, monochrome, no shadows/borders cost ink. */
+  body { background: #fff !important; color: #000 !important; }
+  * { box-shadow: none !important; animation: none !important; transition: none !important; }
+
+  /* Page margins — one sheet per view card where possible. */
+  @page { margin: 12mm; }
+
+  /* Cards stay legible on paper. */
+  .rounded-xl, .rounded-lg { border-radius: 4px !important; }
+  a { color: inherit !important; text-decoration: underline; }
+}

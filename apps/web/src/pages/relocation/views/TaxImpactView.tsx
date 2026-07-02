@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface TaxImpactData {
   from: { id: string; name: string; state: string }
@@ -51,6 +51,7 @@ export function TaxImpactView({ data }: { data: unknown }) {
       title={`${d.from.name} → ${d.to.name} · tax impact`}
       className="space-y-4"
     >
+      <ViewActions />
       <div className="text-xs text-content-muted">
         Annual income ${d.annualIncome.toLocaleString()} · home value {money(d.homeValueUsed)}
       </div>

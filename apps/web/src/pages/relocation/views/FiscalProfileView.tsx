@@ -1,4 +1,4 @@
-import { ViewCard, scoreToneClasses } from './_shared'
+import { ViewCard, ViewActions, scoreToneClasses } from './_shared'
 
 interface FiscalHealthData {
   location: { id: string; name: string; state: string }
@@ -26,6 +26,7 @@ export function FiscalProfileView({ data }: { data: unknown }) {
       title={`${d.location.name}, ${d.location.state} · fiscal outlook`}
       className="space-y-4"
     >
+      <ViewActions />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <Stat label="Health score" value={Math.round(f.healthScore)} tone={scoreToneClasses(f.healthScore)} big />
         <Stat label="Risk level" value={f.riskLevel} tone={riskTone(f.riskLevel)} />

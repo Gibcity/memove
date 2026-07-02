@@ -1,6 +1,35 @@
 // ponytail: shared micro-components extracted to one place because every
 // view file uses them. <20 lines per piece — short enough to inline, but
 // reused 5+ times across the renderer. Keep this file boring.
+import { useState } from 'react'
+import { Link2, Printer } from 'lucide-react'
+
+// ponytail: native platform features only — navigator.clipboard + window.print.
+// Hidden in print output (see apps/web/src/styles/print.css) so users get
+// just the view content on paper. Share menu / email / server-side PDF
+// deferred — explicit BACKLOG scope.
+export function ViewActions() {
+  const [copied, setCopied] = useState(false)
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+    } catch { /* ponytail: clipboard denied (insecure context, perms off) — silent */ }
+  }
+  return (
+    <div className="view-actions flex items-center justify-end gap-2 mb-2 print:hidden">
+      <button type="button" onClick={copy}
+        className="px-2 py-1 rounded-lg text-[11px] text-content-muted hover:text-content border border-edge hover:bg-surface-secondary transition-colors flex items-center gap-1">
+        <Link2 size={12} />{copied ? 'Copied' : 'Copy link'}
+      </button>
+      <button type="button" onClick={() => window.print()}
+        className="px-2 py-1 rounded-lg text-[11px] text-content-muted hover:text-content border border-edge hover:bg-surface-secondary transition-colors flex items-center gap-1">
+        <Printer size={12} />Print / PDF
+      </button>
+    </div>
+  )
+}
 
 // Small horizontal progress bar — same shape in all five view components.
 // ponytail: width transition is via inline style on the inner div because

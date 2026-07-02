@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 interface CostItem {
   category: string
@@ -29,6 +29,7 @@ export function MovingCostView({ data }: { data: unknown }) {
       title={`${d.fromLocation.name} → ${d.toLocation.name} · ${d.distanceMiles} mi`}
       className="space-y-4"
     >
+      <ViewActions />
       <div className="flex items-center gap-3 text-sm text-content-muted">
         <span className="capitalize">{d.homeSize.replace('_', ' ')}</span>
         <span>·</span>

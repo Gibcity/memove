@@ -1,4 +1,4 @@
-import { ViewCard } from './_shared'
+import { ViewCard, ViewActions } from './_shared'
 
 // ponytail: the fallback every unknown tool lands on. Renders arbitrary JSON
 // as a key-value card — never a raw JSON dump. Arrays: count + first few items.
@@ -12,6 +12,7 @@ export function GenericDataView({ data }: { data: unknown }) {
 
   return (
     <ViewCard title="Result" className="space-y-2">
+      <ViewActions />
       <dl className="space-y-1.5">
         {entries.map(([key, value]) => (
           <div key={key} className="flex gap-3 text-sm">
