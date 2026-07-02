@@ -20,7 +20,7 @@ Net: one of the three fixes is real, one is half-done (search works, score doesn
 
 ## 1. LLM client live test (claim A)
 
-**Method:** `npx tsx` script that imports `memove/server/src/services/llm/client.ts` and calls `complete()` three times. Env loaded from `memove/server/.env` (`MINIMAX_API_KEY`, `MINIMAX_BASE_URL`).
+**Method:** `npx tsx` script that imports `memove/server/src/services/llm/client.ts` and calls `complete()` three times. Env loaded from `memove/server/.env` (`LLM_API_KEY`, `LLM_BASE_URL`).
 
 **Result:** 200/200, model resolves to `MiniMax-M3`.
 

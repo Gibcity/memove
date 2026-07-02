@@ -2,27 +2,28 @@ import OpenAI from 'openai';
 import type { ZodRawShape } from 'zod';
 import { z } from 'zod';
 
-// ponytail: MiniMax-M3 exposes an OpenAI-compatible endpoint.
-// Anthropic-compatible endpoint is at /anthropic; OpenAI is at /v1.
-const baseURL = process.env.MINIMAX_BASE_URL || 'https://api.minimax.io/v1';
-const apiKey = process.env.MINIMAX_API_KEY;
+// ponytail: LLM provider exposes an OpenAI-compatible endpoint. Provider-agnostic
+// (MiniMax-M3 today, swap by changing LLM_BASE_URL + LLM_API_KEY).
+// Anthropic-compatible endpoints typically live at /anthropic; OpenAI at /v1.
+const baseURL = process.env.LLM_BASE_URL || 'https://api.minimax.io/v1';
+const apiKey = process.env.LLM_API_KEY;
 
 // ponytail: lazy-init so importing this module never crashes the server when
-// MINIMAX_API_KEY is unset. Callers (concierge, relocation chat) wrap `complete`
+// LLM_API_KEY is unset. Callers (concierge, relocation chat) wrap `complete`
 // in try/catch and fall back to hardcoded responses. Throw at call site, not
 // import time — root cause for the "every endpoint 500s when key missing" class.
 let _client: OpenAI | null = null;
 function client(): OpenAI {
   if (!_client) {
     if (!apiKey) {
-      throw new Error('MINIMAX_API_KEY env var is required');
+      throw new Error('LLM_API_KEY env var is required');
     }
     _client = new OpenAI({ baseURL, apiKey });
   }
   return _client;
 }
 
-export const LLM_MODEL = process.env.MINIMAX_MODEL || 'MiniMax-M3';
+export const LLM_MODEL = process.env.LLM_MODEL || 'MiniMax-M3';
 
 /**
  * Send a chat completion request to MiniMax-M3.

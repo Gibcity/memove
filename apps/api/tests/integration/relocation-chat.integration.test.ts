@@ -9,7 +9,7 @@ import type { Application } from 'express';
 import type { INestApplication } from '@nestjs/common';
 
 const createMock = vi.hoisted(() => {
-  process.env.MINIMAX_API_KEY = 'test-key';
+  process.env.LLM_API_KEY = 'test-key';
   return vi.fn();
 });
 const { testDb, dbMock } = vi.hoisted(() => {
