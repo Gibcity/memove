@@ -31,6 +31,13 @@ export const costSummarySchema = z.object({
   medianRent: z.number(), // USD/month
   stateIncomeTaxRate: z.number(), // 0-1, marginal top rate
   propertyTaxRate: z.number(), // 0-1, effective annual rate
+  // ponytail: legacy/optional. The tool-registry derives SS exemption from the
+  // location's `state` code (see SS_EXEMPT_STATES in apps/api/src/mcp/tool-registry.ts),
+  // not from this flag — the processed data JSON doesn't carry it. Retained
+  // for backwards-compat with older snapshots/tests; safe to remove once ETL
+  // and any external consumers stop emitting it. Upgrade path: per-income-type
+  // bracket model (wages / SS / retirement / capital gains).
+  socialSecurityExempt: z.boolean().optional(),
 });
 export type CostSummary = z.infer<typeof costSummarySchema>;
 
@@ -60,9 +67,18 @@ export const healthcareDataSchema = z.object({
 });
 export type HealthcareData = z.infer<typeof healthcareDataSchema>;
 
+// ponytail: Fiber enum is a scoring category, not a precise measurement —
+// see BACKLOG #10 / Marco persona. `medianDownloadMbps` is optional so the
+// 939-CBSA corpus can keep its existing ACS-derived sentinel; FCC seed for
+// the 12 comparison cities fills it in. Add more buckets only when a
+// distinct persona actually needs them.
+export const fiberAvailabilitySchema = z.enum(['none', 'partial', 'majority', 'ubiquitous']);
+export type FiberAvailability = z.infer<typeof fiberAvailabilitySchema>;
+
 export const broadbandDataSchema = z.object({
   pctHouseholdsWith100MbpsPlus: z.number(), // FCC National Broadband Map
-  medianDownloadMbps: z.number(),
+  medianDownloadMbps: z.number().optional(), // FCC seed for 12 cities; absent elsewhere
+  fiberAvailability: fiberAvailabilitySchema.optional(),
 });
 export type BroadbandData = z.infer<typeof broadbandDataSchema>;
 

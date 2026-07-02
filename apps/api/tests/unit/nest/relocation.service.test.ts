@@ -121,6 +121,7 @@ describe('RelocationService.scoreLocations — scoring engine (no userId)', () =
     const svc = newSvc();
     const out = svc.scoreLocations({});
     expect(out.weightsFromProfile).toBe(false);
+    // ponytail: BACKLOG #10 added `fiber: 2` (~9% of 23-point total).
     expect(out.weights).toEqual({
       cost: 5,
       climate: 4,
@@ -128,6 +129,7 @@ describe('RelocationService.scoreLocations — scoring engine (no userId)', () =
       healthcare: 3,
       jobs: 3,
       outdoors: 3,
+      fiber: 2,
     });
   });
 
@@ -164,10 +166,11 @@ describe('RelocationService.scoreLocations — scoring engine (no userId)', () =
     }
   });
 
-  it('every topMatch has all six subscores present and finite', () => {
+  it('every topMatch has all subscores present and finite', () => {
     const svc = newSvc();
     const out = svc.scoreLocations({ topK: 20 });
-    const keys = ['cost', 'climate', 'safety', 'healthcare', 'jobs', 'outdoors'];
+    // ponytail: BACKLOG #10 added `fiber` (7th subscore).
+    const keys = ['cost', 'climate', 'safety', 'healthcare', 'jobs', 'outdoors', 'fiber'];
     for (const m of out.topMatches) {
       for (const k of keys) {
         expect(m.subscores[k]).toBeDefined();
@@ -197,13 +200,15 @@ describe('RelocationService.scoreLocations — scoring engine (no userId)', () =
     const w = out.weights;
     const wsum = Object.values(w).reduce((s, n) => s + n, 0);
     for (const m of out.topMatches) {
+      // ponytail: BACKLOG #10 added `fiber` (7th subscore).
       const expected = Math.round(
         ((m.subscores.cost * w['cost']! +
           m.subscores.climate * w['climate']! +
           m.subscores.safety * w['safety']! +
           m.subscores.healthcare * w['healthcare']! +
           m.subscores.jobs * w['jobs']! +
-          m.subscores.outdoors * w['outdoors']!) /
+          m.subscores.outdoors * w['outdoors']! +
+          m.subscores.fiber * (w['fiber'] ?? 0)) /
           wsum),
       );
       expect(m.matchScore).toBe(expected);
@@ -299,8 +304,9 @@ describe('RelocationService.scoreLocations — weight customization', () => {
     expect(out.weights['safety']).toBe(0.02);
     // amenities profile→healthcare engine
     expect(out.weights['healthcare']).toBe(0.02);
-    // broadband profile→jobs engine
-    expect(out.weights['jobs']).toBe(0.01);
+    // broadband profile→fiber engine (BACKLOG #10 split from jobs)
+    expect(out.weights['jobs']).toBe(3); // DEFAULT_WEIGHTS.jobs (no longer driven by broadband)
+    expect(out.weights['fiber']).toBe(0.01);
     // Outdoors has no profile key — falls back to DEFAULT_WEIGHTS.outdoors (3).
     expect(out.weights['outdoors']).toBe(3);
   });

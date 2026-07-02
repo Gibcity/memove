@@ -160,6 +160,10 @@ function normalize(
 
 // ── Default weights ───────────────────────────────────────────────────────────
 
+// ponytail: weights are 0-5 integers. `fiber` is BACKLOG #10 (Marco persona);
+// weight=2 ≈ 9% of the 23-point default total. Caller-supplied weights
+// override the entire record, so a custom profile that omits `fiber` simply
+// doesn't surface the dimension.
 const DEFAULT_WEIGHTS: Record<string, number> = {
   cost: 5,
   climate: 4,
@@ -167,6 +171,7 @@ const DEFAULT_WEIGHTS: Record<string, number> = {
   healthcare: 3,
   jobs: 3,
   outdoors: 3,
+  fiber: 2,
 };
 
 // ── Scoring types ─────────────────────────────────────────────────────────────
@@ -370,6 +375,22 @@ function scoreLocation(
       : 0;
   const jobsSub = bbScore > 0 ? Math.round(0.6 * taxScore + 0.4 * bbScore) : taxScore;
 
+  // Fiber subscore (BACKLOG #10 — Marco persona). Enum-based so it doesn't
+  // need corpus normalization; Mbps is a tie-breaker for "partial" / "majority".
+  // ponytail: ordinal→fixed point keeps the dimension explainable. Cities
+  // without a seed entry degrade to the broadband-pct fallback so they still
+  // rank above pure zeros.
+  const FIBER_BASE: Record<string, number> = { none: 5, partial: 40, majority: 70, ubiquitous: 95 };
+  let fiberSub: number;
+  if (bb.fiberAvailability && FIBER_BASE[bb.fiberAvailability] !== undefined) {
+    fiberSub = FIBER_BASE[bb.fiberAvailability]!;
+    if (bb.medianDownloadMbps && bb.medianDownloadMbps >= 1000) fiberSub = Math.min(100, fiberSub + 5);
+  } else if (bb.pctHouseholdsWith100MbpsPlus > 0) {
+    fiberSub = Math.min(100, Math.round(bb.pctHouseholdsWith100MbpsPlus));
+  } else {
+    fiberSub = 0;
+  }
+
   // Outdoors subscore
   const sun = climate.sunshineHoursAnnual;
   const precip = climate.annualPrecipitationInches;
@@ -389,10 +410,11 @@ function scoreLocation(
     healthcare: healthcareSub,
     jobs: jobsSub,
     outdoors: outdoorsSub,
+    fiber: fiberSub,
   };
 
   // Weighted final
-  const wKeys = ['cost', 'climate', 'safety', 'healthcare', 'jobs', 'outdoors'];
+  const wKeys = ['cost', 'climate', 'safety', 'healthcare', 'jobs', 'outdoors', 'fiber'];
   const wSum = wKeys.reduce((s, k) => s + (weights[k] ?? 0), 0);
   const nw: Record<string, number> = {};
   for (const k of wKeys) {
@@ -405,7 +427,8 @@ function scoreLocation(
       nw['safety'] * safetySub +
       nw['healthcare'] * healthcareSub +
       nw['jobs'] * jobsSub +
-      nw['outdoors'] * outdoorsSub,
+      nw['outdoors'] * outdoorsSub +
+      nw['fiber'] * fiberSub,
   );
 
   // Trace
@@ -420,6 +443,9 @@ function scoreLocation(
     trace.push(`Safety: ${safetySub}/100 (violent crime ${vc.toFixed(1)}/100k)`);
     trace.push(`Healthcare: ${healthcareSub}/100 (hospitals ${hc.hospitalCountWithin10mi})`);
     trace.push(`Jobs: ${jobsSub}/100 (tax score ${taxScore})`);
+    if (bb.fiberAvailability) {
+      trace.push(`Fiber: ${fiberSub}/100 (${bb.fiberAvailability}${bb.medianDownloadMbps ? `, ~${bb.medianDownloadMbps} Mbps median` : ''})`);
+    }
   }
 
   // Data gaps
@@ -752,6 +778,9 @@ export class RelocationService {
     // filters.weights, (2) profile.softWeights when the request has a
     // userId, (3) DEFAULT_WEIGHTS. The profile keys (cost, climate, crime,
     // amenities, broadband) don't match engine keys 1:1, so map them.
+    // `broadband` now drives the `fiber` engine dim (BACKLOG #10); the
+    // legacy `jobs` weight keeps its DEFAULT_WEIGHTS value so the
+    // cost/tax blend doesn't get dropped.
     // Outdoors has no profile equivalent → falls back to DEFAULT_WEIGHTS.outdoors.
     let weights: Record<string, number>;
     let weightsFromProfile = false;
@@ -765,7 +794,8 @@ export class RelocationService {
           climate: profileWeights.climate ?? DEFAULT_WEIGHTS.climate,
           safety: profileWeights.crime ?? DEFAULT_WEIGHTS.safety,
           healthcare: profileWeights.amenities ?? DEFAULT_WEIGHTS.healthcare,
-          jobs: profileWeights.broadband ?? DEFAULT_WEIGHTS.jobs,
+          jobs: DEFAULT_WEIGHTS.jobs,
+          fiber: profileWeights.broadband ?? DEFAULT_WEIGHTS.fiber,
           outdoors: DEFAULT_WEIGHTS.outdoors,
         };
         weightsFromProfile = true;
