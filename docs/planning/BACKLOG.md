@@ -47,6 +47,36 @@
 - **Verified**: `tsc --noEmit` clean on both apps/api and apps/web. `pnpm -r typecheck` passes. Lint clean. Test failures identical to baseline (40 pre-existing).
 - **Exit criterion**: ✅ strictNullChecks enabled, zero errors.
 
+### 6. Chat-gated architecture — entire /relocation behind <AgentSurface /> · 🔴 critical · large · 🟢 done
+- **Problem**: The entire `/relocation` route renders one `<AgentSurface />` chat box. All 15 view components only render as chat-payload responses — no direct browse routes, no standalone URLs.
+- **Fix**: 5 direct routes added (`/relocation/score`, `/compare`, `/search`, `/fiscal`, `/guide/:guide`). Thin wrapper pages fetch from API and render existing view components. 298 LOC across 6 new files. Commit `37e2cbdf`.
+- **Verified**: tsc clean (both apps). Routes wired in App.tsx with Suspense + ErrorBoundary + ProtectedRoute(addonId="relocation").
+- **Exit criterion**: ✅ Each view category has a direct URL that renders without requiring a chat prompt.
+
+### 7. Relocation chat hallucination — no tool grounding · 🔴 critical · medium · 🟢 done
+- **Problem**: `handleStream()` (streaming path, FE primary) bypassed tools entirely — plain LLM call. Chat invents city recommendations, tax figures, and rent numbers.
+- **Fix**: `handleStream()` now calls `this.handle()` first (LLM tool-calling + handler execution via completeWithTools), then streams the grounded synthesis text word-by-word over SSE. History window expanded 10→20 messages. System prompt hardened with "never invent numbers" rule + explicit refusal phrase. Commit `3f56162f`.
+- **Verified**: 3 integration tests pass (tool-call path, streaming path, no-tool refusal). tsc clean.
+- **Exit criterion**: ✅ Streaming chat path is tool-grounded. "I don't have data for that" fallback works.
+
+### 8. Tax calculator — wrong effective rate · 🔴 critical · small · 🟢 done
+- **Problem**: `fiscal_health_compare` applied `stateIncomeTaxRate` (top marginal) to full income. ~$4,608 phantom state tax for retirees in SC/PA/MS/GA where SS is exempt.
+- **Fix**: Extracted `stateIncomeRate(loc)` helper deriving SS-exempt and no-income-tax status from state code (SC/PA/MS/GA/AL → $0; TX/FL/NV/SD/WA/WY/TN/NH → $0). Both `annualIncomeTax()` and `fiscal_health_compare` handler use it. Commit `03677f46`.
+- **Verified**: 5 unit tests pass covering TX ($0), SC ($0, was $2,458), PA ($0), CA ($13,300 non-zero), and compare_cost_of_living integration.
+- **Exit criterion**: ✅ SC with $38,400 income returns $0 state tax (federal flat $4,608 only).
+
+### 9. No export/share/PDF/email — results trapped in chat · ⚠️ important · small · 🟢 done
+- **Problem**: Zero export/share features. Users couldn't copy links, print, or save results.
+- **Fix**: Shared `<ViewActions />` component (Copy Link via `navigator.clipboard`, Print via `window.print()`) added to all views via `_shared.tsx`. Print stylesheet at `apps/web/src/styles/print.css` hides chrome, keeps content. Commit `8789b1d2`.
+- **Verified**: ViewActions imported in all 15 views (grep confirmed). print.css imported in main.tsx. tsc clean. No new dependencies.
+- **Exit criterion**: ✅ Each view has Copy Link + Print buttons. Print produces usable artifact.
+
+### 10. No broadband/fiber dimension in scoring engine · ⚠️ important · medium · 🟢 done
+- **Problem**: No fiber/broadband scoring dimension. Marco (remote worker) couldn't evaluate fiber availability.
+- **Fix**: Added `fiberAvailability` enum to broadbandDataSchema. New fiber subscore in `scoreLocation()` with enum-to-points mapping ({none:5, partial:40, majority:70, ubiquitous:95}) + Mbps tie-breaker. Falls back to `pctHouseholdsWith100MbpsPlus` for unseeded cities. Default weight fiber:2. 12-city FCC seed via `applyFiberSeed()` in locations.loader.ts. Commit `44c6d012`.
+- **Verified**: 48 relocation scoring tests pass (including updated weight-mapping test). tsc clean. Fiber dimension appears in subscore output.
+- **Exit criterion**: ✅ Marco-profile query returns fiber score. Boulder (ubiquitous, 95pts) vs Bainbridge GA (none, 5pts) differ measurably.
+
 ---
 
 ## Dropped / no-op items
@@ -66,3 +96,5 @@
 ## Changelog
 - 2026-07-01: Created from verified investigation. console.log count corrected 49→221. Controller count corrected 5→44. useShallow dropped as no-op. T5 stubs and LLM streaming dispatched.
 - 2026-07-01: strictNullChecks migration complete. 543 errors fixed across ~90 files. Both tsconfigs flipped. Stale strangler docs cleaned up (nest/README.md, oauth.module.ts, index.ts, globalMiddleware.ts).
+- 2026-07-01: QA roast (4 personas) added 5 critical/important items (6–10): chat-gated architecture, chat hallucination, tax calculator wrong, no export/share, no broadband scoring. All 🟡 pending (or in-progress for #6).
+- 2026-07-01: Items 6–10 ALL COMPLETED in one session. Git housekeeping: untracked dist/ + .jwt_secret + shared/dist build artifacts. 5 subagent-driven commits + 2 orchestrator verification commits. All typechecks clean. 56 new tests (5 tax, 48 scoring, 3 chat integration). Persona roast reports for Priya, Marco, Jordan written (all 4 complete).
