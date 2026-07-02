@@ -109,6 +109,16 @@ export default defineConfig({
   build: {
     sourcemap: false,
     modulePreload: { polyfill: true },
+    rolldownOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return
+          if (id.includes('react-router') || id.includes('/react-dom/') || id.match(/[\\/]react[\\/]/)) {
+            return 'vendor'
+          }
+        },
+      },
+    },
   },
   server: {
     port: 5173,
