@@ -35,6 +35,12 @@ const SharedTripPage = lazy(() => import('./pages/SharedTripPage'))
 const InAppNotificationsPage = lazy(() => import('./pages/InAppNotificationsPage.tsx'))
 // ponytail: lazy-loaded for bundle splitting — landing page for relocation add-on
 const AgentSurface = lazy(() => import('./pages/relocation/AgentSurface'))
+// ponytail: direct-routed wrappers for each view (no chat prompt required)
+const RelocationScorePage = lazy(() => import('./pages/relocation/pages/RelocationScorePage'))
+const RelocationComparePage = lazy(() => import('./pages/relocation/pages/RelocationComparePage'))
+const RelocationSearchPage = lazy(() => import('./pages/relocation/pages/RelocationSearchPage'))
+const RelocationFiscalPage = lazy(() => import('./pages/relocation/pages/RelocationFiscalPage'))
+const RelocationGuidePage = lazy(() => import('./pages/relocation/pages/RelocationGuidePage'))
 // ponytail: lazy-loaded for bundle splitting
 const OAuthAuthorizePage = lazy(() => import('./pages/OAuthAuthorizePage'))
 import BottomNav from './components/Layout/BottomNav'
@@ -323,6 +329,66 @@ export default function App() {
             <ProtectedRoute addonId="relocation">
               <ErrorBoundary>
                 <AgentSurface />
+              </ErrorBoundary>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/relocation/score"
+          element={
+            <ProtectedRoute addonId="relocation">
+              <ErrorBoundary>
+                <Suspense fallback={<PageSpinner wrapperClassName="min-h-screen flex items-center justify-center bg-slate-50" className="w-10 h-10 border-4 border-slate-200 border-t-slate-900" />}>
+                  <RelocationScorePage />
+                </Suspense>
+              </ErrorBoundary>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/relocation/compare"
+          element={
+            <ProtectedRoute addonId="relocation">
+              <ErrorBoundary>
+                <Suspense fallback={<PageSpinner wrapperClassName="min-h-screen flex items-center justify-center bg-slate-50" className="w-10 h-10 border-4 border-slate-200 border-t-slate-900" />}>
+                  <RelocationComparePage />
+                </Suspense>
+              </ErrorBoundary>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/relocation/search"
+          element={
+            <ProtectedRoute addonId="relocation">
+              <ErrorBoundary>
+                <Suspense fallback={<PageSpinner wrapperClassName="min-h-screen flex items-center justify-center bg-slate-50" className="w-10 h-10 border-4 border-slate-200 border-t-slate-900" />}>
+                  <RelocationSearchPage />
+                </Suspense>
+              </ErrorBoundary>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/relocation/fiscal"
+          element={
+            <ProtectedRoute addonId="relocation">
+              <ErrorBoundary>
+                <Suspense fallback={<PageSpinner wrapperClassName="min-h-screen flex items-center justify-center bg-slate-50" className="w-10 h-10 border-4 border-slate-200 border-t-slate-900" />}>
+                  <RelocationFiscalPage />
+                </Suspense>
+              </ErrorBoundary>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/relocation/guide/:guide"
+          element={
+            <ProtectedRoute addonId="relocation">
+              <ErrorBoundary>
+                <Suspense fallback={<PageSpinner wrapperClassName="min-h-screen flex items-center justify-center bg-slate-50" className="w-10 h-10 border-4 border-slate-200 border-t-slate-900" />}>
+                  <RelocationGuidePage />
+                </Suspense>
               </ErrorBoundary>
             </ProtectedRoute>
           }
